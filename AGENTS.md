@@ -1,170 +1,71 @@
 # Repository Operating Contract
 
-この文書は、ARC-2-AGI-SOLVERでAI実装エージェント／コード監査者が作業するための**恒久的な運用契約**である。
-攻略戦略、現在Point、score、product statusなどの可変状態はここに書かない。
-
-最上位目的は、ARC Prize 2026 / ARC-AGI-2で汎用solverとして公式満点を成立させること。
-ただし、この目的に対する具体戦略は`control/CURRENT_SELECTOR.json`で選択するまで未確定として扱う。
+このrepositoryのAI実装エージェント／コード監査者は、日本語を基底言語として作業する。目的は作業量ではなく、Ownerの目的を保持し、最小の因果差分で正確・再現可能・監査可能な成果を作ることである。
 
 ## 1. Authority
 
-規範の優先順位:
-
 1. Ownerの現在の明示指示
-2. 対象pathに適用される最も近い`AGENTS.md`
-3. root `AUTHORITY_ORDER.md`
-4. `control/CURRENT_SELECTOR.json`が選択する現行仕様・ロードマップ・Current Task・局所指示
-5. 現行コード、interface、tests、設定が示す既存契約
-6. 参照repository／historical evidence
-7. 推測、記憶、一般論
+2. 対象pathに最も近い`AGENTS.md`
+3. `運用/権限順序.md`
+4. `制御/現在状態.json`が選択する現行文書
+5. 現行コード・tests・runtime結果・公式結果
+6. 推測・記憶・一般論・Git履歴
 
-下位`AGENTS.md`はroot契約を具体化できるが、目的、authority、evidence、failure規則を緩和してはならない。
+旧構成、旧英語正本、Git履歴上の削除済み実装は現在の権威ではない。
 
-## 2. Current State
+## 2. 日本語基底
 
-可変な現在状態の入口は次だけである。
+内部正本は原則日本語とする。設計、HDS観測、Frame、問い、判断理由、HDSコンパイラ内部表現、ミニドラの命令形・推論、記憶、Failure Signature、内部schema、診断文を英語正本にしない。
 
-`control/CURRENT_SELECTOR.json`
+Python予約語、外部SDK/API、package名、Kaggle/ARCが要求する固定記号、公式ファイル名など変更不能な境界だけ英語を許可する。内部では日本語を正本とし、外部境界で必要な記号へ射影する。
 
-Selectorは`selection_status`を持つ。
-
-- `UNSELECTED`: repository環境のみ成立し、攻略戦略は未選択
-- `SELECTED`: spec／roadmap／task／instructionが選択済み
-
-`UNSELECTED`をfailureとして扱わない。戦略決定前にコードやphaseを勝手に作り始めない。
-README、AGENTS、旧repository、mtime、ファイル名のrev番号をCurrent Stateの代用品にしてはならない。
-
-## 3. Normative Target と Observed State
+## 3. AGI不変構成
 
 ```text
-Normative Target != Observed State
+HDS + ミニドラ（LLM） + 記憶
 ```
 
-仕様は「どうあるべきか」を定め、source、tests、runtime、official result、Kaggle scoreは「何が成立したか」を示す。
-両者が矛盾する場合、観測事実を仕様に合わせて読み替えない。差分をgapとして扱う。
+### HDS
+ARC2入力を最初に受け取る入力・判断主体。観測、対象化、Frame、目的、問い、境界を確定し、HDSコンパイラを管轄する。ミニドラへ渡すデータをコンパイルし、ミニドラ出力を評価・反証・再入力し、最終出力を確定する。記憶更新の採否もHDSが持つ。
 
-## 4. 作業開始契約
+### ミニドラ
+HDSがコンパイルした入力を受けるLLM主体。記憶を参照し、仮説、反対仮説、推論、計画、命令形、出力候補を生成する。HDSを迂回して外部へ出力せず、記憶を独断で確定更新しない。
 
-変更前に次を確認する。
+### 記憶
+事前にHDSで蒸留したPrior Memoryと実行中に獲得するRuntime Memoryを保持する。単純蓄積ではなく、定石・因果・適用条件・反例・失敗・境界を可変保持する。
 
-1. rootと対象subtreeの`AGENTS.md`
-2. `control/CURRENT_SELECTOR.json`
-3. `python scripts/check_repository_environment.py`
-4. 対象code／tests／evidence／既知failure
-5. 目的、現在状態、不足、変更禁止範囲
-6. 既存資産とlegacy資産の再利用可能性
+HDSコンパイラを第4主体として扱わない。
 
-既存資産で目的を満たせる場合、別solver、別runner、別schema、別pipelineを重複実装しない。
+## 4. Current State
 
-## 5. Change Principles
+現在状態の唯一の入口は`制御/現在状態.json`。READMEやGit履歴から戦略・現在作業を推測しない。戦略が`null`なら、戦略を勝手に補完しない。
 
-### Purpose First
+## 5. ARC2公式入力
 
-局所test、coverage、artifact数、コード量、形式整理を最上位目的へ昇格させない。
-既存設計が目的を阻害する場合、設計を守るために目的を縮小しない。
+`入力/公式サンプル/`および`入力/公式ソース/`は入力資産であり、攻略戦略ではない。公式正解を後にHDSで完全解析しPrior Memoryへ変換する場合も、原入力と蒸留済みMemoryを混同しない。
 
-### Root Cause First
+## 6. Evidence
 
-症状だけでなく、再発を生む責任境界を直す。
+仕様は目標を定め、実行結果は成立事実を定める。未実行をPASSとしない。artifact、test数、schema数、自己申告は単独で能力成立の証拠にしない。
 
-- authority drift
-- state duplication
-- hidden fallback
-- identity routing
-- answer leakage
-- interface mismatch
-- dependency drift
-- evidence gap
-- causal misattribution
+失敗は消さず、因果帰属して次の判断へ渡す。未知は未知として保持する。
 
-### Minimal Causal Diff
+## 7. 変更原則
 
-変更は小ささではなく、目的を成立させる因果が閉じる最小単位にする。
-無関係なcleanupやrenameを混ぜない。
+- 目的に直接必要な差分だけ作る。
+- 旧資産を惰性で復活させない。
+- 同じ責任を持つparallel implementationを増やさない。
+- 外部境界と内部知能表現を混同しない。
+- strategy未選択中に攻略実装へ走らない。
 
-## 6. Generalization Boundary
+## 8. Git
 
-汎用ARC2 solverのruntime decisionに、解答を直接特定する情報を持ち込まない。
+main一本運用を基本とする。作業branchを使う場合も最終的に残さない。force push、history rewrite、証拠破壊はOwnerの明示指示なしに行わない。
 
-禁止例:
+## 9. 作業開始
 
-- task IDによるanswer routing
-- input hash／filenameによる分岐
-- dataset ordering依存
-- literal answer map
-- fixed output grid
-- public solutionのruntime参照
-- source split labelによる解答選択
-
-診断・teacher evidenceでtask ID等を保持する場合も、production runtimeの選択入力へ逆流させない。
-
-## 7. Evidence and Claims
-
-主張の強さを証拠より上げない。
-
-```text
-E0  document / static structure / artifact existence
-E1  unit / static / schema / deterministic local check
-E2  local integrated / offline evaluation
-E3  official sample / declared holdout evaluation
-E4  Kaggle platform normal run
-E5  official accepted score
+```bash
+python3 道具/リポジトリ環境監査.py
 ```
 
-class、test、artifact、digest、mock PASS、package成功は単独でofficial capabilityの証拠ではない。
-score改善を主張するなら、実際にscoreを観測したlaneを示す。
-
-## 8. Verification
-
-変更対象に近い検証から開始し、必要な範囲まで広げる。
-
-1. syntax／static／targeted unit
-2. affected integration
-3. solver regression／holdout
-4. official／Kaggle validation
-
-検証を通すためにgateを弱める、assertionを消す、expected resultを都合よく変更する、例外を握り潰す、別経路へsilent fallbackすることを禁止する。
-未実行testをPASSと報告しない。
-
-## 9. Failure Contract
-
-failureは次の判断材料として保持する。
-
-- failure evidenceを削除して成功扱いしない
-- 不明値を推測で埋めない
-- authority／path／interface不一致をsilent fallbackしない
-- official failureをlocal成功で上書きしない
-- 成立不能条件が見つかった場合は地点と原因を明示する
-
-## 10. Legacy Boundary
-
-次のrepositoryは再利用候補の**参照資産**であり、現在のAuthorityではない。
-
-- `gatchimuchio/ARC-2-HDS-PERFECT-SOLVER`
-- `gatchimuchio/ARC-Layer-0-Functional-Compliance`
-
-旧実装を採用する場合は、現在の目的、interface、generalization boundary、evidence gateへ再接続する。
-旧claimをそのままCurrent completionへ昇格させない。
-
-## 11. Git Policy
-
-このrepositoryはOwner方針により**main-only**で運用する。
-
-- canonical branchは`main`のみ
--通常作業もmainを前提とする
-- 不要なbranchを恒久保存しない
-- `.github/workflows/repository-guard.yml`がmain以外のremote branchをcleanupする
-- force push、history rewrite、evidence削除は明示指示なしに行わない
-
-## 12. Completion Report
-
-完了報告では最低限、次を区別する。
-
-- 目的
-- changed files／behavior delta
-- 実行した検証
-- 観測結果
-- 未確認事項／残存risk
-- Selectorを変更したか否か
-
-「実装した」と「成立を確認した」を同義にしない。
+その後、`制御/現在状態.json`を読む。

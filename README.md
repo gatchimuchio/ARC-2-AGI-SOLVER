@@ -1,65 +1,43 @@
 # ARC-2 AGI Solver
 
-ARC Prize 2026 / ARC-AGI-2で、汎用solverとして公式満点を狙うための実装repositoryです。
+ARC Prize 2026 / ARC-AGI-2を対象に、HDS・ミニドラ・記憶の三主体構成で満点を狙うためのrepository。
 
-このrepositoryは**戦略より先に開発環境を固定する**方針で運用します。現在Point、score、product status、攻略revなどの可変状態をREADMEやAGENTSへ複製しません。
+## 基底方針
 
-## Current State
+実務上やむを得ない外部境界を除き、設計・判断・記憶・診断・内部schema・命令形の基底言語は日本語とする。
 
-現在作業の唯一の入口:
-
-[`control/CURRENT_SELECTOR.json`](control/CURRENT_SELECTOR.json)
-
-初期状態ではstrategyは未選択です。戦略を決める前でもrepository operating contract、履歴境界、検証規則、main-only運用は成立します。
-
-環境整合の確認:
-
-```bash
-python scripts/check_repository_environment.py
+```text
+AGI = HDS + ミニドラ（LLM） + 記憶
+HDSコンパイラ ∈ HDS
 ```
 
-## Official Sample
+現在状態の唯一の入口は[`制御/現在状態.json`](制御/現在状態.json)。現在は再設計中で、戦略は未選択。
 
-ユーザーがアップロードした`arc-prize-2026-arc-agi-2.zip`の公式サンプルは、
-[`data/official_sample/`](data/official_sample/)を正規配置場所とします。
+## ARC2公式入力
 
-- archive SHA-256: `d00746ef4e06a515ad53bde4dff276dc8ef5a26829a0ebeafc8cf8ba6371abaa`
-- canonical source: `arcprize/ARC-AGI-2`
-- pinned source commit: `f3283f727488ad98fe575ea6a5ac981e4a188e49`
-- verification: [`data/official_sample/MANIFEST.json`](data/official_sample/MANIFEST.json)
-
-6個のKaggle JSONは公式sourceから再生成し、アップロードZIP内の各ファイルとbyte size / SHA-256が完全一致した場合だけrepositoryへ固定します。
-
-## Operating Contract
-
-- [`AGENTS.md`](AGENTS.md): repository-wide implementation contract
-- [`AUTHORITY_ORDER.md`](AUTHORITY_ORDER.md): authority / evidence / history boundary
-- [`docs/operations/REPOSITORY_OPERATING_MODEL.md`](docs/operations/REPOSITORY_OPERATING_MODEL.md): repository operating model
-- [`control/README.md`](control/README.md): Current Selectorとstate transition契約
+公式サンプル資産は`入力/公式サンプル/`、公式ARC-AGI-2 sourceは`入力/公式ソース/ARC-AGI-2`に固定する。これらは攻略戦略ではなく入力正本である。
 
 ## Repository Map
 
 ```text
-AGENTS.md                  stable agent operating contract
-AUTHORITY_ORDER.md         authority / evidence / history model
-control/                   single Current Selector and future state
-data/official_sample/      verified ARC Prize 2026 ARC-AGI-2 Kaggle sample
-docs/operations/           stable repository operating model
-docs/strategy/             strategy specifications
-docs/roadmap/              implementation roadmaps
-docs/instructions/         local execution instructions
-docs/history/              legacy / historical asset index
-scripts/                   repository-level audit / validation tools
-.github/workflows/          repository guard and main-only enforcement
+AGENTS.md                 恒久的なAI実装・監査契約
+制御/                     現在状態の単一入口
+運用/                     日本語基底・権限・運用規則
+設計/                     AGI三主体の不変構成
+HDS/                      入力・判断主体とHDSコンパイラ
+ミニドラ/                 LLM主体
+記憶/                     Prior / Runtime Memory
+入力/                     ARC2公式入力資産
+接続/                     Kaggle / ARC / Python等の外部境界
+戦略/                     今後選択する攻略戦略
+検証/                     実行結果と証拠
+道具/                     repository-level監査・変換工具
 ```
 
-## Legacy Assets
+旧構成・旧英語正本・過去の実装候補はGit履歴に残るが、現在の権威ではない。Ownerの明示指示なしに復活させない。
 
-既存のARC2実装資産は削除せず、別repositoryに保持されています。
+環境監査:
 
-- `gatchimuchio/ARC-2-HDS-PERFECT-SOLVER`
-- `gatchimuchio/ARC-Layer-0-Functional-Compliance`
-
-これらは再利用候補ですが、新repositoryのCurrent Authorityではありません。採用時は現在の目的・interface・evidence条件へ再接続します。
-
-詳細は[`docs/history/LEGACY_REPOSITORIES.md`](docs/history/LEGACY_REPOSITORIES.md)を参照してください。
+```bash
+python3 道具/リポジトリ環境監査.py
+```

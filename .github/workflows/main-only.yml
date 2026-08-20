@@ -1,0 +1,49 @@
+name: 日本語基底リポジトリ監査
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  environment-check:
+    name: リポジトリ環境監査
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - name: 日本語基底と現在状態を検証
+        run: python3 道具/リポジトリ環境監査.py
+
+  keep-main-only:
+    name: main以外のブランチを除去
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: main以外のremote branchを削除
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api --paginate "repos/${REPOSITORY}/branches?per_page=100" --jq '.[].name' |
+          while IFS= read -r branch; do
+            if [[ -z "$branch" || "$branch" == "$DEFAULT_BRANCH" ]]; then
+              continue
+            fi
+            encoded_branch="$(python3 - "$branch" <<'PY'
+          import sys
+          from urllib.parse import quote
+          print(quote(sys.argv[1], safe=""))
+          PY
+          )"
+            echo "削除: ${branch}"
+            gh api --method DELETE "repos/${REPOSITORY}/git/refs/heads/${encoded_branch}"
+          done
