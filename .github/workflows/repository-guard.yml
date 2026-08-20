@@ -5,9 +5,6 @@ on:
     branches:
       - main
   workflow_dispatch:
-  issues:
-    types:
-      - opened
 
 permissions:
   contents: write
@@ -21,23 +18,19 @@ jobs:
         run: python3 scripts/check_repository_environment.py
 
   sync-official-sample:
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Checkout pinned official ARC-AGI-2 source
-        shell: bash
-        run: |
-          set -euo pipefail
-          git clone https://github.com/arcprize/ARC-AGI-2.git "$RUNNER_TEMP/ARC-AGI-2"
-          git -C "$RUNNER_TEMP/ARC-AGI-2" checkout f3283f727488ad98fe575ea6a5ac981e4a188e49
+          submodules: true
       - name: Generate and verify Kaggle official sample
         shell: bash
         run: |
           set -euo pipefail
           python3 scripts/sync_official_sample.py \
-            --source "$RUNNER_TEMP/ARC-AGI-2" \
+            --source data/official_source/ARC-AGI-2 \
             --output data/official_sample
       - name: Commit verified sample when changed
         shell: bash
