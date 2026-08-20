@@ -1,0 +1,49 @@
+{
+  "schema_version": "arc2-official-sample-manifest-v1",
+  "uploaded_archive": {
+    "name": "arc-prize-2026-arc-agi-2.zip",
+    "sha256": "d00746ef4e06a515ad53bde4dff276dc8ef5a26829a0ebeafc8cf8ba6371abaa",
+    "compressed_size_bytes": 498708,
+    "uncompressed_size_bytes": 6912541,
+    "file_count": 6
+  },
+  "official_source": {
+    "repository": "arcprize/ARC-AGI-2",
+    "commit": "f3283f727488ad98fe575ea6a5ac981e4a188e49",
+    "source_role": "canonical ARC-AGI-2 task source used to reproduce the uploaded Kaggle sample"
+  },
+  "files": {
+    "arc-agi_evaluation_challenges.json": {
+      "size_bytes": 984679,
+      "sha256": "e7c62a4bd211867c6b538f66b8013b81f299663c82ca062f49a52bf439d6e4e8",
+      "records": 120
+    },
+    "arc-agi_evaluation_solutions.json": {
+      "size_bytes": 223838,
+      "sha256": "84be4f4f39b79e82c36d565fc878830988b094917f052ee7069aef30b33ca8f1",
+      "records": 120
+    },
+    "arc-agi_test_challenges.json": {
+      "size_bytes": 1015295,
+      "sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+      "records": 240,
+      "note": "local Kaggle placeholder; hidden rerun test tasks replace this during scoring"
+    },
+    "arc-agi_training_challenges.json": {
+      "size_bytes": 4010050,
+      "sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+      "records": 1000
+    },
+    "arc-agi_training_solutions.json": {
+      "size_bytes": 658743,
+      "sha256": "9f07a38bd25af5e83aa5bf85c5cb1a1fefdb30f6a755256fa65429e697ca97f9",
+      "records": 1000
+    },
+    "sample_submission.json": {
+      "size_bytes": 19936,
+      "sha256": "6b372dce41ad86a941ccdcbebb2b1926fd4f011d77c824ff421d77730f169a9a",
+      "records": 240
+    }
+  },
+  "verification_rule": "Generated files may be committed only if all byte sizes and SHA-256 values match the uploaded archive contents exactly."
+}
