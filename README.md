@@ -18,6 +18,18 @@ ARC Prize 2026 / ARC-AGI-2で、汎用solverとして公式満点を狙うため
 python scripts/check_repository_environment.py
 ```
 
+## Official Sample
+
+ユーザーがアップロードした`arc-prize-2026-arc-agi-2.zip`の公式サンプルは、
+[`data/official_sample/`](data/official_sample/)を正規配置場所とします。
+
+- archive SHA-256: `d00746ef4e06a515ad53bde4dff276dc8ef5a26829a0ebeafc8cf8ba6371abaa`
+- canonical source: `arcprize/ARC-AGI-2`
+- pinned source commit: `f3283f727488ad98fe575ea6a5ac981e4a188e49`
+- verification: [`data/official_sample/MANIFEST.json`](data/official_sample/MANIFEST.json)
+
+6個のKaggle JSONは公式sourceから再生成し、アップロードZIP内の各ファイルとbyte size / SHA-256が完全一致した場合だけrepositoryへ固定します。
+
 ## Operating Contract
 
 - [`AGENTS.md`](AGENTS.md): repository-wide implementation contract
@@ -31,6 +43,7 @@ python scripts/check_repository_environment.py
 AGENTS.md                  stable agent operating contract
 AUTHORITY_ORDER.md         authority / evidence / history model
 control/                   single Current Selector and future state
+data/official_sample/      verified ARC Prize 2026 ARC-AGI-2 Kaggle sample
 docs/operations/           stable repository operating model
 docs/strategy/             strategy specifications
 docs/roadmap/              implementation roadmaps
