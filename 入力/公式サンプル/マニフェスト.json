@@ -1,0 +1,24 @@
+{
+  "スキーマ版": "arc2-official-sample-manifest-ja-v1",
+  "アップロードZIP": {
+    "ファイル名": "arc-prize-2026-arc-agi-2.zip",
+    "SHA256": "d00746ef4e06a515ad53bde4dff276dc8ef5a26829a0ebeafc8cf8ba6371abaa",
+    "圧縮サイズbyte": 498708,
+    "展開サイズbyte": 6912541,
+    "ファイル数": 6
+  },
+  "公式ソース": {
+    "repository": "arcprize/ARC-AGI-2",
+    "commit": "f3283f727488ad98fe575ea6a5ac981e4a188e49",
+    "役割": "アップロード済みKaggle公式サンプルを再現するための固定公式source"
+  },
+  "外部固定ファイル": {
+    "arc-agi_evaluation_challenges.json": {"サイズbyte": 984679, "SHA256": "e7c62a4bd211867c6b538f66b8013b81f299663c82ca062f49a52bf439d6e4e8", "record数": 120},
+    "arc-agi_evaluation_solutions.json": {"サイズbyte": 223838, "SHA256": "84be4f4f39b79e82c36d565fc878830988b094917f052ee7069aef30b33ca8f1", "record数": 120},
+    "arc-agi_test_challenges.json": {"サイズbyte": 1015295, "SHA256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83", "record数": 240, "注記": "local Kaggle placeholder。scoring時はhidden rerun testへ置換される"},
+    "arc-agi_training_challenges.json": {"サイズbyte": 4010050, "SHA256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5", "record数": 1000},
+    "arc-agi_training_solutions.json": {"サイズbyte": 658743, "SHA256": "9f07a38bd25af5e83aa5bf85c5cb1a1fefdb30f6a755256fa65429e697ca97f9", "record数": 1000},
+    "sample_submission.json": {"サイズbyte": 19936, "SHA256": "6b372dce41ad86a941ccdcbebb2b1926fd4f011d77c824ff421d77730f169a9a", "record数": 240}
+  },
+  "検証規則": "再生成物は全ファイルのbyte数とSHA-256がアップロードZIP内容と完全一致した場合だけ同一と認める"
+}

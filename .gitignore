@@ -12,3 +12,7 @@ dist/
 .env
 .DS_Store
 Thumbs.db
+
+# 実行時生成物
+出力/
+一時/
