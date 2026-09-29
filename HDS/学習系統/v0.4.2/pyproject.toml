@@ -1,0 +1,8 @@
+[project]
+name = "hds-learning-system"
+version = "0.4.2"
+description = "HDS学習系統 v0.4.2"
+requires-python = ">=3.11"
+
+[tool.setuptools]
+packages = ["hds学習系統"]
