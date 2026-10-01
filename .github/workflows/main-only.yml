@@ -15,8 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: true
       - name: 日本語基底と現在状態を検証
         run: python3 道具/リポジトリ環境監査.py
 
