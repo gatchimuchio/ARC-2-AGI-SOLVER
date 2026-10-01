@@ -32,7 +32,7 @@ class 領域転写回帰(unittest.TestCase):
         self.assertEqual(factory.call_count, 1)
         self.assertEqual(r['results'][0]['answer'], 教材(5)['output'])
         self.assertTrue(r['results'][0]['equality_admitted'])
-        f = r['families'][-1]
+        f = next(f for f in r['families'] if f['境界'] == 'ARC閉領域パレット転写')
         self.assertEqual((f['事前観測数'],f['現在観測数']), (0,2))
 
     def test_色や配置の固定答えではない(self):

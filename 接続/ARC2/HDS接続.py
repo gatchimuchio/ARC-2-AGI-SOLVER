@@ -11,6 +11,7 @@ from hds学習系統.型 import 学習入力, 観測事実
 from .既存穴充填 import _template_hole_pack_render
 from .既存入れ子合成 import _nested_panel_relation_render
 from .既存領域転写 import _dual_region_hole_palette_render
+from .物体端投射 import 端投射教材
 
 
 def 事前教材を読む():
@@ -123,10 +124,13 @@ def 課題を解く(課題, 事前教材):
     if all(結果["answer"] is not None for 結果 in 基底):
         return {"results": 基底, "mechanism": "格子値基底", "minimum_support": 必要支持数}
 
+    端教材 = 端投射教材(課題["train"])
+    端教材.学習する(機械, 観測へ)
     機構群 = (
         ("ARCテンプレート穴充填", _template_hole_pack_render, 事前教材),
         ("ARC入れ子パネル合成", _nested_panel_relation_render, ()),
         ("ARC閉領域パレット転写", _dual_region_hole_palette_render, ()),
+        ("ARC物体端投射", 端教材.候補, ()),
     )
     記録群 = [候補機構を学習(機械, 課題, 教材, 境界, 候補器)
               for 境界, 候補器, 教材 in 機構群]
@@ -161,7 +165,7 @@ def 課題を解く(課題, 事前教材):
                            "reasons": ["採用済み機構の完全格子予測が競合したため保留"]})
     return {"results": 結果群, "mechanism": "HDS機構候補の照会",
             "minimum_support": 必要支持数, "families": 記録群,
-            "quarantined": 隔離数}
+            "quarantined": 隔離数, "object_learning": 端教材.記録()}
 
 
 if __name__ == "__main__":

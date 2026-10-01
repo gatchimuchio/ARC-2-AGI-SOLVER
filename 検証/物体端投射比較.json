@@ -1,0 +1,119 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "30e473d44517e0fd3c372ca9bb9e8a71b0bc8f41",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存機構source": "gatchimuchio/ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365: arc2_runtime_fit_generator/object_graph/feature_index.py の汎用10関数。既採用の型・純粋関数を共有",
+  "previous": {
+    "correct_tasks": 3,
+    "correct_examples": 5,
+    "unanswered": 162,
+    "wrong_attempted_tasks": 0,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current_元HDSへ戻した最終再評価": {
+    "correct_tasks": 3,
+    "correct_examples": 6,
+    "unanswered": 161,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 0,
+    "correct_examples": 1,
+    "task_accuracy_percentage_points": 0,
+    "regressed_examples": 0,
+    "既存正答5例": "同一"
+  },
+  "採点上の区別": {
+    "raw_wrong_attempted_tasks": 1,
+    "wrong_examples": 0,
+    "理由": "旧採点器は一部testだけ正解した未完課題をwrong_attempted_taskに数える。出力6格子は全て正解、新しい課題の残り1testはHOLD",
+    "完全正答課題数": "3/120のまま。公式競技score向上とは主張しない"
+  },
+  "三群因果比較": {
+    "previous": {
+      "correct_tasks": 3,
+      "correct_examples": 5,
+      "unanswered": 162,
+      "wrong_attempted_tasks": 0,
+      "resource_failures": {},
+      "wrong_examples": 0
+    },
+    "物体接続_方向制限なし": {
+      "correct_tasks": 3,
+      "correct_examples": 6,
+      "unanswered": 161,
+      "wrong_attempted_tasks": 1,
+      "resource_failures": {},
+      "wrong_examples": 0
+    },
+    "物体接続_方向制限あり": {
+      "correct_tasks": 3,
+      "correct_examples": 6,
+      "unanswered": 161,
+      "wrong_attempted_tasks": 1,
+      "resource_failures": {},
+      "wrong_examples": 0
+    },
+    "方向制限の追加差分": 0,
+    "採否": "実測寄与のない結果経路制約を棄却し、中核12ファイルを全て復元。公開対象は元HDSへの物体接続だけ",
+    "最終再評価": "元HDSの全120出力は方向制限なし群と同一"
+  },
+  "教材と予測": {
+    "物体定義": "既存の同色8近傍成分。元のbbox/color順を保持",
+    "九特徴": [
+      "高さ",
+      "幅",
+      "面積",
+      "上辺セル数",
+      "下辺セル数",
+      "左辺セル数",
+      "右辺セル数",
+      "相対行の平均",
+      "相対列の平均"
+    ],
+    "選択": "現在の全教師で一価かつ非定数の特徴を保持。testを特徴選択に使わない",
+    "教師ラベル": "上端/下端への位置だけの移動が一意。全教師格子再現・色数保存・重複なしが必要",
+    "実観測": "該当課題の二教師に4個+6個の物理物体。10公開学習cycle。特徴ごとの複製なし",
+    "観測結果": "整合特徴は面積のみ。一方のtestは6/6物体が既知。他方は2/5物体が未知でHOLD",
+    "事前教材": "物体端投射には追加なし",
+    "排出": "各物体のHDS方向予測が既存gateを通り、合成格子も教師再現・同値採用・最終機構合意を通る"
+  },
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "旧ARC採点関数と評価runnerを変更せず使用"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "06af607c44f609c9b09b7b77cbb404f4336a36de2e5f49eb978f605158af782d",
+    "接続/ARC2/既存物体特徴.py": "e7a662182961e45cdba38a00bbd267ad03261cb1217dc8d08f2d867d9f4acc60",
+    "接続/ARC2/物体端投射.py": "7539bfb42258fed95e6cd54b025ab3d6be9edb6f7391415d310262ce414e4778",
+    "検証/物体端投射回帰.py": "f4d14d5485795c4e01ec17e6f572a1111a2e98b7916e0f0fbf7215d9ce2304de",
+    "検証/領域転写回帰.py": "068edf29b26ee52037a90da893b1efa4a562ee06da9dd6f4fab80c52b70939fd",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存24件＋物体7件合格。物体7件は最適化モードでも合格",
+    "上下方向を逆転した合成教師でも対応を学ぶ",
+    "未知特徴・教師不整合・両端曖昧・同色配置重複を拒否",
+    "物理物体の一意参照数と公開観測cycle数が一致",
+    "反例隔離と既存gateを維持。HDS中核12・保護7・採点器・runnerは無変更"
+  ],
+  "制限": [
+    "部分回答1例の改善だけ。完全正答課題の増加はない",
+    "順序依存の逆関係隔離という中核の性質は残る。悪い順序へ変更して改修を正当化しない",
+    "公開評価での差分。旧helperの過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施。source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "未完117課題、未回答161例"
+  ]
+}
