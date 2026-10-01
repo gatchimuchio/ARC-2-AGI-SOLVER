@@ -12,10 +12,10 @@ def 数量写像(experience):
             if o.推論対象 and o.値型 == 数量型 and type(o.値) is int and o.値 >= 0}
 
 
-def 一次条件(points, minimum):
+def 一次条件(points, minimum, *, 支持下限=3):
     distinct = sorted(set(points))
     xs = {x for x,y in distinct}
-    if len(xs) < max(3, minimum):
+    if len(xs) < max(支持下限, minimum):
         return None
     x0,y0 = distinct[0]
     x1,y1 = next((x,y) for x,y in distinct if x != x0)

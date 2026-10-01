@@ -128,12 +128,12 @@ def _観測対(experiences,source_path,target_path,excluded=()):
     return rows
 
 
-def _導出(rows,minimum):
+def _導出(rows,minimum,*,支持下限=3):
     if not rows:return None
     signature=(len(rows[0][1]['形状']),rows[0][1]['容器型'],rows[0][1]['葉型'])
     if any((len(s['形状']),s['容器型'],s['葉型'])!=signature for _,s,_,_ in rows):return None
     distinct={容器署名(raw) for _,s,t,raw in rows}
-    if len(distinct)<max(3,minimum) or len({v for _,s,_,_ in rows for v in s['鍵'].values()})<2:return None
+    if len(distinct)<max(支持下限,minimum) or len({v for _,s,_,_ in rows for v in s['鍵'].values()})<2:return None
     try:target=配列(rows[0][2])
     except (ValueError,TypeError):return None
     seed=_候補モデル(rows[0][1],target)
@@ -162,18 +162,24 @@ def 添字候補(experiences,skepticism_refs,minimum,identifier,authorized_paths
                     if any(not all(any((base+leaf)[:len(a)]==a for a in authorized_paths) for leaf in 葉写像(raw))
                            for e,s,t,raw_source in rows for base,raw in ((source,raw_source),(target,t))):continue
                 except ValueError:continue
-            learned=_導出(rows,minimum)
-            if learned is None:continue
-            models,signature,rejected,distinct=learned
-            table=tuple(((_モデル鍵(m),),_モデル鍵(m)) for m in models)
-            values=tuple(((_モデル鍵(m),),m) for m in models)
-            result.append(原理候補(identifier('原理候補'),experiences[0].対象系境界,添字関係型,(source,),target,
-                table,values,tuple(e.経験識別子 for e,_,_,_ in rows),(),tuple(skepticism_refs),
-                {'rank':signature[0],'容器型':signature[1],'葉型':signature[2],'仮説数':len(models),'候補別反例':rejected,
-                 '確認範囲':'各軸長2以上の同rank順序容器。正規化添字の整数全単射が閉じる形状'},
-                {'作用':'カテゴリ対応→基底添字係数→全要素検証','因果断定':False,'異なる入力容器数':distinct,
-                 '開発バイアス':'正規化添字アフィン族。名前付き変換一覧を使わない'}))
+            candidate=添字候補を構成する(rows,source,target,minimum,identifier,experiences[0].対象系境界,skepticism_refs)
+            if candidate is not None:result.append(candidate)
     return tuple(result)
+
+
+
+def 添字候補を構成する(rows,source,target,minimum,identifier,boundary,skepticism_refs=()):
+    learned=_導出(rows,minimum)
+    if learned is None:return None
+    models,signature,rejected,distinct=learned
+    table=tuple(((_モデル鍵(m),),_モデル鍵(m)) for m in models)
+    values=tuple(((_モデル鍵(m),),m) for m in models)
+    return 原理候補(identifier('原理候補'),boundary,添字関係型,(source,),target,
+        table,values,tuple(e.経験識別子 for e,_,_,_ in rows),(),tuple(skepticism_refs),
+        {'rank':signature[0],'容器型':signature[1],'葉型':signature[2],'仮説数':len(models),'候補別反例':rejected,
+         '確認範囲':'各軸長2以上の同rank順序容器。正規化添字の整数全単射が閉じる形状'},
+        {'作用':'カテゴリ対応→基底添字係数→全要素検証','因果断定':False,'異なる入力容器数':distinct,
+         '開発バイアス':'正規化添字アフィン族。名前付き変換一覧を使わない'})
 
 
 def 添字予測(principle,raw):

@@ -182,7 +182,7 @@ class 構造互換試験(unittest.TestCase):
         s.処理する(外部入力({'前': [4, 5], '後': [4, 5], 'metadata': {99}}, '構造probe'))
         self.assertIn([8, 9], structural(s, [8, 9]))
 
-    def test_新合成経路の保存形式は8(self):
+    def test_再利用台帳の保存形式は9(self):
         import json
         from pathlib import Path
         from hds学習系統.永続化 import _復号
@@ -190,7 +190,7 @@ class 構造互換試験(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             s.保存する(d + '/hds.json')
             saved = _復号(json.loads(Path(d + '/hds.json').read_text()))
-        self.assertEqual(saved['形式版'], 8)
+        self.assertEqual(saved['形式版'], 9)
 
     def test_既存形式3のスカラー原理を読める(self):
         import json

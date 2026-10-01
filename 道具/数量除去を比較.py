@@ -15,7 +15,7 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     for name in ('教材','固定表','出力'):
         p.add_argument('--'+name,type=Path,required=True)
-    p.add_argument('--関係族',choices=('数量','添字','合成'),default='数量')
+    p.add_argument('--関係族',choices=('数量','添字','合成','再利用'),default='数量')
     p.add_argument('--最大セル数',type=int,default=36)
     p.add_argument('--壁時計秒',type=int,default=240)
     p.add_argument('--仮想MiB',type=int,default=1536)
@@ -38,7 +38,7 @@ def main():
     worker=ROOT/'道具/資源制限つき継続評価.py'
     frozen=実装署名();evaluator=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
     worker_hash=hashlib.sha256(worker.read_bytes()).hexdigest()
-    family=args.関係族; flag='関係合成有効' if family=='合成' else family+'関係有効'
+    family=args.関係族; flag={'合成':'関係合成有効','再利用':'一般再利用有効'}.get(family,family+'関係有効')
     modes={family+'有効_継続':True,family+'無効_継続':False,family+'有効_初期化':True,family+'無効_初期化':False}
     states={}
     for mode,enabled in modes.items():

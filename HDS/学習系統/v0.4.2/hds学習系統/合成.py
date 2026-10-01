@@ -65,7 +65,9 @@ def 競合循環核(records,unstable):
     return core or paths
 
 
-def 関係を合成する(adapter,principles,experience,depth_limit,candidate_limit):
+def 関係を合成する(adapter,principles,experience,depth_limit,candidate_limit,保留経路=()):
+    def blocked_path(path):return any(path[:len(q)]==q or q[:len(path)]==path for q in 保留経路)
+    principles=tuple(p for p in principles if not blocked_path(p.結果経路))
     direct,initial_conflicts,requests=adapter._直接予測する(principles,experience)
     original_nodes=ノード群(experience.原入力)
     original_leaves=経験写像(experience)

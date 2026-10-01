@@ -54,7 +54,7 @@ def 観測射影(grid, 表現='座標辞書'):
     return {'行数': len(grid), '列数': len(grid[0]), 'セル': cells}
 
 class HDS学習機械:
-    def __init__(self, 最大セル数=36, 最小学習経験=3, 学習有効=True, 観測表現='座標辞書', 数量関係有効=True, 添字関係有効=True, 関係合成有効=False, 最大合成段数=4, 最大合成候補数=4096):
+    def __init__(self, 最大セル数=36, 最小学習経験=3, 学習有効=True, 観測表現='座標辞書', 数量関係有効=True, 添字関係有効=True, 関係合成有効=False, 最大合成段数=4, 最大合成候補数=4096, 一般再利用有効=False):
         if type(最大セル数) is not int or not 1 <= 最大セル数 <= 900:
             raise ValueError('最大セル数は1..900')
         if type(最小学習経験) is not int or 最小学習経験 < 3:
@@ -66,7 +66,7 @@ class HDS学習機械:
         self._観測表現 = 観測表現
         self.最大セル数 = 最大セル数
         self.学習有効 = 学習有効
-        self.系 = HDS学習系統(最小支持数=最小学習経験, 最大条件数=1, 数量関係有効=数量関係有効, 添字関係有効=添字関係有効, 関係合成有効=関係合成有効, 最大合成段数=最大合成段数, 最大合成候補数=最大合成候補数)
+        self.系 = HDS学習系統(最小支持数=最小学習経験, 最大条件数=1, 数量関係有効=数量関係有効, 添字関係有効=添字関係有効, 関係合成有効=関係合成有効, 最大合成段数=最大合成段数, 最大合成候補数=最大合成候補数, 一般再利用有効=一般再利用有効)
         self._観測署名 = set()
         self._失敗 = []
         self._課題番号 = 0
@@ -83,9 +83,17 @@ class HDS学習機械:
     def 現在境界(self):
         return 境界 + ':' + str(self._課題番号)
 
+    def _観測契約(self):
+        return {'版':1, '表現':self.観測表現,
+                '数量単位':[{'経路':[side,dim],'単位':'セル個数'}
+                            for side in ('入力','出力') for dim in ('行数','列数')],
+                '名義宣言':[{'経路':[side,'セル'],
+                             '容器型':['list','list'] if self.観測表現=='配列階層' else ['dict'],
+                             '葉型':['int'],'値域':[0,9]} for side in ('入力','出力')]}
+
     def _入力(self, content):
         return self.系.吸気系.取り込む(外部入力(content, self.現在境界, 主体='HDS', 目的=目的,
-            文脈={'数量経路群':[(side, dimension) for side in ('入力', '出力') for dimension in ('行数', '列数')]}))
+            文脈={'一般再利用契約':self._観測契約(), '数量経路群':[(side, dimension) for side in ('入力', '出力') for dimension in ('行数', '列数')]}))
 
     def 状態(self):
         engine = self.系.エンジン
@@ -95,7 +103,7 @@ class HDS学習機械:
                        '観測署名': sorted(self._観測署名), '失敗': self._失敗,
                        '課題番号': self._課題番号, '転用候補': self._転用候補, '観測表現': self.観測表現,
                        '最大セル数': self.最大セル数, '学習有効': self.学習有効,
-                       '最小支持数': engine.最小支持数, '最大条件数': engine.最大条件数, '数量関係有効': engine.数量関係有効, '添字関係有効':engine.添字関係有効, '関係合成有効':engine.関係合成有効, '最大合成段数':engine.最大合成段数, '最大合成候補数':engine.最大合成候補数})
+                       '最小支持数': engine.最小支持数, '最大条件数': engine.最大条件数, '数量関係有効': engine.数量関係有効, '添字関係有効':engine.添字関係有効, '一般再利用有効':engine.一般再利用有効, '関係合成有効':engine.関係合成有効, '最大合成段数':engine.最大合成段数, '最大合成候補数':engine.最大合成候補数})
 
     def 状態署名(self):
         # 状態()は既に完全な値複製・正規化済み。二度目の全台帳走査をしない。
@@ -103,9 +111,10 @@ class HDS学習機械:
 
     def 概況(self):
         engine = self.系.エンジン
-        return {'観測表現': self.観測表現, '数量関係有効':engine.数量関係有効, '添字関係有効':engine.添字関係有効, '関係合成有効':engine.関係合成有効, '最大合成段数':engine.最大合成段数, '最大合成候補数':engine.最大合成候補数, '経験数': len(self._観測署名), '状態版': engine.状態.現在版,
+        return {'観測表現': self.観測表現, '数量関係有効':engine.数量関係有効, '添字関係有効':engine.添字関係有効, '一般再利用有効':engine.一般再利用有効, '関係合成有効':engine.関係合成有効, '最大合成段数':engine.最大合成段数, '最大合成候補数':engine.最大合成候補数, '経験数': len(self._観測署名), '状態版': engine.状態.現在版,
                 '有効原理数': sum(p.対象系境界 == self.現在境界 for p in engine._有効原理群()),
                 '隔離原理数': sum(p.対象系境界 == self.現在境界 for p in engine._係争中原理群()),
+                '一般再利用候補数': engine.台帳.件数('一般再利用候補'), '一般再利用検証数':engine.台帳.件数('一般再利用検証'),
                 '全課題保持経験数': len(engine._経験群()), '転用候補数': len(self._転用候補),
                 '転用隔離数': sum(c['状態'] == '隔離' for c in self._転用候補.values()),
                 '状態署名': self.状態署名()}
@@ -297,7 +306,8 @@ class HDS学習機械:
 
     def 予測する(self, request: 予測要求):
         primary = self._通常予測(request)
-        if '出力関係の競合' in primary.理由 or '入力が明示計算予算を超過' in primary.理由:
+        if ('出力関係の競合' in primary.理由 or '入力が明示計算予算を超過' in primary.理由
+                or any('合成' in reason or '依存競合' in reason for reason in primary.理由)):
             return primary
         reused = self._転用予測群(request)
         candidates = (*reused, *((primary,) if primary.出力 is not None else ()))
@@ -323,6 +333,12 @@ class HDS学習機械:
                 if p.関係型 == '構造要素対応関係' and len({署名(v) for _, v in p.対応値表}) < 2:
                     continue  # 定値だけの出力を答えとして課題間へ持ち込まない。
                 self._転用候補を保持((p,), True)
+        if engine.一般再利用有効:
+            for p in engine._有効原理群():
+                if (p.対象系境界 == self.現在境界 and p.結果経路[:1] == ('出力',)
+                        and p.関係型 in {'数量一次関係','添字アフィン関係'}
+                        and all(path[:1] == ('入力',) for path in p.条件経路群)):
+                    engine.一般再利用候補を登録する(p.原理識別子,self._観測契約())
         self._課題番号 += 1
         self._観測署名 = set()
         # 失敗履歴・HDS経験・原理は削除しない。新scopeは学習前のため転用も保留。
@@ -351,7 +367,7 @@ class HDS学習機械:
             stage = Path(temporary)
             self.系.保存する(stage / 'HDS.json')
             meta = {'形式版': 2, '観測表現': self.観測表現, '実装署名': 実装署名(), '最大セル数': self.最大セル数,
-                    '学習有効': self.学習有効, '数量関係有効':self.系.エンジン.数量関係有効, '添字関係有効':self.系.エンジン.添字関係有効, '関係合成有効':self.系.エンジン.関係合成有効, '最大合成段数':self.系.エンジン.最大合成段数, '最大合成候補数':self.系.エンジン.最大合成候補数, '観測署名': sorted(self._観測署名), '失敗': self._失敗,
+                    '学習有効': self.学習有効, '数量関係有効':self.系.エンジン.数量関係有効, '添字関係有効':self.系.エンジン.添字関係有効, '一般再利用有効':self.系.エンジン.一般再利用有効, '関係合成有効':self.系.エンジン.関係合成有効, '最大合成段数':self.系.エンジン.最大合成段数, '最大合成候補数':self.系.エンジン.最大合成候補数, '観測署名': sorted(self._観測署名), '失敗': self._失敗,
                     '状態署名': self.状態署名(), '課題番号': self._課題番号, '転用候補': self._転用候補}
             with (stage / '境界.json').open('w', encoding='utf-8') as stream:
                 json.dump(meta, stream, ensure_ascii=False, indent=2)
@@ -368,9 +384,9 @@ class HDS学習機械:
             raise ValueError('未対応の境界版')
         if meta['実装署名'] != 実装署名():
             raise ValueError('保存時と機械実装が異なる。無言移行しない')
-        obj = cls(meta['最大セル数'], 学習有効=meta['学習有効'], 観測表現=meta['観測表現'], 数量関係有効=meta.get('数量関係有効', True), 添字関係有効=meta.get('添字関係有効', True), 関係合成有効=meta.get('関係合成有効', False), 最大合成段数=meta.get('最大合成段数',4), 最大合成候補数=meta.get('最大合成候補数',4096))
+        obj = cls(meta['最大セル数'], 学習有効=meta['学習有効'], 観測表現=meta['観測表現'], 数量関係有効=meta.get('数量関係有効', True), 添字関係有効=meta.get('添字関係有効', True), 関係合成有効=meta.get('関係合成有効', False), 最大合成段数=meta.get('最大合成段数',4), 最大合成候補数=meta.get('最大合成候補数',4096), 一般再利用有効=meta.get('一般再利用有効',False))
         obj.系 = HDS学習系統.読み込む(directory / 'HDS.json')
-        for key,default in (('関係合成有効',False),('最大合成段数',4),('最大合成候補数',4096)):
+        for key,default in (('一般再利用有効',False),('関係合成有効',False),('最大合成段数',4),('最大合成候補数',4096)):
             if getattr(obj.系.エンジン,key)!=meta.get(key,default):raise ValueError('合成設定がHDSと境界で不一致')
         if obj.系.エンジン.数量関係有効 != meta.get('数量関係有効', True):
             raise ValueError('数量設定がHDSと境界で不一致')

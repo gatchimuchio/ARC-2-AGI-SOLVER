@@ -18,21 +18,28 @@ def 実験する(content, 最大セル数=36, 最大学習経験=8, 学習有効
     initial = learner.概況()
     # 評価は完全非学習。全てのtrainを経験にする前の初期能力を同じtestで測る。
     before = [teacher.評価(learner, 'test', i)[1].正解 for i in range(material.件数('test'))]
+    def 再利用に基づく確定(prediction):
+        source_ids={r['元原理'] for r in learner.系.エンジン.台帳.取得('一般再利用候補')}
+        return (prediction.出力 is not None and bool(source_ids.intersection(prediction.使用原理)))
     curve = []
     for i in range(min(material.件数('train'), 最大学習経験)):
         pred, outcome = teacher.評価(learner, 'train', i)
         update = teacher.教示(learner, i)
         # 同じtrain例での再試行は未知例の得点には算入しない。
-        heldout = [teacher.評価(learner, 'test', j)[1].正解 for j in range(material.件数('test'))]
+        heldout_pairs = [teacher.評価(learner, 'test', j) for j in range(material.件数('test'))]
+        heldout = [outcome.正解 for _,outcome in heldout_pairs]
         retry, retry_outcome = teacher.評価(learner, 'train', i)
         curve.append({'経験位置': i, '提示前正解': outcome.正解, '提示前状態': pred.状態,
                       '更新採否': update['採否'], '再試行正解': retry_outcome.正解, '非学習test正解数': sum(heldout),
+                      '提示前一般再利用確定': 再利用に基づく確定(pred),
+                      'test一般再利用確定数':sum(再利用に基づく確定(p) for p,o in heldout_pairs),
+                      'test一般再利用正解数':sum(再利用に基づく確定(p) and o.正解 for p,o in heldout_pairs),
                       '学習状態': learner.概況()})
     final_before_eval = learner.状態署名()
     after = [teacher.評価(learner, 'test', i)[1].正解 for i in range(material.件数('test'))]
     assert learner.状態署名() == final_before_eval
     # 記憶除去対照: 同一実装・予算で新しい機械へ置換。test正解は渡さない。
-    erased = HDS学習機械(最大セル数, 最小支持数, 観測表現=learner.観測表現, 数量関係有効=learner.系.エンジン.数量関係有効, 添字関係有効=learner.系.エンジン.添字関係有効, 関係合成有効=learner.系.エンジン.関係合成有効, 最大合成段数=learner.系.エンジン.最大合成段数, 最大合成候補数=learner.系.エンジン.最大合成候補数)
+    erased = HDS学習機械(最大セル数, 最小支持数, 観測表現=learner.観測表現, 数量関係有効=learner.系.エンジン.数量関係有効, 添字関係有効=learner.系.エンジン.添字関係有効, 関係合成有効=learner.系.エンジン.関係合成有効, 最大合成段数=learner.系.エンジン.最大合成段数, 最大合成候補数=learner.系.エンジン.最大合成候補数, 一般再利用有効=learner.系.エンジン.一般再利用有効)
     ablated = [teacher.評価(erased, 'test', i)[1].正解 for i in range(material.件数('test'))]
     if 実装署名() != frozen_revision:
         raise RuntimeError('実験中に機械実装が変更された')
@@ -42,7 +49,7 @@ def 実験する(content, 最大セル数=36, 最大学習経験=8, 学習有効
               'previous': sum(before), 'current': sum(after), 'delta': sum(after) - sum(before),
               '記憶除去': sum(ablated), '学習有効': 学習有効,
               '未提示評価例': 'test出力は全段階で教師のみ保持。testによる更新なし',
-              '課題間転用': '同一機械保持。前課題で採用した関係を現在2独立観測で再検証して暫定転用',
+              '課題間転用': '同一機械保持。前課題で採用した関係を現在2種類以上の支配入力で再検証。統計的独立性・因果性の証明ではない',
               '試行回数': {'学習前評価': len(before), 'train提示前': len(curve),
                            'train再試行': len(curve), '学習曲線test照会': len(curve) * len(before), '学習後評価': len(after), '記憶除去評価': len(ablated)},
               '履歴': teacher.履歴}

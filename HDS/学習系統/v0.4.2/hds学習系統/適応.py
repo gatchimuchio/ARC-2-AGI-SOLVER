@@ -133,11 +133,12 @@ class 共通適応器:
             return False
         return 対応[条件値] != 値キー(写像[原理.結果経路])
 
-    def 予測する(self, 原理群, 新経験):
+    def 予測する(self, 原理群, 新経験, 保留経路=()):
         if not self.関係合成有効:
+            原理群=tuple(p for p in 原理群 if not any(p.結果経路[:len(q)]==q or q[:len(p.結果経路)]==p.結果経路 for q in 保留経路))
             return self._直接予測する(原理群, 新経験)
         from .合成 import 関係を合成する
-        return 関係を合成する(self, 原理群, 新経験, self.最大合成段数, self.最大合成候補数)
+        return 関係を合成する(self, 原理群, 新経験, self.最大合成段数, self.最大合成候補数, 保留経路)
 
     def _直接予測する(
         self,

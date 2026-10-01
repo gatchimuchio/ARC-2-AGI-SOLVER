@@ -34,6 +34,10 @@ class 最小吸気系:
     """
 
     def 取り込む(self, 入力: 外部入力) -> 学習入力:
+        context=deepcopy(dict(入力.文脈))
+        if '一般再利用契約' in context:
+            from .再利用 import 契約を確認
+            context['一般再利用契約']=契約を確認(context['一般再利用契約'])
         観測群: list[観測事実] = []
         self._平坦化(入力.内容, (), 観測群)
         # 数値に見えるカテゴリを勝手に算術量へ昇格しない。明示した経路だけ型づける。
@@ -57,7 +61,7 @@ class 最小吸気系:
             主体=入力.主体,
             対象=入力.対象,
             目的=入力.目的,
-            文脈=deepcopy(dict(入力.文脈)),
+            文脈=context,
         )
 
     def _平坦化(self, 値: Any, 経路: tuple[str, ...], 出力: list[観測事実]) -> None:
