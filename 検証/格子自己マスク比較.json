@@ -1,0 +1,78 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "29b4c211decc29be11d55603b9a011cd42a37247",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_runtime_fit_generator.py のseparator分割・格子検出・色mask・D4の4定義をAST同一で再利用。clone/shapeは既採用定義",
+  "介入": "新しいseed付きmask→macro完成view。旧SELF_MASK_TILEは語彙上の根拠であり、固定0・全入力二乗展開の旧rendererを再利用したとの主張ではない",
+  "previous": {
+    "correct_tasks": 6,
+    "correct_examples": 10,
+    "unanswered": 157,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 7,
+    "correct_examples": 11,
+    "unanswered": 156,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "task_accuracy_percentage_points": 0.8333333333333334,
+    "regressed_examples": 0,
+    "既存正答10例": "同一"
+  },
+  "事前診断": {
+    "対象": "残114課題・345教師対。20課題は全教師inputにseparator分割を持つ",
+    "不足": "D4で各出力cellの素材を説明できるのは1課題だが、source再利用が必要で固定位置操作だけでは再現できない",
+    "文法": "頻度の多い/少ない片を背景役にする2通り × 共有/排他palette mask2通り × 既存D4の8通り = 32候補",
+    "全教師fit": "114課題を走査し1課題、identityとflip_hの二モデル。教師maskが左右対称なのでidentityを唯一としない",
+    "query事前確認": "test入力の3seedから両モデルが同じ一意配置・6完成cellを生成。正解は採点まで未参照"
+  },
+  "モデルとHDS": {
+    "入力": "同じ寸法で異なる頻度の二種類のcellを必要とする。固有色・座標・3x3/7x7寸法を固定しない",
+    "配置": "入力seedを全て含む全anchorを列挙。教師出力でanchorを選ばず、一意な完成格子でないモデルは保留",
+    "保存": "現在入力のwhole tileだけをcopyし、separator全画素と既存source seedを保存。source回数は増えるが既存tile内部を発明しない",
+    "合意": "全教師整合モデルを保持し、queryで一つでも未確定又は異なる格子ならHOLD",
+    "学習": "32候補選択は接続側の教師照合。native HDSは候補格子→教師出力の同値を採用。同一instance・公開cycle・既存gate/最終機構合意",
+    "支持": "二モデルでも教師一例一観測。今回三教師で現在観測3・prior0・支持3・隔離0。既存の34課題支持2/86課題支持3方針は無変更"
+  },
+  "原指標保持": "wrong_attempted_tasks=1は既存の部分回答課題。新旧とも誤出力格子0。採点関数は変更しない",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "0d9ab2638f81b659bf663d7cbfee2841891f19980daa4e547a185217b017204a",
+    "接続/ARC2/格子自己マスク.py": "fee2fc508917c5facb3f0f597e1e0b8027e3d011935624663f521b255c5d9675",
+    "接続/ARC2/既存格子操作.py": "d03c16e870a245dc18dd24446c09a3fcadbbf7bc9d184510105dc5ae46a32b23",
+    "検証/格子自己マスク回帰.py": "aed0d55fbdbf24f0d4739ed3a88d1e256fbd0ac04d10cff52271e63ab2f38ae9",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存57件＋新9件合格、新9件は最適化モードでも合格",
+    "可変長方形tile/macro/配色、頻度同率、第三種類、不等寸法、anchorなし/複数、二モデル競合/片側未解決、separator/seed保持、支持非複製、支持不足、後発反例を確認",
+    "526入力格子×32モデル=16832通りで凍結preflightと実装の候補格子同一を確認。test正解は使用しない",
+    "HDS中核12・保護7・既存機構・採点器・runnerは無変更"
+  ],
+  "制限": [
+    "公開評価での差分。既存資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "固定32候補の限定的な合成。残113課題未完・156例未回答"
+  ]
+}
