@@ -1,9 +1,6 @@
 name: 日本語基底リポジトリ監査
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 permissions:
