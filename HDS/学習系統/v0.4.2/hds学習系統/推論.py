@@ -26,8 +26,6 @@ class 共通推論器:
 
     def __init__(self, 最大条件数: int = 2) -> None:
         self.最大条件数 = 最大条件数
-        self.数量関係有効 = True
-        self.添字関係有効 = True
 
     @staticmethod
     def _作用情報(懐疑群: Sequence[懐疑記録]) -> tuple[set[str], set[tuple[str, ...]], tuple[str, ...]]:
@@ -66,15 +64,8 @@ class 共通推論器:
                 and 原理.除外反証参照群
                 and 原理.対象系境界 == (経験群[0].対象系境界 if 経験群 else 原理.対象系境界)
             ):
-                if 原理.関係型 == "添字アフィン関係" and not self.添字関係有効:
-                    continue
-                if 原理.関係型 == "数量一次関係" and not self.数量関係有効:
-                    continue
-                if (原理.関係型 == "数量一次関係" and 懐疑対象
-                        and not (set(原理.条件経路群) | {原理.結果経路}).issubset(懐疑対象)):
-                    continue
                 継続候補 = self._継続原理候補(
-                    写像群, 原理, 懐疑参照, 最小支持数, 識別子生成, 懐疑対象
+                    写像群, 原理, 懐疑参照, 最小支持数, 識別子生成
                 )
                 if 継続候補 is not None:
                     候補群.append(継続候補)
@@ -84,9 +75,6 @@ class 共通推論器:
             許容条件数 = self.最大条件数
 
         for 結果経路 in 全経路:
-            定値 = self._定値候補(写像群, 結果経路, 懐疑参照, 最小支持数, 識別子生成)
-            if 定値 is not None:
-                候補群.append(定値)
             条件候補 = [p for p in 全経路 if p != 結果経路]
             for 条件数 in range(1, min(許容条件数, len(条件候補)) + 1):
                 for 条件経路群 in combinations(条件候補, 条件数):
@@ -95,14 +83,6 @@ class 共通推論器:
                     )
                     if 候補 is not None:
                         候補群.append(候補)
-        from .構造関係 import 構造候補を導出する
-        候補群.extend(構造候補を導出する(経験群, 懐疑参照, 最小支持数, 識別子生成, 懐疑対象))
-        from .数量関係 import 数量候補
-        if self.数量関係有効:
-            候補群.extend(数量候補(経験群, 懐疑参照, 最小支持数, 識別子生成, 懐疑対象))
-        from .添字関係 import 添字候補
-        if self.添字関係有効:
-            候補群.extend(添字候補(経験群, 懐疑参照, 最小支持数, 識別子生成, 懐疑対象))
         return tuple(self._重複除去(候補群))
 
     def 不成立を確認する(
@@ -154,27 +134,6 @@ class 共通推論器:
                         return False
         return 十分観測組 > 0
 
-    def _定値候補(self, 写像群, 結果経路, 懐疑参照, 最小支持数, 識別子生成):
-        # 汎用の帰納バイアス。値は観測から取得し、領域固有の定数は持たない。
-        完全 = [(e, m) for e, m in 写像群 if 結果経路 in m]
-        独立観測 = {値キー(sorted(m.items(), key=repr)) for _, m in 完全}
-        値集合 = {値キー(m[結果経路]) for _, m in 完全}
-        if len(独立観測) < 最小支持数 or len(値集合) != 1:
-            return None
-        値 = 完全[0][1][結果経路]
-        from .構造関係 import 定値の構造文脈
-        return 原理候補(
-            候補識別子=識別子生成("原理候補"), 対象系境界=完全[0][0].対象系境界,
-            関係型="定値関係", 条件経路群=(), 結果経路=結果経路,
-            対応表=(((), 値キー(値)),), 対応値表=(((), 値),),
-            根拠参照群=tuple(e.経験識別子 for e, _ in 完全), 反証参照群=(),
-            懐疑参照群=tuple(懐疑参照),
-            適用範囲={"確認範囲": "同一対象系境界の異なる観測。新境界への自動転用禁止",
-                      "独立観測数": len(独立観測),
-                      "構造文脈": 定値の構造文脈([e for e, _ in 完全], 結果経路)},
-            生成条件={"作用": "懐疑→観測間の定値関係候補", "因果断定": False},
-        )
-
     def _継続原理候補(
         self,
         写像群,
@@ -182,30 +141,8 @@ class 共通推論器:
         懐疑参照,
         最小支持数,
         識別子生成,
-        懐疑対象=None,
     ) -> 原理候補 | None:
         除外 = set(原理.除外反証参照群)
-        from .添字関係 import 添字関係型, 添字候補
-        if 原理.関係型 == 添字関係型:
-            from dataclasses import replace
-            reviewed = [e for e, _ in 写像群 if e.経験識別子 not in 除外]
-            for candidate in 添字候補(reviewed, 懐疑参照, 最小支持数, 識別子生成, 懐疑対象):
-                if candidate.条件経路群 == 原理.条件経路群 and candidate.結果経路 == 原理.結果経路:
-                    return replace(candidate, 除外経験参照群=tuple(原理.除外反証参照群),
-                                   生成条件={**candidate.生成条件, '継承元原理':原理.原理識別子,
-                                             '除外責任':'明示審査済み除外だけを当該系譜に継承'})
-            return None
-        from .数量関係 import 数量関係型, 数量候補
-        if 原理.関係型 == 数量関係型:
-            from dataclasses import replace
-            reviewed = [e for e, _ in 写像群 if e.経験識別子 not in 除外]
-            allowed = set(原理.条件経路群) | {原理.結果経路}
-            for candidate in 数量候補(reviewed, 懐疑参照, 最小支持数, 識別子生成, allowed):
-                if candidate.条件経路群 == 原理.条件経路群 and candidate.結果経路 == 原理.結果経路:
-                    return replace(candidate, 除外経験参照群=tuple(原理.除外反証参照群),
-                                   生成条件={**candidate.生成条件, '継承元原理':原理.原理識別子,
-                                             '除外責任':'明示審査済み除外だけを当該系譜に継承'})
-            return None
         対応: dict[tuple[str, ...], str] = {}
         対応値: dict[tuple[str, ...], Any] = {}
         根拠: list[str] = []

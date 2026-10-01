@@ -29,7 +29,7 @@ def 現在時刻() -> str:
 class HDS学習実行系:
     """HDS rev4.2 の学習作用を領域非依存で実行する最小共通中核。"""
 
-    def __init__(self, 最小支持数: int = 3, 最大条件数: int = 2, 数量関係有効: bool = True, 添字関係有効: bool = True, 関係合成有効: bool = False, 最大合成段数: int = 4, 最大合成候補数: int = 4096, 一般再利用有効: bool = False) -> None:
+    def __init__(self, 最小支持数: int = 3, 最大条件数: int = 2) -> None:
         self.識別子 = 識別子生成器()
         self.台帳 = 追記専用台帳()
         self.状態 = 状態管理器()
@@ -38,83 +38,8 @@ class HDS学習実行系:
         self.最大条件数 = 最大条件数
         self.検証器 = 共通検証器(最小支持数=最小支持数)
         self.適応器 = 共通適応器()
-        self.数量関係有効 = 数量関係有効
-        self.添字関係有効 = 添字関係有効
-        self.関係合成有効 = 関係合成有効
-        self.最大合成段数 = 最大合成段数
-        self.最大合成候補数 = 最大合成候補数
-        self.一般再利用有効 = 一般再利用有効
         self.最小支持数 = 最小支持数
         self._原理履歴: dict[str, list[原理記録]] = {}
-
-    @property
-    def 一般再利用有効(self):
-        return self._一般再利用有効
-
-    @一般再利用有効.setter
-    def 一般再利用有効(self, value):
-        if type(value) is not bool:
-            raise TypeError('一般再利用有効は真偽値')
-        self._一般再利用有効 = value
-
-    def 一般再利用候補を登録する(self, 原理識別子, 観測契約):
-        from .再利用 import 登録する
-        return 登録する(self, 原理識別子, 観測契約)
-
-    def 一般再利用を検証する(self, 候補識別子, 対象系境界, 観測契約):
-        from .再利用 import 検証する
-        return 検証する(self, 候補識別子, 対象系境界, 観測契約)
-
-    @property
-    def 数量関係有効(self):
-        return self._数量関係有効
-
-    @数量関係有効.setter
-    def 数量関係有効(self, value):
-        if type(value) is not bool:
-            raise TypeError('数量関係有効は真偽値')
-        self._数量関係有効 = value
-        self.推論器.数量関係有効 = value
-        self.適応器.数量関係有効 = value
-
-    @property
-    def 添字関係有効(self):
-        return self._添字関係有効
-
-    @添字関係有効.setter
-    def 添字関係有効(self, value):
-        if type(value) is not bool:
-            raise TypeError('添字関係有効は真偽値')
-        self._添字関係有効 = value
-        self.推論器.添字関係有効 = value
-        self.適応器.添字関係有効 = value
-
-    @property
-    def 関係合成有効(self):
-        return self.適応器.関係合成有効
-
-    @関係合成有効.setter
-    def 関係合成有効(self,value):
-        if type(value) is not bool:raise TypeError('関係合成有効は真偽値')
-        self.適応器.関係合成有効=value
-
-    @property
-    def 最大合成段数(self):
-        return self.適応器.最大合成段数
-
-    @最大合成段数.setter
-    def 最大合成段数(self,value):
-        if type(value) is not int or not 1<=value<=16:raise ValueError('最大合成段数は1..16')
-        self.適応器.最大合成段数=value
-
-    @property
-    def 最大合成候補数(self):
-        return self.適応器.最大合成候補数
-
-    @最大合成候補数.setter
-    def 最大合成候補数(self,value):
-        if type(value) is not int or not 1<=value<=65536:raise ValueError('最大合成候補数は1..65536')
-        self.適応器.最大合成候補数=value
 
     def _次(self, 種別: str) -> str:
         return self.識別子.次(種別)
@@ -153,14 +78,10 @@ class HDS学習実行系:
             x for x in self._現行原理群()
             if x.状態 == 原理状態.適用範囲付き暫定原理
             and x.採用状態 == 採用状態.有効
-            and (self.数量関係有効 or x.関係型 != "数量一次関係")
-            and (self.添字関係有効 or x.関係型 != "添字アフィン関係")
         )
 
     def _係争中原理群(self) -> tuple[原理記録, ...]:
-        return tuple(x for x in self._現行原理群() if self._原理は隔離中(x)
-                     and (self.数量関係有効 or x.関係型 != "数量一次関係")
-                     and (self.添字関係有効 or x.関係型 != "添字アフィン関係"))
+        return tuple(x for x in self._現行原理群() if self._原理は隔離中(x))
 
     def _記憶する(self, 入力: 学習入力, 時点: str) -> 経験記録:
         経験 = 経験記録(
@@ -184,9 +105,6 @@ class HDS学習実行系:
             "暫定性": "既定で暫定",
             "時点": 時点,
         })
-        if '一般再利用契約' in 入力.文脈:
-            from .再利用 import 観測契約を記録する
-            観測契約を記録する(self, 経験, 入力.文脈['一般再利用契約'])
         return 経験
 
     def _原理版を作る(
@@ -510,9 +428,7 @@ class HDS学習実行系:
             if (旧 is not None
                     and 旧.状態 == 原理状態.適用範囲付き暫定原理
                     and 旧.採用状態 == 採用状態.有効
-                    and 旧.対応表 == 候補.対応表
-                    # 数量の意味は有限表ではなく係数・適用範囲にある。
-                    and (候補.関係型 != "数量一次関係" or 旧.適用範囲 == 候補.適用範囲)):
+                    and 旧.対応表 == 候補.対応表):
                 continue
 
             親 = self._親原理を探す(候補)
@@ -557,9 +473,6 @@ class HDS学習実行系:
         return tuple(採用ID群), tuple(再開放ID群)
 
     def 実行(self, 入力: 学習入力) -> 実行結果:
-        if '一般再利用契約' in 入力.文脈:
-            from .再利用 import 契約を確認
-            契約を確認(入力.文脈['一般再利用契約'])
         時点 = 現在時刻()
         前版 = self.状態.現在版
         前状態 = self.状態.現在状態
@@ -628,9 +541,6 @@ class HDS学習実行系:
         if 識別不能群:
             保留理由.append("現観測だけでは複数の関係候補を識別できない。予測可能性と原理同定を分離する")
 
-        if '一般再利用契約' in 入力.文脈:
-            from .再利用 import 監査を記録する
-            監査を記録する(self, 入力.対象系境界, 入力.文脈['一般再利用契約'])
         後版 = self.状態.現在版
         状態変化理由: list[str] = []
         if 採用:
@@ -731,11 +641,9 @@ class HDS学習実行系:
         入力は記憶へ追加せず、懐疑・推論・採否・適応も実行しない。
         現在有効な暫定原理だけを参照して出力を構成するため、学習成立状態は「適用外」とする。
         """
-        from copy import deepcopy
-        照会識別子=deepcopy(self.識別子)
         時点 = 現在時刻()
         照会経験 = 経験記録(
-            経験識別子=照会識別子.次("照会"),
+            経験識別子=self._次("照会"),
             対象系境界=入力.対象系境界,
             原入力=入力.原入力,
             観測群=入力.観測群,
@@ -746,13 +654,7 @@ class HDS学習実行系:
         )
         有効原理 = self._有効原理群()
         隔離原理 = self._係争中原理群()
-        再利用原理, 再利用競合, 再利用参照 = (), (), ()
-        if self.一般再利用有効 and '一般再利用契約' in 入力.文脈:
-            from .再利用 import 照会候補群
-            再利用原理, 再利用競合, 再利用参照 = 照会候補群(self, 照会経験, 入力.文脈['一般再利用契約'])
-        予測群, 競合群, 追加観測要求群 = self.適応器.予測する(
-            tuple(有効原理) + 再利用原理, 照会経験, 保留経路=tuple(x.結果経路 for x in 再利用競合))
-        競合群 = 競合群 + 再利用競合
+        予測群, 競合群, 追加観測要求群 = self.適応器.予測する(有効原理, 照会経験)
         経験群 = self._経験群(入力.対象系境界)
         識別不能群 = self.適応器.識別不能を検出する(有効原理, 経験群)
         保留理由: list[str] = []
@@ -765,7 +667,7 @@ class HDS学習実行系:
         if 識別不能群:
             保留理由.append("現観測だけでは複数の関係候補を識別できない")
         学習 = 学習過程記録(
-            学習識別子=照会識別子.次("学習判定"),
+            学習識別子=self._次("学習判定"),
             学習前状態版=self.状態.現在版,
             学習後状態版=self.状態.現在版,
             経験参照=照会経験.経験識別子,
@@ -793,7 +695,6 @@ class HDS学習実行系:
                 "照会参照": 照会経験.経験識別子,
                 "対象系境界": 入力.対象系境界,
                 "学習判定": "適用外",
-                "一般再利用参照": 再利用参照,
             },
             係争中原理群=隔離原理,
             追加観測要求群=追加観測要求群,

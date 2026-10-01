@@ -22,25 +22,12 @@ def 系譜鍵(対象系境界: str, 関係型: str, 条件経路群, 結果経�
 
 def 原理証拠を評価する(原理: 原理記録, 経験群: Sequence[経験記録]) -> tuple[tuple[str, ...], tuple[str, ...]]:
     """関係型の意味に従って支持・反証を再計算する。未観測はどちらにも数えない。"""
-    from .添字関係 import 添字関係型, 添字証拠
-    if 原理.関係型 == 添字関係型:
-        return 添字証拠(原理, 経験群)
-    from .数量関係 import 数量関係型, 数量証拠
-    if 原理.関係型 == 数量関係型:
-        support, counters, _ = 数量証拠(原理, 経験群)
-        return support, counters
-    from .構造関係 import 構造関係型, 構造証拠を評価する
-    if 原理.関係型 in 構造関係型:
-        return 構造証拠を評価する(原理, 経験群)
     対応 = dict(原理.対応表)
     除外 = set(原理.除外反証参照群)
     支持: list[str] = []
     反証: list[str] = []
     for 経験 in 経験群:
         if 経験.対象系境界 != 原理.対象系境界 or 経験.経験識別子 in 除外:
-            continue
-        from .構造関係 import 定値文脈が適合
-        if 原理.関係型 == "定値関係" and not 定値文脈が適合(原理, 経験.原入力):
             continue
         写像 = 経験写像(経験)
         if 原理.結果経路 not in 写像 or any(p not in 写像 for p in 原理.条件経路群):
@@ -64,13 +51,6 @@ def 原理証拠を評価する(原理: 原理記録, 経験群: Sequence[経験
 
 
 class 共通適応器:
-    def __init__(self):
-        self.数量関係有効 = True
-        self.添字関係有効 = True
-        self.関係合成有効 = False
-        self.最大合成段数 = 4
-        self.最大合成候補数 = 4096
-
     def 原理化する(
         self,
         候補: 原理候補,
@@ -110,18 +90,6 @@ class 共通適応器:
     def 反証を検出する(self, 原理: 原理記録, 新経験: 経験記録) -> bool:
         if 原理.対象系境界 != 新経験.対象系境界 or 新経験.経験識別子 in set(原理.除外反証参照群):
             return False
-        from .添字関係 import 添字関係型, 添字証拠
-        if 原理.関係型 == 添字関係型:
-            return bool(添字証拠(原理, (新経験,))[1])
-        from .数量関係 import 数量関係型, 数量証拠
-        if 原理.関係型 == 数量関係型:
-            return bool(数量証拠(原理, (新経験,))[1])
-        from .構造関係 import 構造関係型, 構造証拠を評価する
-        if 原理.関係型 in 構造関係型:
-            return bool(構造証拠を評価する(原理, (新経験,))[1])
-        from .構造関係 import 定値文脈が適合
-        if 原理.関係型 == "定値関係" and not 定値文脈が適合(原理, 新経験.原入力):
-            return False
         写像 = 経験写像(新経験)
         if 原理.結果経路 not in 写像 or any(p not in 写像 for p in 原理.条件経路群):
             return False
@@ -133,20 +101,12 @@ class 共通適応器:
             return False
         return 対応[条件値] != 値キー(写像[原理.結果経路])
 
-    def 予測する(self, 原理群, 新経験, 保留経路=()):
-        if not self.関係合成有効:
-            原理群=tuple(p for p in 原理群 if not any(p.結果経路[:len(q)]==q or q[:len(p.結果経路)]==p.結果経路 for q in 保留経路))
-            return self._直接予測する(原理群, 新経験)
-        from .合成 import 関係を合成する
-        return 関係を合成する(self, 原理群, 新経験, self.最大合成段数, self.最大合成候補数, 保留経路)
-
-    def _直接予測する(
+    def 予測する(
         self,
         原理群: Sequence[原理記録],
         新経験: 経験記録,
-        推論文脈=None,
     ) -> tuple[tuple[予測記録, ...], tuple[競合記録, ...], tuple[追加観測要求, ...]]:
-        写像 = 経験写像(新経験) if 推論文脈 is None else 推論文脈['葉']
+        写像 = 経験写像(新経験)
         予測群: list[予測記録] = []
         観測要求候補: list[追加観測要求] = []
 
@@ -154,57 +114,6 @@ class 共通適応器:
             if 原理.対象系境界 != 新経験.対象系境界:
                 continue
             if 原理.状態 != 原理状態.適用範囲付き暫定原理 or 原理.採用状態 != 採用状態.有効:
-                continue
-            from .構造関係 import 構造関係型, 容器群, 構造を予測する, 定値文脈が適合
-            from .添字関係 import 添字関係型, 添字予測
-            if 原理.関係型 == 添字関係型:
-                if not self.添字関係有効:
-                    continue
-                from .構造関係 import ノード群
-                nodes = ノード群(新経験.原入力) if 推論文脈 is None else 推論文脈['ノード']
-                if 原理.結果経路 in nodes:
-                    continue
-                try:
-                    source = nodes[原理.条件経路群[0]]
-                    alternatives = 添字予測(原理, source)
-                except (KeyError, ValueError, TypeError):
-                    観測要求候補.append(追加観測要求(原理.結果経路, 原理.条件経路群, (原理.原理識別子,), '添字関係の入力型・全単射が未閉包'))
-                    continue
-                for predicted in alternatives:
-                    予測群.append(予測記録(原理.原理識別子, 原理.結果経路, predicted, (source,)))
-                continue
-            from .数量関係 import 数量関係型, 数量写像, 数量を計算する
-            if 原理.関係型 == 数量関係型:
-                if not self.数量関係有効:
-                    continue
-                quantities = 数量写像(新経験) if 推論文脈 is None else 推論文脈['数量']
-                if 原理.結果経路 in 写像:
-                    continue
-                try:
-                    source = quantities[原理.条件経路群[0]]
-                    value = 数量を計算する(原理, source)
-                except (KeyError, ValueError):
-                    観測要求候補.append(追加観測要求(原理.結果経路, 原理.条件経路群, (原理.原理識別子,), '数量型・外挿範囲・整数閉包が未成立'))
-                    continue
-                予測群.append(予測記録(原理.原理識別子, 原理.結果経路, value, (source,)))
-                continue
-            if 原理.関係型 == "定値関係" and not 定値文脈が適合(原理, 新経験.原入力):
-                観測要求候補.append(追加観測要求(原理.結果経路, (), (原理.原理識別子,), "定値仮説の入力構造文脈が確認範囲外"))
-                continue
-            if 原理.関係型 in 構造関係型:
-                containers = 容器群(新経験.原入力) if 推論文脈 is None else 推論文脈['容器']
-                if 原理.結果経路 in containers:
-                    continue
-                source = containers.get(原理.条件経路群[0])
-                if source is None:
-                    観測要求候補.append(追加観測要求(原理.結果経路, 原理.条件経路群, (原理.原理識別子,), '構造関係の入力容器が未観測'))
-                    continue
-                try:
-                    predicted = 構造を予測する(原理, source)
-                except (KeyError, ValueError):
-                    観測要求候補.append(追加観測要求(原理.結果経路, (), (原理.原理識別子,), '構造関係の値または型が確認範囲外'))
-                    continue
-                予測群.append(予測記録(原理.原理識別子, 原理.結果経路, predicted, (source,)))
                 continue
             if 原理.結果経路 in 写像:
                 continue
@@ -250,8 +159,7 @@ class 共通適応器:
             値集合: list[Any] = []
             値キー集合: set[str] = set()
             for p in 同経路予測:
-                from .構造関係 import 容器署名
-                k = 容器署名(p.予測値) if isinstance(p.予測値, (dict, list, tuple)) else 値キー(p.予測値)
+                k = 値キー(p.予測値)
                 if k not in 値キー集合:
                     値キー集合.add(k)
                     値集合.append(p.予測値)
@@ -261,11 +169,8 @@ class 共通適応器:
                     候補値群=tuple(値集合),
                     原理参照群=tuple(p.原理参照 for p in 同経路予測),
                 ))
-        from .構造関係 import 予測重複を監査する
-        構造競合, 除外位置 = 予測重複を監査する(予測群)
-        競合群.extend(構造競合)
         競合経路 = {x.結果経路 for x in 競合群}
-        確定予測 = tuple(p for i, p in enumerate(予測群) if p.結果経路 not in 競合経路 and i not in 除外位置)
+        確定予測 = tuple(p for p in 予測群 if p.結果経路 not in 競合経路)
 
         統合: dict[tuple[Any, ...], 追加観測要求] = {}
         for r in 観測要求候補:
