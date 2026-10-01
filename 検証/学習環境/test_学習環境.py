@@ -285,11 +285,13 @@ class 継続転用試験(unittest.TestCase):
         m.新しい課題()
         self.assertEqual(m.概況()['転用候補数'], 0)
 
-    def test_未確認形状へ転用しない(self):
+    def test_固定位置候補は未確認形状へ転用しない(self):
         m = 学習済み()
         m.新しい課題()
         for x in (4, 5):
             m.観測する(予測要求(((x,),)), ((x,),))
+        # 構造一般候補を除去した対照。固定位置型の旧境界を維持する。
+        m._転用候補 = {k: v for k, v in m._転用候補.items() if not v.get('構造一般', False)}
         self.assertIsNone(m.予測する(予測要求(((8, 9),))).出力)
 
     def test_転用状態の保存復元(self):

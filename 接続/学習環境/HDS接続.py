@@ -98,12 +98,31 @@ class HDS学習機械:
         engine = copy(self.系.エンジン)
         engine.識別子 = deepcopy(self.系.エンジン.識別子)
         result = engine.照会(self._入力({'入力': 観測射影(grid)}))
-        values, refs = {}, []
-        for p in result.予測群:
+        return self._予測を格子化(result.予測群, result.競合群)
+
+    def _予測を格子化(self, predictions, supplied_conflicts):
+        values, refs, conflicts = {}, [], []
+        for p in predictions:
             if p.結果経路 and p.結果経路[0] == '出力':
-                values[p.結果経路] = p.予測値
+                facts = []
+                self.系.吸気系._平坦化(p.予測値, p.結果経路, facts)
+                projected = {f.経路: f.値 for f in facts if f.推論対象}
+                if p.結果経路 == ('出力', 'セル') and isinstance(p.予測値, dict):
+                    # 完成したセル集合からARC格子を直列化する。未予測セルは補わない。
+                    try:
+                        positions = {tuple(map(int, k.split(','))) for k in p.予測値}
+                        if positions and all(len(k) == 2 and min(k) >= 0 for k in positions):
+                            h, w = 1 + max(k[0] for k in positions), 1 + max(k[1] for k in positions)
+                            if positions == {(r, c) for r in range(h) for c in range(w)}:
+                                projected[('出力', '行数')], projected[('出力', '列数')] = h, w
+                    except (TypeError, ValueError):
+                        pass
+                for path, value in projected.items():
+                    if path in values and values[path] != value:
+                        conflicts.append(path)
+                    values[path] = value
                 refs.append(p.原理参照)
-        conflicts = [c for c in result.競合群 if c.結果経路[0] == '出力']
+        conflicts.extend(c for c in supplied_conflicts if c.結果経路[0] == '出力')
         if conflicts:
             return 予測('HOLD', None, ('出力関係の競合',), tuple(sorted(set(refs))), len(values))
         height, width = values.get(('出力', '行数')), values.get(('出力', '列数'))
@@ -163,7 +182,7 @@ class HDS学習機械:
 
     def _適用範囲内経験(self, capsule):
         return tuple(e for e in self.系.エンジン._経験群(self.現在境界)
-                     if [e.原入力['入力']['行数'], e.原入力['入力']['列数']] in capsule['入力形状'])
+                     if capsule.get('構造一般', False) or [e.原入力['入力']['行数'], e.原入力['入力']['列数']] in capsule['入力形状'])
 
     def _転用を監査する(self):
         for capsule in self._転用候補.values():
@@ -195,7 +214,7 @@ class HDS学習機械:
         result = []
         validator = 共通検証器(最小支持数=2)
         for capsule in self._転用候補.values():
-            if capsule['状態'] == '隔離' or shape not in capsule['入力形状']:
+            if capsule['状態'] == '隔離' or (not capsule.get('構造一般', False) and shape not in capsule['入力形状']):
                 continue
             current = self._適用範囲内経験(capsule)
             principles = self._転用原理(capsule)
@@ -205,16 +224,10 @@ class HDS学習機械:
             experience = 経験記録('非学習転用照会', self.現在境界, intake.原入力, intake.観測群,
                                   intake.主体, intake.対象, intake.目的, '')
             predictions, conflicts, _ = self.系.エンジン.適応器.予測する(principles, experience)
-            if conflicts:
+            formatted = self._予測を格子化(predictions, conflicts)
+            if formatted.出力 is None:
                 continue
-            values = {p.結果経路: p.予測値 for p in predictions}
-            h, w = values.get(('出力', '行数')), values.get(('出力', '列数'))
-            if type(h) is not int or type(w) is not int or not (1 <= h <= 30 and 1 <= w <= 30) or h*w > self.最大セル数:
-                continue
-            try:
-                grid = 格子化([[values[('出力', 'セル', f'{r},{c}')] for c in range(w)] for r in range(h)])
-            except (KeyError, ValueError):
-                continue
+            grid = formatted.出力
             # 現課題の既存原理とも整合しなければ過去モデルを優先しない。
             observed = self._入力({'入力': 観測射影(request.入力), '出力': 観測射影(grid)})
             check = replace(experience, 原入力=observed.原入力, 観測群=observed.観測群)
@@ -222,7 +235,7 @@ class HDS学習機械:
                    if p.対象系境界 == self.現在境界):
                 continue
             result.append(予測('COMMIT', grid, ('過去3支持以上と現在2独立支持による範囲付き暫定転用',),
-                               tuple(p.原理参照 for p in predictions), len(values)))
+                               formatted.使用原理, formatted.推定済み項目数))
         return tuple(result)
 
     def 予測する(self, request: 予測要求):
@@ -245,18 +258,30 @@ class HDS学習機械:
                            and all(path[0] == '入力' for path in p.条件経路群))
         # 定値格子丸ごとを答えとして転用しない。入力依存の学習済み関係が必要。
         if any(p.関係型 == '同値関係' and p.結果経路[:2] == ('出力', 'セル') for p in principles):
-            structure = [(p.関係型, p.条件経路群, p.結果経路,
-                          p.対応値表 if p.関係型 == '定値関係' else ()) for p in principles]
-            key = 署名(structure)
-            shapes = sorted({(e.原入力['入力']['行数'], e.原入力['入力']['列数'])
-                             for e in engine._経験群(self.現在境界)})
-            if key not in self._転用候補 and len(self._転用候補) < 64:
-                self._転用候補[key] = {'署名': key, '原理参照': [p.原理識別子 for p in principles],
-                                     '入力形状': [list(x) for x in shapes], '状態': '再検証待ち', '反証参照': []}
+            self._転用候補を保持(principles, False)
+        from hds学習系統.構造関係 import 構造関係型
+        for p in engine._有効原理群():
+            if (p.対象系境界 == self.現在境界 and p.結果経路[0] == '出力'
+                    and p.関係型 in 構造関係型 and p.条件経路群[0][0] == '入力'):
+                if p.関係型 == '構造要素対応関係' and len({署名(v) for _, v in p.対応値表}) < 2:
+                    continue  # 定値だけの出力を答えとして課題間へ持ち込まない。
+                self._転用候補を保持((p,), True)
         self._課題番号 += 1
         self._観測署名 = set()
         # 失敗履歴・HDS経験・原理は削除しない。新scopeは学習前のため転用も保留。
         return self.状態()
+
+    def _転用候補を保持(self, principles, structural):
+        structure = [(p.関係型, p.条件経路群, p.結果経路,
+                      p.対応値表 if p.関係型 in {'定値関係', '構造要素対応関係'} else (),
+                      p.適用範囲.get('根容器型'), p.適用範囲.get('葉値型群')) for p in principles]
+        key = 署名(structure)
+        shapes = sorted({(e.原入力['入力']['行数'], e.原入力['入力']['列数'])
+                         for e in self.系.エンジン._経験群(self.現在境界)})
+        if key not in self._転用候補 and len(self._転用候補) < 64:
+            self._転用候補[key] = {'署名': key, '原理参照': [p.原理識別子 for p in principles],
+                                 '入力形状': [list(x) for x in shapes], '構造一般': structural,
+                                 '状態': '再検証待ち', '反証参照': []}
 
     def 保存する(self, directory):
         directory = Path(directory)

@@ -11,6 +11,12 @@ class 共通検証器:
         self.最小支持数 = 最小支持数
 
     def 検証する(self, 候補: 原理候補, 経験群: Sequence[経験記録]) -> 検証結果:
+        from .構造関係 import 構造関係型, 構造証拠を評価する, 構造支持条件
+        if 候補.関係型 in 構造関係型:
+            支持, 反証 = 構造証拠を評価する(候補, 経験群)
+            distinct = {値キー(sorted(経験写像(e).items(), key=repr)) for e in 経験群 if e.経験識別子 in 支持}
+            判定 = 判定状態.失敗 if 反証 else (判定状態.適合 if len(distinct) >= self.最小支持数 and 構造支持条件(候補, 経験群, 支持, self.最小支持数) else 判定状態.断定保留)
+            return 検証結果(判定, '同型構造の全要素を既存観測と照合', 支持, 反証, len(distinct), len(候補.対応表))
         対応 = dict(候補.対応表)
         支持: list[str] = []
         反証: list[str] = []
