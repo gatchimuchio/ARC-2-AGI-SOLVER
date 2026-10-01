@@ -1,0 +1,76 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "ac0cc8c0ddd070de46a9940419866732ebdcef09",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存機構source": {
+    "repository": "gatchimuchio/ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365",
+    "files": [
+      "arc_agi_2_solver/arc2_runtime_program_search.py",
+      "arc_agi_2_solver/arc2_runtime_object_graph.py",
+      "arc_agi_2_solver/arc2_runtime_feature_index.py"
+    ],
+    "抽出": "19定義のAST同一閉包と既採用の共有2関数。旧solver本体は使用しない"
+  },
+  "追加機構": "REGION_REWRITEの閉領域パレット転写。入力内の単色テンプレートと着色側の閉領域を一意な最小重心距離対応で結び、候補を既存HDSへ渡す",
+  "previous": {
+    "correct_tasks": 2,
+    "correct_examples": 3,
+    "unanswered": 164,
+    "wrong_attempted_tasks": 0,
+    "resource_failures": {}
+  },
+  "current": {
+    "correct_tasks": 3,
+    "correct_examples": 5,
+    "unanswered": 162,
+    "wrong_attempted_tasks": 0,
+    "resource_failures": {}
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 2,
+    "accuracy_percentage_points": 0.8333333333333334,
+    "regressed_tasks": 0,
+    "既存正答3例": "同一"
+  },
+  "現行設定保持": {
+    "最小支持": "異なる二教師入力ちょうどなら2、それ以外3",
+    "支持2課題数": 34,
+    "支持3課題数": 86,
+    "新機構prior数": 0,
+    "探索上限": "元helperの閉領域12個まで",
+    "排気": "単一HDS、公開学習cycle、全教師再現と同値原理、学習後の既存gateと機構間合意"
+  },
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "旧ARC採点関数3個を無改変で再利用"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "bde441a868277c53f2c1621d9f2d58451d206a3378d2da152f43ee986a25e9b2",
+    "接続/ARC2/既存領域転写.py": "76a73e2228f7546a2ad22c30dfaf6550a494d3ee40cffdb22926afa4d75fe304",
+    "検証/領域転写回帰.py": "b8519a5449c09877c90d7729a7a7dc4a15aff7c58c2e6a1c61e3dc2bf69ee53c",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存16件＋領域8件合格、領域8件は最適化モードでも合格",
+    "一教師・重複・反例・曖昧対応・上限超過・未確定test・機構競合・test正解/ID注入を拒否",
+    "異なる配色2種と配置移動で同じ一般処理を確認",
+    "HDS中核12・保護7・採点器・評価runnerは無変更"
+  ],
+  "選択根拠": "全教師再現1課題/二教師、test入力2例ともrender可能。training1000課題には全教師適合なし。評価test正解を選択へ使わず、同率の役割転写より小さい依存閉包を先行",
+  "制限": [
+    "公開評価での差分。既存helperの過去開発データから独立な評価ではない",
+    "hidden・Kaggle提出・満点は未達未実施",
+    "source evaluationのSHA256は既存ZIPマニフェストと不一致",
+    "残り117課題・162例は未回答"
+  ]
+}

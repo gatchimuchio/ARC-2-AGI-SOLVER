@@ -10,6 +10,7 @@ from hds学習系統 import HDS学習実行系, 最小排気系
 from hds学習系統.型 import 学習入力, 観測事実
 from .既存穴充填 import _template_hole_pack_render
 from .既存入れ子合成 import _nested_panel_relation_render
+from .既存領域転写 import _dual_region_hole_palette_render
 
 
 def 事前教材を読む():
@@ -125,6 +126,7 @@ def 課題を解く(課題, 事前教材):
     機構群 = (
         ("ARCテンプレート穴充填", _template_hole_pack_render, 事前教材),
         ("ARC入れ子パネル合成", _nested_panel_relation_render, ()),
+        ("ARC閉領域パレット転写", _dual_region_hole_palette_render, ()),
     )
     記録群 = [候補機構を学習(機械, 課題, 教材, 境界, 候補器)
               for 境界, 候補器, 教材 in 機構群]
