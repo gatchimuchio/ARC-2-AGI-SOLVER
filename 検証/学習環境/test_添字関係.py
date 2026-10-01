@@ -121,7 +121,7 @@ class 添字関係試験(unittest.TestCase):
         r=s.エンジン.照会(s.吸気系.取り込む(外部入力({'前':[20,21,22,23]},'index-fixture')))
         self.assertIn([23,22,21,20],[p.予測値 for p in r.予測群 if p.結果経路==('後',)])
 
-    def test_保存形式7を旧6runtimeは拒む(self):
+    def test_現行保存形式を旧数量runtimeは拒む(self):
         import subprocess,sys,os
         from pathlib import Path
         old=Path('/workspace/shared/arc2_eed_frozen/HDS/学習系統/v0.4.2')

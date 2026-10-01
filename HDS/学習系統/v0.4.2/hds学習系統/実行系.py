@@ -29,7 +29,7 @@ def 現在時刻() -> str:
 class HDS学習実行系:
     """HDS rev4.2 の学習作用を領域非依存で実行する最小共通中核。"""
 
-    def __init__(self, 最小支持数: int = 3, 最大条件数: int = 2, 数量関係有効: bool = True, 添字関係有効: bool = True) -> None:
+    def __init__(self, 最小支持数: int = 3, 最大条件数: int = 2, 数量関係有効: bool = True, 添字関係有効: bool = True, 関係合成有効: bool = False, 最大合成段数: int = 4, 最大合成候補数: int = 4096) -> None:
         self.識別子 = 識別子生成器()
         self.台帳 = 追記専用台帳()
         self.状態 = 状態管理器()
@@ -40,6 +40,9 @@ class HDS学習実行系:
         self.適応器 = 共通適応器()
         self.数量関係有効 = 数量関係有効
         self.添字関係有効 = 添字関係有効
+        self.関係合成有効 = 関係合成有効
+        self.最大合成段数 = 最大合成段数
+        self.最大合成候補数 = 最大合成候補数
         self.最小支持数 = 最小支持数
         self._原理履歴: dict[str, list[原理記録]] = {}
 
@@ -66,6 +69,33 @@ class HDS学習実行系:
         self._添字関係有効 = value
         self.推論器.添字関係有効 = value
         self.適応器.添字関係有効 = value
+
+    @property
+    def 関係合成有効(self):
+        return self.適応器.関係合成有効
+
+    @関係合成有効.setter
+    def 関係合成有効(self,value):
+        if type(value) is not bool:raise TypeError('関係合成有効は真偽値')
+        self.適応器.関係合成有効=value
+
+    @property
+    def 最大合成段数(self):
+        return self.適応器.最大合成段数
+
+    @最大合成段数.setter
+    def 最大合成段数(self,value):
+        if type(value) is not int or not 1<=value<=16:raise ValueError('最大合成段数は1..16')
+        self.適応器.最大合成段数=value
+
+    @property
+    def 最大合成候補数(self):
+        return self.適応器.最大合成候補数
+
+    @最大合成候補数.setter
+    def 最大合成候補数(self,value):
+        if type(value) is not int or not 1<=value<=65536:raise ValueError('最大合成候補数は1..65536')
+        self.適応器.最大合成候補数=value
 
     def _次(self, 種別: str) -> str:
         return self.識別子.次(種別)
@@ -673,9 +703,11 @@ class HDS学習実行系:
         入力は記憶へ追加せず、懐疑・推論・採否・適応も実行しない。
         現在有効な暫定原理だけを参照して出力を構成するため、学習成立状態は「適用外」とする。
         """
+        from copy import deepcopy
+        照会識別子=deepcopy(self.識別子)
         時点 = 現在時刻()
         照会経験 = 経験記録(
-            経験識別子=self._次("照会"),
+            経験識別子=照会識別子.次("照会"),
             対象系境界=入力.対象系境界,
             原入力=入力.原入力,
             観測群=入力.観測群,
@@ -699,7 +731,7 @@ class HDS学習実行系:
         if 識別不能群:
             保留理由.append("現観測だけでは複数の関係候補を識別できない")
         学習 = 学習過程記録(
-            学習識別子=self._次("学習判定"),
+            学習識別子=照会識別子.次("学習判定"),
             学習前状態版=self.状態.現在版,
             学習後状態版=self.状態.現在版,
             経験参照=照会経験.経験識別子,

@@ -67,6 +67,9 @@ class 共通適応器:
     def __init__(self):
         self.数量関係有効 = True
         self.添字関係有効 = True
+        self.関係合成有効 = False
+        self.最大合成段数 = 4
+        self.最大合成候補数 = 4096
 
     def 原理化する(
         self,
@@ -130,12 +133,19 @@ class 共通適応器:
             return False
         return 対応[条件値] != 値キー(写像[原理.結果経路])
 
-    def 予測する(
+    def 予測する(self, 原理群, 新経験):
+        if not self.関係合成有効:
+            return self._直接予測する(原理群, 新経験)
+        from .合成 import 関係を合成する
+        return 関係を合成する(self, 原理群, 新経験, self.最大合成段数, self.最大合成候補数)
+
+    def _直接予測する(
         self,
         原理群: Sequence[原理記録],
         新経験: 経験記録,
+        推論文脈=None,
     ) -> tuple[tuple[予測記録, ...], tuple[競合記録, ...], tuple[追加観測要求, ...]]:
-        写像 = 経験写像(新経験)
+        写像 = 経験写像(新経験) if 推論文脈 is None else 推論文脈['葉']
         予測群: list[予測記録] = []
         観測要求候補: list[追加観測要求] = []
 
@@ -150,7 +160,7 @@ class 共通適応器:
                 if not self.添字関係有効:
                     continue
                 from .構造関係 import ノード群
-                nodes = ノード群(新経験.原入力)
+                nodes = ノード群(新経験.原入力) if 推論文脈 is None else 推論文脈['ノード']
                 if 原理.結果経路 in nodes:
                     continue
                 try:
@@ -166,7 +176,7 @@ class 共通適応器:
             if 原理.関係型 == 数量関係型:
                 if not self.数量関係有効:
                     continue
-                quantities = 数量写像(新経験)
+                quantities = 数量写像(新経験) if 推論文脈 is None else 推論文脈['数量']
                 if 原理.結果経路 in 写像:
                     continue
                 try:
@@ -181,7 +191,7 @@ class 共通適応器:
                 観測要求候補.append(追加観測要求(原理.結果経路, (), (原理.原理識別子,), "定値仮説の入力構造文脈が確認範囲外"))
                 continue
             if 原理.関係型 in 構造関係型:
-                containers = 容器群(新経験.原入力)
+                containers = 容器群(新経験.原入力) if 推論文脈 is None else 推論文脈['容器']
                 if 原理.結果経路 in containers:
                     continue
                 source = containers.get(原理.条件経路群[0])

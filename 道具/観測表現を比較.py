@@ -52,7 +52,11 @@ def 旧状態を検証して読む(directory, expected_implementation):
         raise ValueError('旧状態の数量設定がHDSと境界で不一致')
     if holder.系.エンジン.添字関係有効 != meta.get('添字関係有効', True):
         raise ValueError('旧状態の添字設定がHDSと境界で不一致')
+    for key,default in (('関係合成有効',False),('最大合成段数',4),('最大合成候補数',4096)):
+        if getattr(holder.系.エンジン,key)!=meta.get(key,default):raise ValueError('旧合成設定がHDSと境界で不一致')
     state = holder.状態()
+    for key in ('関係合成有効','最大合成段数','最大合成候補数'):
+        if key not in meta:state.pop(key)
     if meta['形式版'] == 1:
         for key in ('観測表現', '最大セル数', '学習有効', '最小支持数', '最大条件数'):
             state.pop(key)

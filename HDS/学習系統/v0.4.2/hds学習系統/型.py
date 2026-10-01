@@ -156,6 +156,10 @@ class 予測記録:
     結果経路: tuple[str, ...]
     予測値: Any
     条件値群: tuple[Any, ...]
+    導出原理参照群: tuple[str, ...] = ()
+    根観測経路群: tuple[tuple[str, ...], ...] = ()
+    依存経路群: tuple[tuple[str, ...], ...] = ()
+    合成段数: int = 1
 
 
 @dataclass(frozen=True)
