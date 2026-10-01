@@ -1,0 +1,50 @@
+{
+  "公式ソース": {
+    "repository": "arcprize/ARC-AGI-2",
+    "commit": "f3283f727488ad98fe575ea6a5ac981e4a188e49",
+    "分割": "data/training"
+  },
+  "選択": "固定版trainingのファイル名昇順先頭8。実測前に固定",
+  "教材": [
+    {
+      "ファイル": "00576224.json",
+      "SHA256": "0eec5237d183b37d4a8f56ea9a193b5680e08faa2f865026cabb2e2b1a307e51",
+      "GitBlob": "decb19e8c4fd902945bf3b3a1d432fac79f4c30e"
+    },
+    {
+      "ファイル": "007bbfb7.json",
+      "SHA256": "874eaabcd015d8ca1fd5d1a9ba14b9e17f29d39ed583ae200f6adabc2ef40156",
+      "GitBlob": "194d6e53b44a972b678ab7511fbe3bafbcac654a"
+    },
+    {
+      "ファイル": "009d5c81.json",
+      "SHA256": "7de7c387a1faf0ac3317b99ace0180641bdbf2f0115403437d5f9000d6309bc7",
+      "GitBlob": "049872096396a564ecca72befef743d9f884ee3c"
+    },
+    {
+      "ファイル": "00d62c1b.json",
+      "SHA256": "568a2cf03b010b467c76f257061a25ad31b402af68aa049e8cfe4f1b669ae90a",
+      "GitBlob": "755d43834b4f223ead61ea6fd043f2f8ad045b9d"
+    },
+    {
+      "ファイル": "00dbd492.json",
+      "SHA256": "af041f332f0f43c50ada873525392d1bc3105083cf8737adde26492802053996",
+      "GitBlob": "9b1579dda9c6fe9d138c06a823334465c29e01bc"
+    },
+    {
+      "ファイル": "017c7c7b.json",
+      "SHA256": "29f11661862ea0556201b2ab46f8f67e0c80ce2ea118e7c21183d4964bb282c2",
+      "GitBlob": "2f4469a6f8d00f708838e612a268f4e337e1949f"
+    },
+    {
+      "ファイル": "025d127b.json",
+      "SHA256": "84827b5cb526296e81464ba0959af19defcbe8e93bcb61c892e57332fe824c74",
+      "GitBlob": "b80185a57395096af61b39fffa6643a384058467"
+    },
+    {
+      "ファイル": "03560426.json",
+      "SHA256": "752ca005aa855cfa62f6e181a7de4f5ca99a767145cbfa1bd2af36e598da2fbd",
+      "GitBlob": "6db172e0f664fa9a6f89a9ab7bc26f16a28d656e"
+    }
+  ]
+}
