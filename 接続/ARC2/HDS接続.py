@@ -13,6 +13,7 @@ from .既存入れ子合成 import _nested_panel_relation_render
 from .既存領域転写 import _dual_region_hole_palette_render
 from .物体端投射 import 端投射教材
 from .凡例穴対応 import 凡例穴教材
+from .色群充填 import 色群充填教材
 
 
 def 事前教材を読む():
@@ -128,12 +129,14 @@ def 課題を解く(課題, 事前教材):
     端教材 = 端投射教材(課題["train"])
     端教材.学習する(機械, 観測へ)
     凡例教材 = 凡例穴教材(課題["train"], 必要支持数)
+    色群教材 = 色群充填教材(課題["train"])
     機構群 = (
         ("ARCテンプレート穴充填", _template_hole_pack_render, 事前教材),
         ("ARC入れ子パネル合成", _nested_panel_relation_render, ()),
         ("ARC閉領域パレット転写", _dual_region_hole_palette_render, ()),
         ("ARC物体端投射", 端教材.候補, ()),
         ("ARC凡例穴数対応", 凡例教材.候補, ()),
+        ("ARC色群テンプレート充填", 色群教材.候補, ()),
     )
     記録群 = [候補機構を学習(機械, 課題, 教材, 境界, 候補器)
               for 境界, 候補器, 教材 in 機構群]
@@ -168,7 +171,7 @@ def 課題を解く(課題, 事前教材):
                            "reasons": ["採用済み機構の完全格子予測が競合したため保留"]})
     return {"results": 結果群, "mechanism": "HDS機構候補の照会",
             "minimum_support": 必要支持数, "families": 記録群,
-            "quarantined": 隔離数, "object_learning": 端教材.記録(), "legend_learning": 凡例教材.記録()}
+            "quarantined": 隔離数, "object_learning": 端教材.記録(), "legend_learning": 凡例教材.記録(), "grouped_packing": 色群教材.記録()}
 
 
 if __name__ == "__main__":

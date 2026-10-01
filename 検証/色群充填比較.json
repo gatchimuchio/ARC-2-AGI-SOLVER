@@ -1,0 +1,78 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "24aedef32dc5032ca8908ba85b60e7c54ba27780",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 の色集合・bbox整列/間隔の4定義。同じ既採用_template_hole_pack_outputを無変更で使用",
+  "介入": "充填kernelの変更ではなく、既存候補が全教師入力で不在の領域へ入力viewを追加",
+  "previous": {
+    "correct_tasks": 4,
+    "correct_examples": 8,
+    "unanswered": 159,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 5,
+    "correct_examples": 9,
+    "unanswered": 158,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "task_accuracy_percentage_points": 0.8333333333333334,
+    "regressed_examples": 0,
+    "既存正答8例": "同一"
+  },
+  "事前適用域": {
+    "条件": "全ての現在教師INPUTに対し元のraw充填候補探索が正常終了し、全件空リストであること",
+    "除外": "一つでも非空なら、正解と一致しない候補や複数の曖昧候補でも新viewを学習しない",
+    "禁止": "教師出力・test・課題IDで適用域を選ばない。例外や時間切れを空候補と解釈しない",
+    "実測": "119課題はこの入力域に入るが全教師再現は新規1課題。既存充填課題の教師候補数[1,1]は域外、新規課題[0,0]は域内",
+    "資源境界": "既存充填課題の14/15部品testを新しい12部品viewで扱わない。後から採用済み未解決候補を無視する処理はない"
+  },
+  "色群view": {
+    "候補": "全ての単色集合と、直交方向のspanが一致しgap0の二色bbox集合。任意の部分集合探索は行わない",
+    "保存": "template bbox面積=入力前景セル総数、bbox内に未割当て前景なし、template固定セルとsource部品を完全分割",
+    "上限": "55群・12部品。どれか一つの構造候補でも上限超過ならHOLD、上限を測定後に増やさない",
+    "合意": "受理には全ての適格viewを確認し、未解決viewがなく、得られた完全格子が同一であること。元kernelは異なる出力が16超で探索を打ち切るが、その時点で複数解なのでHOLD",
+    "教師": "新規課題の二教師で入力だけから候補各1件、5部品/8部品。testは9部品の一意格子",
+    "HDS": "同じinstance・公開教師cycle・現行支持2/3・全教師再現・同値採用・既存gate/最終機構合意。追加priorなし"
+  },
+  "原指標保持": "wrong_attempted_tasks=1は既存の部分回答課題。新旧とも誤出力格子0。採点関数は変更しない",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "e404e2d7551e8ea6bde0340c2ce1ec9bbb8b1035672f31ed066329a2a3e4c674",
+    "接続/ARC2/色群充填.py": "80efc7cc6813a9837ee51c110362483314fb7c6fca60ff3e6ca77ca333a6ae81",
+    "接続/ARC2/既存色群関係.py": "116068335b39fd1ed18a87008534537fcdaee41073a94d509b18946a3f6e66ef",
+    "接続/ARC2/既存穴充填.py": "451d07ba636d4e4ce5a2443cfe56745f55fd16cf8845a2f4c9f62abd08d78b53",
+    "検証/色群充填回帰.py": "d25b4263d8dadd7ba2d2ae1f242b1c31d47d82ce6565e5b153f91a0e89fe1daa",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存39件＋新8件合格、新8件は最適化モードでも合格",
+    "既存候補非空/曖昧・教師間混在・教師出力/test独立・例外伝播・複数解・部品上限・部品再使用禁止を確認",
+    "HDS中核12・保護7・既存充填kernel・採点器・runnerは無変更"
+  ],
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残り115課題未完・158例未回答"
+  ]
+}
