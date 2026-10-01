@@ -363,5 +363,49 @@ class 状態封鎖試験(unittest.TestCase):
         snapshot['原理履歴'].clear()
         self.assertEqual(m.状態署名(), before)
 
+
+class 条件別支持試験(unittest.TestCase):
+    def test_一条件一観測の偶然対応は採用しない(self):
+        s = HDS学習系統()
+        for x, y in ((1, 4), (2, 8), (3, 5)):
+            s.処理する(外部入力({'条件': x, '結果': y}, '支持probe'))
+        self.assertFalse(any(p.関係型 == '決定的対応関係' for p in s.エンジン._有効原理群()))
+
+    def test_条件毎に異なる観測がある対応は採用(self):
+        s = HDS学習系統(最大条件数=1)
+        for x, y, context in ((1, 4, 0), (2, 8, 1), (1, 4, 2), (2, 8, 3)):
+            s.処理する(外部入力({'条件': x, '結果': y, '文脈': context}, '支持probe'))
+        self.assertTrue(any(p.関係型 == '決定的対応関係' and p.条件経路群 == (('条件',),)
+                            and p.結果経路 == ('結果',) for p in s.エンジン._有効原理群()))
+
+    def test_同一観測を繰り返しても条件別支持を水増ししない(self):
+        s = HDS学習系統(最大条件数=1)
+        for x, y in ((1, 4), (2, 8), (1, 4), (2, 8)):
+            s.処理する(外部入力({'条件': x, '結果': y}, '支持probe'))
+        self.assertFalse(any(p.関係型 == '決定的対応関係' for p in s.エンジン._有効原理群()))
+
+    def test_一方の条件だけ反復しても採用しない(self):
+        s = HDS学習系統(最大条件数=1)
+        for x, y, context in ((1, 4, 0), (2, 8, 1), (1, 4, 2)):
+            s.処理する(外部入力({'条件': x, '結果': y, '文脈': context}, '支持probe'))
+        self.assertFalse(any(p.関係型 == '決定的対応関係' and p.条件経路群 == (('条件',),)
+                            and p.結果経路 == ('結果',) for p in s.エンジン._有効原理群()))
+
+
+class 支持数回帰試験(unittest.TestCase):
+    def test_設定支持数を同一観測で水増しできない(self):
+        s = HDS学習系統(最小支持数=5, 最大条件数=1)
+        rows = ((1, 4, 0), (2, 8, 1), (1, 4, 2), (2, 8, 3), (1, 4, 0))
+        for x, y, context in rows:
+            s.処理する(外部入力({'条件': x, '結果': y, '文脈': context}, '支持probe'))
+        self.assertFalse(any(p.関係型 == '決定的対応関係' and p.条件経路群 == (('条件',),)
+                            and p.結果経路 == ('結果',) for p in s.エンジン._有効原理群()))
+
+    def test_同値関係の全体支持数も水増しできない(self):
+        s = HDS学習系統(最小支持数=3, 最大条件数=1)
+        for x in (1, 2, 1):
+            s.処理する(外部入力({'条件': x, '結果': x}, '支持probe'))
+        self.assertFalse(s.エンジン._有効原理群())
+
 if __name__ == '__main__':
     unittest.main()
