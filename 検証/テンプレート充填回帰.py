@@ -27,10 +27,13 @@ class 接続回帰(unittest.TestCase):
         r = 課題を解く(self.課題, self.事前)
         self.assertEqual(r['results'][0]['answer'], 合成充填対(7)['output'])
         self.assertTrue(r['results'][0]['equality_admitted'])
-        self.assertEqual((r['prior_observations'], r['current_observations']), (2,2))
+        充填 = next(x for x in r['families'] if x['境界'] == 'ARCテンプレート穴充填')
+        self.assertEqual((充填['事前観測数'], 充填['現在観測数']), (2,2))
 
-    def test_支持不足ではhelperを直接排出しない(self):
-        r = 課題を解く(self.課題, [])
+    def test_一教師観測ではhelperを直接排出しない(self):
+        task = deepcopy(self.課題)
+        task['train'] = task['train'][:1]
+        r = 課題を解く(task, [])
         self.assertIsNone(r['results'][0]['answer'])
 
     def test_教師反例の隔離を解除しない(self):

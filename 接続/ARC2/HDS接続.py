@@ -9,6 +9,7 @@ import sys
 from hds学習系統 import HDS学習実行系, 最小排気系
 from hds学習系統.型 import 学習入力, 観測事実
 from .既存穴充填 import _template_hole_pack_render
+from .既存入れ子合成 import _nested_panel_relation_render
 
 
 def 事前教材を読む():
@@ -57,17 +58,21 @@ def 格子観測(対):
     return 観測へ(内容, "ARC格子変換")
 
 
+def 同値原理あり(原理群, 境界):
+    return any(
+        原理.対象系境界 == 境界
+        and 原理.関係型 == "同値関係"
+        and 原理.条件経路群 == (("候補",),)
+        and 原理.結果経路 == ("出力",)
+        for 原理 in 原理群
+    )
+
+
 def 出力格子(機械, 観測, *, 同値必須=False):
     実行結果 = 機械.照会(観測)
     排気 = 最小排気系().排出する(実行結果)
     値群 = [p.予測値 for p in 実行結果.予測群 if p.結果経路 == ("出力",)]
-    同値あり = any(
-        原理.対象系境界 == 観測.対象系境界
-        and 原理.関係型 == "同値関係"
-        and 原理.条件経路群 == (("候補",),)
-        and 原理.結果経路 == ("出力",)
-        for 原理 in 実行結果.有効原理群
-    )
+    同値あり = 同値原理あり(実行結果.有効原理群, 観測.対象系境界)
     確定 = (
         排気.状態 == "出力" and bool(値群)
         and all(v == 値群[0] for v in 値群)
@@ -81,56 +86,80 @@ def 出力格子(機械, 観測, *, 同値必須=False):
     }
 
 
+def 候補機構を学習(機械, 課題, 事前教材, 境界, 候補器):
+    記録 = {"境界": 境界, "事前観測数": 0, "現在観測数": 0,
+            "採用可": False, "同値採用": False}
+    全再現 = True
+    for 群名, 教材群 in (("事前観測数", 事前教材), ("現在観測数", 課題["train"])):
+        for 対 in 教材群:
+            # 常に入力だけで候補を生成。expected引数は渡さない。
+            候補, 詳細 = 候補器(対["input"], {})
+            if 候補 is None:
+                return {**記録, "状態": "充足する候補なし", "詳細": 詳細}
+            全再現 = 全再現 and 候補 == 対["output"]
+            # 反例も公開学習経路へ渡す。隔離・保留を解除しない。
+            学習結果 = 機械.実行(観測へ({"候補": 候補, "出力": 対["output"]}, 境界))
+            記録[群名] += 1
+            記録["同値採用"] = 同値原理あり(学習結果.有効原理群, 境界)
+    return {**記録, "採用可": 全再現,
+            "状態": "全教師再現" if 全再現 else "教師反例により不採用",
+            "隔離数": len(学習結果.係争中原理群) if 課題["train"] or 事前教材 else 0}
+
+
 def 課題を解く(課題, 事前教材):
     if set(課題) != {"train", "test"}:
         raise ValueError("runtime課題はtrain/testだけを受け取る")
     if any(set(対) != {"input"} for 対 in 課題["test"]):
         raise ValueError("runtimeのtest対へ正解や識別子を渡してはならない")
-    機械 = HDS学習実行系()  # 既存の最小支持数3・最大条件数2を保持。
+    二例 = (len(課題["train"]) == 2
+            and 課題["train"][0]["input"] != 課題["train"][1]["input"])
+    必要支持数 = 2 if 二例 else 3
+    # 課題全体に作用する明示設定。HDS中核の既定値3は変更しない。
+    機械 = HDS学習実行系(最小支持数=必要支持数)
     for 対 in 課題["train"]:
         機械.実行(格子観測(対))
-    結果群 = [出力格子(機械, 格子観測(対)) for 対 in 課題["test"]]
-    if all(結果["answer"] is not None for 結果 in 結果群):
-        return {"results": 結果群, "mechanism": "格子値基底"}
+    基底 = [出力格子(機械, 格子観測(対)) for 対 in 課題["test"]]
+    if all(結果["answer"] is not None for 結果 in 基底):
+        return {"results": 基底, "mechanism": "格子値基底", "minimum_support": 必要支持数}
 
-    境界 = "ARCテンプレート穴充填"
-    事前数, 現在数, 全再現 = 0, 0, True
-    for 群名, 教材群 in (("事前", 事前教材), ("現在", 課題["train"])):
-        for 対 in 教材群:
-            # expected引数は渡さない。候補は常に入力だけで生成する。
-            候補, _ = _template_hole_pack_render(対["input"], {})
+    機構群 = (
+        ("ARCテンプレート穴充填", _template_hole_pack_render, 事前教材),
+        ("ARC入れ子パネル合成", _nested_panel_relation_render, ()),
+    )
+    記録群 = [候補機構を学習(機械, 課題, 教材, 境界, 候補器)
+              for 境界, 候補器, 教材 in 機構群]
+    結果群 = []
+    隔離数 = 0
+    for 対 in 課題["test"]:
+        # 全機構の学習後に照会するため、後発の隔離も既存排気gateへ反映される。
+        基底結果 = 出力格子(機械, 格子観測(対))
+        隔離数 = max(隔離数, 基底結果["quarantined"])
+        予測群 = [] if 基底結果["answer"] is None else [基底結果]
+        未解決理由 = []
+        for (境界, 候補器, _), 記録 in zip(機構群, 記録群):
+            if not 記録["採用可"] or not 記録["同値採用"]:
+                continue
+            候補, _ = 候補器(対["input"], {})
             if 候補 is None:
-                return {"results": 結果群, "mechanism": "充填候補なし"}
-            再現 = 候補 == 対["output"]
-            全再現 = 全再現 and 再現
-            # 反例も公開学習経路へ渡す。隔離や保留を自動解除しない。
-            学習結果 = 機械.実行(観測へ({"候補": 候補, "出力": 対["output"]}, 境界))
-            if 群名 == "事前":
-                事前数 += 1
+                未解決理由.append(f"採用済み機構{境界}のtest候補が未確定")
+                continue
+            予測 = 出力格子(機械, 観測へ({"候補": 候補}, 境界), 同値必須=True)
+            if 予測["answer"] is not None:
+                予測群.append({**予測, "family": 境界})
             else:
-                現在数 += 1
-    if not 全再現:
-        return {
-            "results": 結果群, "mechanism": "教師反例により不採用",
-            "prior_observations": 事前数, "current_observations": 現在数,
-            "quarantined": len(学習結果.係争中原理群),
-        }
-
-    for 位置, 対 in enumerate(課題["test"]):
-        if 結果群[位置]["answer"] is not None:
-            continue
-        候補, 詳細 = _template_hole_pack_render(対["input"], {})
-        if 候補 is None:
-            結果群[位置] = {"answer": None, "status": "断定保留", "details": 詳細}
-            continue
-        # helperの候補を直接排出せず、採用済み同値原理の予測だけを排出する。
-        結果群[位置] = 出力格子(
-            機械, 観測へ({"候補": 候補}, 境界), 同値必須=True,
-        )
-    return {
-        "results": 結果群, "mechanism": "HDS・既存テンプレート穴充填",
-        "prior_observations": 事前数, "current_observations": 現在数,
-    }
+                未解決理由.append(f"採用済み機構{境界}のHDS排気が保留")
+        if 未解決理由:
+            結果群.append({"answer": None, "status": "断定保留", "reasons": 未解決理由})
+        elif not 予測群:
+            結果群.append(基底結果)
+        elif all(p["answer"] == 予測群[0]["answer"] for p in 予測群):
+            結果群.append({**予測群[0], "agreeing_predictions": len(予測群)})
+        else:
+            結果群.append({"answer": None, "status": "断定保留",
+                           "reasons": ["採用済み機構の完全格子予測が競合したため保留"]})
+    return {"results": 結果群, "mechanism": "HDS機構候補の照会",
+            "minimum_support": 必要支持数, "families": 記録群,
+            "quarantined": 隔離数}
 
 
 if __name__ == "__main__":

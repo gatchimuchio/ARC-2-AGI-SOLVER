@@ -1,0 +1,86 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "b23d657b5dff429dcf34e2d79ce530c5a7e23c92",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存機構source": "gatchimuchio/ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365:arc_agi_2_solver/arc2_runtime_program_search.py",
+  "追加機構": "NESTED_PANEL_COMPOSE。入力だけで候補を構成し、同じHDSの同値原理で採否・照会する",
+  "三群": {
+    "previous_既存支持3": {
+      "correct_tasks": 1,
+      "correct_examples": 2,
+      "unanswered": 165,
+      "wrong_attempted_tasks": 0,
+      "resource_failures": {}
+    },
+    "支持2設定だけ": {
+      "correct_tasks": 1,
+      "correct_examples": 2,
+      "unanswered": 165,
+      "wrong_attempted_tasks": 0,
+      "resource_failures": {}
+    },
+    "current_支持2設定と入れ子機構": {
+      "correct_tasks": 2,
+      "correct_examples": 3,
+      "unanswered": 164,
+      "wrong_attempted_tasks": 0,
+      "resource_failures": {}
+    }
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "accuracy_percentage_points": 0.8333333333333334,
+    "regressed_tasks": 0,
+    "既存の充填出力2例": "同一"
+  },
+  "呼出設定": {
+    "条件": "trainが異なる入力の二例ちょうどなら最小支持2。それ以外は3",
+    "支持2課題数": 34,
+    "支持3課題数": 86,
+    "作用範囲": "課題全体の単一HDS instance。既存基底と充填にも作用する",
+    "証拠要件": "対象課題では3→2へ緩和。二例での確実性が強くなったとは主張しない",
+    "同値条件種類数": "既存HDSが最低2種類を要求するまま",
+    "入れ子の事前教材数": 0,
+    "HDS中核既定値": 3
+  },
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "旧ARC採点関数3個を無改変で再利用"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "54ffc12b43fc1f98a707ec7f391ba6183a25fbe0c8cb0baf1dfcb5ed6c129858",
+    "接続/ARC2/既存入れ子合成.py": "a5a7b57187e2d03d4114186e10fbc58c51f6204ead5f18e4d482a0513f627193",
+    "検証/入れ子合成回帰.py": "2a03c0d2a1caab7b1552c02c46f9575177a7ce4fa885427d7801586bd6f3e5f4",
+    "検証/テンプレート充填回帰.py": "dec0f45398cb741dca55e59444d4aa5a129158031c55e51d18f6b158a5939928",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存回帰6件＋新回帰10件合格",
+    "一教師・重複教師・矛盾教師・曖昧出力・機構間競合・別機構証拠混入・隔離無視を拒否",
+    "最適化モードでも新回帰10件合格",
+    "HDS中核12ファイルと保護7ファイル無変更"
+  ],
+  "境界": [
+    "評価test正解は親採点過程だけ。課題IDは採点・教材出典だけ",
+    "新機構へ別機構のprior証拠を混ぜない",
+    "全機構学習後に既存排気gateで照会する。隔離を解除しない",
+    "採用済み代替の未確定出力・異なる完全格子予測はHOLD",
+    "既存HDSの完全な格子値予測を再利用する早期出口は保持"
+  ],
+  "制限": [
+    "公開評価での差分。既存helperの過去開発データから独立な評価ではない",
+    "hidden・Kaggle提出・満点は未達未実施",
+    "source evaluationのSHA256は既存ZIPマニフェストと不一致",
+    "残り118課題・164例は未回答"
+  ]
+}
