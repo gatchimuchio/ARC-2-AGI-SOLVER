@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from copy import deepcopy
+from dataclasses import replace
 import json
 from typing import Any
 
@@ -35,6 +36,20 @@ class 最小吸気系:
     def 取り込む(self, 入力: 外部入力) -> 学習入力:
         観測群: list[観測事実] = []
         self._平坦化(入力.内容, (), 観測群)
+        # 数値に見えるカテゴリを勝手に算術量へ昇格しない。明示した経路だけ型づける。
+        quantity_paths = 入力.文脈.get('数量経路群', ())
+        if not isinstance(quantity_paths, (list, tuple)) or any(not isinstance(p, (list, tuple)) or any(type(k) is not str for k in p) for p in quantity_paths):
+            raise TypeError('数量経路群は文字列経路の列')
+        quantity_paths = {tuple(p) for p in quantity_paths}
+        from .数量関係 import 数量型
+        typed = []
+        for fact in 観測群:
+            if fact.経路 in quantity_paths:
+                if not fact.推論対象 or type(fact.値) is not int or fact.値 < 0:
+                    raise TypeError('明示数量は非負整数の観測葉だけ')
+                fact = replace(fact, 値型=数量型)
+            typed.append(fact)
+        観測群 = typed
         return 学習入力(
             原入力=deepcopy(入力.内容),
             対象系境界=入力.対象系境界,

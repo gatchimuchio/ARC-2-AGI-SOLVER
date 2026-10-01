@@ -22,6 +22,10 @@ def 系譜鍵(対象系境界: str, 関係型: str, 条件経路群, 結果経�
 
 def 原理証拠を評価する(原理: 原理記録, 経験群: Sequence[経験記録]) -> tuple[tuple[str, ...], tuple[str, ...]]:
     """関係型の意味に従って支持・反証を再計算する。未観測はどちらにも数えない。"""
+    from .数量関係 import 数量関係型, 数量証拠
+    if 原理.関係型 == 数量関係型:
+        support, counters, _ = 数量証拠(原理, 経験群)
+        return support, counters
     from .構造関係 import 構造関係型, 構造証拠を評価する
     if 原理.関係型 in 構造関係型:
         return 構造証拠を評価する(原理, 経験群)
@@ -57,6 +61,9 @@ def 原理証拠を評価する(原理: 原理記録, 経験群: Sequence[経験
 
 
 class 共通適応器:
+    def __init__(self):
+        self.数量関係有効 = True
+
     def 原理化する(
         self,
         候補: 原理候補,
@@ -96,6 +103,9 @@ class 共通適応器:
     def 反証を検出する(self, 原理: 原理記録, 新経験: 経験記録) -> bool:
         if 原理.対象系境界 != 新経験.対象系境界 or 新経験.経験識別子 in set(原理.除外反証参照群):
             return False
+        from .数量関係 import 数量関係型, 数量証拠
+        if 原理.関係型 == 数量関係型:
+            return bool(数量証拠(原理, (新経験,))[1])
         from .構造関係 import 構造関係型, 構造証拠を評価する
         if 原理.関係型 in 構造関係型:
             return bool(構造証拠を評価する(原理, (新経験,))[1])
@@ -128,6 +138,21 @@ class 共通適応器:
             if 原理.状態 != 原理状態.適用範囲付き暫定原理 or 原理.採用状態 != 採用状態.有効:
                 continue
             from .構造関係 import 構造関係型, 容器群, 構造を予測する, 定値文脈が適合
+            from .数量関係 import 数量関係型, 数量写像, 数量を計算する
+            if 原理.関係型 == 数量関係型:
+                if not self.数量関係有効:
+                    continue
+                quantities = 数量写像(新経験)
+                if 原理.結果経路 in 写像:
+                    continue
+                try:
+                    source = quantities[原理.条件経路群[0]]
+                    value = 数量を計算する(原理, source)
+                except (KeyError, ValueError):
+                    観測要求候補.append(追加観測要求(原理.結果経路, 原理.条件経路群, (原理.原理識別子,), '数量型・外挿範囲・整数閉包が未成立'))
+                    continue
+                予測群.append(予測記録(原理.原理識別子, 原理.結果経路, value, (source,)))
+                continue
             if 原理.関係型 == "定値関係" and not 定値文脈が適合(原理, 新経験.原入力):
                 観測要求候補.append(追加観測要求(原理.結果経路, (), (原理.原理識別子,), "定値仮説の入力構造文脈が確認範囲外"))
                 continue

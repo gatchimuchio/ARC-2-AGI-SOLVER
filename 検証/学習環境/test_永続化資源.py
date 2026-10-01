@@ -21,8 +21,8 @@ class 永続化資源試験(unittest.TestCase):
     def test_旧文字列方式と同一bytes(self):
         m = self.machine()
         e = m.系.エンジン
-        value = {'形式版':5, '最小支持数':e.最小支持数, '最大条件数':e.最大条件数,
-                 '識別子状態':e.識別子.状態を書き出す(), '台帳':e.台帳.全取得(),
+        value = {'形式版':6, '最小支持数':e.最小支持数, '最大条件数':e.最大条件数,
+                 '数量関係有効':e.数量関係有効, '識別子状態':e.識別子.状態を書き出す(), '台帳':e.台帳.全取得(),
                  '状態履歴':e.状態.履歴(), '原理履歴':e._原理履歴}
         expected = json.dumps(永続化._符号化(value),ensure_ascii=False,indent=2).encode()
         before = m.状態署名()
@@ -158,6 +158,39 @@ class 永続化資源試験(unittest.TestCase):
                 互換移行(source,target)
             self.assertFalse(target.exists())
             self.assertEqual(before,{p.name:p.read_bytes() for p in source.iterdir()})
+
+    def test_復号型表は一回の読込内だけ再利用(self):
+        value={'a':list(range(30)),'b':({'nested':[1,2,3]},)}
+        encoded=永続化._符号化(value)
+        with patch.object(永続化,'_型表',wraps=永続化._型表) as registry:
+            self.assertEqual(永続化._復号(encoded),value)
+            self.assertEqual(registry.call_count,1)
+            self.assertEqual(永続化._復号(encoded),value)
+            self.assertEqual(registry.call_count,2)
+        self.assertEqual(永続化._符号化(永続化._復号(encoded)),encoded)
+
+    def test_別読込で型登録変更を見落とさない(self):
+        from dataclasses import make_dataclass
+        custom=make_dataclass('FixtureValue',[('x',int)],frozen=True)
+        encoded={'__データ型__':'FixtureValue','値':{'x':3}}
+        with patch.object(永続化.型定義,'FixtureValue',custom,create=True):
+            self.assertEqual(永続化._復号(encoded),custom(3))
+        with self.assertRaises(KeyError):
+            永続化._復号(encoded)
+
+    def test_旧形式5から数量形式6を保存だけの互換と呼ばない(self):
+        from 道具.保存互換を検証 import 互換移行, 旧保存実装
+        m=self.machine()
+        with tempfile.TemporaryDirectory() as d:
+            source,target=Path(d)/'old',Path(d)/'new'
+            m.保存する(source)
+            p=source/'HDS.json';state=永続化._復号(json.loads(p.read_text()));state['形式版']=5
+            p.write_text(json.dumps(永続化._符号化(state),ensure_ascii=False,indent=2))
+            meta=json.loads((source/'境界.json').read_text());meta['実装署名']=旧保存実装
+            (source/'境界.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2))
+            with self.assertRaises(ValueError):
+                互換移行(source,target)
+            self.assertFalse(target.exists())
 
 if __name__ == '__main__':
     unittest.main()

@@ -54,7 +54,7 @@ def 観測射影(grid, 表現='座標辞書'):
     return {'行数': len(grid), '列数': len(grid[0]), 'セル': cells}
 
 class HDS学習機械:
-    def __init__(self, 最大セル数=36, 最小学習経験=3, 学習有効=True, 観測表現='座標辞書'):
+    def __init__(self, 最大セル数=36, 最小学習経験=3, 学習有効=True, 観測表現='座標辞書', 数量関係有効=True):
         if type(最大セル数) is not int or not 1 <= 最大セル数 <= 900:
             raise ValueError('最大セル数は1..900')
         if type(最小学習経験) is not int or 最小学習経験 < 3:
@@ -66,7 +66,7 @@ class HDS学習機械:
         self._観測表現 = 観測表現
         self.最大セル数 = 最大セル数
         self.学習有効 = 学習有効
-        self.系 = HDS学習系統(最小支持数=最小学習経験, 最大条件数=1)
+        self.系 = HDS学習系統(最小支持数=最小学習経験, 最大条件数=1, 数量関係有効=数量関係有効)
         self._観測署名 = set()
         self._失敗 = []
         self._課題番号 = 0
@@ -84,7 +84,8 @@ class HDS学習機械:
         return 境界 + ':' + str(self._課題番号)
 
     def _入力(self, content):
-        return self.系.吸気系.取り込む(外部入力(content, self.現在境界, 主体='HDS', 目的=目的))
+        return self.系.吸気系.取り込む(外部入力(content, self.現在境界, 主体='HDS', 目的=目的,
+            文脈={'数量経路群':[(side, dimension) for side in ('入力', '出力') for dimension in ('行数', '列数')]}))
 
     def 状態(self):
         engine = self.系.エンジン
@@ -94,7 +95,7 @@ class HDS学習機械:
                        '観測署名': sorted(self._観測署名), '失敗': self._失敗,
                        '課題番号': self._課題番号, '転用候補': self._転用候補, '観測表現': self.観測表現,
                        '最大セル数': self.最大セル数, '学習有効': self.学習有効,
-                       '最小支持数': engine.最小支持数, '最大条件数': engine.最大条件数})
+                       '最小支持数': engine.最小支持数, '最大条件数': engine.最大条件数, '数量関係有効': engine.数量関係有効})
 
     def 状態署名(self):
         # 状態()は既に完全な値複製・正規化済み。二度目の全台帳走査をしない。
@@ -102,7 +103,7 @@ class HDS学習機械:
 
     def 概況(self):
         engine = self.系.エンジン
-        return {'観測表現': self.観測表現, '経験数': len(self._観測署名), '状態版': engine.状態.現在版,
+        return {'観測表現': self.観測表現, '数量関係有効':engine.数量関係有効, '経験数': len(self._観測署名), '状態版': engine.状態.現在版,
                 '有効原理数': sum(p.対象系境界 == self.現在境界 for p in engine._有効原理群()),
                 '隔離原理数': sum(p.対象系境界 == self.現在境界 for p in engine._係争中原理群()),
                 '全課題保持経験数': len(engine._経験群()), '転用候補数': len(self._転用候補),
@@ -346,7 +347,7 @@ class HDS学習機械:
             stage = Path(temporary)
             self.系.保存する(stage / 'HDS.json')
             meta = {'形式版': 2, '観測表現': self.観測表現, '実装署名': 実装署名(), '最大セル数': self.最大セル数,
-                    '学習有効': self.学習有効, '観測署名': sorted(self._観測署名), '失敗': self._失敗,
+                    '学習有効': self.学習有効, '数量関係有効':self.系.エンジン.数量関係有効, '観測署名': sorted(self._観測署名), '失敗': self._失敗,
                     '状態署名': self.状態署名(), '課題番号': self._課題番号, '転用候補': self._転用候補}
             with (stage / '境界.json').open('w', encoding='utf-8') as stream:
                 json.dump(meta, stream, ensure_ascii=False, indent=2)
@@ -363,8 +364,10 @@ class HDS学習機械:
             raise ValueError('未対応の境界版')
         if meta['実装署名'] != 実装署名():
             raise ValueError('保存時と機械実装が異なる。無言移行しない')
-        obj = cls(meta['最大セル数'], 学習有効=meta['学習有効'], 観測表現=meta['観測表現'])
+        obj = cls(meta['最大セル数'], 学習有効=meta['学習有効'], 観測表現=meta['観測表現'], 数量関係有効=meta.get('数量関係有効', True))
         obj.系 = HDS学習系統.読み込む(directory / 'HDS.json')
+        if obj.系.エンジン.数量関係有効 != meta.get('数量関係有効', True):
+            raise ValueError('数量設定がHDSと境界で不一致')
         obj._観測署名 = set(meta['観測署名'])
         obj._失敗 = meta['失敗']
         obj._課題番号 = meta['課題番号']

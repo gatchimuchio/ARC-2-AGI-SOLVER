@@ -29,7 +29,7 @@ def 現在時刻() -> str:
 class HDS学習実行系:
     """HDS rev4.2 の学習作用を領域非依存で実行する最小共通中核。"""
 
-    def __init__(self, 最小支持数: int = 3, 最大条件数: int = 2) -> None:
+    def __init__(self, 最小支持数: int = 3, 最大条件数: int = 2, 数量関係有効: bool = True) -> None:
         self.識別子 = 識別子生成器()
         self.台帳 = 追記専用台帳()
         self.状態 = 状態管理器()
@@ -38,8 +38,21 @@ class HDS学習実行系:
         self.最大条件数 = 最大条件数
         self.検証器 = 共通検証器(最小支持数=最小支持数)
         self.適応器 = 共通適応器()
+        self.数量関係有効 = 数量関係有効
         self.最小支持数 = 最小支持数
         self._原理履歴: dict[str, list[原理記録]] = {}
+
+    @property
+    def 数量関係有効(self):
+        return self._数量関係有効
+
+    @数量関係有効.setter
+    def 数量関係有効(self, value):
+        if type(value) is not bool:
+            raise TypeError('数量関係有効は真偽値')
+        self._数量関係有効 = value
+        self.推論器.数量関係有効 = value
+        self.適応器.数量関係有効 = value
 
     def _次(self, 種別: str) -> str:
         return self.識別子.次(種別)
@@ -78,10 +91,12 @@ class HDS学習実行系:
             x for x in self._現行原理群()
             if x.状態 == 原理状態.適用範囲付き暫定原理
             and x.採用状態 == 採用状態.有効
+            and (self.数量関係有効 or x.関係型 != "数量一次関係")
         )
 
     def _係争中原理群(self) -> tuple[原理記録, ...]:
-        return tuple(x for x in self._現行原理群() if self._原理は隔離中(x))
+        return tuple(x for x in self._現行原理群() if self._原理は隔離中(x)
+                     and (self.数量関係有効 or x.関係型 != "数量一次関係"))
 
     def _記憶する(self, 入力: 学習入力, 時点: str) -> 経験記録:
         経験 = 経験記録(
@@ -428,7 +443,9 @@ class HDS学習実行系:
             if (旧 is not None
                     and 旧.状態 == 原理状態.適用範囲付き暫定原理
                     and 旧.採用状態 == 採用状態.有効
-                    and 旧.対応表 == 候補.対応表):
+                    and 旧.対応表 == 候補.対応表
+                    # 数量の意味は有限表ではなく係数・適用範囲にある。
+                    and (候補.関係型 != "数量一次関係" or 旧.適用範囲 == 候補.適用範囲)):
                 continue
 
             親 = self._親原理を探す(候補)
