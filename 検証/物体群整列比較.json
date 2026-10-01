@@ -1,0 +1,78 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "d59ea8f1f6fda42d3fae1c87e5d7d0397debe234",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "既採用の8近傍同色物体抽出・bbox・九幾何特徴を無変更で再利用。原出典はARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365",
+  "介入": "HDS中核ではなく、教師で群軸・区分特徴・整列方向を選ぶ小さな規則配置viewを追加。旧固定役割relinearizationの移植ではない",
+  "previous": {
+    "correct_tasks": 5,
+    "correct_examples": 9,
+    "unanswered": 158,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 6,
+    "correct_examples": 10,
+    "unanswered": 157,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "task_accuracy_percentage_points": 0.8333333333333334,
+    "regressed_examples": 0,
+    "既存正答9例": "同一"
+  },
+  "事前診断": {
+    "対象": "残115課題・349教師対、test正解なし",
+    "構造": "全入力物体の色・形を保存した規則枠への完全な教師再構成は1課題",
+    "候補": "2群軸 × 既存9特徴 × 2入力順序軸 × 2方向 = 72通り。全教師整合は1通り",
+    "観測": "四教師の物理物体数7/5/4/5、合計21。選ばれた特徴は面積、群は列、順序は入力行の昇順",
+    "query事前確認": "test入力の6物体は既知特徴のみ、同率なし。現在の群個数と物体寸法から16×8。正解は採点まで未参照"
+  },
+  "学習と出力": {
+    "教師": "出力の一意な完全物体対応から区分ラベルだけを作る。入力抽出は出力を参照しない",
+    "HDS": "同じinstance、公開cycle、軸ごとに別境界。各物理物体は各軸境界に一回だけ観測し、特徴/順序候補で複製しない",
+    "実測": "一群軸、21物体=21区分cycle。候補格子は別途四つの現在教師で同値採用。追加prior0、隔離0",
+    "支持": "現行34課題は異なる入力の二教師で支持2、残86課題は3。今回の新規正答課題は四教師で支持3。変更なし",
+    "合意": "全ての教師整合モデルを保持。区分はnative照会結果だけから得る。全モデルの完全格子一致と既存同値/gate/全機構合意が必要",
+    "保留": "未観測特徴・未知/欠けた区分・非連続区分・同率順序・重複教材/外観対応・不正寸法・衝突・未解決代替・異なる予測はHOLD",
+    "寸法": "入力の等サイズ物体と現在群個数から算出。二群・固定色・面積値・教師最大数を固定しない"
+  },
+  "原指標保持": "wrong_attempted_tasks=1は既存の部分回答課題。新旧とも誤出力格子0。採点関数は変更しない",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "a1c3635315effe1f8366848ccdc899bc818cadbb8ec985684ad28e912533d3b6",
+    "接続/ARC2/物体群整列.py": "15dbd63f269e11310c2567c77e77cfee9a2f7bb663a707738301ac5181d79895",
+    "接続/ARC2/既存物体特徴.py": "e7a662182961e45cdba38a00bbd267ad03261cb1217dc8d08f2d867d9f4acc60",
+    "検証/物体群整列回帰.py": "b1d7ce70303fc198f6db08974ae7108c50c1dab684ef7ffa5a7d9b7852ac8e26",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存47件＋新10件合格、新10件は最適化モードでも合格",
+    "教師方向反転/軸交換/三群/異なる配色/教師を超える物体数、支持非複製、代替競合・未解決、未知特徴、群欠落、同率、重複、後発/別境界反例、支持不足、寸法境界を確認",
+    "HDS中核12・保護7・既存機構・採点器・runnerは無変更"
+  ],
+  "制限": [
+    "公開評価での差分。既存資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "等サイズ・完全保存・規則配置の限定view。残114課題未完・157例未回答"
+  ]
+}
