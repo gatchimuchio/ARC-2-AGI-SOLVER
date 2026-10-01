@@ -50,10 +50,14 @@ def 旧状態を検証して読む(directory, expected_implementation):
     holder._転用候補 = meta['転用候補']
     if holder.系.エンジン.数量関係有効 != meta.get('数量関係有効', True):
         raise ValueError('旧状態の数量設定がHDSと境界で不一致')
+    if holder.系.エンジン.添字関係有効 != meta.get('添字関係有効', True):
+        raise ValueError('旧状態の添字設定がHDSと境界で不一致')
     state = holder.状態()
     if meta['形式版'] == 1:
         for key in ('観測表現', '最大セル数', '学習有効', '最小支持数', '最大条件数'):
             state.pop(key)
+    if '添字関係有効' not in meta:
+        state.pop('添字関係有効')
     if '数量関係有効' not in meta:
         state.pop('数量関係有効')
     if 署名(state) != meta['状態署名']:

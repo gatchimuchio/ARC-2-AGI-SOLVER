@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""同一数量型Frame・実装で、数量関係族だけの有効/無効を資源監督つき比較。"""
+"""同一Frame・実装で、指定した関係族だけの有効/無効を資源監督つき比較。"""
 import argparse
 import hashlib
 import json
@@ -15,6 +15,7 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     for name in ('教材','固定表','出力'):
         p.add_argument('--'+name,type=Path,required=True)
+    p.add_argument('--関係族',choices=('数量','添字'),default='数量')
     p.add_argument('--最大セル数',type=int,default=36)
     p.add_argument('--壁時計秒',type=int,default=240)
     p.add_argument('--仮想MiB',type=int,default=1536)
@@ -37,18 +38,19 @@ def main():
     worker=ROOT/'道具/資源制限つき継続評価.py'
     frozen=実装署名();evaluator=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
     worker_hash=hashlib.sha256(worker.read_bytes()).hexdigest()
-    modes={'数量有効_継続':True,'数量無効_継続':False,'数量有効_初期化':True,'数量無効_初期化':False}
+    family=args.関係族; flag=family+'関係有効'
+    modes={family+'有効_継続':True,family+'無効_継続':False,family+'有効_初期化':True,family+'無効_初期化':False}
     states={}
     for mode,enabled in modes.items():
         state=args.出力/'開始'/mode
-        HDS学習機械(args.最大セル数,観測表現='配列階層',数量関係有効=enabled).保存する(state)
+        HDS学習機械(args.最大セル数,観測表現='配列階層',**{flag:enabled}).保存する(state)
         states[mode]=state
     initial=dict(states)
-    plan={'責任':'同じ数量型Frame・コード・資源で数量関係族だけを除去する開発比較',
+    plan={'責任':'同じ数量型Frame・コード・資源で指定関係族だけを除去する開発比較','除去関係族':family,
           '実装署名':frozen,'評価器SHA256':evaluator,'workerSHA256':worker_hash,
           '固定表SHA256':hashlib.sha256(manifest_bytes).hexdigest(),'教材':manifest['教材'],
           '最大セル数':args.最大セル数,'壁時計秒':args.壁時計秒,'仮想MiB':args.仮想MiB,
-          '観測表現':'配列階層','数量設定':modes,'課題数':len(tasks),'評価例数':sum(x[3] for x in tasks)}
+          '観測表現':'配列階層',family+'設定':modes,'課題数':len(tasks),'評価例数':sum(x[3] for x in tasks)}
     保存(args.出力/'事前設定.json',plan)
     results=[]
     for i,(name,path,task_hash,test_count) in enumerate(tasks):
@@ -62,7 +64,7 @@ def main():
             next_state=次状態を選ぶ(status,dest,checkpoint)
             if status['分類']=='完了':
                 report=json.loads((dest/'report.json').read_text())
-                if report['実装署名']!=frozen or report['初期']['数量関係有効']!=enabled or report['終了']['数量関係有効']!=enabled:
+                if report['実装署名']!=frozen or report['初期'][flag]!=enabled or report['終了'][flag]!=enabled:
                     raise RuntimeError('worker実装・設定が不一致')
                 states[mode]=next_state
                 compact={k:report[k] for k in ('previous','current','評価例数','記憶除去','初期','終了','学習曲線','資源')}

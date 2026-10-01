@@ -22,6 +22,9 @@ def 系譜鍵(対象系境界: str, 関係型: str, 条件経路群, 結果経�
 
 def 原理証拠を評価する(原理: 原理記録, 経験群: Sequence[経験記録]) -> tuple[tuple[str, ...], tuple[str, ...]]:
     """関係型の意味に従って支持・反証を再計算する。未観測はどちらにも数えない。"""
+    from .添字関係 import 添字関係型, 添字証拠
+    if 原理.関係型 == 添字関係型:
+        return 添字証拠(原理, 経験群)
     from .数量関係 import 数量関係型, 数量証拠
     if 原理.関係型 == 数量関係型:
         support, counters, _ = 数量証拠(原理, 経験群)
@@ -63,6 +66,7 @@ def 原理証拠を評価する(原理: 原理記録, 経験群: Sequence[経験
 class 共通適応器:
     def __init__(self):
         self.数量関係有効 = True
+        self.添字関係有効 = True
 
     def 原理化する(
         self,
@@ -103,6 +107,9 @@ class 共通適応器:
     def 反証を検出する(self, 原理: 原理記録, 新経験: 経験記録) -> bool:
         if 原理.対象系境界 != 新経験.対象系境界 or 新経験.経験識別子 in set(原理.除外反証参照群):
             return False
+        from .添字関係 import 添字関係型, 添字証拠
+        if 原理.関係型 == 添字関係型:
+            return bool(添字証拠(原理, (新経験,))[1])
         from .数量関係 import 数量関係型, 数量証拠
         if 原理.関係型 == 数量関係型:
             return bool(数量証拠(原理, (新経験,))[1])
@@ -138,6 +145,23 @@ class 共通適応器:
             if 原理.状態 != 原理状態.適用範囲付き暫定原理 or 原理.採用状態 != 採用状態.有効:
                 continue
             from .構造関係 import 構造関係型, 容器群, 構造を予測する, 定値文脈が適合
+            from .添字関係 import 添字関係型, 添字予測
+            if 原理.関係型 == 添字関係型:
+                if not self.添字関係有効:
+                    continue
+                from .構造関係 import ノード群
+                nodes = ノード群(新経験.原入力)
+                if 原理.結果経路 in nodes:
+                    continue
+                try:
+                    source = nodes[原理.条件経路群[0]]
+                    alternatives = 添字予測(原理, source)
+                except (KeyError, ValueError, TypeError):
+                    観測要求候補.append(追加観測要求(原理.結果経路, 原理.条件経路群, (原理.原理識別子,), '添字関係の入力型・全単射が未閉包'))
+                    continue
+                for predicted in alternatives:
+                    予測群.append(予測記録(原理.原理識別子, 原理.結果経路, predicted, (source,)))
+                continue
             from .数量関係 import 数量関係型, 数量写像, 数量を計算する
             if 原理.関係型 == 数量関係型:
                 if not self.数量関係有効:

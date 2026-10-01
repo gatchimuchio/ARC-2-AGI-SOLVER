@@ -27,6 +27,7 @@ class 共通推論器:
     def __init__(self, 最大条件数: int = 2) -> None:
         self.最大条件数 = 最大条件数
         self.数量関係有効 = True
+        self.添字関係有効 = True
 
     @staticmethod
     def _作用情報(懐疑群: Sequence[懐疑記録]) -> tuple[set[str], set[tuple[str, ...]], tuple[str, ...]]:
@@ -65,13 +66,15 @@ class 共通推論器:
                 and 原理.除外反証参照群
                 and 原理.対象系境界 == (経験群[0].対象系境界 if 経験群 else 原理.対象系境界)
             ):
+                if 原理.関係型 == "添字アフィン関係" and not self.添字関係有効:
+                    continue
                 if 原理.関係型 == "数量一次関係" and not self.数量関係有効:
                     continue
                 if (原理.関係型 == "数量一次関係" and 懐疑対象
                         and not (set(原理.条件経路群) | {原理.結果経路}).issubset(懐疑対象)):
                     continue
                 継続候補 = self._継続原理候補(
-                    写像群, 原理, 懐疑参照, 最小支持数, 識別子生成
+                    写像群, 原理, 懐疑参照, 最小支持数, 識別子生成, 懐疑対象
                 )
                 if 継続候補 is not None:
                     候補群.append(継続候補)
@@ -97,6 +100,9 @@ class 共通推論器:
         from .数量関係 import 数量候補
         if self.数量関係有効:
             候補群.extend(数量候補(経験群, 懐疑参照, 最小支持数, 識別子生成, 懐疑対象))
+        from .添字関係 import 添字候補
+        if self.添字関係有効:
+            候補群.extend(添字候補(経験群, 懐疑参照, 最小支持数, 識別子生成, 懐疑対象))
         return tuple(self._重複除去(候補群))
 
     def 不成立を確認する(
@@ -176,8 +182,19 @@ class 共通推論器:
         懐疑参照,
         最小支持数,
         識別子生成,
+        懐疑対象=None,
     ) -> 原理候補 | None:
         除外 = set(原理.除外反証参照群)
+        from .添字関係 import 添字関係型, 添字候補
+        if 原理.関係型 == 添字関係型:
+            from dataclasses import replace
+            reviewed = [e for e, _ in 写像群 if e.経験識別子 not in 除外]
+            for candidate in 添字候補(reviewed, 懐疑参照, 最小支持数, 識別子生成, 懐疑対象):
+                if candidate.条件経路群 == 原理.条件経路群 and candidate.結果経路 == 原理.結果経路:
+                    return replace(candidate, 除外経験参照群=tuple(原理.除外反証参照群),
+                                   生成条件={**candidate.生成条件, '継承元原理':原理.原理識別子,
+                                             '除外責任':'明示審査済み除外だけを当該系譜に継承'})
+            return None
         from .数量関係 import 数量関係型, 数量候補
         if 原理.関係型 == 数量関係型:
             from dataclasses import replace

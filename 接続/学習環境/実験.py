@@ -10,10 +10,10 @@ from .HDS接続 import HDS学習機械, 目的, 正規化, 実装署名
 from .教師 import 公開教材, 教師
 
 
-def 実験する(content, 最大セル数=36, 最大学習経験=8, 学習有効=True, 最小支持数=3, 学習機械=None, 観測表現='座標辞書', 数量関係有効=True):
+def 実験する(content, 最大セル数=36, 最大学習経験=8, 学習有効=True, 最小支持数=3, 学習機械=None, 観測表現='座標辞書', 数量関係有効=True, 添字関係有効=True):
     material = 公開教材(content)
     teacher = 教師(material)
-    learner = 学習機械 if 学習機械 is not None else HDS学習機械(最大セル数, 最小支持数, 学習有効, 観測表現, 数量関係有効)
+    learner = 学習機械 if 学習機械 is not None else HDS学習機械(最大セル数, 最小支持数, 学習有効, 観測表現, 数量関係有効, 添字関係有効)
     frozen_revision = 実装署名()
     initial = learner.概況()
     # 評価は完全非学習。全てのtrainを経験にする前の初期能力を同じtestで測る。
@@ -32,7 +32,7 @@ def 実験する(content, 最大セル数=36, 最大学習経験=8, 学習有効
     after = [teacher.評価(learner, 'test', i)[1].正解 for i in range(material.件数('test'))]
     assert learner.状態署名() == final_before_eval
     # 記憶除去対照: 同一実装・予算で新しい機械へ置換。test正解は渡さない。
-    erased = HDS学習機械(最大セル数, 最小支持数, 観測表現=learner.観測表現, 数量関係有効=learner.系.エンジン.数量関係有効)
+    erased = HDS学習機械(最大セル数, 最小支持数, 観測表現=learner.観測表現, 数量関係有効=learner.系.エンジン.数量関係有効, 添字関係有効=learner.系.エンジン.添字関係有効)
     ablated = [teacher.評価(erased, 'test', i)[1].正解 for i in range(material.件数('test'))]
     if 実装署名() != frozen_revision:
         raise RuntimeError('実験中に機械実装が変更された')
