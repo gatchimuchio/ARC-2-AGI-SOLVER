@@ -1,0 +1,80 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "01e7769539440308ff9a2aa655f8f01950bf5b71",
+  "baseline_solver_same_as": "021f4e46eb4b0530dc8aeb3cbf2c3732383c9608",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_runtime_fit_generator.py の辺色対応・payload抽出9関数とSIDE_TRANSFORM_MAPSをAST同一で再利用。既採用背景/寸法/D4定義へ接続",
+  "介入": "既存の入力専用辺対応抽出を同一HDSへ接続し、曖昧な入力証拠を無視しない適用guardを追加",
+  "previous": {
+    "correct_tasks": 7,
+    "correct_examples": 11,
+    "unanswered": 156,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 8,
+    "correct_examples": 12,
+    "unanswered": 155,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "task_accuracy_percentage_points": 0.8333333333333334,
+    "regressed_examples": 0,
+    "既存正答11例": "同一"
+  },
+  "事前診断": {
+    "対象": "残113課題の全教師。34課題が少なくとも一教師で寸法変化",
+    "不足": "一課題だけ全教師出力が入力成分crop+D4で表せるが、anti_transpose/rot270/rot270と方向が変わるため固定変換では足りない",
+    "既存機構": "内側guide色と外周の色の辺対応から入力だけで方向を決める旧機構が三教師を完全再現",
+    "query事前確認": "同じ入力判定が唯一のtransposeを導出し12x20のpayloadから20x12を生成。正解は採点まで未参照"
+  },
+  "入力適用域": {
+    "背景": "全格子の最頻色が一意。頻度同率はHOLD",
+    "内側": "payload隣接四帯は一様であること。背景だけの帯はguide不在、それ以外の帯はguideが一意に解決すること",
+    "外周": "guide色の個数を四つの完全な外周辺で数え、最大の辺が一つであること。これは旧実装のheuristicであり、outer一様性や学習済み規則ではない",
+    "制約": "全てのeligible guideを解決し、二つ以上の辺対応が唯一のD4と整合すること。不足・同率・矛盾はHOLD",
+    "範囲": "1..30の出力寸法。切り捨てる外周/guideはcrop作用の制御領域であり、全教師の実出力との一致で検証"
+  },
+  "HDS": {
+    "学習": "同じinstance・公開cycle・三つの現在教師・prior0。候補格子→出力の同値採用と既存排気/全機構合意が必要",
+    "実測": "現在観測3、同値採用、隔離0。旧34課題支持2/86課題支持3方針・coreを変更しない",
+    "境界": "役割/D4抽出規則自体は旧機構。HDSが役割規則を新規発見したとの主張ではない"
+  },
+  "原指標保持": "wrong_attempted_tasks=1は既存の部分回答課題。新旧とも誤出力格子0。採点関数は変更しない",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "1e66761fb7a6afcd943719e21138fa5cffd82e1b5efa8d90e8a25a4be6cc1f4f",
+    "接続/ARC2/既存辺対応抽出.py": "cc97bcd03e21575da786af4dd0b6f86b6c3b16c6139e66fcc6352b95b46c2612",
+    "検証/辺対応抽出回帰.py": "97cc20091314cb0708073623b0bc1a798085bcf4340eebab1a628d0050164862",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存66件＋新9件合格、新9件は最適化モードでも合格",
+    "全8D4・可変長方形・配色、外周unique最大数、外周同率を他の二辺で隠さないこと、弱い/同率/混在帯、背景同率、guide不足、矛盾、空/寸法上限、三教師支持、後発反例を確認",
+    "HDS中核12・保護7・既存機構・採点器・runnerは無変更"
+  ],
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "辺色で方向を特定できる入力への限定。残112課題未完・155例未回答"
+  ]
+}
