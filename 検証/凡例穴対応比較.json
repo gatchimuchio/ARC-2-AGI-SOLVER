@@ -1,0 +1,76 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "33cf99a9a0fc2c341026712a923e8aee82a0c9d2",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存機構source": "gatchimuchio/ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365:arc_agi_2_solver/arc2_runtime_fit_generator.py の8純粋関数。物体抽出等は既採用関数を共有",
+  "previous": {
+    "correct_tasks": 3,
+    "correct_examples": 6,
+    "unanswered": 161,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 4,
+    "correct_examples": 8,
+    "unanswered": 159,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 2,
+    "task_accuracy_percentage_points": 0.8333333333333334,
+    "regressed_examples": 0,
+    "既存正答6例": "同一"
+  },
+  "原指標保持": "wrong_attempted_tasks=1は既存の部分回答課題。新旧とも誤出力格子は0。採点関数は変更しない",
+  "機構と境界": {
+    "役割選択": "全教師の入力色集合と出力色集合から対象色・背景色を探索し、全教師に適合する全候補を保持。testは役割選択に使わない",
+    "入力関係": "現在入力の凡例物体から穴数→色を読み、対象物体を対応色へ変える",
+    "不在分岐": "この入力凡例に穴数が存在しなければ背景へ消去する既存仮説。異なる current教師入力による分岐実証数が課題最小支持数以上の場合だけ許可",
+    "実証": "二教師で不在穴数4と2を各1物体消去。別の教師では穴数2が凡例に存在し再着色されるため、穴数そのものの固定許可表ではない",
+    "一般化の範囲": "既存の不在→消去仮説を教師証拠で許可する。HDSが独力でこの操作を発見したとは主張しない",
+    "曖昧性": "凡例キー競合・保持役割候補の未確定出力・異なる完全格子ならHOLD",
+    "学習": "同じHDSの公開教師cycle、全教師再現・同値採用・既存排気gate・機構合意で最終出力",
+    "事前教材追加": 0
+  },
+  "固定heuristic": [
+    "凡例候補は物体size>1、density>=0.5",
+    "一セル幅/高さの長い線は長さ>max(10,対応入力軸長//3)で除外",
+    "これらは既存parserの制限であり、教師から学習した値ではない"
+  ],
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "旧ARC採点関数と評価runnerを変更せず使用"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "4543584a66908be357036da3a2d268d91b1154118bf4bfefb21bf986d7a72903",
+    "接続/ARC2/既存凡例穴対応.py": "3e2471e03faaf58badbbb4d9426308beea41495201cdf9513c0e3993b7e832f2",
+    "接続/ARC2/凡例穴対応.py": "e8de37fa35683753d39859ac8dd8736033159b20b64993d0c522c53f546a2e0f",
+    "検証/凡例穴対応回帰.py": "f86d27478e57d651820dd662086fee8f27d5828fc5e4b2bb77cef677be5e7d19",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存31件と新8件合格、新8件は最適化モードでも合格",
+    "凡例内での存在/不在の切替、色置換、教師分岐未観測と重複、支持2/3、凡例競合、役割代替合意、線除外境界を確認",
+    "HDS中核12・保護7・採点器・runnerは無変更"
+  ],
+  "制限": [
+    "公開評価での差分。既存helperの過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残り116課題が未完、159例が未回答"
+  ]
+}
