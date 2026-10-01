@@ -1,0 +1,66 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "基底main": "9acf51268baedfb44d5c5a6fa6645be0d5dace48",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "旧採点source": "gatchimuchio/ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365:arc_agi_2_solver/arc2_solver_core_audit.py",
+  "機構": "既存TEMPLATE_HOLE_PACK候補＋training実教材2観測＋現行HDSの同値原理採用",
+  "baseline": {
+    "correct_tasks": 0,
+    "correct_examples": 0,
+    "unanswered": 167,
+    "wrong_attempted_tasks": 0,
+    "resource_failures": {}
+  },
+  "current": {
+    "correct_tasks": 1,
+    "correct_examples": 2,
+    "unanswered": 165,
+    "wrong_attempted_tasks": 0,
+    "resource_failures": {}
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 2,
+    "accuracy_percentage_points": 0.8333333333333334,
+    "regressed_tasks": 0
+  },
+  "条件": {
+    "baseline表現": "既存低位APIの格子値観測。高位APIのセル平坦化とは別のI/O診断基底",
+    "最小支持数": 3,
+    "最大条件数": 2,
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3
+  },
+  "データSHA256": {
+    "challenges": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "18781b9a2d64af3a89c624f57baf072dbd2e01b6625ae3782d6863757967f2c3",
+    "接続/ARC2/既存穴充填.py": "451d07ba636d4e4ce5a2443cfe56745f55fd16cf8845a2f4c9f62abd08d78b53",
+    "接続/ARC2/テンプレート充填教材.json": "8f5f24571f0457c44af68b57b9aebbcf4dabbb9164f24942108e1b98f635f112",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8",
+    "検証/テンプレート充填回帰.py": "1fcc42d11f39e025636687bee66bd7099634271e27fb1cb9ec05543e8d3d3291"
+  },
+  "境界": [
+    "全120課題を分母に含め、HOLD・未回答・資源失敗を除外しない",
+    "評価test正解は親採点過程だけ。runtimeは教師対・test入力・固定training教材だけ",
+    "課題IDは採点または固定教材の出典参照だけ。出力分岐に使わない",
+    "候補を直接排出しない。全教師再現・有効同値原理・既存排気gateが必要",
+    "HDS中核12ファイルおよび保護ファイルは無変更"
+  ],
+  "検証": [
+    "通常/最適化モードの合成回帰6件合格",
+    "旧採点関数3個と純粋helper7個のAST本体一致",
+    "repo内評価entryでbaseline/current双方を再実行し同じ1課題・2例差分を確認"
+  ],
+  "制限": [
+    "公開評価での改善。既存helperの過去開発データから独立な評価とは主張しない",
+    "hidden評価・Kaggle提出・満点は未達未実施",
+    "固定source evaluationのSHA256は既存ZIPマニフェストと不一致。元ZIP未取得",
+    "残り119課題・165例は未回答"
+  ]
+}
