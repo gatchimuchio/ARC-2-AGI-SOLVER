@@ -108,3 +108,11 @@ python3 道具/資源制限つき継続評価.py run --教材 入力/公式ソ�
 ```
 
 この事前計画は今回の開始checkpointの論理署名と二つの実ファイルhashへ固定している。生checkpointは大きいためGitへ含めない。別環境で前段の55経験再観測を再実行すると時刻により実ファイルhashが変わるため、同じ論理状態を確認したうえで、新しい実ファイルhashを持つ別の事前計画と、それを参照する固定表を作る。旧計画で通ったと偽らず、再現実験の新しい計画hashを記録する。
+
+## 保存資源とcheckpoint公開境界
+
+HDS形式5は同じbytesのまま、一括文字列生成から逐次JSON書込みへ変更する。単一HDSファイルは同じdirectoryの一時fileへ書き、flush/fsync後に置換する。途中書込み・置換失敗では旧fileを保持する。電源断時の親directory永続性まで保証するものではない。
+
+ARC Adapterの `保存する(directory)` は新規または空directoryだけを受理する。非空destinationへの従来の上書きは明示拒否し、既存checkpointを削除・変更しない。二つのfileを隣接一時directoryで完成させてからdirectoryをrenameするため、HDSだけ・境界だけの混在版を公開しない。更新保存には新しいdestinationを指定する。Generic HDSの単一file上書きAPIは維持する。
+
+保存だけの実装変更でも通常のAdapter読込は実装署名違いを拒否する。`道具/保存互換を検証.py` は既知の旧7aaf実装について、旧論理状態を検証し、別一時directoryへ保存したHDSの完全なbyte一致と、境界の変更が実装署名だけであることを確認する。検証後だけ新規destinationへ公開し、失敗時に互換だと見えるcheckpointを残さない。元checkpointは保持する。これは開発者の互換検証であり新しい世界経験や内部学習ではない。

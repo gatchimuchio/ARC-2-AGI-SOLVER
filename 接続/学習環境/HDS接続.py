@@ -5,6 +5,8 @@ from dataclasses import asdict, fields, is_dataclass, replace
 from enum import Enum
 import hashlib
 import json
+import os
+import tempfile
 from pathlib import Path
 import sys
 
@@ -335,11 +337,23 @@ class HDS学習機械:
 
     def 保存する(self, directory):
         directory = Path(directory)
-        directory.mkdir(parents=True, exist_ok=True)
-        self.系.保存する(directory / 'HDS.json')
-        (directory / '境界.json').write_text(json.dumps({'形式版': 2, '観測表現': self.観測表現, '実装署名': 実装署名(), '最大セル数': self.最大セル数,
-            '学習有効': self.学習有効, '観測署名': sorted(self._観測署名), '失敗': self._失敗,
-            '状態署名': self.状態署名(), '課題番号': self._課題番号, '転用候補': self._転用候補}, ensure_ascii=False, indent=2), encoding='utf-8')
+        # 二つのfileを同じ版として公開するため、新規/空directoryだけ受理する。
+        # 非空の保存物は削除・上書きしない。更新は新しい保存先へ明示する。
+        if directory.is_symlink() or (directory.exists() and (not directory.is_dir() or any(directory.iterdir()))):
+            raise FileExistsError('保存先は新規または空directoryが必要。既存checkpointを変更しない')
+        directory.parent.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=directory.parent, prefix='.' + directory.name + '.stage-') as temporary:
+            stage = Path(temporary)
+            self.系.保存する(stage / 'HDS.json')
+            meta = {'形式版': 2, '観測表現': self.観測表現, '実装署名': 実装署名(), '最大セル数': self.最大セル数,
+                    '学習有効': self.学習有効, '観測署名': sorted(self._観測署名), '失敗': self._失敗,
+                    '状態署名': self.状態署名(), '課題番号': self._課題番号, '転用候補': self._転用候補}
+            with (stage / '境界.json').open('w', encoding='utf-8') as stream:
+                json.dump(meta, stream, ensure_ascii=False, indent=2)
+                stream.flush()
+                os.fsync(stream.fileno())
+            # 同時に非空directoryが作られた場合はrenameが拒否し、相手を削除しない。
+            os.replace(stage, directory)
 
     @classmethod
     def 読み込む(cls, directory):

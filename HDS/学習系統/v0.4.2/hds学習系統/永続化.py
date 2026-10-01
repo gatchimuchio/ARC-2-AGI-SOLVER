@@ -3,6 +3,8 @@ from __future__ import annotations
 from dataclasses import fields, is_dataclass
 from enum import Enum
 import json
+import os
+import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -72,7 +74,20 @@ def 書き出す(実行系: Any, 経路: Path) -> None:
         "状態履歴": 実行系.状態.履歴(),
         "原理履歴": 実行系._原理履歴,
     }
-    経路.write_text(json.dumps(_符号化(内容), ensure_ascii=False, indent=2), encoding="utf-8")
+    # 内容・形式はそのまま。全JSON文字列の同時保持を避け、完成fileだけ公開する。
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=経路.parent,
+                                         prefix="." + 経路.name + ".", suffix=".tmp", delete=False) as stream:
+            temporary = Path(stream.name)
+            json.dump(_符号化(内容), stream, ensure_ascii=False, indent=2)
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(temporary, 経路)
+        temporary = None
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
 
 
 def 読み込む(経路: Path, 実行系型: type) -> Any:

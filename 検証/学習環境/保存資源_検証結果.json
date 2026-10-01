@@ -1,0 +1,146 @@
+{
+  "採否": "ADMIT: 同じ資源上限で保存完了を回復。学習・予測意味は旧版と一致。格子得点改善ではない",
+  "責任": "DEVELOPMENT: 保存資源改善。推論・採用・得点規則は変更しない",
+  "新設試験": {
+    "previous": 105,
+    "current": 116,
+    "delta": 11,
+    "結果": "PASS"
+  },
+  "旧保存方式の追加3試験": {
+    "PASS": 1,
+    "FAIL": 2
+  },
+  "互換監査": {
+    "責任": "DEVELOPMENTによる保存byte互換検証。内部学習ではない",
+    "旧実装署名": "7aaf9b5cd4fd767e028844b81991839e61799f8186aed7f30a5522a521458265",
+    "新実装署名": "6709b94f240963a691c504096f59cbacaf475dfca149cc88f8ff49f366899363",
+    "状態署名": "84f2aced951849728596e6ac6e867705fbda72a2a8d6915dba1a266ea41b5f53",
+    "旧ファイルSHA256": {
+      "HDS.json": "b1c2515cb12b0a4c71b03f3d2935dc30e993c2d11ab10c4b3b3efcb5c2239d93",
+      "境界.json": "f19ccd1f9a85946dbf80d227ae77ba786e5572b6bde4d1b142495ae1d4efff42"
+    },
+    "新ファイルSHA256": {
+      "HDS.json": "b1c2515cb12b0a4c71b03f3d2935dc30e993c2d11ab10c4b3b3efcb5c2239d93",
+      "境界.json": "a41222be586f34ede19f692f2a9dc783897e9b0347797c98e7bf9b6f9738ec22"
+    },
+    "経験数": 76,
+    "新規世界観測": 0,
+    "境界変更": [
+      "実装署名"
+    ]
+  },
+  "再試験": {
+    "壁時計上限秒": 240,
+    "仮想メモリ上限MiB": 1536,
+    "教材": "46c35fc7.json",
+    "教材用途": "既知失敗の資源再現専用。runtime routingではない",
+    "previous": {
+      "分類": "メモリ上限",
+      "returncode": 1,
+      "秒": 98.372,
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/7408259c1ab2/ARC-2-AGI-SOLVER/道具/資源制限つき継続評価.py\", line 163, in <module>\n    main()\n  File \"/workspace/scratch/7408259c1ab2/ARC-2-AGI-SOLVER/道具/資源制限つき継続評価.py\", line 81, in main\n    worker(args)\n  File \"/workspace/scratch/7408259c1ab2/ARC-2-AGI-SOLVER/道具/資源制限つき継続評価.py\", line 63, in worker\n    machine.保存する(args.output / 'checkpoint')\n  File \"/workspace/scratch/7408259c1ab2/ARC-2-AGI-SOLVER/接続/学習環境/HDS接続.py\", line 339, in 保存する\n    self.系.保存する(directory / 'HDS.json')\n  File \"/workspace/scratch/7408259c1ab2/ARC-2-AGI-SOLVER/HDS/学習系統/v0.4.2/hds学習系統/系統.py\", line 42, in 保存する\n    self.エンジン.保存する(経路)\n  File \"/workspace/scratch/7408259c1ab2/ARC-2-AGI-SOLVER/HDS/学習系統/v0.4.2/hds学習系統/実行系.py\", line 705, in 保存する\n    書き出す(self, Path(経路))\n  File \"/workspace/scratch/7408259c1ab2/ARC-2-AGI-SOLVER/HDS/学習系統/v0.4.2/hds学習系統/永続化.py\", line 75, in 書き出す\n    経路.write_text(json.dumps(_符号化(内容), ensure_ascii=False, indent=2), encoding=\"utf-8\")\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/__init__.py\", line 238, in dumps\n    **kw).encode(obj)\n          ^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py\", line 203, in encode\n    return ''.join(chunks)\n           ^^^^^^^^^^^^^^^\nMemoryError\n"
+    },
+    "current": {
+      "分類": "完了",
+      "returncode": 0,
+      "秒": 102.039,
+      "stderr": ""
+    },
+    "current評価": {
+      "実装署名": "6709b94f240963a691c504096f59cbacaf475dfca149cc88f8ff49f366899363",
+      "previous": 0,
+      "current": 0,
+      "評価例数": 1,
+      "初期": {
+        "観測表現": "配列階層",
+        "経験数": 0,
+        "状態版": 51,
+        "有効原理数": 0,
+        "隔離原理数": 0,
+        "全課題保持経験数": 76,
+        "転用候補数": 17,
+        "転用隔離数": 10,
+        "状態署名": "b822e67ec2f8dede70f2452fb114d0554bb826cf77903920a0f26b11418b2e1e"
+      },
+      "終了": {
+        "観測表現": "配列階層",
+        "経験数": 3,
+        "状態版": 52,
+        "有効原理数": 202,
+        "隔離原理数": 0,
+        "全課題保持経験数": 79,
+        "転用候補数": 17,
+        "転用隔離数": 13,
+        "状態署名": "1d00eea86e86b4e9e4cc442f5bf89863d798f6bc2b7dfa2cad2b29c95bc22657"
+      },
+      "資源": {
+        "最大RSS_KiB": 903552
+      }
+    },
+    "教材SHA256": "871da33ac528aa74e9cd14aba2cf59d23d76d8a088348b0b507a03d8934cb659",
+    "初期旧checkpoint": "出力/追加64セル_凍結比較/46442a0e/55経験継続/checkpoint",
+    "初期互換checkpoint": "出力/保存資源_互換checkpoint",
+    "保存互換監査": "出力/保存資源_互換監査.json",
+    "評価器SHA256": "ce8127666e0a83402715eeb7876df4347f5ea76ab19d882d3569b4bb2e90faf8",
+    "実行契約": {
+      "親呼出": "道具.資源制限つき継続評価.監督(command, timeout=240, memory_mib=1536)",
+      "command": [
+        "python3",
+        "道具/資源制限つき継続評価.py",
+        "worker",
+        "--task",
+        "入力/公式ソース/ARC-AGI-2/data/training/46c35fc7.json",
+        "--task-sha256",
+        "871da33ac528aa74e9cd14aba2cf59d23d76d8a088348b0b507a03d8934cb659",
+        "--checkpoint",
+        "出力/保存資源_互換checkpoint",
+        "--output",
+        "出力/保存資源_失敗課題再試験"
+      ],
+      "注意": "worker単独起動には上限を付けない。必ず親の監督を通す。旧評価計画と同じ上限"
+    }
+  },
+  "限界": [
+    "格子得点は0/1のまま。汎用知能または転用利得の証拠ではない",
+    "この版で8課題全体の成績を再測定したとは主張しない",
+    "経験の符号化コピーや全状態hashは依然必要。全体計算量の問題は未解消",
+    "新規/空destinationに限るAdapter保存APIへの明示変更。非空保存先を上書きしない"
+  ],
+  "保存前の計算意味対照": {
+    "責任": "旧凍結7aafで同じ76経験から計算だけ再現。保存成功試験ではない",
+    "監督": {
+      "分類": "完了",
+      "returncode": 0,
+      "秒": 87.831,
+      "stderr": ""
+    },
+    "旧実装署名": "7aaf9b5cd4fd767e028844b81991839e61799f8186aed7f30a5522a521458265",
+    "旧終了状態": {
+      "観測表現": "配列階層",
+      "経験数": 3,
+      "状態版": 52,
+      "有効原理数": 202,
+      "隔離原理数": 0,
+      "全課題保持経験数": 79,
+      "転用候補数": 17,
+      "転用隔離数": 13,
+      "状態署名": "1d00eea86e86b4e9e4cc442f5bf89863d798f6bc2b7dfa2cad2b29c95bc22657"
+    },
+    "新終了状態": {
+      "観測表現": "配列階層",
+      "経験数": 3,
+      "状態版": 52,
+      "有効原理数": 202,
+      "隔離原理数": 0,
+      "全課題保持経験数": 79,
+      "転用候補数": 17,
+      "転用隔離数": 13,
+      "状態署名": "1d00eea86e86b4e9e4cc442f5bf89863d798f6bc2b7dfa2cad2b29c95bc22657"
+    },
+    "終了状態署名一致": true,
+    "全予測教師履歴一致": true,
+    "旧current": 0,
+    "新current": 0
+  }
+}

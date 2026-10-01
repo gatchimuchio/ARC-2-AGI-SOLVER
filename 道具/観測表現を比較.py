@@ -36,7 +36,7 @@ def 格子を復元(observation, frame):
     return grid
 
 
-def 旧経験を検証して取り出す(directory, expected_implementation):
+def 旧状態を検証して読む(directory, expected_implementation):
     directory = Path(directory)
     meta = json.loads((directory / '境界.json').read_text(encoding='utf-8'))
     if meta['形式版'] not in (1, 2) or meta['実装署名'] != expected_implementation:
@@ -56,6 +56,13 @@ def 旧経験を検証して取り出す(directory, expected_implementation):
         raise ValueError('旧状態の論理署名が不一致')
     if holder.系.エンジン.最小支持数 != 3 or holder.系.エンジン.最大条件数 != 1:
         raise ValueError('今回の移行検証は支持3・最大条件1だけを対象とする')
+    return holder, meta
+
+
+def 旧経験を検証して取り出す(directory, expected_implementation):
+    directory = Path(directory)
+    holder, meta = 旧状態を検証して読む(directory, expected_implementation)
+    frame = meta.get('観測表現', '座標辞書')
     records = []
     for e in holder.系.エンジン._経験群():
         if set(e.原入力) != {'入力', '出力'}:
