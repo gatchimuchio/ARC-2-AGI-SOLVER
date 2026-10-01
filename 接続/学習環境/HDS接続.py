@@ -41,17 +41,27 @@ def 実装署名():
     return 署名(parts)
 
 
-def 観測射影(grid):
+def 観測射影(grid, 表現='座標辞書'):
     # 座標と値の列挙だけ。回転・鏡映・色置換などの候補は外から作らない。
-    return {'行数': len(grid), '列数': len(grid[0]),
-            'セル': {f'{r},{c}': value for r, row in enumerate(grid) for c, value in enumerate(row)}}
+    if 表現 == '座標辞書':
+        cells = {f'{r},{c}': value for r, row in enumerate(grid) for c, value in enumerate(row)}
+    elif 表現 == '配列階層':
+        cells = [list(row) for row in grid]
+    else:
+        raise ValueError('未対応の観測表現')
+    return {'行数': len(grid), '列数': len(grid[0]), 'セル': cells}
 
 class HDS学習機械:
-    def __init__(self, 最大セル数=36, 最小学習経験=3, 学習有効=True):
+    def __init__(self, 最大セル数=36, 最小学習経験=3, 学習有効=True, 観測表現='座標辞書'):
         if type(最大セル数) is not int or not 1 <= 最大セル数 <= 900:
             raise ValueError('最大セル数は1..900')
         if type(最小学習経験) is not int or 最小学習経験 < 3:
             raise ValueError('独立経験の最小支持数は3以上')
+        if 観測表現 not in ('座標辞書', '配列階層'):
+            raise ValueError('観測表現を明示する必要がある')
+        if type(学習有効) is not bool:
+            raise ValueError('学習有効は真偽値')
+        self._観測表現 = 観測表現
         self.最大セル数 = 最大セル数
         self.学習有効 = 学習有効
         self.系 = HDS学習系統(最小支持数=最小学習経験, 最大条件数=1)
@@ -59,6 +69,13 @@ class HDS学習機械:
         self._失敗 = []
         self._課題番号 = 0
         self._転用候補 = {}
+
+    @property
+    def 観測表現(self):
+        return self._観測表現
+
+    def _射影(self, grid):
+        return 観測射影(grid, self.観測表現)
 
     @property
     def 現在境界(self):
@@ -73,7 +90,9 @@ class HDS学習機械:
                        '原理履歴': engine._原理履歴, '経験': engine.台帳._台帳,
                        '識別子': engine.識別子.状態を書き出す(),
                        '観測署名': sorted(self._観測署名), '失敗': self._失敗,
-                       '課題番号': self._課題番号, '転用候補': self._転用候補})
+                       '課題番号': self._課題番号, '転用候補': self._転用候補, '観測表現': self.観測表現,
+                       '最大セル数': self.最大セル数, '学習有効': self.学習有効,
+                       '最小支持数': engine.最小支持数, '最大条件数': engine.最大条件数})
 
     def 状態署名(self):
         # 状態()は既に完全な値複製・正規化済み。二度目の全台帳走査をしない。
@@ -81,7 +100,7 @@ class HDS学習機械:
 
     def 概況(self):
         engine = self.系.エンジン
-        return {'経験数': len(self._観測署名), '状態版': engine.状態.現在版,
+        return {'観測表現': self.観測表現, '経験数': len(self._観測署名), '状態版': engine.状態.現在版,
                 '有効原理数': sum(p.対象系境界 == self.現在境界 for p in engine._有効原理群()),
                 '隔離原理数': sum(p.対象系境界 == self.現在境界 for p in engine._係争中原理群()),
                 '全課題保持経験数': len(engine._経験群()), '転用候補数': len(self._転用候補),
@@ -97,7 +116,7 @@ class HDS学習機械:
         # 既存照会の唯一の書込み対象（識別子）だけ複製。台帳・原理は読み取り専用。
         engine = copy(self.系.エンジン)
         engine.識別子 = deepcopy(self.系.エンジン.識別子)
-        result = engine.照会(self._入力({'入力': 観測射影(grid)}))
+        result = engine.照会(self._入力({'入力': self._射影(grid)}))
         return self._予測を格子化(result.予測群, result.競合群)
 
     def _予測を格子化(self, predictions, supplied_conflicts):
@@ -106,17 +125,38 @@ class HDS学習機械:
             if p.結果経路 and p.結果経路[0] == '出力':
                 facts = []
                 self.系.吸気系._平坦化(p.予測値, p.結果経路, facts)
-                projected = {f.経路: f.値 for f in facts if f.推論対象}
-                if p.結果経路 == ('出力', 'セル') and isinstance(p.予測値, dict):
+                projected = {}
+                for fact in facts:
+                    if not fact.推論対象:
+                        continue
+                    path = fact.経路
+                    if self.観測表現 == '配列階層' and path[:2] == ('出力', 'セル') and len(path) == 4:
+                        if all(x.startswith('@HDS:索引:') for x in path[2:]):
+                            r, c = (int(x.split(':')[-1]) for x in path[2:])
+                            path = ('出力', 'セル', f'{r},{c}')
+                    projected[path] = fact.値
+                if p.結果経路 == ('出力', 'セル') and self.観測表現 == '配列階層':
+                    try:
+                        whole = 格子化(p.予測値)
+                        projected[('出力', '行数')], projected[('出力', '列数')] = len(whole), len(whole[0])
+                    except ValueError:
+                        return 予測('HOLD', None, ('構造予測が矩形格子でない',))
+                if p.結果経路 == ('出力', 'セル') and self.観測表現 == '座標辞書':
                     # 完成したセル集合からARC格子を直列化する。未予測セルは補わない。
                     try:
+                        if not isinstance(p.予測値, dict):
+                            raise ValueError('座標辞書でない')
                         positions = {tuple(map(int, k.split(','))) for k in p.予測値}
-                        if positions and all(len(k) == 2 and min(k) >= 0 for k in positions):
-                            h, w = 1 + max(k[0] for k in positions), 1 + max(k[1] for k in positions)
-                            if positions == {(r, c) for r in range(h) for c in range(w)}:
-                                projected[('出力', '行数')], projected[('出力', '列数')] = h, w
-                    except (TypeError, ValueError):
-                        pass
+                        if not positions or any(len(k) != 2 or min(k) < 0 for k in positions):
+                            raise ValueError('座標が不正')
+                        h, w = 1 + max(k[0] for k in positions), 1 + max(k[1] for k in positions)
+                        if h > 30 or w > 30 or h * w > self.最大セル数:
+                            return 予測('HOLD', None, ('予測形状が明示計算予算を超過',))
+                        if set(p.予測値) != {f'{r},{c}' for r in range(h) for c in range(w)}:
+                            raise ValueError('穴または非正規座標')
+                        projected[('出力', '行数')], projected[('出力', '列数')] = h, w
+                    except (AttributeError, TypeError, ValueError):
+                        return 予測('HOLD', None, ('構造予測が矩形格子でない',))
                 for path, value in projected.items():
                     if path in values and values[path] != value:
                         conflicts.append(path)
@@ -130,6 +170,16 @@ class HDS学習機械:
             return 予測('HOLD', None, ('出力形状が未閉包',), tuple(sorted(set(refs))), len(values))
         if height * width > self.最大セル数:
             return 予測('HOLD', None, ('予測形状が明示計算予算を超過',), tuple(sorted(set(refs))), len(values))
+        for path in values:
+            if path[:2] != ('出力', 'セル'):
+                continue
+            try:
+                r, c = map(int, path[2].split(','))
+                valid = len(path) == 3 and 0 <= r < height and 0 <= c < width and path[2] == f'{r},{c}'
+            except (IndexError, AttributeError, ValueError):
+                valid = False
+            if not valid:
+                return 予測('HOLD', None, ('予測セルが宣言形状と矛盾する',), tuple(sorted(set(refs))), len(values))
         output = []
         for r in range(height):
             row = []
@@ -145,7 +195,7 @@ class HDS学習機械:
         grid = 格子化(観測出力)
         if type(request) is not 予測要求:
             raise TypeError('予測要求だけを受理する')
-        content = {'入力': 観測射影(request.入力), '出力': 観測射影(grid)}
+        content = {'入力': self._射影(request.入力), '出力': self._射影(grid)}
         key = 署名((self.現在境界, content))
         before = self.概況()
         if not 更新許可 or not self.学習有効:
@@ -220,7 +270,7 @@ class HDS学習機械:
             principles = self._転用原理(capsule)
             if not all(validator.検証する(self._候補化(p), current).判定 == 判定状態.適合 for p in principles):
                 continue
-            intake = self._入力({'入力': 観測射影(request.入力)})
+            intake = self._入力({'入力': self._射影(request.入力)})
             experience = 経験記録('非学習転用照会', self.現在境界, intake.原入力, intake.観測群,
                                   intake.主体, intake.対象, intake.目的, '')
             predictions, conflicts, _ = self.系.エンジン.適応器.予測する(principles, experience)
@@ -229,7 +279,7 @@ class HDS学習機械:
                 continue
             grid = formatted.出力
             # 現課題の既存原理とも整合しなければ過去モデルを優先しない。
-            observed = self._入力({'入力': 観測射影(request.入力), '出力': 観測射影(grid)})
+            observed = self._入力({'入力': self._射影(request.入力), '出力': self._射影(grid)})
             check = replace(experience, 原入力=observed.原入力, 観測群=observed.観測群)
             if any(原理証拠を評価する(p, (check,))[1] for p in self.系.エンジン._有効原理群()
                    if p.対象系境界 == self.現在境界):
@@ -287,7 +337,7 @@ class HDS学習機械:
         directory = Path(directory)
         directory.mkdir(parents=True, exist_ok=True)
         self.系.保存する(directory / 'HDS.json')
-        (directory / '境界.json').write_text(json.dumps({'形式版': 1, '実装署名': 実装署名(), '最大セル数': self.最大セル数,
+        (directory / '境界.json').write_text(json.dumps({'形式版': 2, '観測表現': self.観測表現, '実装署名': 実装署名(), '最大セル数': self.最大セル数,
             '学習有効': self.学習有効, '観測署名': sorted(self._観測署名), '失敗': self._失敗,
             '状態署名': self.状態署名(), '課題番号': self._課題番号, '転用候補': self._転用候補}, ensure_ascii=False, indent=2), encoding='utf-8')
 
@@ -295,11 +345,11 @@ class HDS学習機械:
     def 読み込む(cls, directory):
         directory = Path(directory)
         meta = json.loads((directory / '境界.json').read_text(encoding='utf-8'))
-        if meta['形式版'] != 1:
+        if meta['形式版'] != 2:
             raise ValueError('未対応の境界版')
         if meta['実装署名'] != 実装署名():
             raise ValueError('保存時と機械実装が異なる。無言移行しない')
-        obj = cls(meta['最大セル数'], 学習有効=meta['学習有効'])
+        obj = cls(meta['最大セル数'], 学習有効=meta['学習有効'], 観測表現=meta['観測表現'])
         obj.系 = HDS学習系統.読み込む(directory / 'HDS.json')
         obj._観測署名 = set(meta['観測署名'])
         obj._失敗 = meta['失敗']

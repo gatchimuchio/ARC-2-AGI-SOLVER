@@ -186,30 +186,75 @@ def 構造候補を導出する(experiences, skepticism_refs, minimum, identifie
     return tuple(result)
 
 
+def 形状条件を学ぶ(values):
+    """観測された長さの変動だけを反復へ抽象化。固定の長さは消さない。"""
+    if all(_項目(v) is None for v in values):
+        return {'型': '葉'}
+    kinds = {type(v).__name__ if _項目(v) is not None else '葉' for v in values}
+    if len(kinds) != 1:
+        return {'型': '選択', '候補': [形状条件を学ぶ([v for v in values if (type(v).__name__ if _項目(v) is not None else '葉') == kind]) for kind in sorted(kinds)]}
+    kind = next(iter(kinds))
+    if kind == 'dict':
+        rows = [dict(_項目(v)) for v in values]
+        keys = [set(row) for row in rows]
+        if all(k == keys[0] for k in keys):
+            return {'型': kind, '固定鍵': {k: 形状条件を学ぶ([r[k] for r in rows]) for k in sorted(keys[0])}}
+        children = [v for row in rows for v in row.values()]
+        return {'型': kind, '反復値': 形状条件を学ぶ(children) if children else {'型': '葉'},
+                '鍵型': sorted({type(k).__name__ for value in values for k in value})}
+    lengths = {len(v) for v in values}
+    if len(lengths) == 1:
+        size = next(iter(lengths))
+        return {'型': kind, '固定位置': [形状条件を学ぶ([v[i] for v in values]) for i in range(size)]}
+    children = [child for value in values for child in value]
+    return {'型': kind, '反復要素': 形状条件を学ぶ(children) if children else {'型': '葉'}}
+
+
+def 形状条件に適合(pattern, value):
+    kind = pattern['型']
+    if kind == '葉':
+        return _項目(value) is None
+    if kind == '選択':
+        return any(形状条件に適合(p, value) for p in pattern['候補'])
+    if type(value).__name__ != kind:
+        return False
+    if kind == 'dict':
+        row = dict(_項目(value))
+        if '固定鍵' in pattern:
+            return set(row) == set(pattern['固定鍵']) and all(形状条件に適合(p, row[k]) for k, p in pattern['固定鍵'].items())
+        return all(type(k).__name__ in pattern['鍵型'] for k in value) and all(形状条件に適合(pattern['反復値'], x) for x in row.values())
+    if '固定位置' in pattern:
+        return len(value) == len(pattern['固定位置']) and all(形状条件に適合(p, x) for p, x in zip(pattern['固定位置'], value))
+    return all(形状条件に適合(pattern['反復要素'], x) for x in value)
+
+
 def 定値の構造文脈(experiences, result_path):
-    """結果側の構造で適用可否を決めない。利用可能な別の入力枝だけを条件にする。"""
-    from .推論 import 値キー
-    import hashlib
-    shapes = defaultdict(set)
+    # 最上位の入力枝の条件は子の構造も含むため、同じ条件を全子へ重複保存しない。
+    shapes = defaultdict(list)
     for e in experiences:
         for path, container in 容器群(e.原入力).items():
-            if not path or path[0] == result_path[0]:
+            if len(path) != 1 or path[0] == result_path[0]:
                 continue
-            shapes[path].add(hashlib.sha256(値キー(骨格(container)).encode()).hexdigest())
-    return [(path, sorted(values)) for path, values in sorted(shapes.items())]
+            shapes[path].append(container)
+    return [(path, 形状条件を学ぶ(values)) for path, values in sorted(shapes.items())]
 
 
 def 定値文脈が適合(principle, raw):
     from .推論 import 値キー
     import hashlib
     containers = 容器群(raw)
-    for path, allowed in principle.適用範囲.get('構造文脈', ()):
+    for path, condition in principle.適用範囲.get('構造文脈', ()):
         path = tuple(path)
         if path not in containers:
-            return False  # 必要な入力文脈が未観測なら適用しない。
-        digest = hashlib.sha256(値キー(骨格(containers[path])).encode()).hexdigest()
-        if digest not in allowed:
             return False
+        if isinstance(condition, dict):
+            if not 形状条件に適合(condition, containers[path]):
+                return False
+        else:
+            # 形式4の既存hash条件は厳密一致の意味を維持し、無言で一般化しない。
+            digest = hashlib.sha256(値キー(骨格(containers[path])).encode()).hexdigest()
+            if digest not in condition:
+                return False
     return True
 
 

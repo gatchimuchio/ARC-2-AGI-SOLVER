@@ -26,6 +26,9 @@ class 共通検証器:
         for 経験 in 経験群:
             if 経験.対象系境界 != 候補.対象系境界 or 経験.経験識別子 in 除外:
                 continue
+            from .構造関係 import 定値文脈が適合
+            if 候補.関係型 == "定値関係" and not 定値文脈が適合(候補, 経験.原入力):
+                continue
             写像 = 経験写像(経験)
             if 候補.結果経路 not in 写像 or any(p not in 写像 for p in 候補.条件経路群):
                 continue
