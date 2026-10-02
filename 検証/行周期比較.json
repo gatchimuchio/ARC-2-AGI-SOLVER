@@ -1,0 +1,80 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "e0b2cd768764059249f1fbebb9ea322ab95874cd",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_l0_agent_compiler_v93_separator_run_period_superposition.py、blob55ce68ee5d7dc8ce3492d2670efc5ff6e88b2f0f。純粋6関数はAST同一、grid_shape/clone_gridは既存共有。元の課題ID定数・旧solver・reportは除外",
+  "介入": "入力同色runの長さを周期としてseparator反対側へ重ねる旧priorを同じHDSへ接続",
+  "previous": {
+    "correct_tasks": 20,
+    "correct_examples": 26,
+    "unanswered": 141,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 21,
+    "correct_examples": 29,
+    "unanswered": 138,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 3,
+    "regressed_examples": 0,
+    "既存正答26例": "全て同一"
+  },
+  "原因観測": {
+    "全残課題preflight": "残100課題・306教師対の全教師fitは1課題。3教師に4/2/3 active行があり18/17/21画素を完全再現。各raw separator候補は一つ",
+    "優先の教師証拠": "異色同時発火は教師内で3/7/0回。近いrun優先が10衝突で現れている。周期1/2/3/4/5、code内背景gapとseparator色のrun兼用も含む",
+    "query事前確認": "guardはquery前に固定。10×20・8×15・8×15入力で48/6/36画素を追加し、最後はactive側が右。test正解は採点まで未参照"
+  },
+  "固定priorとguard": {
+    "役割": "背景は最多色。縦separatorは他のforegroundを持つ全行を支持し、元のmax(2,required行数)以上の非背景cellを持つ。全高の連続columnは必須でなく元の部分column文法を維持する",
+    "周期": "行ごとの片側にある同色連続runをseparatorに近い順で読む。各run長が周期で、反対側の隣接cellを距離0とする。code内背景gapは位相をずらさない。LCMは記録用の周期sample長",
+    "重なり": "複数runが同時発火すればseparatorに近いrunを優先する。入力内順序に基づく旧固定規則であり、衝突のない自然な一意解やHDSが発見した規則とはしない",
+    "明示guard": "有効な30以内のARC格子・一意な背景を要求。元条件の全raw separatorを列挙し件数1を後段より先に確定、元選択と一致することを確認。両側active失敗などで候補を除いて一意化しない",
+    "因果の限定": "複数raw separatorでは非背景行集合が相互包含しcountが同じになるため、元処理も既にtieで拒否する。この明示guardを新しい曖昧性bug修復や性能原因とは説明しない",
+    "保存": "元rendererの出力だけを返し、形状・active側の背景gapを含むcode・separator・inactive全行を保存。両側activeとイベントなしは元通りHOLD",
+    "固定範囲": "縦separator・run長→周期・位相0・近いrun優先は旧符号化prior。以前棄却したGCD/outside-target機構を拡張したものではない"
+  },
+  "HDS": {
+    "学習": "最終候補格子→教師出力の同値を現行HDSが採用",
+    "支持": "異なる現在教師3観測・prior0・min3・隔離0。9行・run数・10衝突を支持へ加えない。既存34課題min2/86課題min3方針は不変",
+    "排気": "同一instanceの公開cycle、全教師再現、同値・反例隔離・既存排気gate・採用済み全機構合意を保持"
+  },
+  "原指標保持": "wrong_attempted_tasks=1は既存部分回答課題であり、誤った出力格子は新旧とも0。原採点器は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "242c1df2d6bbd039a97385a33c6778362886e7ae2fe677a210e3d520742a1f9b",
+    "接続/ARC2/既存行周期.py": "b002d27838ec41822f4671499bc5a0d793614b9cdd3fefdf158735b3deb7fb4b",
+    "接続/ARC2/行周期教材.py": "946d11e0b7bf96da548236bb4a790eec18b42b429dca9cb0e933f72cee8ad811",
+    "検証/行周期回帰.py": "518469bc18cc3165d621a7751f7b3597d42964e7fda767a61f8238bb6ee3bc9c",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存216件＋新13件合格。新13件は最適化モードでも合格",
+    "周期2/3合成・周期1の抑制、左右上下反転/配色、行ごとのactive側切替、部分separator、code gap位相、separator/run同色、raw候補複数・両側active、保存、不正格子、教師反例/重複/支持/隔離と未解決queryを確認",
+    "359教師入力の元renderer/guard、100適用判定、3query格子と記録が一致。HDS中核12・保護7・先行機構・採点器・runnerは不変"
+  ],
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残99課題未完・138例未回答。固定の符号化prior外は対象外"
+  ]
+}
