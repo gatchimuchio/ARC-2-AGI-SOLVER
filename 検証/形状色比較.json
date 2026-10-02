@@ -1,0 +1,79 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "ad800df67fd8d917faa524c6496db7d17f5f76fd",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_runtime_fit_generator.py、blob6396b54f415c399df1c52f51b1f563bca9b8b0f7。形状色転写の6関数はAST同一。成分record・正規化・格子は既採用primitiveを共有",
+  "介入": "最大templateの背景patchをD4形状でprototypeへ対応づけ、形状ごとの唯一の最頻色で埋める旧priorを同じHDSへ接続",
+  "previous": {
+    "correct_tasks": 18,
+    "correct_examples": 23,
+    "unanswered": 144,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 19,
+    "correct_examples": 24,
+    "unanswered": 143,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "task_accuracy_percentage_points": 0.8333333333333334,
+    "regressed_examples": 0,
+    "既存正答23例": "同一"
+  },
+  "原因観測": {
+    "全残課題preflight": "残102課題・311教師対の全教師fitは1課題。二教師のtemplate92/128画素・prototype15/31成分・背景patch9/13・D4形状3/4種類を完全再現",
+    "query事前確認": "7×30のtemplate144画素と26prototype成分から、6形状・15patchの66背景画素を埋める。guardはquery前に固定しtest正解は採点まで未参照"
+  },
+  "固定priorとguard": {
+    "最大template": "4近傍同色成分の元の最大画素数を使う。20画素以上・bbox面積25以上・bboxに背景あり・bboxが全格子ではないという元の条件を維持する。追加guardは背景最多同率と最大成分同率を拒否し、最大が不適格でも小さい候補へ再試行しない",
+    "patch": "template bbox内の背景4近傍groupが3個以上必要。bbox端に接したgroupも元の定義通り含み、閉じた穴だけへ制限しない",
+    "形状と色": "D4正規形でpatchと非main成分を照合し、物理成分個数が最大の色が一つの場合だけ使う。unique modeであり過半数や全会一致ではない。D4の重複変換を票に加算しない",
+    "全体保留": "未知形状や最多色同率は全体HOLD。追加guardは非main成分が選択bboxへ一部でも入れば入力全体をHOLDし、その成分を票から抜いて勝者を作らない",
+    "出力": "元rendererのcropだけを返し、選択bbox寸法とtemplate前景の保存を確認する。prototypeはguard適用後には全てbbox外。30以内の入力を要求する",
+    "固定知識": "最大成分・20/25/3閾値・D4同形・色mode・cropは既存priorでありHDSが新しく発見した規則ではない"
+  },
+  "HDS": {
+    "学習": "入力内のprototype色頻度を旧機構で計算し、現行HDSは最終候補格子→教師出力の同値を採用",
+    "支持": "異なる現在教師2観測・prior0・隔離0。既存の二教師課題支持2方針を使い、中核既定3は無変更。prototype15/31/26件やpatch数はHDS支持にしない",
+    "排気": "同一instanceの公開cycle、全教師再現、既存同値・quarantine・gate・採用済み全機構合意"
+  },
+  "原指標保持": "wrong_attempted_tasks=1は既存の部分回答課題。新旧とも誤った出力格子0。原採点関数は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "44029c28159831e0aa5cc9838ca7ac753dc4bc5f6350151bd973c9e367173ab0",
+    "接続/ARC2/既存形状色転写.py": "a11dd7b05494b23c1c8d518bfd4e66a7cbbd18a4f06a24b85014fdaa6c557cd6",
+    "接続/ARC2/形状色教材.py": "2936f95c6eaf9c40092ada3f1a2b304a171588ebfb61a9722b895397e8da6e93",
+    "検証/形状色回帰.py": "778ffa536242434cf617391851588377dc2f388e8bfa88a33aa4b1971fa4b954",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存189件＋新12件合格。新12件は最適化モードでも合格",
+    "異なる向きのprototype・D4/配色、2/1/1 modeと2/2同率、未知形、BG/main同率、最大不適格時の非再試行、内部prototype、bbox端patch、20/25/3/全格子制限、教師反例/支持/隔離を確認",
+    "359教師入力の元renderer/guard、102適用判定とqueryが一致。query記録の整数色keyはJSON表現へ正規化して比較。HDS中核12・保護7・先行機構・採点器・runnerは無変更"
+  ],
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残101課題未完・143例未回答。最大template・bbox外prototype・唯一の色modeという固定priorに限定"
+  ]
+}
