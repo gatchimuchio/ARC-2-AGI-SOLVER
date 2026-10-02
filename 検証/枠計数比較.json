@@ -1,0 +1,82 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "cf5f03f80e6cc7d74e06e8843a01e17016d614fd",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_l0_agent_compiler_v89_frame_component_count_slots.py、blob2c5972bd74fa44d6c05b9232abfef4086cabd516。純粋6関数をAST同一で抽出し、dominant_background/bbox_to_listのAST同一定義とgrid_shapeは現行再利用。旧component・ID・reportは除外",
+  "介入": "色別の非frame物理成分数を同色frame内の固定点列へ符号化する旧priorを同じHDSへ接続。全rawframe・対応色count・消去証拠・同時描画と元出力の一致を検証する",
+  "previous": {
+    "correct_tasks": 29,
+    "correct_examples": 42,
+    "unanswered": 125,
+    "wrong_attempted_tasks": 3,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 30,
+    "correct_examples": 43,
+    "unanswered": 124,
+    "wrong_attempted_tasks": 3,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答42例": "全て同一"
+  },
+  "原因観測": {
+    "全残課題preflight": "残91課題・281教師対のraw/guard全教師fitは1課題3教師。各3frameと非frame物理成分9/8/5個を解析し、対応する7/6/4個を点へ符号化",
+    "分岐証拠": "frameのない色の2/2/1成分、6/7/5画素の消去を三つの完全再現教師が示す。色2や8は別教師ではframeに対応し点へ変換されるため、特定色の固定除去として扱わない",
+    "query事前確認": "guardをquery前に固定。27×23入力の4frameと10物理成分を解析。対応8個を色別2/4/1/1dotsへ変換し、frame不在の2成分6画素はwitness許可で除去。test正解は採点まで未参照"
+  },
+  "固定priorとguard": {
+    "frame定義": "入力最多背景を除いた同色4近傍成分のうち、bbox周長と完全一致し両辺5以上のものをframeとする。元の2frame以上・同形寸法という全入力制限を保持。最小5は枠/空白/点/空白/枠の寸法と整合するが、学習した閾値とはしない",
+    "符号規約": "中央行はfloor((top+bottom)/2)。slotはleft+2からstride2でright-2以内に並べ、対応色の非frame成分数だけ右側slotから選ぶ。偶数寸法でも元floor/左位相を保持し、別の中央や位相へ選び直さない",
+    "役割とcount": "全raw成分・全rawframeを保持してcoverageを検証し、背景最多tie・同色frame重複・frame bbox重複を全体HOLD。frame色ごとに一つの表示先を要求し、対応色の物理成分数をdot数として全保存する。容量超過は切詰めや一部frameだけの出力にしない",
+    "消去証拠順": "全教師の元renderer完全再現を先決し、消去許可を仮定した教師段階の構造検証と同時描画も全て教師出力と一致して初めて、未対応成分消去を示す異なる教師を数える。その証拠有無で全教師を再検証。queryで未対応成分がある場合は証拠1以上が必要",
+    "保存範囲": "frameと対応色の物理成分countを保存する。元の全非frame画素は符号化時に消費され、未対応色の成分も証拠があれば除去するため、全入力countや全foreground画素保存とは呼ばない",
+    "元出力限定": "入力から全frameと点列を同時に構成して元renderer出力との完全一致を要求。返すのは元出力のみで、別slot・別役割・修理した格子は使わない"
+  },
+  "HDS": {
+    "学習": "最終候補格子→教師出力の同値を現行HDSが採用。frame計数と符号規約は旧priorで、HDSが新規発見したとはしない",
+    "支持": "現在3盤面・prior0・min3・隔離0。消去witness3は別の分岐証拠であり、frame数/成分数/dot数とともに支持へ加えない。合成対照ではwitness1とnative3も分離。既存34課題min2/86課題min3方針と中核既定3は不変",
+    "排気": "同一instanceの公開cycle、全教師再現、同値・反例隔離・既存排気gate・採用済み全機構合意を保持"
+  },
+  "原指標保持": "wrong_attempted_tasks=3は既存部分回答3課題で不変。誤った出力格子は新旧とも0。原採点器と指標名は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "3fab1df16f8ec1f3554049c6839b2999698c0aa4068e3ad947d67acb25895554",
+    "接続/ARC2/既存枠計数.py": "4c33e933c18d0dcb7da410cd5af9a9a38979161e5f95eb370dc06cb78d711aa7",
+    "接続/ARC2/枠計数教材.py": "2af0fcf6bf5385d015aa57a813436db1e76f708799a3be7445242bcadd4d0c33",
+    "検証/枠計数回帰.py": "eb8198a8a6229b2fe443da227c3f90289da5d684558cabb73342c8f5fbe2c9fb",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存362件＋新14件合格。新14件は最適化モードでも合格",
+    "5×5/7×9/6×12のframe・偶数floor/左位相・配色・面積と物理成分数の区別・対応count0のframe保存を確認",
+    "同色frameによるcount複製拒否、容量超過の全体HOLD、証拠なし未対応色消去拒否、frame不在という述語の消去許可を確認",
+    "raw成分coverage、背景同率、不正格子、元出力不一致の代替禁止、失敗/重複教師からの証拠禁止を確認",
+    "native3盤面とwitness1の分離・反例隔離・採用済み証拠なしqueryの全体HOLD・ID/target拒否を確認",
+    "独立監査で359教師raw/両witness mode、91 activation、query/native記録を照合。HDS中核12・保護7・先行機構・scorer/runnerは不変"
+  ],
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残90課題未完・124例未回答。固定frame点列符号priorの範囲"
+  ]
+}
