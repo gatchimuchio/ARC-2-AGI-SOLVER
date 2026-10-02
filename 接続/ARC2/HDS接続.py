@@ -17,6 +17,7 @@ from .色群充填 import 色群充填教材
 from .物体群整列 import 物体群教材
 from .格子自己マスク import 格子自己マスク教材
 from .既存辺対応抽出 import 辺対応候補
+from .成分経路教材 import 成分経路教材
 
 
 def 事前教材を読む():
@@ -136,6 +137,7 @@ def 課題を解く(課題, 事前教材):
     整列教材 = 物体群教材(課題["train"])
     整列教材.学習する(機械, 観測へ)
     格子教材 = 格子自己マスク教材(課題["train"])
+    経路教材 = 成分経路教材(課題["train"])
     機構群 = (
         ("ARCテンプレート穴充填", _template_hole_pack_render, 事前教材),
         ("ARC入れ子パネル合成", _nested_panel_relation_render, ()),
@@ -146,6 +148,7 @@ def 課題を解く(課題, 事前教材):
         ("ARC物体群整列", 整列教材.候補, ()),
         ("ARC格子自己マスク", 格子教材.候補, ()),
         ("ARC辺対応抽出", 辺対応候補, ()),
+        ("ARC成分最短経路", 経路教材.候補, ()),
     )
     記録群 = [候補機構を学習(機械, 課題, 教材, 境界, 候補器)
               for 境界, 候補器, 教材 in 機構群]
@@ -180,7 +183,7 @@ def 課題を解く(課題, 事前教材):
                            "reasons": ["採用済み機構の完全格子予測が競合したため保留"]})
     return {"results": 結果群, "mechanism": "HDS機構候補の照会",
             "minimum_support": 必要支持数, "families": 記録群,
-            "quarantined": 隔離数, "object_learning": 端教材.記録(), "legend_learning": 凡例教材.記録(), "grouped_packing": 色群教材.記録(), "group_order": 整列教材.記録(), "lattice_self_mask": 格子教材.記録()}
+            "quarantined": 隔離数, "object_learning": 端教材.記録(), "legend_learning": 凡例教材.記録(), "grouped_packing": 色群教材.記録(), "group_order": 整列教材.記録(), "lattice_self_mask": 格子教材.記録(), "component_path": 経路教材.記録()}
 
 
 if __name__ == "__main__":

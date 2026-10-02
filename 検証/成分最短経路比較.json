@@ -1,0 +1,82 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "0282f54773c0f58c5569b534bb012049dafe9cb4",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_runtime_fit_generator.py。8定義をAST同一で追加し、背景/成分/clone/shape/bboxの5依存を既採用定義で共有",
+  "介入": "既存の型付きgraph最短経路候補を、全教師で一致する出力paletteと共に同一HDSへ接続",
+  "previous": {
+    "correct_tasks": 8,
+    "correct_examples": 12,
+    "unanswered": 155,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 9,
+    "correct_examples": 13,
+    "unanswered": 154,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "task_accuracy_percentage_points": 0.8333333333333334,
+    "regressed_examples": 0,
+    "既存正答12例": "同一"
+  },
+  "原因観測": {
+    "比較": "三つのTRAIN事例を比較。局所成分特徴では説明できないが、network事例では既存のpath-membership関係が三教師を完全再現。他二事例の順位/置換問題まで同じ規則で解けるとはしない",
+    "全残課題preflight": "112課題・339教師対を走査し1課題で全教師fit。graph node27/32/26、経路node13/9/7",
+    "query事前確認": "入力role色が変わり正方形サイズ2→3でも唯一の7-node経路を導出。30x30の完全格子、経路内56画素だけ変更。正解は採点まで未参照"
+  },
+  "固定graph意味": {
+    "node": "4近傍で連結する同色成分",
+    "edge": "成分の画素同士が8近接すること",
+    "距離": "component edge数。幾何距離や変更画素数を最適化するのではない",
+    "role": "前景色ちょうど3、同色で同寸法のsolid square端点がちょうど2個。正方形一辺2以上。別のblock色とconnector色も一意",
+    "曖昧性": "BFSは同距離parentsを保持し複数最短経路ならHOLD。最初の経路を使わない。非接続・role曖昧・背景最多頻度同率もHOLD",
+    "palette": "全ての現在教師からblock/connectorの出力色対を学び、全教師格子を再検証。一意で異なる二色、入力で未使用という旧制約を維持",
+    "保存": "端点・経路外成分・背景は入力と同一。候補で変えるのは経路内部のblock/connectorだけ"
+  },
+  "HDS": {
+    "学習": "graphとrole規則は旧prior。HDSがgraph規則を発見したとは主張しない。native HDSは候補格子→教師出力の同値を採用",
+    "支持": "現在教師3観測・prior0・隔離0。graph nodeや辺の数で支持を増やさない。既存34課題支持2/86課題支持3方針は無変更",
+    "排気": "同じinstance・公開cycle・全教師再現・既存同値/gate/採用済み全機構合意"
+  },
+  "原指標保持": "wrong_attempted_tasks=1は既存の部分回答課題。新旧とも誤出力格子0。採点関数は変更しない",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "a65eb21165ec9c854402ed85bc092a3e9af27af6a47818296e6ea4fb025f6af4",
+    "接続/ARC2/既存成分最短経路.py": "9017291824a0bea5f07a15b7c911222d7c6bcbd6c4736f5b93506af9d32177e0",
+    "接続/ARC2/成分経路教材.py": "45038bfbaf0dd14d847b41f01ba44a43bdca5d7c424c422df4daf16c4a90351c",
+    "検証/成分最短経路回帰.py": "08b5c57ab38af813c50bba5342bc7fd285a0ebd032851c8be6febc0474fdb3e6",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存75件＋新10件合格、新10件は最適化モードでも合格",
+    "全D4、配色/サイズ、同距離経路、role曖昧、追加色、非接続、背景同率、教師palette不一致/重複、新色制約、経路外保存、支持不足/後発反例を確認",
+    "526入力の候補と全120課題の教師由来parameterが固定preflightと同一。test正解は使用しない",
+    "HDS中核12・保護7・既存機構・採点器・runnerは無変更"
+  ],
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "固定typed graph入力への限定。残111課題未完・154例未回答"
+  ]
+}
