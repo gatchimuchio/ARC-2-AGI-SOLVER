@@ -1,0 +1,81 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "62356e4c8037f722dc9e3ee18bf329bb82b65380",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_runtime_fit_generator.py、blob6396b54f415c399df1c52f51b1f563bca9b8b0f7。適格性/反射/記録/描画の4関数はAST同一。成分recordとbboxの3adapterは現在の共有primitiveへ接続",
+  "介入": "全教師で標識色を選び、未解決の適格物体を保留するguard付きの既存反射候補を同一HDSへ接続",
+  "previous": {
+    "correct_tasks": 11,
+    "correct_examples": 15,
+    "unanswered": 152,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 12,
+    "correct_examples": 17,
+    "unanswered": 150,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 2,
+    "task_accuracy_percentage_points": 0.8333333333333334,
+    "regressed_examples": 0,
+    "既存正答15例": "同一"
+  },
+  "原因観測": {
+    "全残課題preflight": "残109課題・329教師対の全教師fitは1課題。二教師とも18画素の反射追加を完全再現",
+    "教師対応": "7個/5個の同色成分に各々唯一のvalidな反射先がある。標識色は全教師で整合する色から選び、固定2を使わない",
+    "query事前確認": "二入力とも完全候補を得て25/45画素を追加、物体対応4/13。guardは入力確認前に固定し、test正解は採点まで未参照"
+  },
+  "固定priorとguard": {
+    "物体": "4近傍の同色成分。markerは点/水平線/垂直線。点は180度、線は軸を基準に反射",
+    "適格性": "点markerのbbox Chebyshev gap3以下。線は物体との側方関係と元のspan余白1を用いる。学習した閾値ではない",
+    "選択": "範囲内で元の背景だけへ完全に反射できるvalid候補を先に列挙し、その中で(Chebyshev bbox gap,Manhattan gap)が唯一最小のmarkerを選ぶ",
+    "保留": "背景同率・marker形状未対応・最寄りvalid同率・適格だがvalid候補0・異色描画衝突は全格子HOLD。無効な個別placementは別のvalidがある場合に元の規則どおり除外",
+    "適用域と保存": "幾何的に適格なmarkerがない物体は対象外として保存。全ての元前景を保存し、同色の追加重複は元の仕様どおり合成",
+    "parameter方針": "旧fitterの唯一色条件に代え、全教師で完全fitした全色を保持するcaller方針をquery前に宣言。保持した一つでも未解決、又は完全格子が異なるならHOLD。実測では候補色1個"
+  },
+  "HDS": {
+    "学習": "反射幾何とnearest-valid規則は旧prior。native HDSは生成候補格子→教師出力の同値を採用",
+    "支持": "異なる現在教師2観測、prior0、隔離0。既存の課題支持2方針、中核既定3、34課題支持2/86課題支持3の設定は無変更。物体/marker/parameter数で支持を複製しない",
+    "排気": "同じinstanceの公開cycle、全教師再現、既存同値/quarantine/gate/採用済み全機構合意"
+  },
+  "原指標保持": "wrong_attempted_tasks=1は既存の部分回答課題。新旧とも誤った出力格子0。原採点関数を変更しない",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "c5962860bd2528f48a51bd50141dcf38621a29713b3550dba857446cfefb41b7",
+    "接続/ARC2/既存軸反射.py": "9802bf53c23011fc61b9d266185b0fafba0a5b761efb51fc09c6ddf298046df0",
+    "接続/ARC2/軸反射教材.py": "e7f7d13133ffd9d42b672bafb602ac1048f823053a04f23fe60531868428597e",
+    "検証/軸反射回帰.py": "f897a37db25c17bece0a0da1f9e5e2175f283da46d1d020cdbca761aa3dc048c",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存105件＋新12件合格。新12件は最適化モードでも合格",
+    "全D4/配色・点反射・同率nearest-valid・未解決物体・無効な最寄り適格と有効な別候補・異色衝突/同色重複・前景保存・parameter未解決/不一致・教師反例/重複・支持不足/後発隔離を確認",
+    "1873教師入力/色組で候補と診断recordが固定source/guardに一致。109fit判定と二queryも一致",
+    "HDS中核12・保護7・先行機構・採点器・runnerは無変更"
+  ],
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残108課題未完・150例未回答。限定されたmarker反射priorの再利用"
+  ]
+}
