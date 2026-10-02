@@ -1,0 +1,80 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "4d775075e675b1a6715966e5b6da8d2f2a8a6894",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_l0_agent_compiler_v33_panel_shape_ordering.py、blob c5dd937110875cc9d1cf7f29b8cb642f72e2238a。純粋5関数をAST同一で抽出。dominant_color/component_bboxはAST同一の現行2関数を再利用し、grid_shape/is_rectangularも現行共有。旧component・ID・reportは除外",
+  "介入": "全foreground成分の直交接触pathを固定端点順で直列化する旧priorを同じHDSへ接続。全成分・色数保存と元格子一致を検証する",
+  "previous": {
+    "correct_tasks": 27,
+    "correct_examples": 40,
+    "unanswered": 127,
+    "wrong_attempted_tasks": 3,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 28,
+    "correct_examples": 41,
+    "unanswered": 126,
+    "wrong_attempted_tasks": 3,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答40例": "全て同一"
+  },
+  "原因観測": {
+    "全残課題preflight": "残93課題・286教師対のraw/guard全教師fitは1課題2教師。全5/3成分が一本の接触pathを形成し、22/24foreground画素を全て使って22×1/24×1へ直列化する",
+    "教師役割": "背景は入力最多色で教師間で8/1と異なる。順序は全成分pathと固定端点bbox辞書順から決まり、成分数や面積順を教師から選び直す探索はない",
+    "query事前確認": "guardをquery前に固定。6成分25画素を全使用し25×1格子。色/size順は(1,5),(3,3),(8,6),(4,6),(1,3),(3,2)で、途中に再登場する同色の別成分も保存。test正解は採点まで未参照"
+  },
+  "固定priorとguard": {
+    "物体とpath": "最多背景以外の同色4近傍成分を全抽出し、直交接触をedgeにする。全成分を使う連結単純pathのみ許す。分岐・閉路・孤立混入・対角接触だけの場合は元処理から拒否。単一成分は自明なpathとして元どおり許す",
+    "固定選好": "pathの反転を除く順序は構造から決まるが、開始側はbbox(top,left,bottom,right,color)の辞書順という元の固定選好。guardは端点の幾何bbox同率を拒否して色tie-breakを使わない。出力は固定縦一列で、自然な全変換候補の一意性やHDSの学習結果とはしない",
+    "画素保存": "path順に各成分の色を物理画素数だけ繰り返す。入力背景は出力しない。全foregroundの非重複coverage、全成分一度ずつの使用、色別画素数の一致を検証する。同色の離れた成分も省略・統合しない",
+    "追加適用条件": "有効ARC格子・最多背景一意・出力高さ1〜30を要求。31以上でも切り詰めや成分の部分選択をせず全体HOLD",
+    "元出力限定": "独立な全pixel owner graphによる検証列が元renderer出力と一致した場合だけ元格子を返す。別の開始端・別順序・代替格子へ置換しない"
+  },
+  "HDS": {
+    "学習": "最終候補格子→教師出力の同値を現行HDSが採用。path抽出・端点選好・画素数展開は旧priorであり、HDSが新規発見したとはしない",
+    "支持": "現在2盤面・prior0・min2・隔離0。成分5/3/6個や画素数を支持へ加えない。既存34課題min2/86課題min3方針と中核既定3は不変",
+    "排気": "同一instanceの公開cycle、全教師再現、同値・反例隔離・既存排気gate・採用済み全機構合意を保持"
+  },
+  "原指標保持": "wrong_attempted_tasks=3は既存部分回答3課題で不変。誤った出力格子は新旧とも0。原採点器と指標名は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "7dedd6f1831a012d6e30d895a124ebc0560424a310b9c63199797f339aa6ee5e",
+    "接続/ARC2/既存成分直列.py": "12e271d9df5e75eae69d10156b3673067a2a5ac1bf5b31782fa6acb883547c16",
+    "接続/ARC2/成分直列教材.py": "5f38d59178cd72013f2bd74d7be07692d3d10c100b91602c629b655bf150ab94",
+    "検証/成分直列回帰.py": "2525a358bc12b348eed819fc127f8a569e75b5adde71d971dd9eda2dc930c88b",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存338件＋新12件合格。新12件は最適化モードでも合格",
+    "全成分順と画素数、1→2→1の別成分、単一成分、固定上端/同じ上端で左優先、配色と背景置換を確認",
+    "分岐/閉路/孤立/対角のみの拒否、30通過/31全体HOLD、背景同率、欠落/重複coverage、元格子不一致時の代替禁止を確認",
+    "教師矛盾/重複拒否、native2盤面/中核既定3/反例隔離、採用済み未解決queryの全体HOLD、ID/target拒否を確認",
+    "独立監査で359教師raw/guard、93 activation、query/native記録を照合。HDS中核12・保護7・先行機構・scorer/runnerは不変"
+  ],
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残92課題未完・126例未回答。固定端点順と縦向きという既存priorの範囲"
+  ]
+}
