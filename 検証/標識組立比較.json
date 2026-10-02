@@ -1,0 +1,80 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "d373ccbbb11b11a6aed967a1de1c8a04c6b6bff0",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_l0_agent_compiler_v42_marker_component_assembly.py、blob 2de6902174a3162a9ef2f5f0f4cc2bbd48be7cc0。純粋6関数をAST同一で抽出し、component_bboxは現行のAST同一定義を再利用。grid_shape/clone_grid/is_rectangularも現行依存。旧component・ID・reportは除外",
+  "介入": "教師由来のmarker/target/backgroundで、二つのmarker間の移動とtarget成分の組立を行う旧priorを同じHDSへ接続。全raw候補を検証し、全候補一致の場合だけ元renderer出力を許可する",
+  "previous": {
+    "correct_tasks": 31,
+    "correct_examples": 44,
+    "unanswered": 123,
+    "wrong_attempted_tasks": 3,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 31,
+    "correct_examples": 45,
+    "unanswered": 122,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 0,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答44例": "全て同一"
+  },
+  "原因観測": {
+    "全残課題preflight": "残89課題・275教師対で全教師fitは1課題4教師。marker7/target4/background1の役割を全教師から共通推定。各教師のraw候補2件は同じ格子に一致し、target36/20/16/22画素を全保存。教師2ではtargetが最多であり、背景を頻度で選ばない",
+    "query事前確認": "query前にguardを凍結。第0例は2候補が同じ5×10格子・target34画素へ一致。translationは±(6,-4)で、絶対座標が入力外へ出てもtight cropとして有効。第1例は優勢軸同率のため全体HOLD。test正解は採点まで未参照",
+    "実測": "第0例の正答一つだけが追加され、第1例はHOLDを維持。完全正答課題数と課題accuracyは不変。正答例の純増としての限定改善"
+  },
+  "固定priorとguard": {
+    "役割先決": "異なる現在教師入力を要求し、元の消失色・唯一画素数保存色・残余色の役割推定と全教師の元renderer完全再現を先に確定。その後全guardを適用し、失敗する役割を選び直さない。queryは教師由来の三色を使い、未知色はHOLD",
+    "attachmentと群所属": "二つの4近傍marker成分と二つ以上のtarget成分。両marker順序×四直交方向から、marker全形状が隣接targetに重なるattachmentを元どおり列挙する。移動はそのfootprintを移動先markerへ合わせるvector。付着成分に加え、vector優勢軸の向きとsource marker bboxに対する片側条件で移動群を決める旧prior。全ての可能なpart partitionを探索したという意味ではない",
+    "全候補検査": "markerのnormalized shapeはraw候補生成前に一致を要求。元の非実行可能attachment（ゼロ移動・片群空・重なり等）の除外は保持するが、返されたraw候補は全て検証し、一件でも優勢軸同率・保存失敗・出力30超過なら全体HOLD。後段失敗候補を捨てて残りを採らない",
+    "保存と出力": "全target成分を移動/固定のどちらかへ一度だけ割り当て、全target画素数を重なりなく保存する。markerは出力から除かれ、背景はtight crop内を埋める。入力座標外への移動は禁止せず、完成格子の各辺1〜30を要求する",
+    "元出力限定": "全raw候補の完全格子が同一かつ元rendererの選択格子と一致する場合だけ元格子を返す。元の面積/shape/成分数/座標順位で異なる出力を選ばず、同率軸の代替方向や別partitionを生成しない。役割推定と群所属は旧priorで、HDSの新規発見とはしない"
+  },
+  "HDS": {
+    "学習": "最終候補格子→教師出力の同値を同一の現行HDSが採用。四つの実教師を各一回だけ公開cycleへ渡す",
+    "支持": "現在4盤面・prior0・min3・隔離0。raw候補数・marker数・成分数は支持へ加算しない。既存34課題min2/86課題min3方針と中核既定3は不変",
+    "排気": "全教師再現・採用済み同値・反例隔離・既存排気gate・全採用機構の合意を保持。採用済みfamilyの一つでも未解決なら全体HOLD"
+  },
+  "原指標保持": "wrong_attempted_tasksは3→4。新しい正答部分回答が加わった原指標で、誤った出力格子は新旧とも0。完全正答課題の増分は0。原採点器と指標名を変更しない",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "d44319ff482805351efb656d964d7ba68f229294d594acf12b0149dc6f875577",
+    "接続/ARC2/既存標識組立.py": "a39c7aea40afa220475d2a15958de012b8717a386addfdfe3b25b01829d91b04",
+    "接続/ARC2/標識組立教材.py": "1aa0d7098a869a7491bb498d729dcd8866dfaf682a85652ed5e0981e6cfb0130",
+    "検証/標識組立回帰.py": "307fe94e964abaa66f29dbbe70d531aff617bad556a69696c746734a52cd05ff",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存390件＋新14件合格。新14件は最適化モードでも合格",
+    "両marker順序の保持、全target画素保存、寸法/配色/左右上下反転、target最多でも教師由来背景役割の維持を確認",
+    "異形marker、同じ格子でも軸同率、raw候補間の異なる完成格子、一候補のpartition失敗、target coverage欠落、候補/元renderer格子不一致は全体HOLD",
+    "入力内の部品から高さ40になる組立、未知色/不正役割/格子、候補なし、教師矛盾/重複、native4支持と反例隔離、採用後queryのHOLD、ID/target拒否を確認",
+    "独立監査で359教師の全raw候補/元出力/guard、89 activation、両query/nativeを照合。HDS中核12・保護7・先行機構・scorer/runnerは不変"
+  ],
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残89課題未完・122例未回答。今回の完全課題スコア増分は0。固定の幾何的群所属と全候補合意の範囲"
+  ]
+}
