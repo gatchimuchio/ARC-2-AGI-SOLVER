@@ -1,0 +1,80 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "1bfc680624fcc9e57f9f17b06bbf97f2c2d04445",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_l0_agent_compiler_v59_seeded_separator_layer_fill.py、blobfa4fd3b9bf166e9bc769ec16338b58d56f2f8c7d。純粋7関数・近傍定義2つはAST同一。grid_shapeは現行共有。旧component・課題ID・reportは除外",
+  "介入": "入力seedから領域境界の距離層に沿って周期充填する旧priorを同じHDSへ接続。全領域の解釈とseed・separatorの保存を確認して元renderer出力だけ許可",
+  "previous": {
+    "correct_tasks": 24,
+    "correct_examples": 33,
+    "unanswered": 134,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 25,
+    "correct_examples": 35,
+    "unanswered": 132,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 2,
+    "regressed_examples": 0,
+    "既存正答33例": "全て同一"
+  },
+  "原因観測": {
+    "全残課題preflight": "残96課題・294教師対を全数確認。raw/guard全教師fitは1課題3教師。背景/ separator/ seed配色は教師間で変化し、元周期1/2/3を使って354/245/93cellを変更",
+    "分岐証拠": "教師1の一領域は層1だけにseedがあり[BG,seed]を完全再現。教師2の18cell unseeded領域は元通り保存。それぞれ1教師の分岐証拠であり追加支持や独立した学習則ではない",
+    "query事前確認": "guardをquery前に固定。二つの30×30入力の5/6領域を処理し777/796cell変更、全seed/ separator保存。test正解は採点まで未参照"
+  },
+  "固定priorとguard": {
+    "役割": "一意の最多入力色が背景。最多非背景色はcount>=max(4,min(H,W),3*次点非背景count)ならseparatorとする。元の頻度・min-countは全入力の適用条件で、局所物体を選別して黙殺しない。幾何的role一意性の証明ではない",
+    "領域と距離": "separator以外の全cellを4近傍領域に分ける。盤面外周または8近傍に領域外があるcellを層0とし、領域内8近傍BFSで距離を測る",
+    "周期": "領域の全非背景cellをseedにし、同層の異色seed競合は一領域でも全体HOLD。周期=max_seed_layer+1、未seed位相は背景色として距離の剰余で繰り返す。これは固定周期選好であり最小周期の推論ではない",
+    "保存": "未seed位相のBGは既存seedを消す分岐ではない。無seed領域は全保持する。元処理も全seedとseparatorを保持し、sourceの失敗/競合をguardで救済しない",
+    "追加検査": "有効ARC1〜30・一意背景、非separator領域の非重複完全coverageと層の完全coverageを確認。原入力から同時描画した格子が元renderer出力と一致し、seed/ separator/ 無seed領域を保持する場合だけ元出力を返す。別period/role/格子を探さない"
+  },
+  "HDS": {
+    "学習": "最終候補格子→教師出力の同値を現行HDSが採用。領域/距離/周期規則をHDSが新規発見したとはしない",
+    "支持": "現在3盤面・prior0・min3・隔離0。領域数、距離、seed数、分岐証拠1/1を支持へ加えない。既存34課題min2/86課題min3方針と中核既定3は不変",
+    "排気": "同一instanceの公開cycle、全教師再現、同値・反例隔離・既存排気gate・採用済み全機構合意を保持"
+  },
+  "原指標保持": "wrong_attempted_tasks=1は既存部分回答課題であり、誤った出力格子は新旧とも0。原採点器は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "7040567607b7aaa0eb28965b409adec811e09146d4031866b53d9f82cc892128",
+    "接続/ARC2/既存距離層.py": "83822e2ef7874ceeb9341bc1a55c2706fe286be9be4ff4a49d24088c01b154c3",
+    "接続/ARC2/距離層教材.py": "e25f0a0b2017c72e33f24a68e7bc0a188b6d9992c7d03a75ff2485209e4fbc5a",
+    "検証/距離層回帰.py": "05cf6850d782232916455d3ab2dd0bdd361bee90b5b11a2fd90e0cd917803a77",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存269件＋新15件合格。新15件は最適化モードでも合格",
+    "独立矩形距離式、D4/全配色、周期5、同色sequenceでも最小周期へ置換しないこと、未seed位相BG/無seed保存、0色seed、斜め境界露出を確認",
+    "正常領域と競合領域の全体HOLD、元のseparator頻度条件、全seed/ separator保存、元格子不一致で代替しないことを確認",
+    "教師反例/重複、native3盤面と分岐証拠1/1、中核既定3・反例隔離・採用済みquery不確定の全体HOLDを確認",
+    "359教師raw/guard、96 activation、両query/native記録が一致。HDS中核12・保護7・先行機構・scorer/runnerは不変"
+  ],
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残95課題未完・132例未回答。任意の領域分割や周期法則を学習できたとの主張ではない"
+  ]
+}
