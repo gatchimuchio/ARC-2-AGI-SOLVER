@@ -1,0 +1,81 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "7215e645f637d69d0806d76bad3f12d865771c18",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_l0_agent_compiler_v91_marker_panel_inventory_count_lattice.py、blob efff04b7584f9e1f18492bded30fa39cb5c4d091。純粋4関数をAST同一で抽出し、dominant_background/bbox_to_list/component_summaryのAST同一定義とgrid_shapeは現行再利用。component_summaryのbbox依存も照合。旧component・ID・reportは除外",
+  "介入": "固定0の計数panelと入力markerを読み、同色の外部8近傍成分数を点列へ符号化する旧priorを同じHDSへ接続。全0帰属・境界分離・対応count・元panel選択と出力一致を検証する",
+  "previous": {
+    "correct_tasks": 30,
+    "correct_examples": 43,
+    "unanswered": 124,
+    "wrong_attempted_tasks": 3,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 31,
+    "correct_examples": 44,
+    "unanswered": 123,
+    "wrong_attempted_tasks": 3,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答43例": "全て同一"
+  },
+  "原因観測": {
+    "全残課題preflight": "残90課題・278教師対のraw/guard全教師fitは1課題3教師。panel寸法7×7/7×12/5×5、外部count3/1/2・2/2/4・2/1。全0は選択panelの一つの4近傍成分で、marker色の境界跨ぎはない",
+    "対象外色": "教師1に未標識の外部色4、教師2に外部色2があり、それぞれ一成分。これらは対応inventoryの対象外であり、全入力count保存とはしない",
+    "query事前確認": "guardをquery前に固定。9×11 panel・全0=95cell・4marker、外部count2/2/4/5の計13を計13dotへ符号化。marker自体を余分に4個加えず、元marker位置はその13個に含む。test正解は採点まで未参照"
+  },
+  "固定priorとguard": {
+    "固定型と背景": "0は固定panel型。入力全体の最多色は一意かつ非0を要求し、外側背景とする。非0色だけから背景を取り直したり0を任意色へ読み替えたりしない",
+    "rawpanel契約": "元の4近傍zero成分bboxに対し、両辺3以上・zero密度0.5以上・bbox内部に外側背景なし・異なる色markerが同じ列の連続odd行にstride2で並ぶ条件を保持。適格panelは元処理で一つに確定し、後段失敗で別panelへ選び直さない",
+    "全0と分離": "選択zero成分のcellsが入力の全0と完全一致することを要求し、原処理が無視し得る孤立0も全体HOLD。全marker色の8近傍成分をpanel内/外へ完全分離し、両方に跨る成分をcountから黙って外さず全体HOLD",
+    "符号化と保存": "各marker色の全外部8近傍成分数Nを読み、元marker列から右へstride2のN個を元marker行に置く。markerはNへ加算しない。N>=1・幅内を要求し、元marker位置と指定色の外部countを保存する。その他は0でpanel寸法を出力。未標識外部色は対象外",
+    "元出力限定": "全役割coverageと同時panelを検証し、元rendererのpanel選択・marker記録・出力格子との完全一致を要求。別panel・周期・方向・代替格子へ置換しない。0型・4/8近傍・odd行/右stride2は固定符号規約で、HDSが学習した幾何や回転不変性とはしない"
+  },
+  "HDS": {
+    "学習": "最終候補格子→教師出力の同値を現行HDSが採用。panel検出・成分計数・符号化は旧priorでありHDSの新規発見とはしない",
+    "支持": "現在3盤面・prior0・min3・隔離0。markerや外部成分数を支持へ加えない。既存34課題min2/86課題min3方針と中核既定3は不変",
+    "排気": "同一instanceの公開cycle、全教師再現、同値・反例隔離・既存排気gate・採用済み全機構合意を保持"
+  },
+  "原指標保持": "wrong_attempted_tasks=3は既存部分回答3課題で不変。誤った出力格子は新旧とも0。原採点器と指標名は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "1851daf951e95123d507cfe36e05b810ca8373d5740faccf481006e3ad0adf74",
+    "接続/ARC2/既存標識計数.py": "8fed1993cf3a6acc29d8d69b80be28e67885411c85cb3e4bb7cf51e7127aacc5",
+    "接続/ARC2/標識計数教材.py": "556524c9b76de8912f17464ebfe5df3a4232f7358b4ec78553a8d020b2f60e71",
+    "検証/標識計数回帰.py": "236e82448a82c0d7c28f8351891b3528084cb3087938d54e5fa7a1daf294eb29",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存376件＋新14件合格。新14件は最適化モードでも合格",
+    "8近傍と4近傍/面積の区別、marker非加算、panel位置/寸法とcol2/row3、非0配色置換、未標識外部色の対象外を確認",
+    "孤立0/marker色straddler拒否、count0/容量超過、背景同率、全component coverage、元panel選択/元格子不一致の代替禁止を確認",
+    "教師反例/重複拒否、native3盤面/反例隔離、採用済み余分0queryの全体HOLD、ID/target拒否を確認",
+    "独立対照で適格rawpanel二つの候補数2によるHOLDも確認。後段のcount条件で一方を捨てない",
+    "独立監査で359教師raw/guard、90 activation、query/native記録を照合。HDS中核12・保護7・先行機構・scorer/runnerは不変"
+  ],
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残89課題未完・123例未回答。固定0とmarker付き点列符号priorの範囲"
+  ]
+}
