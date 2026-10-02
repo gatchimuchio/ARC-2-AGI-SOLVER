@@ -1,0 +1,80 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "9a1f5c61728823068067e71a4ac3d822a44a6828",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_l0_agent_compiler_v58_overlap_mosaic_assembly.py、blob43dff0f7cc6e57bf43a0b606960951c051b89faf。純粋8関数・NEIGHBORS_8はAST同一。grid_shapeは既存共有。元の課題ID定数・旧solver・reportは除外",
+  "介入": "完全一致overlapを重みにした断片組立priorを同じHDSへ接続。最大treeと平行移動位置の一意性、全cropの同時整合を証明し元renderer出力だけ許可",
+  "previous": {
+    "correct_tasks": 21,
+    "correct_examples": 29,
+    "unanswered": 138,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 22,
+    "correct_examples": 31,
+    "unanswered": 136,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 2,
+    "regressed_examples": 0,
+    "既存正答29例": "全て同一"
+  },
+  "原因観測": {
+    "全残課題preflight": "残99課題・303教師対の全教師fitは1課題。2教師は3/4断片から5×12/5×22を再構成。採用edgeの最大primary offsetは全て一意",
+    "tree証明": "教師0のspanning treeは一本。教師1は全8本中、最大score合計(23,21)のtreeが一本。非採用edgeはtree内pathの最弱scoreより厳密に低い。非採用edgeの7/5通りの同率offsetも記録に残す",
+    "query事前確認": "guardをquery前に固定。各6断片から14×19/9×19を生成し、採用5edgeのoffset一意と非採用edgeのstrict条件を確認。test正解は採点まで未参照"
+  },
+  "固定priorと証明": {
+    "断片": "8近傍foreground成分のbboxを背景も含めてcropし、回転せず平行移動する。共有する全overlap cellが等しく、foreground一致が一つ以上ある場合だけedgeを作る",
+    "prior": "overlap面積、次にforeground overlap数をprimary scoreとする最大spanning treeで全断片を配置。正規化した外接格子の未被覆cellは入力背景で埋める。これは既存priorでありHDSの発見ではない",
+    "一意性": "全pairの全平行移動を調べprimary最大offset群を保持。採用edgeは最大offsetが唯一かつ元delta/positionと一致。各非tree edgeは対応tree pathの最小primary weightより厳密低値を要求する。同率ならHOLD。不可欠な採用edge同士のweight同率は許す",
+    "因果": "この条件下では元の移動量・元入力座標・列挙順によるtie-breakが結果に関与しない。最大overlap prior内の唯一解であって、低overlapを含む全幾何配置の唯一性ではない",
+    "整合": "一意背景、有効ARC入力、crop内foreign foregroundなし、全断片使用、出力30以内を確認。背景を含む全cropを同時照合し、0→色の後書きでも不一致を拒否する",
+    "元出力限定": "同時合成した格子は元renderer出力と一致する場合のみ受理し、元出力を返す。別treeや別格子を作って置換するsolverではない"
+  },
+  "HDS": {
+    "学習": "最終候補格子→教師出力の同値を現行HDSが採用",
+    "支持": "異なる現在教師2観測・prior0・min2・隔離0。3/4/6断片やedge数を支持へ加えない。既存34課題min2/86課題min3方針と中核既定3は不変",
+    "排気": "同一instanceの公開cycle、全教師再現、同値・反例隔離・既存排気gate・採用済み全機構合意を保持"
+  },
+  "原指標保持": "wrong_attempted_tasks=1は既存部分回答課題であり、誤った出力格子は新旧とも0。原採点器は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "530b4269bcb1eb74206a0ff759bf87531cdd643c4c032f89d00b57258f4f69fc",
+    "接続/ARC2/既存重畳組立.py": "708167bcf7cf20502570c519d69492b3bffa00f51ae9a55c6a1480b952eedf2b",
+    "接続/ARC2/重畳組立教材.py": "9781da7ae0d5af5acb8769b109cd46c0411ec959a6b6264aaacafc491e40f3bc",
+    "検証/重畳組立回帰.py": "337461ba948f3862987538e6a9b439f07e6a3d6ee447ac31bd47026f89e44da8",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存229件＋新13件合格。新13件は最適化モードでも合格",
+    "D4/配色/入力配置順、採用shift同率・未採用edge同率、foreignFG、output40列、source出力不一致、不正格子・教師反例・支持・隔離・未解決queryを確認",
+    "実反例のA=[[1,0,2,3],[1,1,2,3]]、B=[[2,3],[2,3]]、C=[[1,9,2,3],[1,1,2,3]]では元tree/paintはCを返すが、guardは(0,1)のBG/9不一致をHOLDする",
+    "359教師入力の元renderer/guard、99適用判定、2query格子と証明が一致。HDS中核12・保護7・先行機構・採点器・runnerは不変"
+  ],
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残98課題未完・136例未回答。採用edgeの最大shift同率、または同率最大treeは出力が同じでも保守的にHOLD。strictly lowerな未採用edgeの同率offsetは保持する"
+  ]
+}

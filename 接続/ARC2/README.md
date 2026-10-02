@@ -32,11 +32,12 @@ python 検証/穴輪郭回帰.py
 python 検証/形状色回帰.py
 python 検証/凡例経路回帰.py
 python 検証/行周期回帰.py
+python 検証/重畳組立回帰.py
 ```
 
 全120課題・167test例、各課題10CPU秒・512MiB・60秒wall、3並列で旧ARC採点関数を再利用する。baselineモードは初期のHDS格子値診断であり、前commitそのものではない。test正解と課題IDは親採点側に限定する。
 
-前commit `e0b2cd7` の20/120課題・26/167例から、行周期合成で21/120課題・29/167例へ改善。旧採点器のwrong_attempted_tasksは既存の部分回答課題1件を数えるが、誤った出力格子は0。比較は `検証/行周期比較.json`、先行成果は既存比較記録に保持する。
+前commit `9a1f5c6` の21/120課題・29/167例から、重畳組立で22/120課題・31/167例へ改善。旧採点器のwrong_attempted_tasksは既存の部分回答課題1件を数えるが、誤った出力格子は0。比較は `検証/重畳組立比較.json`、先行成果は既存比較記録に保持する。
 
 物体端投射は既存8近傍物体抽出と九特徴を使い、教師だけから整合する特徴→上端/下端方向を選ぶ。各物理物体を一度ずつ現行HDSへ観測し、既存bbox順を保つ。未知特徴・識別不能・競合・配置重複は全格子HOLD。予測結果経路の制限は差分0で棄却し、HDS中核は元のまま。
 
@@ -75,5 +76,7 @@ python 検証/行周期回帰.py
 凡例経路は入力の水平色列に沿って異なるpanelを選び、payloadの重なる行/列幅でframe間の背景を出発色でつなぐ旧prior。raw抽出で2panel以上を作れる色が一つであることを先に確定し、閉frame・非重複bbox・一つの外部凡例行を検証する。後続失敗で競合役割を捨てない。追加証明は全経路を100,000node以内で尽くし、同格子になる複数経路だけを許す。どれか一経路の異色交差・異なる完全格子・候補発見後の予算超過は全体HOLD。元rendererとの格子一致を要求し、別解へ置き換えない。未使用panelは保存する。これらは固定priorと証明制限でありHDSの新規発見ではなく、native支持は三教師の最終格子だけである。
 
 行周期は縦separatorの片側にある同色run長を周期として、反対の背景側へ重ねる旧符号化prior。位相はseparator隣を0とし、code内の空白gapには依存せず、同時発火はseparatorに近いrunを優先する。部分separator・行ごとの左右activeを元通り許し、code/ separator/ inactive行は保存する。追加guardは有効格子・一意背景・全raw separator一意性を明示するが、複数separatorは元処理もcount tieで拒否するため、曖昧性bugを修復したとはしない。周期と優先をHDSが発見したわけではなく、9行/10衝突の事前確認とは別に、native支持は三教師の最終格子のみである。
+
+重畳組立は8近傍foreground断片のcropを平行移動し、背景も含む完全一致overlapの面積/foreground数で最大spanning treeを選ぶ旧prior。追加証明は採用edgeの最大shift一意性と、各非tree edgeがtree pathの最弱weightより厳密低値であることを要求し、元座標tie-breakの影響を排除する。採用edgeの最大shift同率、または同率最大treeは同じ格子でもHOLD。厳密に低weightな未採用edgeの同率offsetは保持する。全断片の使用・foreignFGなし・30以内の出力・全crop同時一致を確認し、元renderer出力だけ返す。BG→foregroundの後書きも矛盾として拒否する。唯一性は最大overlap prior内のもので、全幾何解やHDSの新規発見とはしない。支持は3/4/6断片ではなく二教師の最終格子である。
 
 公開評価での改善であり、既存helperの過去開発データから独立な評価・hidden汎化・満点・Kaggle提出を示さない。固定source evaluationのSHA256は既存ZIPマニフェストと不一致であり、source版として評価する。
