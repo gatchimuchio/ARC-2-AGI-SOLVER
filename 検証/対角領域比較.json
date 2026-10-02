@@ -1,0 +1,80 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "8b36f2a859187e53b8e1ffc35a681c5b1d3566db",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_l0_agent_compiler_v29_diagonal_region.py。blob fefea8f409e7f62d7b3ea3d90d8b3dc5fb611845。dataclassと5関数はAST同一、clone/shape/backgroundの3依存は既採用primitiveを共有",
+  "介入": "全教師で新しい充填色を確定し、既存の反対角線分間の全pair領域和を同一HDSへ接続",
+  "previous": {
+    "correct_tasks": 10,
+    "correct_examples": 14,
+    "unanswered": 153,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 11,
+    "correct_examples": 15,
+    "unanswered": 152,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "task_accuracy_percentage_points": 0.8333333333333334,
+    "regressed_examples": 0,
+    "既存正答14例": "同一"
+  },
+  "原因観測": {
+    "全残課題preflight": "残110課題・331教師対を走査し1課題で全教師fit。通常の閉領域flood fillでは閉じない斜めの境界間を、既存の座標関係が再現",
+    "教師": "二教師の入力線分6/4、追加38/96画素。出力の一つの新色は両教師で一致",
+    "query事前確認": "入力由来の4線分から53画素を追加する完全候補。固定guard後に入力だけで確認し、test正解は採点まで未参照"
+  },
+  "固定priorとguard": {
+    "幾何": "同色前景をs=r+cの連続線分に分ける。異なるs上の全pairについてsの開区間かつd=r-cの共有閉区間を埋め、その和を取る",
+    "方向": "反対角線の固定方向。singleton線分も許す旧仕様を維持し、D4探索や最小長条件は追加しない",
+    "色": "現在教師の変更元は背景だけ、変更先は共通の新色一つであることを検証し、各教師の完全格子を再現",
+    "保留": "背景最多頻度同率・前景が一色でない・充填色が入力に既出・領域追加なし・不正寸法ならHOLD。予測でも新色roleを守る",
+    "保存と一意性": "全追加が同色のためpair順による優先はない。元の全前景は保存"
+  },
+  "HDS": {
+    "学習": "幾何式は旧priorでありHDSが発見したとの主張ではない。native HDSは生成候補格子→教師出力の同値を採用",
+    "支持": "異なる現在教師2観測、prior0、隔離0。既存の課題支持2方針を使用し、中核既定値3と34課題支持2/86課題支持3の設定は無変更。領域や画素で支持を複製しない",
+    "排気": "同じinstanceの公開cycle、全教師再現、既存同値/quarantine/gate/採用済み全機構合意"
+  },
+  "原指標保持": "wrong_attempted_tasks=1は既存の部分回答課題。新旧とも誤った出力格子0。原採点関数を変更しない",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "9cacaf1451a42080b93622bf83867d9b4558ce45d8af7a6bd5bdba3583a7a8d2",
+    "接続/ARC2/既存対角領域.py": "9f1a959d3d6e77b8284cb2fe708fbd4afb96d610c4dbc562609f5a23341de92b",
+    "接続/ARC2/対角領域教材.py": "ac27d68bc6afda7e32033c9b0e4bffaa414134974c4f8fe709d423a017830bc6",
+    "検証/対角領域回帰.py": "2e6cc54b5db4cfe5af6e4aa6af3ca8df5e76101295124dc10e89e51afc8b48bd",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存95件＋新10件合格。新10件は最適化モードでも合格",
+    "手計算7画素・全pair和・固定方向を保つ対称性/配色/移動・singleton・範囲非重複・全前景保存・新色/背景/寸法条件・教師反例/重複・支持2と既定3/後発隔離を確認",
+    "全110課題の教師fit判定とquery候補が固定preflightに一致。独立した集合和でもqueryの53画素追加を再現",
+    "HDS中核12・保護7・先行機構・採点器・runnerは無変更"
+  ],
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残109課題未完・152例未回答。固定方向の領域priorに限定"
+  ]
+}
