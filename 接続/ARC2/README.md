@@ -33,11 +33,12 @@ python 検証/形状色回帰.py
 python 検証/凡例経路回帰.py
 python 検証/行周期回帰.py
 python 検証/重畳組立回帰.py
+python 検証/空白移動回帰.py
 ```
 
 全120課題・167test例、各課題10CPU秒・512MiB・60秒wall、3並列で旧ARC採点関数を再利用する。baselineモードは初期のHDS格子値診断であり、前commitそのものではない。test正解と課題IDは親採点側に限定する。
 
-前commit `9a1f5c6` の21/120課題・29/167例から、重畳組立で22/120課題・31/167例へ改善。旧採点器のwrong_attempted_tasksは既存の部分回答課題1件を数えるが、誤った出力格子は0。比較は `検証/重畳組立比較.json`、先行成果は既存比較記録に保持する。
+前commit `5cae7e7` の22/120課題・31/167例から、空白移動で23/120課題・32/167例へ改善。旧採点器のwrong_attempted_tasksは既存の部分回答課題1件を数えるが、誤った出力格子は0。比較は `検証/空白移動比較.json`、先行成果は既存比較記録に保持する。
 
 物体端投射は既存8近傍物体抽出と九特徴を使い、教師だけから整合する特徴→上端/下端方向を選ぶ。各物理物体を一度ずつ現行HDSへ観測し、既存bbox順を保つ。未知特徴・識別不能・競合・配置重複は全格子HOLD。予測結果経路の制限は差分0で棄却し、HDS中核は元のまま。
 
@@ -78,5 +79,7 @@ python 検証/重畳組立回帰.py
 行周期は縦separatorの片側にある同色run長を周期として、反対の背景側へ重ねる旧符号化prior。位相はseparator隣を0とし、code内の空白gapには依存せず、同時発火はseparatorに近いrunを優先する。部分separator・行ごとの左右activeを元通り許し、code/ separator/ inactive行は保存する。追加guardは有効格子・一意背景・全raw separator一意性を明示するが、複数separatorは元処理もcount tieで拒否するため、曖昧性bugを修復したとはしない。周期と優先をHDSが発見したわけではなく、9行/10衝突の事前確認とは別に、native支持は三教師の最終格子のみである。
 
 重畳組立は8近傍foreground断片のcropを平行移動し、背景も含む完全一致overlapの面積/foreground数で最大spanning treeを選ぶ旧prior。追加証明は採用edgeの最大shift一意性と、各非tree edgeがtree pathの最弱weightより厳密低値であることを要求し、元座標tie-breakの影響を排除する。採用edgeの最大shift同率、または同率最大treeは同じ格子でもHOLD。厳密に低weightな未採用edgeの同率offsetは保持する。全断片の使用・foreignFGなし・30以内の出力・全crop同時一致を確認し、元renderer出力だけ返す。BG→foregroundの後書きも矛盾として拒否する。唯一性は最大overlap prior内のもので、全幾何解やHDSの新規発見とはしない。支持は3/4/6断片ではなく二教師の最終格子である。
+
+空白移動は0を固定blank型として扱い、同じ寸法の矩形を置ける全位置を4近傍の配置グラフにする旧prior。fill/marker色は現在教師から推定し、全教師を再現するraw fitが一つと確定した後でguardを適用する。到達可能位置の最短路距離が最大となる位置が唯一の場合だけ、元blankをfill色で埋め、最遠位置を新しいblankにする。markerは通行可能色であり、必ず到達先になるわけではない。追加guardは全0が一つの完全矩形であることを要求し、元parserが無視し得る別の非矩形0領域も全体HOLDにする。元出力とsource/target外の保存・blank面積保存を確認し、代替格子は生成しない。最遠選好は固定priorでありHDSの発見でも全変換候補の一意性でもない。固定0を別色へ一般化したとはせず、支持は到達状態や経路長ではなく四教師の最終格子である。
 
 公開評価での改善であり、既存helperの過去開発データから独立な評価・hidden汎化・満点・Kaggle提出を示さない。固定source evaluationのSHA256は既存ZIPマニフェストと不一致であり、source版として評価する。

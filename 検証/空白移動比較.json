@@ -1,0 +1,79 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "5cae7e7911039ad3db2fec0d6733b82a9ffd23f4",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_l0_agent_compiler_v76_farthest_blank_rectangle_relocator.py、blob36bc4a9e44c5866a75c687e90bc85c3100fc4381。11純粋関数・NEIGHBORS_4はAST同一。grid_shape/clone_gridは現行共有。課題ID定数・旧solver・reportは除外",
+  "介入": "入力のblank矩形の全合法配置を結ぶ既存到達グラフ・一意最遠priorを同じHDSへ接続。全0単一矩形と元出力の面積/保存検証を追加",
+  "previous": {
+    "correct_tasks": 22,
+    "correct_examples": 31,
+    "unanswered": 136,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 23,
+    "correct_examples": 32,
+    "unanswered": 135,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答31例": "全て同一"
+  },
+  "原因観測": {
+    "全残課題preflight": "残98課題・301教師対を全数確認し、全教師raw fitは1課題・4教師。guardも4教師を保持",
+    "teacher": "blank寸法2×2、2×2、3×3、1×1。全合法配置31/24/30/22のうち到達31/14/15/22、最遠距離24/13/14/21で唯一。教師0/3はmarker上、1/2はfill上へ移動",
+    "query事前確認": "guardをquery前に凍結。20×20入力内4×4blank、合法配置48、到達38、距離37の一意最遠。test正解は採点まで未参照"
+  },
+  "固定priorとguard": {
+    "色役割": "0は最多背景ではなく固定blank型。fillは教師の0→非0変化から、markerは同寸法の矩形成分と全教師再現から推定。全raw fit数1を先に要求し、guardで複数色fitを選別しない",
+    "配置": "入力由来のblank寸法を固定し、0/fill/markerだけを含む全矩形位置を列挙。位置間の一セル上下左右移動がedge。元位置からBFSし、正距離の一意最遠位置だけを選ぶ。距離はグリッド直線距離でなく配置グラフの最短路長",
+    "適用域": "有効ARC入力1〜30、fill/markerは異なる非0色。全0が単一4近傍solid矩形であることを先に要求し、追加0領域を黙殺しない。矩形寸法・移動距離への追加定数制限なし",
+    "保存": "元sourceをfill色で埋め、targetを0にする元出力のみ返す。障害色を上書きせず、source/target外とblank面積を保存。source/targetの重なりは元通り許す。marker色は置換され得るため全色画素数保存とはしない",
+    "限定": "配置グラフ内の一意最遠は固定prior選好であり、全ての変換仮説の唯一性やHDSによる経路規則発見ではない。markerが到達可能又は最終位置であることは要求しない"
+  },
+  "HDS": {
+    "学習": "四つの現在教師の最終候補格子→教師出力を現行HDSが同値として採用",
+    "支持": "現在4盤面・prior0・min3・隔離0。経路長・到達位置・marker数を支持へ加えない。既存34課題min2/86課題min3方針と中核既定3は不変",
+    "排気": "同一instanceの公開cycle、全教師再現、同値・反例隔離・既存排気gate・採用済み全機構合意を保持"
+  },
+  "原指標保持": "wrong_attempted_tasks=1は既存部分回答課題であり、誤った出力格子は新旧とも0。原採点器は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "0fe4201294013c89652a035e8f9269667841a0149f17bcee1eefb98ff8e4bbcb",
+    "接続/ARC2/既存空白移動.py": "70bf97bee5522d2fe364f8394a2643387b35021648d97ce8473b3e3565d6e7ec",
+    "接続/ARC2/空白移動教材.py": "2de00c7f31a1833700fb11aa0f1d4e491f8243a0e4c2a782c1bbdac8e6a99483",
+    "検証/空白移動回帰.py": "7cc5d20f8598772bb0652327116e9194ac6e7d5a0fd9fd7b9b8d302861a52954",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存242件＋新13件合格。新13件は最適化モードでも合格",
+    "D4・非0配色・矩形寸法・距離、到達不能marker、余分なL字0、最遠tie、移動不可、重複source/target、invalid入力/役割、元出力改変拒否、raw複数fitのguard選別禁止を確認",
+    "教師反例/重複、4盤面支持と中核既定3、反例隔離、採用済みquery不確定の全体HOLDを確認",
+    "359教師入力の元renderer/guard、98適用判定、query格子と独立BFSが一致。HDS中核12・保護7・先行機構・採点器・runnerは不変"
+  ],
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残97課題未完・135例未回答。固定0契約を他のblank色へ一般化した結果ではない"
+  ]
+}
