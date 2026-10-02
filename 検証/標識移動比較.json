@@ -1,0 +1,79 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "2a263d65c8e146b537373c83b3a0de3060a58be4",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_runtime_program_search.py、blob c60fad158350b42fbc5ef0cbb2db7b26707cd6c1。標識移動の7関数と近傍定数はAST同一、grid_shapeは既採用の同一定義を共有",
+  "介入": "教師から一意に選んだ四色の役割と旧標識優先移動priorを使い、同時描画の検査を通った元の格子だけを同じHDSへ接続",
+  "previous": {
+    "correct_tasks": 15,
+    "correct_examples": 20,
+    "unanswered": 147,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 16,
+    "correct_examples": 21,
+    "unanswered": 146,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "task_accuracy_percentage_points": 0.8333333333333334,
+    "regressed_examples": 0,
+    "既存正答20例": "同一"
+  },
+  "原因観測": {
+    "全残課題preflight": "残105課題・320教師対を各3CPU秒の読取inventoryで確認し、資源未完0。全教師fitは1課題・一意の四色役割。三教師の7物体の移動量1,1,3,7,4,5,0を完全再現",
+    "query事前確認": "4物体の目的位置までの距離15,11,9,4と燃料数17,0,31,3から移動量15,0,9,3。3物体が動き、接触標識消去0。guardはquery前に固定しtest正解は採点まで未参照"
+  },
+  "固定priorと検査": {
+    "役割": "旧fitterの細長い標識候補と教師色個数の変化から四色役割を全列挙し、元rendererで全教師を再現する方針が厳密に一つであることを先に要求。その後guardを適用し、無効な対案を落として一意化しない",
+    "移動規則": "元のwall色は移動/消去背景であり物理的障害物ではない。前方の標識停止点を背景帯より優先し、標識がなければ元の全背景帯/格子端fallbackを使う。移動量は目的位置までの距離と燃料数の小さい方",
+    "燃料と描画": "移動方向に従う旧scan順で移動量だけ燃料色を充填色へ変える。零燃料の物体と標識だけの停止点は保存。これらは旧型付きprotocolでありHDSが学んだ物理法則ではない",
+    "同時検査": "非役割色の最大個数が一意、全非標識役割成分/物体の解析、方向一意、全移動先が範囲内を要求。動く物体の元セルを全て消した上で最終色提案を集め、異色競合・異なる静止セルの上書きを保留する",
+    "元出力限定": "同時提案の和と元renderer出力の完全一致を要求し、別の合成格子で代用しない。旧実装の画面外切落しや未解析物体のskipは通さない",
+    "接触消去許可": "元の背景接触時の標識消去は、全格子を再現した現在教師がその分岐を実証した場合だけqueryで許可する。今回1教師が7画素の消去を実証。これは1教師の分岐証拠であり7支持ではなく、独立に学習した消去法則でもない"
+  },
+  "HDS": {
+    "学習": "四色役割のfitと移動protocolは旧機構。現行HDSは最終候補格子→教師出力の同値を採用",
+    "支持": "異なる現在教師3観測・prior0・隔離0。物体/燃料画素/方針候補で支持を増やさない。既存課題支持2/3方針と中核既定3は無変更",
+    "排気": "同一instanceの公開cycle、全教師再現、既存同値・quarantine・gate・採用済み全機構合意"
+  },
+  "原指標保持": "wrong_attempted_tasks=1は既存の部分回答課題。新旧とも誤った出力格子0。原採点関数は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "1abee201ce5ba3617a9d5dc4e60fcbf393d95c99b93b1b1b9131fdcde5bf0bc7",
+    "接続/ARC2/既存標識移動.py": "f5cc23af24f8c72464591bfdf66c0d64a8231de42ab8b0b66f5546a5eaaa36b2",
+    "接続/ARC2/標識移動教材.py": "707e613c63b7ca281ef46eb7e90e7431d01d35d4135d41e452b29e15ca4f658c",
+    "検証/標識移動回帰.py": "dbefe829a500be59827f5e57678bc342fe10267072e9f77cd99a32dd820c421f",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存153件＋新12件合格。新12件は最適化モードでも合格",
+    "標識優先・回転/配色・接触消去の証拠・零燃料/標識だけの停止点・背景/方向同率・未解析成分・画面外・変換後色競合・静止物体・教師反例/支持/隔離を確認",
+    "359教師入力の元renderer/両分岐許可モード、120役割候補リスト、105raw fit数とqueryが一致。HDS中核12・保護7・先行機構・採点器・runnerは無変更"
+  ],
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残104課題未完・146例未回答。標識優先・方向別scan・接触消去を含む固定型付きpriorに限定"
+  ]
+}
