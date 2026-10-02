@@ -1,0 +1,80 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "85a121d40b56ac3f5ad608839979ea0669ab1d43",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_runtime_fit_generator.py、blob6396b54f415c399df1c52f51b1f563bca9b8b0f7。solid_square_componentとd4_motif_transform_steps/coordの3関数をAST同一で抽出。単色4近傍component抽出は現行既存物体特徴から共有",
+  "介入": "小さい正方形成分の色配置を、大きい同色seedに整合する格子へ補完する新しい組合せ。座標正規化・全pitch/translation列挙・描画・モデル合意は新実装であり、既存rendererそのままの接続とはしない",
+  "previous": {
+    "correct_tasks": 35,
+    "correct_examples": 51,
+    "unanswered": 116,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 36,
+    "correct_examples": 52,
+    "unanswered": 115,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答51例": "全て同一"
+  },
+  "原因観測": {
+    "教師限定preflight": "残85課題264教師対で、全教師共通fitは1課題3教師の恒等D4規則のみ。side1→3/1→2/1→2、配置pitch5/3/5で、side倍率と配置間隔を分ける必要がある。入力だけでseed整合parameterは各1件、36/32/16cell追加で全出力を再現",
+    "入力のみ適用確認": "文法と実体を独立確認後、同条件の入力のみ確認は27×27、source10個・seed2個、side1→4、pitch5、translation(5,8)の1候補。全原foregroundを保存し128cell追加。正解照合は後続の全120採点で実施"
+  },
+  "固定文法": {
+    "入力役割": "有効ARC格子、一意最多背景。全非背景単色4近傍成分がsolid squareで、辺の長さが二種類a<b。全小成分をsource、全大成分をseedとし、seedは二個以上。小成分原点の各軸座標は二値以上かつ隣接差が一定で、その差で格子index化する。対象の黙殺や不等間隔のGCD圧縮をしない",
+    "scaleとpitch": "小squareの辺aを大squareの辺bへ置換する。画素補間はせずb/aは整数に限定しない。配置は縦横共通の整数pitchという固定等方priorで、未観測の直交軸間隔を教師から独立に同定したとはしない。b<=pitch<=30を全列挙し、下限はtile非重複、上限はARC盤面域に対応",
+    "モデルと潜在候補": "固定8D4規則を共有モデルとする。各規則で一seedに同色sourceを全対応させ、全seedと色・位置が整合する全pitch/translationを入力だけで列挙する。全seedが固有source siteに対応し、列挙seedの順序で答えを選ばない。D4族内の全列挙であり全幾何仮説の網羅ではない",
+    "各入力の合意": "seed整合候補を先に全保持。全source siteからb×bの同色tileを提案し、一候補でもOOB・source領域重複・異色競合・原foreground変更なら規則全体HOLD。失敗候補を落として残りを選ばない。全完成格子が同じ場合だけ解決し、no-opは候補合意の後に規則全体HOLD",
+    "教師とquery": "各教師入力の候補合意後に初めて教師出力と完全照合する。出力で教師ごとのpitchやtranslationを選ばず、全教師共通のD4規則を全保持。queryは全保持規則が解決し同じ完全格子を返す時だけ出力。一規則失敗・未解決・異格子なら全体HOLD。原source/seedと提案外cellを保存する"
+  },
+  "HDS": {
+    "学習": "新組合せの固定文法内での全教師モデルfitと、同じHDSによる候補格子→出力格子の同値採用を分ける。HDS自体がD4や等方格子を発見したとはしない。最低2教師と入力重複拒否を要求し、各教師の全モデル合意最終盤面だけを一回渡す",
+    "支持": "現在3盤面・prior0・min3・隔離0。成分/seed/parameter/model数を支持へ加算しない。既存の異なる二入力ちょうどでmin2とする方針と34課題min2/86課題min3、中核既定3は不変",
+    "排気": "公開学習cycle・全教師再現・同値・反例隔離・既存排気gate・全採用機構合意を維持。未解決・競合は全体HOLD"
+  },
+  "原指標保持": "wrong_attempted_tasks=4は既存の正答部分回答4課題で不変。誤った出力格子は新旧とも0。原採点器と指標名は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "fded131aef107ca7d80887fe459b3d7253351144bee496d969a238888c33f0cb",
+    "接続/ARC2/既存正方形座標.py": "8ec3246e2f2ada0d9505e26cd2355dd791fd0b2f8281795b22adaff37d642d36",
+    "接続/ARC2/正方形格子教材.py": "d059e8d71972d37acf096ec157ddf48600ceb977bd6d42b8428a950d149353d6",
+    "検証/正方形格子回帰.py": "bc72656b25effa8c966ca67f99b9e884b462c0743588648757985272780ed623",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存461件＋新14件合格。新14件は最適化モードでも合格",
+    "3教師×D4×配色48対照、a=2/b=3/pitch5、可変位置/canvas、全component検査、背景tie・不等間隔・seed不足の拒否を確認",
+    "9個の全seed整合parameterが異格子になる対照、一部parameterだけOOBの全体HOLD、列挙seed順不変、同色でもsource領域重複HOLD、全合意後no-op拒否を確認",
+    "教師同出力の複数D4保持と、その後の入力での異格子/一規則失敗の全体HOLD。native3支持・反例隔離・ID/target拒否を確認",
+    "独立教師監査で別の2-anchor差分式から40モデルの全parameter集合が一致。独立runtime監査で359教師×8モデル、85 activation、query/native全文を照合。中核12・保護7・先行機構・scorer/runner不変"
+  ],
+  "情報分離の留保": "2026-10-02 21:23 UTC頃、外部監査記録を広くrg検索した際に単一行challenges JSONが偶発的に一致し、大量省略された出力に一部challenge入力が表示された。対象queryの意図的抽出やsolutions参照はその時点では行っていないが、query未参照と一括主張しない。経緯を親/独立監査へ共有し、以後はsource明示とteacher-only抽出資料へ限定。文法凍結・独立監査後に承認済みinput-only確認、最後に全120採点を行った",
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残84課題未完・115例未回答。二サイズsolid-square/等間隔source/等方target pitch/D4という限定文法であり一般の拡大対応を網羅しない"
+  ]
+}
