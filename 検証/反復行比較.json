@@ -1,0 +1,79 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "e7eac949dab7ec688a8ebf6c7858071063ea1440",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_l0_agent_compiler_v34_periodic_panel_anomaly.py、bloba58926fb65b0dc0cde779f83113168f5e650e29b。純粋3関数はAST同一。grid_shapeと既存v29由来is_rectangularは現行共有。旧component・ID・reportは除外",
+  "介入": "最小境界periodと各行の唯一singleton/common chunkの旧圧縮priorを同じHDSへ接続。全行・境界・寸法・元格子一致を確認する",
+  "previous": {
+    "correct_tasks": 25,
+    "correct_examples": 36,
+    "unanswered": 131,
+    "wrong_attempted_tasks": 2,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 26,
+    "correct_examples": 38,
+    "unanswered": 129,
+    "wrong_attempted_tasks": 2,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 2,
+    "regressed_examples": 0,
+    "既存正答36例": "全て同一"
+  },
+  "原因観測": {
+    "全残課題preflight": "残95課題・291教師対のraw/guard全教師fitは1課題2教師。19×19/19×25入力から19×7へ圧縮。raw periodは[6]/[6,12]で、元の最小6を先決する",
+    "教師分岐": "3/4panelsの全同一行16/15、唯一singleton行3/4を保持。教師1のraw period12は後段4行で曖昧だが、それを除外して6を選んだのではない。元選択は全raw periodの最小というprior",
+    "query事前確認": "query前にguardを固定。raw[7,14]/[6,12]から最小7/6を先決し、4panelsを行ごとに29×8/25×7へ再構成。singleton行8/4、残りは全同一。test正解は採点まで未参照"
+  },
+  "固定priorとguard": {
+    "境界period": "W=n*p+1、p>=2、n>=2かつ各行の列0,p,...,n*pが同色となる全pを列挙する。境界列は行ごとに色が異なってよい。BG役割や最多色条件はない",
+    "最小選好": "元の最小raw periodを行の選択より先に確定する。raw候補が複数でも保持し、唯一周期とは呼ばない。最小で行判定が不成立なら全体HOLDとし大periodへfallbackしない",
+    "行規約": "選択period長のchunkを各行で数える。全同一なら共通chunk、それ以外は出現1回のchunkが唯一のときのみ選択。複数の反復型と唯一singletonも許すので多数決ではない。選択元panelは行ごとに異なり得る",
+    "検査": "有効ARC1〜30、全行分岐、入力の両端境界値・高さ・出力幅period+1を確認する。行ごとの同時構成が元renderer格子と一致した場合だけ元出力を返し、別periodや別格子へ置換しない"
+  },
+  "HDS": {
+    "学習": "最終候補格子→教師出力の同値を現行HDSが採用。境界/最小周期/rarity規則をHDSが新規発見したとはしない",
+    "支持": "現在2盤面・prior0・min2・隔離0。行数・chunk数・panel数を支持へ加えない。既存34課題min2/86課題min3方針と中核既定3は不変",
+    "排気": "同一instanceの公開cycle、全教師再現、同値・反例隔離・既存排気gate・採用済み全機構合意を保持"
+  },
+  "原指標保持": "wrong_attempted_tasks=2は既存の部分回答2課題で不変、誤った出力格子は新旧とも0。原採点器と指標名は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "b738aa167c34c831e99e8e3dcf4b3b4ee4f9650d1f0c620e0cb614d1ea4751e4",
+    "接続/ARC2/既存反復行.py": "13bffa2c0a1f7b27b33a014cab2bd1603219bdf8b8b2b2f320f592a7f5efff4e",
+    "接続/ARC2/反復行教材.py": "276cc5353ebdedb25143ae55fdb1af729c34f8ae3d23654601f38aa6dde643a8",
+    "検証/反復行回帰.py": "a22c7865c24dd86f531b6fe44f91fd3d6cdd369a9f3007179b2668573a2aeb05",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存297件＋新13件合格。新13件は最適化モードでも合格",
+    "行ごとの別panel選択、可変period/panel数、頻度[1,2,2]の唯一singleton、全同一行、最小period不成立時のfallback禁止を確認",
+    "複数singleton、または複数種類でsingletonなしの場合の全体HOLD、行ごとに異なる境界色・最多色tieでも許容、配色/高さ/両境界/幅保存、元period/格子不一致拒否を確認",
+    "教師反例/重複、native2盤面・中核既定3・反例隔離・採用済み曖昧queryの全体HOLDを確認",
+    "359教師raw period/出力/guard、95 activation、両query/native記録が一致。HDS中核12・保護7・先行機構・scorer/runnerは不変"
+  ],
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残94課題未完・129例未回答。行方向と最小period選好は元の限定prior"
+  ]
+}
