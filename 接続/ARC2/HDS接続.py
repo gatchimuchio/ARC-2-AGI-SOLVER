@@ -21,6 +21,7 @@ from .成分経路教材 import 成分経路教材
 from .対角線橋教材 import 対角線橋教材
 from .対角領域教材 import 対角領域教材
 from .軸反射教材 import 軸反射教材
+from .周期組修復教材 import 周期組修復教材
 
 
 def 事前教材を読む():
@@ -144,6 +145,7 @@ def 課題を解く(課題, 事前教材):
     橋教材 = 対角線橋教材(課題["train"])
     対角教材 = 対角領域教材(課題["train"])
     反射教材 = 軸反射教材(課題["train"])
+    周期教材 = 周期組修復教材(課題["train"])
     機構群 = (
         ("ARCテンプレート穴充填", _template_hole_pack_render, 事前教材),
         ("ARC入れ子パネル合成", _nested_panel_relation_render, ()),
@@ -158,6 +160,7 @@ def 課題を解く(課題, 事前教材):
         ("ARC対角線橋", 橋教材.候補, ()),
         ("ARC対角領域", 対角教材.候補, ()),
         ("ARC軸反射", 反射教材.候補, ()),
+        ("ARC周期組修復", 周期教材.候補, ()),
     )
     記録群 = [候補機構を学習(機械, 課題, 教材, 境界, 候補器)
               for 境界, 候補器, 教材 in 機構群]
@@ -192,7 +195,7 @@ def 課題を解く(課題, 事前教材):
                            "reasons": ["採用済み機構の完全格子予測が競合したため保留"]})
     return {"results": 結果群, "mechanism": "HDS機構候補の照会",
             "minimum_support": 必要支持数, "families": 記録群,
-            "quarantined": 隔離数, "object_learning": 端教材.記録(), "legend_learning": 凡例教材.記録(), "grouped_packing": 色群教材.記録(), "group_order": 整列教材.記録(), "lattice_self_mask": 格子教材.記録(), "component_path": 経路教材.記録(), "diagonal_bridge": 橋教材.記録(), "diagonal_region": 対角教材.記録(), "axis_reflection": 反射教材.記録()}
+            "quarantined": 隔離数, "object_learning": 端教材.記録(), "legend_learning": 凡例教材.記録(), "grouped_packing": 色群教材.記録(), "group_order": 整列教材.記録(), "lattice_self_mask": 格子教材.記録(), "component_path": 経路教材.記録(), "diagonal_bridge": 橋教材.記録(), "diagonal_region": 対角教材.記録(), "axis_reflection": 反射教材.記録(), "tuple_repair": 周期教材.記録()}
 
 
 if __name__ == "__main__":

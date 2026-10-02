@@ -1,0 +1,81 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "c3bcefd6d22e4990046fbcc6fbb707acf7a782dd",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_l0_agent_compiler_v39_periodic_tuple_repair.py、blob c6f5da713550780944d9a9dee72ea067693bf57f。6関数はAST同一、clone/shape/rectangular判定は既採用primitiveを共有",
+  "介入": "元のtuple周期修復の選択が唯一の最適modal列と一致することを検査し、元の出力だけを同一HDSへ渡す",
+  "previous": {
+    "correct_tasks": 12,
+    "correct_examples": 17,
+    "unanswered": 150,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 13,
+    "correct_examples": 18,
+    "unanswered": 149,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "task_accuracy_percentage_points": 0.8333333333333334,
+    "regressed_examples": 0,
+    "既存正答17例": "同一"
+  },
+  "原因観測": {
+    "全残課題preflight": "残108課題・327教師対の全教師fitは1課題。二教師の1/4panelで1/9cellを修復",
+    "教師の検査結果": "最適scoreは(1,1,2)、(2,4,3),(1,1,2),(1,2,4),(2,2,2)。いずれも一意で元の選択に一致",
+    "query事前確認": "四panelの周期3/6/4/4を入力だけで確定し9cellを修復。検査器はquery前に固定し、test正解は採点まで未参照"
+  },
+  "固定priorと検査": {
+    "parser": "元のfull separator panel又は全格子、uniform border剥離、形状の長い軸をtuple列にする。同寸ではcolumns。別軸やD4を追加しない",
+    "探索域": "周期1〜min(6,n)。各位相の最多頻度tupleを候補とし、tuple誤差→cell誤差→短い周期の順。修復予算はmax(1,n//3)tuple",
+    "一意性検査": "各周期で全最多頻度tupleのcell誤差を位相ごとに最小化して合計する。最適周期で一つでも最小cell誤差のtupleが同率ならHOLD。これは指定prior内の一意性であり、全パターン仮説の一意性ではない",
+    "元出力限定": "元の列と数値scoreが検査結果に一致する場合だけ元のrenderer格子を返す。別のより良い修復を見つけても採用せずHOLD",
+    "全格子保留": "未解決・元出力不一致・予算超過のpanelが一つでもあればHOLD。非変更queryも元の予測経路と同様に候補なし",
+    "caller制限": "旧fitterは一部の教師が無変更でも他教師に修復があれば許可した。今回のcallerは全ての異なる教師で非空の確定修復を要求する保守的な制限で、今回の二教師には影響しない"
+  },
+  "HDS": {
+    "学習": "周期parser・誤差優先順は旧prior。検査器は元出力を通すか保留し、native HDSは候補格子→教師出力の同値を採用",
+    "支持": "異なる現在教師2観測、prior0、隔離0。既存課題支持2方針と中核既定3は無変更。位相/周期/panel/64列挙対照は学習観測へ入れない",
+    "排気": "同じinstanceの公開cycle、全教師再現、既存同値/quarantine/gate/採用済み全機構合意"
+  },
+  "原指標保持": "wrong_attempted_tasks=1は既存の部分回答課題。新旧とも誤った出力格子0。原採点関数を変更しない",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "02ccb6830dfad5163cc41ca894cee07fb911003a517465b5cfe0293184c72b0a",
+    "接続/ARC2/既存周期組修復.py": "0ae1d350bca8318f15b24d2678c2c006497d14fbf74e9a9affbc5f4b2602d8ed",
+    "接続/ARC2/周期組修復教材.py": "12ade801a2297bcfb69bf07f739f571be0ebfdb590a3d929bd775317fdbd7e90",
+    "検証/周期組修復回帰.py": "88f1706815f14e079b1432368885f1a7ccbcc93c753b9b2e2654235eb80deead",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存117件＋新12件合格。新12件は最適化モードでも合格",
+    "modal同率、別のより良い解を代用しない、短周期優先、元予算、panel全体保留、形状軸/同寸columns、frame、非変更、教師反例/重複、native支持/隔離を確認",
+    "64の小規模全modal直積列挙を回帰に保持。独立監査の400列挙対照とも一致",
+    "359教師入力の候補/記録、108fit判定とqueryが固定preflightに一致。HDS中核12・保護7・先行機構・採点器・runnerは無変更"
+  ],
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残107課題未完・149例未回答。固定周期域と形状軸の修復priorに限定"
+  ]
+}
