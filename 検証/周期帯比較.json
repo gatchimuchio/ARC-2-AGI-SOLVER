@@ -1,0 +1,79 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "a1cc70163376c44522e16b080905ecb9a1bc30fc",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_runtime_program_search.py、blob c60fad158350b42fbc5ef0cbb2db7b26707cd6c1。periodic_marker_bandの純粋4関数をAST同一で抽出し、同一ASTの_grid_shape/_dominant_colorを既存穴充填から共有。旧fitterの教師部分を小さいwrapperで再現し、queryを渡さない元fitterとの残87課題で一致を確認。旧report・課題ID・queryを使うfit経路は除外",
+  "介入": "入力端のmarker区間を幅とする帯と、その外側payloadを、教師からfitした距離位相scheduleで描画する既存機構を同じHDSへ接続。全fit周期を保持し、全候補の観測済みaction・完全格子合意を証明して元最小周期の格子だけを許可",
+  "previous": {
+    "correct_tasks": 33,
+    "correct_examples": 48,
+    "unanswered": 119,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 34,
+    "correct_examples": 50,
+    "unanswered": 117,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 2,
+    "regressed_examples": 0,
+    "既存正答48例": "全て同一"
+  },
+  "原因観測": {
+    "全残課題preflight": "残87課題・269教師対で全教師raw/guard fitは1課題2教師。raw marker色候補は[4]と[2,4]で共通4。fill3は両教師に共通する唯一の新色。period6と12の二候補が残り、LCM12全位相で同じactionになる。両候補の全位相に、両教師の帯色と外側payloadの再着色/保存の実証がある",
+    "query事前確認": "guardをquery前に凍結。25×25/30×30の両入力で全period6/12が解決して完全格子一致。帯200/150cell、外側payload127/221cell、帯外の背景/marker298/529cellを保存し、実変更169/140cell。test正解は採点まで未参照"
+  },
+  "固定priorとguard": {
+    "入力と役割": "元の両辺5以上、端に接する長さ2以上の連続単色marker区間から内向きの行/列軸と帯幅を決める。元fitterの第1教師unhinted parse→後続教師へのmarker色hintという順を維持し、教師順を入れ替えて失敗を救わない。全教師のraw適合を先決し、全教師のraw境界色候補の共通一意性を追加証明する",
+    "周期選好": "元の探索域はperiod2〜min(15,最大教師入力高さ)。列方向でも高さを使う固定域で、回転不変のfitterとは主張しない。最小完全適合periodを元の排出候補として先決する。period6/12のような同値延長も捨てず全fit候補を保持し、自然な周期一意性とは呼ばない",
+    "観測済みaction": "各model/residueのbandと外側payloadについて、実教師の観測を別に記録する。queryで帯actionが未観測、または外側payload処理が未観測なら全体HOLD。元の欠落schedule→identityや未観測recolor→falseを証拠にしない。観測数はHDS支持に加算しない",
+    "query役割と全格子": "一意な最多背景を要求し、学習済みmarker色を使用。別色の境界があっても役割を再推定しないが、その既知色の境界が未解決ならHOLD。fillは教師で新色だった契約をqueryにも要求し、入力に既存ならHOLD。帯全cellを位相色へ置き、帯外は全非背景/非marker色をpayloadとして再着色または保存する。新しいpayload palette制限は加えない",
+    "全候補と元出力": "全modelの全cell処理・元rendererの完全格子/全record一致を検証。一候補の失敗や異なる完成格子は、候補を削らず全体HOLD。全候補一致時だけ元の最小period renderer格子を返す。別周期・別schedule・別役割での修理はしない"
+  },
+  "HDS": {
+    "学習": "band幾何とrendererは既存prior。fill/marker/period/scheduleのfitと証明は教師を使う外部候補生成であり、HDSが周期操作そのものを発見したとはしない。全教師を再現する候補格子→出力格子の同値を同じHDSが採用",
+    "支持": "現在2盤面・prior0・min2・隔離0。行数・residue数・周期候補数・action証拠を支持へ加算しない。既存の異なる二入力ちょうどでmin2とする方針と34課題min2/86課題min3、中核既定3は不変",
+    "排気": "公開学習cycle・全教師再現・同値・反例隔離・既存排気gate・全採用機構合意を維持。未解決・競合は全体HOLD"
+  },
+  "原指標保持": "wrong_attempted_tasks=4は既存の正答部分回答4課題で不変。誤った出力格子は新旧とも0。原採点器と指標名は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "98118c102019038a5628d60c1e25055a7b391c330540977ffaa5bd69b0248334",
+    "接続/ARC2/既存周期帯.py": "82616b0d90a0a6dd2bbe53e90199d501ae1db37dc487571a709278563a7b4de6",
+    "接続/ARC2/周期帯教材.py": "bb1a62eccf9e1d5f2485b01911fd76b16a5f7462e9fc2caebcf2288b741fa28f",
+    "検証/周期帯回帰.py": "9a7ee23e707f01417769ce354d4c9642a27cbaa532bb00c3319d5f7294c44587",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存433件＋新14件合格。新14件は最適化モードでも合格",
+    "自然な教師からperiod3/6/7を全保持し、異なる周期延長の合意失敗をHOLD。後続modelだけの元失敗、未観測外側payload、列方向教師の未観測band位相を全体HOLD",
+    "第1教師の順序維持、別色境界を含む既知marker役割、配色/方向変更、全外側payload色の処理、帯外の背景/marker保存、fill既存と背景同率を検証",
+    "元格子/record不一致の代替禁止、教師矛盾/重複、native2支持と反例隔離、採用後query競合HOLD、ID/target拒否を確認",
+    "独立runtime監査で359教師×両period、全120 raw fit、87 activation、両query/nativeを照合。HDS中核12・保護7・先行機構・scorer/runnerは不変"
+  ],
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残86課題未完・117例未回答。端markerの固定幅帯と有界period/scheduleという既存priorの範囲。教師順と高さ依存のperiod上限は元の制限として維持"
+  ]
+}

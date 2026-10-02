@@ -47,11 +47,12 @@ python 検証/標識計数回帰.py
 python 検証/標識組立回帰.py
 python 検証/倍率置換回帰.py
 python 検証/包含正規化回帰.py
+python 検証/周期帯回帰.py
 ```
 
 全120課題・167test例、各課題10CPU秒・512MiB・60秒wall、3並列で旧ARC採点関数を再利用する。baselineモードは初期のHDS格子値診断であり、前commitそのものではない。test正解と課題IDは親採点側に限定する。
 
-前commit `ff0ace4` の32/120課題・46/167例から、bbox包含正規化で33/120課題・48/167例へ改善。旧採点器のwrong_attempted_tasksは既存部分回答4課題で不変、誤った出力格子は0。先行46例は全て同一。比較は `検証/包含正規化比較.json`、先行成果は既存比較記録に保持する。
+前commit `a1cc701` の33/120課題・48/167例から、境界marker周期帯で34/120課題・50/167例へ改善。旧採点器のwrong_attempted_tasksは既存部分回答4課題で不変、誤った出力格子は0。先行48例は全て同一。比較は `検証/周期帯比較.json`、先行成果は既存比較記録に保持する。
 
 物体端投射は既存8近傍物体抽出と九特徴を使い、教師だけから整合する特徴→上端/下端方向を選ぶ。各物理物体を一度ずつ現行HDSへ観測し、既存bbox順を保つ。未知特徴・識別不能・競合・配置重複は全格子HOLD。予測結果経路の制限は差分0で棄却し、HDS中核は元のまま。
 
@@ -128,3 +129,11 @@ seed境界着色は教師からfill/ seed/ background/ barrierの四色を決め
 `包含正規化教材.py` は一意背景と全成分coverageを検証し、各成分の全containerが厳密包含鎖になることを描画前に要求する。外部axisは元のbefore/after/aligned/root_center分岐を先決し、alignedの最小(center距離,区間幅)同率を全体HOLDにする。全成分を一度ずつcanonical footprintへ対応させ、重複・4近傍接触を拒否し、全strict bbox包含対を保存する。同時和集合が元rendererの完全格子と記録に一致する場合だけ、その元出力を返す。別leafの同一点化を許さず、別親や別配置へのfallbackはしない。画素数は正規化で変わる。
 
 全4教師の元renderer完全再現を先決し、guardを通過した最終格子を同じHDSへ各1回渡す。native支持は4現在盤面・prior0・min3で、成分/包含対/画素数を支持へ加算しない。queryの未解決や他の採用機構との競合は既存の全体HOLDを維持する。
+
+## 境界marker周期帯
+
+`既存周期帯.py` は旧runtimeの境界parse・位相action・帯renderer・schedule fitの4関数を再利用する。両辺5以上、端の連続単色marker長2以上から、内向き軸と帯幅を決める。元第1教師のunhinted parseでmarker色を決め、後続教師にその色を使う順序を維持する。fillは全教師に共通する唯一の新色。period2〜min(15,最大教師入力高さ)という固定域で、帯色と外側再着色のscheduleをfitし、元最小periodを先決する。列方向でも高さを使うため、fitter全体の回転不変や自然な周期一意性は主張しない。
+
+`周期帯教材.py` は全教師raw適合後に、共通marker役割・一意背景・観測済みactionを証明する。全fitperiodを保持し、queryの一候補でも未観測位相/外側payload判断、未解決、異格子なら全体HOLD。既定identity/falseを証拠にせず、失敗した候補を除いて残りを返さない。既知marker色を使い、別色境界から再推定しない。queryでもfill新色契約を要求する。帯全cellと帯外の全非背景/非marker payloadを検査し、元格子/recordに完全一致した場合だけ、全候補が合意した元最小period格子を返す。帯外の背景/markerは保存する。
+
+今回はperiod6/12が同じ反復として残り、全位相のactionが両教師で観測される。native支持は2現在盤面・prior0・min2で、行/位相/候補数は加算しない。幾何priorと教師によるschedule fitをHDS自体の発見とはせず、同じHDSによる候補格子→出力格子の同値採用と既存最終gateを維持する。
