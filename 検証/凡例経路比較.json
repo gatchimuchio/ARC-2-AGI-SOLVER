@@ -1,0 +1,78 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "7fd8f618bd5c10d828948727829cf0d81a2fddc4",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_l0_agent_compiler_v87_legend_payload_gap_connector.py、blob e304e8670cc15fbeb056553544db8e57014518b2。純粋12関数はAST同一。grid_shape/clone_gridは既存共有関数。元moduleの課題ID定数・旧solver・report処理は接続しない",
+  "介入": "凡例色列が示す異なるpanelの経路をつなぐ旧priorを同一HDSへ接続。guardは入力役割・全経路合意を証明し、元rendererと同じ格子だけを許す",
+  "previous": {
+    "correct_tasks": 19,
+    "correct_examples": 24,
+    "unanswered": 143,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 20,
+    "correct_examples": 26,
+    "unanswered": 141,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 2,
+    "regressed_examples": 0,
+    "既存正答24例": "全て同一"
+  },
+  "原因観測": {
+    "全残課題preflight": "残101課題・309教師対の全教師fitは1課題。3教師の8/8/6panelと凡例を入力から抽出し、全列挙10/8/7nodeで完全経路1/1/1・全格子一致。第二教師は8panelのうち7個を使用し、残るpanelも保存",
+    "query事前確認": "guardをquery前に固定。29×29/30×30入力の11/9panelを14/10nodeで調べ、各1完全経路・1格子を得た。test正解は採点まで未参照"
+  },
+  "旧priorと追加証明": {
+    "役割": "背景は最多色、frame候補は3×3以上の同色成分bboxに一つのpayload色を含むpanel。元は重み付きframe選好を使うが、guardはその前に全foreground色のraw panel抽出を列挙し、2panel以上の役割が一つであることと元選択の一致を要求する。後続guard失敗を使い競合役割を除かない",
+    "frameと凡例": "全frame成分の閉じたbbox境界・非重複panelを確認。panel外payloadは一水平行で、同じ行にpanel payloadはない。元の同色run圧縮を保持し、全最長行が同じ色列かつ外部凡例行に一致する場合だけ通す。下側行の優先で異なる系列を選ばない",
+    "経路": "凡例順に同じ色の異なるpanelを使う。隣接panelのpayload行/列範囲が重なり、frame間が元背景のみなら、その隙間を出発panel色で塗る。使われないpanelを削除しない",
+    "全経路証明": "100,000node以内で全てのsource-valid完全経路を列挙。同じ完全格子を作る複数経路は重複として許す。異なる格子、又はどれか一経路の異色塗り重複で全体HOLD。競合経路を落として別解を選ばない。候補発見後でも予算超過はHOLD",
+    "元出力限定": "証明した格子が元renderer出力と一致する場合だけ元出力を返す。別の最適格子へ置換する機構ではない",
+    "固定範囲": "水平凡例・panel間の軸方向通路・出発色による接続は旧prior。これらをHDSが新規発見したとはしない。role/closed-frame/全経路条件は追加した保守的制限"
+  },
+  "HDS": {
+    "学習": "現行HDSは最終候補格子→教師出力の同値を採用する",
+    "支持": "異なる現在教師3観測・prior0・min3・隔離0。panel数やedge数やpath数を支持にしない。既存の課題別支持方針34課題min2/86課題min3は不変",
+    "排気": "同一instanceの公開cycle、全教師再現、同値・反例隔離・排気gate・採用済み全機構合意を保持"
+  },
+  "原指標保持": "wrong_attempted_tasks=1は既存の部分回答課題。新旧とも誤った出力格子0。採点関数は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "dd6c70462f007287ad1d70982c883ee83e6f5d2a653eda6b935405bbd65c6e67",
+    "接続/ARC2/既存凡例経路.py": "71ec8be34047c9d3534932f09e1014af904c20a33ae8aa8dc3e52915f6aee77a",
+    "接続/ARC2/凡例経路教材.py": "cf38bb6ccc4f41cfa06acff63ee3e2f1949e1845a80cf8d2e5bb33d0eba7a123",
+    "検証/凡例経路回帰.py": "2203a09f4e2df2d9424bd781fb02e790ce09254e94327590f756643a20de6dca",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存201件＋新15件合格。新15件は最適化モードでも合格",
+    "配色・非正方形frame・可変gap・凡例位置、同格子逆向き経路、別格子、実5panel交差、候補発見後budget、競合raw役割、最長row同率、開frame・未解析成分、未使用panel保存、元出力不一致、教師反例・支持・隔離を確認",
+    "359教師入力の元renderer/guard、101適用判定、query格子と証明記録が一致。HDS中核12・保護7・先行機構・採点器・runner無変更"
+  ],
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残100課題未完・141例未回答。固定panel/水平凡例文法以外は対象外"
+  ]
+}
