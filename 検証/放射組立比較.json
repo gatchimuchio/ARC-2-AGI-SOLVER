@@ -1,0 +1,80 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "adf73a782d00e8bd751740be4301e43d08157c6f",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_runtime_program_search.py、blob c60fad158350b42fbc5ef0cbb2db7b26707cd6c1。放射組立の7関数はAST同一。grid_shape/backgroundと8近傍成分抽出は既採用primitiveを共有",
+  "介入": "同色domino標識とpayloadの旧D4組立priorを、一意組立・色在庫保存・除去証拠のguardから同じHDSへ接続",
+  "previous": {
+    "correct_tasks": 16,
+    "correct_examples": 21,
+    "unanswered": 146,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 17,
+    "correct_examples": 22,
+    "unanswered": 145,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "task_accuracy_percentage_points": 0.8333333333333334,
+    "regressed_examples": 0,
+    "既存正答21例": "同一"
+  },
+  "原因観測": {
+    "全残課題preflight": "残104課題・317教師対を各3CPU秒の読取inventoryで確認し資源未完0。全教師fitは1課題。三教師の4標識と2/3/4payloadを完全再現",
+    "priorと一意性": "衝突のない組立候補は最小境界prior適用前に2/4/2通り、適用後に1/1/1通り。幾何制約だけで一意とはしない",
+    "query事前確認": "4標識・4payload、探索5nodeでprior適用後の完全組立1通り。77cell変更・未対応7画素除去。guardはquery前に固定しtest正解は採点まで未参照"
+  },
+  "固定priorとguard": {
+    "入力役割": "同色8近傍成分のうち直交する2cellのdominoを標識とする。同色標識は一つ、対応payloadは最大一つ、全体で標識2個以上とpayloadを要求。色や座標を固定しない",
+    "配置": "全標識の重心から一意の主軸方向へ外向きに置く。D4形状と配置を列挙し、横断軸重心を一致させ、自己標識全cellへ直交接触し、他標識を避ける",
+    "固定選好": "標識に向いたpayload境界のcell数が最小の候補だけを残す。旧priorの選好であり、HDSが発見した規則や幾何からの一意性ではない",
+    "重複と競合": "同一のD4形状と同じ配置cell集合は元の処理で重複を除く。その後の非重複・無衝突な完全配置を探索し、guardは完全組合せ1通りを要求。異なる格子の競合・元の100000探索node上限到達はHOLD",
+    "保存": "一意背景・30以内の格子・全標識の元位置/色・各有効色の前景個数を確認し、元rendererの格子だけを通す",
+    "除去分岐": "元parserが認める同色標識なしの単一成分（2cellより大）だけが除去対象。別の解析失敗を除去へ変換しない。queryでの除去には全格子を再現する現教師の分岐証拠を要求し、今回1教師が8画素除去を実証。これは1教師の証拠であり8支持ではない"
+  },
+  "HDS": {
+    "学習": "domino役割・重心方向・D4・最小境界選好は旧幾何prior。現行HDSは最終候補格子→教師出力の同値を採用",
+    "支持": "異なる現在教師3観測・prior0・隔離0。標識/payload/D4候補/除去画素で支持を増やさない。既存課題支持2/3方針と中核既定3は無変更",
+    "排気": "同一instanceの公開cycle、全教師再現、既存同値・quarantine・gate・採用済み全機構合意"
+  },
+  "原指標保持": "wrong_attempted_tasks=1は既存の部分回答課題。新旧とも誤った出力格子0。原採点関数は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "0ff8761d7d330392cd34b87223f7550e1ec94b036fc4abe7802b24edb9968971",
+    "接続/ARC2/既存放射組立.py": "c7f1639072434c41ec1a24364bd12d72cb400ac56cdc28dcaf9c0a830235e558",
+    "接続/ARC2/放射組立教材.py": "d9b1f205b3716a5a28ca4ea79a5f29e9eca046dd23cd1e73e1fd9cfb3c09ea49",
+    "検証/放射組立回帰.py": "ec8197b2bba13fc506845842e7e0d6ef820ae389c24f87df11b0b9eeea075965",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存165件＋新12件合格。新12件は最適化モードでも合格",
+    "正方形のD4重複1種と非対称形の異なる出力2種を区別。最小境界2対4の選好、可変形状/回転/反転/配色、色在庫、除去証拠、不正成分/標識/方向、教師反例/支持/隔離を確認",
+    "359教師入力の元renderer/両分岐許可モード、104fit判定とqueryが一致。独立監査の48変換/配色対照も一致。HDS中核12・保護7・先行機構・採点器・runnerは無変更"
+  ],
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残103課題未完・145例未回答。固定domino/放射方向/最小境界選好priorに限定"
+  ]
+}

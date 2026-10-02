@@ -25,6 +25,7 @@ from .周期組修復教材 import 周期組修復教材
 from .部分見本教材 import 部分見本教材
 from .穴形拡大教材 import 穴形拡大教材
 from .標識移動教材 import 標識移動教材
+from .放射組立教材 import 放射組立教材
 
 
 def 事前教材を読む():
@@ -152,6 +153,7 @@ def 課題を解く(課題, 事前教材):
     見本教材 = 部分見本教材(課題["train"])
     拡大教材 = 穴形拡大教材(課題["train"])
     移動教材 = 標識移動教材(課題["train"])
+    放射教材 = 放射組立教材(課題["train"])
     機構群 = (
         ("ARCテンプレート穴充填", _template_hole_pack_render, 事前教材),
         ("ARC入れ子パネル合成", _nested_panel_relation_render, ()),
@@ -170,6 +172,7 @@ def 課題を解く(課題, 事前教材):
         ("ARC部分見本転写", 見本教材.候補, ()),
         ("ARC穴形拡大", 拡大教材.候補, ()),
         ("ARC標識移動", 移動教材.候補, ()),
+        ("ARC放射組立", 放射教材.候補, ()),
     )
     記録群 = [候補機構を学習(機械, 課題, 教材, 境界, 候補器)
               for 境界, 候補器, 教材 in 機構群]
@@ -204,7 +207,7 @@ def 課題を解く(課題, 事前教材):
                            "reasons": ["採用済み機構の完全格子予測が競合したため保留"]})
     return {"results": 結果群, "mechanism": "HDS機構候補の照会",
             "minimum_support": 必要支持数, "families": 記録群,
-            "quarantined": 隔離数, "object_learning": 端教材.記録(), "legend_learning": 凡例教材.記録(), "grouped_packing": 色群教材.記録(), "group_order": 整列教材.記録(), "lattice_self_mask": 格子教材.記録(), "component_path": 経路教材.記録(), "diagonal_bridge": 橋教材.記録(), "diagonal_region": 対角教材.記録(), "axis_reflection": 反射教材.記録(), "tuple_repair": 周期教材.記録(), "panel_exemplar": 見本教材.記録(), "hole_scale": 拡大教材.記録(), "guided_compaction": 移動教材.記録()}
+            "quarantined": 隔離数, "object_learning": 端教材.記録(), "legend_learning": 凡例教材.記録(), "grouped_packing": 色群教材.記録(), "group_order": 整列教材.記録(), "lattice_self_mask": 格子教材.記録(), "component_path": 経路教材.記録(), "diagonal_bridge": 橋教材.記録(), "diagonal_region": 対角教材.記録(), "axis_reflection": 反射教材.記録(), "tuple_repair": 周期教材.記録(), "panel_exemplar": 見本教材.記録(), "hole_scale": 拡大教材.記録(), "guided_compaction": 移動教材.記録(), "radial_assembly": 放射教材.記録()}
 
 
 if __name__ == "__main__":
