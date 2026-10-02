@@ -1,0 +1,80 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "ff0ace4dce9943836d4973958a4d30922f7bc237",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_l0_agent_compiler_v65_nested_frame_inventory_renderer.py、blob55a2af0bde970a994b7287c2ce48694490729391。未使用sorted_colorsを除く純粋12関数と近傍定義をAST同一で抽出。grid_shapeは凍結閉包と同じ現行utilityを再利用。旧component・課題ID・reportは除外",
+  "介入": "単色成分のbbox包含と軸区間重なりを、小さい枠と点の配置へ正規化する旧priorを同じHDSへ接続。全成分一対一と全包含関係を証明し、元rendererの出力だけを許可する",
+  "previous": {
+    "correct_tasks": 32,
+    "correct_examples": 46,
+    "unanswered": 121,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 33,
+    "correct_examples": 48,
+    "unanswered": 119,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 2,
+    "regressed_examples": 0,
+    "既存正答46例": "全て同一"
+  },
+  "原因観測": {
+    "全残課題preflight": "残88課題・273教師対で全教師raw/guard fitは1課題4教師。物理成分数5/2/3/4、全strict包含対4/1/2/4、出力11×12・5×5・7×5・9×11を完全再現。入力の親成分も不規則で、閉じた長方形枠を抽出する方式ではない",
+    "query事前確認": "guardをquery前に凍結。25×25の2入力から9×13と14×11を生成。全5/6成分と全6/5包含対を保持し、外部成分0/1。前景画素は150→63と135→60へ正規化。test正解は採点まで未参照"
+  },
+  "固定priorとguard": {
+    "分解と役割": "一意な最多背景と単一前景色、全前景4近傍成分を使う。元の2〜8成分は全入力適用域で、計算量だけから導いた上限ではない。厳密bbox包含で唯一の非葉rootを持つ森林を作る。閉じた輪郭や実際の穴は要求しない",
+    "親選択": "各成分の全containerが厳密包含鎖であることを描画前に要求し、一意な最小親と元parentの一致を確認。交差するcontainerを面積順位や後段の描画成功で削って一つにしない",
+    "正規化": "葉を1pixelへ、非葉を子配置の周りの厚さ1枠へ写す。子の入力row/column区間が推移的に重なる群をそれぞれ同じ中心へ揃え、離れた群と枠との間は背景1cell。画素数・元寸法を保存する移動ではなく、固定の関係正規化prior",
+    "外部成分": "外部rootも1点へ写す。各軸のbefore/after/aligned/root_center分岐を元どおり先決し、外側には1cell gapと1cell paddingを置く。alignedは元の最小(center距離,区間幅)を使い、そのkey同率は全体HOLD。重なる群がなければ元のroot中央規約。後段の失敗で別groupを選ばない",
+    "全成分と全包含対": "全物理成分を一度ずつcanonical footprintへ対応させる。異なる成分の重複・4近傍接触を全体HOLDにし、入力全strict bbox包含対と出力canonical bbox包含対の完全一致を要求。別leafが同一点に潰れる元出力も拒否する",
+    "元出力限定": "全footprintの同時和集合、元rendererの完全格子、全診断recordが一致した場合のみ元出力を返す。元の縦横とも入力より小さい条件とARC寸法上限を維持。別配置・別親・同率解消へのfallbackは行わない"
+  },
+  "HDS": {
+    "学習": "全教師の元renderer完全再現を先決し、guardも全教師で通過した候補格子→教師出力の同値を同一HDSが採用。分解・包含・正規化は既存priorであり、HDSが発見した幾何規則とはしない",
+    "支持": "現在4盤面・prior0・min3・隔離0。成分数・包含対・画素数を支持へ加算しない。既存の異なる二入力ちょうどでmin2とする方針と34課題min2/86課題min3は不変",
+    "排気": "公開学習cycle・全教師再現・同値・反例隔離・既存排気gate・全採用機構合意を維持。未解決や競合は全体HOLD"
+  },
+  "原指標保持": "wrong_attempted_tasks=4は既存の正答部分回答4課題で不変。誤った出力格子は新旧とも0。原採点器と指標名は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "eec735926dd01ab726d4350a791de1b26ae667f5bec4d7ed453ce390e73abb05",
+    "接続/ARC2/既存包含正規化.py": "a70de4c33ec5aaa99abd8064d67539279b9ff86637e4170164148ba5eb436434",
+    "接続/ARC2/包含正規化教材.py": "11d5c0b88c42062dae05c022acd2b6bf1e3073ebd45c6ef05ad788569353589f",
+    "検証/包含正規化回帰.py": "c0a58022b77f3bdc44c7b4f19d5ff2a681f1dd50ca3c8dd1a8abdefef82d0bbf",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存419件＋新14件合格。新14件は最適化モードでも合格",
+    "4教師×D4×配色64対照、形状/寸法/外部位置の変更、開いた親成分、全包含対・全成分の保持を確認",
+    "元が受理するleaf同一点化・交差container・外部axis同率を全体HOLD。全入力2〜8成分、両寸法縮小、ARC妥当性も確認",
+    "欠落成分・元parent/格子/record不一致を拒否。教師矛盾/重複、native4支持と反例隔離、採用後queryの全体HOLD、ID/target拒否を確認",
+    "独立runtime監査で359教師raw/guard、88 activation、両query/nativeを照合。HDS中核12・保護7・先行機構・scorer/runnerは不変"
+  ],
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残87課題未完・119例未回答。単色4近傍成分のbbox関係と固定の小枠/点正規化の範囲であり、全幾何表現を探索する方式ではない"
+  ]
+}
