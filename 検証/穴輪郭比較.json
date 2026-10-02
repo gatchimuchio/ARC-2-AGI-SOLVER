@@ -1,0 +1,80 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "1aab93709a0d0dd8170e7fd6f6f19f9c1817feab",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_runtime_fit_generator.py、blob6396b54f415c399df1c52f51b1f563bca9b8b0f7。穴抽出/形態rendererの2関数と8近傍定数はAST同一。成分・格子・4近傍は既採用primitiveを共有",
+  "介入": "教師から一意に得た五色paletteで穴・有穴物体・外側輪郭を描く旧形態priorを、保守的なrole重複guard経由で同じHDSへ接続",
+  "previous": {
+    "correct_tasks": 17,
+    "correct_examples": 22,
+    "unanswered": 145,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 18,
+    "correct_examples": 23,
+    "unanswered": 144,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "task_accuracy_percentage_points": 0.8333333333333334,
+    "regressed_examples": 0,
+    "既存正答22例": "同一"
+  },
+  "原因観測": {
+    "全残課題preflight": "残103課題・314教師対の全教師fitは1課題。一意のpaletteで三教師の3/4/3物体（有穴2/1/1）を完全再現",
+    "query事前確認": "4物体・有穴2を完全に描画。予測格子を直接数えた輪郭128・穴11・有穴物体103画素。guardはquery前に固定しtest正解は採点まで未参照",
+    "因果": "性能増分は未接続だった既存形態priorの接続による。実証されていない最終格子の塗り順依存バグを修復したとはしない"
+  },
+  "固定priorとguard": {
+    "palette": "全教師の入力色和集合は2色、追加出力色は3色以上。背景/物体の両順序と新出力色の全3順列を元rendererで照合し、全教師を再現する方針が厳密に一つであることを先に要求。その後guardを適用し、対案を削って一意化しない",
+    "形態": "物体は4近傍同色成分。成分bbox内の4近傍背景のうちbbox外周に接しない領域を穴とする。有穴物体を有穴色、穴を穴色、外側の元背景8近傍を輪郭色へ変える。無穴物体の本体は元色を保つ",
+    "背景役割": "背景は教師paletteの役割であり最多色に限定しない。新しい入力色が現れれば元rendererの適用域外としてHOLD",
+    "重複role制限": "元入力から物体本体・穴・外側輪郭の全提案を集める。各成分自身の穴はその外輪郭から除く。同色提案の重なりは許可し、異色のcross-object role重複を保守的にHOLDする",
+    "元出力限定": "同時role提案の和と元renderer格子の完全一致を確認し、代替格子を返さない。30以内の格子と提案対象外cellを保存",
+    "塗り順と診断": "五色役割が異なる元処理には穴優先の順序不変な最終格子がある。入れ子対照では成分順を反転しても格子は同一だが輪郭diagnosticは40対48、実際の輪郭色は40画素。追加guardは重複roleを除く適用制限であり、この診断差を出力バグとは扱わない"
+  },
+  "HDS": {
+    "学習": "palette fitと固定形態演算は旧機構。現行HDSは最終候補格子→教師出力の同値を採用",
+    "支持": "異なる現在教師3観測・prior0・隔離0。10物体や画素数で支持を増やさない。既存課題支持2/3方針と中核既定3は無変更",
+    "排気": "同一instanceの公開cycle、全教師再現、既存同値・quarantine・gate・採用済み全機構合意"
+  },
+  "原指標保持": "wrong_attempted_tasks=1は既存の部分回答課題。新旧とも誤った出力格子0。原採点関数は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "d5f03381150cadc690a48786a3e6202571b4093464d633c86a6b0508c28db7e3",
+    "接続/ARC2/既存穴輪郭.py": "df24878a9661cadf8b69a00c16688f783b870a2d485b9fbb3167f7e41bbf3f81",
+    "接続/ARC2/穴輪郭教材.py": "2fc85f714f602b7d3dbc0a15123bc2e7b1cc0eccd1508e418e0489471fee8883",
+    "検証/穴輪郭回帰.py": "2dead4f623f5474943e0dba512e31543cb8ef8cb1d0773a5f3f98f08fe7d7ae0",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存177件＋新12件合格。新12件は最適化モードでも合格",
+    "可変寸法/回転/反転/配色、開口・複数穴、入れ子role競合、同色輪郭重複、最多でない背景、画像端、未知色、教師反例/支持/隔離を確認",
+    "359教師入力の元renderer/guard、103raw palette fit数/適用判定とqueryが一致。HDS中核12・保護7・先行機構・採点器・runnerは無変更"
+  ],
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残102課題未完・144例未回答。二色入力・一意五色palette・競合roleなしの固定形態priorに限定"
+  ]
+}
