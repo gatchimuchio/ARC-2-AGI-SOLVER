@@ -1,0 +1,80 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "9716e410bcf74e13c317f9e9564fac8ebaf65a01",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_l0_agent_compiler_v55_vertical_symmetry_pruning.py、blob7cd48715c91d235af712524019f4f17526bdd499。6純粋関数と近傍/divisor定義はAST同一。grid_shape/clone_gridは現行共有。旧component・ID・reportは除外",
+  "介入": "最大保持の縦対称部分抽出priorを同じHDSへ接続。完全保持を含む全axisの一意最大、全成分の元予算・元候補・元全格子一致を証明する",
+  "previous": {
+    "correct_tasks": 25,
+    "correct_examples": 35,
+    "unanswered": 132,
+    "wrong_attempted_tasks": 1,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 25,
+    "correct_examples": 36,
+    "unanswered": 131,
+    "wrong_attempted_tasks": 2,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 0,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答35例": "全て同一",
+    "採否根拠": "完全課題数は増えていないが、全分母で誤格子/回帰なしの正答例1件純増"
+  },
+  "原因観測": {
+    "全残課題preflight": "残95課題・291教師対の全教師fitはraw/guardとも1課題2教師。6成分の最大保持axisは全て一意、元axisと一致し削除3/3/1および2/2/2、全て元予算内",
+    "query事前確認": "query前にguardを固定。query0の色3はsize8/最大kept6でaxis2=36/37同率のためHOLD。query1は22×22、3成分の削除4/6/1、上限9/9/3で元格子一致。test正解は採点まで未参照"
+  },
+  "固定priorと証明": {
+    "対象": "一意最多背景以外の全同色8近傍成分を対象とし、縦の整数・半整数反射axisを調べる。90度回転不変なoperatorとはしない",
+    "元規則": "元sourceは非完全な対称部分を保持画素数、bbox面積/高さ、中心近接、左axis順で選び、削除数max(3,n//4+1)以内だけ編集する。固定編集量制限であり厳密25%でも学習閾値でもない",
+    "一意最大": "guardは完全保持も含む全axisから保持数の一意最大を先に決め、二次scoreで同率を解消しない。非完全剪定では元axis/kept集合と一致し、全成分が元予算内であることを要求する",
+    "完全対称": "元候補がNoneで完全保持する成分は許す。元が非完全削除を提案すれば、後で予算skipされる場合も保守的にHOLD。元rendererを修理して答えを返すことはしない",
+    "全体証明": "一成分でも同率、予算超過、元選択不一致があれば全体HOLD。証明した全成分の同時削除格子は比較専用で、元renderer出力と完全一致したときだけ元出力を返す。閾値を外す・別axis/別格子へ置換する処理はない"
+  },
+  "HDS": {
+    "学習": "最終候補格子→教師出力の同値を現行HDSが採用。対称prior/証明をHDSが新規発見したとはしない",
+    "支持": "現在2盤面・prior0・min2・隔離0。六成分や保持画素数を支持へ加えない。既存34課題min2/86課題min3方針と中核既定3は不変",
+    "排気": "同一instanceの公開cycle、全教師再現、同値・反例隔離・既存排気gate・採用済み全機構合意を保持。queryは[HOLD,grid]であり同率を推測しない"
+  },
+  "原指標保持": "wrong_attempted_tasksは1→2。既存62593bfdに本件の部分回答課題が加わったためで、誤った出力格子は新旧とも0。原採点器・指標名は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "89c8d6f1c57c606fc4bbe0d752f9d1606a4036a264e4980d8db57c2a219912bb",
+    "接続/ARC2/既存対称剪定.py": "bed49d4165ea232e9c4f79fcffd73a392a3eff55cd3a3f4695a5bccb390a4a20",
+    "接続/ARC2/対称剪定教材.py": "cf67c6d1b377124637e378d8b8c2da60930555c7ffac5d1a1a44c634634244bf",
+    "検証/対称剪定回帰.py": "f45b34ccd75ff921ed4c872c9c66e4a9f1f803635576f32ec1fb819b254a776a",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存284件＋新13件合格。新13件は最適化モードでも合格",
+    "一意最大/半整数axis、縦axisを保つ反転/180度回転/配色、完全対称2×2、保持数同率、唯一最大でも削除4>上限3の7cellを確認",
+    "予算超過成分と正常成分の部分処理を拒否、singleton/元が保持する縦線の全成分証明、元出力不一致時の代替禁止を確認",
+    "教師反例/重複、native2盤面と中核既定3・反例隔離・同率queryの全体HOLDを確認",
+    "359教師raw/guard、95 activation、両query/native記録が一致。HDS中核12・保護7・先行機構・scorer/runnerは不変"
+  ],
+  "制限": [
+    "公開評価での例単位差分。完全課題正答率25/120は変化なし。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残95課題未完・131例未回答。最大保持priorでも同率の第1queryはHOLDを維持"
+  ]
+}
