@@ -1,0 +1,79 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "b59b20d28ce1528abeca186c74224df939cc2eed",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_runtime_program_search.py、blob c60fad158350b42fbc5ef0cbb2db7b26707cd6c1。target_square_paletteのrenderer/sectorと成分抽出2関数、近傍定義をAST同一で抽出。同一ASTの_grid_shape/_dominant_colorは既存穴充填から共有。旧report・課題ID・queryを使うfit経路は除外",
+  "介入": "唯一の3×3中心anchor周辺のtarget成分を、相対sectorの二色source票で再着色し、中心を割当済みtarget面積の最多色にする旧priorを同じHDSへ接続。全target処理、票の一意性、対象外保存と元出力一致を証明",
+  "previous": {
+    "correct_tasks": 34,
+    "correct_examples": 50,
+    "unanswered": 117,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 35,
+    "correct_examples": 51,
+    "unanswered": 116,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答50例": "全て同一"
+  },
+  "原因観測": {
+    "全残課題preflight": "残86課題・267教師対で全教師raw/guard fitは1課題3教師。target72/38/109cell、perimeter8以外の64/30/101cellを処理。領域票と中心面積票は全て一意で、中心票20:43・19:10・51:49。教師2のsource85cell中79が少なくとも一票に使われ、残り6cellも保存",
+    "query事前確認": "guardをquery前に凍結。30×30、target152cellのうち144cellを再着色し、perimeter8とsource/背景を含む756cellを保存。source228cellは全て少なくとも一票に使用、中心面積票73:70。test正解は採点まで未参照"
+  },
+  "固定priorとguard": {
+    "役割先決": "一意な最多背景、非背景の単色4近傍成分の一意最大をtargetとして先決。target色の全画素がその一成分であることと、他のsource色が二色であることを要求。後段でanchorや票が失敗しても小さいtargetへ選び直さない",
+    "中心形態": "元の唯一solid3×3は中心1cellとperimeter8cellという固定形態prior。perimeterを保持し、残るtargetを4近傍成分へ分割する。単一中心と全outer成分が、対象画素を漏れなく重複なく覆うことを検証",
+    "領域票": "各outer成分の重心をanchorに対する上下左右/対角sectorへ分類し、成分全体を再着色する。整数比較で元の重心分類と同じsectorになることを確認。target実画素がsector外へ跨いでも元の成分単位規約を維持する。該当sectorの全source画素を数え、一意な最多色を要求し、元の数値色順での同率解消は拒否",
+    "中心票とsource範囲": "中心は割当済みtarget成分の面積で重み付けした色別票の一意最大へ再着色。同率を元の左側優先や色順で解決せず全体HOLD。成分個数の多数決ではない。sourceは複数成分の票へ再利用され得る一方、どの票にも使われない画素も保存する。全source消費やpatch一対一対応は主張しない",
+    "全処理と元出力": "全target-minus-perimeterの同時proposalを検証し、全perimeter/source/背景を保持。元rendererの完全格子と全recordへ一致する場合だけ元格子を返す。未解決component、空のsource票、各種同率、coverage不成立は全体HOLD。別色・別target・別anchor・別分類へのfallbackは行わない"
+  },
+  "HDS": {
+    "学習": "3×3形態、最大target選択、重心sector、色票、面積加重は既存priorであり、HDSが発見した幾何規則とはしない。元fitterの最低2教師と全教師raw完全再現を先決し、入力重複は追加で拒否し、guard通過候補格子→出力の同値を同じHDSが採用",
+    "支持": "現在3盤面・prior0・min3・隔離0。source画素・領域数・票数・target面積を支持へ加算しない。既存の異なる二入力ちょうどでmin2とする方針と34課題min2/86課題min3、中核既定3は不変",
+    "排気": "公開学習cycle・全教師再現・同値・反例隔離・既存排気gate・全採用機構合意を維持。未解決・競合は全体HOLD"
+  },
+  "原指標保持": "wrong_attempted_tasks=4は既存の正答部分回答4課題で不変。誤った出力格子は新旧とも0。原採点器と指標名は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "4f5eae3223a1dc685e22387fdc280f4616c2ae3bde5758fca8ca3d2d9f83c662",
+    "接続/ARC2/既存中心配色.py": "2467778d5ff60d0e2c2434a9a5830eec84041ceed77efb5434d1562772dd42fe",
+    "接続/ARC2/中心配色教材.py": "8cf63b8a4fdd6850978d68d81dcd402ff6b8fd17c26afa99151410aa7d5237ae",
+    "検証/中心配色回帰.py": "a15240f2f6308181135b7d9965f02650e8f6dd830b34ca9e63549919f1c9e596",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存447件＋新14件合格。新14件は最適化モードでも合格",
+    "3教師×D4×配色48対照、整数重心/predicate3000対照、可変canvas/位置、sector外へ跨ぐcomponent全体処理、未使用source保存を確認",
+    "中心を成分個数でなく面積加重にする対照、元が受理する領域票/中心票の同率をHOLD。最大target先決・唯一anchor・全同色帰属・全target coverageも検証",
+    "元格子/record不一致の代替禁止、教師矛盾/重複/最低2、native3支持と反例隔離、採用後query同率HOLD、ID/target拒否を確認",
+    "独立runtime監査で359教師raw/guard、86 activation、query/nativeを照合。HDS中核12・保護7・先行機構・scorer/runnerは不変"
+  ],
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残85課題未完・116例未回答。唯一3×3中心形態・最大target・二色source・固定重心sectorという限定priorの範囲であり、一般の全palette対応を探索しない"
+  ]
+}
