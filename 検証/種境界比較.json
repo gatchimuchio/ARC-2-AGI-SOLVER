@@ -1,0 +1,81 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "cb33d8e6c7e2e7edf1dad30c1da8557560c306a6",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_l0_agent_compiler_v43_seeded_boundary_recolor.py、blob2bf77dca8cc3302ad06a378401ce5df02597605f。純粋7関数・近傍2定義はAST同一。grid_shape/is_rectangularは現行共有。旧component・ID・reportは除外",
+  "介入": "seedからの背景到達和集合とbarrier接触に基づく旧境界着色priorを同じHDSへ接続。役割・全成分・消去証拠・元格子一致を検証する",
+  "previous": {
+    "correct_tasks": 26,
+    "correct_examples": 38,
+    "unanswered": 129,
+    "wrong_attempted_tasks": 2,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 27,
+    "correct_examples": 39,
+    "unanswered": 128,
+    "wrong_attempted_tasks": 2,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答38例": "全て同一"
+  },
+  "原因観測": {
+    "全残課題preflight": "残94課題・289教師対のraw/guard全教師fitは1課題3教師。共通四色役割を教師から推定し、barrier全44/13/64画素を解析、fill39/49/95画素",
+    "分岐証拠": "教師0が非接触barrier28画素を除去する分岐を示す1教師の証拠。教師2の内部barrier5画素は保存し、境界着色源にはしない。画素数・成分数を支持へ加えない",
+    "query事前確認": "guardをquery前に固定。12×12入力で背景隣接開始点2個・到達和集合104cell、barrier2成分30cellを全保存・fill47cell・除去0。test正解は採点まで未参照"
+  },
+  "固定priorとguard": {
+    "役割fit順": "元の四色推定を全教師へ適用（出力に新出するfill、入力/output各1個のseed、入力最多background、残るbarrier）。全raw教師格子を先に再現し、教師BG最多tieは再推定せずHOLD。その後だけ再現済み教師から消去witnessを数え、全教師guardを検証する",
+    "query契約": "教師で得た四色を固定し、queryの背景頻度は再推定しない。入力paletteはbackground/seed/barrier内に限定し、未知色や既存fillを消す代わりに全体HOLDとする",
+    "到達集合": "唯一seedの全背景隣接cellから4近傍floodし、各到達集合の和集合を取る。単一の背景連結成分とは限らない",
+    "barrierと境界": "seed到達集合に直交接触する4近傍barrier成分を丸ごと保存し、非接触成分を背景化する。保存成分のうち盤面端に触れるものの8近傍にある到達背景cell、または盤面外周の到達背景cellをfill色へ変える。内部保存barrierは境界源にしない",
+    "消去gate": "非接触barrier除去が必要なら、同じ関係による除去を示し全格子再現に成功した異なる現教師が1例以上必要。分岐証拠1はnative支持3と別。未知色除去には拡大しない",
+    "証明": "有効ARC1〜30/異なる四色/一意seed/palette/全barrierの非重複coverageを確認する。全領域と保存/消去/着色を同時構成した格子が元renderer出力と一致する場合だけ元格子を返す。別役割や代替格子は作らない"
+  },
+  "HDS": {
+    "学習": "最終候補格子→教師出力の同値を現行HDSが採用。到達/消去/境界規則をHDSが新規発見したとはしない",
+    "支持": "現在3盤面・prior0・min3・隔離0。消去witness1、barrier数、画素数を支持へ加えない。既存34課題min2/86課題min3方針と中核既定3は不変",
+    "排気": "同一instanceの公開cycle、全教師再現、同値・反例隔離・既存排気gate・採用済み全機構合意を保持"
+  },
+  "原指標保持": "wrong_attempted_tasks=2は既存部分回答2課題で不変、誤った出力格子は新旧とも0。原採点器と指標名は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "acc10eb1af84be500d33fcdb1dafa2d77fa8a9db8a258128fcd60eb3e9aa323a",
+    "接続/ARC2/既存種境界.py": "b0d413e5e3d9180f81ab95aa6fdf1ad9d870ae8bc2cf5adae9cbb182f0896f73",
+    "接続/ARC2/種境界教材.py": "c477ccd6206d1e9ef3bf850479adcb0b4998ed6285950d485393a55f2299f87c",
+    "検証/種境界回帰.py": "45898ea950e72b7bf69897ea5e96b8c2419687a1597354220bb69bb8e8e24ed3",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存310件＋新15件合格。新15件は最適化モードでも合格",
+    "D4/役割配色、seedから2背景領域へ到達する和集合、queryのBGが最多でなくても固定役割、内部barrier保持/周囲非着色を確認",
+    "未知色/既存fill拒否、消去witnessの有無、rawfit後の教師BGtie、全barrier coverage、元格子不一致時の代替禁止、invalid役割/seedを確認",
+    "教師反例/重複からwitnessを数えないこと、native3盤面/中核既定3/反例隔離、採用済み未知queryの全体HOLDを確認",
+    "359教師raw/両witness mode、120 raw役割推定、94 activation、query/native記録が一致。HDS中核12・保護7・先行機構・scorer/runnerは不変"
+  ],
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残93課題未完・128例未回答。四色役割と境界関係はこの既存priorの適用契約"
+  ]
+}
