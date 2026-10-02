@@ -1,0 +1,80 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "0711e65bfa014fbcb6465838ec1ba6d137d51549",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / v44_periodic_side_extension、blob7eb325424ce32104ce63b14d3e25a125c9a7e743。9関数をAST同一で抽出。v29由来clone_grid/grid_shape/is_rectangularの3関数は現行資産から共有し、依存を含め原文一致を確認",
+  "介入": "同形の反復keyに接する縦方向のtuple周期stripを延長する旧priorへ、全sideの同時proposal・key/seed保存・元出力一致の保守的受理証明を加え、同じHDSへ接続。rendererの軸・周期・塗色規則は変更しない",
+  "previous": {
+    "correct_tasks": 36,
+    "correct_examples": 52,
+    "unanswered": 115,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 37,
+    "correct_examples": 53,
+    "unanswered": 114,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答52例": "全て同一"
+  },
+  "原因観測": {
+    "教師限定preflight": "残84課題261教師対の元renderer/証明を検査し、同じ1課題2教師が完全適合。key形状は5/16画素、同形keyは各2個。変更11/22cell。第2教師の既に完成したdown stripも34cellのproposalとして保持する",
+    "入力のみ適用確認": "凍結実体の独立監査後、25×18の入力に3key/全6side、3有効strip（うち1無変化）を確認。全key24cellと実seed44cellを保存し、28cell変更。元出力と同時proposalが一致。正解照合は後続の全120採点で実施"
+  },
+  "固定規約と証明": {
+    "認識域": "背景は一意最多。非背景の同色4近傍成分のうちsize>=3、平行移動正規化shapeが同じ成分が同色内に2個以上ある全groupを認識する。size>=3とrepeat>=2は元の認識域であり数学的必要条件や学習閾値ではない。全前景をkey処理するとの主張ではない",
+    "方向と周期": "各key bboxの上下だけを対象とする固定縦向きprior。隣接行の非背景/非key色が連続した列区間を投射幅とする。完全な隣接tuple列を、背景/keyや余分なpayload列が現れる直前まで読む。元の最小prefix周期で盤面端まで反復する。全周期仮説に対する自然な一意性や回転一般性を主張しない",
+    "side先決": "全認識group/全key/両sideを元入力から列挙。隣接行が盤外、またはpayloadなしならinactive。payloadがあるのに列が非連続なら、そのsideを黙殺せず全体HOLD。無変化sideも証明の対象から落とさない",
+    "同時提案": "元と同じown-group key skipで全stripを提案。同色重複はunion、異色重複は全体HOLD。どのgroupに属するkeyも全保存し、観測済みの全seed prefixとproposal外cellを保存する。保護違反を起こす候補だけを除外して残りを採らない",
+    "出力と保存範囲": "同時提案格子と元rendererの出力格子が完全一致する場合だけ、元出力をそのまま返す。strip内の既存payloadを上書きする元規約は残り、教師0で交差する既存色1cellの変更を確認済み。原foreground全保存とはしない。queryでは元payload変更0、全体無変化はHOLD"
+  },
+  "HDS": {
+    "学習": "固定prior/受理証明による全教師再現と、同じHDSの候補格子→出力格子の同値採用を分ける。HDSがkey認識域・縦方向・最小周期を発見したとはしない。wrapperは最低2教師・入力重複拒否と、各教師で非空変更を要求する。旧fitterのchanged-any規約より保守的だが今回の2教師fitは維持",
+    "支持": "現在2盤面・prior0・min2・隔離0。key/side/strip/pixel数を支持へ加算しない。異なる二入力ちょうどでmin2とする既存方針と34課題min2/86課題min3、中核既定3は不変",
+    "排気": "公開学習cycle・全教師再現・同値・反例隔離・既存排気gate・全採用機構合意を維持。採用済みfamilyの未解決・競合は全体HOLD"
+  },
+  "原指標保持": "wrong_attempted_tasks=4は既存の正答部分回答4課題で不変。誤った出力格子は新旧とも0。原採点器と指標名は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "d3febed7d20494b1ba14f0133caf908a6ad40190a59051fc2de6cf5b1f67cdca",
+    "接続/ARC2/既存側周期.py": "d55a69ad42c78db5a8f52842206793d4c8bd7857487dfcc6c7cc9397f8bda7fe",
+    "接続/ARC2/側周期教材.py": "a4cc660cfd6b9c9619633b669366d702c83e6c6105e68e385634b173ee6c7a93",
+    "検証/側周期回帰.py": "7f28584a516490b3e3c9a812a966d2b2801a2c961abb110bc7eef413ed896468",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存475件＋新15件合格。新15件は最適化モードでも合格",
+    "可変canvas/key幅、幅2周期3、縦横反転/配色、最小prefix周期、nochange/inactive区別、元size2認識域外保存を確認",
+    "非連続sideと正常sideの混在、同色proposal union、異色proposal競合、別group key破壊、元格子不一致の全体HOLDを確認。元strip内payload上書きと保護範囲を区別",
+    "2現在盤面/min2とmin3未達、入力重複/単一教師拒否、反例隔離、採用済み未解決queryの最終HOLD、ID/target拒否を確認",
+    "独立教師監査で全84/261記録、runtime監査で359教師raw/guard・84activation・query/native全文一致。旧/共有12AST、凍結guard1AST、中核12・保護7・先行機構・scorer/runner不変"
+  ],
+  "情報分離の留保": "2026-10-02 21:23 UTC頃、外部監査記録を広くrg検索した際に単一行challenges JSONが偶発的に一致し、大量省略された出力に一部challenge入力が表示された。対象queryの意図的抽出やsolutions参照はその時点では行っていないが、query未参照と一括主張しない。経緯を親/独立監査へ共有し、以後はsource明示とteacher-only抽出資料へ限定。本候補も条件凍結・独立監査後に承認済みinput-only確認、最後に全120採点を行った",
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残83課題未完・114例未回答。固定縦方向の反復key/隣接tuple stripに限定し、一般の多方向周期補完を網羅しない"
+  ]
+}
