@@ -1,0 +1,81 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "3ef6701abf246a7cc9aa1fc20629901b424350cd",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365。program_search blob c60fad158350b42fbc5ef0cbb2db7b26707cd6c1 の _grid_shape/_dominant_color/_legend_token_macro_parse/_legend_token_macro_render の4関数を原文で抽出。旧fitterはquery検査も持つため、元rendererと教師再現条件の再利用であり、fitter全文の流用とはしない。新受理証明/失敗処理4関数とwrapperを元予測規則から区別する",
+  "介入": "上段glyph辞書・中段token配置・後続palette行の入力内対応を積配置する旧符号priorを、全role帰属と全active/inactive tileの証明付きで同じHDSへ接続する",
+  "previous": {
+    "correct_tasks": 45,
+    "correct_examples": 62,
+    "unanswered": 105,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 45,
+    "correct_examples": 63,
+    "unanswered": 104,
+    "wrong_attempted_tasks": 5,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 0,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答62例": "全て同一"
+  },
+  "原因観測": {
+    "教師限定preflight": "残75課題236教師対を全件検査し、1課題3教師のみ完全一致。glyph寸法3/3/5から9×9/9×9/25×25へ展開。全教師は3辞書、macro active7/6/16・inactive2/3/9、前景54/38/284。全macro非重複、全前景の役割帰属、全81/81/625出力cellの積を確認",
+    "入力のみ適用確認": "独立凍結監査後の第0入力16×30は4辞書、glyph5、active21/inactive4、全625cell、前景390。色別画素数57/162/95/76と元grid/record一致。第1入力12×20はraw separator候補に行7・色6があり、色5の他候補と競合するため原parseへ進む前にHOLD。宣言を変更せず部分回答候補として全120評価を行った"
+  },
+  "固定規約と証明": {
+    "順序と役割": "元parserの入力高さ・幅がともに6以上という全入力適用域を維持する。入力の背景一意最多を要求する。非背景値が同色で2cell以上ある全row候補を先決し、その色が一つであることを追加条件とする。最初の候補rowと次の同色rowを採る元の順序を維持し、別separatorを試し直さない。最初のrow indexがglyph寸法を与え、同じ高さのtop辞書とmiddle map帯を解釈する。候補行が自然に2件だけ存在するとはしない。教師のraw候補は3/7/8行または5/11/12行である",
+    "辞書とpalette": "topからseparator列を確定し、元が列挙した全slotの非負・範囲・非重複を要求する。各top squareの一色glyphをkeyとし、middle各slotは全keyのbijectionであるtoken配置を与える。帯より後の唯一palette行が、top keyごとの異なる出力色を与える。固定3辞書/最終行ではなく、入力にある全辞書と後続palette行を使う。key色やseparator色を出力palette色に使うこと自体は禁止しない",
+    "全入力被覆": "全foregroundはtemplate/map/marker slotのどれか、またはraw separator行・top由来separator列上にあるseparator色cellへ帰属しなければ全体HOLD。同色separatorというだけで任意座標を免除しない。全roleは描画成功より前に確定し、不適合slotや記号を落として残りを採用しない。原parseの失敗・IndexError等・負slotも全体HOLDで修理しない",
+    "全積配置": "各macro座標に対応するtokenからglyphとpaletteを引き、pitchをglyph寸法に固定する無回転block product。出力sideはglyph寸法の二乗。全macro座標の重複を同色でも拒否し、active tile内のglyph画素と背景穴、inactive tile全体の背景を全cell確認する。出力side30超過は全体HOLD。元renderer成功とgrid/record完全一致を要求し、返すのは元格子だけ",
+    "数量と消費": "各palette色の出力画素数は、そのkeyのglyph画素数×token配置数である。入力前景数・入力配置・separatorやkey色の残存は保存しない。全activeで背景が出力に残らない例も許容する。palette/key/separatorの役割兼用と、画素が同じ座標へ残るかどうかを区別する",
+    "追加証明の因果": "教師0入力を1cell変更してmacroを重ねると元rendererは成功し、同じfull-tile描画のmap順を逆にすると9cellが変わる。全macro重複HOLDはこの順序依存の範囲を保守的に除く。別順に描き直す修理はしない。また末尾へ未帰属separator色/別色cellを足して元が黙殺する実例を全体HOLDにする"
+  },
+  "HDS": {
+    "学習": "旧fitterの最低2教師を保ち、入力重複拒否は追加wrapper条件。全教師の元renderer完全再現を先決し、全証明通過後に各教師の最終盤面を一度ずつ同じHDSの公開cycleへ渡す。固定の辞書/積配置priorをHDSが新たに発見した規則とはしない",
+    "支持": "現在3盤面・prior0・min3・隔離0。glyph/辞書/配置/tile/画素数を支持に加算しない。二つの異なる入力ちょうどならmin2とする既存方針と全120の34/86分布、中核既定3は不変",
+    "排気": "公開学習cycle・全教師再現・同値・反例隔離・既存排気gate・全採用機構合意を維持。採用済みfamilyの未解決・競合は全体HOLD"
+  },
+  "原指標保持": "完全正答課題は45/120で増分0。wrong_attempted_tasksは4→5で、正答部分回答1課題が増えた値をそのまま報告する。誤った出力格子は新旧とも0。新しい第1例はHOLDを維持し、先行4部分回答課題も不変。採点器と原指標名は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "a5467835c03aea7d2722bb47fc5b8b5ba83be2cdfb564518379318e644dc073c",
+    "接続/ARC2/既存凡例展開.py": "69526f0e72677b67ea5ac9a8d62ff352dc0e477020c87497689de6db4e57d6aa",
+    "接続/ARC2/凡例展開教材.py": "d06ed33a718da03aa83552efd0db93b5b1b1fd72bf75593a1587fe87d8671b03",
+    "検証/凡例展開回帰.py": "1dd5b0ac57262d7b47eeacc13fbb4aaa48779a682b199d376d7d59f087ead2fa",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存634件＋新19件成功。新19件は最適化モードでも成功",
+    "glyph寸法2/3/4/5、出力side36拒否、列をまたぐtoken lookup、全active/inactive、入力外footerのseparator色/別色拒否、paletteのseparator色兼用を確認",
+    "raw row色先決、全macro重複、負slot・重複slot・実負index例外・欠落token/palette、色置換、元grid/record改変拒否を確認",
+    "raw教師再現先決、重複/不正入力拒否、native盤面支持/min3未達、採用済みfamilyの未確定queryによる全体HOLD、ID/test target拒否を確認",
+    "独立教師監査で全75/236、辞書2/4件・paletteのkey/sep兼用・全activeで背景残存なし・9cell順序差の実格子を確認。runtime監査で359教師raw/guard・全120fit/wrapper・残75記録・両query/native全文一致。旧4/証明4 AST、中核12・保護7・先行212snapshotのadapter以外・scorer/runner不変"
+  ],
+  "情報分離の留保": "2026-10-02 21:23 UTC頃、外部監査記録を広くrg検索した際に単一行challenges JSONが偶発的に一致し、大量省略された出力に一部challenge入力が表示された。対象queryの意図的抽出やsolutions参照はその時点では行っていないが、query未参照と一括主張しない。経緯を親/独立監査へ共有し、以後はsource明示とteacher-only抽出資料へ限定。本候補も条件凍結・独立監査後に承認済みinput-only確認、最後に全120採点を行った",
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残75課題未完・104例未回答。固定の水平top/middle/後続palette符号文法と先頭separator規約に限り、任意の表の解釈や全潜在parseを網羅したものではない。条件外queryの救済は行っていない"
+  ]
+}

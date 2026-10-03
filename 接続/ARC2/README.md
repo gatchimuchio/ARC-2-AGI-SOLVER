@@ -58,11 +58,12 @@ python 検証/制御複写回帰.py
 python 検証/配置展開回帰.py
 python 検証/基点複製回帰.py
 python 検証/接触配置回帰.py
+python 検証/凡例展開回帰.py
 ```
 
 全120課題・167test例、各課題10CPU秒・512MiB・60秒wall、3並列で旧ARC採点関数を再利用する。baselineモードは初期のHDS格子値診断であり、前commitそのものではない。test正解と課題IDは親採点側に限定する。
 
-前commit `8169370` の44/120課題・60/167例から、D4最大接触配置で45/120課題・62/167例へ改善。旧採点器のwrong_attempted_tasksは既存部分回答4課題で不変、誤った出力格子は0。先行60例は全て同一。比較は `検証/接触配置比較.json`、先行成果は既存比較記録に保持する。
+前commit `3ef6701` の45/120課題・62/167例から、凡例token積展開で45/120課題・63/167例へ改善。完全課題数の増分は0、正答例が1増加した。旧採点器のwrong_attempted_tasksは正答部分回答4→5課題、誤った出力格子は0。先行62例は全て同一。比較は `検証/凡例展開比較.json`、先行成果は既存比較記録に保持する。
 
 物体端投射は既存8近傍物体抽出と九特徴を使い、教師だけから整合する特徴→上端/下端方向を選ぶ。各物理物体を一度ずつ現行HDSへ観測し、既存bbox順を保つ。未知特徴・識別不能・競合・配置重複は全格子HOLD。予測結果経路の制限は差分0で棄却し、HDS中核は元のまま。
 
@@ -237,3 +238,13 @@ source色画素数はmarker数×motif画素数、marker色はmotif画素数。�
 slot画素、原source/移動先以外を保持し、全payloadを一度ずつ転写する。総前景画素数と反射時の交換を織り込んだ色別数を検査するが、色別数や接触後の成分数が無条件に保存されるとはしない。元joint検査は複数payloadの非重複を保証しない一方、旧成功格子での画素消失は未実証。今回の3教師は各1payloadで、重複best対照は元も異格子拒否である。
 
 旧fitterの最低2教師と、追加wrapperの入力重複拒否を分ける。native支持は3現在盤面・prior0・min3で、候補/割当/画素は加算しない。既存HDSの全機構合意と情報分離留保を保持し、同条件全120で45課題62例・先行60例同一を確認した。
+
+## 凡例token積展開
+
+`既存凡例展開.py` は旧program_searchの4関数を原文で使う。最初のseparator候補rowと次の同色rowを固定順に採り、topの単色glyph辞書と同寸法のmiddle token配置を解釈する。後続の唯一palette行がkeyごとの出力色を与え、各token座標へ対応glyphを再着色して置く。pitchはglyph寸法、出力sideはその二乗という無回転の符号priorであり、固定3辞書/最終palette行や全潜在parseの一意性とはしない。
+
+`凡例展開教材.py` は背景一意と全raw separator行色の一意を先決し、全slotの範囲・非重複、全foregroundの役割被覆を証明する。separator色はraw行/列上だけを構造役割とし、任意座標で免除しない。原parse失敗/例外・負slot・全macro重複を全体HOLDにし、別parseへ切り替えない。active tileのglyph画素と背景穴、inactive tileの背景を全cell検査し、元renderer成功とgrid/record一致が揃う元格子だけ返す。
+
+各palette色の画素数はglyph画素数×token配置数。入力前景数や背景色の出力残存は保存しない。出力paletteがkey/sep色と同じでもよい。元の重複macroは描画順で9cell変わる実例を確認し、全重複HOLDで適用域を制限する。最低2教師は旧fitter条件、distinct入力は追加wrapper条件。native支持は3現在盤面・prior0・min3で、辞書/tile/画素を加算しない。
+
+固定queryの第0例は625cellの積で排出し、第1例はraw separator候補色の競合でHOLDを維持。同条件全120で完全課題45は不変、正答62→63例、先行62同一、誤格子/資源0。raw wrong_attempted_tasksは正答部分回答4→5としてそのまま記録する。既存HDSの全機構合意と情報分離留保を保持する。
