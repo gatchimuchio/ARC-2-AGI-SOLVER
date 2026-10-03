@@ -1,0 +1,81 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "c057b4096b0d85c79ac158bcdac6b0a50620af01",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 の generator blob6396b54f415c399df1c52f51b1f563bca9b8b0f7。grid_shape/clone_gridとpair_preserves_nonzero_and_fills_zero/mirror_source_values/zero_reflection_axes_for_pair/render_zero_mask_bidirectional_reflection_fillの旧6関数を原文抽出。新valid_grid/guarded_render/fit_teachersの3関数で全有限orbit受理証明とwrapperを追加。既存v0.4の対称完成・反射語彙と候補保持の蒸留を参照し、旧固定mask/共有軸契約の限定を残す",
+  "介入": "全教師共通の絶対反射和2整数を旧候補空間から一意に決め、原入力の全有限orbitについて既知値の整合と欠損の観測witnessを確認する。同じHDSへ元補完rendererだけを接続し、入力軸の新しい選び直しや相対寸法への正規化はしない",
+  "previous": {
+    "correct_tasks": 51,
+    "correct_examples": 71,
+    "unanswered": 96,
+    "wrong_attempted_tasks": 5,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 52,
+    "correct_examples": 72,
+    "unanswered": 95,
+    "wrong_attempted_tasks": 5,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答71例": "全て同一"
+  },
+  "原因観測": {
+    "教師限定preflight": "残69課題214教師対の全候補を確認し、1課題4教師だけ共有一意fit。各教師のaxis候補数は1/1/6/5、交差は反射和31/31。93/114/84/82個の0を補完し、807/786/816/818既知cellを保存。各教師256有限orbitに既知値競合・無観測orbitなし",
+    "追加証明が必要な境界": "旧rendererは0のsourceだけを照合し、欠損を含まない既知-only orbitの不一致は見ない。実教師のその一方を変更しても元は93補完で成功する対照を確認した。教師の元出力が誤っていたという主張ではなく、全観測が同じ対称契約を満たすことの追加証明である",
+    "入力のみ適用確認": "独立実体監査後の30×30入力に、学習済み反射和31/31を固定適用。全256orbit・870既知cell保存・30個の0補完、元grid/record一致を事前凍結。全120採点でこの1例だけが正答増加した"
+  },
+  "固定規約と証明": {
+    "maskと学習空間": "0を欠損、1..9を既知とする旧固定規約。0は最多背景から推論しない。各教師のR=0..2h-2、C=0..2w-2の全整数反射和を列挙し、全0補完と非0保存を再現する候補集合を交差する。共通候補がちょうど1件でなければ追加proofより前にHOLD。proofに失敗する候補を落として他の軸を採らない",
+    "絶対座標の限定": "学習parameterは共有する絶対座標和R/Cで、反射はrow→R-row、column→C-column。軸和31/31や入力30×30に固定せず別寸法・別軸も同じ手続きで扱うが、queryの寸法や物体から軸を再推定する規則ではない。相対中心/平行移動/拡大への一般化を学習したとは呼ばない。追加guardは現在canvas内に両軸中心があることを要求し、外なら全体HOLD",
+    "有限orbitと原witness": "各位置の恒等/行反射/列反射/両反射のうち現在canvasに属する座標を有限orbitとする。外の仮想位置は値を持たず描画しないという元規約を維持する。全orbitを一度ずつ被覆し、全ての原入力非0値が同じで、少なくとも一つの原観測があることを要求する。欠損なしのorbitも照合し、一つでも競合/無観測なら全体HOLD。新しく描いた値を次のsourceへ伝播させない",
+    "保存と元出力限定": "全0を同時にそのorbitの観測色へ置換し、原非0は全て同位置同色で保存する。色別個数は複写で増えるため一般のpixel数保存は主張しない。ARC各辺1..30とint色0..9を要求し、元renderer成功・全格子/全record一致の場合だけその元格子を返す。no0/no-op、未解決、元grid/record改変、別軸への救済を許さない"
+  },
+  "HDS": {
+    "学習": "最低2教師・strict ARC型・入力重複拒否は追加wrapper条件で、旧fitterの条件とは区別する。全raw軸集合の交差一意と全教師の元再現をproofより先に確定。その後、再現した各教師最終格子を一度ずつ同じHDSの公開cycleへ渡す。教材が保持するのは軸tuple2整数のみで、教師output object・完成柄・test outputを予測へ渡さない",
+    "支持": "現在4盤面・prior0・min3・隔離0。軸数、256orbit、教師373欠損cellや既知比較数を支持へ加算しない。既存のちょうど2 distinct入力のmin2方針、全120で34/86の支持設定、中核既定3は不変",
+    "排気": "公開学習cycle・全教師再現・同値・反例隔離・既存排気gate・全採用機構合意を維持。採用済みfamilyの未解決・競合は全体HOLD"
+  },
+  "原指標保持": "wrong_attempted_tasks=5は先行と同じ正答部分回答5課題で不変。誤った出力格子は新旧とも0。採点器と原指標名は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "5554a5b6d4ce650d3821ca8a0caeb23cb14743ccefc6412a50fb2d48535ddefd",
+    "接続/ARC2/既存二軸補完.py": "f7e87a8b1502e48614de5133eb13f250bf9457293f748d4f8cf5f81803a524a8",
+    "接続/ARC2/二軸補完教材.py": "e5c356e9d2f7756f9e9e1f2255c1c3a3100805214461d6c809913cb38bc41714",
+    "検証/二軸補完回帰.py": "36af579a6f9777ca04966bc6dd7d3f96d088af7818fbacd96ab0b903d1adc6f6",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存774件＋新21件の全795回帰成功。新21件は最適化モードでも成功",
+    "別寸法/非正方形/1行1列、整数と半整数軸、任意非0配色、canvas端の部分orbit、既知-only不一致、欠損source競合、全orbit欠損/固定点欠損、軸中心範囲外を検証",
+    "全既知cell保存と入力不変、元失敗/grid/record改変拒否、no0、不正grid/axes、共有曖昧軸のproof前拒否、raw再現先決、min2/distinct、native4盤面/min5未達、tupleのみ保持、未解決全体HOLDとID/test target拒否を確認",
+    "独立教師監査は全69/214の全model/recordと、row/col反射辺graphの小サイズ2401軸ケース（2232復元/169 no-op HOLD）、118無witness＋118既知競合HOLDを確認",
+    "独立runtime監査は359入力の固定教師軸raw/guard・全120fit/wrapper・残69全record・query/native全文、旧6/証明3 AST、239snapshotのadapter以外、中核12/保護7/scorer/runner不変を確認。保存全120/167の旧scorer全文と直接採点も再現"
+  ],
+  "情報分離の留保": "2026-10-02 21:23 UTC頃、外部監査記録を広くrg検索した際に単一行challenges JSONが偶発的に一致し、大量省略された出力に一部challenge入力が表示された。対象queryの意図的抽出やsolutions参照はその時点では行っていないが、query未参照と一括主張しない。経緯を親/独立監査へ共有し、以後はsource明示とteacher-only抽出資料へ限定。本候補も条件凍結・独立監査後に承認済みinput-only確認、最後に全120採点を行った",
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "固定0と教師共有絶対軸の限定機構。任意の対称群/相対中心の発見や入力ごとの軸学習ではない",
+    "残68課題未完・95例未回答"
+  ]
+}
