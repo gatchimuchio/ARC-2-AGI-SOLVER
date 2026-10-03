@@ -1,0 +1,80 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "67961a9fdcbc856b1bcf9dc197a4845283fff268",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365。fit generator blob6396b54f415c399df1c52f51b1f563bca9b8b0f7から疎点graph・full/incident転写・教師policy推定の14関数を原文で抽出。grid_shape/dominant_backgroundは現行共有2関数を利用。learning_targetは元の教師policy推定内だけで使い、最終教師再描画・queryには渡さない。保持する表はoffset/source-kindからfull/incidentへのラベルだけで、出力格子やmaskを記憶しない",
+  "介入": "既存の色別疎点graph完成と隣接singletonへの平行転写に、全教師適合規則表の列挙・全表合意・同時描画の新しい受理証明を追加して同じHDSへ接続。元learner/rendererの出力だけを返し、別の予測器で置換しない",
+  "previous": {
+    "correct_tasks": 39,
+    "correct_examples": 55,
+    "unanswered": 112,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 40,
+    "correct_examples": 56,
+    "unanswered": 111,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答55例": "全て同一"
+  },
+  "原因観測": {
+    "教師限定preflight": "残81課題253教師対を検査。元policy推定は4課題、最終raw全教師再現は1課題3教師。5つの観測exact keyに対するfull/incident全32表を列挙すると4表が適合する。2つのedge_graph keyは両型を区別できず、教師上で同じ格子でも表を捨てない。3表ではedge_graph defaultが存在しない。全6singletonはbounds/type前の物理anchorが一つで、両型が範囲内",
+    "入力のみ適用確認": "凍結実体の独立監査後の21×21入力。前景16点、4基底色（closed_cycle1、edge_graph2、disconnected1）、singleton2。未知offsetの一つはfull/incident maskが入力だけで同じなので型の同定なしに出力合意が成立する。4表が全て同じ完成格子へ72cell追加し、元前景を保持。正解照合は後続の全120採点で実施"
+  },
+  "固定規約と証明": {
+    "基底": "元は非背景の全点を色でまとめる。重心角度順のcardinal/45度閉路が成立すれば優先し、そうでなければ全cardinal/45度辺のgraphが連結ならその和、非連結なら元点を保存する。連結成分ごとの抽出や全隠れ形状の一意性ではない。前景25点以下は旧全入力適用域。追加証明は一意背景、選択閉路の重心点/同角度ray拒否、異色基底交差拒否を要求し、別表現へ再選択しない",
+    "転写": "各singletonのChebyshev距離1以内にある全source色の元点を、bounds/type判定前に列挙して物理anchor一つを要求する。full基底maskとanchor incident辺maskの両方を平行移動し、型を選ぶ前に一つでも盤外なら全体HOLD。元規約どおり完成基底の全cellを転写maskから差し引き、singletonを戻す",
+    "全教師適合表": "元の逐次policy推定と最終raw全教師再現を先決し、教師順も維持。観測exact keyの二値全域を列挙し、各表のsource-kind defaultを元関数で別々に導出する。全教師に合う表を全保持し、同じ教師格子を生む表を統合しない。別offsetのfull証拠からkind全体をfullと学び直さない。新しい受理資源上限4096表を越せば列挙前HOLDで、部分列挙から採用しない",
+    "全表解決": "exact keyを優先し、未観測keyでは両maskが同一なら出力合意として扱う。それ以外はその表自身から導出されたdefaultが必要で、欠落を元self fallbackで解決済み扱いしない。一表でも未解決・失敗・異格子なら全体HOLD。表を落として残りだけ採用しない",
+    "同時描画": "全基底と選択copyを同時提案し、異色交差や元前景の上書きを拒否。同色はunion。各表の同時格子と診断記録がその表の元rendererへ一致し、全表の格子が元learnerの完成格子とも一致する場合だけ元格子を返す。無変化は元どおり候補なし"
+  },
+  "HDS": {
+    "学習": "旧graph/閉路優先・full/incident表・新受理証明を、同じHDSが候補格子→出力格子の同値を採用する段階と区別する。元policy推定の最低2教師条件と追加の入力重複拒否を別に扱い、完全再現した各教師盤面を一度だけ渡す",
+    "支持": "現在3盤面・prior0・min3・隔離0。保持4表、32割当、点/辺/型の識別証拠を支持へ加算しない。既存の二入力ちょうどでmin2という方針と34課題min2/86課題min3、中核既定3は不変",
+    "排気": "公開学習cycle・全教師再現・同値・反例隔離・既存排気gate・全採用機構合意を維持。採用済みfamilyの未解決・競合は全体HOLD"
+  },
+  "原指標保持": "wrong_attempted_tasks=4は先行と同じ正答部分回答4課題。誤った出力格子は新旧とも0で、原指標を読み替えない",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "4e5f514492760384d527da852d8f094865ec6505e7a7502fa5b193d944e2cda6",
+    "接続/ARC2/既存疎点転写.py": "b9e676f2605cf2e05e92f4bae21f4f39afac40f1e8c41e0d175710cdcb69a248",
+    "接続/ARC2/疎点転写教材.py": "e540b85b1cb38265d832539e7083886ffcd28ae1e00c722af1109cde5733663d",
+    "検証/疎点転写回帰.py": "bc178393513a58f66a98d8d3e57d1439ff5ef06a28509c2cf9fa6d9262269ccb",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存526件＋新19件成功。新19件は最適化モードでも成功",
+    "全表保持、同じ教師maskでも新入力で異なる格子となる対照、未知offsetでdefault欠落、未知offsetでも全mask同一の出力合意、同じkindの別offset証拠で表を消さないことを確認",
+    "物理anchor複数/不在、選択前の一型OOB、異色基底/copy交差、重心点/同角度ray、非連結元点保存、元出力改変拒否、全列挙予算、無変化/入力重複/不正格子・配色置換を確認",
+    "native支持3と表4を分離、採用済みfamilyの未解決/異格子HOLD、ID/target拒否を確認",
+    "独立教師監査で81/253全文と逆順32表列挙の4表一致。runtime監査で359教師×4表のraw/certificate/合意、全120fitと残81記録、query/native全文が一致。旧14/共有2/証明5 AST、中核12・保護7・先行機構・scorer/runner不変"
+  ],
+  "情報分離の留保": "2026-10-02 21:23 UTC頃、外部監査記録を広くrg検索した際に単一行challenges JSONが偶発的に一致し、大量省略された出力に一部challenge入力が表示された。対象queryの意図的抽出やsolutions参照はその時点では行っていないが、query未参照と一括主張しない。経緯を親/独立監査へ共有し、以後はsource明示とteacher-only抽出資料へ限定。本候補も条件凍結・独立監査後に承認済みinput-only確認、最後に全120採点を行った",
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残80課題未完・111例未回答。閉路優先/全辺graph/元点の固定表現と隣接anchorの限定prior。保持する規則空間は観測exact keyの二値表であり、全ての幾何変換や未観測keyの任意規則を網羅したとはしない"
+  ]
+}
