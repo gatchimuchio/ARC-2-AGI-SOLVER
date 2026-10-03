@@ -1,0 +1,78 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "533547b6ce373764b6ddecea2c0117cbe886e5c6",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365。fit generator blob6396b54f415c399df1c52f51b1f563bca9b8b0f7のrow_stripe_colorsとrender_stripe_sequence_nested_square_framesを原文で抽出し、grid_shapeは現行共有関数を使う。旧fitterはこのrendererの教師完全一致を検査する。旧2関数を予測に使い、新しい証明は元格子/記録と全row・全cellの対応を検査する",
+  "介入": "各行が単色のstripe列を外側から正方形ringへ写す既存符号priorを、固定終端規約の全格子証明とともに同じHDSへ最小接続する",
+  "previous": {
+    "correct_tasks": 40,
+    "correct_examples": 56,
+    "unanswered": 111,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 41,
+    "correct_examples": 57,
+    "unanswered": 110,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答56例": "全て同一"
+  },
+  "原因観測": {
+    "教師限定preflight": "残80課題250教師対を全件検査し、1課題2教師のみ完全一致。14×14→26×26と13×12→24×24。全rowが単色で終端2行は同色。全出力cellの境界距離indexと入力row列の再構成を確認",
+    "入力のみ適用確認": "凍結実体の独立監査後、14×11入力から26×26を生成。距離で定義する13単位ringが676cellを重複なく覆い、2×2中心を含め元renderer格子/記録と一致。出力対角から末尾色を一度付加して14行の色列を再構成。正解照合は後続全120採点で実施"
+  },
+  "固定規約と証明": {
+    "入力契約": "高さ3以上・幅2以上、全行がそれぞれ単色、最後2行の色が同じという旧符号形式。色の最多・背景推定・大小順は使わない。幅は行の一様性と旧最小幅契約だけに関わり、出力寸法には使わない",
+    "終端と寸法": "終端の同色run全体ではなく最後の1行だけを省く。残るh−1個のrow色を上から外→内へ割り当て、出力の一辺は固定2(h−1)、中心は2×2。内部や終端で同色が続いても別の単位ringとして残す。ring数は境界距離の層数であり、可視の同色band数ではない。自然な一意解や教師から学んだ寸法規則とはしない",
+    "全格子証明": "有効ARC入力と元renderer成功を先決し、全rowを解釈する。各距離層の四辺を独立に集めて全出力cellを重複なく覆い、元の全格子・診断記録と一致することを要求。対角の各層色から終端色を一度足して入力row色列を再構成する。出力辺30超過・非一様row・終端不一致は全体HOLDで、別向き・別サイズ・別終端へ切替えない",
+    "保存の範囲": "row色列は終端の重複契約により再構成でき、全入力色が出力に現れる。入力画素数や色別画素数の保存は主張しない。返すのは元rendererの完成格子だけ"
+  },
+  "HDS": {
+    "学習": "旧stripe/ring符号規約と新しい全cell証明を、同じHDSの候補格子→出力格子同値採用と区別する。旧fitter自体に最低2教師・入力重複拒否の明示条件はなく、wrapperが最低2 distinct入力を追加する。今回の2教師最終格子だけを一度ずつ公開学習へ渡す",
+    "支持": "現在2盤面・prior0・min2・隔離0。row/ring/cell数を支持へ加算しない。異なる二入力ちょうどでmin2、それ以外min3という既存方針と全120の34/86分布、中核既定3は不変",
+    "排気": "公開学習cycle・全教師再現・同値・反例隔離・既存排気gate・全採用機構合意を維持。採用済みfamilyの未解決・競合は全体HOLD"
+  },
+  "原指標保持": "wrong_attempted_tasks=4は先行と同じ正答部分回答4課題で不変。誤った出力格子は新旧とも0。旧採点器と原指標名を変更しない",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "a102966a5eb851be8f7ecf39de605415e38c2e66fa73983b86f7410261eac9b5",
+    "接続/ARC2/既存帯輪郭.py": "9e84b1ed190fced0ddefc24ebd6ed293056343eceb307d50ae04e89887caa502",
+    "接続/ARC2/帯輪郭教材.py": "d00d510e208f10c70ac5e3649a14061f539f9c52788cdcd98c0f1f4695274ef6",
+    "検証/帯輪郭回帰.py": "3dc367da4c0fda22de4d424ef198434d68afa101a9a6c220945154772cc9eb44",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存545件＋新15件成功。新15件は最適化モードでも成功",
+    "内部同色行と長い終端runの保持、最後1行のみ省略、幅変更、色頻度同率、配色置換、最小入力域、出力30通過/32拒否、非一様row、終端不一致、無効格子、元grid/record改変拒否を確認",
+    "最低2 distinct教師wrapper、完全教師再現、native2/min2とmin3未達の区別、query未解決HOLD、ID/target拒否を確認",
+    "独立教師監査で80/250全記録、3色・高さ3〜7の全1089符号列、30/32/58出力辺の対照を確認。runtime監査で359教師raw/guard・全120fit・残80記録・query/native全文一致。旧2/共有1/証明3 AST、中核12・保護7・先行機構・scorer/runner不変"
+  ],
+  "情報分離の留保": "2026-10-02 21:23 UTC頃、外部監査記録を広くrg検索した際に単一行challenges JSONが偶発的に一致し、大量省略された出力に一部challenge入力が表示された。対象queryの意図的抽出やsolutions参照はその時点では行っていないが、query未参照と一括主張しない。経緯を親/独立監査へ共有し、以後はsource明示とteacher-only抽出資料へ限定。本候補も条件凍結・独立監査後に承認済みinput-only確認、最後に全120採点を行った",
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残79課題未完・110例未回答。固定横stripe/終端重複/偶数中心の符号形式に限り、任意方向・奇数中心・別端点規約を探索したとはしない"
+  ]
+}
