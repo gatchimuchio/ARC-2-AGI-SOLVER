@@ -1,0 +1,86 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "88215f891b4e330ee7e6b5890a1efdfe5df25978",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産と新実装": "事前記憶v0.4の対象→関係→作用・候補複数保持と定石語彙を確認。既存のHDS候補観測/全family gateへ接続するが、記号syntax・全共有命令表学習・実行・合意の7関数と3定数は新実装であり、旧prediction sourceの移植ではない。固定4maskや色別命令表をコードへ置かず、現在課題の教師から抽象表を毎回作る",
+  "不足と優先根拠": "未回答群のうち、記号格子の順序と学習済み局所命令を軌跡へ合成する表現不足を選んだ。残66課題203教師を入力syntaxから確認し、65課題は契約外で探索前停止、1課題3教師だけが共有表探索へ進んだ。棄却済みframe-referenceやsingleton/terminalのselector救済ではない。全資産の候補枯渇や複数課題への実測寄与は主張しない",
+  "previous": {
+    "correct_tasks": 54,
+    "correct_examples": 75,
+    "unanswered": 92,
+    "wrong_attempted_tasks": 5,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 55,
+    "correct_examples": 76,
+    "unanswered": 91,
+    "wrong_attempted_tasks": 5,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答75例": "全て同一"
+  },
+  "原因観測": {
+    "教師限定": "program4×2/2×2/3×2、canvas15×7/7×7/11×7の3教師。全18命令と全231出力cellを説明し、命令描画45＋開始点3＋背景183。宣言した全8読取順・共有表の探索を1412work unitsで完走し、列優先の1modelを保持した。これは制限文法内の結果で、任意の意味論に対する自然な唯一性ではない",
+    "入力のみ確認": "独立教師実体監査後、19×15入力のprogram5×2・全10命令を保持model1件で実行し、19×7出力を事前凍結。描画27cell＋開始1＋背景105＝133cell、未知mask/OOBなし。既知表を再推定せず全合意した格子が、その後の単一full120採点で正答だった"
+  },
+  "固定文法と学習空間": {
+    "入力の全役割": "strict ARC型/各辺1..30、一意最多背景を要求。全色の非背景・全高単色内部columnを列挙し、raw separatorを内容より先に1本へ確定する。左は(4R-1)×(4C-1)のprogramで3×3 glyphと1cell背景gapから成り、各glyphは非空かつ前景単色。全glyph/gap/separator/right canvasの所有を確認し、空欄や不適合欄を削って使わない。右canvasは同じ背景とtop rowの開始1cellだけで、開始色はglyph/sep色と兼用できる",
+    "記号の同一性": "各glyphの背景穴も含む向き付き3×3 binary maskを記号keyとし、現在のglyph色を描画色として使う。glyphの回転/位置正規化や色順選択はしない。実3教師ではmaskと色が相関しているので、shape-keyをcolour-keyより唯一に学習したとは言わない。3×3/1gap・左program右canvas・top開始・mask-keyはいずれも新しい固定表現prior",
+    "全共有model": "row-major/column-major×行正逆×列正逆の8順序を先に定義し、各教師で同じ読取順を使う。現在教師に現れる全maskについて方向L/R/Dと長さ1..30の共有命令表を全探索する。各入力ごとに長さ/方向を出力から選び直さず、全教師を完全再現する全modelを保持する。1行等で同じ順序になる別modelや、長さ1で同じ作用になるL/R/Dも統合せず残す",
+    "一命令の作用": "cursorの次行・同columnから命令を開始し、指定方向へn cellを現在glyph色で描き、最後のcellを新cursorとする。開始cellもnに含む。L/R/Dと次行advanceは単調な行進行を定義するpriorで、glyph形の意味を幾何から自動発見したという主張ではない。命令間の使用rowは順に進むため、非重複はこの文法の性質である。全命令の範囲/所有と開始点保存を検査し、clip/上書き/未知命令のfallbackを許さない",
+    "完走と資源": "各課題の全教師・全読取順の探索に単一100000work-unit予算を使う。各visit prefix/各命令候補に1、完成model保存に1+rule数を課す。確定cell不一致、OOB/所有違反、完成行不一致、残命令の最小必要行数を満たせないprefixだけを安全に枝刈りする。後続命令は過去の行を修理できない。予算切れは一解発見後でも未完として全体HOLDにし、部分model値を返さない。教師順序を変えて予算失敗を救済しない",
+    "予測の全候補合意": "queryでは保存された全modelをそのまま使い、全glyphを一度ずつ解釈する。保持modelの一つでも未知mask/不正/範囲外/所有失敗なら全体HOLD、全て成功しても完成gridが異なれば全体HOLD。失敗modelを除いて残りを採用したり、順序/命令表をqueryへ合わせて選び直さない",
+    "保存範囲": "出力は右canvas全体で、全cellを元の開始点・一つの命令cell・未使用背景へ対応させる。開始点の色/座標と命令外背景を保存し、glyph色の兼用も実色数で計数する。左のglyph pixel数やseparatorを出力へ保存する規則ではなく、全入力前景数や成分数の保存は主張しない"
+  },
+  "HDS": {
+    "学習と保持": "新wrapperは最低2 distinct教師、strict ARC型を要求。各教師の最終合意格子を一度だけ同じHDSへ観測する。fit後に保持するのはimmutable tupleの読取順序enumとmask→(direction,length)だけ。教師input/output object、完成path、task ID、全gridのhash lookup、共有された既知解表をqueryへ渡さない。現在教師objectの変更後も予測は不変",
+    "支持": "現在3盤面・prior0・min3・同値採用・隔離0。18教師命令・4rule・1model・1412探索単位・45描画cellや10query命令は支持へ加算しない。既存の2 distinct教師min2方針、全120支持設定34/86、中核既定3は不変",
+    "排気": "公開学習cycle・全教師再現・同値・反例隔離・既存排気gate・全採用機構合意を維持。採用済みfamilyの未解決・競合は全体HOLD"
+  },
+  "原指標保持": "wrong_attempted_tasks=5は先行と同じ正答部分回答5課題で不変。新旧とも誤った出力格子は0。未回答92→91。原採点器と指標名は変更していない",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "6a9c63108b839bc0d80a166e40d78d85f499e6d9bbf4a92b65b93eef4b7f3dba",
+    "接続/ARC2/記号命令教材.py": "71c822a941f1b066e09cbde4267dd8076f280487724b0588fbaa0458bfcfe968",
+    "検証/記号命令回帰.py": "17861c5115c69cfc5efedfb59e1711c25788cb299c6423441ccd5d2a457a08cb",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存841件＋新24件の全865回帰成功。新24件は最適化モードでも成功。常設fixtureは別の生成glyphと命令表のみで、実4maskや評価queryを埋め込まない",
+    "全8順序、mask/色/0/開始色alias、同じglyphの色変更、同色の別glyph、隣接同色命令、非正方形/細いcanvas、未使用tail、入力幅30/長さ26通過・長さ30のOOBを確認",
+    "第2raw separatorが後段不適合でも全体HOLD、非空gap/空欄/混色glyph/不正lattice、top以外や複数開始点、背景tie、未知mask/不正command、全input/output所有と全命令非重複を確認",
+    "1glyphの720表と2glyphの64800表をDFSとは別の全直積で確認。同格子の長さ1全24modelを保持し、教師同値A/B表がA/Aで異gridになる対照と、一modelだけOOBでも全体HOLDを確認",
+    "完走予算ちょうど/1不足、一解発見後の打切り、teacher順序変更時の集合一致、min2/distinct、abstract tableの教師object独立、native3盤面/min4未達、全family合意/未解決HOLD、ID/test output拒否を確認",
+    "独立教師実体監査は全66/203全文と21通常/-Oに加え、全260640表の別oracleでA/B8model・後続教師の新glyph36・複数行/色変化3・長さ1別ラベル24・不正出力/共有規則矛盾0がDFSと一致。実3教師の全6順序でも完走集合は同じでwork1412/1402/1985。自然な唯一性や順序変更救済とは扱わない",
+    "独立runtime監査は新7関数/3定数AST、359parse/各model/consensus、全120fit/wrapper・残66全文・query/native、旧250snapshotのadapter以外/core12/protected7/scorer不変を確認",
+    "独立再採点は公式120/167投影と全行直接比較、前後の旧scorer original_audit全文を再現。54→55課題/75→76例、旧75同一、誤格子/資源0、同じ5partialを確認"
+  ],
+  "情報分離の留保": "2026-10-02 21:23 UTC頃、外部監査記録を広くrg検索した際に単一行challenges JSONが偶発的に一致し、大量省略された出力に一部challenge入力が表示された。対象queryの意図的抽出やsolutions参照はその時点では行っていないが、query未参照と一括主張しない。経緯を親/独立監査へ共有し、以後はsource明示とteacher-only抽出資料へ限定。本候補も条件凍結・独立監査後に承認済みinput-only確認、最後に全120採点を行った",
+  "制限": [
+    "公開評価での差分。旧資産と現在の教師観測から独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "3×3記号・1gap・単調行進行などを固定した新しい有界interpreter。任意の言語/計算規則を自動発見したとは言わない",
+    "maskと色の相関は3教師では分離されていない。shape-keyは明示priorである",
+    "残65課題未完・91例未回答"
+  ]
+}
