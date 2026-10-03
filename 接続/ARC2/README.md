@@ -61,11 +61,12 @@ python 検証/接触配置回帰.py
 python 検証/凡例展開回帰.py
 python 検証/枠列整列回帰.py
 python 検証/凡例旋回回帰.py
+python 検証/帯図形回帰.py
 ```
 
 全120課題・167test例、各課題10CPU秒・512MiB・60秒wall、3並列で旧ARC採点関数を再利用する。baselineモードは初期のHDS格子値診断であり、前commitそのものではない。test正解と課題IDは親採点側に限定する。
 
-前commit `93f6319` の46/120課題・64/167例から、凡例旋回経路で47/120課題・65/167例へ改善。旧採点器のwrong_attempted_tasksは既存部分回答5課題で不変、誤った出力格子は0。先行64例は全て同一。比較は `検証/凡例旋回比較.json`、先行成果は既存比較記録に保持する。
+前commit `47f2f4a` の47/120課題・65/167例から、帯図形投射で48/120課題・66/167例へ改善。旧採点器のwrong_attempted_tasksは既存部分回答5課題で不変、誤った出力格子は0。先行65例は全て同一。比較は `検証/帯図形比較.json`、先行成果は既存比較記録に保持する。
 
 物体端投射は既存8近傍物体抽出と九特徴を使い、教師だけから整合する特徴→上端/下端方向を選ぶ。各物理物体を一度ずつ現行HDSへ観測し、既存bbox順を保つ。未知特徴・識別不能・競合・配置重複は全格子HOLD。予測結果経路の制限は差分0で棄却し、HDS中核は元のまま。
 
@@ -272,3 +273,13 @@ bodyの背景以外の全4近傍同色成分を、key色のsolid rectangleか非
 全軌道の背景へのseed色提案は同色unionとして数え、元body前景・seed・障害物と提案外を保存する。辞書はcropで消費され、全入力画素数保存ではない。元renderer成功とgrid/record一致の元格子だけ返す。最低2教師は旧fitter条件、distinct入力は追加wrapper条件。native支持は3現在盤面・prior0・min3で、entry/state/turn/画素を加算しない。
 
 既存HDSの全機構合意と情報分離留保を保持し、同条件全120で47課題65例・先行64例同一・誤格子/資源0・rawpartial5不変を確認した。
+
+## 帯図形投射
+
+`既存帯図形投射.py` は旧fit_generatorの2関数と既存共有4関数を使う。左右edgeが同色で内域が一様な別色のrowを連続bandとし、fill色とedge色を対応づける。同じfill色の上方4近傍componentを、各bbox下端がband下端へ揃うように列とmaskを保って投射し、edge色へ変える。幅5/帯高3以上と下端整列は旧固定priorで、singleton sourceも使える。
+
+`帯図形教材.py` は新証明4関数。背景一意、heightfilter前の全raw runとfill一意を先決し、短bandは全体HOLD。band外の全前景が対応bandより上の完全componentへ帰属することを要求し、未知色・下方・band跨ぎ・tall sourceを黙って消さない。投射先は左右edge列を除くband内域に限定し、clipや横移動で修理しない。未使用bandは保持し、fill/他band edgeの色兼用も許す。
+
+全sourceを消し、全proposalの同色unionを描く。同色重複は許すので、元projected_cell_countの延べ数と投射先unionを分け、一般の画素数/成分数保存とは呼ばない。左右edge列とsource/投射先以外は保存する。元band inventory・元renderer成功・grid/record完全一致の元格子だけ返す。既存の同色描画に新しい優先順位を加えるものではない。
+
+旧fitterの条件は非空教師で、最低2教師とdistinct入力は追加wrapper条件。native支持は3現在盤面・prior0・min3、band/成分/画素を加算しない。既存HDSの全機構合意と情報分離留保を保持し、同条件全120で48課題66例・先行65例同一・誤格子/資源0・rawpartial5不変を確認した。

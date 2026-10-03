@@ -1,0 +1,80 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "47f2f4ac1938f13864887468c36e65bc50344b18",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365。fit_generator blob 6396b54f415c399df1c52f51b1f563bca9b8b0f7 の horizontal_band_glyph_bands/render_horizontal_band_glyph_projector の2関数を原文で抽出し、既存grid_shape/bbox_to_list/dominant_background/color_componentsと下位依存を利用。元rendererの全教師再現を先決するwrapperと全raw帯/全source所有の証明4関数を追加。元予測規則と新受理証明を区別する",
+  "介入": "横帯の一様fill色と左右edge色を対応づけ、同色の上方glyphを列とmaskを保って帯の下端へ投射する旧priorを、全raw帯と全外側前景の所有証明付きで同じHDSへ接続する",
+  "previous": {
+    "correct_tasks": 47,
+    "correct_examples": 65,
+    "unanswered": 102,
+    "wrong_attempted_tasks": 5,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 48,
+    "correct_examples": 66,
+    "unanswered": 101,
+    "wrong_attempted_tasks": 5,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答65例": "全て同一"
+  },
+  "原因観測": {
+    "教師限定preflight": "残73課題230教師対で元rendererを確認し、1課題3教師だけ完全fit。背景1/8/4、band3/2/2、全band外前景31/51/30cellが5/5/3完全source成分へ帰属。投射union31/51/30で教師の重複は0、全grid差62/102/60。singleton sourceとfill/他band edgeの色兼用がある",
+    "入力のみ適用確認": "凍結実体の独立監査後、30×24・背景8、全3band/5sourceの42cellを列保持・下端整列で投射。proposal sum42/union42、source消去と合わせ84cell変更、左右edge列と対象外636cellを保持。事前grid/recordを凍結した後に全120採点で正解照合"
+  },
+  "固定規約と証明": {
+    "全raw帯の先決": "一意最多背景を先決し、同じ非背景色の左右edgeと、一様で別の非背景fillを持つ全rowを列挙する。同じfill/edgeの連続runを高さfilter前に全て保持する。幅5以上/帯高3以上は旧の固定認識域で、自然幾何や計算量から導いた閾値ではない。短runが一件でもあれば入力全体HOLD、全runのfill重複も描画前にHOLD。元が短い帯を落として残りを使う処理を、追加証明では許さない",
+    "全外側前景の所有": "band内外をrow座標で区別し、band外の全前景が、唯一の同色fill bandより厳密に上の完全4近傍同色componentへ帰属することを要求する。band内外を跨ぐcomponent、未対応色、下方source、bandより高いsourceは全体HOLD。未解釈画素を元の初期化で暗黙に消さず、候補を捨てて別bandへ選び直さない。bandにsourceがない場合は元どおりそのbandを保持する",
+    "投射の固定規約": "sourceの各component自身のbbox下端を、対応bandの下端へ合わせる固定prior。列と全mask画素を保持して垂直に平行移動し、描画色をbandのedge色へ変える。sourceのサイズ最小値はなくsingletonも使う。fill色が別bandのedge色でもよい。追加範囲として全投射先をband内域（左右edge列を除く）へ限定し、clippingや横slideで救済しない",
+    "同色unionと保存限定": "全sourceの全proposalを同時に検査し、同色重複は元どおりunionとして許す。異色提案競合は全体HOLD。全sourceを背景へ消してからunionを描き、左右edge列とsource/投射先以外の全cellを保持する。これは再着色投射であり、一般の画素数/foreground数/成分数の保存や一対一移動ではない。元projected_cell_countは重複を含むsource画素の延べ数で、投射先union数と分ける",
+    "元出力限定": "元band inventoryとの完全一致、元renderer成功とgrid/全record一致が必要で、返すのは変更しない元格子だけ。別band・方向・描画順による代替出力は作らない。同一bandの重複はもともと同edge色、異なるbandは行域が分離されるので、追加証明を新しい描画順バグ修理とは呼ばない"
+  },
+  "HDS": {
+    "学習": "旧fitterは非空教師を要求する。最低2教師と入力重複拒否はどちらも追加wrapper条件。元rendererの全教師再現を先決し、全教師の証明通過後に各最終格子を一度ずつ同じHDSの公開cycleへ渡す。fill→edgeは現在入力のbandから読む対応で、教師共通の固定paletteではない。固定下端整列priorをHDSの新発見とは呼ばない",
+    "支持": "現在3盤面・prior0・min3・隔離0。band/component/重複proposal/画素は支持に加算しない。二つの異なる入力ちょうどならmin2とする既存方針と全120の34/86分布、中核既定3は不変",
+    "排気": "公開学習cycle・全教師再現・同値・反例隔離・既存排気gate・全採用機構合意を維持。採用済みfamilyの未解決・競合は全体HOLD"
+  },
+  "原指標保持": "wrong_attempted_tasks=5は先行と同じ正答部分回答5課題で不変。誤った出力格子は新旧とも0。採点器と原指標名は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "1f84b9162a95a1758a104616adfb55fda1bba009c770d3db9976b7329a8bf04b",
+    "接続/ARC2/既存帯図形投射.py": "413483a1c4fbfe07afa155e66810e48243bdf835386064249c06d4f213f37537",
+    "接続/ARC2/帯図形教材.py": "c03031e6c7d88a512db6b3fdb9d4a1c393c3ffa79b8662d6c82f034f865cfeda",
+    "検証/帯図形回帰.py": "88ded742b7bae8f20734ece3b2669d054ac5bc7249d4dd3fc2420a83d1be039d",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存692件＋新18件成功。新18件は最適化モードでも成功",
+    "最小width5/height3 band・singleton source、fill/他band edge兼用、全palette置換、source3cell→同色union2cellを確認",
+    "短いraw band、未知色、下方source、straddler、edge投射、全raw fill重複、背景同率、tall sourceの非clip、元band/grid/record改変を全体拒否",
+    "元全教師再現先決、追加min2/重複入力拒否、native3盤面支持/min4未達、採用済みfamily未確定時の全体HOLD、ID/test target拒否を確認",
+    "独立教師監査で全73/230、別BFS/座標式による250入力（同色overlap237・未使用band2）一致。runtime監査で359教師raw/guard・全120fit/wrapper・残73全record・query/native全文一致。旧2/共有4/証明4 AST、中核12・保護7・先行224snapshotのadapter以外・scorer/runner不変"
+  ],
+  "情報分離の留保": "2026-10-02 21:23 UTC頃、外部監査記録を広くrg検索した際に単一行challenges JSONが偶発的に一致し、大量省略された出力に一部challenge入力が表示された。対象queryの意図的抽出やsolutions参照はその時点では行っていないが、query未参照と一括主張しない。経緯を親/独立監査へ共有し、以後はsource明示とteacher-only抽出資料へ限定。本候補も条件凍結・独立監査後に承認済みinput-only確認、最後に全120採点を行った",
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残72課題未完・101例未回答。左右edgeと一様fillを持つ横帯、上方の同色完全component、固定下端整列/再着色という限定prior。任意方向の移動やband認識を同定したものではない"
+  ]
+}
