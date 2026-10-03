@@ -59,11 +59,12 @@ python 検証/配置展開回帰.py
 python 検証/基点複製回帰.py
 python 検証/接触配置回帰.py
 python 検証/凡例展開回帰.py
+python 検証/枠列整列回帰.py
 ```
 
 全120課題・167test例、各課題10CPU秒・512MiB・60秒wall、3並列で旧ARC採点関数を再利用する。baselineモードは初期のHDS格子値診断であり、前commitそのものではない。test正解と課題IDは親採点側に限定する。
 
-前commit `3ef6701` の45/120課題・62/167例から、凡例token積展開で45/120課題・63/167例へ改善。完全課題数の増分は0、正答例が1増加した。旧採点器のwrong_attempted_tasksは正答部分回答4→5課題、誤った出力格子は0。先行62例は全て同一。比較は `検証/凡例展開比較.json`、先行成果は既存比較記録に保持する。
+前commit `fc7cb33` の45/120課題・63/167例から、枠tile二列整列で46/120課題・64/167例へ改善。旧採点器のwrong_attempted_tasksは既存部分回答5課題で不変、誤った出力格子は0。先行63例は全て同一。比較は `検証/枠列整列比較.json`、先行成果は既存比較記録に保持する。
 
 物体端投射は既存8近傍物体抽出と九特徴を使い、教師だけから整合する特徴→上端/下端方向を選ぶ。各物理物体を一度ずつ現行HDSへ観測し、既存bbox順を保つ。未知特徴・識別不能・競合・配置重複は全格子HOLD。予測結果経路の制限は差分0で棄却し、HDS中核は元のまま。
 
@@ -248,3 +249,13 @@ slot画素、原source/移動先以外を保持し、全payloadを一度ずつ�
 各palette色の画素数はglyph画素数×token配置数。入力前景数や背景色の出力残存は保存しない。出力paletteがkey/sep色と同じでもよい。元の重複macroは描画順で9cell変わる実例を確認し、全重複HOLDで適用域を制限する。最低2教師は旧fitter条件、distinct入力は追加wrapper条件。native支持は3現在盤面・prior0・min3で、辞書/tile/画素を加算しない。
 
 固定queryの第0例は625cellの積で排出し、第1例はraw separator候補色の競合でHOLDを維持。同条件全120で完全課題45は不変、正答62→63例、先行62同一、誤格子/資源0。raw wrong_attempted_tasksは正答部分回答4→5としてそのまま記録する。既存HDSの全機構合意と情報分離留保を保持する。
+
+## 枠tile二列整列
+
+`既存枠列整列.py` は旧program_searchの6関数を原文で使う。同寸法squareの一様borderと別色の一様interiorを全windowから抽出し、重複なしで全foregroundを覆う。全教師からsize・枠色→L/R・共通marginを得て、size3..8の全raw policyが一つに決まった後に証明する。背景は入力ごとの一意最多で、教師共通の背景色を学ぶのではない。
+
+同じ枠色groupの全tile pairについて、共通pixel行がある縦区間だけに左右順の二列制約を課す。上下隣接は含めず、孤立tileはouter lane0という固定priorを保つ。全rowを固定して左右各二列へ置き、4×size+2×margin<=widthを要求する。ARC幅30以内ではsize<=7なので、元size3..8はこの四列文法の可能域を覆う。無移動tile・全体no-opも元どおり許す。
+
+`枠列整列教材.py` は全source消去後の全tile同時配置、範囲・同色を含む非重複・row/全色数/総前景の保存を独立証明し、元renderer成功とgrid/record一致の元格子だけ返す。別tileの旧source位置への移動は許す。全被覆とdestination衝突拒否は元から成立し、バグ修理とは呼ばない。元diagnosticは移動先write差のみで、全grid差とは区別する。event_countも全処理tile数である。
+
+最低2教師は旧fitter条件、distinct入力は追加wrapper条件。native支持は3現在盤面・prior0・min3でtile/edge/画素を加算しない。既存HDSの全機構合意と情報分離留保を保持し、同条件全120で46課題64例・先行63例同一・誤格子/資源0・rawpartial5不変を確認した。

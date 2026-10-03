@@ -1,0 +1,81 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "fc7cb3398eef432271fee825a4cbbbb17ecf5a11",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365。program_search blob c60fad158350b42fbc5ef0cbb2db7b26707cd6c1 の _grid_shape/_dominant_color/_framed_tile_inventory/_framed_tile_lane_assignments/_framed_tile_group_relinearization_render/_framed_tile_group_relinearization_policy の6関数を原文で抽出。旧fitterのquery検査部分は流用せず、元のsize3..8全候補・全教師再現を先決する教師wrapperと受理証明4関数を追加。元の予測規則と新証明を区別する",
+  "介入": "枠色で分かれる同形square tileを、縦区間の重複に応じて左右各二列へ再配置する旧priorを、全policy・全区間制約・全tile保存の独立証明付きで同じHDSへ接続する",
+  "previous": {
+    "correct_tasks": 45,
+    "correct_examples": 63,
+    "unanswered": 104,
+    "wrong_attempted_tasks": 5,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 46,
+    "correct_examples": 64,
+    "unanswered": 103,
+    "wrong_attempted_tasks": 5,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答63例": "全て同一"
+  },
+  "原因観測": {
+    "教師限定preflight": "残75課題236教師対でsize3..8の全raw policyを検査し、1課題3教師だけに唯一の共有policyが成立。tile5×5、枠色2→R/8→L、margin0。全tile8/8/6、前景200/200/150、全色画素数を保持。区間edge4/2/2、孤立default2/4/2、無移動tileは教師1の1件。背景は各入力で0/4/1と異なる",
+    "入力のみ適用確認": "凍結実体の独立監査後、22×22・背景9で教師共有policyを変更せず適用。8tile/200前景、4edgeと孤立default1を全処理し、元grid/recordと全色画素数が一致。元diagnosticの移動先write差183、全grid差301を別記録してから全120採点で正解照合"
+  },
+  "固定規約と証明": {
+    "全policy先決": "元のsize3..8を全列挙し、元policy推定と元rendererの全教師完全一致を通るraw候補が1件であることをguardより前に要求する。後段guard失敗で候補を落として一意化しない。size・枠色ごとのL/R・共通marginは全教師出力から得た共有parameterで、queryで選び直さない。背景は入力ごとの一意最多であり共有色parameterではない",
+    "全tile所有": "元inventoryが全square windowを列挙し、一様border色と一様な別interior色、両色とも非背景を要求する。重複windowを拒否し全前景の完全被覆を元から検査する。証明も全tileの全画素・所有・被覆を確認する。tileは連結成分と一致する必要はなく、inner色が他groupのouter色と同じでもよい",
+    "全区間制約": "同じ枠色group内で共通のpixel行を持つ全tile pairを対象に、元の左右位置順を二列の制約とする。単に上下に隣接するtileは対象外。R側はラベルを反転してlane0を常に外側にする。矛盾は全体HOLD。重複peerのない孤立tileはouter0という元の固定既定値を使う。全自然なpackingの一意解を同定したとはしない",
+    "四列の入力契約": "全tileのrowを保ち、L側はmarginとmargin+size、R側はwidth-size-marginとwidth-2size-marginへ置く。四列を予約する元条件4×size+2×margin<=widthを維持し、使わない列を省いて救済しない。square size>=3は枠の内部を持つ条件。ARC入力width<=30かつmargin>=0では受理可能size<=7なので、元size3..8列挙はこの四列文法で可能な大きいsizeを除外していない",
+    "同時格子と保存": "全sourceを消した後に全tileの全画素を同時に配置し、範囲内・同色も含むdestination非重複・source row保持・全色画素数・総前景画素数を確認する。別tileの旧source位置への合法移動は許す。source/移動先以外を保持し、元renderer成功とgrid/record完全一致の元格子だけを返す。無移動tileも全処理し、元が許す全体no-opを新たに除外しない",
+    "元性質とdiagnostic": "元inventoryは既に重複/未被覆を拒否し、元rendererは同色destination衝突も拒否する。追加証明を黙殺/描画順バグの修理とは呼ばない。元changed_cell_countはdestinationへのwriteで入力値と異なる件数だけを数え、移動先の外で背景化するsourceセルの差を含まない。教師のwrite差172/122/136と全grid差276/197/246を区別する。event_countは全処理tile数で、実際に移動したtile数ではない"
+  },
+  "HDS": {
+    "学習": "旧fitterの最低2教師を保ち、入力重複拒否は追加wrapper条件。唯一raw policyと全教師の証明を確認後、各教師の最終盤面を一度ずつ同じHDSの公開cycleへ渡す。旧の二列/孤立outer規約と教師由来parameter、新証明をHDSが新たに発見した機構とは呼ばない",
+    "支持": "現在3盤面・prior0・min3・隔離0。tile/区間edge/孤立件数/画素数を支持に加算しない。二つの異なる入力ちょうどならmin2とする既存方針と全120の34/86分布、中核既定3は不変",
+    "排気": "公開学習cycle・全教師再現・同値・反例隔離・既存排気gate・全採用機構合意を維持。採用済みfamilyの未解決・競合は全体HOLD"
+  },
+  "原指標保持": "wrong_attempted_tasks=5は先行と同じ正答部分回答5課題で不変。誤った出力格子は新旧とも0。採点器と原指標名は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "72f2d9d779e2b231c03a4d45f34fbd59f88d182834fcbfbee1d72b6e4ecdff43",
+    "接続/ARC2/既存枠列整列.py": "87ab60635412a7117034a11954db0aeff379f68710f0cf1c202df5a3223bb79d",
+    "接続/ARC2/枠列整列教材.py": "3e3aee7d38e3dda032c50b56f1e2e06f3ee883900062bc3c4fe81ef0f26bf340",
+    "検証/枠列整列回帰.py": "a2fbee5136e11d01d10478d0aa09bd7b1e843e1d2efbf69dc642ea8249082316",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存653件＋新19件成功。新19件は最適化モードでも成功",
+    "size3・margin1・左右を反転した色役割を教師から同じ規則で推定。size7/width28の全保存、size8/width30の四列範囲拒否を確認",
+    "全区間制約の矛盾、隣接と重複の区別、孤立outer0、無移動/全no-op、別tile旧sourceへの移動、inner/outer色兼用、未被覆FGの元からの拒否、背景同率、元grid/record改変拒否を確認",
+    "全raw policy一意先決、重複/不正入力拒否、native盤面支持/min3未達、採用済みfamily未確定時の全体HOLD、ID/test target拒否を確認",
+    "独立教師監査で全75/236、全二値lane割当1000対照、全tile/色数保存を確認。runtime監査で固定共有policyの359教師raw/guard・全120fit/wrapper・残75記録・query/native全文一致。旧6/証明4 AST、中核12・保護7・先行216snapshotのadapter以外・scorer/runner不変"
+  ],
+  "情報分離の留保": "2026-10-02 21:23 UTC頃、外部監査記録を広くrg検索した際に単一行challenges JSONが偶発的に一致し、大量省略された出力に一部challenge入力が表示された。対象queryの意図的抽出やsolutions参照はその時点では行っていないが、query未参照と一括主張しない。経緯を親/独立監査へ共有し、以後はsource明示とteacher-only抽出資料へ限定。本候補も条件凍結・独立監査後に承認済みinput-only確認、最後に全120採点を行った",
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残74課題未完・103例未回答。同形二色square tile、二つの枠色group、水平四列、row保持・縦区間制約と孤立outer0という限定prior。任意のpacking/成分配置の同定ではない"
+  ]
+}
