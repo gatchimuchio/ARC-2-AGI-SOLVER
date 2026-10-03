@@ -50,11 +50,12 @@ python 検証/包含正規化回帰.py
 python 検証/周期帯回帰.py
 python 検証/中心配色回帰.py
 python 検証/側周期回帰.py
+python 検証/区切投射回帰.py
 ```
 
 全120課題・167test例、各課題10CPU秒・512MiB・60秒wall、3並列で旧ARC採点関数を再利用する。baselineモードは初期のHDS格子値診断であり、前commitそのものではない。test正解と課題IDは親採点側に限定する。
 
-前commit `0711e65` の36/120課題・52/167例から、反復形の側周期延長で37/120課題・53/167例へ改善。旧採点器のwrong_attempted_tasksは既存部分回答4課題で不変、誤った出力格子は0。先行52例は全て同一。比較は `検証/側周期比較.json`、先行成果は既存比較記録に保持する。
+前commit `63bd57f` の37/120課題・53/167例から、区切整列gap投射で38/120課題・54/167例へ改善。旧採点器のwrong_attempted_tasksは既存部分回答4課題で不変、誤った出力格子は0。先行53例は全て同一。比較は `検証/区切投射比較.json`、先行成果は既存比較記録に保持する。
 
 物体端投射は既存8近傍物体抽出と九特徴を使い、教師だけから整合する特徴→上端/下端方向を選ぶ。各物理物体を一度ずつ現行HDSへ観測し、既存bbox順を保つ。未知特徴・識別不能・競合・配置重複は全格子HOLD。予測結果経路の制限は差分0で棄却し、HDS中核は元のまま。
 
@@ -165,3 +166,11 @@ seed境界着色は教師からfill/ seed/ background/ barrierの四色を決め
 `側周期教材.py` は全認識keyの両sideを先決し、無変化sideも含む全proposalを元入力から証明する。隣接payloadなし/盤外はinactive、payloadがあるのに列が非連続なら全体HOLD。同色重複はunion、異色重複は全体HOLD。別groupも含む全key、実際に読んだ全seed prefix、proposal外cellを保存し、元rendererの出力格子と同時提案格子の一致時だけ元出力を返す。strip内の既存payload上書きは旧規約に含まれ、教師で交差色1cellの変更を確認したため、原foreground全保存とは呼ばない。
 
 最低2教師と入力重複拒否、各教師の非空変更・全格子再現を要求する。最後の条件は元fitterのchanged-anyより保守的で、今回の2教師は両方変更する。native支持は2現在盤面・prior0・min2で、keyやstrip数を支持に加算しない。HDS中核・同値採用・隔離・全機構合意は不変。先に記載した偶発challenge表示の留保を維持し、凍結/独立監査後の入力確認、全120比較で37課題53例を確認した。
+
+## 区切整列gap投射
+
+`既存区切投射.py` は旧fit generatorの5関数を原文で再利用し、他の旧5関数は現行資産から共有する。教師で共通のseparator/movable/new targetの3色をfitし、全教師raw再現を先決する。背景は各入力の一意最多であり、共通背景色は学ばない。queryも背景/sep/movableだけのpaletteとtarget不在を保つ。全非背景full-height columnが一意のfitted separatorで、左右領域が存在することを追加証明の適用条件とする。
+
+移動色の全4近傍componentを左領域からseparator左隣へ右寄せする。全sourceを消してから全移動先を検査し、他成分の旧位置への合法移動を許す。全画素保存・非重複・保護色非衝突を確認する。移動後に接触・mergeしても元component IDを保持し、右端に接する占有rowのgapを右領域へ学習済みtarget色で投射する。出力component数の保存、閉じた穴の判定、多方向一般化とはしない。
+
+`区切投射教材.py` の証明は全移動/投射と対象外保存を検査し、元renderer格子/記録と一致する元出力だけを返す。separator最終列のmovement-onlyは追加の左右領域条件でHOLD。最低2 distinct教師を要求し、今回のnative支持は3現在盤面・prior0・min3で、物体/画素/投射行数を加算しない。既存HDSの同値・隔離・全機構合意と情報分離留保を維持し、同条件全120比較で38課題54例を確認した。

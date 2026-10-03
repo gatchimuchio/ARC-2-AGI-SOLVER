@@ -1,0 +1,80 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "63bd57ffec6c6ef29ddea448bd4c3099b7e459c9",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365 / arc2_runtime_fit_generator.py、blob6396b54f415c399df1c52f51b1f563bca9b8b0f7。旧5関数を原文で抽出、同じ旧閉包の5関数は現行資産から共有。component/backgroundとその依存を含め照合した。元のzero名称によらず移動色は教師由来",
+  "介入": "全同色成分を縦separatorへ右寄せし、元component単位のshift後行gapを右領域へ投射する既存priorを、全移動/投射・画素保存・元出力一致の保守的受理証明と同じHDSに接続する",
+  "previous": {
+    "correct_tasks": 37,
+    "correct_examples": 53,
+    "unanswered": 114,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 38,
+    "correct_examples": 54,
+    "unanswered": 113,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答53例": "全て同一"
+  },
+  "原因観測": {
+    "教師限定preflight": "残83課題259教師対を検査し、raw共通役割推定が成立するのも全教師再現するのも1課題3教師。全2/3/5成分を右寄せし、移動画素36/34/51を保存。投射行5/3/5、変更70/52/56cell。固体成分も移動し、gapなしなら投射しない。zero shiftも教師で観測",
+    "入力のみ適用確認": "条件凍結・独立実体監査後の25×12入力は5成分/52画素、shift2/1/1/4/0。4行のgapから12cell投射し、全変更68cell。元renderer格子・記録と一致。正解照合は後続の全120採点で実施"
+  },
+  "固定規約と証明": {
+    "役割先決": "元infer関数で全教師のseparator/movable/new targetの共通3色を確定し、全教師raw出力を完全再現してから追加証明を行う。背景は各入力の一意最多であり、共通背景色を学ぶとはしない。queryで共通3役割を選び直さず、背景/sep/movableだけの入力paletteとtarget不在を要求",
+    "separator": "全非背景のfull-height columnを描画前に列挙し、ただ一つがfitted separatorと一致することを要求。0<separator_col<width-1は左右領域を要求する追加適用制限で、元sourceが最終列separatorでmovement-onlyを返せる範囲より狭い",
+    "全成分移動": "移動色の全4近傍componentがseparator左にあることを確認。全sourceを一度消してから、各bbox右端がseparator左隣へ接する非負の水平shiftを適用。全画素を提案し、OOB・移動先重複・保護色衝突なら全体HOLD。別成分が退いた元source位置への合法移動は許す",
+    "行gap投射": "移動後にcomponentを再抽出せず、元component ID別のshift後rowを使う。rowがseparator左隣に接し、最左から最右の占有列にgapがあれば、そのrowの右領域全列をtargetで塗る。これは固定縦separator/右寄せ/行gap規約であり、閉じた穴の位相判定や多方向一般化とはしない。異なるcomponentの投射行が重複した場合は同色union",
+    "保存と返却": "同時移動・全投射の格子と、元rendererの格子/記録の完全一致を要求し、元出力だけ返す。全移動色画素数、separator、source/moved/projection領域外cellを保存。移動後の接触で成分はmergeし得るので、出力component数の保存は主張しない。失敗した成分や投射だけを除いて残りを採らない"
+  },
+  "HDS": {
+    "学習": "固定幾何priorと全教師役割fit/受理証明を、同じHDSの候補格子→出力格子の同値採用と区別する。HDSが右寄せや行gap規約を発見したとはしない。元fitterの非空教師条件に対しwrapperは最低2教師と入力重複拒否を追加し、最終盤面を教師ごとに1回だけ観測する",
+    "支持": "現在3盤面・prior0・min3・隔離0。component/移動畫素/投射行数を支持へ加算しない。異なる二入力ちょうどでmin2とする既存方針と34課題min2/86課題min3、中核既定3は不変",
+    "排気": "公開学習cycle・全教師再現・同値・反例隔離・既存排気gate・全採用機構合意を維持。採用済みfamilyの未解決・競合は全体HOLD"
+  },
+  "原指標保持": "wrong_attempted_tasks=4は既存の正答部分回答4課題で不変。誤った出力格子は新旧とも0。原採点器と指標名は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "1f0257d82614ddaf7f13cb49d350f97287f08d95d0331eddbde230bde885e43c",
+    "接続/ARC2/既存区切投射.py": "8679762ff593cd8888611890cde283e1a7edd5097534b75e2b075b36d17c830c",
+    "接続/ARC2/区切投射教材.py": "656f8c7f4d6b3229f3776c8e041fd7bd04faa9c175a65be45bf312932d336f47",
+    "検証/区切投射回帰.py": "e982faf67a0fdbc5100bbabbf29066ba8242208a65d46ce2f3baa4805d381b11",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存490件＋新17件合格。新17件は最適化モードでも合格",
+    "配色/上下反転・可変canvas・教師ごとに異なる背景・zero shift・gapなし固体成分を確認",
+    "元component別gapを保つmerge例、別成分の旧sourceへの合法移動、最終列separator拒否、raw軸役割競合、移動/投射衝突、既存target/未知色拒否、対象外保存を確認",
+    "原grid/record不一致拒否、raw教師再現をguardより先に要求、native3支持とmin3未達/反例隔離、採用済み未解決queryのHOLD、ID/target拒否を確認",
+    "独立教師監査で83/259全文、runtime監査で359 raw/guard・全120fit object・query/native全文が一致。旧/共有10AST、凍結guard3AST、中核12・保護7・先行機構・scorer/runner不変"
+  ],
+  "情報分離の留保": "2026-10-02 21:23 UTC頃、外部監査記録を広くrg検索した際に単一行challenges JSONが偶発的に一致し、大量省略された出力に一部challenge入力が表示された。対象queryの意図的抽出やsolutions参照はその時点では行っていないが、query未参照と一括主張しない。経緯を親/独立監査へ共有し、以後はsource明示とteacher-only抽出資料へ限定。本候補も条件凍結・独立監査後に承認済みinput-only確認、最後に全120採点を行った",
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残82課題未完・113例未回答。固定縦separator・右寄せ・元component別行gapの適用域であり、一般の物体移動/投射を網羅しない"
+  ]
+}
