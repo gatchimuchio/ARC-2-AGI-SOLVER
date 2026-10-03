@@ -1,0 +1,80 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "93f631956250a60b3d899b33a30b8e2ecd378ecd",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365。program_search blob c60fad158350b42fbc5ef0cbb2db7b26707cd6c1 の _grid_shape/_dominant_color/_legend_guided_turning_corridor_render の3関数を原文で抽出。旧fitterのquery検査は流用せず、元rendererの全教師再現を先決するwrapperと全役割/有限軌道の証明5関数を追加。元予測規則と新受理証明を区別する",
+  "介入": "固定の上端凡例から障害物色ごとの左右旋回を読み、単一square seed幅の4方向軌道を描く旧priorを、全辞書・全body役割・全有限軌道完走の証明付きで同じHDSへ接続する",
+  "previous": {
+    "correct_tasks": 46,
+    "correct_examples": 64,
+    "unanswered": 103,
+    "wrong_attempted_tasks": 5,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 47,
+    "correct_examples": 65,
+    "unanswered": 102,
+    "wrong_attempted_tasks": 5,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答64例": "全て同一"
+  },
+  "原因観測": {
+    "教師限定preflight": "残74課題233教師対で元rendererを確認し、1課題3教師だけ完全fit。全辞書144cell、seed各2×2、全body成分はseed1+障害3/4/4。4初期blockは全て範囲内で空白、追加112/120/134、全body前景を保存。教師0の未使用key色6も保持し、辞書全件が障害に使われるとは要求しない",
+    "入力のみ適用確認": "凍結実体の独立監査後、30×24入力から24×24 bodyへ適用。入力由来seedは3×3、全4軌道が境界で停止、4turn、提案延べ225cellのunion216cellを追加し、body前景168cellを保持。事前grid/recordを凍結した後に全120採点で正解照合"
+  },
+  "固定規約と証明": {
+    "辞書の全cell": "上端6行を6×6 cellへ分割する固定符号型で、入力幅は12以上の6倍数。各entryは共通guide色の外周と4×4内域を全検査し、内域の固定blank0以外はcol1/4の一色4cell barだけとする。左bar→left、右bar→rightで、key色重複やguideとのaliasは元から拒否。ARC幅30以内では辞書2〜5件。6やblank0を教師から推論したとはしない",
+    "役割の先決": "guideはcontrol全体、body背景はbody全体の一意最多を描画より前に決め、同率は全体HOLD。追加適用制限としてbody背景とkey色のaliasも全体HOLDし、そのkeyだけを落とさない。guide=body背景やblank0=body背景は別領域の役割なので許す。bodyの背景以外の全4近傍同色成分はkey色のsolid rectangleか、非key色で唯一の一辺2以上solid square seedへ帰属する。局所size capによる成分の黙殺はない",
+    "初期位置と遷移": "旧規約はseed原点から一辺ぶん離れたnorth/east/south/westの4 square blockを開始位置とし、その後は1pixelずつ並進する。追加証明は全4初期blockの全域範囲内/障害なしを先決し、元が初期OOBをskipする場合や初期block内障害を保存したまま背景をpaintして開始する場合を全体HOLDにする。別の始点/方向で修理しない。次footprintが単一key色へ接触したら現位置のまま左右90度旋回し、多色hitは全体HOLD",
+    "有限軌道完走": "各rayは原入力の障害物だけを参照する決定的な(heading,row,col)状態機械。body h×w、seed辺nなら状態数は最大4(h−n+1)(w−n+1)で、元の4hw step上限内に境界停止まで完走することを要求する。cycle・未解決turn・一ray失敗/未完了は全体HOLD。提案を一部発見しても完走証拠にはしない",
+    "同時格子と保存": "全4軌道のbody背景cellへのseed色提案を和集合にし、元body前景・seed・障害物と提案外を保持する。同色crossは許し、教師0/2では延べ144/164がunion112/134になる。制御辞書はcropで消費され、全入力の画素数や色数を保存する規則ではない。元renderer成功・非空eventとgrid/全record一致の元格子だけを返す。軌道順による異色優先は元からなく、追加証明を順序バグ修理とは呼ばない"
+  },
+  "HDS": {
+    "学習": "元fitterの最低2教師と、追加wrapperの入力重複拒否を分ける。元rendererの全教師再現を先決し、全教師の証明通過後に各最終格子を一度ずつ同じHDSの公開cycleへ渡す。key→turnは現在入力の辞書から読み、教師で共通の色やseed寸法を学ぶのではない。固定文法をHDSが発見したとは呼ばない",
+    "支持": "現在3盤面・prior0・min3・隔離0。辞書entry/trajectory/state/turn/画素は支持に加算しない。二つの異なる入力ちょうどならmin2とする既存方針と全120の34/86分布、中核既定3は不変",
+    "排気": "公開学習cycle・全教師再現・同値・反例隔離・既存排気gate・全採用機構合意を維持。採用済みfamilyの未解決・競合は全体HOLD"
+  },
+  "原指標保持": "wrong_attempted_tasks=5は先行と同じ正答部分回答5課題で不変。誤った出力格子は新旧とも0。採点器と原指標名は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "7f7ab09c1cd0b1c9046d242b4f4b401283931b2c1933410ed4ce02df397bb589",
+    "接続/ARC2/既存凡例旋回.py": "7046a84e255870e08213e9d749c970662354fb0513f28832c728f6d3698ca39f",
+    "接続/ARC2/凡例旋回教材.py": "f88ff14a2ddd52cf62b5d9ea3a7d05f4c5a6643c97789e947fb01023724f9983",
+    "検証/凡例旋回回帰.py": "6a46c2b04982b74c7c7e74fcbec8696564f941fb52890bf6927c9b1d4f13be8d",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存672件＋新20件成功。新20件は最適化モードでも成功",
+    "辞書2/5件・seed辺2/3、固定0を保つ色置換、guide/body背景の領域間alias、未使用key保持、全ray24順序の同格子を確認",
+    "guide/body背景tie、body背景/key alias、初期OOB/障害、辞書未知画素・非矩形/未帰属body、多色先端hit、cycle、一ray未解決veto、元grid/record改変拒否を確認",
+    "元全教師再現先決、重複/不正入力拒否、native3盤面支持/min4未達、採用済みfamily未確定時の全体HOLD、ID/test target拒否を確認",
+    "独立教師監査で全74/233、明示有限state graph600対照（正常終了541/cycle43/多色16）と全4ray順序24×3教師を確認。runtime監査で359教師raw/guard・全120fit/wrapper・残74全record・query/native全文一致。旧3/証明5 AST、中核12・保護7・先行220snapshotのadapter以外・scorer/runner不変"
+  ],
+  "情報分離の留保": "2026-10-02 21:23 UTC頃、外部監査記録を広くrg検索した際に単一行challenges JSONが偶発的に一致し、大量省略された出力に一部challenge入力が表示された。対象queryの意図的抽出やsolutions参照はその時点では行っていないが、query未参照と一括主張しない。経緯を親/独立監査へ共有し、以後はsource明示とteacher-only抽出資料へ限定。本候補も条件凍結・独立監査後に承認済みinput-only確認、最後に全120採点を行った",
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残73課題未完・102例未回答。固定top6×6/0blank辞書、唯一square seed、key色rectangle、4方向の同幅軌道という限定prior。任意の凡例形式やbeam幅/回転規則を同定したものではない"
+  ]
+}

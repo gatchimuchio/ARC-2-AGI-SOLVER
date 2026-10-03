@@ -60,11 +60,12 @@ python 検証/基点複製回帰.py
 python 検証/接触配置回帰.py
 python 検証/凡例展開回帰.py
 python 検証/枠列整列回帰.py
+python 検証/凡例旋回回帰.py
 ```
 
 全120課題・167test例、各課題10CPU秒・512MiB・60秒wall、3並列で旧ARC採点関数を再利用する。baselineモードは初期のHDS格子値診断であり、前commitそのものではない。test正解と課題IDは親採点側に限定する。
 
-前commit `fc7cb33` の45/120課題・63/167例から、枠tile二列整列で46/120課題・64/167例へ改善。旧採点器のwrong_attempted_tasksは既存部分回答5課題で不変、誤った出力格子は0。先行63例は全て同一。比較は `検証/枠列整列比較.json`、先行成果は既存比較記録に保持する。
+前commit `93f6319` の46/120課題・64/167例から、凡例旋回経路で47/120課題・65/167例へ改善。旧採点器のwrong_attempted_tasksは既存部分回答5課題で不変、誤った出力格子は0。先行64例は全て同一。比較は `検証/凡例旋回比較.json`、先行成果は既存比較記録に保持する。
 
 物体端投射は既存8近傍物体抽出と九特徴を使い、教師だけから整合する特徴→上端/下端方向を選ぶ。各物理物体を一度ずつ現行HDSへ観測し、既存bbox順を保つ。未知特徴・識別不能・競合・配置重複は全格子HOLD。予測結果経路の制限は差分0で棄却し、HDS中核は元のまま。
 
@@ -259,3 +260,15 @@ slot画素、原source/移動先以外を保持し、全payloadを一度ずつ�
 `枠列整列教材.py` は全source消去後の全tile同時配置、範囲・同色を含む非重複・row/全色数/総前景の保存を独立証明し、元renderer成功とgrid/record一致の元格子だけ返す。別tileの旧source位置への移動は許す。全被覆とdestination衝突拒否は元から成立し、バグ修理とは呼ばない。元diagnosticは移動先write差のみで、全grid差とは区別する。event_countも全処理tile数である。
 
 最低2教師は旧fitter条件、distinct入力は追加wrapper条件。native支持は3現在盤面・prior0・min3でtile/edge/画素を加算しない。既存HDSの全機構合意と情報分離留保を保持し、同条件全120で46課題64例・先行63例同一・誤格子/資源0・rawpartial5不変を確認した。
+
+## 凡例旋回経路
+
+`既存凡例旋回.py` は旧program_searchの3関数を原文で使う。top6行を6×6の辞書entryへ分割し、共通guide色のborderと4×4内域の全cellを解釈する。内域は固定blank0と左右どちらかの4cell barで、key色→left/rightを入力から読む。固定の6×6/0型であり、任意の辞書寸法を推論するものではない。未使用keyも保持する。
+
+bodyの背景以外の全4近傍同色成分を、key色のsolid rectangleか非key色の唯一square seedへ帰属させる。seed辺は2以上で入力由来。guideとbody背景は各領域で一意最多を先決し、tieとbody背景/key aliasを全体HOLDにする。guide=body背景やblank0=body背景は許す。
+
+`凡例旋回教材.py` は新しい証明5関数で、全4初期blockの範囲内/障害なしを確認してから、原入力障害による全有限軌道を完走する。開始はseed辺ぶん離れ、その後は1pixel移動。次footprintが単一keyへ接触すると現位置で辞書通りに90度旋回する。多色hit・cycle・一軌道の失敗/未完了は全体HOLD。bodyをh×w、seed辺をnとして元の4hw step上限を保ち、4(h−n+1)(w−n+1)という状態数上限内で各軌道の境界停止を確認し、始点や停止位置を修理しない。
+
+全軌道の背景へのseed色提案は同色unionとして数え、元body前景・seed・障害物と提案外を保存する。辞書はcropで消費され、全入力画素数保存ではない。元renderer成功とgrid/record一致の元格子だけ返す。最低2教師は旧fitter条件、distinct入力は追加wrapper条件。native支持は3現在盤面・prior0・min3で、entry/state/turn/画素を加算しない。
+
+既存HDSの全機構合意と情報分離留保を保持し、同条件全120で47課題65例・先行64例同一・誤格子/資源0・rawpartial5不変を確認した。
