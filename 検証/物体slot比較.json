@@ -1,0 +1,80 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "87d6b572e1a402dbad5612b7b636f09de4473742",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365。fit generator blob6396b54f415c399df1c52f51b1f563bca9b8b0f7の15関数、object graph blob2615ff464e20528604b58cfa29495110aaca30a4の6関数＋NamedTuple1定義、relation graph blob851a100aa4ec81ac04c42fb678ad3497bc12e790の1関数を原文で抽出。共有7関数とその依存は現行資産を再利用。旧fitter全文にはquery検査もあるため、再利用範囲は教師色推定とinput renderer/純粋依存に限定する",
+  "介入": "物体内の同形slotと矩形markerを空白corridorで対応させる旧priorへ、全raw候補先決・自己物体の支持・同時描画・選択marker面積保存・元出力一致の受理証明を加え、同じHDSへ接続する",
+  "previous": {
+    "correct_tasks": 38,
+    "correct_examples": 54,
+    "unanswered": 113,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 39,
+    "correct_examples": 55,
+    "unanswered": 112,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答54例": "全て同一"
+  },
+  "原因観測": {
+    "教師限定preflight": "残82課題256教師対を検査。元の色推定は2課題で成立し、全教師再現は1課題3教師のみ。全raw対応1/2/2件が自己物体支持を持ち、選択marker面積1/5/7cellを保存。未対応marker4/4/5成分・7/7/11cellの消去を全教師再現で確認。全構造証明後に消去witness3を計数",
+    "入力のみ適用確認": "凍結実体の独立監査後の23×27入力は3対応、選択marker面積11cellをslotへ保持、全物体48cellを保存。未対応8成分17cellの消去はteacher witness許可の下で実施。corridor union37cell、全変更65cell。元grid/recordと一致し、正解照合は後続の全120採点で実施"
+  },
+  "固定規約と証明": {
+    "役割と順序": "最低2教師から共通marker色と新corridor色を元推定関数で確定する。背景は各入力の最多色、object色は残りの一色。追加証明では一意最多と3色input/新corridorの区別を要求する。全教師のraw完全再現と、元policy/rendererの成功を先決し、query成功や証明失敗によって候補や役割を選び直さない",
+    "全raw候補": "objectは8近傍、markerは4近傍の同色component。全markerが完全矩形であることを要求。全object×marker×bbox内の同寸法空白slot×整列方向を元sourceが列挙する。corridorは非空で全て元背景。objectまたはmarkerが複数候補に使われれば元から全体HOLDで、最大matchingや方向優先はない",
+    "自己支持": "元の支持は、slotから見てmarkerがある側の反対sideに直接接するobject画素と、逆side/直交2sideの各少なくとも一つの幾何証人である。完全な壁や閉じた穴は要求しない。追加証明は各raw eventの証人をそのobject自身に限定する。一件でも他物体から借りれば、候補を除かず全体HOLD",
+    "同時描画": "選択slotは同色でも重複禁止とし、選択されたmarkerの面積を保存する。slotへmarker色、空白corridorと旧選択marker位置へ新corridor色を同時提案。異色重複は全体HOLD、同色corridor重複はunionを許す。全object画素と操作領域外cellを保存し、元rendererの格子/診断記録と一致する元出力だけを返す",
+    "未対応marker": "元は全markerを一度背景へ消してから選択eventを描くため、未対応markerは消去される。この正確なbranchは、役割推定・全教師raw再現・全構造証明を全て通過した異なる現在教師に実消去witnessが1件以上ある場合だけ許可。今回は3件。未対応objectは保存し、全foregroundや全marker数の保存は主張しない"
+  },
+  "HDS": {
+    "学習": "旧幾何priorと色推定/新受理証明を、同じHDSの候補格子→出力格子の同値採用と区別する。HDSがslot/支持側/消去規約を発見したとはしない。元推定関数の最低2教師条件に入力重複拒否を追加し、全再現した教師の最終盤面を1回だけ渡す",
+    "支持": "現在3盤面・prior0・min3・隔離0。消去witness3、対応/marker/object/pixel数を支持へ加算しない。異なる二入力ちょうどでmin2とする既存方針と34課題min2/86課題min3、中核既定3は不変",
+    "排気": "公開学習cycle・全教師再現・同値・反例隔離・既存排気gate・全採用機構合意を維持。採用済みfamilyの未解決・競合は全体HOLD"
+  },
+  "原指標保持": "wrong_attempted_tasks=4は既存の正答部分回答4課題で不変。誤った出力格子は新旧とも0。元object_slot_event_countは変更画素数であり、対応数にはpair_countを用いる。採点器と指標名は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "7e34b4810e1e296b713718cf841c4e106844124cfbcf085d04df7843a39d72e4",
+    "接続/ARC2/既存物体slot.py": "8ffd2d89a32593258830e809fd2b136221b9073862987ccacf8b918ecc118c5d",
+    "接続/ARC2/物体slot教材.py": "cc2e57f365a052befd7189444bb49be1a518e120666c7acac93c4fe9161eb2d2",
+    "検証/物体slot回帰.py": "3361d4dc19c1d54376dba8138d92d077a0fdce0c3f82c312c30aee6a5846211d",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存507件＋新19件合格。新19件は最適化モードでも合格",
+    "教師D4/配色48対照と合成D4/配色、非矩形marker・複数raw対応・他objectからの支持借用・証拠なし消去を拒否。未対応object保存を確認",
+    "元が出力する2対応の実交差は、描画順で(6,10)の1cellが変化。証明は異色proposalとして全体HOLD。同色corridor交差は17提案cellをunion16cellとして許し、選択slot面積3cellを保持",
+    "raw教師反例または構造失敗からwitnessを計数しない、元grid/record不一致拒否、native3とwitness2を分離する合成対照、min3未達・反例隔離・全体HOLD・ID/target拒否を確認",
+    "独立教師監査で82/256の全文、runtime監査で359教師のraw/両許可mode guard・全120fit・query/native全文が一致。旧23/共有7/guard3 AST、中核12・保護7・先行機構・scorer/runner不変"
+  ],
+  "情報分離の留保": "2026-10-02 21:23 UTC頃、外部監査記録を広くrg検索した際に単一行challenges JSONが偶発的に一致し、大量省略された出力に一部challenge入力が表示された。対象queryの意図的抽出やsolutions参照はその時点では行っていないが、query未参照と一括主張しない。経緯を親/独立監査へ共有し、以後はsource明示とteacher-only抽出資料へ限定。本候補も条件凍結・独立監査後に承認済みinput-only確認、最後に全120採点を行った",
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残81課題未完・112例未回答。3色input/同形矩形slot/軸整列corridor/側面証人という限定priorであり、一般の物体移動や経路探索を網羅しない"
+  ]
+}
