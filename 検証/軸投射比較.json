@@ -1,0 +1,85 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "0de35adbb6bb82c198c21d5c8f566db6123c60d5",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産と新証明": "事前記憶v0.4の対象→関係→作用・候補保持と定石語彙を確認。旧fit_generatorの境界marker役割推定/軸side分類/rendererを含む7関数を原ASTのまま再利用し、dominant_background_for_grid等の依存は現行utilityを使う。strict grid/全所有と描画証明/教師wrapperの3関数は新しい受理証明。予測規則や別selectorを作り直さず、返すのは元renderer格子だけ",
+  "不足と範囲": "残67課題206教師を旧rendererと新proofで走査し、3教師を持つ1課題だけが全再現した。境界markerの軸と全object pixelの半平面関係を同じHDSへ渡す不足を埋める。以前の枠参照input-only不成立やtriplet terminalの棄却を救済した変更ではない。全資産枯渇や複数未回答群への実測改善は主張しない",
+  "previous": {
+    "correct_tasks": 53,
+    "correct_examples": 74,
+    "unanswered": 93,
+    "wrong_attempted_tasks": 5,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 54,
+    "correct_examples": 75,
+    "unanswered": 92,
+    "wrong_attempted_tasks": 5,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答74例": "全て同一"
+  },
+  "原因観測": {
+    "教師限定": "全67/206で旧原型再現を先決し、同じ3教師が新proofも通過。object31/30/24画素、軸上5/4/2画素、移動20/26/22画素、消去6/0/0画素、出力object25/30/24。軸segment union22/11/8に対し実marker色は17/7/6。各教師の全8 D4でも旧格子再現を確認したが、変換対照をHDS支持には加算しない",
+    "入力のみ確認": "独立教師実体監査後の固定query20×20はbottom markerの1軸。object32画素を軸上2＋左12/右18へ全帰属し、消去0で32画素を保持。軸segment14、実marker12、出力BG356/marker12/object32。元grid/全文record一致を凍結した後、単一full120採点で正答を確認"
+  },
+  "固定priorと受理証明": {
+    "役割": "元sourceは最多色を背景とし、ほか2色のうち全画素が外周にあるmarker候補を全列挙。1～2画素で、top/bottomに最大1、left/rightに最大1、角は二重所属になるため不適合。raw候補一意を描画前に確定し、他色の全画素をobject inventoryとする。元objectは全てcanvas内部であることが必要。追加proofは背景最多tieと不正ARC型を全体HOLDとし、描画成功で別役割を選び直さない。色は現在入力から推定し固定1/2/7をコードへ埋め込まない",
+    "全axis": "上下markerはそのcolumn、左右markerはそのrowを軸とする。各軸に少なくとも1つの元object pixelが必要で、一軸でもwitness欠落なら全体HOLD。marker側境界から元objectの最遠軸座標までsegmentを描き、全ての元軸上object pixelを元座標で復元する。新しい描画をwitnessに使わない。segment countはobject優先cellも含むので、実marker色数はsegment unionから元軸上objectを除いた数",
+    "全groupと消去": "off-axisの全object pixelを元軸のstrict sideへ分割。軸が一つなら、欠けるsideはmarkerの境界側を使う。軸が二つなら、少なくとも一つのmarker側半平面に属するgroupを保持し、両markerの反対側groupだけを消す。各保持groupは全pixel bboxの対応端をcanvas cornerへ合わせる平行移動。回転・尺度変更・局所component除外・clip・最大score選択はない。半平面の和集合と反対側消去は旧固定priorで、自然に唯一の規則を学習したとは呼ばない",
+    "保存と非保存": "全元objectを軸上/保持group/明示消去集合へ一度ずつ帰属させ、全groupの平行移動が単射で元side領域を保つことを検査。出力object数は入力object数から明示消去数を引いた数。元軸上object、元markerと全保持groupの各色・相対形を保持するが、位置や全入力前景画素数は保存しない。描画先の非重複は外向き移動の元幾何から成立する性質であり、旧の順序バグを観測/修理したとは言わない",
+    "証明先決と元格子限定": "全教師の旧renderer完全再現を終えてから追加proofへ進む。各入力の全役割/axis witness/全group/消去を扱い、全同時格子・全旧diagnostic recordと一致した場合だけ元格子を返す。元失敗/identity HOLDは救済しない。off-axis groupが空でも旧が成功する場合は受理でき、余分な非空group条件を追加しない。役割不成立・所有欠落・範囲外・重複・旧格子/record不一致は全体HOLD"
+  },
+  "HDS": {
+    "学習": "元fitterは最低1教師の検証を持つが、本wrapperは最低2教師・strict ARC型・入力重複拒否を追加する。fit後の保持状態は適合boolのみ。教師object、task ID、完成grid、座標や固定paletteをqueryへ渡さず、元の入力由来役割で毎回描画する。旧役割/rendererの再利用であり、旧fitterの診断全体をそのまま移植したという意味ではない",
+    "支持と消去証拠": "現在3教師盤面・prior0・min3・同値採用・隔離0。両反対側消去branchを実際に示すのは教師0の1盤面6pixelだけで、native3支持やD4対照24件と分ける。group/marker/axis/cellを観測数に加算しない。現行のちょうど2 distinct教師min2方針、全120の支持設定34/86、中核既定3は不変",
+    "排気": "公開学習cycle・全教師再現・同値・反例隔離・既存排気gate・全採用機構合意を維持。採用済みfamilyの未解決・競合は全体HOLD"
+  },
+  "原指標保持": "wrong_attempted_tasks=5は先行と同じ正答部分回答5課題で不変。新旧とも誤った出力格子は0。未回答93→92。原採点器と指標名は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "800b25331e99623c76f1c486832a8f27a382d799108dbb0b1910bbadbc942f10",
+    "接続/ARC2/既存軸投射.py": "47a7d378994e36ead4d2652c522be686396921957f493fd00e26a079531cee8e",
+    "接続/ARC2/軸投射教材.py": "4e30a5ccc4ce1e1e88805ceb32af33b1407b9735467bebc3bdfad247d559879d",
+    "検証/軸投射回帰.py": "844b58d4923bdbf9b148e1ac2cc14725cd4f2305bfefe5b251a8a9fcd0fa9921",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存817件＋新24件の全841回帰成功。新24件は最適化モードでも成功。常設fixturesは生成入力のみで実評価taskやquery格子は埋め込まない",
+    "全8方向/非正方形/色0を含む配色、1軸の全4side・2軸の全side、非連結pixelの全帰属、軸上のみで空group成功、元identity HOLDを確認",
+    "欠落/曖昧/角/過剰marker、object外周接触、未知色、軸witness不足、元は成功する背景tie、strict型/各辺30・31、全平行移動単射とsegment非重複、実marker色数、旧grid/record改変を確認",
+    "旧教師fit失敗時にproofを呼ばない順序、追加min2/distinct、native3盤面/min4未達・prior0・隔離0、bool状態の教師object独立、全family合意/未解決HOLDとID/test output拒否を確認",
+    "独立概念監査は旧7 AST/source blob・全67/206原型record・24 D4と別600入力の全pixel所有/旧格子一致を確認",
+    "独立教師実体監査はfreeze4/shared3・全67/206全文・21通常/-Oに加え、別式の2142入力を確認。受理1460（消去あり220/空group378）、軸witness欠落HOLD574、元identity HOLD108が旧格子/証明/直接式と一致",
+    "独立runtime監査は凍結旧7/証明3 AST、359raw/guard・全120fit/wrapper・残67record・query/native全文、旧246snapshotのadapter以外/core12/protected7/scorer不変を確認",
+    "独立再採点は公式120/167投影と全行の直接格子比較、前後の旧scorer entire original_auditを完全再現。53→54課題/74→75例、先行74同一、誤格子/資源0、同じ5partialを確認"
+  ],
+  "情報分離の留保": "2026-10-02 21:23 UTC頃、外部監査記録を広くrg検索した際に単一行challenges JSONが偶発的に一致し、大量省略された出力に一部challenge入力が表示された。対象queryの意図的抽出やsolutions参照はその時点では行っていないが、query未参照と一括主張しない。経緯を親/独立監査へ共有し、以後はsource明示とteacher-only抽出資料へ限定。本候補も条件凍結・独立監査後に承認済みinput-only確認、最後に全120採点を行った",
+  "制限": [
+    "公開評価での差分。旧資産と現在の教師観測から独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "入力由来の軸・bbox平行移動を用いる旧固定prior。反対側消去を含む任意の物理法則を自動発見したとは呼ばない",
+    "消去branchの元教師証拠は1盤面で、3盤面全体支持と区別する",
+    "残66課題未完・92例未回答"
+  ]
+}

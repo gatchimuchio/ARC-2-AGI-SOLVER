@@ -67,11 +67,12 @@ python 検証/象限配色回帰.py
 python 検証/凡例集合回帰.py
 python 検証/二軸補完回帰.py
 python 検証/四欄反復回帰.py
+python 検証/軸投射回帰.py
 ```
 
 全120課題・167test例、各課題10CPU秒・512MiB・60秒wall、3並列で旧ARC採点関数を再利用する。baselineモードは初期のHDS格子値診断であり、前commitそのものではない。test正解と課題IDは親採点側に限定する。
 
-前commit `ae95aa6` の52/120課題・72/167例から、四欄反復で53/120課題・74/167例へ改善。旧採点器のwrong_attempted_tasksは既存部分回答5課題で不変、誤った出力格子は0。先行72例は全て同一。比較は `検証/四欄反復比較.json`、先行成果は既存比較記録に保持する。
+前commit `0de35ad` の53/120課題・74/167例から、境界軸投射で54/120課題・75/167例へ改善。旧採点器のwrong_attempted_tasksは既存部分回答5課題で不変、誤った出力格子は0。先行74例は全て同一。比較は `検証/軸投射比較.json`、先行成果は既存比較記録に保持する。
 
 物体端投射は既存8近傍物体抽出と九特徴を使い、教師だけから整合する特徴→上端/下端方向を選ぶ。各物理物体を一度ずつ現行HDSへ観測し、既存bbox順を保つ。未知特徴・識別不能・競合・配置重複は全格子HOLD。予測結果経路の制限は差分0で棄却し、HDS中核は元のまま。
 
@@ -340,3 +341,13 @@ mask全非blankのtight bboxを内部blankも含めて保持し、count欄の全
 出力寸法を描画前に各辺1..30へ限定し、全cellをcopyかgapへ一意対応させる。activeをpaint色、inactive/gapをfill色にし、両色が同じ場合は実色数を統合する。過大/不正/未解決は全体HOLD。全欄の役割解釈と、入力の各pixelやpalette面積を出力へ保存することは別であり、入力の画素数保存は主張しない。
 
 最低2 distinct教師とstrict ARC型は新wrapper条件。fit後の保持は適合boolだけで、mask/count/colors/axisは現在入力から取得し、教師patternやtest outputを記憶しない。nativeは4現在盤面・prior0・min3、欄・成分・copyやcellを支持へ加算しない。全採用familyの合意/HOLDと情報分離留保を維持する。
+
+## 境界marker軸投射
+
+`既存軸投射.py` は旧generatorの7関数を再利用する。背景と2前景色から、全画素が境界上の1～2markerをraw一意に決め、残る色の全pixelをobjectとして扱う。角marker・同一axisの複数marker・objectの外周接触は元から適用外。marker色/object色を固定せず現在入力から得て、追加guardは一意最多背景とstrict ARC型を要求する。
+
+上下markerは縦軸、左右markerは横軸を示し、元objectの最遠軸pixelまでmarker線を描く。元軸上object pixelはその場で保存する。全off-axis pixelをstrict sideへ分け、1軸ならmarker側の二つのcornerへ、2軸なら少なくとも一つのmarker側半平面にある全groupを対応cornerへ平行移動する。両markerの反対側groupだけを消すのは旧固定priorで、自然に唯一の物理則を学んだという意味ではない。
+
+`軸投射教材.py` の新3関数は、全教師の元再現を先決し、全axis witness・全pixel所有・全group移動/明示消去・単射/非重複と元grid/全文recordを確認する。非重複は元の外向き移動から成立する幾何で、旧順序バグの修理ではない。出力object数は入力object数−明示消去数。元axis objectが線より優先されるので、segment union数と実marker色数を区別する。全前景保存は主張しない。元identity HOLDや空groupでの元成功も保持し、失敗時に方向やgroupを選び直さない。
+
+最低2教師と入力重複拒否は追加wrapper条件。保持は適合boolだけで、教師格子や座標をqueryに渡さない。nativeは3現在盤面・prior0・min3・隔離0だが、両反対側消去を示す元教師は1盤面6pixelであり、支持とは別に記録する。全family合意/HOLD、旧出力限定、情報分離留保を維持する。
