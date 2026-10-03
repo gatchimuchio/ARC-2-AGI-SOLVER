@@ -1,0 +1,82 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "ae95aa6efcac5e949cd30b18c4d2887bdb825608",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産と新実装": "既存v0.4のTILE/CROP_FOREGROUND_BBOX/RECOLOR_MAP語彙と対象→関係→作用・候補保持の蒸留を確認。再利用する実コードは既存物体特徴のcolor_component_dicts_for_gridと既存依存のみ。四欄のraw分割・集合交差によるrole・反復描画・教師fitは新4関数(valid_grid/parse_input/render/fit_teachers)であり、旧rendererの再接続とは呼ばない",
+  "不足と優先根拠": "指示glyphの経路、図形列外挿、雑音枠計数等の未閉包群と比較し、四欄の順序/成分数/二配色を一つの反復へ結ぶ入力表現不足を選んだ。残68課題210教師の全色/両axis raw layoutを棚卸しし、全教師で一意かつtypedな四欄は1課題だけ。4教師で縦横両方向・可変mask寸法・成分数とpalette変更を観測。棄却済みglyphlabel/track/framed候補の救済ではない。全資産の候補枯渇や複数課題への実測寄与は主張しない",
+  "previous": {
+    "correct_tasks": 52,
+    "correct_examples": 72,
+    "unanswered": 95,
+    "wrong_attempted_tasks": 5,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 53,
+    "correct_examples": 74,
+    "unanswered": 93,
+    "wrong_attempted_tasks": 5,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 2,
+    "regressed_examples": 0,
+    "既存正答72例": "全て同一"
+  },
+  "原因観測": {
+    "教師限定": "全68/210のraw構造と新実体を確認し、1課題4教師が適合。count2/3/4/2、mask2×2/3×3/4×3/2×3、出力5×2/3×11/4×15/2×7。全117cellはcopy95＋gap22、paint所有6/21/28/10と一致",
+    "入力のみ確認": "独立実体監査後、縦26×7入力はcount5・mask3×5から19×5出力、copy75/gap20・paint55/fill40。横7×29入力はcount6・mask5×4から5×29出力、copy120/gap25・paint78/fill67。全raw layoutとtyped roleを先決し全cell対応を事前凍結、その後の単一全120採点で両例正答を確認"
+  },
+  "固定文法と境界": {
+    "raw分割先決": "全色と行/列両axisで、その色の全長単色線を全て列挙。ちょうど3本が非隣接の内部1cell線で、4非空区間を作るものだけをraw layoutとする。raw件数が1以外なら内容検査より前に全体HOLD。後段typed/描画成功で不適合layoutを削って一意化しない。追加/欠落/厚separatorも部分抽出で救済しない",
+    "四欄役割": "上→下または左→右にP0 mask、P1 count、P2 paint色A、P3 fill色Bの固定順。P0/P1はそれぞれ二色で、色集合の共通要素が唯一のときだけ共有blankとする。最多色や固定0ではない。残る各色が全mask/全count画素。P2/P3は全cell一様性を要求し、面積は数量に使わない。palette色はmask/count/blankや互いに兼用できるが、raw分割の契約は同時に満たす必要がある",
+    "全maskと成分数": "P0の全非blankを含むtight bboxを使い、内部blankもbinary maskとして保持する。P1の全非blankを同色4近傍成分へ一対一に帰属させ各成分を一度数える。面積・形・向きで対象を除かない。4近傍の物体単位計数は固定priorで、現4教師のcount成分が全て2pixelなので、あらゆる代替計数法を排して唯一の法則を学習したとは呼ばない",
+    "反復と配色": "maskを回転せず、入力の欄分割axisにn回反復する。copy間にB色1cell行/列を入れ、外側marginは付けない。active→A、inactive→B。4欄順序・tight crop・4近傍・1cell間隔は明示prior。逆順の欄を回転や順序選び直しで解釈しない。横/縦の転置にはmask自体の転置が対応する",
+    "全出力と資源": "row axisは[n*h+n-1,w]、column axisは[h,n*w+n-1]。各辺1..30を描画前に確定し、全出力cellを一つのcopy内座標またはgapへ対応させる。copy内cell数n*mask面積、gap cell数(n-1)*直交辺長、paint所有n*mask active数を確認。A=Bの場合は実色数が統合されるので、役割所有数と実色数を分ける。不正/未解決/過大は全体HOLD、部分反復やclipはしない",
+    "保存範囲": "全入力cellを4欄かseparatorとして解釈し、全count pixelとmask bboxを処理する。P0外周blank、count欄、palette面積やseparatorをそのまま出力pixelとして保存する意味ではない。出力色は現在入力のP2/P3から取り、入力画素数・成分数・色別数の保存は主張しない"
+  },
+  "HDS": {
+    "学習": "この新wrapperの適用域は最低2教師、strict ARC型、入力重複拒否。現在入力の役割と全cell対応を確定してから全教師出力一致を確認し、各教師最終格子を一度ずつ同じHDSの公開cycleへ渡す。教材の保持状態は適合boolのみ。教師output object・完成pattern・task ID・test outputを予測へ渡さず、必要なmask/count/colors/axisは各入力から得る",
+    "支持": "現在4盤面・prior0・min3・隔離0。欄数、count成分数、copy/gap数、117教師出力cellや240query出力cellを支持へ加算しない。ちょうど2 distinct教師のmin2方針、全120で34/86の支持設定、中核既定3は不変",
+    "排気": "公開学習cycle・全教師再現・同値・反例隔離・既存排気gate・全採用機構合意を維持。採用済みfamilyの未解決・競合は全体HOLD"
+  },
+  "原指標保持": "wrong_attempted_tasks=5は先行と同じ正答部分回答5課題で不変。誤った出力格子は新旧とも0。採点器と原指標名は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "8194b085eac30d8aa792423a17ebc351a36166a3133a68f93c109b954d27a451",
+    "接続/ARC2/四欄反復教材.py": "ef38fc79d7e749db85ec813f2f90db29c97ee155e93865ef26d7d5079d2ac294",
+    "検証/四欄反復回帰.py": "eb695b6fdf26a40077a7569cce05578c669bc59e1eb10fac81219c0aaeefc316",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存795件＋新22件の全817回帰成功。新22件は最適化モードでも成功",
+    "縦横/非正方形/内部blank、count1、成分面積1/3/5、斜接触の4近傍計数、任意配色と0、palette role兼用/A=B、palette面積変更不変、全count所有と入力不変を確認",
+    "二つのraw layoutの一方だけtypedでも全体HOLD。追加/欠落/厚separator、曖昧blank、第三色混入、非一様palette、不正grid、30の直交辺通過/31反復辺HOLD、component欠落を確認",
+    "全教師一致/min2/distinct、native4盤面/min5未達、boolだけの保持と教師object独立、採用済み未解決全体HOLD、ID/test target拒否を確認",
+    "独立実体監査は全68/210と別1000入力を三本線組合せ列挙/Union-Find/配列連結で照合。629完成格子・371HOLD、同色palette82・blank非最多132・blank0の52通過を含み、全色数/成分数/所有数が一致",
+    "独立runtime監査は凍結新4AST・359parse/render・全120fit/wrapper・残68全record・両query/native全文、旧243snapshotのadapter以外、中核12/保護7/共有3/scorer/runner不変を確認。保存全120/167の直接採点と旧scorer全文も独立再現"
+  ],
+  "情報分離の留保": "2026-10-02 21:23 UTC頃、外部監査記録を広くrg検索した際に単一行challenges JSONが偶発的に一致し、大量省略された出力に一部challenge入力が表示された。対象queryの意図的抽出やsolutions参照はその時点では行っていないが、query未参照と一括主張しない。経緯を親/独立監査へ共有し、以後はsource明示とteacher-only抽出資料へ限定。本候補も条件凍結・独立監査後に承認済みinput-only確認、最後に全120採点を行った",
+  "制限": [
+    "公開評価での差分。旧資産と現在の教師観測から独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "4欄の固定文法を結ぶ新実装。任意の命令言語や成分計数法を自動発見したとは呼ばない",
+    "残67課題未完・93例未回答"
+  ]
+}

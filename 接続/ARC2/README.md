@@ -66,11 +66,12 @@ python 検証/二値原型回帰.py
 python 検証/象限配色回帰.py
 python 検証/凡例集合回帰.py
 python 検証/二軸補完回帰.py
+python 検証/四欄反復回帰.py
 ```
 
 全120課題・167test例、各課題10CPU秒・512MiB・60秒wall、3並列で旧ARC採点関数を再利用する。baselineモードは初期のHDS格子値診断であり、前commitそのものではない。test正解と課題IDは親採点側に限定する。
 
-前commit `c057b40` の51/120課題・71/167例から、二軸欠損補完で52/120課題・72/167例へ改善。旧採点器のwrong_attempted_tasksは既存部分回答5課題で不変、誤った出力格子は0。先行71例は全て同一。比較は `検証/二軸補完比較.json`、先行成果は既存比較記録に保持する。
+前commit `ae95aa6` の52/120課題・72/167例から、四欄反復で53/120課題・74/167例へ改善。旧採点器のwrong_attempted_tasksは既存部分回答5課題で不変、誤った出力格子は0。先行72例は全て同一。比較は `検証/四欄反復比較.json`、先行成果は既存比較記録に保持する。
 
 物体端投射は既存8近傍物体抽出と九特徴を使い、教師だけから整合する特徴→上端/下端方向を選ぶ。各物理物体を一度ずつ現行HDSへ観測し、既存bbox順を保つ。未知特徴・識別不能・競合・配置重複は全格子HOLD。予測結果経路の制限は差分0で棄却し、HDS中核は元のまま。
 
@@ -327,3 +328,15 @@ T=BRに非0があれば、周期nのTの非0を描き、0をP=BLのcoarse座標P
 `二軸補完教材.py` は新proof/wrapper3関数。各位置の恒等・行/列/両反射の有限orbitを全て被覆し、欠損のないorbitも含む原非0値の一致と原観測witnessを確認する。全0を原観測から同時に復元し、既知cellを全て同位置同色で保つ。競合・無witness・軸中心範囲外・不正grid・元失敗/no-op・元grid/record不一致は全体HOLD、変更しない元格子だけを返す。色別個数は複写により増え、一般の画素数保存は主張しない。
 
 最低2教師・入力重複拒否・strict ARC型は追加wrapper条件。元全軸fit一意→全教師元再現→proof→同じHDS各教師盤面の順を保つ。nativeは4現在盤面・prior0・min3で、軸数・orbit数・画素数を支持へ加算しない。保持するtuple2整数は教師output変更から独立で、完成柄・test outputは予測へ渡さない。全採用familyの合意/HOLDと情報分離留保を維持する。
+
+## 四欄反復
+
+`四欄反復教材.py` はmask・成分数・二配色を結ぶ新4関数の組合せで、旧renderer再接続ではない。実コードの再利用は既存の同色4近傍component抽出とその依存。全色/両axisの全長同色線から、ちょうど3本の非隣接・内部1cell線が作る4非空欄を全列挙し、raw layout件数を内容より先に一意確定する。後段の失敗でlayoutを捨てて選び直さない。
+
+上→下または左→右の固定順にmask/count/paint色/fill色を読む。先頭2欄は各二色で、唯一の共通色を両欄のblankとする。色頻度や固定0は使わない。後2欄は全cell一様性を確認し、色だけを使う。palette色の兼用やpaint＝fillも許すが、raw分割契約を満たす必要がある。
+
+mask全非blankのtight bboxを内部blankも含めて保持し、count欄の全4近傍成分を大きさや形で除外せず数える。maskを回転せず入力分割axisにn回並べ、copy間にfill色1cellを置く。4欄順序・4近傍・tight crop・1cell間隔は固定prior。教師count成分が全て2pixelであるため、唯一の計数法を学んだという主張はしない。
+
+出力寸法を描画前に各辺1..30へ限定し、全cellをcopyかgapへ一意対応させる。activeをpaint色、inactive/gapをfill色にし、両色が同じ場合は実色数を統合する。過大/不正/未解決は全体HOLD。全欄の役割解釈と、入力の各pixelやpalette面積を出力へ保存することは別であり、入力の画素数保存は主張しない。
+
+最低2 distinct教師とstrict ARC型は新wrapper条件。fit後の保持は適合boolだけで、mask/count/colors/axisは現在入力から取得し、教師patternやtest outputを記憶しない。nativeは4現在盤面・prior0・min3、欄・成分・copyやcellを支持へ加算しない。全採用familyの合意/HOLDと情報分離留保を維持する。
