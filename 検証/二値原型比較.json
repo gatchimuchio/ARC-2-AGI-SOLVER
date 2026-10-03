@@ -1,0 +1,81 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "7629f7f5242b040ae71a758e6517ada310d21c78",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365。fit_generator blob 6396b54f415c399df1c52f51b1f563bca9b8b0f7 の二値原型推定・D4・配色・crop照合・rendererを含む9関数を原文で抽出し、既存grid_shape/dominant_backgroundと下位依存を使う。全物理model/offsetの独立列挙と元grid/record一致を要求する証明・wrapperの4関数を追加した",
+  "介入": "現在課題の最初の教師出力から得た20×20の全400bit patternを、同課題の入力cropと照合する旧機構を同じHDSへ接続。任意の現在教師柄に対するD4・二配色・全位置照合という手続きであり、内部形状の生成則を学習したとは呼ばない",
+  "previous": {
+    "correct_tasks": 48,
+    "correct_examples": 66,
+    "unanswered": 101,
+    "wrong_attempted_tasks": 5,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 49,
+    "correct_examples": 68,
+    "unanswered": 99,
+    "wrong_attempted_tasks": 5,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 2,
+    "regressed_examples": 0,
+    "既存正答66例": "全て同一"
+  },
+  "原因観測": {
+    "教師限定preflight": "残72課題227教師対で元推定/rendererを確認し、1課題5教師だけ完全fit。全教師は同じ20×20二値原型のD4/配色軌道に属し、各入力の80/128/100/156/80cellが完成surfaceの矩形cropへ完全一致する。最初の教師を選び直して失敗を救済しない",
+    "入力のみ適用確認": "凍結実体の独立監査後、10×10と11×10の入力で全16物理model・全1936/1760originを検査し、それぞれ一つの完成surfaceへ合意。rot90/offset[0,0]とrot270_flip_h/offset[4,10]で、100/110観測cellに加えて300/290cellを現在教師由来patternから補完する。事前grid/recordを凍結した後に全120採点で正解照合"
+  },
+  "固定規約と証明": {
+    "全400bitの課題内記憶": "学習parameterは最初の現在教師出力の全400二値cellを保持する。補完内容を決める高情報量templateで、入力が選ぶのは最大16の完成surfaceである。cropから内部形状の生成規則を推論したものではない。柄をコードや共有priorへ埋めず、task ID/filename/hash/既知解lookupを行わない。別の現在教師柄なら補完内容も変わる",
+    "固定20と色の基準": "20×20は旧learner/renderer双方のwhole-template適用契約で、入力から導いた寸法や計算量だけの上限ではない。今回変更しない。各教師対のinput/outputは同じ二色palette。教師間およびqueryでは色対が変わってよく、各入力の二色を両方向に割り当てる。最初の教師出力の最多色をzeroとするが、両配色を列挙するため二値表現の基準にすぎず、意味上の背景役割ではない。最多同率を追加拒否する根拠はない",
+    "全modelと全offset": "8 D4×二配色の全16物理modelを先に列挙し、各完成surface内の全整数crop原点を走査して両色を含む入力全cellを照合する。元の対称重複の縮約とは別に、証明では物理modelと全一致offsetを保持する。同surfaceへの複数配置は許し、完成gridが一種類であることを要求する。配置一意や先頭位置の採用とは呼ばない",
+    "全体HOLDと元出力限定": "不一致・異surface競合・元renderer失敗・元grid/record不一致は全体HOLD。未解決modelを落として残りの格子へ逃げず、返すのは変更しない元格子のみ。元recordのfirst_placementは診断用であり一意整列の証拠ではない。入力20×20がそのまま出力になるno-opは元どおり拒否する",
+    "fit後の分離": "元のfirst-teacher推定と全教師再現を先決し、その後に全教師の証明を行う。fit後の教材が保持するのはコピーした二値patternだけで、teacher outputオブジェクトやtest outputをpredictionへ渡さない。他課題とpatternを共有しない。回帰fixtureには評価課題の実柄を使わず、独立に生成した別柄を使う"
+  },
+  "HDS": {
+    "学習": "最低2教師は元fitter条件、distinct入力は追加wrapper条件。全教師を完全再現した後、それぞれの最終盤面を一度ずつ同じHDSの公開cycleへ渡す。全400bitとD4/配色/位置照合は教材側の旧機構で、HDSが生成則を新発見したとは呼ばない",
+    "支持": "現在5盤面・prior0・min3・隔離0。template400bit、16物理model、offset数、重複観測cellは支持へ加算しない。既存のちょうど2 distinct入力のmin2方針と全120で34/86の支持設定、中核既定3は不変",
+    "排気": "公開学習cycle・全教師再現・同値・反例隔離・既存排気gate・全採用機構合意を維持。採用済みfamilyの未解決・競合は全体HOLD"
+  },
+  "原指標保持": "wrong_attempted_tasks=5は先行と同じ正答部分回答5課題で不変。誤った出力格子は新旧とも0。採点器と原指標名は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "13d5e196de53903378069f1ec586816b5b1894c50250420432d222cc21b9adcc",
+    "接続/ARC2/既存二値原型.py": "1f9eca0627198e784a5e38c3b08443545663d8d265d92b1c759457b487a5e723",
+    "接続/ARC2/二値原型教材.py": "0b1bd665ad3066d26e79215e188043be4501ac9275285e8d9c2b80a61987423e",
+    "検証/二値原型回帰.py": "afb303670da5e63cf3b8e7f8230fce4279553dc6a1be4e3c30f85d701f2057a9",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存710件＋新21件成功。新21件は最適化モードでも成功",
+    "全D4/配色、同surface複数offsetと対称重複、異surface競合/no-match、全cropcell照合、mode tie、20×20 no-op、template19/21拒否、元grid/record改変HOLDを確認",
+    "fit後の教師output変更からpatternが独立、別課題patternの非共有、別templateで補完が変わること、元fit先決、追加入力重複拒否、native5/min6未達、採用済み未確定HOLD、ID/test target拒否を確認",
+    "独立教師監査で全72/227、5 leave-one-out・先頭教師全5通りの同じ16surface集合、別の無作為20×20柄30件成立。別座標式180入力は一意86/異surface69/不一致25、対称重複92/複数位置62を保持",
+    "runtime独立監査は359教師raw/guard・全120fit/wrapper・残72全record・両query/native全文、旧9/証明4 AST、中核12・保護7・先行228snapshotのadapter以外・scorer/runner不変を照合"
+  ],
+  "情報分離の留保": "2026-10-02 21:23 UTC頃、外部監査記録を広くrg検索した際に単一行challenges JSONが偶発的に一致し、大量省略された出力に一部challenge入力が表示された。対象queryの意図的抽出やsolutions参照はその時点では行っていないが、query未参照と一括主張しない。経緯を親/独立監査へ共有し、以後はsource明示とteacher-only抽出資料へ限定。本候補も条件凍結・独立監査後に承認済みinput-only確認、最後に全120採点を行った",
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "全400bitの現在教師pattern記憶、固定20×20、二色D4/crop完全照合の限定機構。内部形状の生成則を学習したとの主張や、未知柄をcropだけから推論できるとの主張はしない",
+    "残71課題未完・99例未回答"
+  ]
+}
