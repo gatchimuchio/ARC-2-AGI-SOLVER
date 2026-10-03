@@ -1,0 +1,81 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "5c913c0d998fd7b046f5bafe264025e3b9fd1075",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365。program_search blob c60fad158350b42fbc5ef0cbb2db7b26707cd6c1 の _grid_shape/_window/_quadrant_template_palette_render の3関数を原文で抽出。ARC検査・全座標の元grid/record同値証明・教師wrapperの3関数を追加。旧fitterは教師再現後にtest renderabilityも検査するため、その全文ではなく教師最低数条件とrendererを再利用する",
+  "介入": "現在入力の4象限を寸法カウンタ2個・palette/pattern・stencilとして読む旧符号を、全出力座標の独立証明付きで同じHDSへ接続。完成柄や教師出力を学習parameterへ記憶せず、出力寸法と全色を現在入力だけから決める",
+  "previous": {
+    "correct_tasks": 49,
+    "correct_examples": 68,
+    "unanswered": 99,
+    "wrong_attempted_tasks": 5,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 50,
+    "correct_examples": 70,
+    "unanswered": 97,
+    "wrong_attempted_tasks": 5,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 2,
+    "regressed_examples": 0,
+    "既存正答68例": "全て同一"
+  },
+  "原因観測": {
+    "教師限定preflight": "残71課題222教師対で元rendererを確認し、1課題5教師だけ完全fit。入力side8/16、出力16×4/16×16/10×10/4×4/3×4。全64/256/100/16/12＝448cellを独立式で再現し、旧scalar3・cellwise1・blank-template1の全modeを観測した",
+    "入力のみ適用確認": "独立実体監査後、8×8入力のn4・非0数10/8から10×8出力、scalar modeでtemplate56＋palette24の全80cell。4×4入力のn2・非0数4/4から4×4出力、cellwise modeで8＋8の全16cell。両方元grid/record一致。事前grid/recordを凍結後に全120採点で正解照合"
+  },
+  "固定規約と証明": {
+    "全象限の固定役割": "正の偶数辺の正方形入力を同じn×nのTL/TR/BL/BRへ完全分割する。TLの非0画素数を出力高さ、TRの非0画素数を幅とする。色や配置は数え方に影響しない。固定0・象限順序・一画素一単位の寸法符号は旧priorで、背景頻度や教師から推論した寸法法則ではない。入力side8/16やn4/8には固定しない",
+    "柄と配色の式": "P=BL、T=BR。Tが全0ならPをcell pitchで周期n反復する。Tに非0があればTを周期nで反復し、非0はTの色、0はP[(row//n)%n][(col//n)%n]で埋める。元はPが一様ならP[0][0]を使うscalar枝を持つが、全Pの一様性確認後は同じcoarse式の定数特殊例となる。T空/非空は入力の構造タグであり、失敗後のfallbackではない",
+    "全cellと有限prefix": "非正方形や端の部分tileを含め、指定された高さ×幅の全座標を一つのtemplateまたはpalette位置へ対応づける。全tileへ切り上げず、物体の範囲外pixelをclipする処理とも呼ばない。有限prefixなのでP/Tの全要素が出力に現れる保証はない。全象限の役割解釈と、全入力pixelの使用・保存を混同しない。palette内の0、paletteとtemplateの同色兼用を禁じない",
+    "色数と保存限定": "全出力座標の所有数・色数を式から数え、template所有＋palette所有が出力面積に一致することを証明する。一般の入力前景数・色数・物体数保存は主張しない。独立式は一様Pでもcoarse座標を数える一方、旧scalar rendererの実参照はP[0][0]なので両記録を区別する",
+    "資源と元出力限定": "guarded_renderは入力ARC/偶数正方形と出力各辺1..30を先決し、過大寸法を旧renderer前に全体HOLDにする。教師fitのraw再現はこの前で、最大30×30入力から225×225のraw出力まで旧処理を実行して不適合を判定する。両呼出を一律の先行拒否とは説明しない。元成功・元grid/全record一致のみを許し、別mode/別寸法/転置/0の選び直しやproof格子への代替をしない。旧no-op拒否も保持する"
+  },
+  "HDS": {
+    "学習": "元fitterの最低2教師を維持し、全教師の元再現を証明より先に確定する。strict ARC教師入力と入力重複拒否は追加wrapper条件。fit後の教材は適合boolだけを保持し、教師柄・教師output・test outputは予測へ渡さない。再現した各教師最終格子を一度ずつ同じHDSの公開cycleへ渡す",
+    "支持": "現在5盤面・prior0・min3・隔離0。3modeの観測3/1/1、象限数、448教師出力cellやtile数を支持へ加算しない。ちょうど2 distinct入力のmin2方針と全120で34/86の支持設定、中核既定3は不変",
+    "排気": "公開学習cycle・全教師再現・同値・反例隔離・既存排気gate・全採用機構合意を維持。採用済みfamilyの未解決・競合は全体HOLD"
+  },
+  "原指標保持": "wrong_attempted_tasks=5は先行と同じ正答部分回答5課題で不変。誤った出力格子は新旧とも0。採点器と原指標名は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "a1e8e800f520346211bf0e6e4ca1a29598573d19e0df8bf73cee527f633f898b",
+    "接続/ARC2/既存象限配色.py": "eeef1a774d1bcf88bb8d44bd7ddbe8097c81730f47326694669b9b667e9e4780",
+    "接続/ARC2/象限配色教材.py": "4895fdd6c07fafdf0df4b31daed0b73cc230cdcf705f3dfe8279145ad09db172",
+    "検証/象限配色回帰.py": "c11e035378a73ff0f8e02ed326888175d03a220993df5a20b0419ef940dc701d",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存731件＋新21件成功。新21件は最適化モードでも成功",
+    "3mode/部分tile/n1、非0色の配色置換、寸法記号の位置と色変更、特殊0変更が不変性ではないこと、空template＋一様Pの元mode優先、全nonzero template、未使用P変更、0palette/色兼用を確認",
+    "guardでside30通過・31/225拒否と元renderer未呼出、教師rawで225×225/225×224実行後に不適合/guard未実行を確認。ゼロ寸法・odd/非正方形/不正ARC・元no-op・元失敗/grid/record改変は全体HOLD",
+    "元全教師再現先決、min2/追加入力重複拒否、native5盤面/min6未達、適合boolのみの保持、採用済み未確定全体HOLD、ID/test target拒否を確認",
+    "独立教師監査で全71/222・5教師448cellと別入力600件の全grid/所有/色数が一致（部分tile546・未使用palette488）。runtime監査で359入力raw/guard・全120fit/wrapper・残71全record・両query/native全文、旧3/証明3 AST・中核12・保護7・旧232snapshotのadapter以外・scorer/runner不変を確認"
+  ],
+  "情報分離の留保": "2026-10-02 21:23 UTC頃、外部監査記録を広くrg検索した際に単一行challenges JSONが偶発的に一致し、大量省略された出力に一部challenge入力が表示された。対象queryの意図的抽出やsolutions参照はその時点では行っていないが、query未参照と一括主張しない。経緯を親/独立監査へ共有し、以後はsource明示とteacher-only抽出資料へ限定。本候補も条件凍結・独立監査後に承認済みinput-only確認、最後に全120採点を行った",
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "固定0・四象限位置・非0単位計数・stencil有無によるpitchという限定符号prior。一般的な象限役割や任意の寸法法則を学習したとは呼ばない",
+    "残70課題未完・97例未回答"
+  ]
+}
