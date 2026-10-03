@@ -1,0 +1,80 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "69d6348a17c582603fc1694426ea350c1615992f",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365。fit generator blob6396b54f415c399df1c52f51b1f563bca9b8b0f7のcomponent_shapeとrender_anchored_singleton_motif_tilerを原文で抽出。grid/background/色別8近傍component/bboxの現行共有4moduleと依存を照合。旧fitterは元rendererの全教師完全一致を検査する。新しい全raw役割・全配置証明4関数とwrapperを、旧予測規則本体と区別する",
+  "介入": "同色motifとsingleton anchorを基準に、別色singletonの相対配置をmotif寸法pitchへ写す旧priorを、範囲判定後の描画成功で役割を選別しない受理証明付きで同じHDSへ接続する",
+  "previous": {
+    "correct_tasks": 43,
+    "correct_examples": 59,
+    "unanswered": 108,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 44,
+    "correct_examples": 60,
+    "unanswered": 107,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答59例": "全て同一"
+  },
+  "原因観測": {
+    "教師限定preflight": "残77課題242教師対を全件検査し、1課題3教師のみ完全一致。source motifのshapeは3×3/4×3/3×3、画素数6/10/7、marker数5/4/5。全教師のraw役割はbounds判定前に1通りで、軸GCDは2/2。全配置bboxは範囲内で非重複。source色出力画素数30/40/35、marker色6/10/7を確認",
+    "入力のみ適用確認": "凍結実体の独立監査後、22×22・背景8、source6/marker4の唯一役割。4×3 motif9画素とanchor1/marker5の全15前景を解釈。軸GCD2/2、全5配置と元位置のbboxは範囲内で非重複。source色45画素、元motif位置のmarker色9画素となり、今回の旧instruction6座標は背景へ戻る。元格子/記録一致後、全120採点で正解照合"
+  },
+  "固定規約と証明": {
+    "全raw役割先決": "背景は入力の一意最多。元の色別8近傍条件で、1つの非singleton motifと1つのsingleton anchorを持つsource色、全成分がsingletonである別marker色の全pairを先に列挙する。bounds/描画成功/no-op/3色被覆による絞り込みより前にraw役割1通りを要求する。次に全前景がmotif/anchor/全markerに完全帰属し、未知色がないことを確認する",
+    "単位とpitch": "各軸で全marker−anchor差の絶対値GCDを使う最大共通整数単位規約。全差0なら1とするが、その軸の配置は任意の正単位で同じである。物理的な唯一間隔を同定したとはしない。正規化した整数座標にmotif bbox高さ/幅を掛け、元motifのbbox始点へ加える。固定方向の回転なし平行移動で、22×22・step2・特定形状は固定しない",
+    "全配置と因果": "全markerの正規化座標は相異なりanchor自身ではないため、bbox寸法pitchの全配置は元から非重複となる。GCDは各差を割るので元unsupported-scale枝も正規な役割では発生しない。証明はこれらと全bbox範囲を確認するが、未実証の順序/overlapバグを修理したとは説明しない。OOBのroleを落として別roleを採ることと、未知色の黙殺を防ぐ追加条件が主な限定",
+    "同時格子": "背景canvasへ元motifの自身のmaskをmarker色で描き、各markerの位置関係にsource色motif maskを1回ずつ描く。bbox内の背景穴を塗り潰さず、正確な自身の画素maskを使う。全提案・色別画素数・元renderer格子と診断記録の一致を要求し、元格子だけ返す。別anchor/role/scale/rotationへ切替えない",
+    "保存と消費": "source色出力画素数はmarker数×motif画素数、marker色はmotif画素数。原anchor/marker点は命令として解釈され、元前景位置や入力画素数の保存は主張しない。計算結果が旧instruction座標を塗ることは許すため、消費は全旧座標の背景化と同義ではない。合成例で3点中2点だけが背景となり、残り1点は計算されたsource色になる"
+  },
+  "HDS": {
+    "学習": "旧の色別役割/GCD単位/motif寸法pitchと新受理証明を、同じHDSの候補格子→出力格子同値採用と区別する。旧fitterに最低2教師/入力重複拒否の明示条件はなく、wrapperが最低2 distinct入力を追加する。各教師の最終盤面を一度ずつ公開学習へ渡す",
+    "支持": "現在3盤面・prior0・min3・隔離0。anchor/marker/配置/画素数を支持へ加算しない。二つの異なる入力ちょうどならmin2とする既存方針と全120の34/86分布、中核既定3は不変",
+    "排気": "公開学習cycle・全教師再現・同値・反例隔離・既存排気gate・全採用機構合意を維持。採用済みfamilyの未解決・競合は全体HOLD"
+  },
+  "原指標保持": "wrong_attempted_tasks=4は先行と同じ正答部分回答4課題で不変。誤った出力格子は新旧とも0。採点器と原指標名は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "17e899c84898d66c70c524d0a2beafc98ed510bc189955bd1783bd003124a519",
+    "接続/ARC2/既存基点複製.py": "1188cf6a6057b38b07a322734bd02f6c2b8907a99b672e35f1fb66220e6058b6",
+    "接続/ARC2/基点複製教材.py": "4d3efbad983efc03f2f6234aa8994c3a893bf5969d3d2f91627af533253d1c41",
+    "検証/基点複製回帰.py": "a7ba87735bacdfe23bb52348c46ea264d74e2edea0e188dcfc2785455eba6fd5",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存596件＋新18件成功。新18件は最適化モードでも成功",
+    "2raw roleの片方OOB後に元が他方を採る実格子、唯一roleだが未知dominoを消す実格子を全体HOLD。複数anchor、非singleton marker、全markerの一件OOBを拒否",
+    "全ゼロ軸のdefault1不変、GCD3、非正方形motif、全marker/色別倍率、元位置の色変更、旧instruction位置への計算結果の描画、D4/配色置換、元grid/record改変拒否を確認",
+    "raw教師再現先決、重複/不正入力拒否、native盤面支持/min3未達、未解決queryHOLD、ID/target拒否を確認",
+    "独立教師監査で77/242全文と実反例、runtime監査で359教師raw/guard・全120fit・残77記録・query/native全文一致。全markerの積座標式からquery全画素も再描画一致。旧2/証明4 ASTと共有4module、中核12・保護7・先行機構・scorer/runner不変"
+  ],
+  "情報分離の留保": "2026-10-02 21:23 UTC頃、外部監査記録を広くrg検索した際に単一行challenges JSONが偶発的に一致し、大量省略された出力に一部challenge入力が表示された。対象queryの意図的抽出やsolutions参照はその時点では行っていないが、query未参照と一括主張しない。経緯を親/独立監査へ共有し、以後はsource明示とteacher-only抽出資料へ限定。本候補も条件凍結・独立監査後に承認済みinput-only確認、最後に全120採点を行った",
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残76課題未完・107例未回答。3色役割・1motif/1anchor・singleton marker・軸GCD・無回転bbox pitchという限定priorで、任意の配置文法や潜在scaleを網羅したものではない"
+  ]
+}

@@ -56,11 +56,12 @@ python 検証/疎点転写回帰.py
 python 検証/帯輪郭回帰.py
 python 検証/制御複写回帰.py
 python 検証/配置展開回帰.py
+python 検証/基点複製回帰.py
 ```
 
 全120課題・167test例、各課題10CPU秒・512MiB・60秒wall、3並列で旧ARC採点関数を再利用する。baselineモードは初期のHDS格子値診断であり、前commitそのものではない。test正解と課題IDは親採点側に限定する。
 
-前commit `384942a` の42/120課題・58/167例から、配置mask展開で43/120課題・59/167例へ改善。旧採点器のwrong_attempted_tasksは既存部分回答4課題で不変、誤った出力格子は0。先行58例は全て同一。比較は `検証/配置展開比較.json`、先行成果は既存比較記録に保持する。
+前commit `69d6348` の43/120課題・59/167例から、基点motif展開で44/120課題・60/167例へ改善。旧採点器のwrong_attempted_tasksは既存部分回答4課題で不変、誤った出力格子は0。先行59例は全て同一。比較は `検証/基点複製比較.json`、先行成果は既存比較記録に保持する。
 
 物体端投射は既存8近傍物体抽出と九特徴を使い、教師だけから整合する特徴→上端/下端方向を選ぶ。各物理物体を一度ずつ現行HDSへ観測し、既存bbox順を保つ。未知特徴・識別不能・競合・配置重複は全格子HOLD。予測結果経路の制限は差分0で棄却し、HDS中核は元のまま。
 
@@ -217,3 +218,11 @@ seed境界着色は教師からfill/ seed/ background/ barrierの四色を決め
 `配置展開教材.py` は背景一意、全foreground被覆、両bbox内の全前景画素の所有を証明し、外来foregroundが一つでも入れば全体HOLD。全mask/tile位置の積座標と出力全cellを検査し、元renderer格子/記録に一致する元格子だけ返す。各motif前景色の画素数はactive cell数倍になるが、layout色は消費され、全入力画素数・成分数・背景色の残存は保存しない。出力辺30超過をclip/縮小で救済しない。
 
 最低2 distinct教師は追加wrapper条件。native支持は今回3現在盤面・prior0・min3で、tile/active cell/画素数は加算しない。既存HDSの全機構合意と情報分離留保を保持し、同条件全120で43課題59例・先行58例同一を確認した。
+
+## 基点motif展開
+
+`既存基点複製.py` は旧generatorの2関数と現行共有の色別8近傍成分/grid/background/bboxを使う。1motif＋同色singleton anchor、別色の全singleton markerを入力役割とし、marker−anchor差を軸別GCDで整数化する。全差0の軸はdefault1だが配置に影響しない。元motifのbbox始点から、高さ/幅pitchで正確なmotif画素maskを無回転で平行転写する固定prior。元motifはmarker色、全copyはsource色で描く。
+
+`基点複製教材.py` はbounds成功や3色制限で候補を落とす前に全raw roleを一意に確定し、その後に背景を含む3色入力の全前景画素が役割へ帰属することを要求する。OOB後の役割選別や未知色の消去は全体HOLD。GCDの整数座標とbbox pitchで非重複は元から成立し、順序バグ修理とはしない。全配置と同時格子/色別画素数が元renderer格子/記録に一致する場合だけ、その元格子を返す。
+
+source色画素数はmarker数×motif画素数、marker色はmotif画素数。元の点は命令として消費されるが、計算されたmotifが旧点座標を塗る場合もあるため、全旧点の背景化や前景保存とは呼ばない。最低2 distinct教師は追加wrapper条件で、native支持は今回3現在盤面・prior0・min3。点/配置/画素数を支持へ加算せず、既存HDSの全機構合意と情報分離留保を保持する。同条件全120で44課題60例・先行59例同一を確認した。
