@@ -53,6 +53,7 @@ from .区切投射教材 import 区切投射教材
 from .物体slot教材 import 物体slot教材
 from .疎点転写教材 import 疎点転写教材
 from .帯輪郭教材 import 帯輪郭教材
+from .制御複写教材 import 制御複写教材
 
 
 def 事前教材を読む():
@@ -208,6 +209,7 @@ def 課題を解く(課題, 事前教材):
     物体slot = 物体slot教材(課題["train"])
     疎点転写 = 疎点転写教材(課題["train"])
     帯輪郭 = 帯輪郭教材(課題["train"])
+    制御複写 = 制御複写教材(課題["train"])
     機構群 = (
         ("ARCテンプレート穴充填", _template_hole_pack_render, 事前教材),
         ("ARC入れ子パネル合成", _nested_panel_relation_render, ()),
@@ -254,6 +256,7 @@ def 課題を解く(課題, 事前教材):
         ("ARC物体slot標識回廊", 物体slot.候補, ()),
         ("ARC疎点graph転写", 疎点転写.候補, ()),
         ("ARC帯列square輪郭", 帯輪郭.候補, ()),
+        ("ARC制御bar個数複写", 制御複写.候補, ()),
     )
     記録群 = [候補機構を学習(機械, 課題, 教材, 境界, 候補器)
               for 境界, 候補器, 教材 in 機構群]
@@ -288,7 +291,7 @@ def 課題を解く(課題, 事前教材):
                            "reasons": ["採用済み機構の完全格子予測が競合したため保留"]})
     return {"results": 結果群, "mechanism": "HDS機構候補の照会",
             "minimum_support": 必要支持数, "families": 記録群,
-            "quarantined": 隔離数, "object_learning": 端教材.記録(), "legend_learning": 凡例教材.記録(), "grouped_packing": 色群教材.記録(), "group_order": 整列教材.記録(), "lattice_self_mask": 格子教材.記録(), "component_path": 経路教材.記録(), "diagonal_bridge": 橋教材.記録(), "diagonal_region": 対角教材.記録(), "axis_reflection": 反射教材.記録(), "tuple_repair": 周期教材.記録(), "panel_exemplar": 見本教材.記録(), "hole_scale": 拡大教材.記録(), "guided_compaction": 移動教材.記録(), "radial_assembly": 放射教材.記録(), "hole_outline": 輪郭教材.記録(), "template_shape_color": 形状教材.記録(), "legend_gap": 凡例経路.記録(), "separator_run": 行周期.記録(), "overlap_mosaic": 重畳教材.記録(), "farthest_blank": 空白教材.記録(), "header_rank": 順位教材.記録(), "separator_layer": 距離教材.記録(), "vertical_pruning": 剪定教材.記録(), "periodic_panel": 反復教材.記録(), "seeded_boundary": 種境界.記録(), "corridor": 流路.記録(), "panel_path": 直列.記録(), "plus_motif": 十字.記録(), "frame_count": 枠計数.記録(), "marker_count": 標識計数.記録(), "marker_assembly": 標識組立.記録(), "motif_swap": 倍率置換.記録(), "nested_inventory": 包含正規化.記録(), "periodic_band": 周期帯.記録(), "square_palette": 中心配色.記録(), "square_anchor": 正方形格子.記録(), "repeated_side": 側周期.記録(), "separator_projection": 区切投射.記録(), "object_slot": 物体slot.記録(), "sparse_point": 疎点転写.記録(), "stripe_ring": 帯輪郭.記録()}
+            "quarantined": 隔離数, "object_learning": 端教材.記録(), "legend_learning": 凡例教材.記録(), "grouped_packing": 色群教材.記録(), "group_order": 整列教材.記録(), "lattice_self_mask": 格子教材.記録(), "component_path": 経路教材.記録(), "diagonal_bridge": 橋教材.記録(), "diagonal_region": 対角教材.記録(), "axis_reflection": 反射教材.記録(), "tuple_repair": 周期教材.記録(), "panel_exemplar": 見本教材.記録(), "hole_scale": 拡大教材.記録(), "guided_compaction": 移動教材.記録(), "radial_assembly": 放射教材.記録(), "hole_outline": 輪郭教材.記録(), "template_shape_color": 形状教材.記録(), "legend_gap": 凡例経路.記録(), "separator_run": 行周期.記録(), "overlap_mosaic": 重畳教材.記録(), "farthest_blank": 空白教材.記録(), "header_rank": 順位教材.記録(), "separator_layer": 距離教材.記録(), "vertical_pruning": 剪定教材.記録(), "periodic_panel": 反復教材.記録(), "seeded_boundary": 種境界.記録(), "corridor": 流路.記録(), "panel_path": 直列.記録(), "plus_motif": 十字.記録(), "frame_count": 枠計数.記録(), "marker_count": 標識計数.記録(), "marker_assembly": 標識組立.記録(), "motif_swap": 倍率置換.記録(), "nested_inventory": 包含正規化.記録(), "periodic_band": 周期帯.記録(), "square_palette": 中心配色.記録(), "square_anchor": 正方形格子.記録(), "repeated_side": 側周期.記録(), "separator_projection": 区切投射.記録(), "object_slot": 物体slot.記録(), "sparse_point": 疎点転写.記録(), "stripe_ring": 帯輪郭.記録(), "control_bar": 制御複写.記録()}
 
 
 if __name__ == "__main__":

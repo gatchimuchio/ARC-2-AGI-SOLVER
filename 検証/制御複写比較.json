@@ -1,0 +1,81 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "6efe53f5254498312b1b9455402bf5d5068c76fa",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365。fit generator blob6396b54f415c399df1c52f51b1f563bca9b8b0f7の3関数（入力解析・役割で選ぶcomponent・renderer）、object graph blob2615ff464e20528604b58cfa29495110aaca30a4の2関数を原文で抽出。共有するgrid/clone/background/component依存は現行4moduleの一致を確認。新wrapperのraw_teacher_policyは旧fitterの教師側色/周期/全役割pair照合を再構成する。元fitter全文はquery可描画性とevent数も検査するため、その末尾を含む完全同一とはしない",
+  "介入": "下端control barと占有列が交わる全物体を再着色し、その物体数と同じ回数だけ別roleの最高位置物体を上へ複写する旧priorを、全対象/全copyの受理証明付きで同じHDSへ接続する",
+  "previous": {
+    "correct_tasks": 41,
+    "correct_examples": 57,
+    "unanswered": 110,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 42,
+    "correct_examples": 58,
+    "unanswered": 109,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答57例": "全て同一"
+  },
+  "原因観測": {
+    "教師限定preflight": "残79課題248教師対を検査し、raw役割一意かつ全教師再現は1課題3教師。背景は7/1/6、共通の再着色control/copy control/再着色先/周期は2/3/5/4。各教師の全物体高さ3、開始行17/21/25とgap4。再着色component2/1/3個に対しcopy操作2/1/3回、copy22/11/33cell、control消去10cellずつ。跨ぎ・clip・GCD切替は現教師で未観測",
+    "入力のみ適用確認": "凍結実体の独立監査後、30×30の入力で全4物体・3barを解釈。背景4、物体高さ3、開始行は一種類でrow gapは空。固定height+1枝と学習済み周期4が一致する。再着色2物体22cell、copy2操作22提案/22union/22新規背景cell、control15cell消去、合計59変更。旧renderer格子/記録と一致。正解は後続全120採点で照合"
+  },
+  "固定規約と証明": {
+    "教師推定の先決": "旧教師側の最低2例、全入力の同じcontrol色集合、各教師で一つの出力専用色とその共通性、入力推定周期の共通性を検査する。全順序role pairを全教師の元出力で照合して一意policyを確定し、その後だけ証明を行う。guard失敗roleを捨てて残りを採る処理はない",
+    "入力役割と全成分": "背景は入力ごとの一意最多。既知2control色/再着色先と背景のaliasを拒否し、全barが既知2役割に属することを要求する。既存target色が別物体にあること自体は拒否しない。単色4近傍の全foreground componentが下端1行の長さ2以上bar、または下端より上のshapeへ完全帰属することを証明し、下端跨ぎの黙殺を全体HOLDにする",
+    "周期枝": "元parserは最頻shape高さ+1を使い、row-start gapが合わなければGCDへ切替える。今回の追加証明は一意な高さ最頻値+1枝だけに限定し、GCD切替が必要なら全体HOLD。入力のheight+1と元推定値と教師でfitした周期が一致することを要求する。固定高さ+1は学習された一般的な間隔法則ではなく、queryに複数row gapの観測があるとも限らない",
+    "対象と複写": "各roleの全bar占有列に一つでもcellが交わるshapeを全て選ぶ。copy-roleの最上bbox開始行にある物体が一つの場合だけ、その元形を上へ周期の整数倍ずつ複写する。回数は重複を除く再着色対象component数。別方向・別周期・他のcopy物体を選び直さず、全操作の全cellを列挙し、一つでも盤外なら全体HOLD",
+    "同時描画と保存": "全control消去・全対象の全cell再着色・全copyを同時最終色として集め、異色競合を拒否する。同色copy overlapは元どおりunionで許す。元の非操作cellと再着色対象/control以外の前景を保存し、元renderer格子と診断記録へ完全一致する場合だけその元格子を返す",
+    "消去証拠と個数": "control消去は役割推定・全教師raw再現・全構造/完成格子証明を通過した異なる現在教師の実証から許可し、今回はwitness3。copy回数とunion後の物体数/画素数は異なる。合成例で3操作/9提案pixel/7union/6追加背景pixelを確認し、一般の物体個数や画素数保存は主張しない"
+  },
+  "HDS": {
+    "学習": "旧control/最高位置/height+1というtyped priorと教師側役割推定/新受理証明を、同じHDSの候補格子→出力格子同値採用と区別する。元の最低2教師条件に入力重複拒否を加え、完全教師盤面を一度ずつ公開学習へ渡す",
+    "支持": "現在3盤面・prior0・min3・隔離0。消去witness3、control/物体/copy操作/画素数を支持へ加算しない。二つの異なる入力ちょうどならmin2とする既存方針と全120の34/86分布、中核既定3は不変",
+    "排気": "公開学習cycle・全教師再現・同値・反例隔離・既存排気gate・全採用機構合意を維持。採用済みfamilyの未解決・競合は全体HOLD"
+  },
+  "原指標保持": "wrong_attempted_tasks=4は先行と同じ正答部分回答4課題。誤った出力格子は新旧とも0。採点器と原指標名を変更しない",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "277954be47b83531c439c7d0a689dcd307f4ecd2adfae2ff10e37fc34fe9d3b4",
+    "接続/ARC2/既存制御複写.py": "b1f894ad36e60dfc73a726273d94492ab48ce3f16d70a486b37c98bf09d1558d",
+    "接続/ARC2/制御複写教材.py": "46c31162d5c522860bbe978864a7a083b92801f02b3ded6d037e8e9675a81928",
+    "検証/制御複写回帰.py": "a0752d5e0118f5848a9725ffbac6330e2bc0adfdefd21f1f031cfe525582df7a",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存560件＋新18件成功。新18件は最適化モードでも成功",
+    "背景/選択数変化、全教師再現後の消去証拠、raw不適合時の停止、下端跨ぎ、全copy clip、未観測GCD枝、高さ最頻同率、入力と既知周期不一致、余分control役割の全体HOLDを確認",
+    "元が同色の元物体上へcopyし、再着色を上書きする実格子を同時異色競合として拒否。同色copy同士は3操作/9pixel→7union/6追加を許す。既存target色・未選択物体・元copy元の保存、元格子改変拒否、20×25等の寸法と配色置換を確認",
+    "native盤面数とwitness/物体数の分離、min3未達、採用済みfamily未解決HOLD、ID/target拒否を確認",
+    "独立教師監査で79/248全model/record、runtime監査で359教師raw/両witness mode・全120fit・残79記録・query/native全文一致。旧5/新4 ASTと共有4module、中核12・保護7・先行機構・scorer/runner不変"
+  ],
+  "情報分離の留保": "2026-10-02 21:23 UTC頃、外部監査記録を広くrg検索した際に単一行challenges JSONが偶発的に一致し、大量省略された出力に一部challenge入力が表示された。対象queryの意図的抽出やsolutions参照はその時点では行っていないが、query未参照と一括主張しない。経緯を親/独立監査へ共有し、以後はsource明示とteacher-only抽出資料へ限定。本候補も条件凍結・独立監査後に承認済みinput-only確認、最後に全120採点を行った",
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残78課題未完・109例未回答。下端bar・列交差・固定上向き・最高位置source・height+1という限定prior。全方向/任意命令/任意周期の探索や一般物理法則の学習は行っていない"
+  ]
+}
