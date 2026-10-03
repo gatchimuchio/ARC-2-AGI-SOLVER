@@ -1,0 +1,79 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "384942ac203bf4ff161d237e5a7ae5f64952f815",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産": "ARC-Layer-0-Functional-Compliance@454670a13024ccf28dc7e9ed9d8ee256ee6cd365。fit generator blob6396b54f415c399df1c52f51b1f563bca9b8b0f7からforeground_mixed_components、crop_bbox、render_layout_mask_macro_tile_expanderの3関数を原文で抽出。grid/background/mixed-componentの現行共有3moduleと依存を照合。旧fitterは元rendererの全教師完全一致を検査する。新しい証明3関数と追加wrapper条件は旧renderer本体と区別する",
+  "介入": "別色単色layout maskの全active cellへ混色motif bbox全体を写す旧block product priorを、全成分所有・全tile/出力対応の証明付きで同じHDSへ接続する",
+  "previous": {
+    "correct_tasks": 42,
+    "correct_examples": 58,
+    "unanswered": 109,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 43,
+    "correct_examples": 59,
+    "unanswered": 108,
+    "wrong_attempted_tasks": 4,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答58例": "全て同一"
+  },
+  "原因観測": {
+    "教師限定preflight": "残78課題245教師対を全件検査し、1課題3教師のみ完全一致。3×3/3×3/4×4 motifと3×4/4×3/3×3 maskから9×12/12×9/12×12を生成する。active maskは8/6/6cell。全入力は混色8近傍foregroundが2成分で、各bboxの全foregroundをその成分が所有し、元出力の全cellが積座標式と一致",
+    "入力のみ適用確認": "凍結実体の独立監査後、14×13入力の5×5 motifと5×5 maskから25×25を生成。18 active/7 inactive位置と全625cellを解釈。motif前景色3/4/6の画素数9/4/12が18倍の162/72/216となり、残175cellは背景8。元格子/記録一致を確認し、正解は後続全120採点で照合"
+  },
+  "固定規約と証明": {
+    "役割先決": "背景は元の入力最多色とし、追加証明で一意性を要求。背景以外の混色8近傍成分がちょうど2個で、全foregroundを重複なく覆う。全順序pairを描画寸法より前に検査し、一方が2色以上のmotif、他方がmotifにない一色のlayoutというraw役割を一意に確定する。離れた同色mask島を色集合で統合しない",
+    "bbox所有": "motifとlayoutそれぞれのtight bboxの全foregroundが、その成分自身の画素集合と一致することを要求。bbox内に他方の画素が入れば全体HOLD。元は混色の輪郭内に置かれたmask色もmotif cropとして複写し得るため、別cropや別役割を選ばず拒否する",
+    "積配置": "pitchはmotif bboxの高さ/幅。layoutの各active cellへ回転なしの完全なmotif crop（背景穴を含む）を置き、inactive cellは全背景tileにする。出力寸法は両bbox寸法の積。全layout位置×全tile位置を整数座標で検査し、全cell被覆・非重複・元grid/record一致を要求する。辺30超過は全体HOLDで、縮小やclipはしない",
+    "数量の範囲": "各motif前景色の画素数がactive mask cell数倍になることを確認する。layoutの役割色は別命令として消費され、入力全画素数・成分数・出力背景色の残存は一般に保存されない。全入力色数が倍率で増えるという意味ではない",
+    "元出力限定": "追加証明は別のcrop/scale/rotationを生成して選ばない。全教師raw再現を先決し、証明成功時にも返すのは元rendererの格子だけ。教師出力に合う部分成分だけを採る処理はない"
+  },
+  "HDS": {
+    "学習": "旧の無回転block product priorと新しい受理証明を、同じHDSの候補格子→出力格子同値採用と区別する。旧fitterに最低2教師/入力重複拒否の明示条件はなく、wrapperが最低2 distinct入力を追加する。全教師の最終盤面だけを一度ずつ公開学習へ渡す",
+    "支持": "現在3盤面・prior0・min3・隔離0。2成分、tile数、active cell数、画素数を支持へ加算しない。二つの異なる入力ちょうどならmin2とする既存方針と全120の34/86分布、中核既定3は不変",
+    "排気": "公開学習cycle・全教師再現・同値・反例隔離・既存排気gate・全採用機構合意を維持。採用済みfamilyの未解決・競合は全体HOLD"
+  },
+  "原指標保持": "wrong_attempted_tasks=4は先行と同じ正答部分回答4課題で不変。誤った出力格子は新旧とも0。旧採点器と原指標名は無変更",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "f703496d31bee25e8674312c385809320a32c39e257789edfe2c1dc583a57bda",
+    "接続/ARC2/既存配置展開.py": "89a04069344c12418e15f08a100354fe21a9d1f0221bba9c073b19b00ece70dc",
+    "接続/ARC2/配置展開教材.py": "939cace016e9a428dbd888bf743f4f4ea7a86c953ed54397172a7f25d70a9e54",
+    "検証/配置展開回帰.py": "cf9079e0467381e1b636be8b18e891a9f1d0d9221abf0eb351044f0892a5caab",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存578件＋新18件成功。新18件は最適化モードでも成功",
+    "両bboxへの外来foreground混入、背景頻度同率、離れた同色mask島、raw役割不成立を全体HOLD。非正方形motif、単一cell mask、背景穴、outputに背景がない場合、side30/32、D4/配色置換を確認",
+    "全foreground被覆、全active/inactive tile対応と各motif色の画素数倍率、元grid/record改変拒否、raw教師再現先決、重複教師拒否、native盤面支持/min3未達、未解決queryHOLD・ID/target拒否を確認",
+    "独立教師監査で78/245全文と2×2 motif/mask750組の全格子を確認。runtime監査で359教師raw/guard・全120fit・残78記録・query/native全文一致、query625cellを積座標式でも照合。旧3/証明3 ASTと共有3module、中核12・保護7・先行機構・scorer/runner不変"
+  ],
+  "情報分離の留保": "2026-10-02 21:23 UTC頃、外部監査記録を広くrg検索した際に単一行challenges JSONが偶発的に一致し、大量省略された出力に一部challenge入力が表示された。対象queryの意図的抽出やsolutions参照はその時点では行っていないが、query未参照と一括主張しない。経緯を親/独立監査へ共有し、以後はsource明示とteacher-only抽出資料へ限定。本候補も条件凍結・独立監査後に承認済みinput-only確認、最後に全120採点を行った",
+  "制限": [
+    "公開評価での差分。旧資産の過去開発データから独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "残77課題未完・108例未回答。ちょうど2混色8近傍成分・固有の色役割・tight bbox・無回転block積という限定priorで、任意の配置文法や回転/可変pitchを探索したものではない"
+  ]
+}

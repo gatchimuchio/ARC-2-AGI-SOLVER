@@ -55,11 +55,12 @@ python 検証/物体slot回帰.py
 python 検証/疎点転写回帰.py
 python 検証/帯輪郭回帰.py
 python 検証/制御複写回帰.py
+python 検証/配置展開回帰.py
 ```
 
 全120課題・167test例、各課題10CPU秒・512MiB・60秒wall、3並列で旧ARC採点関数を再利用する。baselineモードは初期のHDS格子値診断であり、前commitそのものではない。test正解と課題IDは親採点側に限定する。
 
-前commit `6efe53f` の41/120課題・57/167例から、制御bar個数複写で42/120課題・58/167例へ改善。旧採点器のwrong_attempted_tasksは既存部分回答4課題で不変、誤った出力格子は0。先行57例は全て同一。比較は `検証/制御複写比較.json`、先行成果は既存比較記録に保持する。
+前commit `384942a` の42/120課題・58/167例から、配置mask展開で43/120課題・59/167例へ改善。旧採点器のwrong_attempted_tasksは既存部分回答4課題で不変、誤った出力格子は0。先行58例は全て同一。比較は `検証/配置展開比較.json`、先行成果は既存比較記録に保持する。
 
 物体端投射は既存8近傍物体抽出と九特徴を使い、教師だけから整合する特徴→上端/下端方向を選ぶ。各物理物体を一度ずつ現行HDSへ観測し、既存bbox順を保つ。未知特徴・識別不能・競合・配置重複は全格子HOLD。予測結果経路の制限は差分0で棄却し、HDS中核は元のまま。
 
@@ -208,3 +209,11 @@ seed境界着色は教師からfill/ seed/ background/ barrierの四色を決め
 `制御複写教材.py` は背景一意、全component帰属、既知control役割、一意height mode+1と学習済み周期の一致を証明する。現教師で未観測のGCD切替、上端clip、下端跨ぎは全体HOLD。固定上向き/最高位置/height+1を別規則で救済しない。全再着色・全copy・control消去の最終proposalに異色交差があれば全体HOLDとし、元grid/recordへ一致する元格子だけ返す。未操作cellと再着色/control以外の元前景を保存する。queryに既存target色があるだけでは拒否しない。
 
 同色copy overlapはunionを許すので、copy操作回数と増えた物体/画素数は区別する。control消去は全教師raw/構造/格子証明後の現在教師witnessで許可し、今回のwitness3をnative3現在盤面・prior0・min3に加算しない。既存HDSの全機構合意と情報分離留保を保持し、同条件全120で42課題58例・先行57例同一を確認した。
+
+## 配置mask展開
+
+`既存配置展開.py` は旧generatorの3関数を原文で使い、現行のgrid/background/混色成分抽出を共有する。全foregroundを混色8近傍でちょうど2成分へ分け、混色motifと、その色を含まない別の単色layoutの役割を描画前に一意に決める。離れた同色mask島を統合しない。pitchをmotif bbox寸法に固定し、全active cellへ完全motif crop、全inactive cellへ背景tileを置く無回転block productの既存priorである。
+
+`配置展開教材.py` は背景一意、全foreground被覆、両bbox内の全前景画素の所有を証明し、外来foregroundが一つでも入れば全体HOLD。全mask/tile位置の積座標と出力全cellを検査し、元renderer格子/記録に一致する元格子だけ返す。各motif前景色の画素数はactive cell数倍になるが、layout色は消費され、全入力画素数・成分数・背景色の残存は保存しない。出力辺30超過をclip/縮小で救済しない。
+
+最低2 distinct教師は追加wrapper条件。native支持は今回3現在盤面・prior0・min3で、tile/active cell/画素数は加算しない。既存HDSの全機構合意と情報分離留保を保持し、同条件全120で43課題59例・先行58例同一を確認した。
