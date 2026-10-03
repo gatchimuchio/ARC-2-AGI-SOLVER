@@ -1,0 +1,88 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "aff239b82d2b365ba4ccea3079acdc3ea0acee55",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産と新実装": "既存の同色4近傍成分抽出same_color_components_4とgrid_shapeを再利用。全raw枠/共同roleの解釈・櫛の全列対応・静的配置・pin押上げ/clip・fitは新7関数とINWARD定数で、旧rendererの再接続ではない。既存同一HDSへの候補観測と全family gateだけを追加接続する",
+  "不足と優先根拠": "未回答群から全source形状と全barの幾何対応による干渉表現を選んだ。残65課題200教師をraw枠と共同入力roleで検査し、2教師を持つ1課題だけ全出力を再現。棄却済み凡例移動の向き/停止条件を修正する案ではない。複数課題への実測寄与や全資産の候補枯渇は主張しない",
+  "previous": {
+    "correct_tasks": 55,
+    "correct_examples": 76,
+    "unanswered": 91,
+    "wrong_attempted_tasks": 5,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 55,
+    "correct_examples": 77,
+    "unanswered": 90,
+    "wrong_attempted_tasks": 6,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 0,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答76例": "全て同一",
+    "部分回答": "第0例は一般guardでHOLDを維持、第1例だけ正答が増加"
+  },
+  "原因観測": {
+    "教師限定": "2教師はともに8×20・4pin・左開口だが、寸法/座標/色/本数をコードに固定しない。raw枠2/1件に対して共同入力role各1件、全320出力cellを再現。source櫛16/14cell、色pin12/8→可視7/7、clip5/1、元stem再着色2/4cell、全grid差34/32cell",
+    "rawとroleの区別": "教師0の櫛自体も3辺完備のU形なので、raw枠の幾何だけでは一意でない。全非base前景を内部に持つ枠と、その外側の同色sourceという共同入力roleを全列挙する。選択されないraw Uもsourceとして全所有する。配置boundsや出力再現で枠を一意化したのではない",
+    "入力のみ確認": "教師実体監査後の固定input-onlyでは両例ともraw枠1/role1。第0例は移動櫛と元baseの重複で全体HOLD。第1例は櫛11cellを[0,10]移動し、全4pinの12cellを可視11/clip1へ対応、元stem1cellを再着色、全grid差23cell。所有作用集合外127cellを保存した。この凍結格子だけが後の単一全120評価で正答と確認された"
+  },
+  "固定文法": {
+    "raw枠の全列挙": "各辺1..30のstrict ARC型と一意最多背景を要求。全非背景色の全同色4成分bboxについて、内域があり3辺完備/残る1辺に角を含まない連続gapがあるraw枠を全列挙する。gapの色や内容を見る前にrawリストを確定し、大きさ順位・先着・局所area capは使わない",
+    "共同入力role": "全raw枠と、開口の内向き法線に直交する2歯方向を保持して入力構造を照合する。全非base色は枠内のpin、全枠外前景は開口側半平面にある同色の元4成分1件でなければならない。gapは背景、source全体は1cell連続baseline＋連続1列teethで、歯の間にbaseline-only列を1以上置く。歯が無い/穴/部分成分/余分な前景を捨てない",
+    "整列と全pin": "baselineはgapの歯と逆側の端へ既に整列するという固定契約。全色pinは歯方向の1列連続成分で、各pinは別の列にある。各pinから天井までのbase色stemを全確認し、内域の全base色はこれらstemの和集合に限る。全source/枠/全pin/全stem/背景の帰属を確認した共同roleが1件だけのとき次へ進む",
+    "全対応と配置": "共同role一意を先決した後、全歯と全pinの本数・列差を照合し、全列で同じoffsetとなる平行移動だけを許す。櫛全体が枠の厳密内域に入り、元base/stemを含まず、元背景またはpin sourceだけと重なることを要求する。count/spacing/OOB/重複で失敗しても別roleへ戻らない。櫛のclipや最大matchingを行わない",
+    "押上げとclip": "各pinを、その歯の先端から1cell先へ下端が来るだけ天井向きに押す。既に離れているpinは無移動でも全処理する。元pin全cellを平行移動し、厳密内域へ残るcellと天井を越えてclipされるcellへ分ける。全pin消去も同じ区間規約の外挿として明示し、実2教師では部分clipのみ観測されたという限界を維持する",
+    "同時描画と保存範囲": "全source櫛/元色pinを一括消去し、全櫛/pin proposalを競合なく同時に描く。同色pinでも宛先競合を許さない。pinが自身の元stemを塗り替えることは作用に含む。枠周囲線/gapと作用集合外を保存し、櫛source/target同数、pin元cell=可視+clip、base色の減少=塗り替えた元stem数を確認。全色数/全前景数/成分数の保存は主張しない",
+    "適用域の限定": "静的配置と区間変換のpriorであり、櫛が開口を通る途中に壁と衝突しない物理sweepを証明したものではない。1cell構造、整列、列対応、天井clip、D4/寸法/本数の変更は明示的な幾何規約。現2教師の同じ寸法・配置から唯一の自然法則を学習したとは言わない"
+  },
+  "HDS": {
+    "学習と保持": "新wrapperは最低2 distinct教師と全教師完全格子一致を要求。fit後に保持するのは適合boolだけで、教師input/output object、完成格子、task IDや既知解lookup、固定4pinの色表は保持しない。各入力の全role/offset/clipを同じ一般手続きで導出し、教師objectを後で変更しても予測は不変",
+    "支持": "現在2 distinct盤面・prior0・既存方針min2・同値採用・隔離0。全120の支持設定34/86と中核既定3は不変。8本の教師pin、30個の櫛pixel、clip証拠、内部proposalを別観測へ加算しない",
+    "排気": "公開学習cycle・全教師再現・同値・反例隔離・既存排気gate・全採用機構合意を維持。採用済みfamilyの未解決・競合は全体HOLD",
+    "部分回答": "第0例の元base重複HOLDを緩めず、入力ごとの一般guardで判断する。例番号や正解を使った選別ではない。保持されたfamilyが未解決/競合ならそのquery全体をHOLDする既存gateを維持"
+  },
+  "原指標保持": "wrong_attempted_tasksは5→6。第0HOLD/第1正答という正答部分回答の追加によるもので、誤った出力格子は前後0。完全課題55は不変、正答例だけ76→77、未回答91→90。原採点器や指標名を変更していない",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "982fc7cdd714cbbfd668a3c60deb35185377c7d7c5395d4920f92206d6f6c8b7",
+    "接続/ARC2/櫛配置教材.py": "278912927f61bed2943c7193671379fa7e83c4098ecb48d49fee45da6b5060a0",
+    "検証/櫛配置回帰.py": "9b68b8a05027087bcaec816ed4da22e228b99ed35a6501462fba1cc3476eeb2f",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存865件＋新29件の全894回帰成功。新29は-Oでも成功。常設fixtureは異なる生成枠/櫛/pinのみで、評価queryや実教師の格子を埋め込まない",
+    "全D4、任意配色/base0、非正方形/偏心、1〜5歯と可変高さ・source位置、同色の複数pinを確認。rawUと全source兼用、共同role2件の実格子を全体HOLDにする",
+    "未知/余分な枠外前景、非背景gap、stem穴/余分な灰色内域、分岐/切断pin、source部分欠損を拒否。role確定後の本数・列差・範囲失敗で再選択しない",
+    "元base重複HOLD、垂直整列修理なし、櫛clipなし、部分/全pin clip、無移動pin、元stem再色、全cell所有と厳密な非保存量を確認。教師順序変更、最低2/distinct、bool状態の独立性、native2/min3未達、query順序を替えても一般HOLD、ID/test output拒否を確認",
+    "独立教師実体監査は凍結4/共有5、全65/200、26通常/-Oを再現。別D4正規化・区間oracleで全教師＋生成1000件＋単一セル反証660件を照合。生成例81受理、43にclip、全pin消去2、無移動pin25。曖昧role2時の描画0回と後段失敗後の再選択0回を確認",
+    "独立runtime監査は新7関数/INWARD、359parse/render、全120fit/wrapper・残65全文・両query/native、旧253snapshotのadapter以外/core12/protected7/scorer不変を確認",
+    "同一条件fresh main55/76と凍結候補全120/167の直接格子比較で、完全課題+0/正答例+1、旧76同一、誤格子/資源0、第0HOLD維持、rawpartial5→6を確認。独立監査でも公式120/167投影・全行直接採点と旧scorer original_audit全文replayが一致した"
+  ],
+  "情報分離の留保": "2026-10-02 21:23 UTC頃、外部監査記録を広くrg検索した際に単一行challenges JSONが偶発的に一致し、大量省略された出力に一部challenge入力が表示された。対象queryの意図的抽出やsolutions参照はその時点では行っていないが、query未参照と一括主張しない。経緯を親/独立監査へ共有し、以後はsource明示とteacher-only抽出資料へ限定。本候補も条件凍結・独立監査後に承認済みinput-only確認、最後に全120採点を行った",
+  "制限": [
+    "公開評価での差分であり、現在の教師観測から独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "静的配置/押上げclipの固定文法。物理シミュレーションや任意の構造を生成する学習ではない",
+    "現2教師は同寸同配置で4pin。D4/別寸法/別本数/全pin消去は明示priorの外挿で、観測から唯一に同定されたものではない",
+    "完全課題の増加は0。残65課題未完・90例未回答"
+  ]
+}
