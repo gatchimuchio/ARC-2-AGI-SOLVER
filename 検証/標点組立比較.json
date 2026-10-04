@@ -1,0 +1,90 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "731e06153accbea4c7cdbe0001127615c4d34aa4",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "採用範囲": "全片の回転組立を同じHDSへ接続し、完全課題と正答例を各1増加。新規誤格子・既存正答の変化・資源失敗は0。入力だけの配置候補を教師出力やquery正解で選別しない",
+  "既存資産と新実装": "教師段階のwhole混色C8成分/全背景役割observer2関数をAST同一で保持し、全8関数/2class/定数を凍結実体から移した新しい組合せ。現在教師から共有aspectだけを学び、標点左上と全片のC4 exact coverを扱う。既存の接触最大化、放射domino標識、opaque crop重畳のrenderer再接続ではない。過去に閉じた無回転の矩形片案や、そのqueryに合わせた修理ではない",
+  "不足と優先根拠": "公開59課題時点の未完61課題187教師について、穴を持つ全supportの色と物理identityを保ち、新しい矩形へ重なりなく全部配置する表現を調べた。全10背景の1870観測でrole1は8入力、全教師role1は対象だけ。後の全120教師fitでも同じ1課題だけが適合。4片/固定色/固定入力寸法を条件にせず、未検討資産の枯渇や多課題への寄与は主張しない",
+  "previous": {
+    "correct_tasks": 59,
+    "correct_examples": 83,
+    "unanswered": 84,
+    "wrong_attempted_tasks": 7,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 60,
+    "correct_examples": 84,
+    "unanswered": 83,
+    "wrong_attempted_tasks": 7,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答83例": "全格子同一"
+  },
+  "原因観測": {
+    "全片と色": "3教師の全非背景画素は36/100/16、出力6×6/10×10/4×4の全152cellへ一度ずつ対応する。各4whole C8片だが、教師0では4近傍成分が5件となり、標点hostの斜め接続1画素を別片にしてしまう。bboxは重なるが実supportは重ならず、穴を不透明背景で埋める規約ではない",
+    "役割と変換": "各教師で全背景0..9とhost内の全singleton色を列挙すると共同roleは1件。標点は全出力で左上、全12片はC4で対応する。教師targetに対する対応の存在は入力だけの配置一意性ではなく、その後の全探索で物理model1/1/4件・各1完成格子、work1041/1604/505を確認した",
+    "反射と対称重複": "各教師出力の転置は標点左上と全色/全片を保つ別のD4格子であり、少なくとも1片に反射が必要。C4だけというface-up priorを維持する。教師2の4解は正方形片の4回転labelで同じ格子になる。自然な幾何規則の唯一性や物理配置の一意性を主張しない",
+    "入力のみ確認": "凍結実体の独立PASS後に現在教師由来aspect(1,1)をそのまま固定input-onlyへ渡した。20×20入力はraw role1、4624workで全探索完走、physical model1/完成格子1、14×14の196cellを回答。入力非背景の色別画素数2:45,3:49,5:1,7:49,8:52を全て保存した。正解非参照のこの格子を変更せず、後の単一全120で採点した"
+  },
+  "固定文法": {
+    "全raw役割": "各辺1..30・exact整数0..9を入口で検査する。出現しない色を含む全10背景Bについて、全非B画素をwhole混色8近傍成分へ分ける。二色成分がちょうど1件、その他の全成分は単色であることを要求し、そのhostで出現1回の各色を別の標点候補とする。全B/host/markerの共同roleが1件と確定してから後段へ進む。二色各1cellのhostは2候補のまま。面積・bounds・packing成功による役割選び直しは禁止",
+    "全所有": "全非B画素がちょうど1物理片へ属し、hostの標点もその片の色付きsupportに含める。標点色が他片に現れる場合や母体色の重複も許す。個数4、各片の角担当、最大サイズ、全色の相異は要求しない。元の成分順はidentityの記録だけで、選好ではない",
+    "共有aspect": "全教師入力の役割を先決する。現在教師の出力高H/幅Wから縮約比(p,q)=(W/gcd(W,H),H/gcd(W,H))を求め、全教師共通であることを要求する。現在入力の全非背景面積Aがp*q*k²となる正整数kを要求し、高さk*q・幅k*pを唯一canvasにする。各辺30超過・整数条件不成立はHOLD。教師出力の型/値域を検査して寸法からaspectを学習し、教師画素との一致比較は全入力検索の完走後だけに行う。画素値で配置候補を削らない。出力寸法自体は正当に学習するので、target shapeも不使用とは言わない",
+    "全C4配置": "各片の実画素supportを4回転し各軸最小座標で正規化。0/1/2/3は時計回り0/90/180/270度のlabelで、同形でも全labelを残す。反射・拡大・clip・再色・分割・削除は行わない。hostの元標点をcanvas(0,0)へ写す各回転の平行移動を列挙する",
+    "先頭実画素の完備性": "hostを先に固定し、各prefixで最初の空canvas cell fを取る。全未使用identity×4labelについて、そのsupportの辞書順最初の実画素mがfへ写る唯一平行移動を調べる。合法な完成配置でfを覆う片のmがfより前へ写るなら、既に占有された先行cellと重なって矛盾する。よってこの列挙は全合法完成配置を含む。bbox左上を実画素と仮定せず、穴/欠け角を保持する",
+    "全modelと合意": "各配置の全supportの範囲と占有を検査し、同色でも実画素重複は不成立branch。全片を1回ずつ使いcanvas全cellを1回ずつ覆う完成physical modelを全保持する。対称label、同色片のidentity交換、同格子の別配置を統合しない。探索完走後に0解または異格子ならHOLD、1種類の完成格子なら回答。途中の先着解・最大score・teacherに合う配置だけを採らない",
+    "共通予算": "1入力100000workを全host回転/全branchへ共通累積。各回転生成前1+片面積、全配置試行前1+片面積、初期dispatcher/各node前1、完成model/grid保存前1+片数+canvas面積を先払いする。次の費用を払えなければ未完HOLDとし、途中解があってもmodelsと答案は全破棄、発見数など診断だけ残す。各候補は早期衝突でも片面積全額を払う。各辺30・全10背景の有限role前処理は検索予算の前で、背景候補の除外には使わない。100000は全入力の完走保証ではない",
+    "保持と消費": "全非背景support/色別画素数を保存し、完成canvas面積はA。元背景は除かれるので全入力画素数、背景画素数、元座標、入力寸法の保存は主張しない。bboxの穴には別片を置ける。現規約下のidentity実入力の受理例は示しておらず、no-op早期vetoがないことは完成結果注入による境界対照として区別する",
+    "priorの限定": "whole C8、唯一二色host/singleton標点、標点左上、C4のみ、共有縮約aspect、全矩形被覆は明示prior。3教師はいずれも20×20/4片/正方形出力であり、別片数・任意配色・非正方形ratio等は合成対照で確認した規約の外挿で、教師から唯一に学んだ事実とはしない"
+  },
+  "HDS": {
+    "保持": "2 distinct以上の現在教師と全教師再現を要求し、fit後は共有縦横比のimmutable tuple2整数だけを保持する。現在入力の役割/全配置を毎回計算し、教師grid/object、完成答案、task ID、ファイル/hash対応は保持しない。教師出力画素を変えても同aspectでの検索記録は不変、fit後に教師objectを変えても予測不変",
+    "支持": "現在3盤面/prior0/min3・同値採用・隔離0。物理片、回転label、配置、画素を支持へ加算しない。全120の最小支持設定34/86と中核既定3は不変",
+    "gate": "adapterはimport/生成/family/記録の4追加だけ。逆変換で前版全文と一致し、既存の学習cycle・反例隔離・同値gate・全採用familyの未解決/異格子HOLDを維持する"
+  },
+  "原指標保持": "wrong_attempted_tasksは7のまま。いずれも正答部分回答で、誤出力格子は前後0。既存7partialを保持し、未回答84→83。原採点器と指標名を変更しない",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "eeccb7ba3de27ca893514909c29413a62414c50c34758ca686095171acbdf610",
+    "接続/ARC2/標点組立教材.py": "9132b78e33211bd57cd2b03cde90d83c6289ad399aa554ac7430680c6d848997",
+    "検証/標点組立回帰.py": "d7af0a8893dc4da7b5d07f18cb739ae8cf3a3709228dc61c27f15d8143fbb194",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存1054＋新37の1091回帰、67ファイル成功。新37は通常/-O成功。元33test/5fixture/補助関数はAST同一、audit hash対照1件を除外、外部observer比較1件を同じ4合成fixtureの明示role期待値へ置換、wrapper3対照を追加。新testのJSON tests_run37とpassed_cases37を保存ログから集計した。実教師/query gridの埋込みや常設testのfile書込みはない",
+    "教師実体35対照も通常/-O成功。全61/187 fit/raw/searchの全文、全10背景1870観測、全非背景所有とobserver2 ASTを独立一致。対象3教師の全C4 physical model/gridを別の全位置直積列挙で一致確認し、全152cellを再現した",
+    "独立oracleはUnion-Find成分と固定identity順の全位置×4labelを用い、1680生成盤面/4240physical modelの全集合と全gridが一致。穴/欠けbbox角/同色identity交換/無解/異grid等11対照も一致。実教師のoracle試行672/3441/10676は予測器workとは別単位である。oracleの個別検証capは予測器100000を変更しない",
+    "小L3+単点の予算1..81は全破棄、82で初完走。82の費用はorientation24/node6/placement24/solution28。解発見後や例外後の未完成果破棄、raw2のうち一つだけ面積条件が成功してもHOLD、全4label、別色/背景0以外/marker0/同色重複/非正方形aspectを確認した",
+    "実教師順序6通りで入力ごとの全model/work不変。target画素を全て変更してもraw/search記録は不変で最終fitだけ不適合。fit後の教師object変更からもtuple/予測は独立。identity/no-opは完成結果注入の対照であり自然な受理盤面の実証とは扱わない",
+    "runtime凍結8関数/2class/定数、359入力parse/render・全120fit/wrapper・残61全文・query/native全文を独立一致。query196cellを別C8抽出と座標式で再描画し、全所有/色別画素数も一致。旧271snapshotはadapter以外不変、core12/protected7/scorer/runner/manualworkflowと全familygateを維持",
+    "同条件fresh59/83対候補全120/167で完全課題+1/正答例+1、変化7b3084d4第0だけ。旧83全格子・全120既存family記録同一、誤格子/資源0。公式原本の全投影、保存全120/167の独立直接採点と旧scorer original_audit全文再生は前後とも一致"
+  ],
+  "復旧と比較範囲": "作業filesystemが古いsnapshotへ戻った後、新sandboxへ公開592d2c5の全treeを取得し、287blob/gitlink、公式source1125blob、4データSHA、teacher-only旧SHA、保護対象、986回帰、fresh58/81を独立再確認した。今回の教師分析と比較baselineは復旧後に再計算した。失われた未公開監査/fullrowsを復元済みとは称さず、欠落した過去fullrowsとの直接一致も主張しない。今回のprevious/current保存全行間の一致検査は完了した",
+  "情報分離の留保": "2026-10-02 21:23 UTC頃、外部監査記録を広くrg検索した際に単一行challenges JSONが偶発一致し、大量省略された出力に一部challenge入力が表示された。対象queryの意図的抽出やsolutions参照はその時点では行っていないが、query未参照と一括主張しない。別の教師分析でもrg -lがchallenge/solutionを含むファイルbytesを走査し、ファイル名だけを表示した。query/solution格子の内容表示・抽出とは区別し、未走査とは称さない。両経緯を親/独立監査へ共有し、以後は指定teacher-only資料と個別source pathへ限定。本候補は規約凍結・独立実体監査・承認済みinput-only・runtime監査を経て最後に全120採点した",
+  "制限": [
+    "公開評価での改善で、現在教師から独立した評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "C8役割/C4のみ/標点左上/共有aspect/全被覆は明示priorで、自然な組立規則の唯一性は主張しない",
+    "完全課題60、残60課題未完・83例未回答"
+  ]
+}
