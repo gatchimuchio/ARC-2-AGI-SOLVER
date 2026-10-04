@@ -1,0 +1,79 @@
+{
+  "schema": "same-instance-learning-correctness-retention-v1",
+  "status": "preregistered-before-native-runtime; awaiting parent and independent review",
+  "source": {
+    "root": "/workspace/scratch/7408259c1ab2/arc2-ledger-d21ecb8",
+    "published_current": "3e07ea8a5286ab96b472cfb6b22bfef6a8e03702",
+    "published_baseline": "d21ecb838bcf77dfc9e7f045ac066000657e2723",
+    "local_head": "c4faee7ad6859e517e00509ebf1520c7173a86a5",
+    "local_base_tree": "d4cc838c4ef4bc9a236119966c6f30d3698ea69b",
+    "reconciliation": "Existing baseline-integrity.json and publication-verification.json establish byte-identical baseline originals and additive published ledger package; do not mislabel local HEAD.",
+    "native_specs": ["HDS/README.md", "HDS/学習系統/v0.4.2/README.md", "HDS/学習系統/v0.4.2/hds学習系統/系統.py", "HDS/学習系統/v0.4.2/hds学習系統/実行系.py", "HDS/学習系統/v0.4.2/hds学習系統/適応.py", "HDS/学習系統/v0.4.2/hds学習系統/推論.py", "HDS/学習系統/v0.4.2/hds学習系統/検証.py", "HDS/学習系統/v0.4.2/hds学習系統/排気系.py"],
+    "prior_grid_fixture": "検証/テンプレート充填回帰.py::接続回帰.test_既存の恒等関係を保持",
+    "native_test_limit": "No original standalone HDS native unit tests found in pinned checkout. New scalar/lifecycle fixtures test documented existing source contracts; they are not represented as previously executed historical tests. Older excluded-source 学習環境 tests are not imported as authority."
+  },
+  "scope": {
+    "allowed": "New observer/protocol/evidence only; unchanged default HDS native public interfaces; exact original67 experience rows; source-derived synthetic contract fixtures.",
+    "forbidden": ["core/interface/solver/scorer/runner/authority/input edits", "monkeypatching", "answer leakage", "ARC-specific invented answers or common skeleton", "re-teaching lost facts", "fresh learner per retention query", "full67 persistence retry", "CI", "score improvement claims", "publication before exact package review"],
+    "unchanged_official_baseline": "60/120 complete tasks;84/167 examples;all84 established grids unchanged in previous separate fresh-solver regression. This study does not rescore ARC.",
+    "historical_state_limit": "接続/ARC2/HDS接続.py::課題を解く constructs a new HDS instance per task. There is no single retained historical learner embodying all60 ARC task successes. Do not claim this study proves retention of all ARC-solving state."
+  },
+  "track_A": {
+    "identity": "One HDS学習系統() and its original engine, ledger, state manager and identifier generator live continuously from baseline seeding through67 ordered admissions and every probe. Record process and object identities at every checkpoint; no save/load/reset/replacement.",
+    "seed_order": [
+      {"boundary": "ARC格子変換", "interface": "engine.実行(existing 格子観測 adapter)", "rows": [{"input":[[1]],"output":[[1]]},{"input":[[2]],"output":[[2]]},{"input":[[3]],"output":[[3]]}], "source": "Exact existing identity regression training fixture"},
+      {"boundary": "監査_同値", "interface": "処理する(外部入力)", "rows": [{"x":1,"y":1},{"x":2,"y":2},{"x":3,"y":3}]},
+      {"boundary": "監査_有限対応", "interface": "処理する(外部入力)", "rows": [{"x":1,"y":11},{"x":2,"y":12},{"x":3,"y":13}]},
+      {"boundary": "監査_支持不足", "interface": "処理する(外部入力)", "rows": [{"x":1,"y":21},{"x":2,"y":22}]},
+      {"boundary": "監査_構造のみ", "interface": "処理する(外部入力)", "rows": [{}]}
+    ],
+    "probes": [
+      {"name":"grid_identity_unseen_shape", "boundary":"ARC格子変換", "interface":"engine.照会(existing 格子観測)", "input":{"input":[[4,5],[6,7]]}, "expected_prediction":{"出力":[[4,5],[6,7]]}, "expected_status":"出力"},
+      {"name":"equality_known", "boundary":"監査_同値", "input":{"x":1}, "expected_prediction":{"y":1}, "expected_status":"出力"},
+      {"name":"equality_unseen", "boundary":"監査_同値", "input":{"x":9}, "expected_prediction":{"y":9}, "expected_status":"出力"},
+      {"name":"equality_missing", "boundary":"監査_同値", "input":{}, "expected_prediction":{}, "expected_status":"断定保留", "expect_additional_observation":true},
+      {"name":"mapping_known_first", "boundary":"監査_有限対応", "input":{"x":1}, "expected_prediction":{"y":11}, "expected_status":"出力"},
+      {"name":"mapping_known_last", "boundary":"監査_有限対応", "input":{"x":3}, "expected_prediction":{"y":13}, "expected_status":"出力"},
+      {"name":"mapping_unknown", "boundary":"監査_有限対応", "input":{"x":4}, "expected_prediction":{}, "expected_status":"断定保留", "expect_additional_observation":true},
+      {"name":"mapping_missing", "boundary":"監査_有限対応", "input":{}, "expected_prediction":{}, "expected_status":"断定保留", "expect_additional_observation":true},
+      {"name":"support_not_pooled_across_boundaries", "boundary":"監査_支持不足", "input":{"x":1}, "expected_prediction":{}, "expected_status":"出力", "caveat":"Native source may output empty prediction with 出力; this is not an answered capability"},
+      {"name":"unlearned_boundary", "boundary":"監査_未学習", "input":{"x":1}, "expected_prediction":{}, "expected_status":"出力", "caveat":"No cross-boundary predicted answer; empty 出力 is not an answer"}
+    ],
+    "intervention": "After clean baseline results are frozen, feed all67 exact 既存interface入力 in published order exactly once through 処理する; never alter paths/content/target/provenance/boundary/default thresholds. Run all10 non-learning probes after EACH experience, including the final67th. Preserve every raw response and normalized differences, including first failure.",
+    "read_only_definition": "照会 increments only identifier counters 照会 and 学習判定. This allowed bookkeeping change is disclosed, not ignored as bitwise purity. Ledger counts, observation contents, state version/current/history and all other ID counters must remain unchanged per probe batch; at baseline and final also compare exact public per-ledger digests before/after queries. Serialize one public ledger at a time to avoid whole-ledger duplication.",
+    "retention_levels": ["Exact original12 seed and67 rule experience preservation", "Original principle lineage/state retention", "Prediction-value retention for applicable boundary", "Complete external status/reasons/HOLD behavior retention", "Documented functional control correctness"],
+    "pass_rule": "A response that retains a prediction but changes prior ordinary output to HOLD fails full behavioral retention. Report code-contract conformance separately from the user's retention requirement. Do not filter foreign quarantines/ambiguities out of output or bypass gate.",
+    "expected_legal_changes": "New67 boundary may add principles, quarantine contradictions, specialize/reopen its own lineage, and advance state/version. Original fixture boundaries have no new counterexamples or scope changes, so their learned prediction values and successful usable-output status are behavioral invariants. Native global HOLD may violate the latter; preserve it as finding."
+  },
+  "track_B": {
+    "scope": "AFTER track_A final outputs/state proof are frozen, run bounded source-contract lifecycle diagnostics on the SAME instance in fresh explicitly synthetic boundaries. This tests continuing functional operation, not retained historical ARC answers. No second67 pass.",
+    "controls": [
+      {"name":"contradiction_quarantine_and_late_evidence", "boundary":"監査_係争", "seed":[{"x":1,"y":1},{"x":2,"y":2},{"x":3,"y":3}], "updates":[{"x":1,"y":9},{"x":1,"y":8}], "check":"Capture exact original x→y equality lineage; first counterexample isolates once and remains remembered, later counterexample updates evidence without auto-restoring or proliferating that quarantine version."},
+      {"name":"explicit_resolution_contract", "same_boundary":"監査_係争", "check":"Attempt public 復帰 without latest counterexample refs must raise ValueError; then explicitly review the exact two synthetic counterexample refs with fixture-only reason/authority and invoke native scoped restoration; no ARC67 principle is resolved, ignored, excluded, or modified. Query after resolution remains subject to original external gate."},
+      {"name":"specialization_and_parent_reopening", "boundary":"監査_特殊化", "seed":[{"x":1,"mode":0,"y":10},{"x":2,"mode":0,"y":20},{"x":3,"mode":0,"y":30}], "updates":[{"x":1,"mode":1,"y":11}], "check":"Old x→y deterministic relation receives counterexample; admissible (mode,x)→y child retains all observations and records original parent plus 再開放済み/新版移行済み. Query x=1,mode=1 preserves actual prediction, conflict and HOLD."},
+      {"name":"ambiguity_and_conflict", "boundary":"監査_識別不能", "seed":[{"x":1,"z":1,"y":11},{"x":2,"z":2,"y":12},{"x":3,"z":3,"y":13}], "query":{"x":1,"z":2}, "check":"Correlated distinct-condition principles are marked unidentified; competing y values are recorded and not emitted as a confirmed y prediction."},
+      {"name":"non_establishment", "boundary":"監査_不成立", "seed":[{"x":0,"y":0},{"x":0,"y":1},{"x":1,"y":0},{"x":1,"y":1}], "check":"No deterministic relation fits all observed pairs; final 学習成立状態=不成立確認; distinguish from 未確認/接続途上 and retain all contradictions."},
+      {"name":"implementation_boundaries", "boundary":"監査_能力境界", "seed":[{"a":1,"b":11,"c":21,"d":31},{"a":2,"b":12,"c":22,"d":32},{"a":3,"b":13,"c":23,"d":33}], "check":"Residual records max2-condition implementation boundary; no invented higher-order semantic learning claim."}
+    ],
+    "status_caveat": "Inherited global HOLD from67 remains visible. Local causal assertions use exact boundary/lineage/evidence/state transitions, not global HOLD alone. These post-learning fixtures do not re-teach or restore any lost track_A fact.",
+    "optional_control": "If a source expectation is unclear, one separately labelled tiny clean machine may execute the exact lifecycle fixture to disambiguate preexisting code behavior. It is NOT retention evidence, and no native source changes or monkeypatches are allowed."
+  },
+  "coverage_matrix": {
+    "experience_retention_and_provenance":"A exact equality checks; all67 and prior12 held together",
+    "query_vs_learning":"A each batch except disclosed two counters; B observations explicitly mutating",
+    "comparison_commonality_and_deterministic_correspondence":"A scalar mapping/equality, exact source tracing from doubt to candidate to validation/admission to state",
+    "equality_transfer":"A prior native grid identity fixture and scalar unknown value",
+    "support_and_type_diversity_admission":"A support2 versus3; B evidence/support counts",
+    "applicability_unknown_missing_boundary":"A10 probes each checkpoint; B causal boundary refs",
+    "counterexample_quarantine_late_evidence_resolution":"B explicit source-contract lifecycle, not historical capability assertion",
+    "specialization_parent_reopening":"B explicit source-contract lifecycle",
+    "identifiability_competing_predictions":"B explicit source-contract lifecycle plus A foreign-boundary interference observation",
+    "learning_status_and_whole_feedback":"A/B 未確認,接続途上,成立確認,不成立確認,適用外 and native process/update/feedback refs",
+    "implementation_residuals":"B max2 boundary",
+    "persistence_reload":"Not rerun: two full67 native saves previously exited137; no successful full-state reload established. This is a separate known unmet condition, not silently passed.",
+    "all60_ARC_task_solving_state":"Untestable as one historical learner with existing task-local lifecycle; previous84-grid fresh regression remains separate",
+    "unbounded_future_always":"Finite probes do not prove all possible future updates; report observed checkpoints and untested breadth explicitly"
+  },
+  "resource_lifecycle": "Stream raw outputs immediately; keep only compact normalized summaries; no full ledger JSON snapshot or native save; public ledger hashes one name at a time at final non-learning batch only; gc references after serialization, no core truncation/dedup/eviction. Stop on recoverable assertion mismatch only for integrity failures; retain functional negative outcomes and finish independent probes. Stop study after verified outcome and supported cause.",
+  "publication": "New observation-only artifact package requires independent exact review. No push by executor."
+}

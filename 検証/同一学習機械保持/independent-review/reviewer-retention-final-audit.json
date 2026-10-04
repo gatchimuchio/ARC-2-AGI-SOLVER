@@ -1,0 +1,274 @@
+{
+  "scope": "Independent artifact and source-contract audit; no new native run",
+  "checks": {
+    "all680_raw_prediction_maps_and_original_prediction_refs_match": true,
+    "exact325_usable_output_failures_after03_through67": true,
+    "all6_baseline_principles_equal_final_records": true,
+    "all68_checkpoint_identities_match_freeze": true,
+    "all1973_mechanical_checks_pass": true,
+    "baseline-ledger-digests.json/all12_public_ledger_query_digests_equal": true,
+    "after-67-ledger-digests.json/all12_public_ledger_query_digests_equal": true,
+    "all_lifecycle_checks_pass": true,
+    "full_study_no_failed_structural_checks": true,
+    "blind_restoration_refused_for_late_counterexample": true,
+    "restoration_only_synthetic_lineage": true,
+    "specialization_child_parent_link_exact": true,
+    "specialization_original_parent_reopened": true
+  },
+  "query_count": 680,
+  "successful_answer_probes_per_checkpoint": 5,
+  "failure_count": 325,
+  "first_failures": [
+    "after-03/grid_identity_unseen_shape",
+    "after-03/equality_known",
+    "after-03/equality_unseen",
+    "after-03/mapping_known_first",
+    "after-03/mapping_known_last"
+  ],
+  "last_failures": [
+    "after-67/grid_identity_unseen_shape",
+    "after-67/equality_known",
+    "after-67/equality_unseen",
+    "after-67/mapping_known_first",
+    "after-67/mapping_known_last"
+  ],
+  "lifecycle_check_count": 55,
+  "lifecycle_checks": [
+    {
+      "name": "lifecycle/dispute/seed1/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/dispute/seed1/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/dispute/seed2/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/dispute/seed2/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/dispute/seed3/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/dispute/seed3/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/dispute/first_counterexample/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/dispute/first_counterexample/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/dispute/first_isolates",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/dispute/late_counterexample/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/dispute/late_counterexample/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/dispute/late_does_not_revise_quarantined_lineage",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/dispute/blind_restoration_rejected",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/dispute/restoration_scoped_and_exact",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/dispute/restored_query/query_readonly",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/dispute/restored_query/only_query_counters_advance",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/dispute/restored_prediction",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/specialization/seed1/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/specialization/seed1/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/specialization/seed2/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/specialization/seed2/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/specialization/seed3/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/specialization/seed3/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/specialization/counterexample/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/specialization/counterexample/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/specialization/child_parent_and_reopening",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/specialization/query/query_readonly",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/specialization/query/only_query_counters_advance",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/specialization/child_predicts11",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/ambiguity/seed1/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/ambiguity/seed1/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/ambiguity/seed2/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/ambiguity/seed2/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/ambiguity/seed3/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/ambiguity/seed3/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/ambiguity/conflicting_query/query_readonly",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/ambiguity/conflicting_query/only_query_counters_advance",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/ambiguity/local_candidates_unidentified",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/ambiguity/conflicting_y_not_confirmed",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/non_establishment/0/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/non_establishment/0/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/non_establishment/1/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/non_establishment/1/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/non_establishment/2/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/non_establishment/2/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/non_establishment/3/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/non_establishment/3/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/non_establishment/distinct_status",
+      "passed": true,
+      "details": "不成立確認"
+    },
+    {
+      "name": "lifecycle/residual/1/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/residual/1/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/residual/2/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/residual/2/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/residual/3/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/residual/3/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "lifecycle/residual/max2_record_once",
+      "passed": true
+    }
+  ],
+  "final_identity": {
+    "process": 5,
+    "machine": 139725445065104,
+    "engine": 139725437034784,
+    "ledger": 139725435281888,
+    "state": 139725435282032,
+    "identifiers": 139725437688992
+  },
+  "final_outcome": "FAILED_previous_usable_outputs_became_HOLD",
+  "limits": [
+    "Finite fixtures, not universal always retention",
+    "No single historical engine holding all84ARC grid answers",
+    "Large native save/reload still unverified",
+    "No source fix made"
+  ]
+}

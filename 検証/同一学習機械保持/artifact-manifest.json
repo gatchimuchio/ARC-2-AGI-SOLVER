@@ -1,0 +1,229 @@
+{
+  "package": "same-instance-retention-v1",
+  "repository_root": "検証/同一学習機械保持",
+  "files": [
+    {
+      "path": "retention-study/protocol-v1.json",
+      "bytes": 12724,
+      "sha256": "ab08b916cb952f59f9ec3c0d0527db56028d8ad4bc74fe737c8e06d16751f783",
+      "original": {
+        "bytes": 12724,
+        "sha256": "ab08b916cb952f59f9ec3c0d0527db56028d8ad4bc74fe737c8e06d16751f783"
+      },
+      "lossless_gzip": false
+    },
+    {
+      "path": "retention-study/observe_retention.py",
+      "bytes": 23346,
+      "sha256": "483953c637cb85e6baefb4bdff86c8f3e4a96ebbec11f12cd4b4f249d4316f28",
+      "original": {
+        "bytes": 23346,
+        "sha256": "483953c637cb85e6baefb4bdff86c8f3e4a96ebbec11f12cd4b4f249d4316f28"
+      },
+      "lossless_gzip": false
+    },
+    {
+      "path": "retention-study/earliest-failure-evidence.json",
+      "bytes": 146287,
+      "sha256": "e750b69c0aaee8f797e3259ccf3e654efa83a5141d25264c87b764a26711965b",
+      "original": {
+        "bytes": 146287,
+        "sha256": "e750b69c0aaee8f797e3259ccf3e654efa83a5141d25264c87b764a26711965b"
+      },
+      "lossless_gzip": false
+    },
+    {
+      "path": "native-v2/freeze.json",
+      "bytes": 18776,
+      "sha256": "d9a04a3d00ab1248702ce53ad136c3ea0c0659ad38bb71b541f02ee206096d95",
+      "original": {
+        "bytes": 18776,
+        "sha256": "d9a04a3d00ab1248702ce53ad136c3ea0c0659ad38bb71b541f02ee206096d95"
+      },
+      "lossless_gzip": false
+    },
+    {
+      "path": "retention-study/run-v1/after-67-ledger-digests.json",
+      "bytes": 3274,
+      "sha256": "83c50a1e56639f1c67ff5fc2388dae178ef2d3ce7d1bb02074cee865845c74b1",
+      "original": {
+        "bytes": 3274,
+        "sha256": "83c50a1e56639f1c67ff5fc2388dae178ef2d3ce7d1bb02074cee865845c74b1"
+      },
+      "lossless_gzip": false
+    },
+    {
+      "path": "retention-study/run-v1/after-lifecycle-memory-retention.json",
+      "bytes": 15650,
+      "sha256": "77955440fe4e2535b253cc9605ab9108528819cee7460e585e344bb00124c6d0",
+      "original": {
+        "bytes": 15650,
+        "sha256": "77955440fe4e2535b253cc9605ab9108528819cee7460e585e344bb00124c6d0"
+      },
+      "lossless_gzip": false
+    },
+    {
+      "path": "retention-study/run-v1/baseline-current-principles.json",
+      "bytes": 9423,
+      "sha256": "6588586e19797d92f9fac71074dfb770b1167588d8a74a03ff7c659e62d81510",
+      "original": {
+        "bytes": 9423,
+        "sha256": "6588586e19797d92f9fac71074dfb770b1167588d8a74a03ff7c659e62d81510"
+      },
+      "lossless_gzip": false
+    },
+    {
+      "path": "retention-study/run-v1/baseline-ledger-digests.json",
+      "bytes": 3222,
+      "sha256": "54808e55565bfd6273ad3cef0ed52447618d75e448e0e20ceead1a1d8c603695",
+      "original": {
+        "bytes": 3222,
+        "sha256": "54808e55565bfd6273ad3cef0ed52447618d75e448e0e20ceead1a1d8c603695"
+      },
+      "lossless_gzip": false
+    },
+    {
+      "path": "retention-study/run-v1/baseline-result.json",
+      "bytes": 10790,
+      "sha256": "9f97be5756760c97011192916984e132d688629c393bce8c1490821fb02171b9",
+      "original": {
+        "bytes": 10790,
+        "sha256": "9f97be5756760c97011192916984e132d688629c393bce8c1490821fb02171b9"
+      },
+      "lossless_gzip": false
+    },
+    {
+      "path": "retention-study/run-v1/final-report.json",
+      "bytes": 439310,
+      "sha256": "afc4ee23f1b62d0733b181113eadfe6de43afd4ba8fe9ee61ddbd748887821ac",
+      "original": {
+        "bytes": 439310,
+        "sha256": "afc4ee23f1b62d0733b181113eadfe6de43afd4ba8fe9ee61ddbd748887821ac"
+      },
+      "lossless_gzip": false
+    },
+    {
+      "path": "retention-study/run-v1/freeze.json",
+      "bytes": 206017,
+      "sha256": "8595cafbceb2c64e1123ace964248cdbb852ecba6505c5671f57feac63182511",
+      "original": {
+        "bytes": 206017,
+        "sha256": "8595cafbceb2c64e1123ace964248cdbb852ecba6505c5671f57feac63182511"
+      },
+      "lossless_gzip": false
+    },
+    {
+      "path": "retention-study/run-v1/probe-batches.json",
+      "bytes": 530417,
+      "sha256": "1689a82e55e1a534f82993bd907e7f09254e2c55db986dcaf2ca4f2b1bfba192",
+      "original": {
+        "bytes": 530417,
+        "sha256": "1689a82e55e1a534f82993bd907e7f09254e2c55db986dcaf2ca4f2b1bfba192"
+      },
+      "lossless_gzip": false
+    },
+    {
+      "path": "retention-study/run-v1/raw-native-results.jsonl.gz",
+      "bytes": 5672592,
+      "sha256": "042477e9d83dcf1c098ec240bd3692ae8a57a1726e70f0d9be0a46ec45437c00",
+      "original": {
+        "bytes": 181637812,
+        "sha256": "be6046209a9e8ecdb4aea0641d48041c68f21a33e06fb086b21e90cc9606f7a2"
+      },
+      "lossless_gzip": true
+    },
+    {
+      "path": "retention-study/run-v1/track-A-current-principles.json.gz",
+      "bytes": 1942263,
+      "sha256": "9822cda648d12ed42ae461f04ea25d5b70d615b03319a4f0d906c76a44303739",
+      "original": {
+        "bytes": 17392519,
+        "sha256": "a68f6f3fa060dcc907b8230d25253c3e513c7f9f8f69df317a6fd67ce380cbd9"
+      },
+      "lossless_gzip": true
+    },
+    {
+      "path": "retention-study/run-v1/track-A-cycle-summary.json",
+      "bytes": 200,
+      "sha256": "5504abdedcbf6acc5f7b5d18ac20d069e6eaaf1692f1af91e34de849df6eecb5",
+      "original": {
+        "bytes": 200,
+        "sha256": "5504abdedcbf6acc5f7b5d18ac20d069e6eaaf1692f1af91e34de849df6eecb5"
+      },
+      "lossless_gzip": false
+    },
+    {
+      "path": "retention-study/run-v1/track-A-memory-retention.json",
+      "bytes": 15650,
+      "sha256": "77955440fe4e2535b253cc9605ab9108528819cee7460e585e344bb00124c6d0",
+      "original": {
+        "bytes": 15650,
+        "sha256": "77955440fe4e2535b253cc9605ab9108528819cee7460e585e344bb00124c6d0"
+      },
+      "lossless_gzip": false
+    },
+    {
+      "path": "retention-study/run-v1/track-A-principle-boundary-index.json",
+      "bytes": 210634,
+      "sha256": "e950ae52cb1b04b682fda4f7afc7354f407a70dea1245bd953b394fe68d437a9",
+      "original": {
+        "bytes": 210634,
+        "sha256": "e950ae52cb1b04b682fda4f7afc7354f407a70dea1245bd953b394fe68d437a9"
+      },
+      "lossless_gzip": false
+    },
+    {
+      "path": "retention-study/run-v1/track-A-result.json",
+      "bytes": 1265800,
+      "sha256": "f9bb5a43ec1dd91c84557f9ce881ec5b673784065ef11204743d32596e69791e",
+      "original": {
+        "bytes": 1265800,
+        "sha256": "f9bb5a43ec1dd91c84557f9ce881ec5b673784065ef11204743d32596e69791e"
+      },
+      "lossless_gzip": false
+    },
+    {
+      "path": "retention-study/run-v1.stdout",
+      "bytes": 9424,
+      "sha256": "d65664101d5dff6495974d977542a262d00b6a10d4b07fe94513e1876a436003",
+      "original": {
+        "bytes": 9424,
+        "sha256": "d65664101d5dff6495974d977542a262d00b6a10d4b07fe94513e1876a436003"
+      },
+      "lossless_gzip": false
+    },
+    {
+      "path": "independent-review/reviewer-earliest-retention-failure.json",
+      "bytes": 53082,
+      "sha256": "04e288790dabb550cfdb579f31394b9431c445d0d9926c99d2b89b8bfa688a7c",
+      "original": {
+        "bytes": 53082,
+        "sha256": "04e288790dabb550cfdb579f31394b9431c445d0d9926c99d2b89b8bfa688a7c"
+      },
+      "lossless_gzip": false
+    },
+    {
+      "path": "summary.json",
+      "bytes": 1409,
+      "sha256": "9fb62dd3b936c4e26b2ebfc6438ee5a885cb0889debbe4bf066115861ac0b3c7",
+      "generated_from_completed_evidence": true
+    },
+    {
+      "path": "README.md",
+      "bytes": 6319,
+      "sha256": "38defd6777540e2b073ff5a3f9e0e84d71c642c54dcbd87a87b967abed96720f",
+      "generated_from_completed_evidence": true
+    },
+    {
+      "path": "independent-review/reviewer-retention-final-audit.json",
+      "bytes": 7667,
+      "sha256": "6338be50f120c16ba81d0a50b2d9c0269279bebcc447891e34a168f0c91ba03b",
+      "generated_from_completed_evidence": true
+    }
+  ],
+  "lossless_compression_verified": true,
+  "excluded_nonessential_preliminary_records": [
+    "independent-review/reviewer-global-hold-diagnostic.json",
+    "retention-study/review-release.json"
+  ]
+}

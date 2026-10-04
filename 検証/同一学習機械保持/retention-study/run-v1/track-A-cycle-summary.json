@@ -1,0 +1,10 @@
+{
+  "observations": 79,
+  "doubt_records": 395,
+  "candidates": 211467,
+  "validated_fit": 211467,
+  "admission_decisions": 211467,
+  "principles": 4041,
+  "updates": 4041,
+  "completed_cycles": 79
+}

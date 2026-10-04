@@ -1,0 +1,732 @@
+[
+  {
+    "kind": "seed",
+    "ref": "経験-000001",
+    "exact_record": true
+  },
+  {
+    "kind": "seed",
+    "ref": "経験-000002",
+    "exact_record": true
+  },
+  {
+    "kind": "seed",
+    "ref": "経験-000003",
+    "exact_record": true
+  },
+  {
+    "kind": "seed",
+    "ref": "経験-000004",
+    "exact_record": true
+  },
+  {
+    "kind": "seed",
+    "ref": "経験-000005",
+    "exact_record": true
+  },
+  {
+    "kind": "seed",
+    "ref": "経験-000006",
+    "exact_record": true
+  },
+  {
+    "kind": "seed",
+    "ref": "経験-000007",
+    "exact_record": true
+  },
+  {
+    "kind": "seed",
+    "ref": "経験-000008",
+    "exact_record": true
+  },
+  {
+    "kind": "seed",
+    "ref": "経験-000009",
+    "exact_record": true
+  },
+  {
+    "kind": "seed",
+    "ref": "経験-000010",
+    "exact_record": true
+  },
+  {
+    "kind": "seed",
+    "ref": "経験-000011",
+    "exact_record": true
+  },
+  {
+    "kind": "seed",
+    "ref": "経験-000012",
+    "exact_record": true
+  },
+  {
+    "kind": "rule",
+    "index": 0,
+    "rule": "arc2-comparison-001",
+    "ref": "経験-000013",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 1,
+    "rule": "arc2-comparison-002",
+    "ref": "経験-000014",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 2,
+    "rule": "arc2-comparison-003",
+    "ref": "経験-000015",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 3,
+    "rule": "arc2-comparison-004",
+    "ref": "経験-000016",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 4,
+    "rule": "arc2-comparison-005",
+    "ref": "経験-000017",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 5,
+    "rule": "arc2-comparison-006",
+    "ref": "経験-000018",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 6,
+    "rule": "arc2-comparison-007",
+    "ref": "経験-000019",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 7,
+    "rule": "arc2-comparison-008",
+    "ref": "経験-000020",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 8,
+    "rule": "arc2-comparison-009",
+    "ref": "経験-000021",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 9,
+    "rule": "arc2-comparison-010",
+    "ref": "経験-000022",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 10,
+    "rule": "arc2-comparison-011",
+    "ref": "経験-000023",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 11,
+    "rule": "arc2-comparison-012",
+    "ref": "経験-000024",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 12,
+    "rule": "arc2-comparison-013",
+    "ref": "経験-000025",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 13,
+    "rule": "arc2-comparison-014",
+    "ref": "経験-000026",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 14,
+    "rule": "arc2-comparison-015",
+    "ref": "経験-000027",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 15,
+    "rule": "arc2-comparison-016",
+    "ref": "経験-000028",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 16,
+    "rule": "arc2-comparison-017",
+    "ref": "経験-000029",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 17,
+    "rule": "arc2-comparison-018",
+    "ref": "経験-000030",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 18,
+    "rule": "arc2-comparison-019",
+    "ref": "経験-000031",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 19,
+    "rule": "arc2-comparison-020",
+    "ref": "経験-000032",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 20,
+    "rule": "arc2-comparison-021",
+    "ref": "経験-000033",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 21,
+    "rule": "arc2-comparison-022",
+    "ref": "経験-000034",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 22,
+    "rule": "arc2-comparison-023",
+    "ref": "経験-000035",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 23,
+    "rule": "arc2-comparison-024",
+    "ref": "経験-000036",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 24,
+    "rule": "arc2-comparison-025",
+    "ref": "経験-000037",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 25,
+    "rule": "arc2-comparison-026",
+    "ref": "経験-000038",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 26,
+    "rule": "arc2-comparison-027",
+    "ref": "経験-000039",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 27,
+    "rule": "arc2-comparison-028",
+    "ref": "経験-000040",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 28,
+    "rule": "arc2-comparison-029",
+    "ref": "経験-000041",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 29,
+    "rule": "arc2-comparison-030",
+    "ref": "経験-000042",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 30,
+    "rule": "arc2-comparison-031",
+    "ref": "経験-000043",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 31,
+    "rule": "arc2-comparison-032",
+    "ref": "経験-000044",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 32,
+    "rule": "arc2-comparison-033",
+    "ref": "経験-000045",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 33,
+    "rule": "arc2-comparison-034",
+    "ref": "経験-000046",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 34,
+    "rule": "arc2-comparison-035",
+    "ref": "経験-000047",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 35,
+    "rule": "arc2-comparison-036",
+    "ref": "経験-000048",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 36,
+    "rule": "arc2-comparison-037",
+    "ref": "経験-000049",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 37,
+    "rule": "arc2-comparison-038",
+    "ref": "経験-000050",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 38,
+    "rule": "arc2-comparison-039",
+    "ref": "経験-000051",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 39,
+    "rule": "arc2-comparison-040",
+    "ref": "経験-000052",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 40,
+    "rule": "arc2-comparison-041",
+    "ref": "経験-000053",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 41,
+    "rule": "arc2-comparison-042",
+    "ref": "経験-000054",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 42,
+    "rule": "arc2-comparison-043",
+    "ref": "経験-000055",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 43,
+    "rule": "arc2-comparison-044",
+    "ref": "経験-000056",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 44,
+    "rule": "arc2-comparison-045",
+    "ref": "経験-000057",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 45,
+    "rule": "arc2-comparison-046",
+    "ref": "経験-000058",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 46,
+    "rule": "arc2-comparison-047",
+    "ref": "経験-000059",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 47,
+    "rule": "arc2-comparison-048",
+    "ref": "経験-000060",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 48,
+    "rule": "arc2-comparison-049",
+    "ref": "経験-000061",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 49,
+    "rule": "arc2-comparison-050",
+    "ref": "経験-000062",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 50,
+    "rule": "arc2-comparison-051",
+    "ref": "経験-000063",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 51,
+    "rule": "arc2-comparison-052",
+    "ref": "経験-000064",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 52,
+    "rule": "arc2-comparison-053",
+    "ref": "経験-000065",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 53,
+    "rule": "arc2-comparison-054",
+    "ref": "経験-000066",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 54,
+    "rule": "arc2-comparison-055",
+    "ref": "経験-000067",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 55,
+    "rule": "arc2-comparison-056",
+    "ref": "経験-000068",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 56,
+    "rule": "arc2-comparison-057",
+    "ref": "経験-000069",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 57,
+    "rule": "arc2-comparison-058",
+    "ref": "経験-000070",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 58,
+    "rule": "arc2-comparison-059",
+    "ref": "経験-000071",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 59,
+    "rule": "arc2-comparison-060",
+    "ref": "経験-000072",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 60,
+    "rule": "arc2-comparison-061",
+    "ref": "経験-000073",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 61,
+    "rule": "arc2-comparison-062",
+    "ref": "経験-000074",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 62,
+    "rule": "arc2-comparison-063",
+    "ref": "経験-000075",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 63,
+    "rule": "arc2-comparison-064",
+    "ref": "経験-000076",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 64,
+    "rule": "arc2-comparison-065",
+    "ref": "経験-000077",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 65,
+    "rule": "arc2-comparison-066",
+    "ref": "経験-000078",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  },
+  {
+    "kind": "rule",
+    "index": 66,
+    "rule": "arc2-comparison-067",
+    "ref": "経験-000079",
+    "exact_payload": true,
+    "exact_target": true,
+    "exact_provenance": true,
+    "exact_boundary": true
+  }
+]

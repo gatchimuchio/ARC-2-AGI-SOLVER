@@ -1,0 +1,43 @@
+{
+  "requirement_outcome": "FAILED_previous_usable_outputs_became_HOLD",
+  "published_current": "3e07ea8a5286ab96b472cfb6b22bfef6a8e03702",
+  "native_default_configuration": {
+    "minimum_support": 3,
+    "max_conditions": 2
+  },
+  "same_instance": true,
+  "prior_seed_experiences": 12,
+  "rule_experiences": 67,
+  "retention_checkpoints": 68,
+  "retention_queries": 680,
+  "previously_answer_capable_probes": [
+    "grid_identity_unseen_shape",
+    "equality_known",
+    "equality_unseen",
+    "mapping_known_first",
+    "mapping_known_last"
+  ],
+  "failing_usable_output_pairs": 325,
+  "first_failing_checkpoint": "after-03",
+  "final_answer_capable_statuses": {
+    "grid_identity_unseen_shape": "断定保留",
+    "equality_known": "断定保留",
+    "equality_unseen": "断定保留",
+    "mapping_known_first": "断定保留",
+    "mapping_known_last": "断定保留"
+  },
+  "all_prediction_values_retained": true,
+  "mechanical_observation_checks_passed": 2031,
+  "mechanical_observation_checks_failed": [],
+  "lifecycle_checks": {
+    "total": 55,
+    "passed": 55,
+    "failures": []
+  },
+  "elapsed_seconds": 460.6896769590003,
+  "max_rss_kib": 776144,
+  "core_modified": false,
+  "native_persistence_retried": false,
+  "ARC_rescored": false,
+  "scope_limit": "This is bounded native state/behavior retention; not retention of all60 historical task-solving states or an ARC score improvement."
+}

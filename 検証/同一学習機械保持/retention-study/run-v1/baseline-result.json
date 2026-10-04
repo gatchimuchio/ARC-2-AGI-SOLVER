@@ -1,0 +1,435 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "seed/ARC格子変換/0/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "seed/ARC格子変換/0/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "seed/ARC格子変換/1/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "seed/ARC格子変換/1/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "seed/ARC格子変換/2/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "seed/ARC格子変換/2/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "seed/監査_同値/0/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "seed/監査_同値/0/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "seed/監査_同値/1/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "seed/監査_同値/1/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "seed/監査_同値/2/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "seed/監査_同値/2/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "seed/監査_有限対応/0/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "seed/監査_有限対応/0/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "seed/監査_有限対応/1/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "seed/監査_有限対応/1/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "seed/監査_有限対応/2/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "seed/監査_有限対応/2/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "seed/監査_支持不足/0/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "seed/監査_支持不足/0/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "seed/監査_支持不足/1/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "seed/監査_支持不足/1/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "seed/監査_構造のみ/0/成立確認_requires_state_change",
+      "passed": true
+    },
+    {
+      "name": "seed/監査_構造のみ/0/one_memory_append",
+      "passed": true
+    },
+    {
+      "name": "baseline/grid_identity_unseen_shape/non_learning_label",
+      "passed": true
+    },
+    {
+      "name": "baseline/grid_identity_unseen_shape/expected_prediction",
+      "passed": true,
+      "details": {
+        "expected": {
+          "出力": [
+            [
+              [
+                4,
+                5
+              ],
+              [
+                6,
+                7
+              ]
+            ]
+          ]
+        },
+        "actual": {
+          "出力": [
+            [
+              [
+                4,
+                5
+              ],
+              [
+                6,
+                7
+              ]
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "baseline/grid_identity_unseen_shape/expected_external_status",
+      "passed": true
+    },
+    {
+      "name": "baseline/equality_known/non_learning_label",
+      "passed": true
+    },
+    {
+      "name": "baseline/equality_known/expected_prediction",
+      "passed": true,
+      "details": {
+        "expected": {
+          "y": [
+            1
+          ]
+        },
+        "actual": {
+          "y": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "name": "baseline/equality_known/expected_external_status",
+      "passed": true
+    },
+    {
+      "name": "baseline/equality_unseen/non_learning_label",
+      "passed": true
+    },
+    {
+      "name": "baseline/equality_unseen/expected_prediction",
+      "passed": true,
+      "details": {
+        "expected": {
+          "y": [
+            9
+          ]
+        },
+        "actual": {
+          "y": [
+            9
+          ]
+        }
+      }
+    },
+    {
+      "name": "baseline/equality_unseen/expected_external_status",
+      "passed": true
+    },
+    {
+      "name": "baseline/equality_missing/non_learning_label",
+      "passed": true
+    },
+    {
+      "name": "baseline/equality_missing/expected_prediction",
+      "passed": true,
+      "details": {
+        "expected": {},
+        "actual": {}
+      }
+    },
+    {
+      "name": "baseline/equality_missing/expected_external_status",
+      "passed": true
+    },
+    {
+      "name": "baseline/equality_missing/observation_request_preserved",
+      "passed": true
+    },
+    {
+      "name": "baseline/mapping_known_first/non_learning_label",
+      "passed": true
+    },
+    {
+      "name": "baseline/mapping_known_first/expected_prediction",
+      "passed": true,
+      "details": {
+        "expected": {
+          "y": [
+            11
+          ]
+        },
+        "actual": {
+          "y": [
+            11
+          ]
+        }
+      }
+    },
+    {
+      "name": "baseline/mapping_known_first/expected_external_status",
+      "passed": true
+    },
+    {
+      "name": "baseline/mapping_known_last/non_learning_label",
+      "passed": true
+    },
+    {
+      "name": "baseline/mapping_known_last/expected_prediction",
+      "passed": true,
+      "details": {
+        "expected": {
+          "y": [
+            13
+          ]
+        },
+        "actual": {
+          "y": [
+            13
+          ]
+        }
+      }
+    },
+    {
+      "name": "baseline/mapping_known_last/expected_external_status",
+      "passed": true
+    },
+    {
+      "name": "baseline/mapping_unknown/non_learning_label",
+      "passed": true
+    },
+    {
+      "name": "baseline/mapping_unknown/expected_prediction",
+      "passed": true,
+      "details": {
+        "expected": {},
+        "actual": {}
+      }
+    },
+    {
+      "name": "baseline/mapping_unknown/expected_external_status",
+      "passed": true
+    },
+    {
+      "name": "baseline/mapping_unknown/observation_request_preserved",
+      "passed": true
+    },
+    {
+      "name": "baseline/mapping_missing/non_learning_label",
+      "passed": true
+    },
+    {
+      "name": "baseline/mapping_missing/expected_prediction",
+      "passed": true,
+      "details": {
+        "expected": {},
+        "actual": {}
+      }
+    },
+    {
+      "name": "baseline/mapping_missing/expected_external_status",
+      "passed": true
+    },
+    {
+      "name": "baseline/mapping_missing/observation_request_preserved",
+      "passed": true
+    },
+    {
+      "name": "baseline/support_not_pooled_across_boundaries/non_learning_label",
+      "passed": true
+    },
+    {
+      "name": "baseline/support_not_pooled_across_boundaries/expected_prediction",
+      "passed": true,
+      "details": {
+        "expected": {},
+        "actual": {}
+      }
+    },
+    {
+      "name": "baseline/support_not_pooled_across_boundaries/expected_external_status",
+      "passed": true
+    },
+    {
+      "name": "baseline/unlearned_boundary/non_learning_label",
+      "passed": true
+    },
+    {
+      "name": "baseline/unlearned_boundary/expected_prediction",
+      "passed": true,
+      "details": {
+        "expected": {},
+        "actual": {}
+      }
+    },
+    {
+      "name": "baseline/unlearned_boundary/expected_external_status",
+      "passed": true
+    },
+    {
+      "name": "baseline/learned_state_readonly",
+      "passed": true,
+      "details": {
+        "before": {
+          "version": 3,
+          "current": "9f9c79d4095d86b99ce53f875af27d60ca6a5673f7c2a01a4a827db3801b3a44",
+          "history": "03eb575e682029809a4550f5c758de05a669a3ec9f4e4435138349b6798d93cd",
+          "counts": {
+            "全体帰還台帳": 12,
+            "判断台帳": 6,
+            "原理台帳": 6,
+            "学習過程台帳": 12,
+            "懐疑台帳": 60,
+            "推論記録台帳": 6,
+            "暫定性台帳": 6,
+            "更新台帳": 6,
+            "残差台帳": 0,
+            "観測台帳": 12,
+            "証拠台帳": 6,
+            "認知世界台帳": 12
+          },
+          "observation_contents": "906bff913cbe0ddd8193db9ecf155157c8bc3eadb2a65fd720d4d4bbab4f38a2"
+        },
+        "after": {
+          "version": 3,
+          "current": "9f9c79d4095d86b99ce53f875af27d60ca6a5673f7c2a01a4a827db3801b3a44",
+          "history": "03eb575e682029809a4550f5c758de05a669a3ec9f4e4435138349b6798d93cd",
+          "counts": {
+            "全体帰還台帳": 12,
+            "判断台帳": 6,
+            "原理台帳": 6,
+            "学習過程台帳": 12,
+            "懐疑台帳": 60,
+            "推論記録台帳": 6,
+            "暫定性台帳": 6,
+            "更新台帳": 6,
+            "残差台帳": 0,
+            "観測台帳": 12,
+            "証拠台帳": 6,
+            "認知世界台帳": 12
+          },
+          "observation_contents": "906bff913cbe0ddd8193db9ecf155157c8bc3eadb2a65fd720d4d4bbab4f38a2"
+        }
+      }
+    },
+    {
+      "name": "baseline/only_query_counters_advance",
+      "passed": true
+    },
+    {
+      "name": "baseline/all_public_ledgers_exact_readonly",
+      "passed": true
+    }
+  ],
+  "seed_refs": [
+    {
+      "ref": "経験-000001",
+      "sha256": "1934c07d052d8841550d17b937653353a7f2ac786894d4d84d551938a62b366e"
+    },
+    {
+      "ref": "経験-000002",
+      "sha256": "64273023d71a40847a9c955e39340634fbe54feda36c810f5727f2a8883ddb2c"
+    },
+    {
+      "ref": "経験-000003",
+      "sha256": "5a938a488a51435dffc5e9f4421932c268d43559ddd506cee5d8485ff2ff4478"
+    },
+    {
+      "ref": "経験-000004",
+      "sha256": "7f7ae315d203453016ce411bc990a2b31867eef9aa0c2c5edbd553bd8a121fab"
+    },
+    {
+      "ref": "経験-000005",
+      "sha256": "75613402f9545e8d8fe3b6d5cf3be0827bf097d6c28d839d6fbb3099c89cebeb"
+    },
+    {
+      "ref": "経験-000006",
+      "sha256": "06a3beef3c0b795c3945134fef299b4f93697b22efed7309146405138fcb766c"
+    },
+    {
+      "ref": "経験-000007",
+      "sha256": "550f496774fd77720dd421df4396e51d84e9a4a5c4811cc1b77ba5f4ced1bd84"
+    },
+    {
+      "ref": "経験-000008",
+      "sha256": "158bab97613e7a3c842cdf6bb3a8f1b1f7125ebeebc1e54636262988c945d804"
+    },
+    {
+      "ref": "経験-000009",
+      "sha256": "60fb74264914edc44c31af628656b0e9b45747db659663d98cf7722351cf7899"
+    },
+    {
+      "ref": "経験-000010",
+      "sha256": "7a42f052c8f863ca234f853b7b233f4e7f789ff8342280d3ca3ecccc8d5e7e75"
+    },
+    {
+      "ref": "経験-000011",
+      "sha256": "73f08ece962652246bc81c12c8eb0ee7c263bedacdccf2b813724775f41fc434"
+    },
+    {
+      "ref": "経験-000012",
+      "sha256": "c3267de5278a23abd5b36a8f736241940b1a24060fe4eee2cc517c752197fe75"
+    }
+  ]
+}

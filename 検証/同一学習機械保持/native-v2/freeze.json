@@ -1,0 +1,473 @@
+{
+  "experience_sha256": "5905139cc6723b97c67035c00e3f2ea9633ff58ef0e96b81a6676f8c636ae7c1",
+  "protocol_sha256": "d8221f3b170a8e0ca9bd58890109d4b58ba3992d2994a79f3a66e669cf8e7d48",
+  "observer_sha256": "2f2cf206f9c61f8e5b785f7a32f5278c026a84a128940f60d11e898fe94523ae",
+  "protocol": {
+    "schema": "arc2-rule-observation-protocol-v2",
+    "baseline": "d21ecb838bcf77dfc9e7f045ac066000657e2723",
+    "audit_status": "pre-runtime source/projection audit; no native result asserted",
+    "core_root": "HDS/学習系統/v0.4.2",
+    "core_modifications_allowed": false,
+    "executor": "run_rule_reobservation_validation",
+    "input_contract": {
+      "constructor": "外部入力(**row['既存interface入力'])",
+      "learner": "HDS学習系統()",
+      "defaults": {
+        "最小支持数": 3,
+        "最大条件数": 2
+      },
+      "sequence": "Each of all 67 source-comparison experiences exactly once; record deterministic order; one fresh engine and shared 対象系境界",
+      "内容": "Exact full original comparison leaf values and exact pinned-code source line-spans only, represented as opaque strings grouped into externally supplied seven semantic fields; preserve span text and array order; omit absent fields, never insert 未記録.",
+      "対象": "JSON string containing complete normalized record, all raw comparison UTF-8 source, exact commit/blob/path, quotation/pointer/span evidence, supplementary code provenance and exact text, separately typed fresh baseline runtime admission provenance, origin annotations and projection/exclusion map.",
+      "文脈": "empty; intake context is not persisted by native memory"
+    },
+    "projection": {
+      "fields": [
+        "観測対象",
+        "観測された関係",
+        "成立条件",
+        "作用",
+        "支持",
+        "反例",
+        "適用範囲"
+      ],
+      "dedup": "Deduplicate reuse of the same original source leaf pointer or exact (source_path,start_line,end_line) code range within one record only. Equal values at genuinely distinct original pointers/ranges are source-native equality and remain allowed, with provenance annotations. Do not duplicate one evidence source across normalized fields.",
+      "do_not_join": true,
+      "missing": "Keep required eight-field external experience schema and all evidence in archive; inferential fields absent after exclusion remain omitted.",
+      "exclude_additional_top_keys": [
+        "制限",
+        "対照検証",
+        "検証",
+        "不足と優先根拠",
+        "採用範囲",
+        "選択根拠",
+        "原因観測",
+        "事前診断"
+      ],
+      "exclude_pointer_prefixes": [
+        "/HDS/支持",
+        "/HDS/実測",
+        "/HDS/部分回答",
+        "/モデルとHDS/支持",
+        "/学習と出力/支持",
+        "/学習と出力/実測",
+        "/教材と予測/観測結果",
+        "/教材と予測/実観測",
+        "/色群view/教師"
+      ],
+      "exclude_exact": [
+        {
+          "source": "検証/テンプレート充填比較.json",
+          "pointers": [
+            "/境界/0",
+            "/境界/1",
+            "/境界/2"
+          ]
+        }
+      ],
+      "retain": "Keep actual rule grammar, guards and domain restrictions, including intrinsic numeric constraints and source-described limitations. Do not filter all numbers or all words such as 確認.",
+      "scope": "Complete archive is transported and retained; inferential 内容 is a declared restricted source-text and pinned-code-text projection. All code remains opaque scalar text to native intake; no source execution/parser is added. This trial does not test semantic parsing of archived evidence hidden from native inference.",
+      "forbidden_inputs": [
+        "external shared skeleton",
+        "external vocabulary/concept tags",
+        "comparison score fields",
+        "provenance IDs/paths/hashes as inference features",
+        "manufactured missing-value or duplicate-quote equality",
+        "new executable rule semantics"
+      ],
+      "code_supplement": {
+        "allowed": "Exact complete source line ranges verified against pinned commit; prefer whole logical blocks so qualifications are preserved.",
+        "provenance_required": [
+          "source_path",
+          "commit",
+          "blob_sha",
+          "start_line",
+          "end_line",
+          "exact_text",
+          "external_field_assignment"
+        ],
+        "not_content": [
+          "external LLM claim_ja",
+          "external shared skeleton or concept vocabulary",
+          "fresh9family runtime admission metadata",
+          "hypothesized executable semantics"
+        ],
+        "interpretation": "Code names, operations and classification are supplied observations, not newly derived concepts. Exact code-text equality is a scalar relation, not program isomorphism.",
+        "runtime_provenance": "Fresh baseline admission observations remain separately typed, dated, linked to their own baseline/freeze and metadata-only. They must not be represented as observations present in original comparison JSON."
+      }
+    },
+    "freeze": {
+      "before_native_call": "Write protocol and projection manifest to local deliverable staging; compute SHA256 of protocol, ordered exact payloads and 12 pinned core files; record hashes in report. Any projection change requires a new version before native run, never tune to observed answers."
+    },
+    "capture": {
+      "outputs": "Raw dataclass 外部出力 for every completed call, retaining native wording and counts",
+      "ledgers": "Read-only 台帳.全取得 or JSON相当 snapshots and final 保存する file",
+      "retention": "Compare each stored 原入力 to exact supplied 内容, and json.loads(経験記録.対象) to the complete archive; independently match all 67 source byte lengths/blob hashes. Reload through HDS学習系統.読み込む and repeat equality checks. Also verify supplemental code ranges against pinned source bytes/blob and preserve fresh runtime provenance as a separate source class.",
+      "trace_limits": "Outward output omits full mapping/support tables; 原理台帳 includes adopted mappings. Native 推論記録台帳 omits full tables for some non-adopted candidates; do not monkeypatch or rerun private inference to fill this gap.",
+      "query_note": "照会 does not append observations or update adoption state, but does increment identifier counters; do not claim bit-for-bit entire-engine nonmutation from its docstring."
+    },
+    "levels": [
+      {
+        "level": 0,
+        "criterion": "The intended payload is attempted through unchanged public input path and rejected or cannot enter as an observation.",
+        "not_evidence": [
+          "execution environment unavailable",
+          "timeout before outcome",
+          "source code review alone"
+        ]
+      },
+      {
+        "level": 1,
+        "criterion": "Native run retains every supplied experience and complete source/provenance archive; exact in-memory and native save/reload checks pass.",
+        "does_not_imply": "Opaque text storage is not semantic recognition."
+      },
+      {
+        "level": 2,
+        "criterion": "Native traces derive an identifiable cross-experience equality or common deterministic scalar correspondence from independently sourced supplied values. Cite actual condition/result paths, values, distinct source records, native relation type and support refs.",
+        "qualifiers": [
+          "Native exact scalar equality/commonality may count with explicitly limited meaning; no NLP prerequisite is imposed.",
+          "External normalization category labels are supplied, not discovered.",
+          "A table assigning unique prose inputs to unrelated unique prose outputs is opaque lookup, not demonstrated common rule elements.",
+          "Input-copied quote equality, missing sentinels, IDs and score correlations do not count.",
+          "Report native mapping existence even when it fails the requested commonality criterion."
+        ],
+        "required_reporting": [
+          "supplied facts",
+          "derived facts",
+          "raw-native correspondence",
+          "semantic scope",
+          "counterexample/ambiguity limitations"
+        ]
+      },
+      {
+        "level": 3,
+        "criterion": "A native output derives a named inclusion/isomorphism/overlap/contradiction relation between identifiable experienced rules, linked to their evidence. Report each subtype actually established; do not assert unobserved subtypes.",
+        "limits": "Native learned-scalar-rule condition-path subset checks, prediction conflict, quarantine, or input prose using a relation name are not automatically semantic inclusion/isomorphism of experienced ARC rule programs."
+      },
+      {
+        "level": 4,
+        "criterion": "Native execution generates a higher-order rule candidate from earlier observed rule relations, with a derivation trace and representable conditions; it is not an externally supplied skeleton or renamed scalar lookup."
+      },
+      {
+        "level": 5,
+        "criterion": "Native execution evaluates that generated higher-order candidate against identifiable supporting and counterexample experiences, preserving the actual outcomes and scope."
+      },
+      {
+        "level": 6,
+        "criterion": "The same higher-order candidate is natively admitted, retained and actually used in a later authorized native query; show candidate-to-principle-to-use trace."
+      },
+      {
+        "level": 7,
+        "criterion": "Native trace shows that derived rule integrating, specializing or replacing an older rule with parent/child or version lineage and later use; unrelated scalar-state updates are reported separately."
+      }
+    ],
+    "stop_rule": "Assess consecutive levels and stop semantic advancement at the first unsupported criterion. Atomic 処理する may naturally emit later-stage native events; preserve them without using them to bypass an earlier failed criterion. No feature additions, private inference hooks, source rewrites or answer seeding.",
+    "resource_rule": "Preflight native intake path count and record configured runner budgets before execution. Default max2 combination bound is p*((p-1)+(p-1)*(p-2)/2) per step. Timeout/resource failure is incomplete execution, never absence of capability. Do not change learner thresholds or representational atoms for speed.",
+    "independence": "No ARC solver/adapter/fitter/scorer/runner modifications. Existing baseline/current grid regression belongs to its separate runner evidence and cannot establish semantic re-observation levels.",
+    "supersedes": "arc2-rule-observation-protocol-v1",
+    "revision_reason": "Before any native trial: allow parent-requested exact pinned-code source ranges to supplement missing descriptive semantics; no code execution or semantic-parser changes."
+  },
+  "row_count": 67,
+  "input_order": [
+    "arc2-comparison-001",
+    "arc2-comparison-002",
+    "arc2-comparison-003",
+    "arc2-comparison-004",
+    "arc2-comparison-005",
+    "arc2-comparison-006",
+    "arc2-comparison-007",
+    "arc2-comparison-008",
+    "arc2-comparison-009",
+    "arc2-comparison-010",
+    "arc2-comparison-011",
+    "arc2-comparison-012",
+    "arc2-comparison-013",
+    "arc2-comparison-014",
+    "arc2-comparison-015",
+    "arc2-comparison-016",
+    "arc2-comparison-017",
+    "arc2-comparison-018",
+    "arc2-comparison-019",
+    "arc2-comparison-020",
+    "arc2-comparison-021",
+    "arc2-comparison-022",
+    "arc2-comparison-023",
+    "arc2-comparison-024",
+    "arc2-comparison-025",
+    "arc2-comparison-026",
+    "arc2-comparison-027",
+    "arc2-comparison-028",
+    "arc2-comparison-029",
+    "arc2-comparison-030",
+    "arc2-comparison-031",
+    "arc2-comparison-032",
+    "arc2-comparison-033",
+    "arc2-comparison-034",
+    "arc2-comparison-035",
+    "arc2-comparison-036",
+    "arc2-comparison-037",
+    "arc2-comparison-038",
+    "arc2-comparison-039",
+    "arc2-comparison-040",
+    "arc2-comparison-041",
+    "arc2-comparison-042",
+    "arc2-comparison-043",
+    "arc2-comparison-044",
+    "arc2-comparison-045",
+    "arc2-comparison-046",
+    "arc2-comparison-047",
+    "arc2-comparison-048",
+    "arc2-comparison-049",
+    "arc2-comparison-050",
+    "arc2-comparison-051",
+    "arc2-comparison-052",
+    "arc2-comparison-053",
+    "arc2-comparison-054",
+    "arc2-comparison-055",
+    "arc2-comparison-056",
+    "arc2-comparison-057",
+    "arc2-comparison-058",
+    "arc2-comparison-059",
+    "arc2-comparison-060",
+    "arc2-comparison-061",
+    "arc2-comparison-062",
+    "arc2-comparison-063",
+    "arc2-comparison-064",
+    "arc2-comparison-065",
+    "arc2-comparison-066",
+    "arc2-comparison-067"
+  ],
+  "ordered_native_inputs_sha256": "124fdae7506dc0e59e6e8c7ec6786a6e0c2f24188527a60aa59c718e8b71820a",
+  "core12": {
+    "HDS/学習系統/v0.4.2/hds学習系統/__init__.py": {
+      "sha256": "eaed97760656afc40088ad7e0d85a02fbd59a0d0034054956e9ead63319fba57",
+      "git_blob_sha1": "ef58e4969fcd4ba4c4310285c4d45cc740f8150c"
+    },
+    "HDS/学習系統/v0.4.2/hds学習系統/台帳.py": {
+      "sha256": "a6cab8fca7cb591c42fa7444f9678fe0003da69faafcce852598286dceb522e2",
+      "git_blob_sha1": "31f6e4d86c42448d90a6e829b86ab99e441982dc"
+    },
+    "HDS/学習系統/v0.4.2/hds学習系統/吸気系.py": {
+      "sha256": "50c48e5a9a8aa39158d0cdaacc0501608a829486960d41cb2fea6cb02e5660a4",
+      "git_blob_sha1": "81ffd4ea6e1a2f611020faeb5d28416ab0d79172"
+    },
+    "HDS/学習系統/v0.4.2/hds学習系統/型.py": {
+      "sha256": "aa1241708655280b36564f5e3ff6968849b4d09790b8932aabad1570cbca302c",
+      "git_blob_sha1": "0ade344cf314d710ace16d4e53907b89ee47d742"
+    },
+    "HDS/学習系統/v0.4.2/hds学習系統/実行系.py": {
+      "sha256": "11d253705181873bcc22e312a0d0a2198fe16a82e3d7289ea8746fdc14695429",
+      "git_blob_sha1": "7dc89687e75d00b7b0b87f5fa23d950649a514f6"
+    },
+    "HDS/学習系統/v0.4.2/hds学習系統/懐疑.py": {
+      "sha256": "bb7e85c2dbafbd430f1b7733bf3a2d307dc24e3227e79994b491cf711322f715",
+      "git_blob_sha1": "82016fb3fc15f0baa7af3b5b7c792420c95188ca"
+    },
+    "HDS/学習系統/v0.4.2/hds学習系統/排気系.py": {
+      "sha256": "2ba7ceb8d0d6c784d092f91fe484477127f044e50f68c54c977374b17f2f6361",
+      "git_blob_sha1": "54f3bec51663dde9dedd38f8bf007d336d40b9ea"
+    },
+    "HDS/学習系統/v0.4.2/hds学習系統/推論.py": {
+      "sha256": "315dd0d23a9682cdf14be71346341976cbdbcd2cbd924a250afc4ad53058dba6",
+      "git_blob_sha1": "e394dc97f4986ca3212b1e10398060ac2495d3e6"
+    },
+    "HDS/学習系統/v0.4.2/hds学習系統/検証.py": {
+      "sha256": "e23f271d38e1f52d75557dbf3342abf7b59a85fbdc315a06c0040fd7ca204eb3",
+      "git_blob_sha1": "28e5ac81be2160a705e7edef016f92702640b5a8"
+    },
+    "HDS/学習系統/v0.4.2/hds学習系統/永続化.py": {
+      "sha256": "8aa431b3012424fd8347c5b3d93a5fbf2218d35020836f5d40abb427f9d6da0d",
+      "git_blob_sha1": "68a4f62d4dfea55b481de0f36b8e2436afa6b0a2"
+    },
+    "HDS/学習系統/v0.4.2/hds学習系統/系統.py": {
+      "sha256": "f57e34fcab9249ad7fef72d7b9088fbb440c01afcd4313c9447b7a31427bd4a5",
+      "git_blob_sha1": "ef2088692ae333bca598fa5e7cd4b10de58c5ad1"
+    },
+    "HDS/学習系統/v0.4.2/hds学習系統/適応.py": {
+      "sha256": "c74797d49472646010ed0b37bd17dfa602084ba3347ac9386dec265e78a797ac",
+      "git_blob_sha1": "7af4f016518df38207e9b66d075846fa7efdea0d"
+    }
+  },
+  "imported_hds_package": "/workspace/scratch/7408259c1ab2/arc2-ledger-d21ecb8/HDS/学習系統/v0.4.2/hds学習系統/__init__.py",
+  "intake_preflight": {
+    "union_inferable_paths": [
+      [
+        "作用",
+        "@HDS:索引:0"
+      ],
+      [
+        "作用",
+        "@HDS:索引:1"
+      ],
+      [
+        "反例",
+        "@HDS:索引:0"
+      ],
+      [
+        "成立条件",
+        "@HDS:索引:0"
+      ],
+      [
+        "成立条件",
+        "@HDS:索引:1"
+      ],
+      [
+        "成立条件",
+        "@HDS:索引:10"
+      ],
+      [
+        "成立条件",
+        "@HDS:索引:11"
+      ],
+      [
+        "成立条件",
+        "@HDS:索引:12"
+      ],
+      [
+        "成立条件",
+        "@HDS:索引:13"
+      ],
+      [
+        "成立条件",
+        "@HDS:索引:14"
+      ],
+      [
+        "成立条件",
+        "@HDS:索引:15"
+      ],
+      [
+        "成立条件",
+        "@HDS:索引:16"
+      ],
+      [
+        "成立条件",
+        "@HDS:索引:17"
+      ],
+      [
+        "成立条件",
+        "@HDS:索引:2"
+      ],
+      [
+        "成立条件",
+        "@HDS:索引:3"
+      ],
+      [
+        "成立条件",
+        "@HDS:索引:4"
+      ],
+      [
+        "成立条件",
+        "@HDS:索引:5"
+      ],
+      [
+        "成立条件",
+        "@HDS:索引:6"
+      ],
+      [
+        "成立条件",
+        "@HDS:索引:7"
+      ],
+      [
+        "成立条件",
+        "@HDS:索引:8"
+      ],
+      [
+        "成立条件",
+        "@HDS:索引:9"
+      ],
+      [
+        "支持",
+        "@HDS:索引:0"
+      ],
+      [
+        "観測された関係",
+        "@HDS:索引:0"
+      ],
+      [
+        "観測された関係",
+        "@HDS:索引:1"
+      ],
+      [
+        "観測された関係",
+        "@HDS:索引:2"
+      ],
+      [
+        "観測された関係",
+        "@HDS:索引:3"
+      ],
+      [
+        "観測対象",
+        "@HDS:索引:0"
+      ],
+      [
+        "観測対象",
+        "@HDS:索引:1"
+      ],
+      [
+        "観測対象",
+        "@HDS:索引:10"
+      ],
+      [
+        "観測対象",
+        "@HDS:索引:2"
+      ],
+      [
+        "観測対象",
+        "@HDS:索引:3"
+      ],
+      [
+        "観測対象",
+        "@HDS:索引:4"
+      ],
+      [
+        "観測対象",
+        "@HDS:索引:5"
+      ],
+      [
+        "観測対象",
+        "@HDS:索引:6"
+      ],
+      [
+        "観測対象",
+        "@HDS:索引:7"
+      ],
+      [
+        "観測対象",
+        "@HDS:索引:8"
+      ],
+      [
+        "観測対象",
+        "@HDS:索引:9"
+      ],
+      [
+        "適用範囲",
+        "@HDS:索引:0"
+      ],
+      [
+        "適用範囲",
+        "@HDS:索引:1"
+      ]
+    ],
+    "union_path_count": 39,
+    "maximum_scalar_count": 27,
+    "max2_combinations_per_step": 28899
+  },
+  "runner_limits": {
+    "CPU": [
+      -1,
+      -1
+    ],
+    "address_space": [
+      -1,
+      -1
+    ],
+    "added_wall_timeout": null
+  },
+  "configuration": {
+    "HDS学習系統": "default constructor",
+    "最小支持数": 3,
+    "最大条件数": 2
+  },
+  "source_root": "/workspace/scratch/7408259c1ab2/arc2-ledger-d21ecb8",
+  "official_data_read_by_this_process": false
+}
