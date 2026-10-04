@@ -1,0 +1,88 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "592d2c57564997594c1bd9815efa297587c37830",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産と新実装": "入力の四つの等長腕を根とする無限直交曲線のcanvas内unionを、同じHDSの一つの入力専用候補として接続した。教師段階のwhole-support観測helper1関数と新8関数、DIRECTIONS/MODELSをAST同一で移し、保持tupleだけのwrapperを加えた。既存の局所十字再色・記号命令列・周期帯には、この共有pitch/handと空phase後再入場を持つ再帰表現がない。旧rendererの修理や固定内部座標の再接続ではない",
+  "不足と優先根拠": "復旧後に残62課題190教師を新しい教師projectionから再観測した。全190入力のwhole-role検査は175非二色・9bbox不適合・3全支持不適合・対象3有効。61課題は全教師の入力型が揃わずfit前に停止し、対象1課題の3教師だけ全60モデル×3描画へ進んだ。複数課題への寄与や未検討資産の枯渇は主張しない",
+  "previous": {
+    "correct_tasks": 58,
+    "correct_examples": 81,
+    "unanswered": 86,
+    "wrong_attempted_tasks": 6,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 59,
+    "correct_examples": 82,
+    "unanswered": 85,
+    "wrong_attempted_tasks": 6,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答81例": "全格子同一"
+  },
+  "原因観測": {
+    "教師再現": "全60共有tupleを全3教師へ比較して(2,CW)だけを保持し、全884cellを完全再現。観測前景73/239/127・seed計24・追加計415。必要条件として説明できる3観測cellだけで全fitを代用していない",
+    "境界の再入場": "1教師ではあるarmのphase4が全て範囲外となり、phase5が境界の1cellへ再入場する。最初の退出や空phaseで停止する方式ではこのcellを失う。無限canvas外の物質を観測したとは言わない",
+    "入力のみ確認": "凍結実体の独立PASS後、正解非参照の固定input-onlyで26×26・L4・M15、共有(2,CW)を評価した。全4armの各7phaseを検査し、閉線分proposal399、union前景337、原seed16、追加321。後の単一全120では同じ答案を採点した",
+    "修正の限定": "教師実体開発中、Noneを返すrendererを単なる不適合とすると部分fit集合が残る反証を独立oracleが検出した。query前の最終凍結では、None/例外を全fit失敗として部分modelを全破棄する。query後の文法やparameter選別変更はない"
+  },
+  "固定文法": {
+    "全役割先決": "各辺1..30・exact整数0..9（bool除外）の格子、一意最多背景、他にちょうど1前景色を要求する。その全支持のtight bboxは正の半径Lの奇数正方形で、唯一の中心は空白。全前景が中心から4方向の距離1..Lの腕と完全一致しなければ全体HOLD。候補の部分抽出、extra/missing画素の無視、別背景への再選択はしない。center/L/shape/paletteは現在入力から得る",
+    "共有再帰": "共有parameter d>0とhandに対しR=max(d,L)。各cardinal armの中心から距離1..Rを初期rayとする。phase kは同handに旋回してd(2k+1)、同handに旋回してR-d、逆handに旋回してR進む。中辺0も旋回を保つ。これを無限に続けてcanvasでcropする。max、3辺、奇数線形増分、無限継続は明示priorであり、教師からこの文法自体の自然な唯一性を学んだとは言わない",
+    "直接線分": "e_k=J^k uとe_(k+1)の基底で、phase頂点はP=(R+kd,-kd)、A=(R+kd,(k+1)d)、B=((k+1)d,(k+1)d)、C=((k+1)d,R+(k+1)d)。Cは次phaseのPと等価。3つの閉整数線分を全てcanvasへ切り取り、4arm全体の同色unionを描く。共有端点・0長線分のproposal重複を別の出力cellとして数えない",
+    "有限crop完備性": "全phase kの各線分には絶対値d(k+1)以上の固定座標があるので全点のChebyshev半径はd(k+1)以上。Mを中心からcanvas4辺への最大距離とすると、k=0..floor(M/d)-1の全phaseだけでcropは完備で、等号を含む。空線分/空phase/範囲外端点で早期停止しない。M<=29より最大352線分、各線分の可視点は最大30で、巨大canvasや任意の反復予算を使わない",
+    "全正整数の有限被覆": "d1..29と象徴tail GE30、それぞれCW/CCWの全60tupleを列挙する。許容入力でL<=M<=29。d>=30ならR=d、初期rayがcanvas内4軸を覆い、全macroの半径はcanvas外なので代表30で全tailの出力を保つ。これはcanvas内同値の有限被覆で、60種類の振舞いが全て異なることや最小商、canvas外の無限形状の同一性を主張しない。tailの両handも別modelとして保持する",
+    "全fitと合意": "raw解析後に全60tupleの全教師完全gridを比較し、全教師再現の全tupleを保持。同じ教師格子を返す別tupleを統合しない。予測はcurrent inputを一度解釈し、全保持tupleを評価する。一候補でもNone/例外、または完成gridの不一致なら全体HOLD。fitの一候補失敗/例外でも途中modelを全て捨て、失敗候補を落として残りを採用しない",
+    "所有と数量": "全原seedはunionに含まれ中心はBGのまま。seed以外の全unionもsource色で、その外は元BGである。foreground数は通常増え、source色の画素数はunion面積、BG画素数は残余cell数。proposal数、union数、4L seed数、追加差分を区別し、一般の画素数保存を主張しない。同色接触や重なりはunionとして許し、d1やcomponent個数を理由にparameterを除外しない",
+    "一般化の限定": "一意最多BG/二色/等長4腕は固定の入力型。向き、配色、L、偏心、非正方形はこの型の一般化で、観測教師そのものをコードへ埋め込まない。反射時はhandも交換する。固定CWの反射等変性、stroke+gapからdを一意に導いたこと、全機構一般の正しさは主張しない"
+  },
+  "HDS": {
+    "保持": "最低2 distinct教師と全教師再現を要求する。fit後はimmutable pitch-domain/hand tupleだけを保持し、教師input/output object・完成格子・task ID・filename/hash答え表を保持しない。raw役割/各modelの描画はtarget非参照、targetは固定完成gridとの比較だけに使う",
+    "支持": "現在3 distinct盤面/prior0/min3・同値採用・隔離0。全120の支持設定34/86と中核既定3は不変。60model、12arm、phase、画素は独立観測として加算しない",
+    "排気": "公開学習cycle、全教師再現、同値、反例隔離と既存排気gateを維持。既存全familyの一つでも未解決、または完成格子が競合すると全体HOLD。adapterはimport/生成/family/記録の4追加だけ"
+  },
+  "原指標保持": "wrong_attempted_tasksは6→6で同じ正答部分回答6課題。誤った出力格子は前後0。未回答86→85。原採点器と指標名は変更しない",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "f0af8e1b7f7d21d8b1256631eb369142a6e3ca369ae8379fb0a45355142ab3b6",
+    "接続/ARC2/十字曲線教材.py": "b771fa5e83d90fcd50f95e71abdbcc4a808e3bf0983807959b9cdf9ed7ce55a6",
+    "検証/十字曲線回帰.py": "4a6a2e58f415548c55499b0a5970da9fb097b1a3bcf6dd20545af1fb5a7eabad",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存986＋新34の全1020回帰、65ファイル成功。新34は通常/-O成功。常設fixtureは生成されたcross/stepwalkだけで公式教師/query格子を埋め込まない",
+    "独立全center/radius列挙で74240二値maskを検査。小550canvas×60の33000全grid/segment比較、378480点の半径上下界、proof範囲より長く歩くoracleとの一致を確認",
+    "別125盤面×60の7500描画、L1..14、全90配色対5400描画、回転/鏡映hand交換720、tail30/31/47/100の1000等値、d1接触36件を確認。30入口受理/31先行HOLDを含む",
+    "216教師出力class直積の全モデル集合を独立照合し、通常/逆教師順432fit、非空60/空156、複数model22・最大56保持を確認。未来異格子9件は全体HOLD、tail同格子でも両handを実行する",
+    "全62/190のfull recordと全60×3描画を再計算し、別cell式で884cellと全segment集合が一致。31教師対照、None/例外の部分fit全破棄、raw先決、原seed、空phase再入場、等号境界、modelの教師object独立を確認",
+    "runtimeの凍結9関数/2定数と2hash、全359入力parse/predict・180描画・120fit/wrapper・残62全文・固定query/nativeを独立照合。既存265snapshotはadapter4追加以外不変、core12/protected7/scorer/runnerを維持",
+    "fresh公開main58/81と候補全120/167を同条件で測定し59/82。公式原本全投影、保存全行の直接採点と旧scorer original_audit全文が前後とも独立一致。先行81格子と全120既存family記録同一、誤格子/資源0、同じ6partialを確認"
+  ],
+  "復旧と比較範囲": "作業filesystemが古いsnapshotへ戻った後、新sandboxへ公開592d2c5の全treeを取得し、287blob/gitlink、公式source1125blob、4データSHA、teacher-only旧SHA、保護対象、986回帰、fresh58/81を独立再確認した。今回の教師分析と比較baselineは復旧後に再計算した。失われた未公開監査/fullrowsを復元済みとは称さず、欠落した過去fullrowsとの直接一致も主張しない。今回のprevious/current保存全行間の一致検査は完了した",
+  "情報分離の留保": "2026-10-02 21:23 UTC頃、外部監査記録を広くrg検索した際に単一行challenges JSONが偶発一致し、大量省略された出力に一部challenge入力が表示された。対象queryの意図的抽出やsolutions参照はその時点では行っていないが、query未参照と一括主張しない。別の教師分析でもrg -lがchallenge/solutionを含むファイルbytesを走査し、ファイル名だけを表示した。query/solution格子の内容表示・抽出とは区別し、未走査とは称さない。両経緯を親/独立監査へ共有し、以後は指定teacher-only資料と個別source pathへ限定。本候補は規約凍結・独立実体監査・承認済みinput-only・runtime監査を経て最後に全120採点した",
+  "制限": [
+    "公開評価での差分で、現在教師から独立した評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "再帰文法と入力型は明示priorで、自然規則の唯一性は主張しない",
+    "残61課題未完・85例未回答"
+  ]
+}
