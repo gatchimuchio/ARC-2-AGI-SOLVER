@@ -1,0 +1,93 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "1519c88cae20e5991b09ad9b0335abeaf568fae9",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "採用範囲": "完全課題数は不変で正答例だけ1増える部分回答改善。第1入力のraw cue/floor候補0によるHOLDは維持し、例番号分岐、cue/floor条件変更や描画成功での役割再選択を行わない",
+  "既存資産と新実装": "入力から全柱/梁と元接触を型として先決し、cue色の全片消去後に単調な支持写像の最小下方固定点を求める新しい関係。教師段階の幾何helper5関数をAST同一で移し、型抽出の幾何部分を保持して元安定性を課金付き写像へ分離した。全12関数/2class/定数を凍結実体から同じHDSへコピーし、boolのみのwrapperを加えた。既存の剛体成分移動や静的櫛配置の再接続、物理的重力の唯一性の証明ではない",
+  "不足と優先根拠": "公開59課題時点の未完61課題187教師について、色消去で複数の支持拘束が変化し、可視の色別画素数も変わる入力表現の不足を調べた。先行の概念棚卸しは62/190で、公開された十字曲線の3教師だけを除いた同じ資料へ実体を適用した。全5教師で全役割/元安定性/最小固定点の再現が成立するのは1課題。未検討資産の枯渇や複数課題への寄与は主張しない",
+  "previous": {
+    "correct_tasks": 59,
+    "correct_examples": 82,
+    "unanswered": 85,
+    "wrong_attempted_tasks": 6,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 59,
+    "correct_examples": 83,
+    "unanswered": 84,
+    "wrong_attempted_tasks": 7,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 0,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答82例": "全格子同一"
+  },
+  "原因観測": {
+    "教師の役割": "5教師は同寸法の2つの繰り返しsceneを含む。全入力66片と、観測targetの色/被覆/許可重なりだけで先に対応した60生存片について、全126支持等式が成立した。この段階ではtarget条件付きの一致だけであり、後の実体で初めて入力から最小点への到達を計算した",
+    "最小点の再現": "全5教師を入力だけから同期更新し、全720cellを完全再現。元安定性からstable確認roundまでのwork82/296/338/275/221、round1/6/6/6/5、変更0/38/23/57/56。2片のcycleが存在するsceneも辺を切らず保持した。全平衡の一意性は主張しない",
+    "材料と可視": "cueを除いた宣言材料は46/48/48/46/46、消去材料0/6/3/4/8、生存材料46/42/45/42/38、最終隠れ底6/3/4/6/5、可視40/39/41/36/33。ある教師の色2は宣言材料9を保ったまま隠れ2→1、可視7→8となる。潜在底priorに整合する説明で、隠れ物質の存在を直接観測したものではない",
+    "所有の限定": "maximal縦runを優先する新規約は、旧観測の横優先/共有corner仮説を反証済みとはしない。ある同色の縦4cellと横bodyのjunctionで所有と元endpointが変わるため、単なる記録表現の違いと扱わない",
+    "入力のみ確認": "独立実体PASS後の固定input-onlyでは両入力12×12。第0はraw1、work100、同期1roundで完走し、宣言材料52−9=43、隠れ4、可視scene39、変更8cell。第1はraw候補0で型/固定点へ進まずwork0・答案なし。正解非参照のこの結果を変えず、後の単一全120で同じ答案を採点した"
+  },
+  "固定文法": {
+    "全raw役割": "各辺1..30・exact整数0..9と一意最多背景を要求する。全非背景cellの混色C4成分を列挙。whole singletonが、残り全前景のclosed bbox外にあり、その全sceneがちょうど1canvas辺に触れるときcue/floor組とする。全組の件数を型/安定性より前に確定し1件を要求。複数候補を後段成功で削らない。scene全成分を残し、唯一floorが下になる向きへ回転する",
+    "全型と元所有": "全maximal同色縦runの長さ2以上を柱にする。残余の全maximal同色横runを1cellも含め梁bodyにする。梁bodyの両隣の元cellは柱に属することを要求し、両方の元post identityを固定する。梁のfull支持spanは両端列も含むが、描くのはbodyだけ。柱底直下が元梁bodyなら潜在底1cellを付加する。全元前景を所有し、潜在底と梁bodyの重なりだけ梁が前面。柱同士/梁同士/柱内部の重なりは同色でもHOLD",
+    "全元下側関係": "柱pは、同列でpの元潜在底よりtopが下にある全柱qと、fullspanがp列を含みrowがp元潜在底以上の全梁bを保持する。梁bは、元rowが厳密に下でbody列が交差する全梁qと、body列内で元topが厳密に下の全柱pを保持する。最近傍だけを採らず全関係とcycleを残す。消去後に成分/片/接触を抽出し直さない",
+    "柱写像": "柱pのtopはmin(H-length_p, 全生存下側柱qのtop_q-length_p, 全生存下側梁bのrow_b-length_p+1)。+1は柱底での支持span接触を許す明示規約で、描画順バグ修理ではない",
+    "梁写像": "梁bのrowはmin(H-1, side_b, 全生存下側body交差梁qのrow_q-1, 全生存下側body列柱pのtop_p-1)。両元endpointが残るならside_b=max(左右元postの現在top)、片方でも消えるならH-1。別の隣接postへ付け替えない",
+    "元安定性と消去": "描画前に全元片の元位置が全写像の固定点であることを要求し、不安定sceneは全体HOLD。cue色に一致する全片とその潜在材料を除く。残りの全片・元関係・endpoint identityを保持し、元位置を初期状態にする。cueは保存。該当色なしと全片消去も文法上許す",
+    "最小固定点": "各式はmin/maxと定数差で単調。元安定状態からの削除はminの項を除くかsideをfloorへ緩めるのでF_survivor(z0)>=z0。全片を前roundのvectorから同期更新すると下方へ単調増加し、各floor上限以内。非静止roundは座標和を1以上増やすため有限に止まり、元位置以上の全固定点のうち最小になる。全平衡が一意、または任意の初期状態が同じ平衡へ行くとは言わない。描画成功で順序や平衡を選ばない",
+    "予算と完成後検査": "1入力につき100000の共通workを元安定性から全roundへ累積する。各片の評価前に1、各floor/side/生存下側boundの評価前に1を課金。次の課金を払えなければ未完HOLDとし、答案/fit/採用された最小点/完成geometryを返さない。完走済みround履歴は診断だけ残す。100000は全ARC入力の完走保証ではない。完走後に全片の範囲、元位置以上、全incidence、cue非交差、許可底以外の重なり禁止を検査し、一件でも失敗なら全体HOLD。失敗片や辺を消して再実行しない",
+    "同時描画と数量": "全最終footprint確定後に現在BG canvasへ全生存材料を配置し、許可された柱底に重なる梁bodyだけを可視にし、cueを保って逆回転する。列/span/潜在長を保存するが、消去と遮蔽で可視画素数は変わる。全色別の宣言材料・消去材料・生存材料・隠れ底・可視scene・cue込み出力の色別画素数と変更cellを別記録する",
+    "priorの限定": "一意最多BG、whole singleton cue、唯一floor、C4、縦run優先、梁両端、潜在底1、全元静的接触、endpoint欠損のfloor代替、元位置からのleast選択は明示prior。5教師は2sceneを繰り返しており、未観測の向き/長さ/同色alias/全消去を含む一般物理法則の唯一性は示していない"
+  },
+  "HDS": {
+    "保持": "最低2 distinct教師と全教師再現を要求し、fit後は適合boolだけを保持する。教師grid/object、完成答案、task ID、ファイル/hash対応を持たない。入力役割/元graph/全反復/描画はtarget非参照で、教師targetは完成gridとの最終比較だけに使う",
+    "支持": "現在5 distinct盤面/prior0/min3・同値採用・隔離0。2つの繰り返しsceneであることと5盤面のnative支持を分ける。全120の最小支持設定34/86、中核既定3は不変。片/辺/roundや条件式を観測支持へ加算しない",
+    "gate": "adapterはimport/生成/family/記録の4追加。既存公開学習cycle・反例隔離・同値gate・全採用familyの未解決/異格子HOLDを維持。第1入力が未解決でも、第0だけを例番号で選択する経路はない"
+  },
+  "原指標保持": "wrong_attempted_tasksは6→7。増えた1課題はb6f77b65の正答部分回答で、誤出力格子は前後0。旧6partialは保持し、第1はHOLD。未回答85→84。原採点器/指標名と完全課題数59は変更しない",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "1a9dcc0751b0ceeb3ac971dda1cc5fcc0519806c6f8407c02fd646d72019df76",
+    "接続/ARC2/支持構造教材.py": "f80f391b9f9eebe284adf77183ac74246b3afcc27b1dac34104b9f1b8cf24bbd",
+    "検証/支持構造回帰.py": "c3c454ad51c0f0a88fceb85fc92b579d1f8357999c69c84f7e67b8d245dc1522",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存1020＋新34の1054回帰、66ファイル成功。新34は通常/-O成功。31教師段階のcontrol/fixture40関数をAST同一で移し、実行decoratorをunittest登録へ変えて3native対照を加えた。公式grid埋込みや常設テストのfile書込みはない",
+    "教師段階31controlの70assertを明示raiseへ変え、normal/-Oとも全1405条件・全報告同一、注入失敗時exit1を確認。実合成grid、patched payload/type、例外注入を区別する。raw2の片方だけが実型成功する入力は、このC4 singleton型では成立しないので、その先決順対照はmockだけと明記",
+    "全61/187の全record、元190から除いた3入力以外のraw/全所有/type一致、5 helper ASTを照合。5教師の最小点・正逆順更新・全720cell描画を独立式で再現した",
+    "独立oracleは2sceneの全36864生存部分集合/73728map状態で、全下側項・欠損side・削除inflationarityを確認。2280小系/28179全状態/7995到達状態/7400遷移でleastと全fair terminal一致、複数平衡615・cycle1864・max側面934を保持。全教師状態箱を直積列挙したという主張ではない",
+    "1296のD4/寸法/配色/削除合成gridが一致。全5教師の予算0..必要量-1は未完HOLD、ぴったり82/296/338/275/221で初完走。非ARC抽象200座標の120999work系は100000で拒否し、実ARC格子の反例と混同しない",
+    "全所有とmaterial/hidden/visible、同色cycle、source浮遊拒否、許可bottom/内部交差/同色重複/上向き/範囲外/cue衝突のgeometry8対照、target改変による入力/反復/描画record不変を確認",
+    "runtime凍結12関数/2class/定数、359入力parse/render・全120fit/wrapper・残61全文・両query/nativeを独立一致。新34通常/-O、既存268snapshotはadapter4追加以外267不変、core12/protected7/scorer/runnerと全familygateも維持",
+    "同条件fresh59/82対候補全120/167で完全課題+0/正答例+1。旧82全格子・全120既存family記録同一、誤格子/資源0。公式原本の全入力/正解投影、保存全行の独立直接採点と旧scorer original_audit全文再生が前後とも一致"
+  ],
+  "復旧と比較範囲": "作業filesystemが古いsnapshotへ戻った後、新sandboxへ公開592d2c5の全treeを取得し、287blob/gitlink、公式source1125blob、4データSHA、teacher-only旧SHA、保護対象、986回帰、fresh58/81を独立再確認した。今回の教師分析と比較baselineは復旧後に再計算した。失われた未公開監査/fullrowsを復元済みとは称さず、欠落した過去fullrowsとの直接一致も主張しない。今回のprevious/current保存全行間の一致検査は完了した",
+  "情報分離の留保": "2026-10-02 21:23 UTC頃、外部監査記録を広くrg検索した際に単一行challenges JSONが偶発一致し、大量省略された出力に一部challenge入力が表示された。対象queryの意図的抽出やsolutions参照はその時点では行っていないが、query未参照と一括主張しない。別の教師分析でもrg -lがchallenge/solutionを含むファイルbytesを走査し、ファイル名だけを表示した。query/solution格子の内容表示・抽出とは区別し、未走査とは称さない。両経緯を親/独立監査へ共有し、以後は指定teacher-only資料と個別source pathへ限定。本候補は規約凍結・独立実体監査・承認済みinput-only・runtime監査を経て最後に全120採点した",
+  "制限": [
+    "公開評価での部分回答改善で、現在教師から独立した評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "潜在端点/所有/接触/least選択は明示priorで、自然法則の唯一性は主張しない",
+    "完全課題59のまま、残61課題未完・84例未回答"
+  ]
+}
