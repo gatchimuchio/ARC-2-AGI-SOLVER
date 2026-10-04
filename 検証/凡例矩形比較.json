@@ -1,0 +1,92 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "50c5aac1b880f7d5c483b2653f715e09124727ad",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産と新実装": "全色の型付き矩形範囲・二列凡例・不透明な範囲所有を結ぶ新しい有限program機構。13関数とPROGRAMS定数を同じHDSへ最小接続した。今回の教師限定棚卸しから7幾何helperをAST同一で移し、raw解析は診断2項と引数を除いた同一処理、新5関数がparse payload・program検証・全cell作用・全共有fit・全model合意を担う。標準libraryのみ。既存領域パレット転写/凡例積展開/距離層/包含正規化とは入力文法と変換が異なり、旧rendererの修理・再接続ではない",
+  "不足と優先根拠": "残63課題194教師の中で、凡例rowの優先・全色bboxの重なり・whole成分注釈を同時に扱う表現不足を分析した。全194入力の1908全前景C4成分を先決し、raw表が1件の20入力について全60外側色を型検査。source型不成立38色、表bbox交差16色を局所除外せず記録し、完全解釈5入力・全教師解釈可能1課題を得た。全共有fitも同課題の4教師だけ。複数課題への実測寄与や未検討資産の枯渇は主張しない",
+  "previous": {
+    "correct_tasks": 57,
+    "correct_examples": 79,
+    "unanswered": 88,
+    "wrong_attempted_tasks": 6,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 58,
+    "correct_examples": 81,
+    "unanswered": 86,
+    "wrong_attempted_tasks": 6,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 2,
+    "regressed_examples": 0,
+    "既存正答79例": "全格子同一"
+  },
+  "原因観測": {
+    "教師限定": "4教師の全674cellを再現。全126program×4教師=504比較を完走し、FIRST/WHOLE_L3_COMPONENTS/null0のRESET_BACKGROUNDとKEEP_ORIGINAL_INPUTの2共有modelを保持した。これは固定色0のコード分岐ではなく、任意の10色null記号とliteral-onlyを含む有限領域からの現在教師fitである",
+    "注釈とbody": "教師のmapped bbox unionは40/54/62/67cell。FIRSTの勝者自身に属するwhole L3注釈は12/12/12/18cellで全54cellが保持された。教師3の単独dense2×2の4cellは全て再色されるので、全source支持画素の保護とは異なる。低優先source4の全6注釈は教師2で前面の別範囲に覆われるため、source注釈の全域保存や独立した消去操作は主張しない",
+    "nullの識別限界": "教師0の6cellは下層色3を露出せず元BG0を保つため、上層を単に無視する透過解釈は反証される。教師2の露出body2cellは元BG3のままで、literal0は不適合。一方、全8cellは初めから背景なのでBG化と元入力保持は未識別であり両modelを残す。表の値0に対応するsourceを全体消去したとは言わない",
+    "未対応と未使用": "教師2の未対応source5は全18cellのbboxが保持され、キー8は外側sourceを持たない未使用row。未対応bboxは全mapped bboxと非交差であり、重複時の保存は教師実証ではなく追加の受理priorとして扱う",
+    "入力のみ確認": "実体独立PASS後の固定input-onlyで19×13と13×19の両入力を確認。raw表各1、全5外側色を処理し、mapped union112/77cell・変更66/39cell。RESET/KEEPの2modelが各247cellの全格子で合意し保護違反0。この段階で正解を読まず、同じ答案を後の単一全120で採点した"
+  },
+  "固定文法": {
+    "raw表先決": "各辺1..30・exact整数0..9のARC格子と一意最多背景を要求。全非背景cellの全色混合C4成分を単色成分も含め列挙する。raw表は可視bbox幅2、左列が全非背景でキー重複なし、whole成分がbbox内全前景と一致するもの。右値は背景/自己写像を含め各色を許すが、右列全BGなら可視幅1のためraw表ではない。正の任意row数を許し、後段のsource型や描画を見る前にraw表が1件と確定しなければ全体HOLD",
+    "全source型と所有": "表の全bboxを除く全非背景cellを色ごとにまとめ、全whole同色C4成分と全色tight bboxを取る。全支持が単一の塗りつぶし矩形、またはbbox対角の内向き3cell Lを成すちょうど2つのwhole C4成分であることを要求する。後者はTL/BRとTR/BLの双方を検査する。dense2×2に幾何的なLのunion説明があってもwhole成分は1つであり、部分Lを切り出さない。未対応色も型検査し、一色でも不成立なら全体HOLD。全source bboxは表全bboxと非交差でなければならない",
+    "静的join": "全source解析後に色を凡例キーへjoinする。対応色は元bbox全体を静的なlayerにし、未対応色・未使用キーを残す。sourceがないキーはlayerを作らない。配置や色変換は元入力だけから1回導出し、6→7と7→6のような写像を連鎖適用しない。空sceneも表構文が成立すれば許す",
+    "全126共有program": "行優先FIRST/LASTの2通り、勝者自身のsource保護NONE/ALL_SOURCE/WHOLE_L3_COMPONENTSの3通り、literal-only1通りと任意10色×BG化/元入力保持の20通りを全直積にする。literal-onlyの無関係action重複は作らない。全126を全教師へ比較し、全教師完全一致の全programをimmutable tupleで残す。教師の完成格子が同じという理由で異modelを統合しない。自然規則の唯一性は主張しない",
+    "全cell作用": "各座標を覆う全mapped bboxから共有programの表row優先だけで勝者を決める。勝者確定後、その勝者の保護対象source pixelなら元source色を保持。それ以外のbodyは表値literal、または共有null記号に一致した場合だけ現在背景/元input値へ写す。KEEP_ORIGINAL_INPUTは元入力値を使う不透明な範囲所有で、描画済み下層への透過ではない。下層の注釈は別の勝者から保護されない。自己写像や無変化もbboxを除外せず、sparse自己写像はbodyを埋める",
+    "未対応と対象外の保存": "未対応sourceは全bboxの元input値を保存する追加の固定受理条件を置く。全program描画後に背景穴も含めて検査し、変化するならそのprogramを失敗とする。active bboxを削る/clipすることで保存を作らない。この重複時保存は未観測priorである。表bboxと全mapped union外も元inputのまま。foreground数や色数の一般保存は主張せず、作用域・保護支持・変更cell・実色数を別記録する",
+    "全model合意": "予測はcurrent inputを一度解析し、保持した全programを評価する。一候補でも失敗、または完成格子が不一致なら全体HOLD。入力で失敗するmodelを落として他を採用しない。全有限比較が未完/例外なら途中のfit/答案を捨てる。全体no-opも許す",
+    "限定": "一意最多背景、縦二列の左キー/右値、全色bbox、whole C4の矩形/対角L型、126仮説領域、未対応bbox保存は明示prior。観測denseは2×2だけで、他サイズ/棒/点は型一般化。表に固定の向きがあるため全入力D4等変性を主張しない。null-dense、未対応bbox重複、空scene等の未観測域は対照で実行規約を確認したもので、教師から唯一に導いた法則とは扱わない"
+  },
+  "HDS": {
+    "学習と保持": "最低2 distinct教師と全教師完全再現を要求。fit後は共有program tupleだけを保持し、教師input/output object・完成格子・task ID・ファイル/hash答え表を保持しない。raw表/source型/勝者幾何はtarget非参照、教師targetは固定各programの完成出力との一致判定だけに使う",
+    "支持": "現在4 distinct盤面/prior0/min3・同値採用・隔離0。全120の支持設定34/86と中核既定3は不変。126仮説・2適合model・674cell・source個数を観測数へ加算しない",
+    "排気": "公開学習cycle・全教師再現・同値・反例隔離・既存排気gate・全採用機構合意を維持。採用済みfamilyの未解決・競合は全体HOLD",
+    "全候補gate": "既存同一HDSの採用familyの一つでも未解決、または全格子が競合した場合に全体HOLDするgateを維持"
+  },
+  "原指標保持": "wrong_attempted_tasksは6→6で同じ正答部分回答6課題。誤った出力格子は前後0。未回答88→86。原採点器と指標名は変更しない",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "279a0eb80aeedf278f6287e9a91ecead628ba8b653f2b56e1c2df4be6610744a",
+    "接続/ARC2/凡例矩形教材.py": "27e646039172e5271cdc3ea8aee30484e3896ca6f25bf02296b39c4d01b5a3b3",
+    "検証/凡例矩形回帰.py": "ea1f8657455185da279b71f60ae722ef408afab83a70f8a911bc2670876d1b38",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存952＋新34の全986回帰成功。新34は-Oでも成功。常設fixtureは生成された表/矩形/Lだけで公式教師/query格子を埋め込まない",
+    "raw表複数で後段の一方だけが適合する場合も先決HOLD。BG最多tie、右列全BG、重複key、未使用key、8row表、追加whole成分、表bbox交差、全外色失敗記録を確認",
+    "任意配色/foreground0/BG非0、両対角L・単独dense2×2/大矩形/棒/点、行優先・三重重複・下位注釈上書き・全3保護scopeを確認",
+    "不透明null、元input前景でのRESET/KEEP相違、未対応bboxの背景穴までのveto、同色作用支持と変更集合の区別、自己写像body充填、逆写像非連鎖、空scene/no-opを確認",
+    "独立oracleで全63/194 input inventory一致、全777合成（3×3全512maskを含む）の286通過/491HOLD、全36036program描画のgrid/所有/action/実色数が一致。全15876の2教師program直積・169異target対で全fit集合一致。実教師の全24順序変更でも2modelを保持",
+    "独立oracleの24444 program×teacher判定には構文HOLDが含まれる。描画可能な5単入力×126=630と、全教師型が成立する1課題の504fit比較を区別する。構文不成立でも全programを描画したとは言わない",
+    "教師実体監査でfreeze4＋補助9・全63/194全文・31通常/-O・別式の504描画/全record/2model・oracle報告全文を再現。conceptは実体化前の承認仕様で、実装/実行はfreezeとpreflightに記録している",
+    "native4盤面/min5未達、prior0/同値/隔離0、query順入替と失敗全体HOLD、ID/test output拒否、実教師objectの変更後もimmutable modelと予測不変を確認",
+    "runtimeは凍結13関数/PROGRAMS/型alias AST、359parse/predict・630描画・全120fit/wrapper・残63全文・両query/nativeを独立照合。既存262snapshotはadapter4追加以外不変、core12/protected7/scorer/runnerを維持",
+    "同条件fresh main57/79と候補全120/167で課題+1/例+2、旧79格子同一、誤格子/資源0、同じ6partialを確認。公式原本の全投影、保存全行の直接採点と旧scorer original_audit全文が前後とも独立一致し、既存family記録も全同一と確認した"
+  ],
+  "情報分離の留保": "2026-10-02 21:23 UTC頃、外部監査記録を広くrg検索した際に単一行challenges JSONが偶発的に一致し、大量省略された出力に一部challenge入力が表示された。対象queryの意図的抽出やsolutions参照はその時点では行っていないが、query未参照と一括主張しない。経緯を親/独立監査へ共有し、以後はsource明示とteacher-only抽出資料へ限定。本候補も条件凍結・独立監査後に承認済みinput-only確認、最後に全120採点を行った",
+  "制限": [
+    "公開評価での差分であり、現在教師から独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "固定のtable/source型・行優先/保護/null仮説領域で、自然規則を唯一に学習したとは言わない",
+    "残62課題未完・86例未回答"
+  ]
+}
