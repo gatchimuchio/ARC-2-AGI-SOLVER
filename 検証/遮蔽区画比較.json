@@ -1,0 +1,99 @@
+{
+  "対象": "固定公式source public evaluation全120課題・167test例",
+  "previous_commit": "35ac7347bbcf222eebc4fafa832f28f492d09ada",
+  "公式source": "arcprize/ARC-AGI-2@f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "既存資産と新実装": "遮蔽された矩形区画の全層順序、閉領域数、同数rowの共有色順位を扱う新17関数とMAX_PREFIXES定数。標準libraryのみで、raw役割/順序数の2helperは今回の教師限定棚卸しからAST同一で移した。既存枠計数は同形・非遮蔽枠と小成分対応、既存順位着色は明示header順位を扱うため、この潜在線と全順位の組合せを持たない。旧threshold/rank selectorや既存rendererの修理・再接続ではなく、同じHDSの候補観測へ最小接続した",
+  "不足と優先根拠": "残64課題197教師から、可視線を覆う色の前後関係と区画の個数を読む表現不足を選んだ。全foregroundを横断する初期補間は教師0赤/教師2黄の6対4で棄却。新規文法は入力bbox外周が与える全遮蔽制約を先決し、全層順序を残す。全教師のraw役割が一意な課題は1件、完全実体fitもその3教師だけ。複数課題への実測寄与や未検討資産の枯渇を主張しない",
+  "previous": {
+    "correct_tasks": 56,
+    "correct_examples": 78,
+    "unanswered": 89,
+    "wrong_attempted_tasks": 6,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "current": {
+    "correct_tasks": 57,
+    "correct_examples": 79,
+    "unanswered": 88,
+    "wrong_attempted_tasks": 6,
+    "resource_failures": {},
+    "wrong_examples": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "regressed_examples": 0,
+    "既存正答78例": "全格子同一"
+  },
+  "原因観測": {
+    "教師限定": "3教師の全48出力cellを再現。入力だけからnoise役割5/5/7が一意、全層順序3/20/4件・prefix12/84/18を完走。全125色×順序でmaskと閉領域数が一致。教師0赤(20,10)と教師2赤(6,5)の隠れ角は二端点補間ではなく全外周priorで1cellずつ補い、領域数は変わらない",
+    "全候補棚卸し": "全64/197のraw jointrole件数は0が187、1が7、2が2、4が1。実体では190入力がraw役割でHOLD、3入力が層の構造不成立でHOLD、4入力が幾何通過。全教師fitは対象3教師だけ。全197入力で層順序/描画まで実行したとは言わない",
+    "同数順位の証拠": "教師1の同数3領域のrowだけが色2を色4より先に置く。これは1教師の1関係であり、3独立順位証拠ではない。2→4を満たす全10色の1814400通りの全順位をDAGとして保持し、未観測比較は補わない",
+    "入力のみ確認": "独立実体監査後、固定input-onlyの29×30はraw role1、全11層順序/48prefix完走、全mask/区画数が一致。現在入力のnoise色9をpaddingに使い、1/2/3/5/6領域の5row・5×6を返す。signal17cell＋noise13cell。各領域数が異なるため全保持順位が同じrow順になる。この段階でtest正解を読まず、同じ格子を後の単一全120で採点した"
+  },
+  "固定文法": {
+    "全役割先決": "各辺1..30のARC型と一意最多背景を要求。全非背景色の全画素bbox/外周を求め、各色をnoise候補にする。他の全色は非空内域を持つbboxの閉外周で、外周上に背景がないことを要求。外周に見える別色はそのsignalより前面、noiseは全signalより前面という全制約を作る。閉路のない共同noise役割がちょうど1件に確定した後だけ補間へ進む。後段成功で役割を選び直さない",
+    "全層順序と予算": "全前後制約を満たす全foreground total orderを保持する。1入力ごとに空prefix/完成orderを含むDFS prefixへ1を課し、次の課金で100000を超えるなら全partial orderを捨てHOLD。色の昇順は列挙順だけで、先着を採用しない。全順序完走前に幾何を開始しない。9前景でnoiseだけ最前面なら149921prefixが必要なため、100000は全ARCの完備上限ではなく受理域の資源境界である",
+    "潜在線と外周": "各層順序の各signalについて、元inputの行/列を背景または背面色で切る。同色と前面色だけを通る各run内で、元の同色witnessが2件以上なら最初から最後までを補間する。推定cellを新witnessにせず1回だけ行い、全元同色cellとbbox全外周をunionする。全外周は独立した閉矩形priorであり、隠れ角の追加を補間の証明とは呼ばない。元背景へ潜在線を追加しない",
+    "全区画の型と計数": "全signal maskは全外周を持つ1つのC4成分で、塗りつぶし2×2がなく、無向C4 pixel graphのbridge edgeがなく、正の閉領域数を持つことを要求する。1cell paddingしたbboxでmask補集合の全C4成分を数え、外周へ達しない成分すべてを区画とする。面積/最大成分/位置で区画を選別しない。保持した一順序の一signalでも不正なら全体HOLD。全順序の色別区画数が異なる場合もHOLD。同一maskの記録共有は正確なmask tupleによる圧縮だけで全順序を残す",
+    "全画素の解釈": "全前景色をsignalまたは一つのnoiseへ帰属させる。潜在maskの重なりは遮蔽層の重なりで、描画競合として消さない。noiseは任意座標の不透明観測を許す明示型で、全枠外のnoiseも含む。すべてのnoise位置から隠れ線を一意に同定したとは言わない。図形の完全に隠れた延長や、元witnessが不足する内線は追加しない",
+    "出力符号": "出力heightはsignal色数、widthは最大区画数。区画数昇順で、各色のrowを区画数cellだけ左詰めし残りを現在noise色で埋める。どちらかの辺が30を超えれば全体HOLD、区画/rowを削らない。全rowが同じ最大区画数ならnoiseが出力に残らない。各signal色の出力画素数はその区画数、noise画素数はpadding総数であり、inputの画素数・全前景の保存は主張しない",
+    "全色順位の学習": "幾何と全層順序合意をtargetなしで完成させた後、教師targetの全寸法・signal row一対一・run長・noise padding・区画数昇順を検査。同数groupの観測row順だけを共有precedenceへ追加する。閉路なら共有順位なし。全10色の全線形拡張をDAGで保持し、現在inputの同数groupへ全推移閉包を制限して一意に並ぶ場合だけ出力する。group外の色を経由する推移も保持。未観測tieを数値色順や位置で補わずHOLD",
+    "適用域の限定": "一意最多背景・全色bboxが完全外周範囲・一つの任意noise・前面色だけを通る二端点補間・全外周・薄い閉区画・C4領域・区画数昇順/unary rowは固定prior。唯一の自然規則や完全な遮蔽復元とは主張しない。有効な潜在maskが複数でも区画数が一致する場合は全説明を保持でき、形状自体の一意性とは呼ばない"
+  },
+  "HDS": {
+    "学習と保持": "最低2 distinct教師と全教師の完全出力再現を要求。fit後はimmutableな色順位の辺だけを保持し、教師input/output object・完成格子・task ID・hash答え表を保持しない。入力のnoise/前後層/線/領域は毎回全解釈し、教師targetで役割・順序・区画を選ばない",
+    "支持": "現在3 distinct盤面・prior0・min3・同値採用・隔離0。全120の支持設定34/86と中核既定3は不変。層順序、区画、画素、1814400順位を観測数へ加算しない。全体の3盤面支持と色2→4の1教師証拠を区別する",
+    "排気": "公開学習cycle・全教師再現・同値・反例隔離・既存排気gate・全採用機構合意を維持。採用済みfamilyの未解決・競合は全体HOLD",
+    "全候補gate": "採用familyの一つでも入力未解決、または完成格子に競合があればquery全体HOLDという既存gateを維持する"
+  },
+  "原指標保持": "wrong_attempted_tasksは6→6。前後の同じ6課題が正答部分回答であり、誤った出力格子は前後0。未回答89→88。原採点器・指標名は変更しない",
+  "固定評価条件": {
+    "各課題CPU秒": 10,
+    "各課題MiB": 512,
+    "各課題wall秒": 60,
+    "並列": 3,
+    "全課題分母": 120,
+    "採点": "既存旧ARC採点器・runner無変更"
+  },
+  "データSHA256": {
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961"
+  },
+  "ファイルSHA256": {
+    "接続/ARC2/HDS接続.py": "d9c6a069953bac6d16a785cd155dc35e309bc6fbf89477b15c360c11e7bc4492",
+    "接続/ARC2/遮蔽区画教材.py": "9f636f450bdadde750312b6ea93c4ab9d2a060320ecfabc40ef19317a942bec4",
+    "検証/遮蔽区画回帰.py": "b23458857ded3f2947229326a2fe7f11c0cda2ce9439a8b682eb45d1c5da6e06",
+    "検証/ARC2評価.py": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+    "検証/既存ARC2採点.py": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8"
+  },
+  "対照検証": [
+    "既存922＋新30の全952回帰成功。新30は-Oでも成功。常設fixtureは生成枠/遮蔽/区画のみで公式教師/query格子を埋め込まない",
+    "全色role・背景tie・余分な色/離れた同signal・背景外周穴・複数noise先決・dangling/2×2・未観測内線を勝手に補わないこと・隠れ角prior・30/31幅・noise消失を確認",
+    "全順序の異countと一不正順序のveto、予算ちょうど/1不足/完成順序後未完、9前景の26893完成order発見後100000で全破棄/geometry未実行を確認",
+    "空順位DAGの3628800順位・逆数値順の教師学習・未知tie・閉路・不在色を経由する推移・教師targetと入力幾何の分離・immutable状態を確認",
+    "native3/min4未達、prior0/同値/隔離0、異なる候補値を持つ3教師、query順序入替と未観測tieの全体HOLD、ID/test output拒否を確認",
+    "独立教師実体監査で全64/197全文・全125mask/閉領域・48出力cellを再現。279合成/配色/変形盤面の272層順序・481色幾何、1024小mask、4096四色有向graph、8688部分集合射影、543全10色extension数の報告全文も再生した",
+    "concept a09fc9caは実体化前の承認仕様。現在の実装/実行はfreeze5f4b0ac3とpreflightへ記録し、規約変更はない。承認時の未実装という履歴表現と現在の実体を区別する",
+    "runtimeは凍結17関数/MAX_PREFIXES AST、359parse/predict、全120fit/wrapper・残64全文・query/native、旧259snapshotのadapter以外/core12/protected7/scorer不変を独立照合",
+    "同条件fresh main56/78と凍結候補全120/167で課題+1/例+1、旧78格子と既存family記録同一、誤格子/資源0、同じ6partialを確認。保存全行の直接採点と旧scorer original_audit全文も前後で独立一致"
+  ],
+  "情報分離の留保": "2026-10-02 21:23 UTC頃、外部監査記録を広くrg検索した際に単一行challenges JSONが偶発的に一致し、大量省略された出力に一部challenge入力が表示された。対象queryの意図的抽出やsolutions参照はその時点では行っていないが、query未参照と一括主張しない。経緯を親/独立監査へ共有し、以後はsource明示とteacher-only抽出資料へ限定。本候補も条件凍結・独立監査後に承認済みinput-only確認、最後に全120採点を行った",
+  "制限": [
+    "公開評価での差分であり、現在教師から独立な評価ではない",
+    "hidden・競技提出・満点は未達未実施",
+    "source evaluationは既存ZIPマニフェストとSHA256不一致",
+    "固定の遮蔽/全外周/薄い区画/unary出力priorで、自然規則を唯一に学習したとは言わない",
+    "残63課題未完・88例未回答"
+  ],
+  "変更例": [
+    {
+      "task_id": "89565ca0",
+      "index": 0,
+      "previous_answered": false,
+      "current_answered": true,
+      "current_correct": true
+    }
+  ]
+}
