@@ -1,0 +1,1207 @@
+{
+  "スキーマ版": "arc2-candidate002-admission-comparison-v1",
+  "attempt_id": "attempt-002-distance-collection",
+  "規則ID": "arc2-comparison-068",
+  "状態": "staged_evidence_complete_final_admission_pending",
+  "publication_commit": null,
+  "publication_commit_status": "pending; no fabricated Git identity",
+  "previous_commit": "cc668e34d7ca014daf9f8944767476d56c56fafc",
+  "目的": "全120課題の閉鎖を進め、成功・失敗・HOLDの全標本を残す。HDS固定。",
+  "原因": "旧67比較の対象/役割/関係/作用/保存/HOLD/fit/priorを確認し、近傍9familyは当課題全3教師で成立しなかった。距離層の境界seed/C8、種境界の単色closure、成分最短経路のcomponent graphとは契約が異なる。",
+  "変更": "parse/source_distances/ordered_slots/render_preparedの4意味helperで、役割形態view→距離→容量順序→同時消去/充填を新規に合成した1family。baseline全体のprimitive総数は未調査で捏造しない。",
+  "previous": {
+    "mode": "current",
+    "tasks": 120,
+    "test_examples": 167,
+    "correct_tasks": 60,
+    "accuracy": 0.5,
+    "correct_examples": 84,
+    "unanswered": 83,
+    "wrong_attempted_tasks": 7,
+    "resource_failures": {},
+    "seconds": 18.76807387000008,
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961",
+    "cpu_seconds_per_task": 10,
+    "address_space_mib": 512,
+    "wall_seconds_per_task": 60,
+    "workers": 3,
+    "wrong_grids": 0
+  },
+  "current": {
+    "mode": "current",
+    "tasks": 120,
+    "test_examples": 167,
+    "correct_tasks": 61,
+    "accuracy": 0.5083333333333333,
+    "correct_examples": 86,
+    "unanswered": 81,
+    "wrong_attempted_tasks": 7,
+    "resource_failures": {},
+    "seconds": 19.36543509799958,
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961",
+    "cpu_seconds_per_task": 10,
+    "address_space_mib": 512,
+    "wall_seconds_per_task": 60,
+    "workers": 3,
+    "wrong_grids": 0
+  },
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 2,
+    "unanswered": -2
+  },
+  "回帰": {
+    "prior_correct_grids": 84,
+    "all_identical": true,
+    "wrong_grids": 0,
+    "resource_failures": 0,
+    "optimized": {
+      "scripts": 68,
+      "tests": 1162,
+      "success": true
+    },
+    "unmemoized": {
+      "scripts": 68,
+      "tests": 1162,
+      "success": true
+    },
+    "full120_execution_and_scorer_parity": {
+      "schema": "arc2-candidate002-full120-memoization-parity-v1",
+      "optimized_sha256": "9345c39133ce4e21dab034dd41d950dff970465c48a4da8bf2061b0a2f2fbb70",
+      "unmemoized_sha256": "d76303255f6105239eed697c059f48b71c096286c5947f8ea1d5357be0d6e1e4",
+      "full120_execution_equal": true,
+      "changed_tasks": [],
+      "legacy_scorer_entirely_equal": true,
+      "all_summary_except_elapsed_equal": true,
+      "optimized_seconds": 19.36543509799958,
+      "unmemoized_seconds": 21.211177157998463,
+      "shadow_changed_after": [],
+      "source_scope": "Same144files except purememoization source; fixed source officialpin and unchanged runner/scorer. Serial runs, same10CPU/512MiB/60wall/3workers.",
+      "counts": {
+        "mode": "current",
+        "tasks": 120,
+        "test_examples": 167,
+        "correct_tasks": 61,
+        "accuracy": 0.5083333333333333,
+        "correct_examples": 86,
+        "unanswered": 81,
+        "wrong_attempted_tasks": 7,
+        "resource_failures": {},
+        "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+        "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961",
+        "cpu_seconds_per_task": 10,
+        "address_space_mib": 512,
+        "wall_seconds_per_task": 60,
+        "workers": 3
+      },
+      "status": "pass"
+    },
+    "sources": [
+      {
+        "path": "sources/candidate002/production-regressions.json",
+        "sha256": "63987bc24977cd93702e25c0e401e87bec96bcb2869b2c19a572e377ce5cb38b"
+      },
+      {
+        "path": "sources/candidate002/unmemoized-production-regressions.json",
+        "sha256": "cc0e30acdefbe3e9feed27e8444d137d273d3e33a9e99e0289f1c78b1d4afda0"
+      },
+      {
+        "path": "sources/candidate002/score-comparison.json",
+        "sha256": "e2fdccda053f3da59e295205b054717d25a1494131805dd59644c819428454b3"
+      }
+    ]
+  },
+  "規則21項目": {
+    "対象": "5色roleで所有される背景・単一中心seed・奇数正方形target・target外source全画素・wall。盤面全画素を役割で覆う。",
+    "役割": "background/seed/target/source/wallは相異なる5役割。教師fitは7/2/3/9/6を保持した。wallのみ各盤面で欠落を許す。色番号は固定priorではない。",
+    "観測事実": "保存済み全120課題/167例の同条件評価は60完全課題/84正解例から61/86へ。dd6b8c4bの2例だけ新回答、既存84正解格子一致、wrong grid 0、resource failure 0。",
+    "関係": "C4到達距離によるsource順位とtarget容量prefixを対応づける。seed起点とtarget全域起点は教師上未識別で両方保持する。",
+    "条件": "全教師の完全格子一致で残った全モデルを保存。照会で全モデルが成功し完全格子一致すること、既存HDS候補→出力同値採用と排気gateを全て要する。",
+    "作用": "到達sourceを距離の近い順に容量まで選び、元位置を背景化しtargetのrow-major prefixをsource色に同時更新する。容量prefixは課題作用であり仮説探索のtop-k削減ではない。",
+    "保存条件": "wall、非選択source、proposal外の全画素を保存し、source色総画素数を保存する。中心seedはprefixに含まれる場合のみ上書きし、それ以外は保存する。",
+    "反証条件": "教師完全格子不一致、構造条件違反、容量超過禁止、容量cutoff距離同率、全モデル不一致又はいずれかのモデル失敗を反証/HOLDとして残す。",
+    "競合条件": "全教師適合モデル間の完全格子不一致でHOLD。成功モデルだけ選ばない。共有gateで採用済み他familyとの完全格子予測が競合する場合もHOLD。",
+    "HOLD条件": "不正格子、5役割不成立、未知色、必須role欠落、seed非singleton、奇数正方形/中心/所有条件違反、教師target寸法外、source-target重なり、容量cutoff同率、モデルなし・失敗・不一致、共有HDS排気保留を保持する。",
+    "支持経験": "dd6b8c4bの全3教師が両モデルで完全再現。回収数2/9/4、source総数12/15/4を保存。task-native HDSは3教師観測、同値採用true、隔離数0。",
+    "反例経験": "13代替仮説×3教師の全差分/HOLD、全30720仮説教師戻値格子・詳細、全120課題教師fit拒否を保存する。C8、直接距離、壁通過、source通過不可、遠い順、seed永久保存、全到達必須、複写、別slot順を区別する。",
+    "適用範囲": "今回残ったモデルは教師と同じ3×3target、中央singleton seed、教師fitした5色role、ARC1〜30盤面。3×3外・複数target・偏心seed等はHOLD。公開評価上の開発結果でhidden一般化は未確認。",
+    "教師fitで選択": "5役割色、target寸法、全9axisを全教師一致で選択。残存2モデルはoriginのみseed/target_all_cellsが異なる。fit後boolだけではなく具体parameter集合を保持する。",
+    "入力から毎回導出": "seed位置、target全域、source/wall全画素、全source距離と到達不能、容量cutoff、選択source・充填slot・proposal外保存集合を現在入力から導出する。",
+    "固定prior": "相異なる5role、中心singletonを含む奇数正方形target、画素単位回収、有限axis集合。5!×5120=614400概念仮説。構造不可能604160を論理否定、残る10240を全3教師で評価し、近似枝刈りなし。",
+    "旧資産由来": "実関数再利用はopen_componentsとclone_grid、定数はNEIGHBORS_4/NEIGHBORS_8。source_distancesは新規距離adapterであり、旧BFS関数再利用又はHDSによるBFS学習と呼ばない。",
+    "新規固定文法": "parse/source_distances/ordered_slots/render_preparedの4意味helperで、役割形態view→距離→容量順序→同時消去/充填を新規に合成した1family。baseline全体のprimitive総数は未調査で捏造しない。",
+    "新規実装": "fit列挙、consensus、pure中間値cache、render/wrapper、格子/所有/保存/全モデル合意guard、HDS接続登録は制御・補助実装として別記する。4意味helperやHDS学習要素に水増ししない。",
+    "HDSが実際に学習した要素": "task-native HDSの3教師board候補→出力の同値関係のみ。role/BFS/容量合成の発見ではない。068文章経験は標準interfaceへ記録しただけで、旧67経験の長寿命HDSへ再投入していない。",
+    "関連する他規則": "旧67比較の対象/役割/関係/作用/保存/HOLD/fit/priorを確認し、近傍9familyは当課題全3教師で成立しなかった。距離層の境界seed/C8、種境界の単色closure、成分最短経路のcomponent graphとは契約が異なる。"
+  },
+  "項目別出典": {
+    "対象": [
+      {
+        "source_path": "sources/candidate002/00-contract-before-fit.json",
+        "content_sha256": "e7420794c26579521bd2136b87292b499d7b687bf15879129152165116deb712",
+        "pointer": "/固定prior/対象所有",
+        "quote": "seed色の全画素は1個。target色の全画素とそのseedがtarget色bboxを完全充填し、bboxは奇数正方形・seedは中心。source全画素はtarget外。全入力画素のroleを覆い、別targetや未処理sourceを黙殺しない",
+        "codepoint_span": [
+          0,
+          124
+        ],
+        "source_value_type": "str",
+        "quote_mode": "leaf",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      },
+      {
+        "source_path": "sources/candidate002/production/接続/ARC2/距離回収候補.py",
+        "content_sha256": "96c19905552297b8065896f29e4fa9278573f9b8df1cec9db21963831ff5362e",
+        "blob_sha": "493e52ca875d422301e035d927b48826185cf054",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 24,
+        "line_end": 57,
+        "quote": "def parse(grid, roles, expected_shape=None):\n    if (not isinstance(grid, list) or not 1 <= len(grid) <= 30 or\n        not isinstance(grid[0], list) or not 1 <= len(grid[0]) <= 30 or\n        any(not isinstance(row, list) or len(row) != len(grid[0]) or\n            any(type(v) is not int or not 0 <= v <= 9 for v in row) for row in grid)):\n        return None, 'invalid_arc_grid'\n    if set(roles) != set(ROLE_NAMES) or len(set(roles.values())) != 5:\n        return None, 'roles_not_five_distinct_colors'\n    colors = {v for row in grid for v in row}\n    if colors - set(roles.values()):\n        return None, 'unowned_input_color'\n    if set(roles.values()) - colors - {roles['wall']}:\n        return None, 'required_role_absent'\n    cells = {name: {(r, c) for r, row in enumerate(grid) for c, value in enumerate(row)\n                    if value == color} for name, color in roles.items()}\n    if len(cells['seed']) != 1:\n        return None, 'seed_not_singleton'\n    seed = next(iter(cells['seed']))\n    ts = cells['target']\n    if not ts:\n        return None, 'target_absent'\n    lo = min(r for r, c in ts), min(c for r, c in ts)\n    hi = max(r for r, c in ts), max(c for r, c in ts)\n    shape = hi[0] - lo[0] + 1, hi[1] - lo[1] + 1\n    if shape[0] != shape[1] or shape[0] < 3 or shape[0] % 2 != 1:\n        return None, 'target_not_odd_square'\n    if expected_shape is not None and tuple(expected_shape) != shape:\n        return None, 'target_shape_outside_teacher_contract'\n    target = {(r, c) for r in range(lo[0], hi[0] + 1) for c in range(lo[1], hi[1] + 1)}\n    if ts | cells['seed'] != target or seed != ((lo[0] + hi[0]) // 2, (lo[1] + hi[1]) // 2):\n        return None, 'target_ownership_or_center_failed'\n    if cells['source'] & target:\n        return None, 'source_target_overlap'\n    return {'cells': cells, 'target': target, 'seed': seed, 'shape': shape}, None",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      }
+    ],
+    "役割": [
+      {
+        "source_path": "sources/candidate002/00-contract-before-fit.json",
+        "content_sha256": "e7420794c26579521bd2136b87292b499d7b687bf15879129152165116deb712",
+        "pointer": "/固定prior/role",
+        "quote": "background/seed/target/source/wall は互いに異なる5色role。入力色unionの全5!割当を試す。wallのみ各入力で欠落を許す。頻度・色番号は選択基準にしない",
+        "codepoint_span": [
+          0,
+          98
+        ],
+        "source_value_type": "str",
+        "quote_mode": "leaf",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      },
+      {
+        "source_path": "sources/candidate002/fit-exhaustive-evidence.json",
+        "content_sha256": "3078abc5ef8cbf5832fda2c21e1b90d9e74e80c0a949a16db066435b38dcc2a4",
+        "pointer": "/models/0/roles",
+        "quote": "{\"background\":7,\"seed\":2,\"target\":3,\"source\":9,\"wall\":6}",
+        "codepoint_span": [
+          0,
+          56
+        ],
+        "source_value_type": "dict",
+        "quote_mode": "typed_value",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      }
+    ],
+    "観測事実": [
+      {
+        "source_path": "sources/candidate002/score-comparison.json",
+        "content_sha256": "e2fdccda053f3da59e295205b054717d25a1494131805dd59644c819428454b3",
+        "pointer": "/delta",
+        "quote": "{\"correct_tasks\":1,\"correct_examples\":2,\"unanswered\":-2}",
+        "codepoint_span": [
+          0,
+          56
+        ],
+        "source_value_type": "dict",
+        "quote_mode": "typed_value",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      },
+      {
+        "source_path": "sources/audit/reviewer-candidate002-optimized-score.json",
+        "content_sha256": "43d46c8903c86e3e21bce9410c9545721df658530af671d952791e696ef9141b",
+        "pointer": "/counts",
+        "quote": "{\"complete_tasks\":61,\"correct_examples\":86,\"answered_examples\":86,\"unanswered_examples\":81,\"partial_tasks\":7,\"wrong_grids\":0}",
+        "codepoint_span": [
+          0,
+          125
+        ],
+        "source_value_type": "dict",
+        "quote_mode": "typed_value",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      }
+    ],
+    "関係": [
+      {
+        "source_path": "sources/candidate002/production/接続/ARC2/距離回収候補.py",
+        "content_sha256": "96c19905552297b8065896f29e4fa9278573f9b8df1cec9db21963831ff5362e",
+        "blob_sha": "493e52ca875d422301e035d927b48826185cf054",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 60,
+        "line_end": 99,
+        "quote": "def source_distances(grid, parsed, p):\n    origins = {parsed['seed']} if p['origin'] == 'seed' else parsed['target']\n    sources = parsed['cells']['source']\n    if p['metric'] in ('C4_BFS', 'C8_BFS'):\n        h, w = len(grid), len(grid[0])\n        offsets = NEIGHBORS_4 if p['metric'] == 'C4_BFS' else NEIGHBORS_8\n        blocked = set() if p['wall_passable'] else parsed['cells']['wall']\n        distance = {c: 0 for c in origins}\n        queue = deque(sorted(origins))\n        while queue:\n            here = queue.popleft()\n            if here in sources and not p['source_transit']:\n                continue\n            for dr, dc in offsets:\n                nxt = here[0] + dr, here[1] + dc\n                if (0 <= nxt[0] < h and 0 <= nxt[1] < w and\n                        nxt not in blocked and nxt not in distance):\n                    distance[nxt] = distance[here] + 1\n                    queue.append(nxt)\n        # 既存のC4全域分割を再利用して独立coverage証明。\n        if p['metric'] == 'C4_BFS' and p['source_transit']:\n            reached = set().union(*(c for c in open_components(grid, blocked) if c & origins))\n            if reached != set(distance):\n                raise AssertionError('existing_C4_partition_disagrees')\n        return {c: distance[c] for c in sources if c in distance}\n    def metric(a, b):\n        dr, dc = abs(a[0]-b[0]), abs(a[1]-b[1])\n        if p['metric'] == 'Manhattan': return dr + dc\n        if p['metric'] == 'Chebyshev': return max(dr, dc)\n        if p['metric'] == 'Euclidean_squared': return dr*dr + dc*dc\n        raise ValueError('unknown_metric')\n    return {c: min(metric(c, origin) for origin in origins) for c in sources}\n\n\ndef ordered_slots(parsed, p):\n    cells = parsed['target'] if p['capacity'] == 'target_area_including_seed' else parsed['cells']['target']\n    parts = p['slot_order'].split('_')\n    i, j = (0, 1) if parts[0] == 'row' else (1, 0)\n    si, sj = (1 if parts[1] == 'asc' else -1), (1 if parts[3] == 'asc' else -1)\n    return sorted(cells, key=lambda c: (si*c[i], sj*c[j]))",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      },
+      {
+        "source_path": "sources/candidate002/fit-exhaustive-evidence.json",
+        "content_sha256": "3078abc5ef8cbf5832fda2c21e1b90d9e74e80c0a949a16db066435b38dcc2a4",
+        "pointer": "/models",
+        "quote": "[{\"roles\":{\"background\":7,\"seed\":2,\"target\":3,\"source\":9,\"wall\":6},\"shape\":[3,3],\"parameters\":{\"metric\":\"C4_BFS\",\"origin\":\"seed\",\"wall_passable\":false,\"source_transit\":true,\"ranking\":\"nearest\",\"capacity\":\"target_area_including_seed\",\"overflow\":\"take_capacity_prefix\",\"slot_order\":\"row_asc_col_asc\",\"source_action\":\"erase_to_background\"}},{\"roles\":{\"background\":7,\"seed\":2,\"target\":3,\"source\":9,\"wall\":6},\"shape\":[3,3],\"parameters\":{\"metric\":\"C4_BFS\",\"origin\":\"target_all_cells\",\"wall_passable\":false,\"source_transit\":true,\"ranking\":\"nearest\",\"capacity\":\"target_area_including_seed\",\"overflow\":\"take_capacity_prefix\",\"slot_order\":\"row_asc_col_asc\",\"source_action\":\"erase_to_background\"}}]",
+        "codepoint_span": [
+          0,
+          687
+        ],
+        "source_value_type": "list",
+        "quote_mode": "typed_value",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      }
+    ],
+    "条件": [
+      {
+        "source_path": "sources/candidate002/production/接続/ARC2/距離回収教材.py",
+        "content_sha256": "2fb81e33b59b2f762cd90a5b3f0cf847160ce985e1dd667a83c1415bdf7348cf",
+        "blob_sha": "7c8e1e2c3061cadd25b8bb537306648664c76233",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 22,
+        "line_end": 37,
+        "quote": "def 全距離モデルを照会(格子, モデル群):\n    if not モデル群:\n        return None, {'failure': 'no_teacher_fit_model', 'retained_results': []}\n    結果 = [core.render(格子, m['roles'], m['parameters'], m['shape']) for m in モデル群]\n    全記録 = [{'model_index': i, 'candidate': out, 'detail': rec}\n             for i, (out, rec) in enumerate(結果)]\n    失敗群 = [rec for out, rec in 結果 if out is None]\n    格子群 = {tuple(map(tuple, out)) for out, rec in 結果 if out is not None}\n    if 失敗群:\n        return None, {'failure': 'fitted_model_hold', 'models': len(モデル群),\n                      'failures': 失敗群, 'retained_results': 全記録}\n    if len(格子群) != 1:\n        return None, {'failure': 'fitted_models_disagree', 'output_count': len(格子群),\n                      'retained_results': 全記録}\n    return [list(row) for row in next(iter(格子群))], {\n        'models': len(モデル群), 'records': [rec for out, rec in 結果], 'retained_results': 全記録}",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      },
+      {
+        "source_path": "sources/candidate002/production-preflight/summary.json",
+        "content_sha256": "0b25cec7cb52367e6b8aa0680e866d9165f50c5c946061eefacce85a19ecbd11",
+        "pointer": "/native/0/record",
+        "quote": "{\"境界\":\"ARC距離順位回収\",\"事前観測数\":0,\"現在観測数\":3,\"採用可\":true,\"同値採用\":true,\"状態\":\"全教師再現\",\"隔離数\":0}",
+        "codepoint_span": [
+          0,
+          82
+        ],
+        "source_value_type": "dict",
+        "quote_mode": "typed_value",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      },
+      {
+        "source_path": "sources/repository/接続/ARC2/HDS接続.py",
+        "content_sha256": "e6f0bf8f56203e6833d1a866302de89e1471f5b8e0e291b04c0b0486143faf31",
+        "blob_sha": "d5ccb06645ccea18b5935f3a30b0dc543991586f",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 137,
+        "line_end": 152,
+        "quote": "def 出力格子(機械, 観測, *, 同値必須=False):\n    実行結果 = 機械.照会(観測)\n    排気 = 最小排気系().排出する(実行結果)\n    値群 = [p.予測値 for p in 実行結果.予測群 if p.結果経路 == (\"出力\",)]\n    同値あり = 同値原理あり(実行結果.有効原理群, 観測.対象系境界)\n    確定 = (\n        排気.状態 == \"出力\" and bool(値群)\n        and all(v == 値群[0] for v in 値群)\n        and 有効格子(値群[0]) and (not 同値必須 or 同値あり)\n    )\n    return {\n        \"answer\": 値群[0] if 確定 else None,\n        \"status\": 排気.状態, \"reasons\": 排気.内容[\"断定保留理由群\"],\n        \"equality_admitted\": 同値あり,\n        \"quarantined\": len(実行結果.係争中原理群),\n    }",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      },
+      {
+        "source_path": "sources/repository/接続/ARC2/HDS接続.py",
+        "content_sha256": "e6f0bf8f56203e6833d1a866302de89e1471f5b8e0e291b04c0b0486143faf31",
+        "blob_sha": "d5ccb06645ccea18b5935f3a30b0dc543991586f",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 155,
+        "line_end": 172,
+        "quote": "def 候補機構を学習(機械, 課題, 事前教材, 境界, 候補器):\n    記録 = {\"境界\": 境界, \"事前観測数\": 0, \"現在観測数\": 0,\n            \"採用可\": False, \"同値採用\": False}\n    全再現 = True\n    for 群名, 教材群 in ((\"事前観測数\", 事前教材), (\"現在観測数\", 課題[\"train\"])):\n        for 対 in 教材群:\n            # 常に入力だけで候補を生成。expected引数は渡さない。\n            候補, 詳細 = 候補器(対[\"input\"], {})\n            if 候補 is None:\n                return {**記録, \"状態\": \"充足する候補なし\", \"詳細\": 詳細}\n            全再現 = 全再現 and 候補 == 対[\"output\"]\n            # 反例も公開学習経路へ渡す。隔離・保留を解除しない。\n            学習結果 = 機械.実行(観測へ({\"候補\": 候補, \"出力\": 対[\"output\"]}, 境界))\n            記録[群名] += 1\n            記録[\"同値採用\"] = 同値原理あり(学習結果.有効原理群, 境界)\n    return {**記録, \"採用可\": 全再現,\n            \"状態\": \"全教師再現\" if 全再現 else \"教師反例により不採用\",\n            \"隔離数\": len(学習結果.係争中原理群) if 課題[\"train\"] or 事前教材 else 0}",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      },
+      {
+        "source_path": "sources/repository/接続/ARC2/HDS接続.py",
+        "content_sha256": "e6f0bf8f56203e6833d1a866302de89e1471f5b8e0e291b04c0b0486143faf31",
+        "blob_sha": "d5ccb06645ccea18b5935f3a30b0dc543991586f",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 327,
+        "line_end": 357,
+        "quote": "    記録群 = [候補機構を学習(機械, 課題, 教材, 境界, 候補器)\n              for 境界, 候補器, 教材 in 機構群]\n    結果群 = []\n    隔離数 = 0\n    for 対 in 課題[\"test\"]:\n        # 全機構の学習後に照会するため、後発の隔離も既存排気gateへ反映される。\n        基底結果 = 出力格子(機械, 格子観測(対))\n        隔離数 = max(隔離数, 基底結果[\"quarantined\"])\n        予測群 = [] if 基底結果[\"answer\"] is None else [基底結果]\n        未解決理由 = []\n        for (境界, 候補器, _), 記録 in zip(機構群, 記録群):\n            if not 記録[\"採用可\"] or not 記録[\"同値採用\"]:\n                continue\n            候補, _ = 候補器(対[\"input\"], {})\n            if 候補 is None:\n                未解決理由.append(f\"採用済み機構{境界}のtest候補が未確定\")\n                continue\n            予測 = 出力格子(機械, 観測へ({\"候補\": 候補}, 境界), 同値必須=True)\n            if 予測[\"answer\"] is not None:\n                予測群.append({**予測, \"family\": 境界})\n            else:\n                未解決理由.append(f\"採用済み機構{境界}のHDS排気が保留\")\n        if 未解決理由:\n            結果群.append({\"answer\": None, \"status\": \"断定保留\", \"reasons\": 未解決理由})\n        elif not 予測群:\n            結果群.append(基底結果)\n        elif all(p[\"answer\"] == 予測群[0][\"answer\"] for p in 予測群):\n            結果群.append({**予測群[0], \"agreeing_predictions\": len(予測群)})\n        else:\n            結果群.append({\"answer\": None, \"status\": \"断定保留\",\n                           \"reasons\": [\"採用済み機構の完全格子予測が競合したため保留\"]})",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      }
+    ],
+    "作用": [
+      {
+        "source_path": "sources/candidate002/production/接続/ARC2/距離回収候補.py",
+        "content_sha256": "96c19905552297b8065896f29e4fa9278573f9b8df1cec9db21963831ff5362e",
+        "blob_sha": "493e52ca875d422301e035d927b48826185cf054",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 110,
+        "line_end": 132,
+        "quote": "def render_prepared(grid, roles, p, parsed, ds, slots):\n    \"\"\"論理状態を一切選別せず、同一の純粋中間結果のみ再利用する。\"\"\"\n    source = parsed['cells']['source']\n    ordered = sorted(ds, key=lambda c: ((ds[c] if p['ranking']=='nearest' else -ds[c]), c))\n    count = min(len(ds), len(slots))\n    record = {'source_count': len(source), 'reachable_count': len(ds), 'capacity': len(slots),\n              'source_distances': [{'cell': list(c), 'distance': ds.get(c)} for c in sorted(source)],\n              'target': [list(c) for c in sorted(parsed['target'])], 'seed': list(parsed['seed'])}\n    if len(ds) > len(slots):\n        if p['overflow'] == 'require_all_reachable':\n            return None, {**record, 'failure': 'reachable_source_overflow'}\n        if ds[ordered[count - 1]] == ds[ordered[count]]:\n            return None, {**record, 'failure': 'capacity_cutoff_distance_tie', 'cutoff_distance': ds[ordered[count]]}\n    chosen = set(ordered[:count])\n    filled = set(slots[:count])\n    proposals = {c: roles['source'] for c in filled}\n    if p['source_action'] == 'erase_to_background':\n        for c in chosen:\n            if c in proposals:\n                return None, {**record, 'failure': 'source_destination_overlap'}\n            proposals[c] = roles['background']\n    out = clone_grid(grid)\n    for (r, c), value in proposals.items(): out[r][c] = value",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      }
+    ],
+    "保存条件": [
+      {
+        "source_path": "sources/candidate002/production/接続/ARC2/距離回収候補.py",
+        "content_sha256": "96c19905552297b8065896f29e4fa9278573f9b8df1cec9db21963831ff5362e",
+        "blob_sha": "493e52ca875d422301e035d927b48826185cf054",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 133,
+        "line_end": 148,
+        "quote": "    untouched = {(r,c) for r,row in enumerate(grid) for c,_ in enumerate(row)} - proposals.keys()\n    if any(out[r][c] != grid[r][c] for r,c in untouched):\n        raise AssertionError('outside_proposals_changed')\n    if any(out[r][c] != grid[r][c] for r,c in parsed['cells']['wall']):\n        raise AssertionError('wall_changed')\n    if any(out[r][c] != roles['source'] for r,c in source - chosen):\n        raise AssertionError('unselected_source_changed')\n    before = sum(v == roles['source'] for row in grid for v in row)\n    after = sum(v == roles['source'] for row in out for v in row)\n    if p['source_action'] == 'erase_to_background' and before != after:\n        raise AssertionError('source_pixel_count_not_conserved')\n    return out, {**record, 'selected': [list(c) for c in sorted(chosen)],\n                 'filled': [list(c) for c in slots[:count]], 'selected_count': count,\n                 'source_count_before_after': [before, after],\n                 'unchanged_cells': len(untouched),\n                 'seed_overwritten': parsed['seed'] in filled}",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      }
+    ],
+    "反証条件": [
+      {
+        "source_path": "sources/candidate002/production/接続/ARC2/距離回収候補.py",
+        "content_sha256": "96c19905552297b8065896f29e4fa9278573f9b8df1cec9db21963831ff5362e",
+        "blob_sha": "493e52ca875d422301e035d927b48826185cf054",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 118,
+        "line_end": 129,
+        "quote": "    if len(ds) > len(slots):\n        if p['overflow'] == 'require_all_reachable':\n            return None, {**record, 'failure': 'reachable_source_overflow'}\n        if ds[ordered[count - 1]] == ds[ordered[count]]:\n            return None, {**record, 'failure': 'capacity_cutoff_distance_tie', 'cutoff_distance': ds[ordered[count]]}\n    chosen = set(ordered[:count])\n    filled = set(slots[:count])\n    proposals = {c: roles['source'] for c in filled}\n    if p['source_action'] == 'erase_to_background':\n        for c in chosen:\n            if c in proposals:\n                return None, {**record, 'failure': 'source_destination_overlap'}",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      },
+      {
+        "source_path": "sources/candidate002/negative-alternative-evidence.json",
+        "content_sha256": "e06727448fce7b63819719c512467c97080981d3fd98d6e1186bf7d68d53ebfa",
+        "pointer": "/0",
+        "quote": "{\"alternative\":\"C8\",\"parameters\":{\"metric\":\"C8_BFS\"},\"teachers\":[{\"teacher_index\":0,\"exact\":true,\"failure\":null,\"differences\":[],\"selected\":[[8,7],[8,8]],\"reachable_count\":2},{\"teacher_index\":1,\"exact\":false,\"failure\":\"capacity_cutoff_distance_tie\",\"differences\":[],\"selected\":null,\"reachable_count\":15},{\"teacher_index\":2,\"exact\":true,\"failure\":null,\"differences\":[],\"selected\":[[1,9],[2,2],[2,10],[9,8]],\"reachable_count\":4}]}",
+        "codepoint_span": [
+          0,
+          428
+        ],
+        "source_value_type": "dict",
+        "quote_mode": "typed_value",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      }
+    ],
+    "競合条件": [
+      {
+        "source_path": "sources/candidate002/production/接続/ARC2/距離回収教材.py",
+        "content_sha256": "2fb81e33b59b2f762cd90a5b3f0cf847160ce985e1dd667a83c1415bdf7348cf",
+        "blob_sha": "7c8e1e2c3061cadd25b8bb537306648664c76233",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 22,
+        "line_end": 37,
+        "quote": "def 全距離モデルを照会(格子, モデル群):\n    if not モデル群:\n        return None, {'failure': 'no_teacher_fit_model', 'retained_results': []}\n    結果 = [core.render(格子, m['roles'], m['parameters'], m['shape']) for m in モデル群]\n    全記録 = [{'model_index': i, 'candidate': out, 'detail': rec}\n             for i, (out, rec) in enumerate(結果)]\n    失敗群 = [rec for out, rec in 結果 if out is None]\n    格子群 = {tuple(map(tuple, out)) for out, rec in 結果 if out is not None}\n    if 失敗群:\n        return None, {'failure': 'fitted_model_hold', 'models': len(モデル群),\n                      'failures': 失敗群, 'retained_results': 全記録}\n    if len(格子群) != 1:\n        return None, {'failure': 'fitted_models_disagree', 'output_count': len(格子群),\n                      'retained_results': 全記録}\n    return [list(row) for row in next(iter(格子群))], {\n        'models': len(モデル群), 'records': [rec for out, rec in 結果], 'retained_results': 全記録}",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      },
+      {
+        "source_path": "sources/repository/接続/ARC2/HDS接続.py",
+        "content_sha256": "e6f0bf8f56203e6833d1a866302de89e1471f5b8e0e291b04c0b0486143faf31",
+        "blob_sha": "d5ccb06645ccea18b5935f3a30b0dc543991586f",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 327,
+        "line_end": 357,
+        "quote": "    記録群 = [候補機構を学習(機械, 課題, 教材, 境界, 候補器)\n              for 境界, 候補器, 教材 in 機構群]\n    結果群 = []\n    隔離数 = 0\n    for 対 in 課題[\"test\"]:\n        # 全機構の学習後に照会するため、後発の隔離も既存排気gateへ反映される。\n        基底結果 = 出力格子(機械, 格子観測(対))\n        隔離数 = max(隔離数, 基底結果[\"quarantined\"])\n        予測群 = [] if 基底結果[\"answer\"] is None else [基底結果]\n        未解決理由 = []\n        for (境界, 候補器, _), 記録 in zip(機構群, 記録群):\n            if not 記録[\"採用可\"] or not 記録[\"同値採用\"]:\n                continue\n            候補, _ = 候補器(対[\"input\"], {})\n            if 候補 is None:\n                未解決理由.append(f\"採用済み機構{境界}のtest候補が未確定\")\n                continue\n            予測 = 出力格子(機械, 観測へ({\"候補\": 候補}, 境界), 同値必須=True)\n            if 予測[\"answer\"] is not None:\n                予測群.append({**予測, \"family\": 境界})\n            else:\n                未解決理由.append(f\"採用済み機構{境界}のHDS排気が保留\")\n        if 未解決理由:\n            結果群.append({\"answer\": None, \"status\": \"断定保留\", \"reasons\": 未解決理由})\n        elif not 予測群:\n            結果群.append(基底結果)\n        elif all(p[\"answer\"] == 予測群[0][\"answer\"] for p in 予測群):\n            結果群.append({**予測群[0], \"agreeing_predictions\": len(予測群)})\n        else:\n            結果群.append({\"answer\": None, \"status\": \"断定保留\",\n                           \"reasons\": [\"採用済み機構の完全格子予測が競合したため保留\"]})",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      }
+    ],
+    "HOLD条件": [
+      {
+        "source_path": "sources/candidate002/production/接続/ARC2/距離回収候補.py",
+        "content_sha256": "96c19905552297b8065896f29e4fa9278573f9b8df1cec9db21963831ff5362e",
+        "blob_sha": "493e52ca875d422301e035d927b48826185cf054",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 24,
+        "line_end": 56,
+        "quote": "def parse(grid, roles, expected_shape=None):\n    if (not isinstance(grid, list) or not 1 <= len(grid) <= 30 or\n        not isinstance(grid[0], list) or not 1 <= len(grid[0]) <= 30 or\n        any(not isinstance(row, list) or len(row) != len(grid[0]) or\n            any(type(v) is not int or not 0 <= v <= 9 for v in row) for row in grid)):\n        return None, 'invalid_arc_grid'\n    if set(roles) != set(ROLE_NAMES) or len(set(roles.values())) != 5:\n        return None, 'roles_not_five_distinct_colors'\n    colors = {v for row in grid for v in row}\n    if colors - set(roles.values()):\n        return None, 'unowned_input_color'\n    if set(roles.values()) - colors - {roles['wall']}:\n        return None, 'required_role_absent'\n    cells = {name: {(r, c) for r, row in enumerate(grid) for c, value in enumerate(row)\n                    if value == color} for name, color in roles.items()}\n    if len(cells['seed']) != 1:\n        return None, 'seed_not_singleton'\n    seed = next(iter(cells['seed']))\n    ts = cells['target']\n    if not ts:\n        return None, 'target_absent'\n    lo = min(r for r, c in ts), min(c for r, c in ts)\n    hi = max(r for r, c in ts), max(c for r, c in ts)\n    shape = hi[0] - lo[0] + 1, hi[1] - lo[1] + 1\n    if shape[0] != shape[1] or shape[0] < 3 or shape[0] % 2 != 1:\n        return None, 'target_not_odd_square'\n    if expected_shape is not None and tuple(expected_shape) != shape:\n        return None, 'target_shape_outside_teacher_contract'\n    target = {(r, c) for r in range(lo[0], hi[0] + 1) for c in range(lo[1], hi[1] + 1)}\n    if ts | cells['seed'] != target or seed != ((lo[0] + hi[0]) // 2, (lo[1] + hi[1]) // 2):\n        return None, 'target_ownership_or_center_failed'\n    if cells['source'] & target:\n        return None, 'source_target_overlap'",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      },
+      {
+        "source_path": "sources/candidate002/production/接続/ARC2/距離回収候補.py",
+        "content_sha256": "96c19905552297b8065896f29e4fa9278573f9b8df1cec9db21963831ff5362e",
+        "blob_sha": "493e52ca875d422301e035d927b48826185cf054",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 118,
+        "line_end": 129,
+        "quote": "    if len(ds) > len(slots):\n        if p['overflow'] == 'require_all_reachable':\n            return None, {**record, 'failure': 'reachable_source_overflow'}\n        if ds[ordered[count - 1]] == ds[ordered[count]]:\n            return None, {**record, 'failure': 'capacity_cutoff_distance_tie', 'cutoff_distance': ds[ordered[count]]}\n    chosen = set(ordered[:count])\n    filled = set(slots[:count])\n    proposals = {c: roles['source'] for c in filled}\n    if p['source_action'] == 'erase_to_background':\n        for c in chosen:\n            if c in proposals:\n                return None, {**record, 'failure': 'source_destination_overlap'}",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      },
+      {
+        "source_path": "sources/candidate002/production/接続/ARC2/距離回収教材.py",
+        "content_sha256": "2fb81e33b59b2f762cd90a5b3f0cf847160ce985e1dd667a83c1415bdf7348cf",
+        "blob_sha": "7c8e1e2c3061cadd25b8bb537306648664c76233",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 22,
+        "line_end": 35,
+        "quote": "def 全距離モデルを照会(格子, モデル群):\n    if not モデル群:\n        return None, {'failure': 'no_teacher_fit_model', 'retained_results': []}\n    結果 = [core.render(格子, m['roles'], m['parameters'], m['shape']) for m in モデル群]\n    全記録 = [{'model_index': i, 'candidate': out, 'detail': rec}\n             for i, (out, rec) in enumerate(結果)]\n    失敗群 = [rec for out, rec in 結果 if out is None]\n    格子群 = {tuple(map(tuple, out)) for out, rec in 結果 if out is not None}\n    if 失敗群:\n        return None, {'failure': 'fitted_model_hold', 'models': len(モデル群),\n                      'failures': 失敗群, 'retained_results': 全記録}\n    if len(格子群) != 1:\n        return None, {'failure': 'fitted_models_disagree', 'output_count': len(格子群),\n                      'retained_results': 全記録}",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      },
+      {
+        "source_path": "sources/repository/接続/ARC2/HDS接続.py",
+        "content_sha256": "e6f0bf8f56203e6833d1a866302de89e1471f5b8e0e291b04c0b0486143faf31",
+        "blob_sha": "d5ccb06645ccea18b5935f3a30b0dc543991586f",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 327,
+        "line_end": 357,
+        "quote": "    記録群 = [候補機構を学習(機械, 課題, 教材, 境界, 候補器)\n              for 境界, 候補器, 教材 in 機構群]\n    結果群 = []\n    隔離数 = 0\n    for 対 in 課題[\"test\"]:\n        # 全機構の学習後に照会するため、後発の隔離も既存排気gateへ反映される。\n        基底結果 = 出力格子(機械, 格子観測(対))\n        隔離数 = max(隔離数, 基底結果[\"quarantined\"])\n        予測群 = [] if 基底結果[\"answer\"] is None else [基底結果]\n        未解決理由 = []\n        for (境界, 候補器, _), 記録 in zip(機構群, 記録群):\n            if not 記録[\"採用可\"] or not 記録[\"同値採用\"]:\n                continue\n            候補, _ = 候補器(対[\"input\"], {})\n            if 候補 is None:\n                未解決理由.append(f\"採用済み機構{境界}のtest候補が未確定\")\n                continue\n            予測 = 出力格子(機械, 観測へ({\"候補\": 候補}, 境界), 同値必須=True)\n            if 予測[\"answer\"] is not None:\n                予測群.append({**予測, \"family\": 境界})\n            else:\n                未解決理由.append(f\"採用済み機構{境界}のHDS排気が保留\")\n        if 未解決理由:\n            結果群.append({\"answer\": None, \"status\": \"断定保留\", \"reasons\": 未解決理由})\n        elif not 予測群:\n            結果群.append(基底結果)\n        elif all(p[\"answer\"] == 予測群[0][\"answer\"] for p in 予測群):\n            結果群.append({**予測群[0], \"agreeing_predictions\": len(予測群)})\n        else:\n            結果群.append({\"answer\": None, \"status\": \"断定保留\",\n                           \"reasons\": [\"採用済み機構の完全格子予測が競合したため保留\"]})",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      }
+    ],
+    "支持経験": [
+      {
+        "source_path": "sources/candidate002/teacher-exact-evidence.json",
+        "content_sha256": "8d43f42474ee38bc9b2d4bd974fb4243996f1236ffd6e222857413651a3bf09f",
+        "pointer": "/0/exact",
+        "quote": "true",
+        "codepoint_span": [
+          0,
+          4
+        ],
+        "source_value_type": "bool",
+        "quote_mode": "typed_value",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      },
+      {
+        "source_path": "sources/candidate002/teacher-exact-evidence.json",
+        "content_sha256": "8d43f42474ee38bc9b2d4bd974fb4243996f1236ffd6e222857413651a3bf09f",
+        "pointer": "/1/exact",
+        "quote": "true",
+        "codepoint_span": [
+          0,
+          4
+        ],
+        "source_value_type": "bool",
+        "quote_mode": "typed_value",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      },
+      {
+        "source_path": "sources/candidate002/teacher-exact-evidence.json",
+        "content_sha256": "8d43f42474ee38bc9b2d4bd974fb4243996f1236ffd6e222857413651a3bf09f",
+        "pointer": "/2/exact",
+        "quote": "true",
+        "codepoint_span": [
+          0,
+          4
+        ],
+        "source_value_type": "bool",
+        "quote_mode": "typed_value",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      },
+      {
+        "source_path": "sources/candidate002/production-preflight/summary.json",
+        "content_sha256": "0b25cec7cb52367e6b8aa0680e866d9165f50c5c946061eefacce85a19ecbd11",
+        "pointer": "/native/0/record",
+        "quote": "{\"境界\":\"ARC距離順位回収\",\"事前観測数\":0,\"現在観測数\":3,\"採用可\":true,\"同値採用\":true,\"状態\":\"全教師再現\",\"隔離数\":0}",
+        "codepoint_span": [
+          0,
+          82
+        ],
+        "source_value_type": "dict",
+        "quote_mode": "typed_value",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      }
+    ],
+    "反例経験": [
+      {
+        "source_path": "sources/candidate002/negative-alternative-evidence.json",
+        "content_sha256": "e06727448fce7b63819719c512467c97080981d3fd98d6e1186bf7d68d53ebfa",
+        "pointer": "/5",
+        "quote": "{\"alternative\":\"source_terminal\",\"parameters\":{\"source_transit\":false},\"teachers\":[{\"teacher_index\":0,\"exact\":false,\"failure\":null,\"differences\":[{\"cell\":[4,5],\"candidate\":3,\"teacher\":9},{\"cell\":[8,8],\"candidate\":9,\"teacher\":7}],\"selected\":[[8,7]],\"reachable_count\":1},{\"teacher_index\":1,\"exact\":true,\"failure\":null,\"differences\":[],\"selected\":[[1,6],[3,0],[4,8],[5,2],[6,9],[8,1],[8,5],[9,2],[9,5]],\"reachable_count\":14},{\"teacher_index\":2,\"exact\":true,\"failure\":null,\"differences\":[],\"selected\":[[1,9],[2,2],[2,10],[9,8]],\"reachable_count\":4}]}",
+        "codepoint_span": [
+          0,
+          546
+        ],
+        "source_value_type": "dict",
+        "quote_mode": "typed_value",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      },
+      {
+        "source_path": "sources/candidate002/negative-alternative-evidence.json",
+        "content_sha256": "e06727448fce7b63819719c512467c97080981d3fd98d6e1186bf7d68d53ebfa",
+        "pointer": "/6",
+        "quote": "{\"alternative\":\"farthest\",\"parameters\":{\"ranking\":\"farthest\"},\"teachers\":[{\"teacher_index\":0,\"exact\":true,\"failure\":null,\"differences\":[],\"selected\":[[8,7],[8,8]],\"reachable_count\":2},{\"teacher_index\":1,\"exact\":false,\"failure\":null,\"differences\":[{\"cell\":[0,6],\"candidate\":7,\"teacher\":9},{\"cell\":[0,7],\"candidate\":7,\"teacher\":9},{\"cell\":[0,8],\"candidate\":7,\"teacher\":9},{\"cell\":[1,7],\"candidate\":7,\"teacher\":9},{\"cell\":[1,10],\"candidate\":7,\"teacher\":9},{\"cell\":[2,10],\"candidate\":7,\"teacher\":9},{\"cell\":[5,2],\"candidate\":9,\"teacher\":7},{\"cell\":[6,9],\"candidate\":9,\"teacher\":7},{\"cell\":[8,1],\"candidate\":9,\"teacher\":7},{\"cell\":[8,5],\"candidate\":9,\"teacher\":7},{\"cell\":[9,2],\"candidate\":9,\"teacher\":7},{\"cell\":[9,5],\"candidate\":9,\"teacher\":7}],\"selected\":[[0,6],[0,7],[0,8],[1,6],[1,7],[1,10],[2,10],[3,0],[4,8]],\"reachable_count\":15},{\"teacher_index\":2,\"exact\":true,\"failure\":null,\"differences\":[],\"selected\":[[1,9],[2,2],[2,10],[9,8]],\"reachable_count\":4}]}",
+        "codepoint_span": [
+          0,
+          957
+        ],
+        "source_value_type": "dict",
+        "quote_mode": "typed_value",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      },
+      {
+        "source_path": "sources/candidate002/production-preflight/summary.json",
+        "content_sha256": "0b25cec7cb52367e6b8aa0680e866d9165f50c5c946061eefacce85a19ecbd11",
+        "pointer": "/fully_evaluated_hypothesis_teacher_pairs",
+        "quote": "30720",
+        "codepoint_span": [
+          0,
+          5
+        ],
+        "source_value_type": "int",
+        "quote_mode": "typed_value",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      }
+    ],
+    "適用範囲": [
+      {
+        "source_path": "sources/candidate002/production/接続/ARC2/距離回収候補.py",
+        "content_sha256": "96c19905552297b8065896f29e4fa9278573f9b8df1cec9db21963831ff5362e",
+        "blob_sha": "493e52ca875d422301e035d927b48826185cf054",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 24,
+        "line_end": 57,
+        "quote": "def parse(grid, roles, expected_shape=None):\n    if (not isinstance(grid, list) or not 1 <= len(grid) <= 30 or\n        not isinstance(grid[0], list) or not 1 <= len(grid[0]) <= 30 or\n        any(not isinstance(row, list) or len(row) != len(grid[0]) or\n            any(type(v) is not int or not 0 <= v <= 9 for v in row) for row in grid)):\n        return None, 'invalid_arc_grid'\n    if set(roles) != set(ROLE_NAMES) or len(set(roles.values())) != 5:\n        return None, 'roles_not_five_distinct_colors'\n    colors = {v for row in grid for v in row}\n    if colors - set(roles.values()):\n        return None, 'unowned_input_color'\n    if set(roles.values()) - colors - {roles['wall']}:\n        return None, 'required_role_absent'\n    cells = {name: {(r, c) for r, row in enumerate(grid) for c, value in enumerate(row)\n                    if value == color} for name, color in roles.items()}\n    if len(cells['seed']) != 1:\n        return None, 'seed_not_singleton'\n    seed = next(iter(cells['seed']))\n    ts = cells['target']\n    if not ts:\n        return None, 'target_absent'\n    lo = min(r for r, c in ts), min(c for r, c in ts)\n    hi = max(r for r, c in ts), max(c for r, c in ts)\n    shape = hi[0] - lo[0] + 1, hi[1] - lo[1] + 1\n    if shape[0] != shape[1] or shape[0] < 3 or shape[0] % 2 != 1:\n        return None, 'target_not_odd_square'\n    if expected_shape is not None and tuple(expected_shape) != shape:\n        return None, 'target_shape_outside_teacher_contract'\n    target = {(r, c) for r in range(lo[0], hi[0] + 1) for c in range(lo[1], hi[1] + 1)}\n    if ts | cells['seed'] != target or seed != ((lo[0] + hi[0]) // 2, (lo[1] + hi[1]) // 2):\n        return None, 'target_ownership_or_center_failed'\n    if cells['source'] & target:\n        return None, 'source_target_overlap'\n    return {'cells': cells, 'target': target, 'seed': seed, 'shape': shape}, None",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      },
+      {
+        "source_path": "sources/candidate002/fit-exhaustive-evidence.json",
+        "content_sha256": "3078abc5ef8cbf5832fda2c21e1b90d9e74e80c0a949a16db066435b38dcc2a4",
+        "pointer": "/models/0/shape",
+        "quote": "[3,3]",
+        "codepoint_span": [
+          0,
+          5
+        ],
+        "source_value_type": "list",
+        "quote_mode": "typed_value",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      }
+    ],
+    "教師fitで選択": [
+      {
+        "source_path": "sources/candidate002/fit-exhaustive-evidence.json",
+        "content_sha256": "3078abc5ef8cbf5832fda2c21e1b90d9e74e80c0a949a16db066435b38dcc2a4",
+        "pointer": "/models",
+        "quote": "[{\"roles\":{\"background\":7,\"seed\":2,\"target\":3,\"source\":9,\"wall\":6},\"shape\":[3,3],\"parameters\":{\"metric\":\"C4_BFS\",\"origin\":\"seed\",\"wall_passable\":false,\"source_transit\":true,\"ranking\":\"nearest\",\"capacity\":\"target_area_including_seed\",\"overflow\":\"take_capacity_prefix\",\"slot_order\":\"row_asc_col_asc\",\"source_action\":\"erase_to_background\"}},{\"roles\":{\"background\":7,\"seed\":2,\"target\":3,\"source\":9,\"wall\":6},\"shape\":[3,3],\"parameters\":{\"metric\":\"C4_BFS\",\"origin\":\"target_all_cells\",\"wall_passable\":false,\"source_transit\":true,\"ranking\":\"nearest\",\"capacity\":\"target_area_including_seed\",\"overflow\":\"take_capacity_prefix\",\"slot_order\":\"row_asc_col_asc\",\"source_action\":\"erase_to_background\"}}]",
+        "codepoint_span": [
+          0,
+          687
+        ],
+        "source_value_type": "list",
+        "quote_mode": "typed_value",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      },
+      {
+        "source_path": "sources/candidate002/production/接続/ARC2/距離回収教材.py",
+        "content_sha256": "2fb81e33b59b2f762cd90a5b3f0cf847160ce985e1dd667a83c1415bdf7348cf",
+        "blob_sha": "7c8e1e2c3061cadd25b8bb537306648664c76233",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 40,
+        "line_end": 57,
+        "quote": "class 距離回収教材:\n    def __init__(self, 教師群):\n        モデル, _ = 距離回収をfit(教師群)\n        self.モデル群 = tuple((tuple(m['roles'][k] for k in core.ROLE_NAMES),\n                          tuple(m['shape']), tuple(m['parameters'][k] for k in core.AXES))\n                         for m in モデル)\n\n    def 展開モデル(self):\n        return [{'roles': dict(zip(core.ROLE_NAMES, 役割)), 'shape': list(形),\n                 'parameters': dict(zip(core.AXES, 条件))}\n                for 役割, 形, 条件 in self.モデル群]\n\n    def 候補(self, 格子, _policy):\n        return 全距離モデルを照会(格子, self.展開モデル())\n\n    def 記録(self):\n        return {'保持候補数': len(self.モデル群), '保持候補': self.展開モデル(),\n                '合意条件': '全教師適合モデル全ての成功と完全格子一致。失敗モデルを除外しない'}",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      }
+    ],
+    "入力から毎回導出": [
+      {
+        "source_path": "sources/candidate002/00-contract-before-fit.json",
+        "content_sha256": "e7420794c26579521bd2136b87292b499d7b687bf15879129152165116deb712",
+        "pointer": "/入力から導出",
+        "quote": "[\"seed位置\",\"target全域とslot\",\"wall全画素\",\"source全画素\",\"全source距離と到達不能一覧\",\"容量cutoff\",\"選択集合\",\"更新proposalと保存集合\"]",
+        "codepoint_span": [
+          0,
+          103
+        ],
+        "source_value_type": "list",
+        "quote_mode": "typed_value",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      },
+      {
+        "source_path": "sources/candidate002/production/接続/ARC2/距離回収候補.py",
+        "content_sha256": "96c19905552297b8065896f29e4fa9278573f9b8df1cec9db21963831ff5362e",
+        "blob_sha": "493e52ca875d422301e035d927b48826185cf054",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 110,
+        "line_end": 148,
+        "quote": "def render_prepared(grid, roles, p, parsed, ds, slots):\n    \"\"\"論理状態を一切選別せず、同一の純粋中間結果のみ再利用する。\"\"\"\n    source = parsed['cells']['source']\n    ordered = sorted(ds, key=lambda c: ((ds[c] if p['ranking']=='nearest' else -ds[c]), c))\n    count = min(len(ds), len(slots))\n    record = {'source_count': len(source), 'reachable_count': len(ds), 'capacity': len(slots),\n              'source_distances': [{'cell': list(c), 'distance': ds.get(c)} for c in sorted(source)],\n              'target': [list(c) for c in sorted(parsed['target'])], 'seed': list(parsed['seed'])}\n    if len(ds) > len(slots):\n        if p['overflow'] == 'require_all_reachable':\n            return None, {**record, 'failure': 'reachable_source_overflow'}\n        if ds[ordered[count - 1]] == ds[ordered[count]]:\n            return None, {**record, 'failure': 'capacity_cutoff_distance_tie', 'cutoff_distance': ds[ordered[count]]}\n    chosen = set(ordered[:count])\n    filled = set(slots[:count])\n    proposals = {c: roles['source'] for c in filled}\n    if p['source_action'] == 'erase_to_background':\n        for c in chosen:\n            if c in proposals:\n                return None, {**record, 'failure': 'source_destination_overlap'}\n            proposals[c] = roles['background']\n    out = clone_grid(grid)\n    for (r, c), value in proposals.items(): out[r][c] = value\n    untouched = {(r,c) for r,row in enumerate(grid) for c,_ in enumerate(row)} - proposals.keys()\n    if any(out[r][c] != grid[r][c] for r,c in untouched):\n        raise AssertionError('outside_proposals_changed')\n    if any(out[r][c] != grid[r][c] for r,c in parsed['cells']['wall']):\n        raise AssertionError('wall_changed')\n    if any(out[r][c] != roles['source'] for r,c in source - chosen):\n        raise AssertionError('unselected_source_changed')\n    before = sum(v == roles['source'] for row in grid for v in row)\n    after = sum(v == roles['source'] for row in out for v in row)\n    if p['source_action'] == 'erase_to_background' and before != after:\n        raise AssertionError('source_pixel_count_not_conserved')\n    return out, {**record, 'selected': [list(c) for c in sorted(chosen)],\n                 'filled': [list(c) for c in slots[:count]], 'selected_count': count,\n                 'source_count_before_after': [before, after],\n                 'unchanged_cells': len(untouched),\n                 'seed_overwritten': parsed['seed'] in filled}",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      }
+    ],
+    "固定prior": [
+      {
+        "source_path": "sources/candidate002/00-contract-before-fit.json",
+        "content_sha256": "e7420794c26579521bd2136b87292b499d7b687bf15879129152165116deb712",
+        "pointer": "/全axis",
+        "quote": "{\"metric\":[\"C4_BFS\",\"C8_BFS\",\"Manhattan\",\"Chebyshev\",\"Euclidean_squared\"],\"origin\":[\"seed\",\"target_all_cells\"],\"wall_passable\":[false,true],\"source_transit\":[false,true],\"ranking\":[\"nearest\",\"farthest\"],\"capacity\":[\"target_area_including_seed\",\"target_color_cells_preserve_seed\"],\"overflow\":[\"take_capacity_prefix\",\"require_all_reachable\"],\"slot_order\":[\"row_asc_col_asc\",\"row_asc_col_desc\",\"row_desc_col_asc\",\"row_desc_col_desc\",\"col_asc_row_asc\",\"col_asc_row_desc\",\"col_desc_row_asc\",\"col_desc_row_desc\"],\"source_action\":[\"erase_to_background\",\"preserve\"]}",
+        "codepoint_span": [
+          0,
+          558
+        ],
+        "source_value_type": "dict",
+        "quote_mode": "typed_value",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      },
+      {
+        "source_path": "sources/candidate002/00-contract-before-fit.json",
+        "content_sha256": "e7420794c26579521bd2136b87292b499d7b687bf15879129152165116deb712",
+        "pointer": "/固定prior",
+        "quote": "{\"role\":\"background/seed/target/source/wall は互いに異なる5色role。入力色unionの全5!割当を試す。wallのみ各入力で欠落を許す。頻度・色番号は選択基準にしない\",\"対象所有\":\"seed色の全画素は1個。target色の全画素とそのseedがtarget色bboxを完全充填し、bboxは奇数正方形・seedは中心。source全画素はtarget外。全入力画素のroleを覆い、別targetや未処理sourceを黙殺しない\",\"形態\":\"各教師のtarget寸法が等しい場合、その寸法をfit値として保持。他寸法はHOLD。盤面寸法はARC1〜30の範囲で入力から導出\",\"離散候補空間\":\"全role割当 × 下記全axis。構造違反は論理的否定として記録し、成功例優先・数上限・firstmatch・近似枝刈りはしない\",\"作用\":\"sourceは画素単位。選択元位置とtarget prefixを原入力から同時更新。順序依存の逐次移動なし\",\"同率\":\"容量を跨ぐ距離同率はHOLD。容量内のtieは全て含めるので座標優先不要。複数fit仮説は全保存し、新入力で全仮説の成功・完全格子一致が揃わなければHOLD\"}",
+        "codepoint_span": [
+          0,
+          540
+        ],
+        "source_value_type": "dict",
+        "quote_mode": "typed_value",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      },
+      {
+        "source_path": "sources/candidate002/fit-exhaustive-evidence.json",
+        "content_sha256": "3078abc5ef8cbf5832fda2c21e1b90d9e74e80c0a949a16db066435b38dcc2a4",
+        "pointer": "/diagnostics/conceptual_candidates",
+        "quote": "614400",
+        "codepoint_span": [
+          0,
+          6
+        ],
+        "source_value_type": "int",
+        "quote_mode": "typed_value",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      },
+      {
+        "source_path": "sources/candidate002/fit-exhaustive-evidence.json",
+        "content_sha256": "3078abc5ef8cbf5832fda2c21e1b90d9e74e80c0a949a16db066435b38dcc2a4",
+        "pointer": "/diagnostics/logically_rejected_candidates",
+        "quote": "604160",
+        "codepoint_span": [
+          0,
+          6
+        ],
+        "source_value_type": "int",
+        "quote_mode": "typed_value",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      },
+      {
+        "source_path": "sources/candidate002/fit-exhaustive-evidence.json",
+        "content_sha256": "3078abc5ef8cbf5832fda2c21e1b90d9e74e80c0a949a16db066435b38dcc2a4",
+        "pointer": "/diagnostics/fully_evaluated_candidates",
+        "quote": "10240",
+        "codepoint_span": [
+          0,
+          5
+        ],
+        "source_value_type": "int",
+        "quote_mode": "typed_value",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      }
+    ],
+    "旧資産由来": [
+      {
+        "source_path": "sources/candidate002/production/接続/ARC2/距離回収候補.py",
+        "content_sha256": "96c19905552297b8065896f29e4fa9278573f9b8df1cec9db21963831ff5362e",
+        "blob_sha": "493e52ca875d422301e035d927b48826185cf054",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 4,
+        "line_end": 6,
+        "quote": "from 接続.ARC2.既存種境界 import NEIGHBORS_4, NEIGHBORS_8\nfrom 接続.ARC2.既存距離層 import open_components\nfrom 接続.ARC2.既存凡例穴対応 import clone_grid",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      },
+      {
+        "source_path": "sources/repository/接続/ARC2/既存距離層.py",
+        "content_sha256": "83822e2ef7874ceeb9341bc1a55c2706fe286be9be4ff4a49d24088c01b154c3",
+        "blob_sha": "7a17bb07ecda95150339e6fd725c8971a1c1c767",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 70,
+        "line_end": 96,
+        "quote": "def open_components(\n    grid: Grid, blocked: set[tuple[int, int]]\n) -> list[set[tuple[int, int]]]:\n    height, width = grid_shape(grid)\n    seen = set(blocked)\n    components = []\n    for row in range(height):\n        for col in range(width):\n            if (row, col) in seen:\n                continue\n            stack = [(row, col)]\n            seen.add((row, col))\n            cells: set[tuple[int, int]] = set()\n            while stack:\n                current_row, current_col = stack.pop()\n                cells.add((current_row, current_col))\n                for delta_row, delta_col in NEIGHBORS_4:\n                    next_row = current_row + delta_row\n                    next_col = current_col + delta_col\n                    if not (0 <= next_row < height and 0 <= next_col < width):\n                        continue\n                    if (next_row, next_col) in seen:\n                        continue\n                    seen.add((next_row, next_col))\n                    stack.append((next_row, next_col))\n            components.append(cells)\n    return components",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      },
+      {
+        "source_path": "sources/repository/接続/ARC2/既存凡例穴対応.py",
+        "content_sha256": "3e2471e03faaf58badbbb4d9426308beea41495201cdf9513c0e3993b7e832f2",
+        "blob_sha": "98f20d459d022c22e6aec9d0e5e9125ef36fb378",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 21,
+        "line_end": 22,
+        "quote": "def clone_grid(grid: Grid) -> Grid:\n    return [row[:] for row in grid]",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      },
+      {
+        "source_path": "sources/repository/接続/ARC2/既存種境界.py",
+        "content_sha256": "b0d413e5e3d9180f81ab95aa6fdf1ad9d870ae8bc2cf5adae9cbb182f0896f73",
+        "blob_sha": "dbc58b8d2ac7aba1d1f569c2fcff33da1c0815ff",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 16,
+        "line_end": 23,
+        "quote": "\nNEIGHBORS_8 = tuple(\n    (delta_row, delta_col)\n    for delta_row in (-1, 0, 1)\n    for delta_col in (-1, 0, 1)\n    if delta_row or delta_col\n)\n",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      }
+    ],
+    "新規固定文法": [
+      {
+        "source_path": "sources/candidate002/production/接続/ARC2/距離回収候補.py",
+        "content_sha256": "96c19905552297b8065896f29e4fa9278573f9b8df1cec9db21963831ff5362e",
+        "blob_sha": "493e52ca875d422301e035d927b48826185cf054",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 24,
+        "line_end": 57,
+        "quote": "def parse(grid, roles, expected_shape=None):\n    if (not isinstance(grid, list) or not 1 <= len(grid) <= 30 or\n        not isinstance(grid[0], list) or not 1 <= len(grid[0]) <= 30 or\n        any(not isinstance(row, list) or len(row) != len(grid[0]) or\n            any(type(v) is not int or not 0 <= v <= 9 for v in row) for row in grid)):\n        return None, 'invalid_arc_grid'\n    if set(roles) != set(ROLE_NAMES) or len(set(roles.values())) != 5:\n        return None, 'roles_not_five_distinct_colors'\n    colors = {v for row in grid for v in row}\n    if colors - set(roles.values()):\n        return None, 'unowned_input_color'\n    if set(roles.values()) - colors - {roles['wall']}:\n        return None, 'required_role_absent'\n    cells = {name: {(r, c) for r, row in enumerate(grid) for c, value in enumerate(row)\n                    if value == color} for name, color in roles.items()}\n    if len(cells['seed']) != 1:\n        return None, 'seed_not_singleton'\n    seed = next(iter(cells['seed']))\n    ts = cells['target']\n    if not ts:\n        return None, 'target_absent'\n    lo = min(r for r, c in ts), min(c for r, c in ts)\n    hi = max(r for r, c in ts), max(c for r, c in ts)\n    shape = hi[0] - lo[0] + 1, hi[1] - lo[1] + 1\n    if shape[0] != shape[1] or shape[0] < 3 or shape[0] % 2 != 1:\n        return None, 'target_not_odd_square'\n    if expected_shape is not None and tuple(expected_shape) != shape:\n        return None, 'target_shape_outside_teacher_contract'\n    target = {(r, c) for r in range(lo[0], hi[0] + 1) for c in range(lo[1], hi[1] + 1)}\n    if ts | cells['seed'] != target or seed != ((lo[0] + hi[0]) // 2, (lo[1] + hi[1]) // 2):\n        return None, 'target_ownership_or_center_failed'\n    if cells['source'] & target:\n        return None, 'source_target_overlap'\n    return {'cells': cells, 'target': target, 'seed': seed, 'shape': shape}, None",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      },
+      {
+        "source_path": "sources/candidate002/production/接続/ARC2/距離回収候補.py",
+        "content_sha256": "96c19905552297b8065896f29e4fa9278573f9b8df1cec9db21963831ff5362e",
+        "blob_sha": "493e52ca875d422301e035d927b48826185cf054",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 60,
+        "line_end": 99,
+        "quote": "def source_distances(grid, parsed, p):\n    origins = {parsed['seed']} if p['origin'] == 'seed' else parsed['target']\n    sources = parsed['cells']['source']\n    if p['metric'] in ('C4_BFS', 'C8_BFS'):\n        h, w = len(grid), len(grid[0])\n        offsets = NEIGHBORS_4 if p['metric'] == 'C4_BFS' else NEIGHBORS_8\n        blocked = set() if p['wall_passable'] else parsed['cells']['wall']\n        distance = {c: 0 for c in origins}\n        queue = deque(sorted(origins))\n        while queue:\n            here = queue.popleft()\n            if here in sources and not p['source_transit']:\n                continue\n            for dr, dc in offsets:\n                nxt = here[0] + dr, here[1] + dc\n                if (0 <= nxt[0] < h and 0 <= nxt[1] < w and\n                        nxt not in blocked and nxt not in distance):\n                    distance[nxt] = distance[here] + 1\n                    queue.append(nxt)\n        # 既存のC4全域分割を再利用して独立coverage証明。\n        if p['metric'] == 'C4_BFS' and p['source_transit']:\n            reached = set().union(*(c for c in open_components(grid, blocked) if c & origins))\n            if reached != set(distance):\n                raise AssertionError('existing_C4_partition_disagrees')\n        return {c: distance[c] for c in sources if c in distance}\n    def metric(a, b):\n        dr, dc = abs(a[0]-b[0]), abs(a[1]-b[1])\n        if p['metric'] == 'Manhattan': return dr + dc\n        if p['metric'] == 'Chebyshev': return max(dr, dc)\n        if p['metric'] == 'Euclidean_squared': return dr*dr + dc*dc\n        raise ValueError('unknown_metric')\n    return {c: min(metric(c, origin) for origin in origins) for c in sources}\n\n\ndef ordered_slots(parsed, p):\n    cells = parsed['target'] if p['capacity'] == 'target_area_including_seed' else parsed['cells']['target']\n    parts = p['slot_order'].split('_')\n    i, j = (0, 1) if parts[0] == 'row' else (1, 0)\n    si, sj = (1 if parts[1] == 'asc' else -1), (1 if parts[3] == 'asc' else -1)\n    return sorted(cells, key=lambda c: (si*c[i], sj*c[j]))",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      },
+      {
+        "source_path": "sources/candidate002/production/接続/ARC2/距離回収候補.py",
+        "content_sha256": "96c19905552297b8065896f29e4fa9278573f9b8df1cec9db21963831ff5362e",
+        "blob_sha": "493e52ca875d422301e035d927b48826185cf054",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 110,
+        "line_end": 148,
+        "quote": "def render_prepared(grid, roles, p, parsed, ds, slots):\n    \"\"\"論理状態を一切選別せず、同一の純粋中間結果のみ再利用する。\"\"\"\n    source = parsed['cells']['source']\n    ordered = sorted(ds, key=lambda c: ((ds[c] if p['ranking']=='nearest' else -ds[c]), c))\n    count = min(len(ds), len(slots))\n    record = {'source_count': len(source), 'reachable_count': len(ds), 'capacity': len(slots),\n              'source_distances': [{'cell': list(c), 'distance': ds.get(c)} for c in sorted(source)],\n              'target': [list(c) for c in sorted(parsed['target'])], 'seed': list(parsed['seed'])}\n    if len(ds) > len(slots):\n        if p['overflow'] == 'require_all_reachable':\n            return None, {**record, 'failure': 'reachable_source_overflow'}\n        if ds[ordered[count - 1]] == ds[ordered[count]]:\n            return None, {**record, 'failure': 'capacity_cutoff_distance_tie', 'cutoff_distance': ds[ordered[count]]}\n    chosen = set(ordered[:count])\n    filled = set(slots[:count])\n    proposals = {c: roles['source'] for c in filled}\n    if p['source_action'] == 'erase_to_background':\n        for c in chosen:\n            if c in proposals:\n                return None, {**record, 'failure': 'source_destination_overlap'}\n            proposals[c] = roles['background']\n    out = clone_grid(grid)\n    for (r, c), value in proposals.items(): out[r][c] = value\n    untouched = {(r,c) for r,row in enumerate(grid) for c,_ in enumerate(row)} - proposals.keys()\n    if any(out[r][c] != grid[r][c] for r,c in untouched):\n        raise AssertionError('outside_proposals_changed')\n    if any(out[r][c] != grid[r][c] for r,c in parsed['cells']['wall']):\n        raise AssertionError('wall_changed')\n    if any(out[r][c] != roles['source'] for r,c in source - chosen):\n        raise AssertionError('unselected_source_changed')\n    before = sum(v == roles['source'] for row in grid for v in row)\n    after = sum(v == roles['source'] for row in out for v in row)\n    if p['source_action'] == 'erase_to_background' and before != after:\n        raise AssertionError('source_pixel_count_not_conserved')\n    return out, {**record, 'selected': [list(c) for c in sorted(chosen)],\n                 'filled': [list(c) for c in slots[:count]], 'selected_count': count,\n                 'source_count_before_after': [before, after],\n                 'unchanged_cells': len(untouched),\n                 'seed_overwritten': parsed['seed'] in filled}",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      }
+    ],
+    "新規実装": [
+      {
+        "source_path": "sources/candidate002/production/接続/ARC2/距離回収候補.py",
+        "content_sha256": "96c19905552297b8065896f29e4fa9278573f9b8df1cec9db21963831ff5362e",
+        "blob_sha": "493e52ca875d422301e035d927b48826185cf054",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 151,
+        "line_end": 214,
+        "quote": "def fit(teachers):\n    \"\"\"全role×全axisを教師完全格子比較。否定・失敗は全て記録。\"\"\"\n    if not teachers or len({tuple(map(tuple,p['input'])) for p in teachers}) != len(teachers):\n        return [], {'failure': 'missing_or_duplicate_teachers'}\n    colors = sorted({v for p in teachers for row in p['input'] for v in row})\n    if len(colors) != 5:\n        return [], {'failure': 'union_not_five_role_colors'}\n    role_records, survivors, tested, signatures = [], [], 0, Counter()\n    parameter_grid = [dict(zip(AXES, values)) for values in product(*AXES.values())]\n    if len(parameter_grid) != AXIS_COUNT: raise AssertionError('axis_count')\n    for assignment in permutations(colors):\n        roles = dict(zip(ROLE_NAMES, assignment))\n        checks = [parse(pair['input'], roles) for pair in teachers]\n        errors = [failure for parsed, failure in checks]\n        shapes = {parsed['shape'] for parsed, failure in checks if parsed is not None}\n        ok = not any(errors) and len(shapes) == 1\n        rr = {'roles': roles, 'teacher_structural_failure': errors,\n              'shapes': [list(s) for s in sorted(shapes)], 'structural_pass': ok}\n        if not ok:\n            rr['logically_rejected_parameter_combinations'] = len(parameter_grid)\n            role_records.append(rr)\n            continue\n        shape = next(iter(shapes))\n        local = []\n        prepared = [parsed for parsed, failure in checks]\n        distance_cache = [{} for _ in teachers]\n        slot_cache = [{} for _ in teachers]\n        for params in parameter_grid:\n            tested += 1\n            results = []\n            for ti, pair in enumerate(teachers):\n                dk = tuple(params[k] for k in ('metric', 'origin', 'wall_passable', 'source_transit'))\n                sk = tuple(params[k] for k in ('capacity', 'slot_order'))\n                if dk not in distance_cache[ti]:\n                    distance_cache[ti][dk] = source_distances(pair['input'], prepared[ti], params)\n                if sk not in slot_cache[ti]:\n                    slot_cache[ti][sk] = ordered_slots(prepared[ti], params)\n                results.append(render_prepared(pair['input'], roles, params, prepared[ti],\n                                               distance_cache[ti][dk], slot_cache[ti][sk]))\n            signature = tuple(rec.get('failure','exact' if out == pair['output'] else 'grid_mismatch')\n                              for (out, rec), pair in zip(results, teachers))\n            signatures[signature] += 1\n            if all(s == 'exact' for s in signature):\n                model = {'roles': roles, 'shape': list(shape), 'parameters': params}\n                local.append(params)\n                survivors.append(model)\n        rr['all_axis_evaluations'] = len(parameter_grid)\n        rr['survivor_count'] = len(local)\n        role_records.append(rr)\n    return survivors, {'role_assignments': role_records, 'conceptual_candidates': len(role_records)*AXIS_COUNT,\n                       'fully_evaluated_candidates': tested,\n                       'logically_rejected_candidates': (len(role_records)-sum(r['structural_pass'] for r in role_records))*AXIS_COUNT,\n                       'all_teacher_result_signatures': [{'signature': list(k), 'count':v} for k,v in sorted(signatures.items())],\n                       'survivor_count': len(survivors)}\n\n\ndef consensus(grid, models):\n    if not models: return None, {'failure': 'no_teacher_fit_model'}\n    results = [render(grid, m['roles'], m['parameters'], m['shape']) for m in models]\n    failures = [rec for out,rec in results if out is None]\n    grids = {tuple(map(tuple, out)) for out,rec in results if out is not None}\n    if failures: return None, {'failure': 'fitted_model_hold', 'models':len(models), 'failures':failures}\n    if len(grids) != 1: return None, {'failure':'fitted_models_disagree', 'output_count':len(grids)}\n    return [list(row) for row in next(iter(grids))], {'models':len(models),'records':[rec for out,rec in results]}",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      },
+      {
+        "source_path": "sources/candidate002/production/接続/ARC2/距離回収教材.py",
+        "content_sha256": "2fb81e33b59b2f762cd90a5b3f0cf847160ce985e1dd667a83c1415bdf7348cf",
+        "blob_sha": "7c8e1e2c3061cadd25b8bb537306648664c76233",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 7,
+        "line_end": 57,
+        "quote": "def 距離回収をfit(教師群):\n    if not isinstance(教師群, list) or len(教師群) < 2:\n        return [], {'failure': 'too_few_teachers'}\n    if any(not isinstance(対, dict) or not valid_grid(対.get('input'))\n           or not valid_grid(対.get('output')) for 対 in 教師群):\n        return [], {'failure': 'invalid_teachers'}\n    入力群 = [tuple(map(tuple, 対['input'])) for 対 in 教師群]\n    if len(set(入力群)) != len(入力群):\n        return [], {'failure': 'duplicate_teacher_inputs'}\n    if any((len(対['input']),len(対['input'][0])) !=\n           (len(対['output']),len(対['output'][0])) for 対 in 教師群):\n        return [], {'failure': 'teacher_shape_not_preserved'}\n    return core.fit(教師群)\n\n\ndef 全距離モデルを照会(格子, モデル群):\n    if not モデル群:\n        return None, {'failure': 'no_teacher_fit_model', 'retained_results': []}\n    結果 = [core.render(格子, m['roles'], m['parameters'], m['shape']) for m in モデル群]\n    全記録 = [{'model_index': i, 'candidate': out, 'detail': rec}\n             for i, (out, rec) in enumerate(結果)]\n    失敗群 = [rec for out, rec in 結果 if out is None]\n    格子群 = {tuple(map(tuple, out)) for out, rec in 結果 if out is not None}\n    if 失敗群:\n        return None, {'failure': 'fitted_model_hold', 'models': len(モデル群),\n                      'failures': 失敗群, 'retained_results': 全記録}\n    if len(格子群) != 1:\n        return None, {'failure': 'fitted_models_disagree', 'output_count': len(格子群),\n                      'retained_results': 全記録}\n    return [list(row) for row in next(iter(格子群))], {\n        'models': len(モデル群), 'records': [rec for out, rec in 結果], 'retained_results': 全記録}\n\n\nclass 距離回収教材:\n    def __init__(self, 教師群):\n        モデル, _ = 距離回収をfit(教師群)\n        self.モデル群 = tuple((tuple(m['roles'][k] for k in core.ROLE_NAMES),\n                          tuple(m['shape']), tuple(m['parameters'][k] for k in core.AXES))\n                         for m in モデル)\n\n    def 展開モデル(self):\n        return [{'roles': dict(zip(core.ROLE_NAMES, 役割)), 'shape': list(形),\n                 'parameters': dict(zip(core.AXES, 条件))}\n                for 役割, 形, 条件 in self.モデル群]\n\n    def 候補(self, 格子, _policy):\n        return 全距離モデルを照会(格子, self.展開モデル())\n\n    def 記録(self):\n        return {'保持候補数': len(self.モデル群), '保持候補': self.展開モデル(),\n                '合意条件': '全教師適合モデル全ての成功と完全格子一致。失敗モデルを除外しない'}",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      },
+      {
+        "source_path": "sources/repository/接続/ARC2/HDS接続.py",
+        "content_sha256": "e6f0bf8f56203e6833d1a866302de89e1471f5b8e0e291b04c0b0486143faf31",
+        "blob_sha": "d5ccb06645ccea18b5935f3a30b0dc543991586f",
+        "ref": null,
+        "source_kind": "prepublication_frozen_code",
+        "line_start": 325,
+        "line_end": 328,
+        "quote": "        (\"ARC距離順位回収\", 距離回収.候補, ()),\n    )\n    記録群 = [候補機構を学習(機械, 課題, 教材, 境界, 候補器)\n              for 境界, 候補器, 教材 in 機構群]",
+        "evidence_kind": "凍結コード契約。native学習との同一視なし"
+      }
+    ],
+    "HDSが実際に学習した要素": [
+      {
+        "source_path": "sources/candidate002/production-preflight/full-preflight.json.gz",
+        "content_sha256": "2c457780ba58c7489e88b51c4c308ea026e655a321b6d243b5d52fa38ea7893b",
+        "pointer": "/native/0/native_ledgers/原理台帳/0/関係型",
+        "quote": "同値関係",
+        "codepoint_span": [
+          0,
+          4
+        ],
+        "source_value_type": "str",
+        "quote_mode": "leaf",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact",
+        "decoded_content_sha256": "5ab7e5f53d9d02ff3f369cfc79ed7166832f0d5564e18189b1d60331f52571fa"
+      },
+      {
+        "source_path": "sources/candidate002/production-preflight/full-preflight.json.gz",
+        "content_sha256": "2c457780ba58c7489e88b51c4c308ea026e655a321b6d243b5d52fa38ea7893b",
+        "pointer": "/native/0/native_ledgers/原理台帳/0/条件経路群",
+        "quote": "[[\"候補\"]]",
+        "codepoint_span": [
+          0,
+          8
+        ],
+        "source_value_type": "list",
+        "quote_mode": "typed_value",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact",
+        "decoded_content_sha256": "5ab7e5f53d9d02ff3f369cfc79ed7166832f0d5564e18189b1d60331f52571fa"
+      },
+      {
+        "source_path": "sources/candidate002/production-preflight/full-preflight.json.gz",
+        "content_sha256": "2c457780ba58c7489e88b51c4c308ea026e655a321b6d243b5d52fa38ea7893b",
+        "pointer": "/native/0/native_ledgers/原理台帳/0/結果経路",
+        "quote": "[\"出力\"]",
+        "codepoint_span": [
+          0,
+          6
+        ],
+        "source_value_type": "list",
+        "quote_mode": "typed_value",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact",
+        "decoded_content_sha256": "5ab7e5f53d9d02ff3f369cfc79ed7166832f0d5564e18189b1d60331f52571fa"
+      },
+      {
+        "source_path": "sources/candidate002/production-preflight/full-preflight.json.gz",
+        "content_sha256": "2c457780ba58c7489e88b51c4c308ea026e655a321b6d243b5d52fa38ea7893b",
+        "pointer": "/native/0/native_ledgers/原理台帳/0/根拠参照群",
+        "quote": "[\"経験-000001\",\"経験-000002\",\"経験-000003\"]",
+        "codepoint_span": [
+          0,
+          37
+        ],
+        "source_value_type": "list",
+        "quote_mode": "typed_value",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact",
+        "decoded_content_sha256": "5ab7e5f53d9d02ff3f369cfc79ed7166832f0d5564e18189b1d60331f52571fa"
+      },
+      {
+        "source_path": "sources/candidate002/production-preflight/full-preflight.json.gz",
+        "content_sha256": "2c457780ba58c7489e88b51c4c308ea026e655a321b6d243b5d52fa38ea7893b",
+        "pointer": "/native/0/native_ledgers/原理台帳/0/採用状態",
+        "quote": "有効",
+        "codepoint_span": [
+          0,
+          2
+        ],
+        "source_value_type": "str",
+        "quote_mode": "leaf",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact",
+        "decoded_content_sha256": "5ab7e5f53d9d02ff3f369cfc79ed7166832f0d5564e18189b1d60331f52571fa"
+      }
+    ],
+    "関連する他規則": [
+      {
+        "source_path": "sources/candidate002/ledger-67-contract-comparison.json",
+        "content_sha256": "47f103cf0c78149602e7eb2c2fb90cd1985afe1f82da0bc5fc4a3095069b4b15",
+        "pointer": "/registered_count",
+        "quote": "67",
+        "codepoint_span": [
+          0,
+          2
+        ],
+        "source_value_type": "int",
+        "quote_mode": "typed_value",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      },
+      {
+        "source_path": "sources/candidate002/ledger-67-contract-comparison.json",
+        "content_sha256": "47f103cf0c78149602e7eb2c2fb90cd1985afe1f82da0bc5fc4a3095069b4b15",
+        "pointer": "/boundary",
+        "quote": "ledger/source契約比較。全67runtime再採点ではない",
+        "codepoint_span": [
+          0,
+          35
+        ],
+        "source_value_type": "str",
+        "quote_mode": "leaf",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      },
+      {
+        "source_path": "sources/candidate002/primitive-reuse-and-distinction.json",
+        "content_sha256": "07c3fda5f5f6511b4d7844a0b31af2df914066bf0a22c6e959b6598eb0fe7564",
+        "pointer": "/3/use",
+        "quote": "非再利用。境界seed/C8距離で本候補と異なる",
+        "codepoint_span": [
+          0,
+          24
+        ],
+        "source_value_type": "str",
+        "quote_mode": "leaf",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      },
+      {
+        "source_path": "sources/candidate002/primitive-reuse-and-distinction.json",
+        "content_sha256": "07c3fda5f5f6511b4d7844a0b31af2df914066bf0a22c6e959b6598eb0fe7564",
+        "pointer": "/4/use",
+        "quote": "非再利用。単色closureで距離ラベルを返さない",
+        "codepoint_span": [
+          0,
+          25
+        ],
+        "source_value_type": "str",
+        "quote_mode": "leaf",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      },
+      {
+        "source_path": "sources/candidate002/primitive-reuse-and-distinction.json",
+        "content_sha256": "07c3fda5f5f6511b4d7844a0b31af2df914066bf0a22c6e959b6598eb0fe7564",
+        "pointer": "/5/use",
+        "quote": "非再利用。component graphのedge数と唯一pathの契約はgrid距離と異なる",
+        "codepoint_span": [
+          0,
+          47
+        ],
+        "source_value_type": "str",
+        "quote_mode": "leaf",
+        "ref": null,
+        "source_kind": "prepublication_saved_artifact"
+      }
+    ]
+  },
+  "新規primitive台帳": {
+    "count": 4,
+    "definition": "Named semantic view/distance/order/action helpers in this candidate only",
+    "items": [
+      {
+        "name": "parse",
+        "classification": "new_semantic_view_distance_order_action_helper",
+        "source": {
+          "source_path": "sources/candidate002/production/接続/ARC2/距離回収候補.py",
+          "content_sha256": "96c19905552297b8065896f29e4fa9278573f9b8df1cec9db21963831ff5362e",
+          "blob_sha": "493e52ca875d422301e035d927b48826185cf054",
+          "ref": null,
+          "source_kind": "prepublication_frozen_code",
+          "line_start": 24,
+          "line_end": 57,
+          "quote": "def parse(grid, roles, expected_shape=None):\n    if (not isinstance(grid, list) or not 1 <= len(grid) <= 30 or\n        not isinstance(grid[0], list) or not 1 <= len(grid[0]) <= 30 or\n        any(not isinstance(row, list) or len(row) != len(grid[0]) or\n            any(type(v) is not int or not 0 <= v <= 9 for v in row) for row in grid)):\n        return None, 'invalid_arc_grid'\n    if set(roles) != set(ROLE_NAMES) or len(set(roles.values())) != 5:\n        return None, 'roles_not_five_distinct_colors'\n    colors = {v for row in grid for v in row}\n    if colors - set(roles.values()):\n        return None, 'unowned_input_color'\n    if set(roles.values()) - colors - {roles['wall']}:\n        return None, 'required_role_absent'\n    cells = {name: {(r, c) for r, row in enumerate(grid) for c, value in enumerate(row)\n                    if value == color} for name, color in roles.items()}\n    if len(cells['seed']) != 1:\n        return None, 'seed_not_singleton'\n    seed = next(iter(cells['seed']))\n    ts = cells['target']\n    if not ts:\n        return None, 'target_absent'\n    lo = min(r for r, c in ts), min(c for r, c in ts)\n    hi = max(r for r, c in ts), max(c for r, c in ts)\n    shape = hi[0] - lo[0] + 1, hi[1] - lo[1] + 1\n    if shape[0] != shape[1] or shape[0] < 3 or shape[0] % 2 != 1:\n        return None, 'target_not_odd_square'\n    if expected_shape is not None and tuple(expected_shape) != shape:\n        return None, 'target_shape_outside_teacher_contract'\n    target = {(r, c) for r in range(lo[0], hi[0] + 1) for c in range(lo[1], hi[1] + 1)}\n    if ts | cells['seed'] != target or seed != ((lo[0] + hi[0]) // 2, (lo[1] + hi[1]) // 2):\n        return None, 'target_ownership_or_center_failed'\n    if cells['source'] & target:\n        return None, 'source_target_overlap'\n    return {'cells': cells, 'target': target, 'seed': seed, 'shape': shape}, None",
+          "evidence_kind": "凍結コード契約。native学習との同一視なし"
+        }
+      },
+      {
+        "name": "source_distances",
+        "classification": "new_semantic_view_distance_order_action_helper",
+        "source": {
+          "source_path": "sources/candidate002/production/接続/ARC2/距離回収候補.py",
+          "content_sha256": "96c19905552297b8065896f29e4fa9278573f9b8df1cec9db21963831ff5362e",
+          "blob_sha": "493e52ca875d422301e035d927b48826185cf054",
+          "ref": null,
+          "source_kind": "prepublication_frozen_code",
+          "line_start": 60,
+          "line_end": 91,
+          "quote": "def source_distances(grid, parsed, p):\n    origins = {parsed['seed']} if p['origin'] == 'seed' else parsed['target']\n    sources = parsed['cells']['source']\n    if p['metric'] in ('C4_BFS', 'C8_BFS'):\n        h, w = len(grid), len(grid[0])\n        offsets = NEIGHBORS_4 if p['metric'] == 'C4_BFS' else NEIGHBORS_8\n        blocked = set() if p['wall_passable'] else parsed['cells']['wall']\n        distance = {c: 0 for c in origins}\n        queue = deque(sorted(origins))\n        while queue:\n            here = queue.popleft()\n            if here in sources and not p['source_transit']:\n                continue\n            for dr, dc in offsets:\n                nxt = here[0] + dr, here[1] + dc\n                if (0 <= nxt[0] < h and 0 <= nxt[1] < w and\n                        nxt not in blocked and nxt not in distance):\n                    distance[nxt] = distance[here] + 1\n                    queue.append(nxt)\n        # 既存のC4全域分割を再利用して独立coverage証明。\n        if p['metric'] == 'C4_BFS' and p['source_transit']:\n            reached = set().union(*(c for c in open_components(grid, blocked) if c & origins))\n            if reached != set(distance):\n                raise AssertionError('existing_C4_partition_disagrees')\n        return {c: distance[c] for c in sources if c in distance}\n    def metric(a, b):\n        dr, dc = abs(a[0]-b[0]), abs(a[1]-b[1])\n        if p['metric'] == 'Manhattan': return dr + dc\n        if p['metric'] == 'Chebyshev': return max(dr, dc)\n        if p['metric'] == 'Euclidean_squared': return dr*dr + dc*dc\n        raise ValueError('unknown_metric')\n    return {c: min(metric(c, origin) for origin in origins) for c in sources}",
+          "evidence_kind": "凍結コード契約。native学習との同一視なし"
+        }
+      },
+      {
+        "name": "ordered_slots",
+        "classification": "new_semantic_view_distance_order_action_helper",
+        "source": {
+          "source_path": "sources/candidate002/production/接続/ARC2/距離回収候補.py",
+          "content_sha256": "96c19905552297b8065896f29e4fa9278573f9b8df1cec9db21963831ff5362e",
+          "blob_sha": "493e52ca875d422301e035d927b48826185cf054",
+          "ref": null,
+          "source_kind": "prepublication_frozen_code",
+          "line_start": 94,
+          "line_end": 99,
+          "quote": "def ordered_slots(parsed, p):\n    cells = parsed['target'] if p['capacity'] == 'target_area_including_seed' else parsed['cells']['target']\n    parts = p['slot_order'].split('_')\n    i, j = (0, 1) if parts[0] == 'row' else (1, 0)\n    si, sj = (1 if parts[1] == 'asc' else -1), (1 if parts[3] == 'asc' else -1)\n    return sorted(cells, key=lambda c: (si*c[i], sj*c[j]))",
+          "evidence_kind": "凍結コード契約。native学習との同一視なし"
+        }
+      },
+      {
+        "name": "render_prepared",
+        "classification": "new_semantic_view_distance_order_action_helper",
+        "source": {
+          "source_path": "sources/candidate002/production/接続/ARC2/距離回収候補.py",
+          "content_sha256": "96c19905552297b8065896f29e4fa9278573f9b8df1cec9db21963831ff5362e",
+          "blob_sha": "493e52ca875d422301e035d927b48826185cf054",
+          "ref": null,
+          "source_kind": "prepublication_frozen_code",
+          "line_start": 110,
+          "line_end": 148,
+          "quote": "def render_prepared(grid, roles, p, parsed, ds, slots):\n    \"\"\"論理状態を一切選別せず、同一の純粋中間結果のみ再利用する。\"\"\"\n    source = parsed['cells']['source']\n    ordered = sorted(ds, key=lambda c: ((ds[c] if p['ranking']=='nearest' else -ds[c]), c))\n    count = min(len(ds), len(slots))\n    record = {'source_count': len(source), 'reachable_count': len(ds), 'capacity': len(slots),\n              'source_distances': [{'cell': list(c), 'distance': ds.get(c)} for c in sorted(source)],\n              'target': [list(c) for c in sorted(parsed['target'])], 'seed': list(parsed['seed'])}\n    if len(ds) > len(slots):\n        if p['overflow'] == 'require_all_reachable':\n            return None, {**record, 'failure': 'reachable_source_overflow'}\n        if ds[ordered[count - 1]] == ds[ordered[count]]:\n            return None, {**record, 'failure': 'capacity_cutoff_distance_tie', 'cutoff_distance': ds[ordered[count]]}\n    chosen = set(ordered[:count])\n    filled = set(slots[:count])\n    proposals = {c: roles['source'] for c in filled}\n    if p['source_action'] == 'erase_to_background':\n        for c in chosen:\n            if c in proposals:\n                return None, {**record, 'failure': 'source_destination_overlap'}\n            proposals[c] = roles['background']\n    out = clone_grid(grid)\n    for (r, c), value in proposals.items(): out[r][c] = value\n    untouched = {(r,c) for r,row in enumerate(grid) for c,_ in enumerate(row)} - proposals.keys()\n    if any(out[r][c] != grid[r][c] for r,c in untouched):\n        raise AssertionError('outside_proposals_changed')\n    if any(out[r][c] != grid[r][c] for r,c in parsed['cells']['wall']):\n        raise AssertionError('wall_changed')\n    if any(out[r][c] != roles['source'] for r,c in source - chosen):\n        raise AssertionError('unselected_source_changed')\n    before = sum(v == roles['source'] for row in grid for v in row)\n    after = sum(v == roles['source'] for row in out for v in row)\n    if p['source_action'] == 'erase_to_background' and before != after:\n        raise AssertionError('source_pixel_count_not_conserved')\n    return out, {**record, 'selected': [list(c) for c in sorted(chosen)],\n                 'filled': [list(c) for c in slots[:count]], 'selected_count': count,\n                 'source_count_before_after': [before, after],\n                 'unchanged_cells': len(untouched),\n                 'seed_overwritten': parsed['seed'] in filled}",
+          "evidence_kind": "凍結コード契約。native学習との同一視なし"
+        }
+      }
+    ],
+    "excluded_control": [
+      "fit",
+      "consensus",
+      "render",
+      "pure distance/slot caches",
+      "距離回収をfit",
+      "全距離モデルを照会",
+      "距離回収教材",
+      "guards and HDS registration"
+    ],
+    "baseline_global_primitive_count": null,
+    "baseline_global_primitive_census": "not performed"
+  },
+  "再利用計数": {
+    "denominator": "今回増分で完全解決した1課題。全120課題を副分母として併記",
+    "no_new_rule_solved_tasks": 0,
+    "no_new_rule_solved_task_ids": [],
+    "strict_reuse_rate_of_newly_closed": 0.0,
+    "strict_reuse_rate_of_all120": 0.0,
+    "existing_helpers_plus_new_composition_solved_tasks": 1,
+    "existing_helpers_plus_new_composition_solved_task_ids": [
+      "dd6b8c4b"
+    ],
+    "comparison_families_after_admission": 68,
+    "new_family_count": 1,
+    "independent_HDS_learned_principle_count": "not inferred from family count"
+  },
+  "全有限仮説": {
+    "axes": {
+      "metric": [
+        "C4_BFS",
+        "C8_BFS",
+        "Manhattan",
+        "Chebyshev",
+        "Euclidean_squared"
+      ],
+      "origin": [
+        "seed",
+        "target_all_cells"
+      ],
+      "wall_passable": [
+        false,
+        true
+      ],
+      "source_transit": [
+        false,
+        true
+      ],
+      "ranking": [
+        "nearest",
+        "farthest"
+      ],
+      "capacity": [
+        "target_area_including_seed",
+        "target_color_cells_preserve_seed"
+      ],
+      "overflow": [
+        "take_capacity_prefix",
+        "require_all_reachable"
+      ],
+      "slot_order": [
+        "row_asc_col_asc",
+        "row_asc_col_desc",
+        "row_desc_col_asc",
+        "row_desc_col_desc",
+        "col_asc_row_asc",
+        "col_asc_row_desc",
+        "col_desc_row_asc",
+        "col_desc_row_desc"
+      ],
+      "source_action": [
+        "erase_to_background",
+        "preserve"
+      ]
+    },
+    "conceptual_per_eligible_five_color_task": 614400,
+    "dd6_fully_evaluated": 10240,
+    "dd6_logically_rejected": 604160,
+    "hypothesis_teacher_results": 30720,
+    "survivors": [
+      {
+        "roles": {
+          "background": 7,
+          "seed": 2,
+          "target": 3,
+          "source": 9,
+          "wall": 6
+        },
+        "shape": [
+          3,
+          3
+        ],
+        "parameters": {
+          "metric": "C4_BFS",
+          "origin": "seed",
+          "wall_passable": false,
+          "source_transit": true,
+          "ranking": "nearest",
+          "capacity": "target_area_including_seed",
+          "overflow": "take_capacity_prefix",
+          "slot_order": "row_asc_col_asc",
+          "source_action": "erase_to_background"
+        }
+      },
+      {
+        "roles": {
+          "background": 7,
+          "seed": 2,
+          "target": 3,
+          "source": 9,
+          "wall": 6
+        },
+        "shape": [
+          3,
+          3
+        ],
+        "parameters": {
+          "metric": "C4_BFS",
+          "origin": "target_all_cells",
+          "wall_passable": false,
+          "source_transit": true,
+          "ranking": "nearest",
+          "capacity": "target_area_including_seed",
+          "overflow": "take_capacity_prefix",
+          "slot_order": "row_asc_col_asc",
+          "source_action": "erase_to_background"
+        }
+      }
+    ],
+    "all_models_required": true,
+    "top_k_or_heuristic_pruning": false,
+    "capacity_prefix_is_task_action": true,
+    "memoization": "同一pure中間結果のみ。全model/格子/診断/理由を保持",
+    "source": {
+      "path": "sources/candidate002/production-preflight/summary.json",
+      "sha256": "0b25cec7cb52367e6b8aa0680e866d9165f50c5c946061eefacce85a19ecbd11"
+    }
+  },
+  "HDSと再観測境界": {
+    "native_task_learning": "3 teacher boards; candidate→output equality",
+    "new_ledger_experience_reobserved": false,
+    "long_lived_67_HDS_reinjected": false,
+    "retention_FAIL_unchanged": true,
+    "native_save_exit137_trials_unchanged": 2,
+    "semantic_Level3": "unknown",
+    "sources": [
+      {
+        "path": "sources/repository/検証/同一学習機械保持/summary.json",
+        "sha256": "9fb62dd3b936c4e26b2ebfc6438ee5a885cb0889debbe4bf066115861ac0b3c7"
+      },
+      {
+        "path": "sources/repository/検証/学習規則再観測比較.json",
+        "sha256": "1f0b4d5a51fcd72b864c480f2458ff26a801ff97b8878d8b98ac1887adb3c13e",
+        "pointer": "/結果分類"
+      }
+    ]
+  },
+  "制限": [
+    "未完了59課題/81未回答例が残る。120閉鎖とは主張しない",
+    "公開評価の開発結果でhidden/generalization未測定",
+    "既存runnerの入力/採点分離はdata-flow契約。OS filesystem sandboxの証明ではない",
+    "旧資産露出の留保、同一学習機械retention FAIL、2回exit137、Level3未知は不変",
+    "memo版19.365秒と非memo版21.211秒の1回ずつの同条件実測。統計的高速化保証ではない",
+    "067までの文章経験payloadを変更/再生成せず、068の標準interface記録もnativeへ再投入していない",
+    "採否と公開はintegratorおよび独立gateの最終判断待ち"
+  ],
+  "凍結と境界証拠": [
+    {
+      "path": "sources/candidate002/production-freeze.json",
+      "sha256": "bd0924ffc0398022fa5e4eab00e34d906c3133d7dafb6f2c5d8a40884903897d"
+    },
+    {
+      "path": "sources/candidate002/input-only.json",
+      "sha256": "708ca1b4548f49c8130ede7177b655b93ad03467bb9d8add2cebe10c590c9933"
+    },
+    {
+      "path": "sources/audit/reviewer-candidate002-query-release.json",
+      "sha256": "f627805e387443e1db8e312a0c5ed5efe5512a506c626009ebabf3cbcadeeed2"
+    },
+    {
+      "path": "sources/audit/reviewer-candidate002-score-release.json",
+      "sha256": "1bdb4f554d409b066ed06a9f7ac403406e0baf9d86e3527bb1cdecc933f77745"
+    }
+  ]
+}

@@ -1,0 +1,2789 @@
+{
+  "schema": "arc2-checkpoint61-saved-artifact-index-v1",
+  "attempt_id": "attempt-002-distance-collection",
+  "publication_status": "pending_final_admission",
+  "previous_checkpoint": {
+    "complete_tasks": 60,
+    "correct_examples": 84
+  },
+  "current": {
+    "complete_tasks": 61,
+    "total_tasks": 120,
+    "correct_examples": 86,
+    "total_examples": 167,
+    "answered_examples": 86,
+    "unanswered_examples": 81,
+    "partial_tasks": 7,
+    "HOLD_tasks": 59,
+    "all_HOLD_tasks": 52,
+    "wrong_grids": 0,
+    "resource_failures_by_type": {},
+    "accepted_family_count_on_admission": 68,
+    "new_family_count": 1,
+    "new_semantic_primitive_count": 4
+  },
+  "delta_from_last_accepted_and_frozen60": {
+    "complete_tasks": 1,
+    "correct_examples": 2,
+    "unanswered_examples": -2,
+    "wrong_grids": 0,
+    "resource_failures": 0
+  },
+  "solved_task_ids": [
+    "135a2760",
+    "136b0064",
+    "13e47133",
+    "1818057f",
+    "1ae2feb7",
+    "221dfab4",
+    "269e22fb",
+    "271d71e2",
+    "2ba387bc",
+    "2c181942",
+    "2d0172a1",
+    "332f06d7",
+    "35ab12c3",
+    "38007db0",
+    "3a25b0d8",
+    "3e6067c3",
+    "45a5af55",
+    "4a21e3da",
+    "4e34c42c",
+    "53fb4810",
+    "58490d8a",
+    "58f5dbd5",
+    "5dbc8537",
+    "67e490f4",
+    "6e453dd6",
+    "7666fa5d",
+    "7b0280bc",
+    "7b3084d4",
+    "7b5033c1",
+    "7c66cb00",
+    "7ed72f31",
+    "800d221b",
+    "8698868d",
+    "89565ca0",
+    "898e7135",
+    "8b9c3697",
+    "8f215267",
+    "8f3a5a89",
+    "9385bd28",
+    "97d7923e",
+    "981571dc",
+    "9aaea919",
+    "a25697e4",
+    "a395ee82",
+    "aa4ec2a5",
+    "b0039139",
+    "b5ca7ac4",
+    "b99e7126",
+    "b9e38dc0",
+    "bf45cf4b",
+    "c4d067a0",
+    "c7f57c3e",
+    "d59b0160",
+    "da515329",
+    "db695cfb",
+    "dd6b8c4b",
+    "e3721c99",
+    "e8686506",
+    "e87109e9",
+    "f931b4a8",
+    "fc7cae8d"
+  ],
+  "correct_examples": [
+    {
+      "task_id_audit_only": "135a2760",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/1/results/0"
+    },
+    {
+      "task_id_audit_only": "136b0064",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/2/results/0"
+    },
+    {
+      "task_id_audit_only": "13e47133",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/3/results/0"
+    },
+    {
+      "task_id_audit_only": "13e47133",
+      "test_index": 1,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/3/results/1"
+    },
+    {
+      "task_id_audit_only": "1818057f",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/7/results/0"
+    },
+    {
+      "task_id_audit_only": "1ae2feb7",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/9/results/0"
+    },
+    {
+      "task_id_audit_only": "1ae2feb7",
+      "test_index": 1,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/9/results/1"
+    },
+    {
+      "task_id_audit_only": "1ae2feb7",
+      "test_index": 2,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/9/results/2"
+    },
+    {
+      "task_id_audit_only": "20270e3b",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/10/results/0"
+    },
+    {
+      "task_id_audit_only": "221dfab4",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/13/results/0"
+    },
+    {
+      "task_id_audit_only": "221dfab4",
+      "test_index": 1,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/13/results/1"
+    },
+    {
+      "task_id_audit_only": "269e22fb",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/15/results/0"
+    },
+    {
+      "task_id_audit_only": "269e22fb",
+      "test_index": 1,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/15/results/1"
+    },
+    {
+      "task_id_audit_only": "271d71e2",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/16/results/0"
+    },
+    {
+      "task_id_audit_only": "2ba387bc",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/20/results/0"
+    },
+    {
+      "task_id_audit_only": "2c181942",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/21/results/0"
+    },
+    {
+      "task_id_audit_only": "2d0172a1",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/22/results/0"
+    },
+    {
+      "task_id_audit_only": "2d0172a1",
+      "test_index": 1,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/22/results/1"
+    },
+    {
+      "task_id_audit_only": "332f06d7",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/24/results/0"
+    },
+    {
+      "task_id_audit_only": "35ab12c3",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/25/results/0"
+    },
+    {
+      "task_id_audit_only": "36a08778",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/26/results/0"
+    },
+    {
+      "task_id_audit_only": "38007db0",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/27/results/0"
+    },
+    {
+      "task_id_audit_only": "38007db0",
+      "test_index": 1,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/27/results/1"
+    },
+    {
+      "task_id_audit_only": "3a25b0d8",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/28/results/0"
+    },
+    {
+      "task_id_audit_only": "3a25b0d8",
+      "test_index": 1,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/28/results/1"
+    },
+    {
+      "task_id_audit_only": "3e6067c3",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/30/results/0"
+    },
+    {
+      "task_id_audit_only": "3e6067c3",
+      "test_index": 1,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/30/results/1"
+    },
+    {
+      "task_id_audit_only": "45a5af55",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/33/results/0"
+    },
+    {
+      "task_id_audit_only": "4a21e3da",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/34/results/0"
+    },
+    {
+      "task_id_audit_only": "4c3d4a41",
+      "test_index": 1,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/35/results/1"
+    },
+    {
+      "task_id_audit_only": "4e34c42c",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/38/results/0"
+    },
+    {
+      "task_id_audit_only": "4e34c42c",
+      "test_index": 1,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/38/results/1"
+    },
+    {
+      "task_id_audit_only": "53fb4810",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/39/results/0"
+    },
+    {
+      "task_id_audit_only": "58490d8a",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/42/results/0"
+    },
+    {
+      "task_id_audit_only": "58f5dbd5",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/43/results/0"
+    },
+    {
+      "task_id_audit_only": "5dbc8537",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/45/results/0"
+    },
+    {
+      "task_id_audit_only": "5dbc8537",
+      "test_index": 1,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/45/results/1"
+    },
+    {
+      "task_id_audit_only": "62593bfd",
+      "test_index": 1,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/46/results/1"
+    },
+    {
+      "task_id_audit_only": "65b59efc",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/48/results/0"
+    },
+    {
+      "task_id_audit_only": "67e490f4",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/49/results/0"
+    },
+    {
+      "task_id_audit_only": "6e453dd6",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/50/results/0"
+    },
+    {
+      "task_id_audit_only": "7666fa5d",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/55/results/0"
+    },
+    {
+      "task_id_audit_only": "7b0280bc",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/57/results/0"
+    },
+    {
+      "task_id_audit_only": "7b3084d4",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/58/results/0"
+    },
+    {
+      "task_id_audit_only": "7b5033c1",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/59/results/0"
+    },
+    {
+      "task_id_audit_only": "7c66cb00",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/61/results/0"
+    },
+    {
+      "task_id_audit_only": "7ed72f31",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/62/results/0"
+    },
+    {
+      "task_id_audit_only": "7ed72f31",
+      "test_index": 1,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/62/results/1"
+    },
+    {
+      "task_id_audit_only": "800d221b",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/63/results/0"
+    },
+    {
+      "task_id_audit_only": "8698868d",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/65/results/0"
+    },
+    {
+      "task_id_audit_only": "89565ca0",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/68/results/0"
+    },
+    {
+      "task_id_audit_only": "898e7135",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/69/results/0"
+    },
+    {
+      "task_id_audit_only": "8b9c3697",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/71/results/0"
+    },
+    {
+      "task_id_audit_only": "8e5c0c38",
+      "test_index": 1,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/72/results/1"
+    },
+    {
+      "task_id_audit_only": "8f215267",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/73/results/0"
+    },
+    {
+      "task_id_audit_only": "8f3a5a89",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/74/results/0"
+    },
+    {
+      "task_id_audit_only": "9385bd28",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/75/results/0"
+    },
+    {
+      "task_id_audit_only": "9385bd28",
+      "test_index": 1,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/75/results/1"
+    },
+    {
+      "task_id_audit_only": "97d7923e",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/76/results/0"
+    },
+    {
+      "task_id_audit_only": "981571dc",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/77/results/0"
+    },
+    {
+      "task_id_audit_only": "9aaea919",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/78/results/0"
+    },
+    {
+      "task_id_audit_only": "a25697e4",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/81/results/0"
+    },
+    {
+      "task_id_audit_only": "a25697e4",
+      "test_index": 1,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/81/results/1"
+    },
+    {
+      "task_id_audit_only": "a395ee82",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/83/results/0"
+    },
+    {
+      "task_id_audit_only": "aa4ec2a5",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/86/results/0"
+    },
+    {
+      "task_id_audit_only": "b0039139",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/88/results/0"
+    },
+    {
+      "task_id_audit_only": "b0039139",
+      "test_index": 1,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/88/results/1"
+    },
+    {
+      "task_id_audit_only": "b5ca7ac4",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/90/results/0"
+    },
+    {
+      "task_id_audit_only": "b6f77b65",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/91/results/0"
+    },
+    {
+      "task_id_audit_only": "b99e7126",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/92/results/0"
+    },
+    {
+      "task_id_audit_only": "b9e38dc0",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/93/results/0"
+    },
+    {
+      "task_id_audit_only": "bf45cf4b",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/94/results/0"
+    },
+    {
+      "task_id_audit_only": "c4d067a0",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/95/results/0"
+    },
+    {
+      "task_id_audit_only": "c7f57c3e",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/96/results/0"
+    },
+    {
+      "task_id_audit_only": "d59b0160",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/100/results/0"
+    },
+    {
+      "task_id_audit_only": "da515329",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/102/results/0"
+    },
+    {
+      "task_id_audit_only": "db695cfb",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/104/results/0"
+    },
+    {
+      "task_id_audit_only": "dd6b8c4b",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/106/results/0"
+    },
+    {
+      "task_id_audit_only": "dd6b8c4b",
+      "test_index": 1,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/106/results/1"
+    },
+    {
+      "task_id_audit_only": "e3721c99",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/110/results/0"
+    },
+    {
+      "task_id_audit_only": "e3721c99",
+      "test_index": 1,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/110/results/1"
+    },
+    {
+      "task_id_audit_only": "e8686506",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/112/results/0"
+    },
+    {
+      "task_id_audit_only": "e87109e9",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/113/results/0"
+    },
+    {
+      "task_id_audit_only": "f931b4a8",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/117/results/0"
+    },
+    {
+      "task_id_audit_only": "f931b4a8",
+      "test_index": 1,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/117/results/1"
+    },
+    {
+      "task_id_audit_only": "fc7cae8d",
+      "test_index": 0,
+      "status": "出力",
+      "reasons": [],
+      "source_pointer": "/execution/119/results/0"
+    }
+  ],
+  "HOLD_examples": [
+    {
+      "task_id_audit_only": "0934a4d8",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/0/results/0"
+    },
+    {
+      "task_id_audit_only": "142ca369",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/4/results/0"
+    },
+    {
+      "task_id_audit_only": "142ca369",
+      "test_index": 1,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/4/results/1"
+    },
+    {
+      "task_id_audit_only": "16b78196",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/5/results/0"
+    },
+    {
+      "task_id_audit_only": "16de56c4",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/6/results/0"
+    },
+    {
+      "task_id_audit_only": "16de56c4",
+      "test_index": 1,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/6/results/1"
+    },
+    {
+      "task_id_audit_only": "195c6913",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/8/results/0"
+    },
+    {
+      "task_id_audit_only": "195c6913",
+      "test_index": 1,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/8/results/1"
+    },
+    {
+      "task_id_audit_only": "20270e3b",
+      "test_index": 1,
+      "status": "断定保留",
+      "reasons": [
+        "採用済み機構ARC標識誘導組立のtest候補が未確定"
+      ],
+      "source_pointer": "/execution/10/results/1"
+    },
+    {
+      "task_id_audit_only": "20a9e565",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/11/results/0"
+    },
+    {
+      "task_id_audit_only": "20a9e565",
+      "test_index": 1,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/11/results/1"
+    },
+    {
+      "task_id_audit_only": "21897d95",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/12/results/0"
+    },
+    {
+      "task_id_audit_only": "21897d95",
+      "test_index": 1,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/12/results/1"
+    },
+    {
+      "task_id_audit_only": "247ef758",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/14/results/0"
+    },
+    {
+      "task_id_audit_only": "247ef758",
+      "test_index": 1,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/14/results/1"
+    },
+    {
+      "task_id_audit_only": "28a6681f",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/17/results/0"
+    },
+    {
+      "task_id_audit_only": "291dc1e1",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/18/results/0"
+    },
+    {
+      "task_id_audit_only": "2b83f449",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/19/results/0"
+    },
+    {
+      "task_id_audit_only": "31f7f899",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/23/results/0"
+    },
+    {
+      "task_id_audit_only": "36a08778",
+      "test_index": 1,
+      "status": "断定保留",
+      "reasons": [
+        "採用済み機構ARC下向き流路のtest候補が未確定"
+      ],
+      "source_pointer": "/execution/26/results/1"
+    },
+    {
+      "task_id_audit_only": "3dc255db",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/29/results/0"
+    },
+    {
+      "task_id_audit_only": "409aa875",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/31/results/0"
+    },
+    {
+      "task_id_audit_only": "446ef5d2",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/32/results/0"
+    },
+    {
+      "task_id_audit_only": "446ef5d2",
+      "test_index": 1,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/32/results/1"
+    },
+    {
+      "task_id_audit_only": "4c3d4a41",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "採用済み機構ARC櫛配置押上げのtest候補が未確定"
+      ],
+      "source_pointer": "/execution/35/results/0"
+    },
+    {
+      "task_id_audit_only": "4c416de3",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/36/results/0"
+    },
+    {
+      "task_id_audit_only": "4c7dc4dd",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/37/results/0"
+    },
+    {
+      "task_id_audit_only": "4c7dc4dd",
+      "test_index": 1,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/37/results/1"
+    },
+    {
+      "task_id_audit_only": "5545f144",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/40/results/0"
+    },
+    {
+      "task_id_audit_only": "581f7754",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/41/results/0"
+    },
+    {
+      "task_id_audit_only": "581f7754",
+      "test_index": 1,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/41/results/1"
+    },
+    {
+      "task_id_audit_only": "5961cc34",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/44/results/0"
+    },
+    {
+      "task_id_audit_only": "62593bfd",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "採用済み機構ARC物体端投射のtest候補が未確定"
+      ],
+      "source_pointer": "/execution/46/results/0"
+    },
+    {
+      "task_id_audit_only": "64efde09",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/47/results/0"
+    },
+    {
+      "task_id_audit_only": "65b59efc",
+      "test_index": 1,
+      "status": "断定保留",
+      "reasons": [
+        "採用済み機構ARC凡例token積展開のtest候補が未確定"
+      ],
+      "source_pointer": "/execution/48/results/1"
+    },
+    {
+      "task_id_audit_only": "6e4f6532",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/51/results/0"
+    },
+    {
+      "task_id_audit_only": "6e4f6532",
+      "test_index": 1,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/51/results/1"
+    },
+    {
+      "task_id_audit_only": "6ffbe589",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/52/results/0"
+    },
+    {
+      "task_id_audit_only": "71e489b6",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/53/results/0"
+    },
+    {
+      "task_id_audit_only": "71e489b6",
+      "test_index": 1,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/53/results/1"
+    },
+    {
+      "task_id_audit_only": "7491f3cf",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/54/results/0"
+    },
+    {
+      "task_id_audit_only": "78332cb0",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/56/results/0"
+    },
+    {
+      "task_id_audit_only": "78332cb0",
+      "test_index": 1,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/56/results/1"
+    },
+    {
+      "task_id_audit_only": "7b80bb43",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/60/results/0"
+    },
+    {
+      "task_id_audit_only": "80a900e0",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/64/results/0"
+    },
+    {
+      "task_id_audit_only": "88bcf3b4",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/66/results/0"
+    },
+    {
+      "task_id_audit_only": "88bcf3b4",
+      "test_index": 1,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/66/results/1"
+    },
+    {
+      "task_id_audit_only": "88e364bc",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/67/results/0"
+    },
+    {
+      "task_id_audit_only": "88e364bc",
+      "test_index": 1,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/67/results/1"
+    },
+    {
+      "task_id_audit_only": "8b7bacbf",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/70/results/0"
+    },
+    {
+      "task_id_audit_only": "8b7bacbf",
+      "test_index": 1,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/70/results/1"
+    },
+    {
+      "task_id_audit_only": "8e5c0c38",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "採用済み機構ARC最大保持対称剪定のtest候補が未確定"
+      ],
+      "source_pointer": "/execution/72/results/0"
+    },
+    {
+      "task_id_audit_only": "9bbf930d",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/79/results/0"
+    },
+    {
+      "task_id_audit_only": "a251c730",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/80/results/0"
+    },
+    {
+      "task_id_audit_only": "a32d8b75",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/82/results/0"
+    },
+    {
+      "task_id_audit_only": "a32d8b75",
+      "test_index": 1,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/82/results/1"
+    },
+    {
+      "task_id_audit_only": "a47bf94d",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/84/results/0"
+    },
+    {
+      "task_id_audit_only": "a6f40cea",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/85/results/0"
+    },
+    {
+      "task_id_audit_only": "abc82100",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/87/results/0"
+    },
+    {
+      "task_id_audit_only": "b10624e5",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/89/results/0"
+    },
+    {
+      "task_id_audit_only": "b6f77b65",
+      "test_index": 1,
+      "status": "断定保留",
+      "reasons": [
+        "採用済み機構ARC支持構造沈降のtest候補が未確定"
+      ],
+      "source_pointer": "/execution/91/results/1"
+    },
+    {
+      "task_id_audit_only": "cb2d8a2c",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/97/results/0"
+    },
+    {
+      "task_id_audit_only": "cb2d8a2c",
+      "test_index": 1,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/97/results/1"
+    },
+    {
+      "task_id_audit_only": "cbebaa4b",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/98/results/0"
+    },
+    {
+      "task_id_audit_only": "cbebaa4b",
+      "test_index": 1,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/98/results/1"
+    },
+    {
+      "task_id_audit_only": "d35bdbdc",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/99/results/0"
+    },
+    {
+      "task_id_audit_only": "d35bdbdc",
+      "test_index": 1,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/99/results/1"
+    },
+    {
+      "task_id_audit_only": "d35bdbdc",
+      "test_index": 2,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/99/results/2"
+    },
+    {
+      "task_id_audit_only": "d8e07eb2",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/101/results/0"
+    },
+    {
+      "task_id_audit_only": "d8e07eb2",
+      "test_index": 1,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/101/results/1"
+    },
+    {
+      "task_id_audit_only": "db0c5428",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/103/results/0"
+    },
+    {
+      "task_id_audit_only": "dbff022c",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/105/results/0"
+    },
+    {
+      "task_id_audit_only": "de809cff",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/107/results/0"
+    },
+    {
+      "task_id_audit_only": "dfadab01",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/108/results/0"
+    },
+    {
+      "task_id_audit_only": "e12f9a14",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/109/results/0"
+    },
+    {
+      "task_id_audit_only": "e12f9a14",
+      "test_index": 1,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/109/results/1"
+    },
+    {
+      "task_id_audit_only": "e376de54",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/111/results/0"
+    },
+    {
+      "task_id_audit_only": "edb79dae",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/114/results/0"
+    },
+    {
+      "task_id_audit_only": "eee78d87",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/115/results/0"
+    },
+    {
+      "task_id_audit_only": "f560132c",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/116/results/0"
+    },
+    {
+      "task_id_audit_only": "faa9f03d",
+      "test_index": 0,
+      "status": "断定保留",
+      "reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ],
+      "source_pointer": "/execution/118/results/0"
+    }
+  ],
+  "HOLD_reason_counts": {
+    "現行暫定原理の適用に必要な観測が不足している": 74,
+    "採用済み機構ARC標識誘導組立のtest候補が未確定": 1,
+    "採用済み機構ARC下向き流路のtest候補が未確定": 1,
+    "採用済み機構ARC櫛配置押上げのtest候補が未確定": 1,
+    "採用済み機構ARC物体端投射のtest候補が未確定": 1,
+    "採用済み機構ARC凡例token積展開のtest候補が未確定": 1,
+    "採用済み機構ARC最大保持対称剪定のtest候補が未確定": 1,
+    "採用済み機構ARC支持構造沈降のtest候補が未確定": 1
+  },
+  "tasks": [
+    {
+      "task_id_audit_only": "0934a4d8",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/0"
+    },
+    {
+      "task_id_audit_only": "135a2760",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/1"
+    },
+    {
+      "task_id_audit_only": "136b0064",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/2"
+    },
+    {
+      "task_id_audit_only": "13e47133",
+      "test_count": 2,
+      "correct_examples": 2,
+      "answered_examples": 2,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/3"
+    },
+    {
+      "task_id_audit_only": "142ca369",
+      "test_count": 2,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 2,
+      "source_pointer": "/execution/4"
+    },
+    {
+      "task_id_audit_only": "16b78196",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/5"
+    },
+    {
+      "task_id_audit_only": "16de56c4",
+      "test_count": 2,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 2,
+      "source_pointer": "/execution/6"
+    },
+    {
+      "task_id_audit_only": "1818057f",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/7"
+    },
+    {
+      "task_id_audit_only": "195c6913",
+      "test_count": 2,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 2,
+      "source_pointer": "/execution/8"
+    },
+    {
+      "task_id_audit_only": "1ae2feb7",
+      "test_count": 3,
+      "correct_examples": 3,
+      "answered_examples": 3,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/9"
+    },
+    {
+      "task_id_audit_only": "20270e3b",
+      "test_count": 2,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": false,
+      "partial": true,
+      "hold_examples": 1,
+      "source_pointer": "/execution/10"
+    },
+    {
+      "task_id_audit_only": "20a9e565",
+      "test_count": 2,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 2,
+      "source_pointer": "/execution/11"
+    },
+    {
+      "task_id_audit_only": "21897d95",
+      "test_count": 2,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 2,
+      "source_pointer": "/execution/12"
+    },
+    {
+      "task_id_audit_only": "221dfab4",
+      "test_count": 2,
+      "correct_examples": 2,
+      "answered_examples": 2,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/13"
+    },
+    {
+      "task_id_audit_only": "247ef758",
+      "test_count": 2,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 2,
+      "source_pointer": "/execution/14"
+    },
+    {
+      "task_id_audit_only": "269e22fb",
+      "test_count": 2,
+      "correct_examples": 2,
+      "answered_examples": 2,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/15"
+    },
+    {
+      "task_id_audit_only": "271d71e2",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/16"
+    },
+    {
+      "task_id_audit_only": "28a6681f",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/17"
+    },
+    {
+      "task_id_audit_only": "291dc1e1",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/18"
+    },
+    {
+      "task_id_audit_only": "2b83f449",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/19"
+    },
+    {
+      "task_id_audit_only": "2ba387bc",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/20"
+    },
+    {
+      "task_id_audit_only": "2c181942",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/21"
+    },
+    {
+      "task_id_audit_only": "2d0172a1",
+      "test_count": 2,
+      "correct_examples": 2,
+      "answered_examples": 2,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/22"
+    },
+    {
+      "task_id_audit_only": "31f7f899",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/23"
+    },
+    {
+      "task_id_audit_only": "332f06d7",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/24"
+    },
+    {
+      "task_id_audit_only": "35ab12c3",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/25"
+    },
+    {
+      "task_id_audit_only": "36a08778",
+      "test_count": 2,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": false,
+      "partial": true,
+      "hold_examples": 1,
+      "source_pointer": "/execution/26"
+    },
+    {
+      "task_id_audit_only": "38007db0",
+      "test_count": 2,
+      "correct_examples": 2,
+      "answered_examples": 2,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/27"
+    },
+    {
+      "task_id_audit_only": "3a25b0d8",
+      "test_count": 2,
+      "correct_examples": 2,
+      "answered_examples": 2,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/28"
+    },
+    {
+      "task_id_audit_only": "3dc255db",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/29"
+    },
+    {
+      "task_id_audit_only": "3e6067c3",
+      "test_count": 2,
+      "correct_examples": 2,
+      "answered_examples": 2,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/30"
+    },
+    {
+      "task_id_audit_only": "409aa875",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/31"
+    },
+    {
+      "task_id_audit_only": "446ef5d2",
+      "test_count": 2,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 2,
+      "source_pointer": "/execution/32"
+    },
+    {
+      "task_id_audit_only": "45a5af55",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/33"
+    },
+    {
+      "task_id_audit_only": "4a21e3da",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/34"
+    },
+    {
+      "task_id_audit_only": "4c3d4a41",
+      "test_count": 2,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": false,
+      "partial": true,
+      "hold_examples": 1,
+      "source_pointer": "/execution/35"
+    },
+    {
+      "task_id_audit_only": "4c416de3",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/36"
+    },
+    {
+      "task_id_audit_only": "4c7dc4dd",
+      "test_count": 2,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 2,
+      "source_pointer": "/execution/37"
+    },
+    {
+      "task_id_audit_only": "4e34c42c",
+      "test_count": 2,
+      "correct_examples": 2,
+      "answered_examples": 2,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/38"
+    },
+    {
+      "task_id_audit_only": "53fb4810",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/39"
+    },
+    {
+      "task_id_audit_only": "5545f144",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/40"
+    },
+    {
+      "task_id_audit_only": "581f7754",
+      "test_count": 2,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 2,
+      "source_pointer": "/execution/41"
+    },
+    {
+      "task_id_audit_only": "58490d8a",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/42"
+    },
+    {
+      "task_id_audit_only": "58f5dbd5",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/43"
+    },
+    {
+      "task_id_audit_only": "5961cc34",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/44"
+    },
+    {
+      "task_id_audit_only": "5dbc8537",
+      "test_count": 2,
+      "correct_examples": 2,
+      "answered_examples": 2,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/45"
+    },
+    {
+      "task_id_audit_only": "62593bfd",
+      "test_count": 2,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": false,
+      "partial": true,
+      "hold_examples": 1,
+      "source_pointer": "/execution/46"
+    },
+    {
+      "task_id_audit_only": "64efde09",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/47"
+    },
+    {
+      "task_id_audit_only": "65b59efc",
+      "test_count": 2,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": false,
+      "partial": true,
+      "hold_examples": 1,
+      "source_pointer": "/execution/48"
+    },
+    {
+      "task_id_audit_only": "67e490f4",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/49"
+    },
+    {
+      "task_id_audit_only": "6e453dd6",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/50"
+    },
+    {
+      "task_id_audit_only": "6e4f6532",
+      "test_count": 2,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 2,
+      "source_pointer": "/execution/51"
+    },
+    {
+      "task_id_audit_only": "6ffbe589",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/52"
+    },
+    {
+      "task_id_audit_only": "71e489b6",
+      "test_count": 2,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 2,
+      "source_pointer": "/execution/53"
+    },
+    {
+      "task_id_audit_only": "7491f3cf",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/54"
+    },
+    {
+      "task_id_audit_only": "7666fa5d",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/55"
+    },
+    {
+      "task_id_audit_only": "78332cb0",
+      "test_count": 2,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 2,
+      "source_pointer": "/execution/56"
+    },
+    {
+      "task_id_audit_only": "7b0280bc",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/57"
+    },
+    {
+      "task_id_audit_only": "7b3084d4",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/58"
+    },
+    {
+      "task_id_audit_only": "7b5033c1",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/59"
+    },
+    {
+      "task_id_audit_only": "7b80bb43",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/60"
+    },
+    {
+      "task_id_audit_only": "7c66cb00",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/61"
+    },
+    {
+      "task_id_audit_only": "7ed72f31",
+      "test_count": 2,
+      "correct_examples": 2,
+      "answered_examples": 2,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/62"
+    },
+    {
+      "task_id_audit_only": "800d221b",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/63"
+    },
+    {
+      "task_id_audit_only": "80a900e0",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/64"
+    },
+    {
+      "task_id_audit_only": "8698868d",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/65"
+    },
+    {
+      "task_id_audit_only": "88bcf3b4",
+      "test_count": 2,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 2,
+      "source_pointer": "/execution/66"
+    },
+    {
+      "task_id_audit_only": "88e364bc",
+      "test_count": 2,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 2,
+      "source_pointer": "/execution/67"
+    },
+    {
+      "task_id_audit_only": "89565ca0",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/68"
+    },
+    {
+      "task_id_audit_only": "898e7135",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/69"
+    },
+    {
+      "task_id_audit_only": "8b7bacbf",
+      "test_count": 2,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 2,
+      "source_pointer": "/execution/70"
+    },
+    {
+      "task_id_audit_only": "8b9c3697",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/71"
+    },
+    {
+      "task_id_audit_only": "8e5c0c38",
+      "test_count": 2,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": false,
+      "partial": true,
+      "hold_examples": 1,
+      "source_pointer": "/execution/72"
+    },
+    {
+      "task_id_audit_only": "8f215267",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/73"
+    },
+    {
+      "task_id_audit_only": "8f3a5a89",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/74"
+    },
+    {
+      "task_id_audit_only": "9385bd28",
+      "test_count": 2,
+      "correct_examples": 2,
+      "answered_examples": 2,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/75"
+    },
+    {
+      "task_id_audit_only": "97d7923e",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/76"
+    },
+    {
+      "task_id_audit_only": "981571dc",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/77"
+    },
+    {
+      "task_id_audit_only": "9aaea919",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/78"
+    },
+    {
+      "task_id_audit_only": "9bbf930d",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/79"
+    },
+    {
+      "task_id_audit_only": "a251c730",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/80"
+    },
+    {
+      "task_id_audit_only": "a25697e4",
+      "test_count": 2,
+      "correct_examples": 2,
+      "answered_examples": 2,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/81"
+    },
+    {
+      "task_id_audit_only": "a32d8b75",
+      "test_count": 2,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 2,
+      "source_pointer": "/execution/82"
+    },
+    {
+      "task_id_audit_only": "a395ee82",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/83"
+    },
+    {
+      "task_id_audit_only": "a47bf94d",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/84"
+    },
+    {
+      "task_id_audit_only": "a6f40cea",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/85"
+    },
+    {
+      "task_id_audit_only": "aa4ec2a5",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/86"
+    },
+    {
+      "task_id_audit_only": "abc82100",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/87"
+    },
+    {
+      "task_id_audit_only": "b0039139",
+      "test_count": 2,
+      "correct_examples": 2,
+      "answered_examples": 2,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/88"
+    },
+    {
+      "task_id_audit_only": "b10624e5",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/89"
+    },
+    {
+      "task_id_audit_only": "b5ca7ac4",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/90"
+    },
+    {
+      "task_id_audit_only": "b6f77b65",
+      "test_count": 2,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": false,
+      "partial": true,
+      "hold_examples": 1,
+      "source_pointer": "/execution/91"
+    },
+    {
+      "task_id_audit_only": "b99e7126",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/92"
+    },
+    {
+      "task_id_audit_only": "b9e38dc0",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/93"
+    },
+    {
+      "task_id_audit_only": "bf45cf4b",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/94"
+    },
+    {
+      "task_id_audit_only": "c4d067a0",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/95"
+    },
+    {
+      "task_id_audit_only": "c7f57c3e",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/96"
+    },
+    {
+      "task_id_audit_only": "cb2d8a2c",
+      "test_count": 2,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 2,
+      "source_pointer": "/execution/97"
+    },
+    {
+      "task_id_audit_only": "cbebaa4b",
+      "test_count": 2,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 2,
+      "source_pointer": "/execution/98"
+    },
+    {
+      "task_id_audit_only": "d35bdbdc",
+      "test_count": 3,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 3,
+      "source_pointer": "/execution/99"
+    },
+    {
+      "task_id_audit_only": "d59b0160",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/100"
+    },
+    {
+      "task_id_audit_only": "d8e07eb2",
+      "test_count": 2,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 2,
+      "source_pointer": "/execution/101"
+    },
+    {
+      "task_id_audit_only": "da515329",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/102"
+    },
+    {
+      "task_id_audit_only": "db0c5428",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/103"
+    },
+    {
+      "task_id_audit_only": "db695cfb",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/104"
+    },
+    {
+      "task_id_audit_only": "dbff022c",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/105"
+    },
+    {
+      "task_id_audit_only": "dd6b8c4b",
+      "test_count": 2,
+      "correct_examples": 2,
+      "answered_examples": 2,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/106"
+    },
+    {
+      "task_id_audit_only": "de809cff",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/107"
+    },
+    {
+      "task_id_audit_only": "dfadab01",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/108"
+    },
+    {
+      "task_id_audit_only": "e12f9a14",
+      "test_count": 2,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 2,
+      "source_pointer": "/execution/109"
+    },
+    {
+      "task_id_audit_only": "e3721c99",
+      "test_count": 2,
+      "correct_examples": 2,
+      "answered_examples": 2,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/110"
+    },
+    {
+      "task_id_audit_only": "e376de54",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/111"
+    },
+    {
+      "task_id_audit_only": "e8686506",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/112"
+    },
+    {
+      "task_id_audit_only": "e87109e9",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/113"
+    },
+    {
+      "task_id_audit_only": "edb79dae",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/114"
+    },
+    {
+      "task_id_audit_only": "eee78d87",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/115"
+    },
+    {
+      "task_id_audit_only": "f560132c",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/116"
+    },
+    {
+      "task_id_audit_only": "f931b4a8",
+      "test_count": 2,
+      "correct_examples": 2,
+      "answered_examples": 2,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/117"
+    },
+    {
+      "task_id_audit_only": "faa9f03d",
+      "test_count": 1,
+      "correct_examples": 0,
+      "answered_examples": 0,
+      "complete": false,
+      "partial": false,
+      "hold_examples": 1,
+      "source_pointer": "/execution/118"
+    },
+    {
+      "task_id_audit_only": "fc7cae8d",
+      "test_count": 1,
+      "correct_examples": 1,
+      "answered_examples": 1,
+      "complete": true,
+      "partial": false,
+      "hold_examples": 0,
+      "source_pointer": "/execution/119"
+    }
+  ],
+  "reuse": {
+    "denominator": "今回増分で完全解決した1課題。全120課題を副分母として併記",
+    "no_new_rule_solved_tasks": 0,
+    "no_new_rule_solved_task_ids": [],
+    "strict_reuse_rate_of_newly_closed": 0.0,
+    "strict_reuse_rate_of_all120": 0.0,
+    "existing_helpers_plus_new_composition_solved_tasks": 1,
+    "existing_helpers_plus_new_composition_solved_task_ids": [
+      "dd6b8c4b"
+    ],
+    "comparison_families_after_admission": 68,
+    "new_family_count": 1,
+    "independent_HDS_learned_principle_count": "not inferred from family count"
+  },
+  "regression": {
+    "prior_correct_grids": 84,
+    "all_identical": true,
+    "wrong_grids": 0,
+    "resource_failures": 0,
+    "optimized": {
+      "scripts": 68,
+      "tests": 1162,
+      "success": true
+    },
+    "unmemoized": {
+      "scripts": 68,
+      "tests": 1162,
+      "success": true
+    },
+    "full120_execution_and_scorer_parity": {
+      "schema": "arc2-candidate002-full120-memoization-parity-v1",
+      "optimized_sha256": "9345c39133ce4e21dab034dd41d950dff970465c48a4da8bf2061b0a2f2fbb70",
+      "unmemoized_sha256": "d76303255f6105239eed697c059f48b71c096286c5947f8ea1d5357be0d6e1e4",
+      "full120_execution_equal": true,
+      "changed_tasks": [],
+      "legacy_scorer_entirely_equal": true,
+      "all_summary_except_elapsed_equal": true,
+      "optimized_seconds": 19.36543509799958,
+      "unmemoized_seconds": 21.211177157998463,
+      "shadow_changed_after": [],
+      "source_scope": "Same144files except purememoization source; fixed source officialpin and unchanged runner/scorer. Serial runs, same10CPU/512MiB/60wall/3workers.",
+      "counts": {
+        "mode": "current",
+        "tasks": 120,
+        "test_examples": 167,
+        "correct_tasks": 61,
+        "accuracy": 0.5083333333333333,
+        "correct_examples": 86,
+        "unanswered": 81,
+        "wrong_attempted_tasks": 7,
+        "resource_failures": {},
+        "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+        "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961",
+        "cpu_seconds_per_task": 10,
+        "address_space_mib": 512,
+        "wall_seconds_per_task": 60,
+        "workers": 3
+      },
+      "status": "pass"
+    },
+    "sources": [
+      {
+        "path": "sources/candidate002/production-regressions.json",
+        "sha256": "63987bc24977cd93702e25c0e401e87bec96bcb2869b2c19a572e377ce5cb38b"
+      },
+      {
+        "path": "sources/candidate002/unmemoized-production-regressions.json",
+        "sha256": "cc0e30acdefbe3e9feed27e8444d137d273d3e33a9e99e0289f1c78b1d4afda0"
+      },
+      {
+        "path": "sources/candidate002/score-comparison.json",
+        "sha256": "e2fdccda053f3da59e295205b054717d25a1494131805dd59644c819428454b3"
+      }
+    ],
+    "regressed_correct_grid_count": 0,
+    "failed_regression_script_count": 0
+  },
+  "evidence": {
+    "current": {
+      "path": "sources/candidate002/optimized-official.json",
+      "sha256": "9345c39133ce4e21dab034dd41d950dff970465c48a4da8bf2061b0a2f2fbb70"
+    },
+    "previous": {
+      "path": "sources/audit/baseline-fresh.json",
+      "sha256": "2a43e65896a133f424d0cb166e0aa5f3e792ff4efd0b0752fb3a8fc597fbdeb9"
+    },
+    "independent_comparison_to_previous_and_frozen60": {
+      "path": "sources/audit/reviewer-candidate002-optimized-score.json",
+      "sha256": "43d46c8903c86e3e21bce9410c9545721df658530af671d952791e696ef9141b"
+    },
+    "all120_teacher_preflight": {
+      "path": "sources/candidate002/production-preflight/full-preflight.json.gz",
+      "sha256": "2c457780ba58c7489e88b51c4c308ea026e655a321b6d243b5d52fa38ea7893b"
+    },
+    "full_hypothesis_teacher_raw": {
+      "path": "sources/candidate002/production-preflight/all-hypothesis-teacher-results.jsonl.gz",
+      "sha256": "290353636c9dbaad30a3d31324439c6f770a731d94caf24193173ca7bec436d1"
+    }
+  },
+  "counting": "wrong_attempted_tasksはlegacy scorerのpartial7件を含む。wrong gridsへ読み替えない。正解例識別は保存済みwrong0と各task answered==correct_examplesから索引化し、testtargetを再読しない。",
+  "inherited_negatives": {
+    "native_task_learning": "3 teacher boards; candidate→output equality",
+    "new_ledger_experience_reobserved": false,
+    "long_lived_67_HDS_reinjected": false,
+    "retention_FAIL_unchanged": true,
+    "native_save_exit137_trials_unchanged": 2,
+    "semantic_Level3": "unknown",
+    "sources": [
+      {
+        "path": "sources/repository/検証/同一学習機械保持/summary.json",
+        "sha256": "9fb62dd3b936c4e26b2ebfc6438ee5a885cb0889debbe4bf066115861ac0b3c7"
+      },
+      {
+        "path": "sources/repository/検証/学習規則再観測比較.json",
+        "sha256": "1f0b4d5a51fcd72b864c480f2458ff26a801ff97b8878d8b98ac1887adb3c13e",
+        "pointer": "/結果分類"
+      }
+    ]
+  },
+  "supplemental_full120_v3_return_replay": {
+    "status": "complete_independent_PASS",
+    "raw": {
+      "path": "sources/candidate002/current-full-replay/raw.jsonl.gz",
+      "sha256": "4d1552d9416f8f3d8341f5fc54df34040cfbcb2170cd96e7e534af85d0e32e1a"
+    },
+    "summary": {
+      "path": "sources/candidate002/current-full-replay/summary.json",
+      "sha256": "7d7a5a599f8c9bd50726e950ecf860d779845cfdce3e98f4142caee7bf37d469"
+    },
+    "independent_review": {
+      "path": "sources/audit/reviewer-candidate002-current-replay.json",
+      "sha256": "1a2e96a22e5b915690812d29e3f6889a8ab6706a3016bbefd4f0764729867a73"
+    },
+    "calls": 8627,
+    "all120_results_exact": true,
+    "scope": "Separate replay of returned candidate diagnostics; not all unexposed internal hypotheses"
+  },
+  "regressed_correct_grid_count": 0,
+  "failed_regression_script_count": 0,
+  "metadata_version": {
+    "version": 2,
+    "replaces_stage1_metadata_only": {
+      "path": "history/stage1/checkpoint61.json",
+      "sha256": "dc71f08e1da65e742a770515a749993e30d97140ed623e952898ba86e202e0f4"
+    },
+    "metrics_and_runtime_unchanged": true
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schema": "arc2-delta-publication-validation-v3",
+  "original307_payloads_preserved_exact": true,
+  "original_checkpoint_version_path": "history/stage1/checkpoint61.json",
+  "current_checkpoint_sha256": "5aebb1622b798d257dcd76e0650ea5f1a56cbaac7988019f01b81bd2f626b4c4",
+  "regressed_correct_grid_count": 0,
+  "failed_regression_script_count": 0,
+  "v3_replay_current_references_resolve": true,
+  "source_quotes_verified": 82,
+  "source_quote_errors": [],
+  "virtual_package_root": "検証/後半走破/到達点61_距離回収",
+  "pinned_external_commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+  "external_original_members": 208,
+  "internal_original_members": 99,
+  "current_checkpoint_metadata_addition": 1,
+  "full_archive_unchanged_sha256": "75669c036ed222946818a0af37be14c7f1ceaee688d00f8348db000b1087d75b",
+  "v2_archive_unchanged_sha256": "db4fbb1163c4a815541b8d204cfacf706428d887d0b3aeba060c491c524d0c5e",
+  "runtime_or_rule21field_edits": false
+}

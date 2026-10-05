@@ -1,0 +1,23 @@
+{
+  "schema": "arc2-candidate-admission-v1",
+  "candidate": "attempt-002-distance-collection",
+  "採否": "採用",
+  "適用開始条件": "この凍結packageの承認後、non-force main更新と対象全blobのhash/size確認が完了した時点で有効。公開前の本ファイルは採用記録の案である。",
+  "previous_main": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+  "solver_baseline": "cc668e34d7ca014daf9f8944767476d56c56fafc",
+  "purpose": "固定HDSに教師fit済みの全距離回収モデルの合意候補を接続し、公開ARC2を1課題2例進める",
+  "previous": {"complete_tasks": 60, "correct_examples": 84, "wrong_grids": 0, "resource_failures": 0},
+  "current": {"complete_tasks": 61, "correct_examples": 86, "HOLD_examples": 81, "partial_tasks": 7, "wrong_grids": 0, "resource_failures": 0},
+  "delta": {"complete_tasks": 1, "correct_examples": 2, "regressed_correct_grids": 0, "failed_regression_scripts": 0},
+  "precision_gate": {"all_previous84_grids_identical": true, "all_teachers_reproduced": true, "frozen_input_only": true, "full_regression_scripts": 68, "full_regression_tests": 1162, "full_regression_pass": true, "core_unchanged": true},
+  "memoization_gate": {"all120_execution_equal": true, "all_HOLD_equal": true, "legacy_scorer_equal": true, "all_non_timing_summary_equal": true, "regression_outcomes_equal": true, "all30720_teacher_predictions_and_details_equal": true, "optimized_wall_seconds": 19.36543509799958, "unmemoized_wall_seconds": 21.211177157998463},
+  "score_gain_source": "新familyの接続。memoization自体の得点増分は0。",
+  "runtime_family_count": 68,
+  "new_family_count": 1,
+  "new_semantic_helpers": ["parse", "source_distances", "ordered_slots", "render_prepared"],
+  "strict_reuse_without_new_rule_solved_tasks": 0,
+  "existing_helpers_plus_new_composition_solved_tasks": 1,
+  "source_resolution_root": "検証/後半走破/到達点61_距離回収",
+  "evidence_resolution": "PUBLICATION.mdに従い、delta archiveの内部memberとexternal-references-v2.jsonの既存commit固定memberを合成する。旧67台帳・保持研究の原本は不変。",
+  "limitations": ["公開evaluation上の差分でありhidden汎化を示さない", "5色role/中心seed付き3×3targetと教師fitした候補空間の限定", "起点2モデルを保持し、どちらかの失敗・異格子は全体HOLD", "HDS実学習は候補→出力同値。距離の意味や新viewの発見をHDSが学習したとは呼ばない", "長寿命HDSへの068文章経験再投入は未実施。既存保持FAIL・exit137・Level3未確認は維持", "120/120未到達。vNext実装は行わない"]
+}

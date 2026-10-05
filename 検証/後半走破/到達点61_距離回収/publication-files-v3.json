@@ -1,0 +1,126 @@
+{
+  "schema": "arc2-exact-publication-files-v3",
+  "base_remote_commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+  "publication_commit": null,
+  "state": "ready for independent final review; no Git writes/upload",
+  "resolution_root": "検証/後半走破/到達点61_距離回収",
+  "files": [
+    {
+      "kind": "runtime_or_targeted_regression",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-002-distance-collection/admission-staging/sources/repository/接続/ARC2/HDS接続.py",
+      "repository_path": "接続/ARC2/HDS接続.py",
+      "bytes": 20956,
+      "sha256": "e6f0bf8f56203e6833d1a866302de89e1471f5b8e0e291b04c0b0486143faf31"
+    },
+    {
+      "kind": "runtime_or_targeted_regression",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-002-distance-collection/admission-staging/sources/repository/接続/ARC2/距離回収候補.py",
+      "repository_path": "接続/ARC2/距離回収候補.py",
+      "bytes": 11827,
+      "sha256": "96c19905552297b8065896f29e4fa9278573f9b8df1cec9db21963831ff5362e"
+    },
+    {
+      "kind": "runtime_or_targeted_regression",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-002-distance-collection/admission-staging/sources/repository/接続/ARC2/距離回収教材.py",
+      "repository_path": "接続/ARC2/距離回収教材.py",
+      "bytes": 2966,
+      "sha256": "2fb81e33b59b2f762cd90a5b3f0cf847160ce985e1dd667a83c1415bdf7348cf"
+    },
+    {
+      "kind": "runtime_or_targeted_regression",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-002-distance-collection/admission-staging/sources/repository/検証/距離回収回帰.py",
+      "repository_path": "検証/距離回収回帰.py",
+      "bytes": 10205,
+      "sha256": "7cd768ad20f3c16fda71aab7f822961c6009294b4aa05724d62a6ee4e820e8c4"
+    },
+    {
+      "kind": "runtime_or_targeted_regression",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-002-distance-collection/admission-staging/sources/repository/検証/fixtures/距離回収教師.json",
+      "repository_path": "検証/fixtures/距離回収教師.json",
+      "bytes": 11099,
+      "sha256": "9039c1e539639ff674bbe16490e9ef2dfb69fc0ae20102d7098f19a87b53d2a0"
+    },
+    {
+      "kind": "current_evidence_or_ledger",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-002-distance-collection/admission-staging/比較.json",
+      "repository_path": "検証/後半走破/到達点61_距離回収/比較.json",
+      "bytes": 103026,
+      "sha256": "59a155e6e6302ae1807f898cb050e94b98668d78ce45d60e04ef002599578947"
+    },
+    {
+      "kind": "current_evidence_or_ledger",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-002-distance-collection/admission-staging/checkpoint61.json",
+      "repository_path": "検証/後半走破/到達点61_距離回収/checkpoint61.json",
+      "bytes": 74727,
+      "sha256": "5aebb1622b798d257dcd76e0650ea5f1a56cbaac7988019f01b81bd2f626b4c4"
+    },
+    {
+      "kind": "current_evidence_or_ledger",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-002-distance-collection/admission-staging/学習台帳/ARC2規則台帳_delta_068_v1.json",
+      "repository_path": "検証/後半走破/到達点61_距離回収/学習台帳/ARC2規則台帳_delta_068_v1.json",
+      "bytes": 278661,
+      "sha256": "a868d71edaa7b7abaff2a9ed5e2338327922048d8a6dad8859785359218127e3"
+    },
+    {
+      "kind": "current_evidence_or_ledger",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-002-distance-collection/admission-staging/学習台帳/ARC2規則経験_delta_068_v1.jsonl",
+      "repository_path": "検証/後半走破/到達点61_距離回収/学習台帳/ARC2規則経験_delta_068_v1.jsonl",
+      "bytes": 543986,
+      "sha256": "22a683bfe181635c09be45586be1b0004281c5a36792fdaf11f5e46e3249488d"
+    },
+    {
+      "kind": "current_evidence_or_ledger",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-002-distance-collection/admission-staging/学習台帳/ARC2規則索引_composed_068_v1.json",
+      "repository_path": "検証/後半走破/到達点61_距離回収/学習台帳/ARC2規則索引_composed_068_v1.json",
+      "bytes": 2456,
+      "sha256": "835cb8ebd0e47be3e9907ebdc258226d0319fabdf83c076618b596a891535a00"
+    },
+    {
+      "kind": "current_evidence_or_ledger",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-002-distance-collection/admission-staging/evidencearchive-delta-v3.tar.gz",
+      "repository_path": "検証/後半走破/到達点61_距離回収/evidencearchive-delta-v3.tar.gz",
+      "bytes": 3024410,
+      "sha256": "389d101f9ca95a06fda2d81d28bbe958a990334ceedbd16b96d72e8cb8f115ec"
+    },
+    {
+      "kind": "current_evidence_or_ledger",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-002-distance-collection/admission-staging/lossless-delta-manifest-v3.json",
+      "repository_path": "検証/後半走破/到達点61_距離回収/lossless-delta-manifest-v3.json",
+      "bytes": 196143,
+      "sha256": "bdef4fa67f6aed6a4f3c61f2a36fd9f87f758eee40b5c6b3984171d55bb147fd"
+    },
+    {
+      "kind": "current_evidence_or_ledger",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-002-distance-collection/admission-staging/external-references-v2.json",
+      "repository_path": "検証/後半走破/到達点61_距離回収/external-references-v2.json",
+      "bytes": 221662,
+      "sha256": "6e584aa12b1a3c946a26b2dcaccd36e259c7962119251e326ef56dc78c12f8c2"
+    },
+    {
+      "kind": "current_evidence_or_ledger",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-002-distance-collection/admission-staging/delta-publication-validation-v3.json",
+      "repository_path": "検証/後半走破/到達点61_距離回収/delta-publication-validation-v3.json",
+      "bytes": 968,
+      "sha256": "7827b9bce7a112e7f76666816e63bf4d5556596cdf14f138a7cfdc42e0a9ebfc"
+    },
+    {
+      "kind": "current_evidence_or_ledger",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-002-distance-collection/admission-staging/PUBLICATION.md",
+      "repository_path": "検証/後半走破/到達点61_距離回収/PUBLICATION.md",
+      "bytes": 1260,
+      "sha256": "36c4378a49363b72a13da9181cecdba12d517edce6c9d4784eaaf45b0ea89f62"
+    }
+  ],
+  "file_count": 15,
+  "new_payload_bytes": 4504352,
+  "legacy_duplicate_archives_published": false,
+  "original_full_and_v2_archives_preserved_locally": true,
+  "reviewer_paths": [
+    "lossless-delta-manifest-v3.json",
+    "external-references-v2.json",
+    "delta-publication-validation-v3.json",
+    "checkpoint61.json",
+    "PUBLICATION.md"
+  ],
+  "publication_manifest_itself": "検証/後半走破/到達点61_距離回収/publication-files-v3.json"
+}

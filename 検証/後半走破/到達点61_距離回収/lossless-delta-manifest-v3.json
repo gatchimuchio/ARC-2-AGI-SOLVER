@@ -1,0 +1,4137 @@
+{
+  "schema": "arc2-candidate002-lossless-delta-manifest-v3",
+  "attempt_id": "attempt-002-distance-collection",
+  "publication_commit": null,
+  "publication_status": "pending",
+  "pinned_existing_repository_commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+  "virtual_package_root": "検証/後半走破/到達点61_距離回収",
+  "source_resolution_order": [
+    "delta archive member with the exact virtual path",
+    "external-references-v2.json mapping to pinned commit/path/blob; verify size/SHA256 before use"
+  ],
+  "original_full_manifest": {
+    "path": "lossless-manifest.json",
+    "sha256": "b85ac36d6083743063eda7687f7c3f1375091aaff659ed001ba6653c51a255db",
+    "logical_members": 307
+  },
+  "original_full_archive_local_only": {
+    "filename": "evidencearchive.tar.gz",
+    "sha256": "75669c036ed222946818a0af37be14c7f1ceaee688d00f8348db000b1087d75b",
+    "bytes": 13763158,
+    "preserved_unchanged": true,
+    "publish": false
+  },
+  "counts": {
+    "original_logical_members": 307,
+    "internal_original_members": 99,
+    "external_pinned_original_members": 208,
+    "supplements": 2,
+    "current_logical_members_including_old_checkpoint_version": 308
+  },
+  "logical_members": [
+    {
+      "path": "README.md",
+      "bytes": 2004,
+      "sha256": "be63903da3f8089cd4a157897044226a431f19a32e7dcaf39e4fb9cb07146c98",
+      "storage": "delta_archive",
+      "archive_member": "README.md"
+    },
+    {
+      "path": "checkpoint61.json",
+      "bytes": 74727,
+      "sha256": "5aebb1622b798d257dcd76e0650ea5f1a56cbaac7988019f01b81bd2f626b4c4",
+      "storage": "delta_archive",
+      "archive_member": "checkpoint61.json",
+      "metadata_version": 2,
+      "previous_version": {
+        "path": "history/stage1/checkpoint61.json",
+        "sha256": "dc71f08e1da65e742a770515a749993e30d97140ed623e952898ba86e202e0f4"
+      }
+    },
+    {
+      "path": "final-package-validation.json",
+      "bytes": 630,
+      "sha256": "741c16eb9dfaa511a23fe4936e23f4792a697562a79f7484eedda9ea2614a421",
+      "storage": "delta_archive",
+      "archive_member": "final-package-validation.json"
+    },
+    {
+      "path": "sample-event-contexts.json",
+      "bytes": 7218,
+      "sha256": "5ae66aedd2a0c347e0cb2565fe0d3560706bdbc8c322e238f9aa05f07777762d",
+      "storage": "delta_archive",
+      "archive_member": "sample-event-contexts.json"
+    },
+    {
+      "path": "sources/audit/baseline-fresh-regressions.json",
+      "bytes": 20766,
+      "sha256": "0beb49e5bd447162dcb5de17239f855162a2b3263076cf7c8c7c0be931104409",
+      "storage": "delta_archive",
+      "archive_member": "sources/audit/baseline-fresh-regressions.json"
+    },
+    {
+      "path": "sources/audit/baseline-fresh.json",
+      "bytes": 4264405,
+      "sha256": "2a43e65896a133f424d0cb166e0aa5f3e792ff4efd0b0752fb3a8fc597fbdeb9",
+      "storage": "delta_archive",
+      "archive_member": "sources/audit/baseline-fresh.json"
+    },
+    {
+      "path": "sources/audit/checkpoint60-original-public.json",
+      "bytes": 4264406,
+      "sha256": "89162c13b85753e123d7ab6fc74efaa50006bf53144eb34c85f3e2913f0a7541",
+      "storage": "delta_archive",
+      "archive_member": "sources/audit/checkpoint60-original-public.json"
+    },
+    {
+      "path": "sources/audit/reviewer-attempt001-rollback.json",
+      "bytes": 8957,
+      "sha256": "13d22396b9b2bedab8d40e4ad7f57f3f3e851aed2dce6777d57a89bac5c9f034",
+      "storage": "delta_archive",
+      "archive_member": "sources/audit/reviewer-attempt001-rollback.json"
+    },
+    {
+      "path": "sources/audit/reviewer-candidate002-current-replay.json",
+      "bytes": 1084,
+      "sha256": "1a2e96a22e5b915690812d29e3f6889a8ab6706a3016bbefd4f0764729867a73",
+      "storage": "delta_archive",
+      "archive_member": "sources/audit/reviewer-candidate002-current-replay.json"
+    },
+    {
+      "path": "sources/audit/reviewer-candidate002-full120-parity.json",
+      "bytes": 1244,
+      "sha256": "67fc28766f54d44bac4a8c0147d679c7508b28e86e53e68c5f23eb52c00ec9c5",
+      "storage": "delta_archive",
+      "archive_member": "sources/audit/reviewer-candidate002-full120-parity.json"
+    },
+    {
+      "path": "sources/audit/reviewer-candidate002-optimized-score.json",
+      "bytes": 9297,
+      "sha256": "43d46c8903c86e3e21bce9410c9545721df658530af671d952791e696ef9141b",
+      "storage": "delta_archive",
+      "archive_member": "sources/audit/reviewer-candidate002-optimized-score.json"
+    },
+    {
+      "path": "sources/audit/reviewer-candidate002-production-prequery.json",
+      "bytes": 1786,
+      "sha256": "207cb4d5b32cc2322211beea44e8539b07378813f1641a32d1a5627ad4629604",
+      "storage": "delta_archive",
+      "archive_member": "sources/audit/reviewer-candidate002-production-prequery.json"
+    },
+    {
+      "path": "sources/audit/reviewer-candidate002-prototype.json",
+      "bytes": 33631,
+      "sha256": "d9fc0bf93b1b12ec50899bd37dcb5d739e4c76eba9040e8dc93e49125d38fdd9",
+      "storage": "delta_archive",
+      "archive_member": "sources/audit/reviewer-candidate002-prototype.json"
+    },
+    {
+      "path": "sources/audit/reviewer-candidate002-query-release.json",
+      "bytes": 1221,
+      "sha256": "f627805e387443e1db8e312a0c5ed5efe5512a506c626009ebabf3cbcadeeed2",
+      "storage": "delta_archive",
+      "archive_member": "sources/audit/reviewer-candidate002-query-release.json"
+    },
+    {
+      "path": "sources/audit/reviewer-candidate002-score-release.json",
+      "bytes": 639,
+      "sha256": "1bdb4f554d409b066ed06a9f7ac403406e0baf9d86e3527bb1cdecc933f77745",
+      "storage": "delta_archive",
+      "archive_member": "sources/audit/reviewer-candidate002-score-release.json"
+    },
+    {
+      "path": "sources/audit/reviewer-candidate002-shadow-release.json",
+      "bytes": 615,
+      "sha256": "a5269658b93f66370e2a8e15d4bc4964ff108d81dd96558505d2182b992b5845",
+      "storage": "delta_archive",
+      "archive_member": "sources/audit/reviewer-candidate002-shadow-release.json"
+    },
+    {
+      "path": "sources/candidate002/00-contract-before-fit.json",
+      "bytes": 4154,
+      "sha256": "e7420794c26579521bd2136b87292b499d7b687bf15879129152165116deb712",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/00-contract-before-fit.json"
+    },
+    {
+      "path": "sources/candidate002/artifact-manifest.json",
+      "bytes": 3102,
+      "sha256": "e688c059bc4d8f2d3edb850ff0eb5fc39c0725ad5e15d4257aa4e3c2f6556adf",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/artifact-manifest.json"
+    },
+    {
+      "path": "sources/candidate002/benchmark_fit.py",
+      "bytes": 672,
+      "sha256": "74c06d2f958b74eb11c7bc571d49e6d11f7e2f380c9e57e19cc1a8a4d5a5fcb3",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/benchmark_fit.py"
+    },
+    {
+      "path": "sources/candidate002/build_admission_staging.py",
+      "bytes": 26162,
+      "sha256": "ae604d06590aa9cfb2783b4a6ba69f8cc7b4b1f4e84297dd5f4a6cb136dff02e",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/build_admission_staging.py"
+    },
+    {
+      "path": "sources/candidate002/compare-existing.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/compare-existing.stderr"
+    },
+    {
+      "path": "sources/candidate002/compare-existing.stdout",
+      "bytes": 87,
+      "sha256": "32e3a982ceec3dc7725a576292b0572aa4766969a225788889033497668cc7ce",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/compare-existing.stdout"
+    },
+    {
+      "path": "sources/candidate002/compare_existing.py",
+      "bytes": 10113,
+      "sha256": "c4790853237ce8c3aa7a201eb86925a1d1d79dce2aaf9064c7b5e362bf8bfbfc",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/compare_existing.py"
+    },
+    {
+      "path": "sources/candidate002/current-full-replay/freeze.json",
+      "bytes": 15022,
+      "sha256": "a94daccba40ff261235068abb8efdfd31b0f5a911a35330ecad52d73e7f5891e",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/current-full-replay/freeze.json"
+    },
+    {
+      "path": "sources/candidate002/current-full-replay/raw.jsonl.gz",
+      "bytes": 747554,
+      "sha256": "4d1552d9416f8f3d8341f5fc54df34040cfbcb2170cd96e7e534af85d0e32e1a",
+      "decoded_bytes": 7786656,
+      "decoded_sha256": "8160136922639c6b3444360c8f2ec1e318e414103f7b94d502946c18849e1f05",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/current-full-replay/raw.jsonl.gz"
+    },
+    {
+      "path": "sources/candidate002/current-full-replay/summary.json",
+      "bytes": 607,
+      "sha256": "7d7a5a599f8c9bd50726e950ecf860d779845cfdce3e98f4142caee7bf37d469",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/current-full-replay/summary.json"
+    },
+    {
+      "path": "sources/candidate002/current-full-replay.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/current-full-replay.stderr"
+    },
+    {
+      "path": "sources/candidate002/current-full-replay.stdout",
+      "bytes": 578,
+      "sha256": "5b8dc549a7817d6dcdba539605a30e6ea5ff65f6cb0b3247e48fd5660c2eb876",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/current-full-replay.stdout"
+    },
+    {
+      "path": "sources/candidate002/existing-neighbor-teacher-fit.json",
+      "bytes": 12203,
+      "sha256": "e425fb258fcbdd885c1445e4307890a1b5cb26bf7127981e7b8641ccd01c8c0a",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/existing-neighbor-teacher-fit.json"
+    },
+    {
+      "path": "sources/candidate002/finish_admission_staging.py",
+      "bytes": 25153,
+      "sha256": "ae9a71748526fcdc9e2cb5278458cf5d0f62a60bf0c09fde5947378971b12d96",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/finish_admission_staging.py"
+    },
+    {
+      "path": "sources/candidate002/fit-exhaustive-evidence.json",
+      "bytes": 56602,
+      "sha256": "3078abc5ef8cbf5832fda2c21e1b90d9e74e80c0a949a16db066435b38dcc2a4",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/fit-exhaustive-evidence.json"
+    },
+    {
+      "path": "sources/candidate002/fit-exhaustive-evidence.json.unmemoized.sha256",
+      "bytes": 65,
+      "sha256": "89d1a7f6e438b705e68b2b437c6dc2bbe342ae7684ae659785a94520afe28e17",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/fit-exhaustive-evidence.json.unmemoized.sha256"
+    },
+    {
+      "path": "sources/candidate002/fit.stdout",
+      "bytes": 1352,
+      "sha256": "2f59fa4f51c98e8a2c4f2e6baf7779b84d0a35d12a5e25fcb4d341aebd21ccfc",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/fit.stdout"
+    },
+    {
+      "path": "sources/candidate002/input-only.json",
+      "bytes": 249179,
+      "sha256": "708ca1b4548f49c8130ede7177b655b93ad03467bb9d8add2cebe10c590c9933",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/input-only.json"
+    },
+    {
+      "path": "sources/candidate002/input-only.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/input-only.stderr"
+    },
+    {
+      "path": "sources/candidate002/input-only.stdout",
+      "bytes": 247,
+      "sha256": "7447c8ea261c91b1db9293b240fad204ea8cc4c67641b768912f6568ce9cc19c",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/input-only.stdout"
+    },
+    {
+      "path": "sources/candidate002/ledger-67-contract-comparison.json",
+      "bytes": 201372,
+      "sha256": "47f103cf0c78149602e7eb2c2fb90cd1985afe1f82da0bc5fc4a3095069b4b15",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/ledger-67-contract-comparison.json"
+    },
+    {
+      "path": "sources/candidate002/memoization-equivalence.json",
+      "bytes": 462,
+      "sha256": "2c3557a7d81db2b39b2a2b9bfa01c0cac9f6c53fdf3d742ced0aed864e6199b0",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/memoization-equivalence.json"
+    },
+    {
+      "path": "sources/candidate002/memoized-fit-resources.json",
+      "bytes": 269,
+      "sha256": "d11f11400cf59aa36e9e7ecdd9ecc7630fe756c11f2d704535e12a845858eead",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/memoized-fit-resources.json"
+    },
+    {
+      "path": "sources/candidate002/negative-alternative-evidence.json",
+      "bytes": 24948,
+      "sha256": "e06727448fce7b63819719c512467c97080981d3fd98d6e1186bf7d68d53ebfa",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/negative-alternative-evidence.json"
+    },
+    {
+      "path": "sources/candidate002/optimized-official.json",
+      "bytes": 4339867,
+      "sha256": "9345c39133ce4e21dab034dd41d950dff970465c48a4da8bf2061b0a2f2fbb70",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/optimized-official.json"
+    },
+    {
+      "path": "sources/candidate002/optimized-official.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/optimized-official.stderr"
+    },
+    {
+      "path": "sources/candidate002/optimized-official.stdout",
+      "bytes": 541,
+      "sha256": "4c6b83bbc358d56d94b112570a73fbe3ac4d545d19dce9ee42d008f85da5fe4c",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/optimized-official.stdout"
+    },
+    {
+      "path": "sources/candidate002/preflight_production.py",
+      "bytes": 3937,
+      "sha256": "95022d4633bc50cd9cf152e7b0161868372ff83ed56cd8c067ac7699e4ccb2ca",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/preflight_production.py"
+    },
+    {
+      "path": "sources/candidate002/primitive-reuse-and-distinction.json",
+      "bytes": 2693,
+      "sha256": "07c3fda5f5f6511b4d7844a0b31af2df914066bf0a22c6e959b6598eb0fe7564",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/primitive-reuse-and-distinction.json"
+    },
+    {
+      "path": "sources/candidate002/production/接続/ARC2/距離回収候補.py",
+      "bytes": 11827,
+      "sha256": "96c19905552297b8065896f29e4fa9278573f9b8df1cec9db21963831ff5362e",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/production/接続/ARC2/距離回収候補.py"
+    },
+    {
+      "path": "sources/candidate002/production/接続/ARC2/距離回収教材.py",
+      "bytes": 2966,
+      "sha256": "2fb81e33b59b2f762cd90a5b3f0cf847160ce985e1dd667a83c1415bdf7348cf",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/production/接続/ARC2/距離回収教材.py"
+    },
+    {
+      "path": "sources/candidate002/production/検証/fixtures/距離回収教師.json",
+      "bytes": 11099,
+      "sha256": "9039c1e539639ff674bbe16490e9ef2dfb69fc0ae20102d7098f19a87b53d2a0",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/production/検証/fixtures/距離回収教師.json"
+    },
+    {
+      "path": "sources/candidate002/production/検証/距離回収回帰.py",
+      "bytes": 10145,
+      "sha256": "71268e09e6e5911ad063c08edb1d297145edbdb90fa8ea3e0a39aacdbc1a5fe2",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/production/検証/距離回収回帰.py"
+    },
+    {
+      "path": "sources/candidate002/production-freeze.json",
+      "bytes": 23831,
+      "sha256": "bd0924ffc0398022fa5e4eab00e34d906c3133d7dafb6f2c5d8a40884903897d",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/production-freeze.json"
+    },
+    {
+      "path": "sources/candidate002/production-preflight/all-hypothesis-teacher-results.jsonl.gz",
+      "bytes": 736667,
+      "sha256": "290353636c9dbaad30a3d31324439c6f770a731d94caf24193173ca7bec436d1",
+      "decoded_bytes": 64363338,
+      "decoded_sha256": "ae93c6658fe1595256e077ee1525ed68d2ffcf6abc6bc380750e66e782a9cf69",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/production-preflight/all-hypothesis-teacher-results.jsonl.gz"
+    },
+    {
+      "path": "sources/candidate002/production-preflight/full-preflight.json.gz",
+      "bytes": 14538,
+      "sha256": "2c457780ba58c7489e88b51c4c308ea026e655a321b6d243b5d52fa38ea7893b",
+      "decoded_bytes": 665598,
+      "decoded_sha256": "5ab7e5f53d9d02ff3f369cfc79ed7166832f0d5564e18189b1d60331f52571fa",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/production-preflight/full-preflight.json.gz"
+    },
+    {
+      "path": "sources/candidate002/production-preflight/summary.json",
+      "bytes": 942,
+      "sha256": "0b25cec7cb52367e6b8aa0680e866d9165f50c5c946061eefacce85a19ecbd11",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/production-preflight/summary.json"
+    },
+    {
+      "path": "sources/candidate002/production-preflight.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/production-preflight.stderr"
+    },
+    {
+      "path": "sources/candidate002/production-preflight.stdout",
+      "bytes": 793,
+      "sha256": "c72fffb13291a4b3429b024dbbc8495faca58d9c24fb7007a1211a4b5d21a277",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/production-preflight.stdout"
+    },
+    {
+      "path": "sources/candidate002/production-regressions.json",
+      "bytes": 34201,
+      "sha256": "63987bc24977cd93702e25c0e401e87bec96bcb2869b2c19a572e377ce5cb38b",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/production-regressions.json"
+    },
+    {
+      "path": "sources/candidate002/production-regressions.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/production-regressions.stderr"
+    },
+    {
+      "path": "sources/candidate002/production-regressions.stdout",
+      "bytes": 99,
+      "sha256": "a6c00b6236888042ba1f09c32cf9569720eb55038b4b0949d81ba6e3b4215ff6",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/production-regressions.stdout"
+    },
+    {
+      "path": "sources/candidate002/production-targeted.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/production-targeted.stderr"
+    },
+    {
+      "path": "sources/candidate002/production-targeted.stdout",
+      "bytes": 2102,
+      "sha256": "9e8ebf17e691ac0f6337f85928cab58772e8eba283e70debcab5376b962bcb2c",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/production-targeted.stdout"
+    },
+    {
+      "path": "sources/candidate002/prototype.py",
+      "bytes": 11827,
+      "sha256": "eca4624dbc72c99862a90c900b0807c7f3a8300ef28d7f4b2578d2482fd68c69",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/prototype.py"
+    },
+    {
+      "path": "sources/candidate002/prototype_unmemoized.py",
+      "bytes": 10844,
+      "sha256": "8b9376c15d83833cc28d650f3bc07c7d1211da0b43e06da0b7ad339dd43a2dca",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/prototype_unmemoized.py"
+    },
+    {
+      "path": "sources/candidate002/report-ten-fields.json",
+      "bytes": 5233,
+      "sha256": "141828728a68ba9ad4e173473b6d0d8a26c7e4ec9a4f3c1d96a346d3291485f4",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/report-ten-fields.json"
+    },
+    {
+      "path": "sources/candidate002/run_input_only.py",
+      "bytes": 5569,
+      "sha256": "260eeee97918fb9b0c57cfe173b8287506998a786f0b82dddc6565bb96683425",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/run_input_only.py"
+    },
+    {
+      "path": "sources/candidate002/score-comparison.json",
+      "bytes": 77991,
+      "sha256": "e2fdccda053f3da59e295205b054717d25a1494131805dd59644c819428454b3",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/score-comparison.json"
+    },
+    {
+      "path": "sources/candidate002/teacher-exact-evidence.json",
+      "bytes": 18907,
+      "sha256": "8d43f42474ee38bc9b2d4bd974fb4243996f1236ffd6e222857413651a3bf09f",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/teacher-exact-evidence.json"
+    },
+    {
+      "path": "sources/candidate002/teacher-exact-evidence.json.unmemoized.sha256",
+      "bytes": 65,
+      "sha256": "092780353d8c52b3074d383e9e65ebcd89aad89607b3878203ac871a895bb53c",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/teacher-exact-evidence.json.unmemoized.sha256"
+    },
+    {
+      "path": "sources/candidate002/test-results-optimized.json",
+      "bytes": 28092,
+      "sha256": "11bdef6d125744dc5324f7a2e60af2cff3b48e8e7739ef7f959e9b7f364ecb92",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/test-results-optimized.json"
+    },
+    {
+      "path": "sources/candidate002/test-results.json",
+      "bytes": 28092,
+      "sha256": "11bdef6d125744dc5324f7a2e60af2cff3b48e8e7739ef7f959e9b7f364ecb92",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/test-results.json"
+    },
+    {
+      "path": "sources/candidate002/test_candidate.py",
+      "bytes": 7973,
+      "sha256": "60a1b6d2c2cb1e2a85a8b47cfd67ef796754e10230faa526ab062b437857d424",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/test_candidate.py"
+    },
+    {
+      "path": "sources/candidate002/tests-optimized.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/tests-optimized.stderr"
+    },
+    {
+      "path": "sources/candidate002/tests-optimized.stdout",
+      "bytes": 68,
+      "sha256": "350e11bac676a2d2e5c81dd2f27488c49b717227d26b1784a91d5e2c6e04860a",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/tests-optimized.stdout"
+    },
+    {
+      "path": "sources/candidate002/tests.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/tests.stderr"
+    },
+    {
+      "path": "sources/candidate002/tests.stdout",
+      "bytes": 68,
+      "sha256": "350e11bac676a2d2e5c81dd2f27488c49b717227d26b1784a91d5e2c6e04860a",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/tests.stdout"
+    },
+    {
+      "path": "sources/candidate002/unmemoized-fit-resources.json",
+      "bytes": 262,
+      "sha256": "dafb198e5928fec3df1728e246e9ccf6c135618b46d096255839113c8e7eaa0e",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/unmemoized-fit-resources.json"
+    },
+    {
+      "path": "sources/candidate002/unmemoized-official.json",
+      "bytes": 4339868,
+      "sha256": "d76303255f6105239eed697c059f48b71c096286c5947f8ea1d5357be0d6e1e4",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/unmemoized-official.json"
+    },
+    {
+      "path": "sources/candidate002/unmemoized-official.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/unmemoized-official.stderr"
+    },
+    {
+      "path": "sources/candidate002/unmemoized-official.stdout",
+      "bytes": 542,
+      "sha256": "ef854673ab530907f76ad7b77e7354c79a0e42375dbd531d8222e41f2256c3a4",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/unmemoized-official.stdout"
+    },
+    {
+      "path": "sources/candidate002/unmemoized-production-regressions.json",
+      "bytes": 34437,
+      "sha256": "cc0e30acdefbe3e9feed27e8444d137d273d3e33a9e99e0289f1c78b1d4afda0",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/unmemoized-production-regressions.json"
+    },
+    {
+      "path": "sources/candidate002/unmemoized-production-regressions.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/unmemoized-production-regressions.stderr"
+    },
+    {
+      "path": "sources/candidate002/unmemoized-production-regressions.stdout",
+      "bytes": 331,
+      "sha256": "fd9be1688161724829e4da90e9bb5bfdff15b77462bd7f773cad15b2f756e6ae",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/unmemoized-production-regressions.stdout"
+    },
+    {
+      "path": "sources/candidate002/unmemoized-shadow-manifest.json",
+      "bytes": 40074,
+      "sha256": "544656951087d71384ddfbfbfc704d7f33ec45cc4d809434a633d6f4552e3ec4",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/unmemoized-shadow-manifest.json"
+    },
+    {
+      "path": "sources/candidate002/unmemoized_regression_entry.py",
+      "bytes": 986,
+      "sha256": "f7d5d1814ac457b5fd6a9e6ab5f6df2b6375a1cd53fc807991edea0625515701",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/unmemoized_regression_entry.py"
+    },
+    {
+      "path": "sources/candidate002/verify.py",
+      "bytes": 1624,
+      "sha256": "d31273e4a3602bfcdd2a1401feefc38095c7b6723ad28e626dfb4332aa602b29",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/verify.py"
+    },
+    {
+      "path": "sources/candidate002/verify_memoization.py",
+      "bytes": 2063,
+      "sha256": "64886a291b5ce1586ed7f7b7d04c5529eb5c4d12dd5e6cc58792c2ceed423919",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/verify_memoization.py"
+    },
+    {
+      "path": "sources/candidate002/write_report.py",
+      "bytes": 5727,
+      "sha256": "7c2f44dbc0e7b9bcc62606589769f784384b6ec9128f9e33167a158e648fb246",
+      "storage": "delta_archive",
+      "archive_member": "sources/candidate002/write_report.py"
+    },
+    {
+      "path": "sources/repository/AGENTS.md",
+      "bytes": 1618,
+      "sha256": "315998bc0549de61f70fda28a9c9923bea8a61ba6d9b79019283165e5438109b",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/AGENTS.md",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "AGENTS.md",
+        "git_blob_sha": "f00e552e6d14c99d1734f326398624ad700fb6b4",
+        "bytes": 1618,
+        "sha256": "315998bc0549de61f70fda28a9c9923bea8a61ba6d9b79019283165e5438109b",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/HDS/学習系統/v0.4.2/hds学習系統/__init__.py",
+      "bytes": 527,
+      "sha256": "eaed97760656afc40088ad7e0d85a02fbd59a0d0034054956e9ead63319fba57",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/HDS/学習系統/v0.4.2/hds学習系統/__init__.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "HDS/学習系統/v0.4.2/hds学習系統/__init__.py",
+        "git_blob_sha": "ef58e4969fcd4ba4c4310285c4d45cc740f8150c",
+        "bytes": 527,
+        "sha256": "eaed97760656afc40088ad7e0d85a02fbd59a0d0034054956e9ead63319fba57",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/HDS/学習系統/v0.4.2/hds学習系統/台帳.py",
+      "bytes": 2815,
+      "sha256": "a6cab8fca7cb591c42fa7444f9678fe0003da69faafcce852598286dceb522e2",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/HDS/学習系統/v0.4.2/hds学習系統/台帳.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "HDS/学習系統/v0.4.2/hds学習系統/台帳.py",
+        "git_blob_sha": "31f6e4d86c42448d90a6e829b86ab99e441982dc",
+        "bytes": 2815,
+        "sha256": "a6cab8fca7cb591c42fa7444f9678fe0003da69faafcce852598286dceb522e2",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/HDS/学習系統/v0.4.2/hds学習系統/吸気系.py",
+      "bytes": 3061,
+      "sha256": "50c48e5a9a8aa39158d0cdaacc0501608a829486960d41cb2fea6cb02e5660a4",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/HDS/学習系統/v0.4.2/hds学習系統/吸気系.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "HDS/学習系統/v0.4.2/hds学習系統/吸気系.py",
+        "git_blob_sha": "81ffd4ea6e1a2f611020faeb5d28416ab0d79172",
+        "bytes": 3061,
+        "sha256": "50c48e5a9a8aa39158d0cdaacc0501608a829486960d41cb2fea6cb02e5660a4",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/HDS/学習系統/v0.4.2/hds学習系統/型.py",
+      "bytes": 6575,
+      "sha256": "aa1241708655280b36564f5e3ff6968849b4d09790b8932aabad1570cbca302c",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/HDS/学習系統/v0.4.2/hds学習系統/型.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "HDS/学習系統/v0.4.2/hds学習系統/型.py",
+        "git_blob_sha": "0ade344cf314d710ace16d4e53907b89ee47d742",
+        "bytes": 6575,
+        "sha256": "aa1241708655280b36564f5e3ff6968849b4d09790b8932aabad1570cbca302c",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/HDS/学習系統/v0.4.2/hds学習系統/実行系.py",
+      "bytes": 34178,
+      "sha256": "11d253705181873bcc22e312a0d0a2198fe16a82e3d7289ea8746fdc14695429",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/HDS/学習系統/v0.4.2/hds学習系統/実行系.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "HDS/学習系統/v0.4.2/hds学習系統/実行系.py",
+        "git_blob_sha": "7dc89687e75d00b7b0b87f5fa23d950649a514f6",
+        "bytes": 34178,
+        "sha256": "11d253705181873bcc22e312a0d0a2198fe16a82e3d7289ea8746fdc14695429",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/HDS/学習系統/v0.4.2/hds学習系統/懐疑.py",
+      "bytes": 3392,
+      "sha256": "bb7e85c2dbafbd430f1b7733bf3a2d307dc24e3227e79994b491cf711322f715",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/HDS/学習系統/v0.4.2/hds学習系統/懐疑.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "HDS/学習系統/v0.4.2/hds学習系統/懐疑.py",
+        "git_blob_sha": "82016fb3fc15f0baa7af3b5b7c792420c95188ca",
+        "bytes": 3392,
+        "sha256": "bb7e85c2dbafbd430f1b7733bf3a2d307dc24e3227e79994b491cf711322f715",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/HDS/学習系統/v0.4.2/hds学習系統/排気系.py",
+      "bytes": 2779,
+      "sha256": "2ba7ceb8d0d6c784d092f91fe484477127f044e50f68c54c977374b17f2f6361",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/HDS/学習系統/v0.4.2/hds学習系統/排気系.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "HDS/学習系統/v0.4.2/hds学習系統/排気系.py",
+        "git_blob_sha": "54f3bec51663dde9dedd38f8bf007d336d40b9ea",
+        "bytes": 2779,
+        "sha256": "2ba7ceb8d0d6c784d092f91fe484477127f044e50f68c54c977374b17f2f6361",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/HDS/学習系統/v0.4.2/hds学習系統/推論.py",
+      "bytes": 11404,
+      "sha256": "315dd0d23a9682cdf14be71346341976cbdbcd2cbd924a250afc4ad53058dba6",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/HDS/学習系統/v0.4.2/hds学習系統/推論.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "HDS/学習系統/v0.4.2/hds学習系統/推論.py",
+        "git_blob_sha": "e394dc97f4986ca3212b1e10398060ac2495d3e6",
+        "bytes": 11404,
+        "sha256": "315dd0d23a9682cdf14be71346341976cbdbcd2cbd924a250afc4ad53058dba6",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/HDS/学習系統/v0.4.2/hds学習系統/検証.py",
+      "bytes": 2696,
+      "sha256": "e23f271d38e1f52d75557dbf3342abf7b59a85fbdc315a06c0040fd7ca204eb3",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/HDS/学習系統/v0.4.2/hds学習系統/検証.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "HDS/学習系統/v0.4.2/hds学習系統/検証.py",
+        "git_blob_sha": "28e5ac81be2160a705e7edef016f92702640b5a8",
+        "bytes": 2696,
+        "sha256": "e23f271d38e1f52d75557dbf3342abf7b59a85fbdc315a06c0040fd7ca204eb3",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/HDS/学習系統/v0.4.2/hds学習系統/永続化.py",
+      "bytes": 3125,
+      "sha256": "8aa431b3012424fd8347c5b3d93a5fbf2218d35020836f5d40abb427f9d6da0d",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/HDS/学習系統/v0.4.2/hds学習系統/永続化.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "HDS/学習系統/v0.4.2/hds学習系統/永続化.py",
+        "git_blob_sha": "68a4f62d4dfea55b481de0f36b8e2436afa6b0a2",
+        "bytes": 3125,
+        "sha256": "8aa431b3012424fd8347c5b3d93a5fbf2218d35020836f5d40abb427f9d6da0d",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/HDS/学習系統/v0.4.2/hds学習系統/系統.py",
+      "bytes": 1951,
+      "sha256": "f57e34fcab9249ad7fef72d7b9088fbb440c01afcd4313c9447b7a31427bd4a5",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/HDS/学習系統/v0.4.2/hds学習系統/系統.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "HDS/学習系統/v0.4.2/hds学習系統/系統.py",
+        "git_blob_sha": "ef2088692ae333bca598fa5e7cd4b10de58c5ad1",
+        "bytes": 1951,
+        "sha256": "f57e34fcab9249ad7fef72d7b9088fbb440c01afcd4313c9447b7a31427bd4a5",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/HDS/学習系統/v0.4.2/hds学習系統/適応.py",
+      "bytes": 10139,
+      "sha256": "c74797d49472646010ed0b37bd17dfa602084ba3347ac9386dec265e78a797ac",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/HDS/学習系統/v0.4.2/hds学習系統/適応.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "HDS/学習系統/v0.4.2/hds学習系統/適応.py",
+        "git_blob_sha": "7af4f016518df38207e9b66d075846fa7efdea0d",
+        "bytes": 10139,
+        "sha256": "c74797d49472646010ed0b37bd17dfa602084ba3347ac9386dec265e78a797ac",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/制御/現在状態.json",
+      "bytes": 377,
+      "sha256": "059eb5fe6f7f02be205f12eb7a14d6d05e456b6d95a2aee4bf854a7a13006e3e",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/制御/現在状態.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "制御/現在状態.json",
+        "git_blob_sha": "30919687b6d08cff5a2508db19d7939fd79f64cc",
+        "bytes": 377,
+        "sha256": "059eb5fe6f7f02be205f12eb7a14d6d05e456b6d95a2aee4bf854a7a13006e3e",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/学習台帳/ARC2規則台帳_v1.json",
+      "bytes": 3512236,
+      "sha256": "a4182171f2762b6cbde7852fe50c1cbbd2aa3ef5ddc7dc18117006dce1f012f0",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/学習台帳/ARC2規則台帳_v1.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "学習台帳/ARC2規則台帳_v1.json",
+        "git_blob_sha": "fdab32e1c2c6f6e89606c4f01ece1cfa22c6fd9d",
+        "bytes": 3512236,
+        "sha256": "a4182171f2762b6cbde7852fe50c1cbbd2aa3ef5ddc7dc18117006dce1f012f0",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/学習台帳/ARC2規則索引_v1.json",
+      "bytes": 35807,
+      "sha256": "9d2fcf5f3089592992673c4a02ea8935acf37139d16931e35f798f276a42b3b2",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/学習台帳/ARC2規則索引_v1.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "学習台帳/ARC2規則索引_v1.json",
+        "git_blob_sha": "7d1209166c4e6a467bcd7e24102fbcb4bf09c35b",
+        "bytes": 35807,
+        "sha256": "9d2fcf5f3089592992673c4a02ea8935acf37139d16931e35f798f276a42b3b2",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/学習台帳/ARC2規則経験_v1.jsonl",
+      "bytes": 7621296,
+      "sha256": "5905139cc6723b97c67035c00e3f2ea9633ff58ef0e96b81a6676f8c636ae7c1",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/学習台帳/ARC2規則経験_v1.jsonl",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "学習台帳/ARC2規則経験_v1.jsonl",
+        "git_blob_sha": "d8989c664c8d60d5f2070eb970420f08d1b07e24",
+        "bytes": 7621296,
+        "sha256": "5905139cc6723b97c67035c00e3f2ea9633ff58ef0e96b81a6676f8c636ae7c1",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/学習台帳/ARC2語彙台帳_v1.json",
+      "bytes": 982789,
+      "sha256": "07bd0efeed4513ffc32e9ba00d2d1b512f8c0974bbf15eba0e96f104e81c8c07",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/学習台帳/ARC2語彙台帳_v1.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "学習台帳/ARC2語彙台帳_v1.json",
+        "git_blob_sha": "3d663c70d3685a7c7f7fdefd32bd0cdbcc18ac01",
+        "bytes": 982789,
+        "sha256": "07bd0efeed4513ffc32e9ba00d2d1b512f8c0974bbf15eba0e96f104e81c8c07",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/HDS接続.py",
+      "bytes": 20956,
+      "sha256": "e6f0bf8f56203e6833d1a866302de89e1471f5b8e0e291b04c0b0486143faf31",
+      "storage": "delta_archive",
+      "archive_member": "sources/repository/接続/ARC2/HDS接続.py"
+    },
+    {
+      "path": "sources/repository/接続/ARC2/中心配色教材.py",
+      "bytes": 7573,
+      "sha256": "8cf63b8a4fdd6850978d68d81dcd402ff6b8fd17c26afa99151410aa7d5237ae",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/中心配色教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/中心配色教材.py",
+        "git_blob_sha": "556b5754538f43c46f339deb2a5b5600a0e47639",
+        "bytes": 7573,
+        "sha256": "8cf63b8a4fdd6850978d68d81dcd402ff6b8fd17c26afa99151410aa7d5237ae",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/二値原型教材.py",
+      "bytes": 5861,
+      "sha256": "0b1bd665ad3066d26e79215e188043be4501ac9275285e8d9c2b80a61987423e",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/二値原型教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/二値原型教材.py",
+        "git_blob_sha": "dceffa1c0f1ea2b86a748b847fbd655dee4d664d",
+        "bytes": 5861,
+        "sha256": "0b1bd665ad3066d26e79215e188043be4501ac9275285e8d9c2b80a61987423e",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/二軸補完教材.py",
+      "bytes": 6565,
+      "sha256": "e5c356e9d2f7756f9e9e1f2255c1c3a3100805214461d6c809913cb38bc41714",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/二軸補完教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/二軸補完教材.py",
+        "git_blob_sha": "c323e279c2e6cbc5475b3bdae980e2dbd3a9c6cd",
+        "bytes": 6565,
+        "sha256": "e5c356e9d2f7756f9e9e1f2255c1c3a3100805214461d6c809913cb38bc41714",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/倍率置換教材.py",
+      "bytes": 7166,
+      "sha256": "bfdb0d7b7cf0ba601f70b4f9d57acbd1d045d9a987d0ef0ca72c3647bbe71ffe",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/倍率置換教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/倍率置換教材.py",
+        "git_blob_sha": "96c30533a7a8908de3e472e4c2eddca4f4cea6bf",
+        "bytes": 7166,
+        "sha256": "bfdb0d7b7cf0ba601f70b4f9d57acbd1d045d9a987d0ef0ca72c3647bbe71ffe",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/側周期教材.py",
+      "bytes": 5501,
+      "sha256": "a4cc660cfd6b9c9619633b669366d702c83e6c6105e68e385634b173ee6c7a93",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/側周期教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/側周期教材.py",
+        "git_blob_sha": "4b21cd5988d3b33f91d4526a1c41c268fbbaa3e0",
+        "bytes": 5501,
+        "sha256": "a4cc660cfd6b9c9619633b669366d702c83e6c6105e68e385634b173ee6c7a93",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/凡例展開教材.py",
+      "bytes": 8536,
+      "sha256": "d06ed33a718da03aa83552efd0db93b5b1b1fd72bf75593a1587fe87d8671b03",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/凡例展開教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/凡例展開教材.py",
+        "git_blob_sha": "4ef9c0d4bb397a11bb5c0bdf78a758c6030b167a",
+        "bytes": 8536,
+        "sha256": "d06ed33a718da03aa83552efd0db93b5b1b1fd72bf75593a1587fe87d8671b03",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/凡例旋回教材.py",
+      "bytes": 9369,
+      "sha256": "f88ff14a2ddd52cf62b5d9ea3a7d05f4c5a6643c97789e947fb01023724f9983",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/凡例旋回教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/凡例旋回教材.py",
+        "git_blob_sha": "e825a9195a61f8782712eed40f8c15300b3c0faf",
+        "bytes": 9369,
+        "sha256": "f88ff14a2ddd52cf62b5d9ea3a7d05f4c5a6643c97789e947fb01023724f9983",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/凡例矩形教材.py",
+      "bytes": 23498,
+      "sha256": "27e646039172e5271cdc3ea8aee30484e3896ca6f25bf02296b39c4d01b5a3b3",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/凡例矩形教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/凡例矩形教材.py",
+        "git_blob_sha": "9f682d92b8a50190156e4fcb09df82f00cc3e9d3",
+        "bytes": 23498,
+        "sha256": "27e646039172e5271cdc3ea8aee30484e3896ca6f25bf02296b39c4d01b5a3b3",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/凡例穴対応.py",
+      "bytes": 2614,
+      "sha256": "e8de37fa35683753d39859ac8dd8736033159b20b64993d0c522c53f546a2e0f",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/凡例穴対応.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/凡例穴対応.py",
+        "git_blob_sha": "d0b83c70728684ea5ce6b5612893530b57423fdc",
+        "bytes": 2614,
+        "sha256": "e8de37fa35683753d39859ac8dd8736033159b20b64993d0c522c53f546a2e0f",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/凡例経路教材.py",
+      "bytes": 7015,
+      "sha256": "cf38bb6ccc4f41cfa06acff63ee3e2f1949e1845a80cf8d2e5bb33d0eba7a123",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/凡例経路教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/凡例経路教材.py",
+        "git_blob_sha": "d4544d95787ee7ae68541580c5b5dc32cf943a20",
+        "bytes": 7015,
+        "sha256": "cf38bb6ccc4f41cfa06acff63ee3e2f1949e1845a80cf8d2e5bb33d0eba7a123",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/凡例集合教材.py",
+      "bytes": 9740,
+      "sha256": "630765259176dd9efd68b2a273264b0c89f2bad79191f9862cb7edee543cc62d",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/凡例集合教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/凡例集合教材.py",
+        "git_blob_sha": "e1d43d928ec61891c118fb1a1e178e1283b32d08",
+        "bytes": 9740,
+        "sha256": "630765259176dd9efd68b2a273264b0c89f2bad79191f9862cb7edee543cc62d",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/制御複写教材.py",
+      "bytes": 9644,
+      "sha256": "46c31162d5c522860bbe978864a7a083b92801f02b3ded6d037e8e9675a81928",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/制御複写教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/制御複写教材.py",
+        "git_blob_sha": "1c3553e04df81e40791b0c9a8d52321161512f84",
+        "bytes": 9644,
+        "sha256": "46c31162d5c522860bbe978864a7a083b92801f02b3ded6d037e8e9675a81928",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/包含正規化教材.py",
+      "bytes": 9681,
+      "sha256": "11d5c0b88c42062dae05c022acd2b6bf1e3073ebd45c6ef05ad788569353589f",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/包含正規化教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/包含正規化教材.py",
+        "git_blob_sha": "abb5b8b44bd1d2288027298048922ed5cb45d60c",
+        "bytes": 9681,
+        "sha256": "11d5c0b88c42062dae05c022acd2b6bf1e3073ebd45c6ef05ad788569353589f",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/区切投射教材.py",
+      "bytes": 6582,
+      "sha256": "656f8c7f4d6b3229f3776c8e041fd7bd04faa9c175a65be45bf312932d336f47",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/区切投射教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/区切投射教材.py",
+        "git_blob_sha": "a01baadc8eb8ff91cfdf9d8633ab03619735d3bd",
+        "bytes": 6582,
+        "sha256": "656f8c7f4d6b3229f3776c8e041fd7bd04faa9c175a65be45bf312932d336f47",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/十字教材.py",
+      "bytes": 3214,
+      "sha256": "2a9b11a894d9be2a4c1b1a019925e27c86ef1d7309427ecddc6118d58410f19f",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/十字教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/十字教材.py",
+        "git_blob_sha": "409fdfa61591de187d2b29a14b5e2bc4ce12c5da",
+        "bytes": 3214,
+        "sha256": "2a9b11a894d9be2a4c1b1a019925e27c86ef1d7309427ecddc6118d58410f19f",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/十字曲線教材.py",
+      "bytes": 13067,
+      "sha256": "b771fa5e83d90fcd50f95e71abdbcc4a808e3bf0983807959b9cdf9ed7ce55a6",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/十字曲線教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/十字曲線教材.py",
+        "git_blob_sha": "556fe40e58ddb6ba9459616b63d0969f71cfd126",
+        "bytes": 13067,
+        "sha256": "b771fa5e83d90fcd50f95e71abdbcc4a808e3bf0983807959b9cdf9ed7ce55a6",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/反復行教材.py",
+      "bytes": 2936,
+      "sha256": "276cc5353ebdedb25143ae55fdb1af729c34f8ae3d23654601f38aa6dde643a8",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/反復行教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/反復行教材.py",
+        "git_blob_sha": "d39c246a74e9189f9ebe79d129d1f5d3aa71bb28",
+        "bytes": 2936,
+        "sha256": "276cc5353ebdedb25143ae55fdb1af729c34f8ae3d23654601f38aa6dde643a8",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/周期帯教材.py",
+      "bytes": 10377,
+      "sha256": "bb1a62eccf9e1d5f2485b01911fd76b16a5f7462e9fc2caebcf2288b741fa28f",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/周期帯教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/周期帯教材.py",
+        "git_blob_sha": "1528557c415e017792aeac8488d6bf155d4b2375",
+        "bytes": 10377,
+        "sha256": "bb1a62eccf9e1d5f2485b01911fd76b16a5f7462e9fc2caebcf2288b741fa28f",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/周期組修復教材.py",
+      "bytes": 4097,
+      "sha256": "12ade801a2297bcfb69bf07f739f571be0ebfdb590a3d929bd775317fdbd7e90",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/周期組修復教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/周期組修復教材.py",
+        "git_blob_sha": "fa30f62dbfbfed5d86462cb2c196bf39c3758f5b",
+        "bytes": 4097,
+        "sha256": "12ade801a2297bcfb69bf07f739f571be0ebfdb590a3d929bd775317fdbd7e90",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/四欄反復教材.py",
+      "bytes": 6980,
+      "sha256": "ef38fc79d7e749db85ec813f2f90db29c97ee155e93865ef26d7d5079d2ac294",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/四欄反復教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/四欄反復教材.py",
+        "git_blob_sha": "c9387eba632ea8b811d56f75e653a6c1fe07a701",
+        "bytes": 6980,
+        "sha256": "ef38fc79d7e749db85ec813f2f90db29c97ee155e93865ef26d7d5079d2ac294",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/基点複製教材.py",
+      "bytes": 6670,
+      "sha256": "4d3efbad983efc03f2f6234aa8994c3a893bf5969d3d2f91627af533253d1c41",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/基点複製教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/基点複製教材.py",
+        "git_blob_sha": "7c98a914c98d2b9cd7748c8d8435ab39249c633f",
+        "bytes": 6670,
+        "sha256": "4d3efbad983efc03f2f6234aa8994c3a893bf5969d3d2f91627af533253d1c41",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/対称剪定教材.py",
+      "bytes": 3664,
+      "sha256": "cf67c6d1b377124637e378d8b8c2da60930555c7ffac5d1a1a44c634634244bf",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/対称剪定教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/対称剪定教材.py",
+        "git_blob_sha": "9af64ef015067edb972d5597e31846b22c62113a",
+        "bytes": 3664,
+        "sha256": "cf67c6d1b377124637e378d8b8c2da60930555c7ffac5d1a1a44c634634244bf",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/対角線橋教材.py",
+      "bytes": 3237,
+      "sha256": "102510745b8e74b519b0909211d28f2205ce868277dddff1e1fff63f87cb9f92",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/対角線橋教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/対角線橋教材.py",
+        "git_blob_sha": "0c49e87af336e0c517748725f16538bf1558c74b",
+        "bytes": 3237,
+        "sha256": "102510745b8e74b519b0909211d28f2205ce868277dddff1e1fff63f87cb9f92",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/対角領域教材.py",
+      "bytes": 1895,
+      "sha256": "ac27d68bc6afda7e32033c9b0e4bffaa414134974c4f8fe709d423a017830bc6",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/対角領域教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/対角領域教材.py",
+        "git_blob_sha": "71d9a2ffd6b6bc7eda36738fd762a6bc3aee74ae",
+        "bytes": 1895,
+        "sha256": "ac27d68bc6afda7e32033c9b0e4bffaa414134974c4f8fe709d423a017830bc6",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/帯図形教材.py",
+      "bytes": 7285,
+      "sha256": "c03031e6c7d88a512db6b3fdb9d4a1c393c3ffa79b8662d6c82f034f865cfeda",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/帯図形教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/帯図形教材.py",
+        "git_blob_sha": "796142bfee9b80dc88f4a0cd48ed556b82191c0a",
+        "bytes": 7285,
+        "sha256": "c03031e6c7d88a512db6b3fdb9d4a1c393c3ffa79b8662d6c82f034f865cfeda",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/帯輪郭教材.py",
+      "bytes": 3994,
+      "sha256": "d00d510e208f10c70ac5e3649a14061f539f9c52788cdcd98c0f1f4695274ef6",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/帯輪郭教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/帯輪郭教材.py",
+        "git_blob_sha": "bb59660046f9907d4f3d39b496a028dc29cd86c4",
+        "bytes": 3994,
+        "sha256": "d00d510e208f10c70ac5e3649a14061f539f9c52788cdcd98c0f1f4695274ef6",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/形状色教材.py",
+      "bytes": 2622,
+      "sha256": "2936f95c6eaf9c40092ada3f1a2b304a171588ebfb61a9722b895397e8da6e93",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/形状色教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/形状色教材.py",
+        "git_blob_sha": "727127cbce032c1c519c7d063d86b9bdd060fcb4",
+        "bytes": 2622,
+        "sha256": "2936f95c6eaf9c40092ada3f1a2b304a171588ebfb61a9722b895397e8da6e93",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/成分直列教材.py",
+      "bytes": 4669,
+      "sha256": "5f38d59178cd72013f2bd74d7be07692d3d10c100b91602c629b655bf150ab94",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/成分直列教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/成分直列教材.py",
+        "git_blob_sha": "b9051ed6be423af2a528bd6c9ff8f55cd18ef25a",
+        "bytes": 4669,
+        "sha256": "5f38d59178cd72013f2bd74d7be07692d3d10c100b91602c629b655bf150ab94",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/成分経路教材.py",
+      "bytes": 1792,
+      "sha256": "45038bfbaf0dd14d847b41f01ba44a43bdca5d7c424c422df4daf16c4a90351c",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/成分経路教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/成分経路教材.py",
+        "git_blob_sha": "b2b8ac262bb2adb83e8926fe6d343430b71df065",
+        "bytes": 1792,
+        "sha256": "45038bfbaf0dd14d847b41f01ba44a43bdca5d7c424c422df4daf16c4a90351c",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/接触配置教材.py",
+      "bytes": 10780,
+      "sha256": "685d45d4ae7249220c6903d59c41241151adec2eccfe476112e5fdb66838273f",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/接触配置教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/接触配置教材.py",
+        "git_blob_sha": "5cf7b52a3ed0e0601f05319fade66d736be0a7fe",
+        "bytes": 10780,
+        "sha256": "685d45d4ae7249220c6903d59c41241151adec2eccfe476112e5fdb66838273f",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/支持構造教材.py",
+      "bytes": 21412,
+      "sha256": "f80f391b9f9eebe284adf77183ac74246b3afcc27b1dac34104b9f1b8cf24bbd",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/支持構造教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/支持構造教材.py",
+        "git_blob_sha": "71c7d2b12b06733d85668d25bc5b5e5f3cacf199",
+        "bytes": 21412,
+        "sha256": "f80f391b9f9eebe284adf77183ac74246b3afcc27b1dac34104b9f1b8cf24bbd",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/放射組立教材.py",
+      "bytes": 3115,
+      "sha256": "d9b1f205b3716a5a28ca4ea79a5f29e9eca046dd23cd1e73e1fd9cfb3c09ea49",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/放射組立教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/放射組立教材.py",
+        "git_blob_sha": "e5941acb0207f20af01ae38370e25cae6e10e866",
+        "bytes": 3115,
+        "sha256": "d9b1f205b3716a5a28ca4ea79a5f29e9eca046dd23cd1e73e1fd9cfb3c09ea49",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存中心配色.py",
+      "bytes": 9753,
+      "sha256": "2467778d5ff60d0e2c2434a9a5830eec84041ceed77efb5434d1562772dd42fe",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存中心配色.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存中心配色.py",
+        "git_blob_sha": "da7f905ca6eceb76906685ebcd2f94a1b2e1bc7a",
+        "bytes": 9753,
+        "sha256": "2467778d5ff60d0e2c2434a9a5830eec84041ceed77efb5434d1562772dd42fe",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存二値原型.py",
+      "bytes": 9236,
+      "sha256": "1f9eca0627198e784a5e38c3b08443545663d8d265d92b1c759457b487a5e723",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存二値原型.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存二値原型.py",
+        "git_blob_sha": "3414a7377024b6864e1595a22323481b1c1a1832",
+        "bytes": 9236,
+        "sha256": "1f9eca0627198e784a5e38c3b08443545663d8d265d92b1c759457b487a5e723",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存二軸補完.py",
+      "bytes": 5989,
+      "sha256": "f7e87a8b1502e48614de5133eb13f250bf9457293f748d4f8cf5f81803a524a8",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存二軸補完.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存二軸補完.py",
+        "git_blob_sha": "4150e44ec7545bc2ddb9b0908d29eab68bca51d5",
+        "bytes": 5989,
+        "sha256": "f7e87a8b1502e48614de5133eb13f250bf9457293f748d4f8cf5f81803a524a8",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存倍率置換.py",
+      "bytes": 9358,
+      "sha256": "5729598184dfe54d73c05969b63ae9d64521aa1c5008bd0c719f276a12d4410b",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存倍率置換.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存倍率置換.py",
+        "git_blob_sha": "b1c04a41dde00a8ce4129d506984aac44ce0d5e4",
+        "bytes": 9358,
+        "sha256": "5729598184dfe54d73c05969b63ae9d64521aa1c5008bd0c719f276a12d4410b",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存側周期.py",
+      "bytes": 6921,
+      "sha256": "d55a69ad42c78db5a8f52842206793d4c8bd7857487dfcc6c7cc9397f8bda7fe",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存側周期.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存側周期.py",
+        "git_blob_sha": "4b422a2bd876398ccfc1986370b447715a49ccfc",
+        "bytes": 6921,
+        "sha256": "d55a69ad42c78db5a8f52842206793d4c8bd7857487dfcc6c7cc9397f8bda7fe",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存入れ子合成.py",
+      "bytes": 15498,
+      "sha256": "a5a7b57187e2d03d4114186e10fbc58c51f6204ead5f18e4d482a0513f627193",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存入れ子合成.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存入れ子合成.py",
+        "git_blob_sha": "784e84e051767564075e2abc9b85879d0e811ad1",
+        "bytes": 15498,
+        "sha256": "a5a7b57187e2d03d4114186e10fbc58c51f6204ead5f18e4d482a0513f627193",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存凡例展開.py",
+      "bytes": 10757,
+      "sha256": "69526f0e72677b67ea5ac9a8d62ff352dc0e477020c87497689de6db4e57d6aa",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存凡例展開.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存凡例展開.py",
+        "git_blob_sha": "c6717521ef30f89b6ede762171cf1acd43c3cfd4",
+        "bytes": 10757,
+        "sha256": "69526f0e72677b67ea5ac9a8d62ff352dc0e477020c87497689de6db4e57d6aa",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存凡例旋回.py",
+      "bytes": 10227,
+      "sha256": "7046a84e255870e08213e9d749c970662354fb0513f28832c728f6d3698ca39f",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存凡例旋回.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存凡例旋回.py",
+        "git_blob_sha": "9b947e1312395b84b4256e00446d81e74ad7f8ea",
+        "bytes": 10227,
+        "sha256": "7046a84e255870e08213e9d749c970662354fb0513f28832c728f6d3698ca39f",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存凡例穴対応.py",
+      "bytes": 7509,
+      "sha256": "3e2471e03faaf58badbbb4d9426308beea41495201cdf9513c0e3993b7e832f2",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存凡例穴対応.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存凡例穴対応.py",
+        "git_blob_sha": "98f20d459d022c22e6aec9d0e5e9125ef36fb378",
+        "bytes": 7509,
+        "sha256": "3e2471e03faaf58badbbb4d9426308beea41495201cdf9513c0e3993b7e832f2",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存凡例経路.py",
+      "bytes": 12669,
+      "sha256": "71ec8be34047c9d3534932f09e1014af904c20a33ae8aa8dc3e52915f6aee77a",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存凡例経路.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存凡例経路.py",
+        "git_blob_sha": "b38ce0284ea2e930ee66781a10154c6a744d184c",
+        "bytes": 12669,
+        "sha256": "71ec8be34047c9d3534932f09e1014af904c20a33ae8aa8dc3e52915f6aee77a",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存制御複写.py",
+      "bytes": 11418,
+      "sha256": "b1f894ad36e60dfc73a726273d94492ab48ce3f16d70a486b37c98bf09d1558d",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存制御複写.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存制御複写.py",
+        "git_blob_sha": "0b1b07dfd5b94e010c90491255b6da8870dfae20",
+        "bytes": 11418,
+        "sha256": "b1f894ad36e60dfc73a726273d94492ab48ce3f16d70a486b37c98bf09d1558d",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存包含正規化.py",
+      "bytes": 14727,
+      "sha256": "a70de4c33ec5aaa99abd8064d67539279b9ff86637e4170164148ba5eb436434",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存包含正規化.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存包含正規化.py",
+        "git_blob_sha": "2efff01eaa2e6b5252d087cdb9025b8f60b139ae",
+        "bytes": 14727,
+        "sha256": "a70de4c33ec5aaa99abd8064d67539279b9ff86637e4170164148ba5eb436434",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存区切投射.py",
+      "bytes": 9224,
+      "sha256": "8679762ff593cd8888611890cde283e1a7edd5097534b75e2b075b36d17c830c",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存区切投射.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存区切投射.py",
+        "git_blob_sha": "39bba39e4c2f648b4028db2bedb4a9bd4a0e1ef7",
+        "bytes": 9224,
+        "sha256": "8679762ff593cd8888611890cde283e1a7edd5097534b75e2b075b36d17c830c",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存十字着色.py",
+      "bytes": 1119,
+      "sha256": "4489cb9c909821afc48e800292ae5ab455c98b4494e6f18eb03fe5f483e02451",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存十字着色.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存十字着色.py",
+        "git_blob_sha": "71714ae5cb096261c38b587a9b9ecbe1b135d528",
+        "bytes": 1119,
+        "sha256": "4489cb9c909821afc48e800292ae5ab455c98b4494e6f18eb03fe5f483e02451",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存反復行.py",
+      "bytes": 1959,
+      "sha256": "13bffa2c0a1f7b27b33a014cab2bd1603219bdf8b8b2b2f320f592a7f5efff4e",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存反復行.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存反復行.py",
+        "git_blob_sha": "7a6d93762da556acf995a114d2df0919659d0a68",
+        "bytes": 1959,
+        "sha256": "13bffa2c0a1f7b27b33a014cab2bd1603219bdf8b8b2b2f320f592a7f5efff4e",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存周期帯.py",
+      "bytes": 12411,
+      "sha256": "82616b0d90a0a6dd2bbe53e90199d501ae1db37dc487571a709278563a7b4de6",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存周期帯.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存周期帯.py",
+        "git_blob_sha": "bc489ce36f0855db3bbd7673413b677a5f656a3d",
+        "bytes": 12411,
+        "sha256": "82616b0d90a0a6dd2bbe53e90199d501ae1db37dc487571a709278563a7b4de6",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存周期組修復.py",
+      "bytes": 6115,
+      "sha256": "0ae1d350bca8318f15b24d2678c2c006497d14fbf74e9a9affbc5f4b2602d8ed",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存周期組修復.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存周期組修復.py",
+        "git_blob_sha": "15b2a7c4dc8a5e52f02b3d774992ebe17783c5d4",
+        "bytes": 6115,
+        "sha256": "0ae1d350bca8318f15b24d2678c2c006497d14fbf74e9a9affbc5f4b2602d8ed",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存基点複製.py",
+      "bytes": 7148,
+      "sha256": "1188cf6a6057b38b07a322734bd02f6c2b8907a99b672e35f1fb66220e6058b6",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存基点複製.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存基点複製.py",
+        "git_blob_sha": "d8124faa6df826cb5be0c165fb13d522aefaff79",
+        "bytes": 7148,
+        "sha256": "1188cf6a6057b38b07a322734bd02f6c2b8907a99b672e35f1fb66220e6058b6",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存対称剪定.py",
+      "bytes": 5000,
+      "sha256": "bed49d4165ea232e9c4f79fcffd73a392a3eff55cd3a3f4695a5bccb390a4a20",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存対称剪定.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存対称剪定.py",
+        "git_blob_sha": "1e6fea8cedcde9a3be78afd8af63c9685cd1e087",
+        "bytes": 5000,
+        "sha256": "bed49d4165ea232e9c4f79fcffd73a392a3eff55cd3a3f4695a5bccb390a4a20",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存対角線橋.py",
+      "bytes": 5579,
+      "sha256": "aafdf6019d65ae41785204495892a5077692fc3801988d09a7d4e54c563b8f8b",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存対角線橋.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存対角線橋.py",
+        "git_blob_sha": "b5a49b9812bec03da9d22a9628ee091c90039417",
+        "bytes": 5579,
+        "sha256": "aafdf6019d65ae41785204495892a5077692fc3801988d09a7d4e54c563b8f8b",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存対角領域.py",
+      "bytes": 4094,
+      "sha256": "9f1a959d3d6e77b8284cb2fe708fbd4afb96d610c4dbc562609f5a23341de92b",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存対角領域.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存対角領域.py",
+        "git_blob_sha": "2dc76e43ca96af0e720e69919ce27b8545928a5e",
+        "bytes": 4094,
+        "sha256": "9f1a959d3d6e77b8284cb2fe708fbd4afb96d610c4dbc562609f5a23341de92b",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存帯図形投射.py",
+      "bytes": 5585,
+      "sha256": "413483a1c4fbfe07afa155e66810e48243bdf835386064249c06d4f213f37537",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存帯図形投射.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存帯図形投射.py",
+        "git_blob_sha": "9344d35b2f27d88e38f51729a5bc5874616b190b",
+        "bytes": 5585,
+        "sha256": "413483a1c4fbfe07afa155e66810e48243bdf835386064249c06d4f213f37537",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存帯輪郭.py",
+      "bytes": 2051,
+      "sha256": "9e84b1ed190fced0ddefc24ebd6ed293056343eceb307d50ae04e89887caa502",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存帯輪郭.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存帯輪郭.py",
+        "git_blob_sha": "e4e9eb36989aad0d39dbd84c2e05b5af56ad0010",
+        "bytes": 2051,
+        "sha256": "9e84b1ed190fced0ddefc24ebd6ed293056343eceb307d50ae04e89887caa502",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存形状色転写.py",
+      "bytes": 7202,
+      "sha256": "a11dd7b05494b23c1c8d518bfd4e66a7cbbd18a4f06a24b85014fdaa6c557cd6",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存形状色転写.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存形状色転写.py",
+        "git_blob_sha": "34ba6c63b43854e4fef61cc5c7fbefba2e730be3",
+        "bytes": 7202,
+        "sha256": "a11dd7b05494b23c1c8d518bfd4e66a7cbbd18a4f06a24b85014fdaa6c557cd6",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存成分最短経路.py",
+      "bytes": 15628,
+      "sha256": "9017291824a0bea5f07a15b7c911222d7c6bcbd6c4736f5b93506af9d32177e0",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存成分最短経路.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存成分最短経路.py",
+        "git_blob_sha": "c95b08be5c1f32a455f0676da3ac78549ca307ff",
+        "bytes": 15628,
+        "sha256": "9017291824a0bea5f07a15b7c911222d7c6bcbd6c4736f5b93506af9d32177e0",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存成分直列.py",
+      "bytes": 4524,
+      "sha256": "12e271d9df5e75eae69d10156b3673067a2a5ac1bf5b31782fa6acb883547c16",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存成分直列.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存成分直列.py",
+        "git_blob_sha": "6977888a685869ba99f550c43e220d9faab02a6d",
+        "bytes": 4524,
+        "sha256": "12e271d9df5e75eae69d10156b3673067a2a5ac1bf5b31782fa6acb883547c16",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存接触配置.py",
+      "bytes": 11734,
+      "sha256": "6343a3b9f787bd31b42f89ce0d1d41c20554f8efa8c0b91c2a793307d4f982b1",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存接触配置.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存接触配置.py",
+        "git_blob_sha": "bc09fe0f5c04e0aa9e0de9d30739411c54d08cc2",
+        "bytes": 11734,
+        "sha256": "6343a3b9f787bd31b42f89ce0d1d41c20554f8efa8c0b91c2a793307d4f982b1",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存放射組立.py",
+      "bytes": 15023,
+      "sha256": "c7f1639072434c41ec1a24364bd12d72cb400ac56cdc28dcaf9c0a830235e558",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存放射組立.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存放射組立.py",
+        "git_blob_sha": "0e8deb1e87a014f6f9420e1dc36cee4e256ef7e0",
+        "bytes": 15023,
+        "sha256": "c7f1639072434c41ec1a24364bd12d72cb400ac56cdc28dcaf9c0a830235e558",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存枠列整列.py",
+      "bytes": 15133,
+      "sha256": "87ab60635412a7117034a11954db0aeff379f68710f0cf1c202df5a3223bb79d",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存枠列整列.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存枠列整列.py",
+        "git_blob_sha": "406071f90c698f64f5fbc8580109e86f5e61633c",
+        "bytes": 15133,
+        "sha256": "87ab60635412a7117034a11954db0aeff379f68710f0cf1c202df5a3223bb79d",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存枠計数.py",
+      "bytes": 5424,
+      "sha256": "4c33e933c18d0dcb7da410cd5af9a9a38979161e5f95eb370dc06cb78d711aa7",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存枠計数.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存枠計数.py",
+        "git_blob_sha": "48e1c9c5a0d26f263c2e7ba6936fdaf87b557728",
+        "bytes": 5424,
+        "sha256": "4c33e933c18d0dcb7da410cd5af9a9a38979161e5f95eb370dc06cb78d711aa7",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存格子操作.py",
+      "bytes": 3624,
+      "sha256": "d03c16e870a245dc18dd24446c09a3fcadbbf7bc9d184510105dc5ae46a32b23",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存格子操作.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存格子操作.py",
+        "git_blob_sha": "90f27ed00b33b622b8d4642fc51b78de0cd8e668",
+        "bytes": 3624,
+        "sha256": "d03c16e870a245dc18dd24446c09a3fcadbbf7bc9d184510105dc5ae46a32b23",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存標識移動.py",
+      "bytes": 12652,
+      "sha256": "f5cc23af24f8c72464591bfdf66c0d64a8231de42ab8b0b66f5546a5eaaa36b2",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存標識移動.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存標識移動.py",
+        "git_blob_sha": "435869ea80f967f3c93ea737b00574ca2ec9b194",
+        "bytes": 12652,
+        "sha256": "f5cc23af24f8c72464591bfdf66c0d64a8231de42ab8b0b66f5546a5eaaa36b2",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存標識組立.py",
+      "bytes": 9768,
+      "sha256": "a39c7aea40afa220475d2a15958de012b8717a386addfdfe3b25b01829d91b04",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存標識組立.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存標識組立.py",
+        "git_blob_sha": "88c79596dac0a8081ad82ce3674a674dceba2b96",
+        "bytes": 9768,
+        "sha256": "a39c7aea40afa220475d2a15958de012b8717a386addfdfe3b25b01829d91b04",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存標識計数.py",
+      "bytes": 7176,
+      "sha256": "8fed1993cf3a6acc29d8d69b80be28e67885411c85cb3e4bb7cf51e7127aacc5",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存標識計数.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存標識計数.py",
+        "git_blob_sha": "3b8136ea80bde6a2044e8fb161bab495ac42a2cd",
+        "bytes": 7176,
+        "sha256": "8fed1993cf3a6acc29d8d69b80be28e67885411c85cb3e4bb7cf51e7127aacc5",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存正方形座標.py",
+      "bytes": 1461,
+      "sha256": "8ec3246e2f2ada0d9505e26cd2355dd791fd0b2f8281795b22adaff37d642d36",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存正方形座標.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存正方形座標.py",
+        "git_blob_sha": "9bf49785b121b036cb33713d5cb82df17c5016b3",
+        "bytes": 1461,
+        "sha256": "8ec3246e2f2ada0d9505e26cd2355dd791fd0b2f8281795b22adaff37d642d36",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存流路.py",
+      "bytes": 2347,
+      "sha256": "3d46051b219954adec60f719f20d496c93efdd4ab54098435e3c3830a1e6b242",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存流路.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存流路.py",
+        "git_blob_sha": "b4204c9a8a0d10255d23e8c852a8a8ca5111efd9",
+        "bytes": 2347,
+        "sha256": "3d46051b219954adec60f719f20d496c93efdd4ab54098435e3c3830a1e6b242",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存物体slot.py",
+      "bytes": 21527,
+      "sha256": "8ffd2d89a32593258830e809fd2b136221b9073862987ccacf8b918ecc118c5d",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存物体slot.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存物体slot.py",
+        "git_blob_sha": "4f69b4f4ddaa81fc61e725d6b8e6f9bb9a329932",
+        "bytes": 21527,
+        "sha256": "8ffd2d89a32593258830e809fd2b136221b9073862987ccacf8b918ecc118c5d",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存物体特徴.py",
+      "bytes": 5401,
+      "sha256": "e7a662182961e45cdba38a00bbd267ad03261cb1217dc8d08f2d867d9f4acc60",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存物体特徴.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存物体特徴.py",
+        "git_blob_sha": "cc04ca936fb8729798a5189d3e1fab0d5b53259a",
+        "bytes": 5401,
+        "sha256": "e7a662182961e45cdba38a00bbd267ad03261cb1217dc8d08f2d867d9f4acc60",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存疎点転写.py",
+      "bytes": 17882,
+      "sha256": "b9e676f2605cf2e05e92f4bae21f4f39afac40f1e8c41e0d175710cdcb69a248",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存疎点転写.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存疎点転写.py",
+        "git_blob_sha": "c4a040b61de6a2a1e0e204fd627977c47c0c8e5a",
+        "bytes": 17882,
+        "sha256": "b9e676f2605cf2e05e92f4bae21f4f39afac40f1e8c41e0d175710cdcb69a248",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存種境界.py",
+      "bytes": 7891,
+      "sha256": "b0d413e5e3d9180f81ab95aa6fdf1ad9d870ae8bc2cf5adae9cbb182f0896f73",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存種境界.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存種境界.py",
+        "git_blob_sha": "dbc58b8d2ac7aba1d1f569c2fcff33da1c0815ff",
+        "bytes": 7891,
+        "sha256": "b0d413e5e3d9180f81ab95aa6fdf1ad9d870ae8bc2cf5adae9cbb182f0896f73",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存穴充填.py",
+      "bytes": 11684,
+      "sha256": "451d07ba636d4e4ce5a2443cfe56745f55fd16cf8845a2f4c9f62abd08d78b53",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存穴充填.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存穴充填.py",
+        "git_blob_sha": "97cca8efc9ab2576cc3349ce9276595a86d72c12",
+        "bytes": 11684,
+        "sha256": "451d07ba636d4e4ce5a2443cfe56745f55fd16cf8845a2f4c9f62abd08d78b53",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存穴形拡大.py",
+      "bytes": 12228,
+      "sha256": "ba17cc5fd91c700944078b2ca2178cb29bf4f8d71b30d1d76121439c692501ae",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存穴形拡大.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存穴形拡大.py",
+        "git_blob_sha": "81ba91cdb2f4d89cf4e03b28fd61341c30e79fe9",
+        "bytes": 12228,
+        "sha256": "ba17cc5fd91c700944078b2ca2178cb29bf4f8d71b30d1d76121439c692501ae",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存穴輪郭.py",
+      "bytes": 6171,
+      "sha256": "df24878a9661cadf8b69a00c16688f783b870a2d485b9fbb3167f7e41bbf3f81",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存穴輪郭.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存穴輪郭.py",
+        "git_blob_sha": "be07fe4d1c68ae7d262f3aa22e96872d0b9ca9b0",
+        "bytes": 6171,
+        "sha256": "df24878a9661cadf8b69a00c16688f783b870a2d485b9fbb3167f7e41bbf3f81",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存空白移動.py",
+      "bytes": 8800,
+      "sha256": "70bf97bee5522d2fe364f8394a2643387b35021648d97ce8473b3e3565d6e7ec",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存空白移動.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存空白移動.py",
+        "git_blob_sha": "f3a3637cab7f04ae74bcd242504ae4436cb7bf00",
+        "bytes": 8800,
+        "sha256": "70bf97bee5522d2fe364f8394a2643387b35021648d97ce8473b3e3565d6e7ec",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存色群関係.py",
+      "bytes": 3925,
+      "sha256": "116068335b39fd1ed18a87008534537fcdaee41073a94d509b18946a3f6e66ef",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存色群関係.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存色群関係.py",
+        "git_blob_sha": "410e98a525a334cbe34c906ed0fe42af2c19ec5e",
+        "bytes": 3925,
+        "sha256": "116068335b39fd1ed18a87008534537fcdaee41073a94d509b18946a3f6e66ef",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存行周期.py",
+      "bytes": 6372,
+      "sha256": "b002d27838ec41822f4671499bc5a0d793614b9cdd3fefdf158735b3deb7fb4b",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存行周期.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存行周期.py",
+        "git_blob_sha": "f4bf138f69cabc877a19f9ec0ec4cd19bf839592",
+        "bytes": 6372,
+        "sha256": "b002d27838ec41822f4671499bc5a0d793614b9cdd3fefdf158735b3deb7fb4b",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存象限配色.py",
+      "bytes": 2899,
+      "sha256": "eeef1a774d1bcf88bb8d44bd7ddbe8097c81730f47326694669b9b667e9e4780",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存象限配色.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存象限配色.py",
+        "git_blob_sha": "3d031d3a27b8410579829ef692fac49c959d5813",
+        "bytes": 2899,
+        "sha256": "eeef1a774d1bcf88bb8d44bd7ddbe8097c81730f47326694669b9b667e9e4780",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存距離層.py",
+      "bytes": 7649,
+      "sha256": "83822e2ef7874ceeb9341bc1a55c2706fe286be9be4ff4a49d24088c01b154c3",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存距離層.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存距離層.py",
+        "git_blob_sha": "7a17bb07ecda95150339e6fd725c8971a1c1c767",
+        "bytes": 7649,
+        "sha256": "83822e2ef7874ceeb9341bc1a55c2706fe286be9be4ff4a49d24088c01b154c3",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存軸反射.py",
+      "bytes": 7448,
+      "sha256": "9802bf53c23011fc61b9d266185b0fafba0a5b761efb51fc09c6ddf298046df0",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存軸反射.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存軸反射.py",
+        "git_blob_sha": "14831941a0448ac1fb2eca583e6672532de78177",
+        "bytes": 7448,
+        "sha256": "9802bf53c23011fc61b9d266185b0fafba0a5b761efb51fc09c6ddf298046df0",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存軸投射.py",
+      "bytes": 10984,
+      "sha256": "47a7d378994e36ead4d2652c522be686396921957f493fd00e26a079531cee8e",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存軸投射.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存軸投射.py",
+        "git_blob_sha": "bed44b5b399b944f615b096233e44d51c46d6cba",
+        "bytes": 10984,
+        "sha256": "47a7d378994e36ead4d2652c522be686396921957f493fd00e26a079531cee8e",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存辺対応抽出.py",
+      "bytes": 9523,
+      "sha256": "cc97bcd03e21575da786af4dd0b6f86b6c3b16c6139e66fcc6352b95b46c2612",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存辺対応抽出.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存辺対応抽出.py",
+        "git_blob_sha": "857ea994aa1c5ac0d4a2b1d429d19bf2c1c54d25",
+        "bytes": 9523,
+        "sha256": "cc97bcd03e21575da786af4dd0b6f86b6c3b16c6139e66fcc6352b95b46c2612",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存部分見本転写.py",
+      "bytes": 6266,
+      "sha256": "8d1b8c390d22dfb9eedcdd3303e1e56dd54edfc97fe157a8259a16b37124f4d2",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存部分見本転写.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存部分見本転写.py",
+        "git_blob_sha": "6537f73d3a7b5568dcffa5370f4361e45facdb92",
+        "bytes": 6266,
+        "sha256": "8d1b8c390d22dfb9eedcdd3303e1e56dd54edfc97fe157a8259a16b37124f4d2",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存配置展開.py",
+      "bytes": 4192,
+      "sha256": "89a04069344c12418e15f08a100354fe21a9d1f0221bba9c073b19b00ece70dc",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存配置展開.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存配置展開.py",
+        "git_blob_sha": "cd3535e645a3bb24dc16c36833224a537efce1cb",
+        "bytes": 4192,
+        "sha256": "89a04069344c12418e15f08a100354fe21a9d1f0221bba9c073b19b00ece70dc",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存重畳組立.py",
+      "bytes": 10256,
+      "sha256": "708167bcf7cf20502570c519d69492b3bffa00f51ae9a55c6a1480b952eedf2b",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存重畳組立.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存重畳組立.py",
+        "git_blob_sha": "e3e5f14f4fb2f240e1b05b8010499055e58b2e0d",
+        "bytes": 10256,
+        "sha256": "708167bcf7cf20502570c519d69492b3bffa00f51ae9a55c6a1480b952eedf2b",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存順位着色.py",
+      "bytes": 5888,
+      "sha256": "c66a6f7e90af955c8e2ec414c2abc780a0a9adeb56321b703365633d2461356a",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存順位着色.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存順位着色.py",
+        "git_blob_sha": "30d2abaccb8db13ba3b25a4246effc021c20602a",
+        "bytes": 5888,
+        "sha256": "c66a6f7e90af955c8e2ec414c2abc780a0a9adeb56321b703365633d2461356a",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/既存領域転写.py",
+      "bytes": 13443,
+      "sha256": "76a73e2228f7546a2ad22c30dfaf6550a494d3ee40cffdb22926afa4d75fe304",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/既存領域転写.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/既存領域転写.py",
+        "git_blob_sha": "d40e65f5004023583395ef7a8456635ead072dd4",
+        "bytes": 13443,
+        "sha256": "76a73e2228f7546a2ad22c30dfaf6550a494d3ee40cffdb22926afa4d75fe304",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/枠列整列教材.py",
+      "bytes": 8107,
+      "sha256": "3e3aee7d38e3dda032c50b56f1e2e06f3ee883900062bc3c4fe81ef0f26bf340",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/枠列整列教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/枠列整列教材.py",
+        "git_blob_sha": "724f4491bcbbec4766c8fe8033b8ccbcb13fedae",
+        "bytes": 8107,
+        "sha256": "3e3aee7d38e3dda032c50b56f1e2e06f3ee883900062bc3c4fe81ef0f26bf340",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/枠計数教材.py",
+      "bytes": 5227,
+      "sha256": "2af0fcf6bf5385d015aa57a813436db1e76f708799a3be7445242bcadd4d0c33",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/枠計数教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/枠計数教材.py",
+        "git_blob_sha": "2a99524febf168fe82c720855cf47002a45c8f02",
+        "bytes": 5227,
+        "sha256": "2af0fcf6bf5385d015aa57a813436db1e76f708799a3be7445242bcadd4d0c33",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/格子自己マスク.py",
+      "bytes": 4372,
+      "sha256": "fee2fc508917c5facb3f0f597e1e0b8027e3d011935624663f521b255c5d9675",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/格子自己マスク.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/格子自己マスク.py",
+        "git_blob_sha": "916c99fc1459c73da0121f5851672f958720c41a",
+        "bytes": 4372,
+        "sha256": "fee2fc508917c5facb3f0f597e1e0b8027e3d011935624663f521b255c5d9675",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/標点組立教材.py",
+      "bytes": 16326,
+      "sha256": "9132b78e33211bd57cd2b03cde90d83c6289ad399aa554ac7430680c6d848997",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/標点組立教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/標点組立教材.py",
+        "git_blob_sha": "f020afef4617a827e0df4a35a8673b4be7a3e976",
+        "bytes": 16326,
+        "sha256": "9132b78e33211bd57cd2b03cde90d83c6289ad399aa554ac7430680c6d848997",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/標識移動教材.py",
+      "bytes": 5937,
+      "sha256": "707e613c63b7ca281ef46eb7e90e7431d01d35d4135d41e452b29e15ca4f658c",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/標識移動教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/標識移動教材.py",
+        "git_blob_sha": "fd64cd7e62521539a7e6a9adbb7304b33a127179",
+        "bytes": 5937,
+        "sha256": "707e613c63b7ca281ef46eb7e90e7431d01d35d4135d41e452b29e15ca4f658c",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/標識組立教材.py",
+      "bytes": 6966,
+      "sha256": "1aa0d7098a869a7491bb498d729dcd8866dfaf682a85652ed5e0981e6cfb0130",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/標識組立教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/標識組立教材.py",
+        "git_blob_sha": "c1997009f31675044136aad05469d9189b757085",
+        "bytes": 6966,
+        "sha256": "1aa0d7098a869a7491bb498d729dcd8866dfaf682a85652ed5e0981e6cfb0130",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/標識計数教材.py",
+      "bytes": 4784,
+      "sha256": "556524c9b76de8912f17464ebfe5df3a4232f7358b4ec78553a8d020b2f60e71",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/標識計数教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/標識計数教材.py",
+        "git_blob_sha": "932e43dfe1b77718735b3b5553d1cf03392b5203",
+        "bytes": 4784,
+        "sha256": "556524c9b76de8912f17464ebfe5df3a4232f7358b4ec78553a8d020b2f60e71",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/櫛配置教材.py",
+      "bytes": 11040,
+      "sha256": "278912927f61bed2943c7193671379fa7e83c4098ecb48d49fee45da6b5060a0",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/櫛配置教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/櫛配置教材.py",
+        "git_blob_sha": "9105257c3ec8e73414b8bece2d6530229485ca1b",
+        "bytes": 11040,
+        "sha256": "278912927f61bed2943c7193671379fa7e83c4098ecb48d49fee45da6b5060a0",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/正方形格子教材.py",
+      "bytes": 7248,
+      "sha256": "d059e8d71972d37acf096ec157ddf48600ceb977bd6d42b8428a950d149353d6",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/正方形格子教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/正方形格子教材.py",
+        "git_blob_sha": "fe0d02fe4d442ac2cc2f1ae1353a6ef238127a44",
+        "bytes": 7248,
+        "sha256": "d059e8d71972d37acf096ec157ddf48600ceb977bd6d42b8428a950d149353d6",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/流路教材.py",
+      "bytes": 5175,
+      "sha256": "041440b1d6ad157f89d423d87036a7239f6fc7bca1a8ec85c88eb731aa1d73e2",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/流路教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/流路教材.py",
+        "git_blob_sha": "2746b45fe8529dc3a71c79b2741d133ec0cb09f4",
+        "bytes": 5175,
+        "sha256": "041440b1d6ad157f89d423d87036a7239f6fc7bca1a8ec85c88eb731aa1d73e2",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/物体slot教材.py",
+      "bytes": 8872,
+      "sha256": "cc2e57f365a052befd7189444bb49be1a518e120666c7acac93c4fe9161eb2d2",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/物体slot教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/物体slot教材.py",
+        "git_blob_sha": "6991c126f6a4d144dae989926f1bb0107519c72f",
+        "bytes": 8872,
+        "sha256": "cc2e57f365a052befd7189444bb49be1a518e120666c7acac93c4fe9161eb2d2",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/物体端投射.py",
+      "bytes": 4142,
+      "sha256": "7539bfb42258fed95e6cd54b025ab3d6be9edb6f7391415d310262ce414e4778",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/物体端投射.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/物体端投射.py",
+        "git_blob_sha": "a843f2929c9b9df62dc205db1f35928ac3f9f210",
+        "bytes": 4142,
+        "sha256": "7539bfb42258fed95e6cd54b025ab3d6be9edb6f7391415d310262ce414e4778",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/物体群整列.py",
+      "bytes": 8082,
+      "sha256": "15dbd63f269e11310c2567c77e77cfee9a2f7bb663a707738301ac5181d79895",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/物体群整列.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/物体群整列.py",
+        "git_blob_sha": "90f51f4bee7679f19286f06f65de1625dfcb02f5",
+        "bytes": 8082,
+        "sha256": "15dbd63f269e11310c2567c77e77cfee9a2f7bb663a707738301ac5181d79895",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/疎点転写教材.py",
+      "bytes": 10954,
+      "sha256": "e540b85b1cb38265d832539e7083886ffcd28ae1e00c722af1109cde5733663d",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/疎点転写教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/疎点転写教材.py",
+        "git_blob_sha": "84775235b6c50fc5dbf1e8ca1aef23bd44951ed3",
+        "bytes": 10954,
+        "sha256": "e540b85b1cb38265d832539e7083886ffcd28ae1e00c722af1109cde5733663d",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/種境界教材.py",
+      "bytes": 5477,
+      "sha256": "c477ccd6206d1e9ef3bf850479adcb0b4998ed6285950d485393a55f2299f87c",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/種境界教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/種境界教材.py",
+        "git_blob_sha": "446a53df1e4b549eeced38c01bc24153287a9935",
+        "bytes": 5477,
+        "sha256": "c477ccd6206d1e9ef3bf850479adcb0b4998ed6285950d485393a55f2299f87c",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/穴形拡大教材.py",
+      "bytes": 2330,
+      "sha256": "6340fec9a292ccfbdde90582b6997ab4aa6c6d109bb4730e9454a5e33006bc87",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/穴形拡大教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/穴形拡大教材.py",
+        "git_blob_sha": "8f50368918c846d3642683208de6568a36470dc6",
+        "bytes": 2330,
+        "sha256": "6340fec9a292ccfbdde90582b6997ab4aa6c6d109bb4730e9454a5e33006bc87",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/穴輪郭教材.py",
+      "bytes": 3716,
+      "sha256": "2fc85f714f602b7d3dbc0a15123bc2e7b1cc0eccd1508e418e0489471fee8883",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/穴輪郭教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/穴輪郭教材.py",
+        "git_blob_sha": "be7142f4a2e0cb01b5e948a9ecf6d97d0a418a7a",
+        "bytes": 3716,
+        "sha256": "2fc85f714f602b7d3dbc0a15123bc2e7b1cc0eccd1508e418e0489471fee8883",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/空白移動教材.py",
+      "bytes": 3936,
+      "sha256": "2de00c7f31a1833700fb11aa0f1d4e491f8243a0e4c2a782c1bbdac8e6a99483",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/空白移動教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/空白移動教材.py",
+        "git_blob_sha": "4a4488ebc8c0440b3ca555ad06f61f5b53f418f1",
+        "bytes": 3936,
+        "sha256": "2de00c7f31a1833700fb11aa0f1d4e491f8243a0e4c2a782c1bbdac8e6a99483",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/色群充填.py",
+      "bytes": 3196,
+      "sha256": "80efc7cc6813a9837ee51c110362483314fb7c6fca60ff3e6ca77ca333a6ae81",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/色群充填.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/色群充填.py",
+        "git_blob_sha": "699c479dcab524949e214b1cf340f655aa5ba639",
+        "bytes": 3196,
+        "sha256": "80efc7cc6813a9837ee51c110362483314fb7c6fca60ff3e6ca77ca333a6ae81",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/行周期教材.py",
+      "bytes": 3742,
+      "sha256": "946d11e0b7bf96da548236bb4a790eec18b42b429dca9cb0e933f72cee8ad811",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/行周期教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/行周期教材.py",
+        "git_blob_sha": "995df0098576d1f3a1ffcc96a40d536b1dc13433",
+        "bytes": 3742,
+        "sha256": "946d11e0b7bf96da548236bb4a790eec18b42b429dca9cb0e933f72cee8ad811",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/記号命令教材.py",
+      "bytes": 12829,
+      "sha256": "71c822a941f1b066e09cbde4267dd8076f280487724b0588fbaa0458bfcfe968",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/記号命令教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/記号命令教材.py",
+        "git_blob_sha": "acd12e52daca32402667b8cc2616c3cd1b7cf57c",
+        "bytes": 12829,
+        "sha256": "71c822a941f1b066e09cbde4267dd8076f280487724b0588fbaa0458bfcfe968",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/象限配色教材.py",
+      "bytes": 6270,
+      "sha256": "4895fdd6c07fafdf0df4b31daed0b73cc230cdcf705f3dfe8279145ad09db172",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/象限配色教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/象限配色教材.py",
+        "git_blob_sha": "403a8a8b671ad31640a560127c92732fde70392e",
+        "bytes": 6270,
+        "sha256": "4895fdd6c07fafdf0df4b31daed0b73cc230cdcf705f3dfe8279145ad09db172",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/距離回収候補.py",
+      "bytes": 11827,
+      "sha256": "96c19905552297b8065896f29e4fa9278573f9b8df1cec9db21963831ff5362e",
+      "storage": "delta_archive",
+      "archive_member": "sources/repository/接続/ARC2/距離回収候補.py"
+    },
+    {
+      "path": "sources/repository/接続/ARC2/距離回収教材.py",
+      "bytes": 2966,
+      "sha256": "2fb81e33b59b2f762cd90a5b3f0cf847160ce985e1dd667a83c1415bdf7348cf",
+      "storage": "delta_archive",
+      "archive_member": "sources/repository/接続/ARC2/距離回収教材.py"
+    },
+    {
+      "path": "sources/repository/接続/ARC2/距離層教材.py",
+      "bytes": 4105,
+      "sha256": "e25f0a0b2017c72e33f24a68e7bc0a188b6d9992c7d03a75ff2485209e4fbc5a",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/距離層教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/距離層教材.py",
+        "git_blob_sha": "c3c4321bca9bc2ff221a7a0d4f244e36d167acd3",
+        "bytes": 4105,
+        "sha256": "e25f0a0b2017c72e33f24a68e7bc0a188b6d9992c7d03a75ff2485209e4fbc5a",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/軸反射教材.py",
+      "bytes": 3378,
+      "sha256": "e7f7d13133ffd9d42b672bafb602ac1048f823053a04f23fe60531868428597e",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/軸反射教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/軸反射教材.py",
+        "git_blob_sha": "0113e98c870bd0dfd672e162289372358eb467d8",
+        "bytes": 3378,
+        "sha256": "e7f7d13133ffd9d42b672bafb602ac1048f823053a04f23fe60531868428597e",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/軸投射教材.py",
+      "bytes": 8388,
+      "sha256": "4e30a5ccc4ce1e1e88805ceb32af33b1407b9735467bebc3bdfad247d559879d",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/軸投射教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/軸投射教材.py",
+        "git_blob_sha": "5a92b60b5fd32c62983642cc7608b15f50f14b21",
+        "bytes": 8388,
+        "sha256": "4e30a5ccc4ce1e1e88805ceb32af33b1407b9735467bebc3bdfad247d559879d",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/遮蔽区画教材.py",
+      "bytes": 19259,
+      "sha256": "9f636f450bdadde750312b6ea93c4ab9d2a060320ecfabc40ef19317a942bec4",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/遮蔽区画教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/遮蔽区画教材.py",
+        "git_blob_sha": "18627c9f56b248a106abdbea5865c188db69a31e",
+        "bytes": 19259,
+        "sha256": "9f636f450bdadde750312b6ea93c4ab9d2a060320ecfabc40ef19317a942bec4",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/部分見本教材.py",
+      "bytes": 2170,
+      "sha256": "f5485c5b08a6daab6bdc95c92ff4234dd152fbde7172291625b158d3269b2ceb",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/部分見本教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/部分見本教材.py",
+        "git_blob_sha": "56e59a1665ba59dda53690c65db79978c7f32356",
+        "bytes": 2170,
+        "sha256": "f5485c5b08a6daab6bdc95c92ff4234dd152fbde7172291625b158d3269b2ceb",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/配置展開教材.py",
+      "bytes": 5513,
+      "sha256": "939cace016e9a428dbd888bf743f4f4ea7a86c953ed54397172a7f25d70a9e54",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/配置展開教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/配置展開教材.py",
+        "git_blob_sha": "3d0436f977fdebc13ffca83fb30a958ca64b00d2",
+        "bytes": 5513,
+        "sha256": "939cace016e9a428dbd888bf743f4f4ea7a86c953ed54397172a7f25d70a9e54",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/重畳組立教材.py",
+      "bytes": 6859,
+      "sha256": "9781da7ae0d5af5acb8769b109cd46c0411ec959a6b6264aaacafc491e40f3bc",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/重畳組立教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/重畳組立教材.py",
+        "git_blob_sha": "4343c4e613089bb303f8018c99691a918ef82be6",
+        "bytes": 6859,
+        "sha256": "9781da7ae0d5af5acb8769b109cd46c0411ec959a6b6264aaacafc491e40f3bc",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/開口壁教材.py",
+      "bytes": 13758,
+      "sha256": "bfd0d8bdc8622ccdbd95f0e951feca097dba89c6f7a8436252fd6b261b9a0d23",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/開口壁教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/開口壁教材.py",
+        "git_blob_sha": "0f2b4aa2286f9d5df0dad47b6e0d88c2e2631fb9",
+        "bytes": 13758,
+        "sha256": "bfd0d8bdc8622ccdbd95f0e951feca097dba89c6f7a8436252fd6b261b9a0d23",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/接続/ARC2/順位着色教材.py",
+      "bytes": 3675,
+      "sha256": "c1027423bd169ae0837fe04c5ccd71d96b084858fa7ee6d049c2c9bcabac7143",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/接続/ARC2/順位着色教材.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "接続/ARC2/順位着色教材.py",
+        "git_blob_sha": "29246a9b4c00645bf426bea06e7c51f34d7895e1",
+        "bytes": 3675,
+        "sha256": "c1027423bd169ae0837fe04c5ccd71d96b084858fa7ee6d049c2c9bcabac7143",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/ARC2評価.py",
+      "bytes": 5571,
+      "sha256": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/ARC2評価.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/ARC2評価.py",
+        "git_blob_sha": "b16f140609d7b49b90d1b42a2ac3ec0e33438749",
+        "bytes": 5571,
+        "sha256": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/fixtures/距離回収教師.json",
+      "bytes": 11099,
+      "sha256": "9039c1e539639ff674bbe16490e9ef2dfb69fc0ae20102d7098f19a87b53d2a0",
+      "storage": "delta_archive",
+      "archive_member": "sources/repository/検証/fixtures/距離回収教師.json"
+    },
+    {
+      "path": "sources/repository/検証/同一学習機械保持/README.md",
+      "bytes": 6319,
+      "sha256": "38defd6777540e2b073ff5a3f9e0e84d71c642c54dcbd87a87b967abed96720f",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/同一学習機械保持/README.md",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/同一学習機械保持/README.md",
+        "git_blob_sha": "ae78d9132b1120c46417915056837a891db72a7e",
+        "bytes": 6319,
+        "sha256": "38defd6777540e2b073ff5a3f9e0e84d71c642c54dcbd87a87b967abed96720f",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/同一学習機械保持/artifact-manifest.json",
+      "bytes": 7945,
+      "sha256": "de7e7010549fbfd9b6bcb591545c7652d960d423e294abe9447c1e3cc1cda5ee",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/同一学習機械保持/artifact-manifest.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/同一学習機械保持/artifact-manifest.json",
+        "git_blob_sha": "8bcb73a14b0cb10f5c5d9318431db7fdafd8490c",
+        "bytes": 7945,
+        "sha256": "de7e7010549fbfd9b6bcb591545c7652d960d423e294abe9447c1e3cc1cda5ee",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/同一学習機械保持/independent-review/reviewer-earliest-retention-failure.json",
+      "bytes": 53082,
+      "sha256": "04e288790dabb550cfdb579f31394b9431c445d0d9926c99d2b89b8bfa688a7c",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/同一学習機械保持/independent-review/reviewer-earliest-retention-failure.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/同一学習機械保持/independent-review/reviewer-earliest-retention-failure.json",
+        "git_blob_sha": "4e43f468cee0ab73c8eda4b0515434b356febecf",
+        "bytes": 53082,
+        "sha256": "04e288790dabb550cfdb579f31394b9431c445d0d9926c99d2b89b8bfa688a7c",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/同一学習機械保持/independent-review/reviewer-retention-final-audit.json",
+      "bytes": 7667,
+      "sha256": "6338be50f120c16ba81d0a50b2d9c0269279bebcc447891e34a168f0c91ba03b",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/同一学習機械保持/independent-review/reviewer-retention-final-audit.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/同一学習機械保持/independent-review/reviewer-retention-final-audit.json",
+        "git_blob_sha": "5b2fe8b5fdd58e66ce8d1936b7005759bef32939",
+        "bytes": 7667,
+        "sha256": "6338be50f120c16ba81d0a50b2d9c0269279bebcc447891e34a168f0c91ba03b",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/同一学習機械保持/native-v2/freeze.json",
+      "bytes": 18776,
+      "sha256": "d9a04a3d00ab1248702ce53ad136c3ea0c0659ad38bb71b541f02ee206096d95",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/同一学習機械保持/native-v2/freeze.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/同一学習機械保持/native-v2/freeze.json",
+        "git_blob_sha": "7215538954856ca6bf69fcee660571f7ff3fc211",
+        "bytes": 18776,
+        "sha256": "d9a04a3d00ab1248702ce53ad136c3ea0c0659ad38bb71b541f02ee206096d95",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/同一学習機械保持/retention-study/earliest-failure-evidence.json",
+      "bytes": 146287,
+      "sha256": "e750b69c0aaee8f797e3259ccf3e654efa83a5141d25264c87b764a26711965b",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/同一学習機械保持/retention-study/earliest-failure-evidence.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/同一学習機械保持/retention-study/earliest-failure-evidence.json",
+        "git_blob_sha": "acb642b0c8d515eac082af59fdd2b26340f6fe3c",
+        "bytes": 146287,
+        "sha256": "e750b69c0aaee8f797e3259ccf3e654efa83a5141d25264c87b764a26711965b",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/同一学習機械保持/retention-study/observe_retention.py",
+      "bytes": 23346,
+      "sha256": "483953c637cb85e6baefb4bdff86c8f3e4a96ebbec11f12cd4b4f249d4316f28",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/同一学習機械保持/retention-study/observe_retention.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/同一学習機械保持/retention-study/observe_retention.py",
+        "git_blob_sha": "65a3f6a581d24d596e54bbb9086af0ede90f1ffa",
+        "bytes": 23346,
+        "sha256": "483953c637cb85e6baefb4bdff86c8f3e4a96ebbec11f12cd4b4f249d4316f28",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/同一学習機械保持/retention-study/protocol-v1.json",
+      "bytes": 12724,
+      "sha256": "ab08b916cb952f59f9ec3c0d0527db56028d8ad4bc74fe737c8e06d16751f783",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/同一学習機械保持/retention-study/protocol-v1.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/同一学習機械保持/retention-study/protocol-v1.json",
+        "git_blob_sha": "35458a988363d7d20cc9d444089b37336c1b4439",
+        "bytes": 12724,
+        "sha256": "ab08b916cb952f59f9ec3c0d0527db56028d8ad4bc74fe737c8e06d16751f783",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/after-67-ledger-digests.json",
+      "bytes": 3274,
+      "sha256": "83c50a1e56639f1c67ff5fc2388dae178ef2d3ce7d1bb02074cee865845c74b1",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/after-67-ledger-digests.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/同一学習機械保持/retention-study/run-v1/after-67-ledger-digests.json",
+        "git_blob_sha": "86ad8c64b1f6143c5cf433e72500954cab186292",
+        "bytes": 3274,
+        "sha256": "83c50a1e56639f1c67ff5fc2388dae178ef2d3ce7d1bb02074cee865845c74b1",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/after-lifecycle-memory-retention.json",
+      "bytes": 15650,
+      "sha256": "77955440fe4e2535b253cc9605ab9108528819cee7460e585e344bb00124c6d0",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/after-lifecycle-memory-retention.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/同一学習機械保持/retention-study/run-v1/after-lifecycle-memory-retention.json",
+        "git_blob_sha": "85a9b56ce0f803042ed3faaa7681466a3866c81f",
+        "bytes": 15650,
+        "sha256": "77955440fe4e2535b253cc9605ab9108528819cee7460e585e344bb00124c6d0",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/baseline-current-principles.json",
+      "bytes": 9423,
+      "sha256": "6588586e19797d92f9fac71074dfb770b1167588d8a74a03ff7c659e62d81510",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/baseline-current-principles.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/同一学習機械保持/retention-study/run-v1/baseline-current-principles.json",
+        "git_blob_sha": "039e69dc9b7120fba9fce737a2427b26a49a333d",
+        "bytes": 9423,
+        "sha256": "6588586e19797d92f9fac71074dfb770b1167588d8a74a03ff7c659e62d81510",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/baseline-ledger-digests.json",
+      "bytes": 3222,
+      "sha256": "54808e55565bfd6273ad3cef0ed52447618d75e448e0e20ceead1a1d8c603695",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/baseline-ledger-digests.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/同一学習機械保持/retention-study/run-v1/baseline-ledger-digests.json",
+        "git_blob_sha": "e34d61f88b9dc4dcf542940301ce75957542a29a",
+        "bytes": 3222,
+        "sha256": "54808e55565bfd6273ad3cef0ed52447618d75e448e0e20ceead1a1d8c603695",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/baseline-result.json",
+      "bytes": 10790,
+      "sha256": "9f97be5756760c97011192916984e132d688629c393bce8c1490821fb02171b9",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/baseline-result.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/同一学習機械保持/retention-study/run-v1/baseline-result.json",
+        "git_blob_sha": "3aea6855dc850ed7bea52590cbba265ca20f937a",
+        "bytes": 10790,
+        "sha256": "9f97be5756760c97011192916984e132d688629c393bce8c1490821fb02171b9",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/final-report.json",
+      "bytes": 439310,
+      "sha256": "afc4ee23f1b62d0733b181113eadfe6de43afd4ba8fe9ee61ddbd748887821ac",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/final-report.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/同一学習機械保持/retention-study/run-v1/final-report.json",
+        "git_blob_sha": "88cdb62c06ae98ae2a96cd68952084ea316b5a26",
+        "bytes": 439310,
+        "sha256": "afc4ee23f1b62d0733b181113eadfe6de43afd4ba8fe9ee61ddbd748887821ac",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/freeze.json",
+      "bytes": 206017,
+      "sha256": "8595cafbceb2c64e1123ace964248cdbb852ecba6505c5671f57feac63182511",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/freeze.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/同一学習機械保持/retention-study/run-v1/freeze.json",
+        "git_blob_sha": "c99b4b9e6e8c443b51204040dcbf4f16d1c622c2",
+        "bytes": 206017,
+        "sha256": "8595cafbceb2c64e1123ace964248cdbb852ecba6505c5671f57feac63182511",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/probe-batches.json",
+      "bytes": 530417,
+      "sha256": "1689a82e55e1a534f82993bd907e7f09254e2c55db986dcaf2ca4f2b1bfba192",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/probe-batches.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/同一学習機械保持/retention-study/run-v1/probe-batches.json",
+        "git_blob_sha": "c89d6c0cd824ab520524a13e4b607ea437271f8b",
+        "bytes": 530417,
+        "sha256": "1689a82e55e1a534f82993bd907e7f09254e2c55db986dcaf2ca4f2b1bfba192",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/raw-native-results.jsonl.gz",
+      "bytes": 5672592,
+      "sha256": "042477e9d83dcf1c098ec240bd3692ae8a57a1726e70f0d9be0a46ec45437c00",
+      "decoded_bytes": 181637812,
+      "decoded_sha256": "be6046209a9e8ecdb4aea0641d48041c68f21a33e06fb086b21e90cc9606f7a2",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/raw-native-results.jsonl.gz",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/同一学習機械保持/retention-study/run-v1/raw-native-results.jsonl.gz",
+        "git_blob_sha": "a1b194ab1f9ac98eab2e828f7ea6a6f0bfe6e04a",
+        "bytes": 5672592,
+        "sha256": "042477e9d83dcf1c098ec240bd3692ae8a57a1726e70f0d9be0a46ec45437c00",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/track-A-current-principles.json.gz",
+      "bytes": 1942263,
+      "sha256": "9822cda648d12ed42ae461f04ea25d5b70d615b03319a4f0d906c76a44303739",
+      "decoded_bytes": 17392519,
+      "decoded_sha256": "a68f6f3fa060dcc907b8230d25253c3e513c7f9f8f69df317a6fd67ce380cbd9",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/track-A-current-principles.json.gz",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/同一学習機械保持/retention-study/run-v1/track-A-current-principles.json.gz",
+        "git_blob_sha": "2a7e83f4f5daa3bf94ac894be46a9d5f579eee82",
+        "bytes": 1942263,
+        "sha256": "9822cda648d12ed42ae461f04ea25d5b70d615b03319a4f0d906c76a44303739",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/track-A-cycle-summary.json",
+      "bytes": 200,
+      "sha256": "5504abdedcbf6acc5f7b5d18ac20d069e6eaaf1692f1af91e34de849df6eecb5",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/track-A-cycle-summary.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/同一学習機械保持/retention-study/run-v1/track-A-cycle-summary.json",
+        "git_blob_sha": "6f26e1aecd20c086e4b396df7c2fade2d304e799",
+        "bytes": 200,
+        "sha256": "5504abdedcbf6acc5f7b5d18ac20d069e6eaaf1692f1af91e34de849df6eecb5",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/track-A-memory-retention.json",
+      "bytes": 15650,
+      "sha256": "77955440fe4e2535b253cc9605ab9108528819cee7460e585e344bb00124c6d0",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/track-A-memory-retention.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/同一学習機械保持/retention-study/run-v1/track-A-memory-retention.json",
+        "git_blob_sha": "85a9b56ce0f803042ed3faaa7681466a3866c81f",
+        "bytes": 15650,
+        "sha256": "77955440fe4e2535b253cc9605ab9108528819cee7460e585e344bb00124c6d0",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/track-A-principle-boundary-index.json",
+      "bytes": 210634,
+      "sha256": "e950ae52cb1b04b682fda4f7afc7354f407a70dea1245bd953b394fe68d437a9",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/track-A-principle-boundary-index.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/同一学習機械保持/retention-study/run-v1/track-A-principle-boundary-index.json",
+        "git_blob_sha": "f0ecd55e425b60953221363523d867b49f20fc88",
+        "bytes": 210634,
+        "sha256": "e950ae52cb1b04b682fda4f7afc7354f407a70dea1245bd953b394fe68d437a9",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/track-A-result.json",
+      "bytes": 1265800,
+      "sha256": "f9bb5a43ec1dd91c84557f9ce881ec5b673784065ef11204743d32596e69791e",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1/track-A-result.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/同一学習機械保持/retention-study/run-v1/track-A-result.json",
+        "git_blob_sha": "e63302db5bdc8b5af6dff8a64570df89ab505cd6",
+        "bytes": 1265800,
+        "sha256": "f9bb5a43ec1dd91c84557f9ce881ec5b673784065ef11204743d32596e69791e",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1.stdout",
+      "bytes": 9424,
+      "sha256": "d65664101d5dff6495974d977542a262d00b6a10d4b07fe94513e1876a436003",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/同一学習機械保持/retention-study/run-v1.stdout",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/同一学習機械保持/retention-study/run-v1.stdout",
+        "git_blob_sha": "1ea6d038b3c932b7871bce6279961aa46eb789ba",
+        "bytes": 9424,
+        "sha256": "d65664101d5dff6495974d977542a262d00b6a10d4b07fe94513e1876a436003",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/同一学習機械保持/summary.json",
+      "bytes": 1409,
+      "sha256": "9fb62dd3b936c4e26b2ebfc6438ee5a885cb0889debbe4bf066115861ac0b3c7",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/同一学習機械保持/summary.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/同一学習機械保持/summary.json",
+        "git_blob_sha": "6a2ff426792b1d90d7da1f9536c96dcf0ef98a2d",
+        "bytes": 1409,
+        "sha256": "9fb62dd3b936c4e26b2ebfc6438ee5a885cb0889debbe4bf066115861ac0b3c7",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/学習規則再観測比較.json",
+      "bytes": 1420882,
+      "sha256": "1f0b4d5a51fcd72b864c480f2458ff26a801ff97b8878d8b98ac1887adb3c13e",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/学習規則再観測比較.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/学習規則再観測比較.json",
+        "git_blob_sha": "6c385594e8992e7e967b5a426247cf5c9f27aedd",
+        "bytes": 1420882,
+        "sha256": "1f0b4d5a51fcd72b864c480f2458ff26a801ff97b8878d8b98ac1887adb3c13e",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/学習規則再観測監査.md",
+      "bytes": 7999,
+      "sha256": "322aa1c31880efa3f73b853202a18907c56a759cbf85c8974d09ce85cdae4efa",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/学習規則再観測監査.md",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/学習規則再観測監査.md",
+        "git_blob_sha": "4dc7c3b36ae1cb0a1b8fbb026a2d37e8625d9389",
+        "bytes": 7999,
+        "sha256": "322aa1c31880efa3f73b853202a18907c56a759cbf85c8974d09ce85cdae4efa",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/棄却001_矩形遮蔽/README.md",
+      "bytes": 3658,
+      "sha256": "8da0c68e98ec1552394914a8584f961c777d9c89d21494b4186e7cffcfc93fc3",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/棄却001_矩形遮蔽/README.md",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/棄却001_矩形遮蔽/README.md",
+        "git_blob_sha": "0648847a5e5c55de9b8b4d516b5a70d7b7592e48",
+        "bytes": 3658,
+        "sha256": "8da0c68e98ec1552394914a8584f961c777d9c89d21494b4186e7cffcfc93fc3",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/棄却001_矩形遮蔽/manifest.json",
+      "bytes": 1800,
+      "sha256": "c48ed4081968170a68b9a6076b1b509bffa90dea903bce4807748acaeb9b22ff",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/棄却001_矩形遮蔽/manifest.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/棄却001_矩形遮蔽/manifest.json",
+        "git_blob_sha": "f13c88d53b4ef641dc03638b375d347332b3b007",
+        "bytes": 1800,
+        "sha256": "c48ed4081968170a68b9a6076b1b509bffa90dea903bce4807748acaeb9b22ff",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/棄却001_矩形遮蔽/reviewer-attempt001-rollback.json",
+      "bytes": 8957,
+      "sha256": "13d22396b9b2bedab8d40e4ad7f57f3f3e851aed2dce6777d57a89bac5c9f034",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/棄却001_矩形遮蔽/reviewer-attempt001-rollback.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/棄却001_矩形遮蔽/reviewer-attempt001-rollback.json",
+        "git_blob_sha": "9f8c8c0d13d72c50f94b8252cc752538d09cd39d",
+        "bytes": 8957,
+        "sha256": "13d22396b9b2bedab8d40e4ad7f57f3f3e851aed2dce6777d57a89bac5c9f034",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/棄却001_矩形遮蔽/reviewer-masked-crop-postrejection-score.json",
+      "bytes": 1341,
+      "sha256": "3dae871b9a7ed4b79909abd0090044c06954b5df47c9ce7318d2588af785efe8",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/棄却001_矩形遮蔽/reviewer-masked-crop-postrejection-score.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/棄却001_矩形遮蔽/reviewer-masked-crop-postrejection-score.json",
+        "git_blob_sha": "62b59cd0a90258062f50497ad8bfc6a52227c66d",
+        "bytes": 1341,
+        "sha256": "3dae871b9a7ed4b79909abd0090044c06954b5df47c9ce7318d2588af785efe8",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/棄却001_矩形遮蔽/reviewer-masked-crop-prequery.json",
+      "bytes": 8134,
+      "sha256": "34e128db6f3d258547d42a706f286964071b6d24ec9f9d9ddb7e6a0e75afd175",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/棄却001_矩形遮蔽/reviewer-masked-crop-prequery.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/棄却001_矩形遮蔽/reviewer-masked-crop-prequery.json",
+        "git_blob_sha": "958f709aa70f5e6e81475386b6d7e01abc645a6e",
+        "bytes": 8134,
+        "sha256": "34e128db6f3d258547d42a706f286964071b6d24ec9f9d9ddb7e6a0e75afd175",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/棄却001_矩形遮蔽/reviewer-masked-crop-query-release.json",
+      "bytes": 1990,
+      "sha256": "f53afb06aba28b441e9d56271c4bcaa8f922c5dddba134a5eacc1d14f23878ff",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/棄却001_矩形遮蔽/reviewer-masked-crop-query-release.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/棄却001_矩形遮蔽/reviewer-masked-crop-query-release.json",
+        "git_blob_sha": "4cead09e90fbb3a21bff632c91e535950f2762ef",
+        "bytes": 1990,
+        "sha256": "f53afb06aba28b441e9d56271c4bcaa8f922c5dddba134a5eacc1d14f23878ff",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/棄却001_矩形遮蔽/reviewer-masked-crop-rejection.json",
+      "bytes": 1745,
+      "sha256": "bd67f35e15f12d17ee7c100f3eccd5f95573d823b9230dae334c4d4636430180",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/棄却001_矩形遮蔽/reviewer-masked-crop-rejection.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/棄却001_矩形遮蔽/reviewer-masked-crop-rejection.json",
+        "git_blob_sha": "ed0518c3e9b4f2fb67dbe5b682f9775997340942",
+        "bytes": 1745,
+        "sha256": "bd67f35e15f12d17ee7c100f3eccd5f95573d823b9230dae334c4d4636430180",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/棄却001_矩形遮蔽/全標本manifest.json",
+      "bytes": 8390,
+      "sha256": "617201aec2434bdfc98026c096d833cb6b51b784a0dc8762601b405fd4707543",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/棄却001_矩形遮蔽/全標本manifest.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/棄却001_矩形遮蔽/全標本manifest.json",
+        "git_blob_sha": "5bf6ec8ad24b05d02bb4685fa4c086c63f07a62b",
+        "bytes": 8390,
+        "sha256": "617201aec2434bdfc98026c096d833cb6b51b784a0dc8762601b405fd4707543",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/棄却001_矩形遮蔽/凍結候補と全標本.tar.gz",
+      "bytes": 722121,
+      "sha256": "cca11c054b4290a93bb956c60502a42c942bc860114871ee5a417ed26ceb8610",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/棄却001_矩形遮蔽/凍結候補と全標本.tar.gz",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/棄却001_矩形遮蔽/凍結候補と全標本.tar.gz",
+        "git_blob_sha": "18db0f09d931eb803830c40c81ea0531f3bb65d2",
+        "bytes": 722121,
+        "sha256": "cca11c054b4290a93bb956c60502a42c942bc860114871ee5a417ed26ceb8610",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/棄却001_矩形遮蔽/判定時系列.json",
+      "bytes": 1268,
+      "sha256": "1c31e41e5d9c66f3f92049df2535a1db764330f10f2088cdf69f074c3534718a",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/棄却001_矩形遮蔽/判定時系列.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/棄却001_矩形遮蔽/判定時系列.json",
+        "git_blob_sha": "403f7fe60d0d896ec0897bffee937beeb8650ab8",
+        "bytes": 1268,
+        "sha256": "1c31e41e5d9c66f3f92049df2535a1db764330f10f2088cdf69f074c3534718a",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/棄却001_矩形遮蔽/実行手順失敗.json",
+      "bytes": 1626,
+      "sha256": "b6c993d5c45ba679ec6860918c07b8b531b22454001db61dfa2824797e5f1334",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/棄却001_矩形遮蔽/実行手順失敗.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/棄却001_矩形遮蔽/実行手順失敗.json",
+        "git_blob_sha": "5d27d8643c846468f806c12d52bc576714837dcd",
+        "bytes": 1626,
+        "sha256": "b6c993d5c45ba679ec6860918c07b8b531b22454001db61dfa2824797e5f1334",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/README.md",
+      "bytes": 5249,
+      "sha256": "7a12b7e73845fe6842b0ef1e93c890cc12b811cfee119d3c588f1b664becd911",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/README.md",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/README.md",
+        "git_blob_sha": "539eb5ab9658727e9b7aac122c69d3292e3ee1c5",
+        "bytes": 5249,
+        "sha256": "7a12b7e73845fe6842b0ef1e93c890cc12b811cfee119d3c588f1b664becd911",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/manifest.json",
+      "bytes": 5126,
+      "sha256": "fa9f3fa0445768e9f6996a5874c8ef937cd5efc1b5248f7ad4b11b8c884591a8",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/manifest.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/manifest.json",
+        "git_blob_sha": "07b075ce113a81a626475ac7039a379b334a49f9",
+        "bytes": 5126,
+        "sha256": "fa9f3fa0445768e9f6996a5874c8ef937cd5efc1b5248f7ad4b11b8c884591a8",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/replay_v2_v3完全比較.json",
+      "bytes": 306,
+      "sha256": "8f999124a96248d7d28f6160b8f804c2c6472a66d724ae57c4d6457e5b16ad58",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/replay_v2_v3完全比較.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/replay_v2_v3完全比較.json",
+        "git_blob_sha": "64e4974fa71751bfa907bb4e21dc80a70cbfda55",
+        "bytes": 306,
+        "sha256": "8f999124a96248d7d28f6160b8f804c2c6472a66d724ae57c4d6457e5b16ad58",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/replay凍結.json",
+      "bytes": 14804,
+      "sha256": "f690e7d63c83ecf97720ed32d4c428c86766270d3c9b594d61d3a1af8f44f68f",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/replay凍結.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/replay凍結.json",
+        "git_blob_sha": "8f8f91f0e84b063f1cdc5ef5c474a8b328adaa09",
+        "bytes": 14804,
+        "sha256": "f690e7d63c83ecf97720ed32d4c428c86766270d3c9b594d61d3a1af8f44f68f",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/replay凍結_v3.json",
+      "bytes": 14804,
+      "sha256": "68155174144fcf0917cd286bc41339f09904fa851e92fcb622069e2e1e56e230",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/replay凍結_v3.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/replay凍結_v3.json",
+        "git_blob_sha": "9b7e1f1dcdb9af807804d2f2ece8433dfd00d128",
+        "bytes": 14804,
+        "sha256": "68155174144fcf0917cd286bc41339f09904fa851e92fcb622069e2e1e56e230",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/replay要約.json",
+      "bytes": 607,
+      "sha256": "41bd98a0bf20ae419b36f95d194f984052d4424ebf36a6bcd74eca8f12bbd8e0",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/replay要約.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/replay要約.json",
+        "git_blob_sha": "30034cb130efbbdd5a3622972afbea2dce8fe4b9",
+        "bytes": 607,
+        "sha256": "41bd98a0bf20ae419b36f95d194f984052d4424ebf36a6bcd74eca8f12bbd8e0",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/replay要約_v3.json",
+      "bytes": 607,
+      "sha256": "85388915675f526adaaf768c17e19b60d9380c5fddd2884bc12749e1b9707b21",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/replay要約_v3.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/replay要約_v3.json",
+        "git_blob_sha": "7a51fb50624cfbfcd272891b9fdb3bec3a9db0fc",
+        "bytes": 607,
+        "sha256": "85388915675f526adaaf768c17e19b60d9380c5fddd2884bc12749e1b9707b21",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/teacher-only三分割観測.tar.gz",
+      "bytes": 328492,
+      "sha256": "55041b2d466ac72570032f42b62c21b6d5c2607cb761750ad7f57096f2b90c64",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/teacher-only三分割観測.tar.gz",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/teacher-only三分割観測.tar.gz",
+        "git_blob_sha": "2e77007e05702ca0df165f630e44cf78e3e12860",
+        "bytes": 328492,
+        "sha256": "55041b2d466ac72570032f42b62c21b6d5c2607cb761750ad7f57096f2b90c64",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/三分割観測manifest.json",
+      "bytes": 10454,
+      "sha256": "726855d12cd0004c999fe3a1743a779d292275632e44cb8bdcd3394eb75ed61a",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/三分割観測manifest.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/三分割観測manifest.json",
+        "git_blob_sha": "713b5ea790381e75ad54c396c0f43af9ce2dcb30",
+        "bytes": 10454,
+        "sha256": "726855d12cd0004c999fe3a1743a779d292275632e44cb8bdcd3394eb75ed61a",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/候補戻値全記録.jsonl.gz",
+      "bytes": 659712,
+      "sha256": "d006c80a3890db2bc646889542eb791e7637ce949f62c28829ea4eb7106ce9f3",
+      "decoded_bytes": 7154899,
+      "decoded_sha256": "45708b4f805485a64b27abe214bb603cab3e4cd361a138220c46cf73068d7cea",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/候補戻値全記録.jsonl.gz",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/候補戻値全記録.jsonl.gz",
+        "git_blob_sha": "5dcc2db07377757027abc0984374e51071eb3332",
+        "bytes": 659712,
+        "sha256": "d006c80a3890db2bc646889542eb791e7637ce949f62c28829ea4eb7106ce9f3",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/候補格子付き全記録_v3.jsonl.gz",
+      "bytes": 725710,
+      "sha256": "46a9d692e6d609c3ebb4d0e0fd78bc84074124a6c93f3912e0ac89e35c4dbad1",
+      "decoded_bytes": 7661817,
+      "decoded_sha256": "98a240e2d7452c4303b6c097d9aee74280a3b400c461c93cc79fa310306be1e6",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/候補格子付き全記録_v3.jsonl.gz",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/候補格子付き全記録_v3.jsonl.gz",
+        "git_blob_sha": "6ba8392dfaddb7383f227394334b50597b0643d9",
+        "bytes": 725710,
+        "sha256": "46a9d692e6d609c3ebb4d0e0fd78bc84074124a6c93f3912e0ac89e35c4dbad1",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/候補観測replay.py",
+      "bytes": 8772,
+      "sha256": "e312f157159ce76aad3300485d5463bfa73f8b254b296d4d7329e271ddd9f4eb",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/候補観測replay.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/候補観測replay.py",
+        "git_blob_sha": "10ca35608569f570581d10cc035a1c4450285303",
+        "bytes": 8772,
+        "sha256": "e312f157159ce76aad3300485d5463bfa73f8b254b296d4d7329e271ddd9f4eb",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/候補観測replay_v3.py",
+      "bytes": 8832,
+      "sha256": "5e31cac17d5ce4031017d0c000a24dc9d0c6ca844ea12844761bd898d1dc84df",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/候補観測replay_v3.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/候補観測replay_v3.py",
+        "git_blob_sha": "426813461ebf2bd6512a26ebb7fcd2bf9ccffb67",
+        "bytes": 8832,
+        "sha256": "5e31cac17d5ce4031017d0c000a24dc9d0c6ca844ea12844761bd898d1dc84df",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/全120基準評価.json.gz",
+      "bytes": 216789,
+      "sha256": "9ba16535e487d7d040ad58fb92f9e875794358081bcceba2aa24e9fe8ea2b604",
+      "decoded_bytes": 4264405,
+      "decoded_sha256": "2a43e65896a133f424d0cb166e0aa5f3e792ff4efd0b0752fb3a8fc597fbdeb9",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/全120基準評価.json.gz",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/全120基準評価.json.gz",
+        "git_blob_sha": "40293100d65b19994ef956be2fbccb9d902d8a2e",
+        "bytes": 216789,
+        "sha256": "9ba16535e487d7d040ad58fb92f9e875794358081bcceba2aa24e9fe8ea2b604",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/全baselineファイル監査.json",
+      "bytes": 107662,
+      "sha256": "d5d876b5470e5cfd7f8e0f6f2a25592b02f1a113f8bd9d7960ac4a85158071b6",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/全baselineファイル監査.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/全baselineファイル監査.json",
+        "git_blob_sha": "64f312c08fbb2026d839c841f327248c23eedd7e",
+        "bytes": 107662,
+        "sha256": "d5d876b5470e5cfd7f8e0f6f2a25592b02f1a113f8bd9d7960ac4a85158071b6",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/全回帰.json",
+      "bytes": 20766,
+      "sha256": "0beb49e5bd447162dcb5de17239f855162a2b3263076cf7c8c7c0be931104409",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/全回帰.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/全回帰.json",
+        "git_blob_sha": "ae065f65b1800e32e39d377aa919d5c91b41ca18",
+        "bytes": 20766,
+        "sha256": "0beb49e5bd447162dcb5de17239f855162a2b3263076cf7c8c7c0be931104409",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/失敗HOLD索引.jsonl.gz",
+      "bytes": 237276,
+      "sha256": "2eddc269fe1173444f0eb670fad521cd20804ee4c0a34b9df113050bc6b63710",
+      "decoded_bytes": 5528944,
+      "decoded_sha256": "841594232095bef4a64a10e082cb5aaeaca84202393ee5e82bb32e9d10895d81",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/失敗HOLD索引.jsonl.gz",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/失敗HOLD索引.jsonl.gz",
+        "git_blob_sha": "4475eab84bffae2bc2de68337a178133c538d8f9",
+        "bytes": 237276,
+        "sha256": "2eddc269fe1173444f0eb670fad521cd20804ee4c0a34b9df113050bc6b63710",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/失敗HOLD要約.json",
+      "bytes": 4974,
+      "sha256": "f93c98dd11e8b8d6d051fc8b5b29ac9f4eec5f5ac20692366c58c523557c2644",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/失敗HOLD要約.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/失敗HOLD要約.json",
+        "git_blob_sha": "5167a2a8edd0a40548d8eaf1811c8ad2f29fcc51",
+        "bytes": 4974,
+        "sha256": "f93c98dd11e8b8d6d051fc8b5b29ac9f4eec5f5ac20692366c58c523557c2644",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/失敗索引生成.py",
+      "bytes": 3045,
+      "sha256": "81b00f4ba099e5704882a5962b2ddd81c590e214a1e3a3fef23beb5cd787e885",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/失敗索引生成.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/失敗索引生成.py",
+        "git_blob_sha": "ac8b9ed2f8c31477a0de8748b2a19f812625b057",
+        "bytes": 3045,
+        "sha256": "81b00f4ba099e5704882a5962b2ddd81c590e214a1e3a3fef23beb5cd787e885",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/既存84格子比較.json.gz",
+      "bytes": 19749,
+      "sha256": "5d301d86101801fbe2a04e96541c949540e96d620f3465e5322f6414fdc4c998",
+      "decoded_bytes": 1047999,
+      "decoded_sha256": "ca6b7c89e89a06a004ba40affa432a151d607f5a7f44c4b16391559beb7e220b",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/既存84格子比較.json.gz",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/既存84格子比較.json.gz",
+        "git_blob_sha": "807ac6906ca78d8194b1bf015a99b59568e71823",
+        "bytes": 19749,
+        "sha256": "5d301d86101801fbe2a04e96541c949540e96d620f3465e5322f6414fdc4c998",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/未解決60観測.json",
+      "bytes": 423259,
+      "sha256": "0ee9b0c3c9e9df7bc0a2ba58b6882d5a22553e6e957dc52c1de2d703525c08c7",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/未解決60観測.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/未解決60観測.json",
+        "git_blob_sha": "4c7b4e1069a41300764a3eba6268b1fd946ca1ff",
+        "bytes": 423259,
+        "sha256": "0ee9b0c3c9e9df7bc0a2ba58b6882d5a22553e6e957dc52c1de2d703525c08c7",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/独立監査/reviewer-baseline-failure-index.json",
+      "bytes": 218,
+      "sha256": "cb50155c3c61a852741dda9dc7eb7a4053650167d940826d93c0aa4ae6bbdf0e",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/独立監査/reviewer-baseline-failure-index.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/独立監査/reviewer-baseline-failure-index.json",
+        "git_blob_sha": "b159f2e041b92f51a4cceb3c7ed9999d78ad5a0b",
+        "bytes": 218,
+        "sha256": "cb50155c3c61a852741dda9dc7eb7a4053650167d940826d93c0aa4ae6bbdf0e",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/独立監査/reviewer-baseline-fresh-comparison.json",
+      "bytes": 1136,
+      "sha256": "61d1800856d2ccbb22cb760b72a238a333298bfae867dedbee06add86e512996",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/独立監査/reviewer-baseline-fresh-comparison.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/独立監査/reviewer-baseline-fresh-comparison.json",
+        "git_blob_sha": "f730b634ecb9906bc88734b358794ba8e808097e",
+        "bytes": 1136,
+        "sha256": "61d1800856d2ccbb22cb760b72a238a333298bfae867dedbee06add86e512996",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/独立監査/reviewer-baseline-fullgrid-replay.json",
+      "bytes": 1191,
+      "sha256": "53e5acffa7d86fd929a1c1d0acf333548651de970d5d9c7b41c973cb467ba77c",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/独立監査/reviewer-baseline-fullgrid-replay.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/独立監査/reviewer-baseline-fullgrid-replay.json",
+        "git_blob_sha": "0992e433848156e33beeb6be91cbfe8ad1a5c5d0",
+        "bytes": 1191,
+        "sha256": "53e5acffa7d86fd929a1c1d0acf333548651de970d5d9c7b41c973cb467ba77c",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/独立監査/reviewer-baseline-regressions.json",
+      "bytes": 10487,
+      "sha256": "5b8b33e0c08eb98087952b1bb3cec9ea6a78b34ff5b8891f189e471db9e47960",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/独立監査/reviewer-baseline-regressions.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/独立監査/reviewer-baseline-regressions.json",
+        "git_blob_sha": "4c22b0979b9ee39ee395fc917d76f24a0864ccb4",
+        "bytes": 10487,
+        "sha256": "5b8b33e0c08eb98087952b1bb3cec9ea6a78b34ff5b8891f189e471db9e47960",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/独立監査/reviewer-baseline-replay.json",
+      "bytes": 5123,
+      "sha256": "71da5fb3293ed463b694d62c3b9cd62f4921514f0e0f8413a6a852667acd59fd",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/独立監査/reviewer-baseline-replay.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/独立監査/reviewer-baseline-replay.json",
+        "git_blob_sha": "6f2c8b22151c2db61d7ab07b4ae5f6792746385d",
+        "bytes": 5123,
+        "sha256": "71da5fb3293ed463b694d62c3b9cd62f4921514f0e0f8413a6a852667acd59fd",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/独立監査/reviewer-gate-contract-v1.json",
+      "bytes": 6255,
+      "sha256": "1a0155012705086be1fb22153b4a8cdb14409599a0e15b579bec22e58bea0dfd",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/独立監査/reviewer-gate-contract-v1.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/独立監査/reviewer-gate-contract-v1.json",
+        "git_blob_sha": "53ad28c2c759d8c16d6e9af6cc5579dd34c5efde",
+        "bytes": 6255,
+        "sha256": "1a0155012705086be1fb22153b4a8cdb14409599a0e15b579bec22e58bea0dfd",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/独立監査/reviewer-seven-query-hold-details.json",
+      "bytes": 18726,
+      "sha256": "08f8d4bbe7657c68493230df47703d8d5f0545d2e3bf7aedb7de38caad5b1c59",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/独立監査/reviewer-seven-query-hold-details.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/独立監査/reviewer-seven-query-hold-details.json",
+        "git_blob_sha": "167cc2064bdfb0cfa1d877a353d32f180e228942",
+        "bytes": 18726,
+        "sha256": "08f8d4bbe7657c68493230df47703d8d5f0545d2e3bf7aedb7de38caad5b1c59",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/独立監査/reviewer-sixty-inventory.json",
+      "bytes": 10109,
+      "sha256": "aa55f6a4b2aa5bf6bab06c9e0ec7e0df55cc06ade535b913914255ef3621b3bf",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/独立監査/reviewer-sixty-inventory.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/独立監査/reviewer-sixty-inventory.json",
+        "git_blob_sha": "825364ce03ebf345d2e81035a4829185d3728501",
+        "bytes": 10109,
+        "sha256": "aa55f6a4b2aa5bf6bab06c9e0ec7e0df55cc06ade535b913914255ef3621b3bf",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/独立監査/reviewer-start-integrity.json",
+      "bytes": 2625,
+      "sha256": "30ba551aa200ad0c85d35da3f1a55d81d0b2457d84c14c9c3efa6d50dfa6f8bd",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/独立監査/reviewer-start-integrity.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/独立監査/reviewer-start-integrity.json",
+        "git_blob_sha": "adda4d3817dc1d115dfc2d34793201bc8d459da0",
+        "bytes": 2625,
+        "sha256": "30ba551aa200ad0c85d35da3f1a55d81d0b2457d84c14c9c3efa6d50dfa6f8bd",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/後半走破/開始点60/開始点.json",
+      "bytes": 2796,
+      "sha256": "2b5fbbed0cc42f4dc8a940e7b5147049ee6f6af6d4f7361ad27184a1b37ed10b",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/後半走破/開始点60/開始点.json",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/後半走破/開始点60/開始点.json",
+        "git_blob_sha": "7e8494ce0ac15a726ecdfc3415921b4badd4baa6",
+        "bytes": 2796,
+        "sha256": "2b5fbbed0cc42f4dc8a940e7b5147049ee6f6af6d4f7361ad27184a1b37ed10b",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/既存ARC2採点.py",
+      "bytes": 3007,
+      "sha256": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/検証/既存ARC2採点.py",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "検証/既存ARC2採点.py",
+        "git_blob_sha": "a1d1523b916150e3f1ab063f2bc8b6588a04af71",
+        "bytes": 3007,
+        "sha256": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "sources/repository/検証/距離回収回帰.py",
+      "bytes": 10205,
+      "sha256": "7cd768ad20f3c16fda71aab7f822961c6009294b4aa05724d62a6ee4e820e8c4",
+      "storage": "delta_archive",
+      "archive_member": "sources/repository/検証/距離回収回帰.py"
+    },
+    {
+      "path": "sources/repository/運用/権限順序.md",
+      "bytes": 948,
+      "sha256": "fdcef65a4b6ffc2179f76036f52aa2a4c47c69b8298f42678a47c245414bb4a3",
+      "storage": "external_pinned_repository",
+      "external_reference": {
+        "virtual_path": "sources/repository/運用/権限順序.md",
+        "storage": "external_pinned_repository",
+        "commit": "6a6090cd1b7e7a9043739d928bab5f7f9ae90e4f",
+        "repository_path": "運用/権限順序.md",
+        "git_blob_sha": "cf7f8b7231c10bdcb57a0599d636e452be67d03a",
+        "bytes": 948,
+        "sha256": "fdcef65a4b6ffc2179f76036f52aa2a4c47c69b8298f42678a47c245414bb4a3",
+        "byte_identity_verified": true
+      }
+    },
+    {
+      "path": "stage1-validation.json",
+      "bytes": 1045,
+      "sha256": "de6df1a8ed7d7dc33011395e0e3535c436d4430541b2befa67c6e636473f828d",
+      "storage": "delta_archive",
+      "archive_member": "stage1-validation.json"
+    },
+    {
+      "path": "全成功失敗HOLDイベント索引.jsonl.gz",
+      "bytes": 594676,
+      "sha256": "36b4373e487c250d6f20e12c29a800a37f8e14c589ae7f6c305fe34b867bc0d6",
+      "decoded_bytes": 15758109,
+      "decoded_sha256": "e7dc8ea4bcb42765269ba29e97b12253033229d229589aa8abea3a476f71bc4b",
+      "storage": "delta_archive",
+      "archive_member": "全成功失敗HOLDイベント索引.jsonl.gz"
+    },
+    {
+      "path": "全標本索引.json",
+      "bytes": 5468,
+      "sha256": "3149df40eec1d8e0e7b94b845d18471db877b7b5b671ed012b2dc5a3d58407b2",
+      "storage": "delta_archive",
+      "archive_member": "全標本索引.json"
+    },
+    {
+      "path": "報告十項目.json",
+      "bytes": 3024,
+      "sha256": "dd6153e0f5db2700424c18b9cee683f2402bc9ce17f8ec8f0e781ed169ac77fb",
+      "storage": "delta_archive",
+      "archive_member": "報告十項目.json"
+    },
+    {
+      "path": "学習台帳/ARC2規則台帳_delta_068_v1.json",
+      "bytes": 278661,
+      "sha256": "a868d71edaa7b7abaff2a9ed5e2338327922048d8a6dad8859785359218127e3",
+      "storage": "delta_archive",
+      "archive_member": "学習台帳/ARC2規則台帳_delta_068_v1.json"
+    },
+    {
+      "path": "学習台帳/ARC2規則索引_composed_068_v1.json",
+      "bytes": 2456,
+      "sha256": "835cb8ebd0e47be3e9907ebdc258226d0319fabdf83c076618b596a891535a00",
+      "storage": "delta_archive",
+      "archive_member": "学習台帳/ARC2規則索引_composed_068_v1.json"
+    },
+    {
+      "path": "学習台帳/ARC2規則経験_delta_068_v1.jsonl",
+      "bytes": 543986,
+      "sha256": "22a683bfe181635c09be45586be1b0004281c5a36792fdaf11f5e46e3249488d",
+      "storage": "delta_archive",
+      "archive_member": "学習台帳/ARC2規則経験_delta_068_v1.jsonl"
+    },
+    {
+      "path": "比較.json",
+      "bytes": 103026,
+      "sha256": "59a155e6e6302ae1807f898cb050e94b98668d78ce45d60e04ef002599578947",
+      "storage": "delta_archive",
+      "archive_member": "比較.json"
+    },
+    {
+      "path": "history/stage1/checkpoint61.json",
+      "bytes": 73642,
+      "sha256": "dc71f08e1da65e742a770515a749993e30d97140ed623e952898ba86e202e0f4",
+      "storage": "delta_archive",
+      "archive_member": "history/stage1/checkpoint61.json",
+      "role": "original307 stage1 checkpoint metadata retained verbatim"
+    }
+  ],
+  "supplements": [
+    {
+      "path": "sources/audit/reviewer-candidate002-ledger-stage1.json",
+      "storage": "delta_archive_supplement",
+      "bytes": 1536,
+      "sha256": "d68bc5743a4e4d04a135ce769f84b500d6d7537e148c6ea5b768b8369cd8b1eb"
+    },
+    {
+      "path": "PUBLICATION.md",
+      "bytes": 1260,
+      "sha256": "36c4378a49363b72a13da9181cecdba12d517edce6c9d4784eaaf45b0ea89f62",
+      "storage": "delta_archive_supplement"
+    }
+  ],
+  "external_references": {
+    "path": "external-references-v2.json",
+    "sha256": "6e584aa12b1a3c946a26b2dcaccd36e259c7962119251e326ef56dc78c12f8c2"
+  },
+  "validation": {
+    "path": "delta-publication-validation-v3.json",
+    "sha256": "7827b9bce7a112e7f76666816e63bf4d5556596cdf14f138a7cfdc42e0a9ebfc"
+  },
+  "current_status_addendum": "Current checkpoint61 metadata now references completed full120 v3 replay; old stage1 checkpoint retained byte-identically in history/stage1. Source21fields and82quotes unchanged.",
+  "scope": "Lossless byte-identity referencing only. Every unique candidate002 code/evidence/raw sample remains internal. Old published v1/retention/baseline60/rejected001 duplicate members resolve through pinned commit.",
+  "original_snapshot_version_resolution": [
+    {
+      "original_path": "checkpoint61.json",
+      "original_sha256": "dc71f08e1da65e742a770515a749993e30d97140ed623e952898ba86e202e0f4",
+      "current_archive_version_path": "history/stage1/checkpoint61.json"
+    }
+  ],
+  "current_checkpoint": {
+    "path": "checkpoint61.json",
+    "sha256": "5aebb1622b798d257dcd76e0650ea5f1a56cbaac7988019f01b81bd2f626b4c4",
+    "history_path": "history/stage1/checkpoint61.json",
+    "changes": [
+      "reference completed full120 v3 replay raw/summary/reviewer",
+      "regressed_correct_grid_count=0",
+      "failed_regression_script_count=0"
+    ]
+  },
+  "resolution_root": {
+    "repository_relative_root": "検証/後半走破/到達点61_距離回収",
+    "comparison_path": "検証/後半走破/到達点61_距離回収/比較.json",
+    "sources_prefix": "検証/後半走破/到達点61_距離回収/sources/",
+    "all_source_path_fields": "relative to the virtual package root, not document location",
+    "external_repository_path": "relative to repository root at pinned commit"
+  }
+}

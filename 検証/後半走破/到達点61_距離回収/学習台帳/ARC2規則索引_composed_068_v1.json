@@ -1,0 +1,64 @@
+{
+  "スキーマ版": "arc2-rule-composed-index-v1",
+  "baseline": "cc668e34d7ca014daf9f8944767476d56c56fafc",
+  "状態": "staged; admission pending",
+  "登録単位": "比較系統。HDS独立原理数ではない",
+  "base_count": 67,
+  "delta_count": 1,
+  "composed_count": 68,
+  "base_unchanged": [
+    {
+      "repository_path": "学習台帳/ARC2規則経験_v1.jsonl",
+      "sha256": "5905139cc6723b97c67035c00e3f2ea9633ff58ef0e96b81a6676f8c636ae7c1",
+      "archive_path": "sources/repository/学習台帳/ARC2規則経験_v1.jsonl"
+    },
+    {
+      "repository_path": "学習台帳/ARC2規則台帳_v1.json",
+      "sha256": "a4182171f2762b6cbde7852fe50c1cbbd2aa3ef5ddc7dc18117006dce1f012f0",
+      "archive_path": "sources/repository/学習台帳/ARC2規則台帳_v1.json"
+    },
+    {
+      "repository_path": "学習台帳/ARC2規則索引_v1.json",
+      "sha256": "9d2fcf5f3089592992673c4a02ea8935acf37139d16931e35f798f276a42b3b2",
+      "archive_path": "sources/repository/学習台帳/ARC2規則索引_v1.json"
+    },
+    {
+      "repository_path": "学習台帳/ARC2語彙台帳_v1.json",
+      "sha256": "07bd0efeed4513ffc32e9ba00d2d1b512f8c0974bbf15eba0e96f104e81c8c07",
+      "archive_path": "sources/repository/学習台帳/ARC2語彙台帳_v1.json"
+    }
+  ],
+  "delta": [
+    {
+      "path": "学習台帳/ARC2規則台帳_delta_068_v1.json",
+      "sha256": "a868d71edaa7b7abaff2a9ed5e2338327922048d8a6dad8859785359218127e3"
+    },
+    {
+      "path": "学習台帳/ARC2規則経験_delta_068_v1.jsonl",
+      "sha256": "22a683bfe181635c09be45586be1b0004281c5a36792fdaf11f5e46e3249488d"
+    }
+  ],
+  "規則": [
+    {
+      "規則ID": "arc2-comparison-068",
+      "規則名": "距離回収",
+      "台帳path": "学習台帳/ARC2規則台帳_delta_068_v1.json",
+      "台帳pointer": "/規則/0",
+      "出典比較記録": "比較.json",
+      "出典commit": null,
+      "blob_SHA": "5c33725d11244aee36ca15099ac1d799e5cb6cbd",
+      "未記録項目": []
+    }
+  ],
+  "registry_mapping": {
+    "arc2-comparison-068": {
+      "family": "ARC距離順位回収",
+      "module": "接続/ARC2/距離回収教材.py",
+      "class": "距離回収教材",
+      "accepted_family_count_on_admission": 68,
+      "new_family_count": 1
+    }
+  },
+  "new_experience_runtime": "not_run; no reinjection into existing67 long-lived HDS",
+  "source_content_sha256": "59a155e6e6302ae1807f898cb050e94b98668d78ce45d60e04ef002599578947"
+}
