@@ -1,0 +1,41 @@
+{
+  "schema": "arc2-postrejection-event-audit-v1",
+  "attempt_id": "attempt-001-masked-rectangle",
+  "initial_rejection_record": "reviewer-masked-crop-rejection.json",
+  "event": "Unintended candidate public evaluation after input-only rejection, before actual rollback; misnamed artifact quarantined and corrected",
+  "candidate_score_sha256": "66a090aee7ac77ac093d17b51c1398fddf1710754b0f5d8dc787988828516c1f",
+  "candidate_counts": {
+    "complete_tasks": 60,
+    "correct_examples": 84,
+    "answered_examples": 84,
+    "unanswered_examples": 83,
+    "partial_tasks": 7,
+    "wrong_grids": 0
+  },
+  "candidate_score_errors": [],
+  "candidate_resource_failures": {},
+  "candidate_delta": {
+    "complete_tasks": 0,
+    "correct_examples": 0,
+    "answered_examples": 0,
+    "unanswered_examples": 0,
+    "partial_tasks": 0,
+    "wrong_grids": 0
+  },
+  "changed_answers": [],
+  "changed_result_or_hold_details": [
+    [
+      "0934a4d8",
+      0
+    ]
+  ],
+  "candidate_family_counts": [
+    68
+  ],
+  "rejection_unchanged": true,
+  "archive_checked_files": 31,
+  "archive_hash_mismatches": [],
+  "current_baseline_blob_mismatches": [],
+  "current_source_restored_exactly": true,
+  "limitation": "Real post-restore official/regression results still require separate confirmation; earlier rollback-labelled run was not rollback evidence."
+}

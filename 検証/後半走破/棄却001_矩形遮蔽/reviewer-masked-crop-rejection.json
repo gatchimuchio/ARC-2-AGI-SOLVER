@@ -1,0 +1,62 @@
+{
+  "schema": "arc2-independent-rejection-audit-v1",
+  "attempt_id": "attempt-001-masked-rectangle",
+  "baseline_commit": "cc668e34d7ca014daf9f8944767476d56c56fafc",
+  "freeze_sha256": "2187e2f3b2fe9d005c8bff7e7ac8dffc2413b67588401fa050e44e36d94a2bf9",
+  "input_only_artifact_sha256": "8775f04ed56b37ddc9317f0e7fdf87deea206478ce937e49a425f300aa526a8a",
+  "teacher_fit": {
+    "tasks": 1,
+    "teachers": 4,
+    "independently_reproduced_all120": true,
+    "native_support": 4,
+    "native_equality_admitted": true,
+    "quarantined": 0
+  },
+  "regression": {
+    "scripts": 68,
+    "tests": 1112,
+    "pass": true
+  },
+  "query": {
+    "task_id_audit_only": "0934a4d8",
+    "direct_answer": false,
+    "hds_answer": false,
+    "status": "HOLD",
+    "failure": "whole_canvas_orbit_certificate_failed",
+    "proof": {
+      "input_shape": [
+        30,
+        30
+      ],
+      "axes": [
+        31,
+        31
+      ],
+      "failure": "orbit_without_original_witness",
+      "orbit": [
+        [
+          14,
+          0
+        ],
+        [
+          17,
+          0
+        ]
+      ]
+    }
+  },
+  "disposition": "Reject at input-only stage; archive trial and restore baseline before another integration",
+  "candidate_public_evaluation": "not_run",
+  "candidate_score_delta": null,
+  "route_limit_proven": false,
+  "core_defect_proven": false,
+  "postrollback_expected": {
+    "complete_tasks": 60,
+    "correct_examples": 84,
+    "families": 67,
+    "new_adopted_families": 0,
+    "new_primitive_count": 0,
+    "successful_reuse_tasks": 0
+  },
+  "failure_scope": "Insufficient original witness for current fixed absolute reflection view. Do not turn this into a universal impossibility or core defect; do not rescue by query-fitted axes."
+}

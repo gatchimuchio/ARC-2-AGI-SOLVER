@@ -1,0 +1,40 @@
+{
+  "source": "Reconstructed chronology from retained tool outputs; does not purport to be an unmodified earlier file",
+  "events": [
+    {
+      "time_utc": "2026-10-05T01:29:47Z",
+      "decision": "REJECT",
+      "stage": "input-only",
+      "scoring_at_that_time": "not_run",
+      "score_delta_at_that_time": null,
+      "cause": "Originalwitness absent under frozenaxes"
+    },
+    {
+      "time_utc": "2026-10-05T01:31:15Z",
+      "event": "Failedrollbackprecheck followed unintended fullcandidate evaluation",
+      "decision_unchanged": true,
+      "evidence": "failed-command-exact.txt"
+    },
+    {
+      "time_utc": "2026-10-05T01:33:12Z",
+      "event": "Scoringstatus correction",
+      "scoring": "completed unintentionally afterrejection",
+      "correct_tasks": 60,
+      "correct_examples": 84,
+      "delta_tasks": 0,
+      "delta_examples": 0,
+      "wrong_grids": 0,
+      "resource_failures": 0,
+      "evidence": "unintended-candidate-fullscore.json"
+    },
+    {
+      "time_utc": "2026-10-05T01:33:58Z",
+      "event": "Restoredbaseline rerun completed",
+      "all120executionrecords_exact": true,
+      "all84correctgrids_exact": true,
+      "regression_scripts": 67,
+      "regression_tests": 1091,
+      "regression_pass": true
+    }
+  ]
+}

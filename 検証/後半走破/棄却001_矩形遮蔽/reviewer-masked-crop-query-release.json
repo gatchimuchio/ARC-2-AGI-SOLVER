@@ -1,0 +1,51 @@
+{
+  "schema": "arc2-candidate-prequery-release-v1",
+  "attempt_id": "attempt-001-masked-rectangle",
+  "freeze_sha256": "2187e2f3b2fe9d005c8bff7e7ac8dffc2413b67588401fa050e44e36d94a2bf9",
+  "frozen_file_mismatches": [],
+  "teacher_raw_calls": 13924,
+  "raw_calls_sha256_matches": true,
+  "raw_axis_coverage": [
+    {
+      "task_id": "0934a4d8",
+      "input_sha256": "6a7cc7104cf9d10b4117abe538ead6e57a8f4aada957c2fc11827536d0a88cb2",
+      "count": 3481,
+      "unique": 3481,
+      "full_59x59": true
+    },
+    {
+      "task_id": "0934a4d8",
+      "input_sha256": "5c4b60c2043be0fe80cd25513d0ead91f93764a230888db13c74d88fe9e8b631",
+      "count": 3481,
+      "unique": 3481,
+      "full_59x59": true
+    },
+    {
+      "task_id": "0934a4d8",
+      "input_sha256": "945198f5690284be5ef1a7d5b2862536ec44b981e68adedea7c241bb2a41f45c",
+      "count": 3481,
+      "unique": 3481,
+      "full_59x59": true
+    },
+    {
+      "task_id": "0934a4d8",
+      "input_sha256": "de0e75344592d7c6a74f25358d050a4eeff2740db32a21f596946b0f3c875d83",
+      "count": 3481,
+      "unique": 3481,
+      "full_59x59": true
+    }
+  ],
+  "independent_teacher_preflight": "reviewer-masked-crop-prequery.json",
+  "reviewed_semantics": [
+    "Unique whole-color solid rectangle role before target shape/axis success",
+    "Reversible known-color encoding preserves real color0; at most9 known colors",
+    "All finite raw axes, shared uniqueness before guard; no proof-based axis rescue",
+    "Whole-canvas original witness/known-conflict guard preserved, including outside crop",
+    "Existing raw renderer and guard files unchanged",
+    "Only immutable axis tuple stored; HDS observes each teacher board once",
+    "Input-only check script uses frozen model and sanitized challenges; no solution lookup",
+    "Full68script/1112test source hashes and raw success independently checked"
+  ],
+  "scope": "Released only for frozen input-only query check. Not score adoption or publication.",
+  "status": "released"
+}

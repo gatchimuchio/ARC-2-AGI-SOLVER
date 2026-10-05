@@ -1,0 +1,26 @@
+{
+  "type": "orchestration_path_failure",
+  "failed_action": "rollback precheck",
+  "observed_error": "FileNotFoundError from nested arc2-second-half/arc2-second-half-audit/attempt-001-rejected/decision.json",
+  "source_was_not_restored": true,
+  "follow_on_action": "Shell without set-e executed full candidate scorer under erroneous rollback filename",
+  "termination_attempt": "Process alreadycompleted; no further run repeated",
+  "unintended_evidence": "unintended-candidate-fullscore.json",
+  "decision_preceded_score": "REJECT fixed from queryHOLD; no change from score",
+  "prevention": "Absolute paths and set-e for correction; artifacts renamed accurately, no loss",
+  "recorded_at_utc": "2026-10-05T01:33:12Z",
+  "failed_command": "failed-command-exact.txt",
+  "failed_command_output": "failed-command-output.txt",
+  "original_misleading_name": "rollback-official.json",
+  "renamed_to": "unintended-candidate-fullscore.json",
+  "rename_reason": "Correct falsely implied restored-baseline provenance; original name and raw file SHA retained here",
+  "unintended_output_sha256": "66a090aee7ac77ac093d17b51c1398fddf1710754b0f5d8dc787988828516c1f",
+  "candidate_freeze_sha256": "2187e2f3b2fe9d005c8bff7e7ac8dffc2413b67588401fa050e44e36d94a2bf9",
+  "target_exposure": {
+    "runner_parent_read_official_targets": true,
+    "runtime_children_received_targets": false,
+    "official_test_target_grids_displayed_to_development_context": false,
+    "development_visible_result": "Aggregate60/120,84/167,83HOLD,wrong0,resource0 only; no newtarget-grid inspection",
+    "candidate_or_decision_changed_after_score": false
+  }
+}

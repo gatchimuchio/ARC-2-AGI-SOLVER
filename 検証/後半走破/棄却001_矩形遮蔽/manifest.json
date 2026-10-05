@@ -1,0 +1,57 @@
+{
+  "purpose": "棄却001_矩形遮蔽",
+  "baseline_commit": "cc668e34d7ca014daf9f8944767476d56c56fafc",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 3658,
+      "sha256": "8da0c68e98ec1552394914a8584f961c777d9c89d21494b4186e7cffcfc93fc3"
+    },
+    {
+      "path": "reviewer-attempt001-rollback.json",
+      "bytes": 8957,
+      "sha256": "13d22396b9b2bedab8d40e4ad7f57f3f3e851aed2dce6777d57a89bac5c9f034"
+    },
+    {
+      "path": "reviewer-masked-crop-postrejection-score.json",
+      "bytes": 1341,
+      "sha256": "3dae871b9a7ed4b79909abd0090044c06954b5df47c9ce7318d2588af785efe8"
+    },
+    {
+      "path": "reviewer-masked-crop-prequery.json",
+      "bytes": 8134,
+      "sha256": "34e128db6f3d258547d42a706f286964071b6d24ec9f9d9ddb7e6a0e75afd175"
+    },
+    {
+      "path": "reviewer-masked-crop-query-release.json",
+      "bytes": 1990,
+      "sha256": "f53afb06aba28b441e9d56271c4bcaa8f922c5dddba134a5eacc1d14f23878ff"
+    },
+    {
+      "path": "reviewer-masked-crop-rejection.json",
+      "bytes": 1745,
+      "sha256": "bd67f35e15f12d17ee7c100f3eccd5f95573d823b9230dae334c4d4636430180"
+    },
+    {
+      "path": "全標本manifest.json",
+      "bytes": 8390,
+      "sha256": "617201aec2434bdfc98026c096d833cb6b51b784a0dc8762601b405fd4707543"
+    },
+    {
+      "path": "凍結候補と全標本.tar.gz",
+      "bytes": 722121,
+      "sha256": "cca11c054b4290a93bb956c60502a42c942bc860114871ee5a417ed26ceb8610"
+    },
+    {
+      "path": "判定時系列.json",
+      "bytes": 1268,
+      "sha256": "1c31e41e5d9c66f3f92049df2535a1db764330f10f2088cdf69f074c3534718a"
+    },
+    {
+      "path": "実行手順失敗.json",
+      "bytes": 1626,
+      "sha256": "b6c993d5c45ba679ec6860918c07b8b531b22454001db61dfa2824797e5f1334"
+    }
+  ],
+  "manifest_self_excluded": true
+}

@@ -1,0 +1,246 @@
+{
+  "source_root_at_observation": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/attempt-001-rejected",
+  "files": [
+    {
+      "path": "decision-chronology.json",
+      "bytes": 1268,
+      "sha256": "1c31e41e5d9c66f3f92049df2535a1db764330f10f2088cdf69f074c3534718a"
+    },
+    {
+      "path": "decision.json",
+      "bytes": 12105,
+      "sha256": "3cbad402baaf031404668295080b7df61153f4271be0af00c89b85020dd7cc0b"
+    },
+    {
+      "path": "evidence/masked-crop-concept.json",
+      "bytes": 6811,
+      "sha256": "237385d887ba3359c2028ec6fa84e58a26f88413b86e625bc382fa45a82c8b32"
+    },
+    {
+      "path": "evidence/masked-crop-fixture-failure.json",
+      "bytes": 651,
+      "sha256": "bc0f873cb8cf3b70124e9782a30aebb4ae49addd46958de449a50cb996b6d54b"
+    },
+    {
+      "path": "evidence/masked-crop-fixture-v1.py",
+      "bytes": 8506,
+      "sha256": "c58da464bc1aff32ebda74ffa0dfe62b74b0540f7ea6a7266e408dfce057e2fa"
+    },
+    {
+      "path": "evidence/masked-crop-freeze.json",
+      "bytes": 23112,
+      "sha256": "2187e2f3b2fe9d005c8bff7e7ac8dffc2413b67588401fa050e44e36d94a2bf9"
+    },
+    {
+      "path": "evidence/masked-crop-input-only.json",
+      "bytes": 50870,
+      "sha256": "8775f04ed56b37ddc9317f0e7fdf87deea206478ce937e49a425f300aa526a8a"
+    },
+    {
+      "path": "evidence/masked-crop-input-only.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/masked-crop-input-only.stdout",
+      "bytes": 178,
+      "sha256": "52093c806dc514ba5957f85453854a397a611ea19b289d047f87b8ac03cbf0da"
+    },
+    {
+      "path": "evidence/masked-crop-raw-teacher-calls.jsonl.gz",
+      "bytes": 226226,
+      "sha256": "7db4681945a946793f7af7ee3fbe9e556d95c9ad43e6c9894f695a8404fa0307"
+    },
+    {
+      "path": "evidence/masked-crop-regressions-v3.json",
+      "bytes": 32065,
+      "sha256": "eb98ad78b7d535d850ff60d6b6fda174da75bdfaef8d082229f7b9e5238e436f"
+    },
+    {
+      "path": "evidence/masked-crop-regressions-v3.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/masked-crop-regressions-v3.stdout",
+      "bytes": 99,
+      "sha256": "76000fb43bc960586eccc1a8e2683ff70f8feb07ed002e90a6de8ec410295c62"
+    },
+    {
+      "path": "evidence/masked-crop-regressions.json",
+      "bytes": 32063,
+      "sha256": "6880525a03b2e623fca7dad8ae50b671222cfaa3eece529b16d843ea7ae2fab2"
+    },
+    {
+      "path": "evidence/masked-crop-regressions.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/masked-crop-regressions.stdout",
+      "bytes": 98,
+      "sha256": "3dc8f6a316e798d350378d754a70f3afb07cd937f6985712fe0a208d5ea2a450"
+    },
+    {
+      "path": "evidence/masked-crop-targeted-v2.stderr",
+      "bytes": 119,
+      "sha256": "e0b22dd84ca90156235bd7b46e1236726bcc4604462dab56f2e5efa090a0972e"
+    },
+    {
+      "path": "evidence/masked-crop-targeted-v2.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/masked-crop-targeted.stderr",
+      "bytes": 3590,
+      "sha256": "c9343852cfffbfa11ec19f1abea27cb2b674f0da9a3fc5a5c17155f36de4aa3f"
+    },
+    {
+      "path": "evidence/masked-crop-targeted.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/masked-crop-teacher-preflight-v2.json.gz",
+      "bytes": 78737,
+      "sha256": "9a0ff2518129fbb6a3e42f365087a23733d2b7a70f0de32b4af8b0683e79b857"
+    },
+    {
+      "path": "evidence/masked-crop-teacher-preflight-v2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/masked-crop-teacher-preflight-v2.stdout",
+      "bytes": 854,
+      "sha256": "e89d62c09a7764f442bd43bd8714def8f602bf554b1c55131e30adca290502a4"
+    },
+    {
+      "path": "evidence/masked-crop-teacher-preflight.json.gz",
+      "bytes": 77319,
+      "sha256": "d251cdeed625f9447789b2e7cb4fed66dc5f646ffc6cd707a33bd0decd9a5449"
+    },
+    {
+      "path": "evidence/masked-crop-teacher-preflight.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/masked-crop-teacher-preflight.stdout",
+      "bytes": 360,
+      "sha256": "18bf90006d8ca45e9b89678e1dbe596a027aaedd70ddb6f58dfcdbb3ab053acc"
+    },
+    {
+      "path": "evidence/masked-crop-teacher-summary-v2.json",
+      "bytes": 1143,
+      "sha256": "9f88aecc08898a717e230d2a4457e1d6f68ba63284f868bae779c4708d5eb98d"
+    },
+    {
+      "path": "evidence/masked-crop-teacher-summary.json",
+      "bytes": 493,
+      "sha256": "78b117c24eba567483d50ab4bf5b3ca1a72482f89f35ed1b5c7cbad98fc7f10e"
+    },
+    {
+      "path": "evidence/preflight_masked_crop_teachers.py",
+      "bytes": 3887,
+      "sha256": "01a5455bb7005b9547cbe67ec88285da0f9f3987c0180a431c7151e6cdecdf12"
+    },
+    {
+      "path": "evidence/run_masked_crop_input_only.py",
+      "bytes": 3368,
+      "sha256": "f770b6ed1cfeebdb205879284007395b948c581b21fe3f14a1d193a77688c2c7"
+    },
+    {
+      "path": "failed-command-exact.txt",
+      "bytes": 1731,
+      "sha256": "e9878547dea8778af9169d8b46130c5cd385ea730ec3de8b9098ce76eb8ce71c"
+    },
+    {
+      "path": "failed-command-output.txt",
+      "bytes": 895,
+      "sha256": "1f2f027a6549acbf376fdd8ee61f7a2e9bb3cb59381eefc7ac13670ca59a54ba"
+    },
+    {
+      "path": "orchestration-failure.json",
+      "bytes": 1626,
+      "sha256": "b6c993d5c45ba679ec6860918c07b8b531b22454001db61dfa2824797e5f1334"
+    },
+    {
+      "path": "production/接続/ARC2/HDS接続.py",
+      "bytes": 20971,
+      "sha256": "c66ff0c220ddbd1b43c02f695ed2723a753804571196fe4f9f1dfcfc169223ad"
+    },
+    {
+      "path": "production/接続/ARC2/矩形遮蔽復元教材.py",
+      "bytes": 6693,
+      "sha256": "dc094116e7e4d11b3b68a6ae9db1254458bbd6b971835768f87c614857b6709e"
+    },
+    {
+      "path": "production/検証/矩形遮蔽復元回帰.py",
+      "bytes": 9014,
+      "sha256": "ca24b0bbb59e2cdead5c02107c08e2fff3f4292cb56e5904488f6e1c035923d4"
+    },
+    {
+      "path": "rollback-comparison.json",
+      "bytes": 18482,
+      "sha256": "a2d81bc5b6ab4b763fc080d553238a9abe5aeb8c7b6ef318d6e8bfee2db8357a"
+    },
+    {
+      "path": "rollback-official.json",
+      "bytes": 4264406,
+      "sha256": "e03bdb30f9ba473fedb7ebd65e875208ff1769904fa7826bd5c987b9979b5c52"
+    },
+    {
+      "path": "rollback-official.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "rollback-official.stdout",
+      "bytes": 527,
+      "sha256": "c30459cc050d504198163cb6dee7226a24a1d27a5aac2aac1f856867022c454e"
+    },
+    {
+      "path": "rollback-regressions.json",
+      "bytes": 31647,
+      "sha256": "69c1fe7378638da58ee4f695ef2bbe8950900b0ee01efb3b8e9eb0235501e603"
+    },
+    {
+      "path": "rollback-regressions.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "rollback-regressions.stdout",
+      "bytes": 99,
+      "sha256": "f7ba15f9a22723465adc01a7ff6cf9ac5ed0e3e87248d5ca7cdecbde23bbbc3e"
+    },
+    {
+      "path": "rollback-source-audit.json",
+      "bytes": 84,
+      "sha256": "ae85c2216877096c3fe3b81e45fa8fbd587f098e233883abc36a3949febcd62d"
+    },
+    {
+      "path": "unintended-candidate-comparison.json",
+      "bytes": 77490,
+      "sha256": "e803954c60da532db6fa877c6f3e59cdb6a06fe8acf903a6ae42fc1c5a2f57a8"
+    },
+    {
+      "path": "unintended-candidate-fullscore.json",
+      "bytes": 4327272,
+      "sha256": "66a090aee7ac77ac093d17b51c1398fddf1710754b0f5d8dc787988828516c1f"
+    },
+    {
+      "path": "unintended-candidate-fullscore.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "unintended-candidate-fullscore.stdout",
+      "bytes": 527,
+      "sha256": "ef2c0aa088987657c23f008dee5c364aacb96eee7c9cf0095ae88885d323e22e"
+    }
+  ],
+  "raw_tar_sha256": "5086a2f669ec170319cf4fb1e00b022d168b52d79791974796064c84301f6734"
+}
