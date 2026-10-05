@@ -1,0 +1,66 @@
+{
+  "schema": "prospective-teacher-only-candidate010-v1",
+  "timestamp_utc": "2026-10-05T06:16:27.635050+00:00",
+  "status": "Declared before first predictor/fit implementation; observed teacher D4 transforms already measured",
+  "scope": "6e4f6532 sanitized teachers only; no query or score",
+  "observations": {
+    "teacher0_object_transforms": [
+      "rot270",
+      "rot270"
+    ],
+    "teacher1_object_transforms": [
+      "flip_v",
+      "rot90"
+    ],
+    "source": {
+      "path": "teacher-transform-facts.json",
+      "sha256": "c8e204e144b5c2cffb20d60058ba540cedf92e70638afafca31ace9752044fe5"
+    },
+    "limitation": "The measurement uses manual training barrier/palette roles and is not the runtime parser"
+  },
+  "hypothesis_grammar": {
+    "background": "Unique most frequent input color, derived input only, tie HOLD",
+    "bar_view": "Full nonbackground monochrome row/column bands within residual rectangle; enumerate row-first and column-first fixed-point removal, exclude background; no width cap. Record all removed cells and all raw partitions. Remaining row/column intervals define chambers; side colors come from complete adjacent fixed bands. Unbounded sides are None. All bar cells preserved.",
+    "program_domain": {
+      "body_color": "0..9",
+      "marker_color": "0..9, distinct from body",
+      "object_connectivity": [
+        4,
+        8
+      ],
+      "unconstrained_axis_sign": [
+        -1,
+        1
+      ]
+    },
+    "conceptual_program_count": 360,
+    "foreground_inventory": "After excluding fixed bars and background, mixed components with body color are moving objects. Components consisting solely of marker color are destination anchors. Every other foreground component invalidates the view. Each object has nonempty body and marker support; all other object colors are frame labels. Body/marker are distinct from background and bar palette.",
+    "label_sides": "Every label cell lies outside body-color bounding box on exactly one cardinal side, with orthogonal coordinate within that bbox. All label cells owned and all constraints retained. Corner/inside labels or inconsistent side-color roles HOLD.",
+    "D4_relation": "Enumerate all eight existing SIDE_TRANSFORM_MAPS. For every source label-side/color, transformed side must equal destination chamber wall color. If both source axes are constrained keep every satisfying transform. If exactly one source axis is constrained, fixed program sign specifies the nonzero coefficient of the free source axis in the signed-permutation matrix. This is a declared finite learned convention, not a post-query geometric rescue. Record every raw transform and sign-disposition.",
+    "anchor_relation": "Transform complete object crop with existing D4 function. All transformed marker cells must equal one standalone anchor under a single translation, no nearest-distance ranking. Enumerate all chamber/transform/anchor proposals and all complete one-to-one object-to-anchor assignments.",
+    "action": "Erase every original object foreground cell simultaneously to background. Place every transformed foreground cell at marker-derived translation. Preserve fixed bars, all unowned cells, shape, body and label color counts. Permit original destination marker overlap only with same assigned marker. All moved-object foreground footprints disjoint. Reject OOB, wrong chamber ownership, any unresolved conflict, unused anchor or object.",
+    "consensus": "Every retained program and every admitted input-role/assignment result must succeed and agree on complete grid. Any retained failure or conflict yields whole-query HOLD.",
+    "teacher_fit": "Evaluate all360 conceptual programs over every teacher, validate all full outputs, retain every exact-all-teacher program. No top-k, no success-first raw role choice, no grid-ID constants."
+  },
+  "unconfirmed": [
+    "Generic full-band parser may create ambiguous roles; must save all alternatives and failures",
+    "Side label extraction and free-axis convention have only the listed teacher observation rationale",
+    "Exact code reuse feasibility must be checked; no claim that existing family closes this task",
+    "C4/C8 connectivity may remain teacher-unidentified and must be retained",
+    "General input-only validity outside teachers remains untested"
+  ],
+  "negative_controls_required": [
+    "unconstrained sign counterexample",
+    "two-axis side constraints override no optional omission",
+    "all D4 transforms incl reflection",
+    "marker shapes 1/2 and larger",
+    "multiple chamber and anchor assignments",
+    "unmatched label/anchor/object",
+    "bar thickness1 and>2",
+    "same-color conflict and color-count conservation",
+    "role ambiguity",
+    "resource propagation and complete model trace"
+  ],
+  "no_query_or_scorer_access": true,
+  "HDS_core_changes": false
+}

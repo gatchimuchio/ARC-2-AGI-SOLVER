@@ -1,0 +1,47 @@
+{
+  "decision": "PASS_RUNTIME_ADMISSION_RECOMMEND_EXACT_LOCAL_PACKAGE",
+  "verified_utc": "2026-10-05T16:40:56.651550+00:00",
+  "candidate": "030",
+  "freeze_sha256": "a6cbf3ef7cbad52ee69d7bfc7179a25d2d6961b9f969eb34e9db5c5b7311a9b7",
+  "input_only_sha256": "d5f763900a3230e253d366583267c946bba8f011e38c1a66134fd00687cd0587",
+  "current_official_sha256": "0e291863ef4d15fd9381c3a69a92b6290f3066f8d1ea8cd1a830ea526c64a36b",
+  "previous_official_sha256": "ff937a0137c0c92d97fc3e9a5e8d0dc25cef3479a3f61a839b042f393e42649b",
+  "independent_score": {
+    "complete_tasks": 70,
+    "correct_examples": 101,
+    "query_HOLD": 66,
+    "wrong_grids": 0,
+    "resource_failures": 0,
+    "partial_correct_tasks": 8
+  },
+  "previous_correct_grids_exact": 100,
+  "regressions": [],
+  "delta_tasks": 1,
+  "delta_correct_examples": 1,
+  "new_correct_examples_audit_only": [
+    [
+      "31f7f899",
+      0
+    ]
+  ],
+  "target_grids_or_dimensions_disclosed": false,
+  "sealed_direct_native_official_prediction_equal": true,
+  "native_current_support": 3,
+  "native_prior_support": 0,
+  "native_equality": true,
+  "quarantine": 0,
+  "observer_complete_events": 17,
+  "observer_journal_sha256": "1de25be5406fa86bd105b86ecd5170fdd2d79a5fb2140b674fe5e9ce982163d9",
+  "frozen_files_unchanged": 603,
+  "full_regression_scripts": 78,
+  "full_regression_checks": 3290,
+  "same_normal_budget": true,
+  "limitations": [
+    "Fixed full-footprint/whole-chart/horizontal-view prior, not HDS-discovered grammar",
+    "Earlier026 input-statistic exposure and unscored rejection preserved",
+    "Originalv1 three signal9 failures retained; v2 generic axis-absence proof explicitly separates349 unexecutedfitcalls",
+    "Fit-phase counts10renderer/556rawpairs/3actions; whole-run13/709/6",
+    "Local result only; external publication remains blocked"
+  ],
+  "external_write_performed": false
+}

@@ -1,0 +1,99 @@
+{
+  "attempt_id": "attempt-021-bounded-glyph-window",
+  "status": "Runtime gates independently passed; exact local integration awaits parent approval",
+  "local_only": true,
+  "external_publication_authorized_by_this_package": false,
+  "expected_local_parent": "753ece8fbebdd7995195bd8ff0183e1182956615",
+  "remote_main_unchanged": "27502ef9e0ee7492be2eaaf16b2acbd076ce7b91",
+  "remote_score": [
+    62,
+    87
+  ],
+  "previous_local": [
+    65,
+    94
+  ],
+  "current_local": [
+    66,
+    95
+  ],
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "unanswered": -1
+  },
+  "wrong_grids": 0,
+  "resource_failures": 0,
+  "old_correct_grids_identical": 94,
+  "partial_tasks": 8,
+  "HOLD_examples": 72,
+  "regression_scripts": 74,
+  "regression_checks": 2269,
+  "accepted_family_count_if_admitted": 74,
+  "protected_core_unchanged": true,
+  "origins": {
+    "HDS_actual_learning": "Fresh native machine,4 current teacher observations,0 prior,equality admitted,quarantine0. The new boundary prior was not discovered by HDS.",
+    "teacher_fit": "Original strict012 fitter, local memoization and empty-domain proof unchanged. Original12100 hypotheses retain the same1 dictionary model; no projected-teacher fitter was introduced.",
+    "fixed_prior": "Original role, label, dictionary, whole command-rectangle ownership and all-model success/consensus guards remain. Original012 has fresh-background output, not source-foreground preservation.",
+    "old_assets": "Exact two modules from rejected012 trial reused byte-for-byte, plus existing strict grid and crop helpers. Rejected-trial reuse is distinct from accepted-main family reuse.",
+    "new_fixed_grammar": "Validate original unique background before conservative ALLkey support envelope, including labels; background-only padding within ARC<=30; unchanged old renderer; exact original-window crop; all retained cropped outputs agree."
+  },
+  "limitations": [
+    "The original012 query input was exposed before this general view proposal. Its unscored boundary rejection and delta=null remain unchanged; this is a new declared prior supported by cross-family crop evidence, not an unseen-query claim.",
+    "Teacher data do not identify strict versus projected boundary semantics. Original strict fitting domain is inherited; clipped-teacher dictionary learning is unsupported.",
+    "ALLkey padding includes labels and may reject a formerly strict-valid input near the30 boundary. No fallback or query-specific envelope relaxation.",
+    "Generic preserve-baseline collision controls are not attributed to012; only its original full command-rectangle guard is preserved.",
+    "LOCAL ONLY; earlier010 publication denial remains and this package does not authorize external transmission or bypass.",
+    "Public evaluation is not a hidden or wholly unseen benchmark.",
+    "Detailed21-field ledger/full raw archive organization deferred; original teacher/native/query/failure evidence retained locally, not all embedded here.",
+    "No HDS core, learning definition, same-instance repair or vNext implementation."
+  ],
+  "compressed_evidence": [
+    {
+      "path": "public-score.json.gz",
+      "uncompressed_sha256": "43dd65b469ae4900a7f9fa6f660ee54a6a8dfe2e84371d82fe2b8f75d9bf340c",
+      "uncompressed_bytes": 6347604
+    },
+    {
+      "path": "comparison.json.gz",
+      "uncompressed_sha256": "94dd1533513279d74931c2efc170c0c374952844ba86fde9494a0a18cfb0896e",
+      "uncompressed_bytes": 85643
+    },
+    {
+      "path": "input-only.json.gz",
+      "uncompressed_sha256": "7f50970cb751c2b23302c2a624cf1de7606fdd61bf8ac7a36e19e256f77caac9",
+      "uncompressed_bytes": 144823
+    },
+    {
+      "path": "regressions.json.gz",
+      "uncompressed_sha256": "6f71c4c7427a676c4301155dd490e6fe61026c240fc6b2a502e48cbdde73c81c",
+      "uncompressed_bytes": 109110
+    },
+    {
+      "path": "teacher-fit-index.json.gz",
+      "uncompressed_sha256": "923bba8bbdaf9752e2b7af867dae9c074148d8e6f89a42267b1262d3987bd526",
+      "uncompressed_bytes": 88296
+    },
+    {
+      "path": "source-freeze.json.gz",
+      "uncompressed_sha256": "587812929ab806a7923f8bd4ed7964e7e4bb7f29016596cb5798329b736ef5d4",
+      "uncompressed_bytes": 108867
+    }
+  ],
+  "input_only_journal": {
+    "path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-021-finite-paint-domain/input-only-journals/run-000.jsonl",
+    "sha256": "7b98f87d6ce7ad95bdef5f3f5a14ea1c1b7675ce15a1eb480a091abcc84d2c89",
+    "bytes": 30991905,
+    "complete_events": 60557,
+    "incomplete_trailing_line": null,
+    "trace_complete": true
+  },
+  "input_seal": {
+    "input_only_sha256": "7f50970cb751c2b23302c2a624cf1de7606fdd61bf8ac7a36e19e256f77caac9",
+    "freeze_sha256": "587812929ab806a7923f8bd4ed7964e7e4bb7f29016596cb5798329b736ef5d4",
+    "exit_source_input_native_parity_gate": true,
+    "answers": 1,
+    "decision": "PROCEED_FULL120",
+    "scorer_budget_unchanged": true
+  }
+}

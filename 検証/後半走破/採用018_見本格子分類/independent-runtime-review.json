@@ -1,0 +1,67 @@
+{
+  "decision": "PASS_RUNTIME_ADMISSION_LOCAL_PENDING_EXACT_PACKAGE",
+  "verified_utc": "2026-10-05T11:05:17.485535+00:00",
+  "freeze_sha256": "0f31d8652f5f942e668974d501436fd40948bfa73c7fab709a7a4e1b1fb256d6",
+  "input_only_sha256": "aeb1693751564c6381948937a120c927b4ed0842f5f0b521193fde530f68a186",
+  "official_sha256": "f7aae2d77d172c8b49855c0f8b266f4ed7d3dabcb29707577758f0bfe001da67",
+  "all_frozen_files_exact": 268,
+  "input_only": {
+    "exit": 0,
+    "direct_HDS_equal_answers": 2,
+    "all_retained_models_per_query": 30,
+    "native_current_support": 5,
+    "native_prior_support": 0,
+    "native_equality": true,
+    "source_input_unchanged": true,
+    "journal_complete_events": 18365,
+    "journal_sha256": "30305cf4b2c0e6b4e692b79ab13bacc0169563d3423c7c8b50700b206e2a1184",
+    "query_event_counts": {
+      "(0, 'model_start')": 30,
+      "(0, 'render_start')": 30,
+      "(0, 'allocation_return')": 30,
+      "(0, 'model_completed')": 30,
+      "(0, 'retained_model_return')": 30,
+      "(0, 'allocation_search_start')": 15,
+      "(0, 'allocation_search_step')": 60,
+      "(0, 'retained_consensus')": 1,
+      "(1, 'model_start')": 30,
+      "(1, 'render_start')": 30,
+      "(1, 'allocation_return')": 30,
+      "(1, 'model_completed')": 30,
+      "(1, 'retained_model_return')": 30,
+      "(1, 'allocation_search_start')": 15,
+      "(1, 'allocation_search_step')": 60,
+      "(1, 'retained_consensus')": 1
+    }
+  },
+  "independent_full_score": {
+    "tasks": 120,
+    "examples": 167,
+    "complete": 63,
+    "correct": 90,
+    "HOLD": 77,
+    "wrong": 0,
+    "partial_tasks": 8,
+    "resource_failures": 0,
+    "old_correct_grids_identical": 88,
+    "new_correct_examples": [
+      [
+        "d8e07eb2",
+        0
+      ],
+      [
+        "d8e07eb2",
+        1
+      ]
+    ],
+    "delta_tasks": 1,
+    "delta_examples": 2
+  },
+  "regression_evidence": "71 scripts /2237 checks PASS, exact-source prequery review reused",
+  "scope": "Read-only saved evidence/hash/grid comparisons; official targets read only after fixed input-only and completed score, never used for candidate construction",
+  "limitations": [
+    "Local baseline010 is62/88; remote275 remains62/87 with publication stopped",
+    "Historical allocation resource failure preserved; proof scope excludes unequal match sets and agreeing witness pairs",
+    "Detailed archive/ledger remains deferred under short-cycle workflow, full original raw evidence retained locally"
+  ]
+}

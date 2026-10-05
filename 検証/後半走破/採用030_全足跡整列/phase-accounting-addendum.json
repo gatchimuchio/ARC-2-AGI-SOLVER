@@ -1,0 +1,23 @@
+{
+  "scope": "Additive clarification; sealed stage reports and runtime unchanged",
+  "fit_phase": {
+    "renderer_calls_executed": 10,
+    "raw_axis_pairs_enumerated": 556,
+    "retained_actions": 3,
+    "teacher_calls_symbolically_unexecuted": 349
+  },
+  "direct_teacher_reproduction_phase": {
+    "renderer_calls_executed": 3,
+    "raw_axis_pairs_enumerated": 153,
+    "retained_actions": 3,
+    "wrapper_predictions": 359
+  },
+  "whole_preflight": {
+    "renderer_calls_executed": 13,
+    "raw_axis_pairs_enumerated": 709,
+    "retained_actions": 6,
+    "teachers": 359,
+    "tasks": 120
+  },
+  "provenance": "Independent reviewer-candidate030-contract-audit saved-evidence readback; fit-phase and whole-run counters are distinct"
+}

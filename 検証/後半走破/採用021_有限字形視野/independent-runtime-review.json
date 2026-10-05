@@ -1,0 +1,59 @@
+{
+  "decision": "PASS_RUNTIME_ADMISSION_LOCAL_PENDING_EXACT_PACKAGE",
+  "verified_utc": "2026-10-05T12:11:24.639200+00:00",
+  "freeze_sha256": "587812929ab806a7923f8bd4ed7964e7e4bb7f29016596cb5798329b736ef5d4",
+  "input_only_sha256": "7f50970cb751c2b23302c2a624cf1de7606fdd61bf8ac7a36e19e256f77caac9",
+  "official_sha256": "43dd65b469ae4900a7f9fa6f660ee54a6a8dfe2e84371d82fe2b8f75d9bf340c",
+  "all_frozen_files_exact": 431,
+  "input_only": {
+    "exit": 0,
+    "direct_HDS_equal_answers": 1,
+    "native_current_support": 4,
+    "native_prior_support": 0,
+    "native_equality": true,
+    "source_input_unchanged": true,
+    "journal_complete_events": 60557,
+    "journal_sha256": "7b98f87d6ce7ad95bdef5f3f5a14ea1c1b7675ce15a1eb480a091abcc84d2c89",
+    "event_counts": {
+      "('teacher_fit', 'teacher_validation')": 1,
+      "('teacher_fit', 'parse_return')": 48404,
+      "('teacher_fit', 'hypothesis_completed')": 12100,
+      "('teacher_fit', 'glyph_return')": 42,
+      "('teacher_fit', 'render_return')": 4,
+      "('teacher_fit', 'teacher_fit_completed')": 1,
+      "('direct_query', 'parse_return')": 1,
+      "('direct_query', 'render_return')": 1,
+      "('direct_query', 'view_model_return')": 1,
+      "('direct_query', 'retained_view_consensus')": 1,
+      "('whole_solver', 'whole_solver_start')": 1
+    }
+  },
+  "independent_full_score": {
+    "tasks": 120,
+    "examples": 167,
+    "complete": 66,
+    "correct": 95,
+    "HOLD": 72,
+    "wrong": 0,
+    "partial_tasks": 8,
+    "resource_failures": 0,
+    "old_correct_grids_identical": 94,
+    "new_correct_examples": [
+      [
+        "dfadab01",
+        0
+      ]
+    ],
+    "delta_tasks": 1,
+    "delta_examples": 1
+  },
+  "regressions": "74 scripts/2269 checks PASS, exact-source prequery evidence reused",
+  "scope": "Read-only saved evidence/hash/grid comparisons. Current target read only after sealed input-only and completed score. Prior012 query-input exposure remains explicitly known.",
+  "limitations": [
+    "Exact rejected012 strict fitter/renderer reused with new bounded background-padding/crop view; not accepted-main family reuse or HDS-discovered boundary semantics",
+    "ALLkey envelope may overpad labels and HOLD strict-valid near30 inputs",
+    "No clipped-teacher dictionary fitting or originalforeground preservation claim",
+    "Old012 unscored rejection and source preserved unchanged",
+    "Remote62/87/publicationblocked remains distinct; detailed ledger/archive deferred with raw local preservation"
+  ]
+}

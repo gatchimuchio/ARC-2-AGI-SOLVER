@@ -1,0 +1,115 @@
+{
+  "attempt_id": "attempt-024-band-profile-stacks",
+  "status": "Runtime gates independently passed; exact local integration awaits parent approval",
+  "local_only": true,
+  "external_publication_authorized_by_this_package": false,
+  "expected_local_parent": "fd4dba3a9ff46aec59befbaecdb86f2488a2aa86",
+  "remote_main_unchanged": "27502ef9e0ee7492be2eaaf16b2acbd076ce7b91",
+  "remote_score": [
+    62,
+    87
+  ],
+  "previous_local": [
+    66,
+    95
+  ],
+  "current_local": [
+    67,
+    96
+  ],
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "unanswered": -1
+  },
+  "wrong_grids": 0,
+  "resource_failures": 0,
+  "old_correct_grids_identical": 95,
+  "partial_tasks": 8,
+  "HOLD_examples": 71,
+  "regression_scripts": 75,
+  "regression_checks": 2287,
+  "accepted_family_count_if_admitted": 75,
+  "protected_core_unchanged": true,
+  "origins": {
+    "HDS_actual_learning": "Fresh native machine,2 current teacher observations,0 prior,equality admitted,quarantine0. The profile grammar was not discovered by HDS.",
+    "teacher_fit": "One fixed rule activation; no learned semantic parameters. All successful teacher predictions exactly reproduce the targets. Validated shape and all-color Counter mismatches prove whole grammar fit impossible without executing its renderer.",
+    "fixed_prior": "Every observed background, both axes, every interior spanning normal-convex band, all narrower normal-convex pieces, all width-aligned root slots/chains/full inventory covers; any retained role failure or output disagreement yields HOLD.",
+    "old_assets": "Direct unchanged existing C4 components, grid transform, oriented-cell normalization and strict ARC validator. Reuse of helpers is distinct from an existing whole family solving the task.",
+    "new_fixed_grammar": "Full-width one-cell profile adjacency; translation-only same-width chains from nonflat band-facing root to flat outward endpoint; every piece exactly once, no overlaps; fixed band, canvas and every color count preserved."
+  },
+  "teacher_accounting": {
+    "tasks": 120,
+    "teacher_pairs": 359,
+    "symbolically_rejected_tasks": 113,
+    "unexecuted_fit_teacher_renders": 340,
+    "executed_fit_teacher_renders": 19,
+    "direct_wrapper_returns": 19,
+    "actual_kernel_program_return_events": 21,
+    "positive_fit_tasks": 1,
+    "positive_teacher_count": 2
+  },
+  "evidence_metadata_correction": {
+    "source": "teacher-fit-index.json.gz#/method",
+    "original_text": "Four production runtime modules exactly match independently reviewed strict-fit/view preflight. Original120 records reused, no repeated fit.",
+    "corrected_text": "Two production runtime modules exactly match the independently reviewed fixed-rule activation and conservation-proof preflight. Original120 complete records are reused; no repeated fit.",
+    "scope": "Descriptive template wording only. Frozen original and all source records remain unchanged."
+  },
+  "limitations": [
+    "The initial teacher preflight had three resource failures and a missing completed-return capture boundary; all original source, prefixes and telemetry limits remain preserved. Final proof skips are symbolic, not executed candidate returns.",
+    "The finite grammar is a new fixed prior: normal-convex pieces, translation only, nonflat root and flat endpoint. Complete search has no arbitrary cap; the measured corpus does not prove universal resource bounds.",
+    "Original contract predates saved fit, but the exact initial prototype source was not independently frozen at its first fit; later source/normal/-O evidence is versioned and this chronology limitation remains.",
+    "The related67 ledger was indexed, with detailed comparisons for4 plus12 related families. The five brute-force controls independently check chain sets on the same extracted inventory, not an independent whole role/cover solver.",
+    "LOCAL ONLY; earlier010 publication denial remains and this package does not authorize external transmission or bypass.",
+    "Public evaluation is not a hidden or wholly unseen benchmark. Detailed21-field ledger and full raw archive organization are deferred, with original teacher/native/query/failure evidence retained locally.",
+    "No HDS core, learning definition, same-instance repair or vNext implementation."
+  ],
+  "compressed_evidence": [
+    {
+      "path": "public-score.json.gz",
+      "uncompressed_sha256": "b524af7eab6be4eadcfa613261ac0661977bee366af69c36aa2c088bc0c33ad5",
+      "uncompressed_bytes": 6478562
+    },
+    {
+      "path": "comparison.json.gz",
+      "uncompressed_sha256": "8f549f6ef0dd45f95225199fe7c2f00e929195d586d729ac5e974a7d493f8a35",
+      "uncompressed_bytes": 85349
+    },
+    {
+      "path": "input-only.json.gz",
+      "uncompressed_sha256": "78dd6759a1fa911c044efcd048f9aad4fb94354bab64d9e8756b20d7784337c3",
+      "uncompressed_bytes": 1351895
+    },
+    {
+      "path": "regressions.json.gz",
+      "uncompressed_sha256": "43439bfa287b4d7f3bef61d3d36607bcf1bc4567173570aa194ead918017e606",
+      "uncompressed_bytes": 111420
+    },
+    {
+      "path": "teacher-fit-index.json.gz",
+      "uncompressed_sha256": "c7c4435478b30189a0f6bcf3538bcbbb7b7f36103188749d60754dd81af93f00",
+      "uncompressed_bytes": 22789025
+    },
+    {
+      "path": "source-freeze.json.gz",
+      "uncompressed_sha256": "8f70e4d605b9055831dcc4858736558d6ea5e87b3caa1fc0ccbf1a7e046884ca",
+      "uncompressed_bytes": 114335
+    }
+  ],
+  "input_only_journal": {
+    "path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-024-band-profile-stacks/input-only-journals/run-000.jsonl",
+    "sha256": "1c99efab0cf0937eee25e36d118945c479365f8eee0d08ff2fe389b9ced4b150",
+    "bytes": 2307623,
+    "complete_events": 287,
+    "incomplete_trailing_line": null,
+    "trace_complete": true
+  },
+  "input_seal": {
+    "input_only_sha256": "78dd6759a1fa911c044efcd048f9aad4fb94354bab64d9e8756b20d7784337c3",
+    "freeze_sha256": "8f70e4d605b9055831dcc4858736558d6ea5e87b3caa1fc0ccbf1a7e046884ca",
+    "exit_source_input_native_parity_gate": true,
+    "answers": 1,
+    "decision": "PROCEED_FULL120",
+    "scorer_budget_unchanged": true
+  }
+}

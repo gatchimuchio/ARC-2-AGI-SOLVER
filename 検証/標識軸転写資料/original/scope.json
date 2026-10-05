@@ -1,0 +1,9 @@
+{
+  "task_id_audit_only": "6e4f6532",
+  "stage": "teacher-only observation",
+  "source": "/workspace/scratch/7408259c1ab2/arc2-restored-592d2c5-audit/evaluation-teachers-only.json",
+  "source_sha256": "012924cb967106a6d72e9323b83534539471c27dc4f5fba5d8d4a0dbe334c8aa",
+  "query_or_score_access": false,
+  "prior_inventory": "A/inventory-observations-60.json row6e4f6532",
+  "purpose": "Reuse existing side-label D4 and anchor transfer primitives where exactcontracts apply"
+}

@@ -1,0 +1,84 @@
+{
+  "attempt": "010",
+  "baseline_commit": "27502ef9e0ee7492be2eaaf16b2acbd076ce7b91",
+  "decision": "Runtime gates passed; exact publication awaits parent approval",
+  "previous": {
+    "complete_tasks": 62,
+    "correct_examples": 87,
+    "HOLD": 80,
+    "partial_tasks": 7,
+    "families": 69
+  },
+  "current": {
+    "complete_tasks": 62,
+    "correct_examples": 88,
+    "HOLD": 79,
+    "partial_tasks": 8,
+    "families": 70
+  },
+  "delta": {
+    "complete_tasks": 0,
+    "correct_examples": 1,
+    "HOLD": -1
+  },
+  "wrong_grid": 0,
+  "resource_failure": 0,
+  "old_correct_grids_identical": 87,
+  "full_regression": {
+    "scripts": 70,
+    "checks": 2225,
+    "PASS": true
+  },
+  "teacher_fit": {
+    "tasks": 120,
+    "teachers": 359,
+    "grammar": 360,
+    "full_returns": 129240,
+    "retained_models": 2
+  },
+  "learning_origin": {
+    "HDS": "Unchanged native equality admission from2 distinct teachers",
+    "teacher_fit": "Two complete360-grammar models retained, C4/C8 unresolved",
+    "fixed_prior": "Prospective chirality of singly constrained labeled axis; two-axis labels keep all side-consistent D4",
+    "old_assets": "Existing geometry and side correspondence directly imported",
+    "new_grammar": "Labeled body/marker relation, chamber ownership and anchored full-role transfer"
+  },
+  "limits": [
+    "One query remains HOLD because a retained model has no admitted role view; no model was dropped",
+    "Public evaluation only; no hidden-generalization claim",
+    "Original sign-based grammar and its D4 counterexamples remain preserved as a separate historical study",
+    "Detailed ledger and complete archive formatting deferred per latest user direction; all raw teacher streams, controls, native outputs, query journal and rejected histories are retained locally for checkpoint organization"
+  ],
+  "evidence": [
+    {
+      "file": "public-score.json.gz",
+      "uncompressed_sha256": "39c3ffb90fa4e16f70554e79d29d5bb92f5804aa6a0eaf406bf5b37cd666d92f",
+      "uncompressed_bytes": 5827064
+    },
+    {
+      "file": "comparison.json.gz",
+      "uncompressed_sha256": "e00dc0c965b46b1177e5fa2d2d96f7cfe992ae62f445279ff0f91877744ea0a3",
+      "uncompressed_bytes": 81148
+    },
+    {
+      "file": "input-only.json.gz",
+      "uncompressed_sha256": "bb4817a12f9e2dec31ed7c96c666eecb78c4f8cb47abd4b98d503c05aee98fce",
+      "uncompressed_bytes": 9391347
+    },
+    {
+      "file": "regressions.json.gz",
+      "uncompressed_sha256": "b6eff2549604d2800cf9dc5450540236813d1cf366a12953a114de9024dbac9d",
+      "uncompressed_bytes": 102345
+    },
+    {
+      "file": "teacher-fit-index.json.gz",
+      "uncompressed_sha256": "990adabfb477c2533e4c9d6a69158531c03387ea12596179112d9b04fc2d6d34",
+      "uncompressed_bytes": 148413
+    },
+    {
+      "file": "source-freeze.json.gz",
+      "uncompressed_sha256": "0f2a7a0054ab3643d851d97b327952c13c258a98ad60e90113c8ff02280a5653",
+      "uncompressed_bytes": 63006
+    }
+  ]
+}

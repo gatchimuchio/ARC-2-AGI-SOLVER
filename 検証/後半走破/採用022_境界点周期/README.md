@@ -1,0 +1,11 @@
+# 境界点周期の短周期採用証拠
+
+境界から始まる同色2点の間隔を周期として延長し、同位相の異色終端で停止・再着色する新しい固定文法を追加する。位相外の前景を保存し、全役割・全方向・全保持モデルの格子合意を要求する。全8文法から3教師を再現する1モデルを保持する。
+
+previousはLOCAL採用020の64/120・92/167。currentは65/120・94/167、完答+1・正答例+2。旧92格子は全同一、誤格子0、資源失敗0、HOLD73、部分正答8。全73回帰script・2258検査が通過。query2入力はdirect/HDS一致、native支持3・同値採用。HDS中核とprotected authorityは無変更。
+
+LOCAL継続用packageであり、remote mainは27502ef9の62/87。010の外部公開制限を解除せず、送信や迂回公開を認可しない。
+
+gzipは原JSONの可逆圧縮で、展開hashはadmission.jsonにある。全教師返値・native・295対照・query逐次journalを原本保存済み。詳細台帳と全標本archiveの整形は攻略経路から外して後送し、この小packageだけで全内部標本を収録したとはしない。絶対source参照に対応するproduction13原本は同じrepository pathで解決する。
+
+旧ordered-line棄却履歴はtask IDがなく、機構記述は異なるが過去露出が皆無とは証明できない。六軸比較は関連3規則で、旧wrapperのfit失敗をraw rendererの独立実行とは呼ばない。文法は教師観測後に固定。leave-one-outの2foldではモデル不一致でHOLDし、独立汎化は未証明。意味規則をHDSが発見したとは主張せず、新family追加を新規規則なしの完答再利用数へ含めない。

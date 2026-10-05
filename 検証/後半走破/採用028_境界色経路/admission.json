@@ -1,0 +1,111 @@
+{
+  "attempt_id": "attempt-028-boundary-color-paths",
+  "status": "Runtime gates independently passed; exact local integration awaits parent approval",
+  "local_only": true,
+  "external_publication_authorized_by_this_package": false,
+  "expected_local_parent": "96c75b99bd5001fd8dc91720a605633861ab1239",
+  "remote_main_unchanged": "27502ef9e0ee7492be2eaaf16b2acbd076ce7b91",
+  "remote_score": [
+    62,
+    87
+  ],
+  "previous_local": [
+    68,
+    98
+  ],
+  "current_local": [
+    69,
+    100
+  ],
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 2,
+    "unanswered": -2
+  },
+  "wrong_grids": 0,
+  "resource_failures": 0,
+  "old_correct_grids_identical": 98,
+  "partial_tasks": 8,
+  "HOLD_examples": 67,
+  "regression_scripts": 77,
+  "regression_checks": 3111,
+  "accepted_family_count_if_admitted": 77,
+  "protected_core_unchanged": true,
+  "origins": {
+    "HDS_actual_learning": "Fresh native machine,3 current teacher observations,0 prior,equality admitted,quarantine0. Threshold4 rejects equality with the same fitted tuple; raw exhaust is a separate observation. The routing grammar was not discovered by HDS.",
+    "teacher_fit": "All3 finite phase programs are evaluated on every teacher; only continuous reproduces all3 full grids. Strict valid/distinct teacher pairs and immutable all-retained phase tuple; no target in role parsing or rendering.",
+    "fixed_prior": "All wall/travel colors, same-size square-token inventories, boundary seeds and heading/marker assignments are enumerated. Equal-spaced collinear legend and one perpendicular direction toward it define roles. Raw role uniqueness precedes action.",
+    "old_assets": "Direct existing 凡例旋回教材.valid_grid/body_components and existing clone_grid. The old finite turn trace and divisibility-based period renderer are not reused as this new action.",
+    "new_fixed_grammar": "Erase legend/marker squares to wall terrain; trace each seed with two fixed monotone headings, alternate on wall contact, paint that wall cell with marker color, and color moved cells by the legend cycle. Continuous phase does not count the contact as an extra step. Merge all full proposals and HOLD on conflicting colors or failed traces."
+  },
+  "teacher_accounting": {
+    "tasks": 120,
+    "teacher_pairs": 359,
+    "phase_teacher_returns": 1077,
+    "direct_teacher_returns": 359,
+    "fit_tasks": 1,
+    "positive_teacher_count": 3,
+    "logical_HOLD_tasks": 119,
+    "resource_failures": 0,
+    "max_measured_child_VmHWM_KiB": 17824,
+    "max_child_CPU_seconds": 0.674
+  },
+  "limitations": [
+    "Square tokens, a regular collinear legend, boundary seeds and two input-derived monotone headings are explicit fixed priors. Raw roles must be unique before rendering.",
+    "The path alternates only those two headings. The h+w-1 step bound follows monotonicity and is not an arbitrary budget. More general routing or cyclic movement is outside this grammar.",
+    "Unknown phase strings fall through to continuous in the preserved pure prototype; production strictly accepts only declared phase values and rejects invalid retained state as whole HOLD.",
+    "Original MemoryError controls had no structured result; the wrapper preserves completed earlier models and chained inner geometry even with observer=None, then rethrows the original resource exception. Engine injection is distinct from input-reachable failure.",
+    "Old arrow-region/route-sweep source/task/score history was not recovered. The retained source-rejection warning is explicit, without claiming a same-task history or a wholly unseen public sample.",
+    "The33 teacher-derived transforms are separate from37 independent fixtures/109 executions; neither is counted as additional native teacher support.",
+    "LOCAL ONLY; earlier010 publication denial remains and this package does not authorize external transmission or bypass. Detailed21-field ledger/full raw packaging is deferred with all original teacher/native/query/failure evidence retained locally.",
+    "No HDS core, learning definition, same-instance repair or vNext implementation."
+  ],
+  "compressed_evidence": [
+    {
+      "path": "public-score.json.gz",
+      "uncompressed_sha256": "ff937a0137c0c92d97fc3e9a5e8d0dc25cef3479a3f61a839b042f393e42649b",
+      "uncompressed_bytes": 6706007
+    },
+    {
+      "path": "comparison.json.gz",
+      "uncompressed_sha256": "01b8d95a2d47235e802d73730f6d27a0ab8f103023bdc6f53fd490d55f047a1e",
+      "uncompressed_bytes": 84697
+    },
+    {
+      "path": "input-only.json.gz",
+      "uncompressed_sha256": "d53f54badd1d86092ed479262eecf52153254e4674198f310a90901facd1ffdb",
+      "uncompressed_bytes": 508871
+    },
+    {
+      "path": "regressions.json.gz",
+      "uncompressed_sha256": "b2bbd5d697e78354169d7235feae5bbfa823cc364100eb825fd0615d504957a1",
+      "uncompressed_bytes": 148964
+    },
+    {
+      "path": "teacher-fit-index.json.gz",
+      "uncompressed_sha256": "7c1dbea2f4a25f98cab233059236c3dd3909cf0021e972bcd00fa234958fa61e",
+      "uncompressed_bytes": 23286348
+    },
+    {
+      "path": "source-freeze.json.gz",
+      "uncompressed_sha256": "dea06d5b82e7a932ec9e056cf157e96b2ee037bce0a9c0f6692343e52903c090",
+      "uncompressed_bytes": 146651
+    }
+  ],
+  "input_only_journal": {
+    "path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-028-boundary-color-paths/input-only-journals/run-000.jsonl",
+    "sha256": "c821fac0f1b5ce93d53892da6660ba343db0c832f5df048a14a1cd2cc3eed431",
+    "bytes": 781341,
+    "complete_events": 33,
+    "incomplete_trailing_line": null,
+    "trace_complete": true
+  },
+  "input_seal": {
+    "input_only_sha256": "d53f54badd1d86092ed479262eecf52153254e4674198f310a90901facd1ffdb",
+    "freeze_sha256": "dea06d5b82e7a932ec9e056cf157e96b2ee037bce0a9c0f6692343e52903c090",
+    "exit_source_input_native_parity_gate": true,
+    "answers": 2,
+    "decision": "PROCEED_FULL120",
+    "scorer_budget_unchanged": true
+  }
+}

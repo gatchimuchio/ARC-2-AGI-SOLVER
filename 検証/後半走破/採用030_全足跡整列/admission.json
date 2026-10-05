@@ -1,0 +1,123 @@
+{
+  "attempt_id": "attempt-030-full-footprint-chart",
+  "status": "Runtime gates independently passed; exact local integration awaits parent approval",
+  "local_only": true,
+  "external_publication_authorized_by_this_package": false,
+  "expected_local_parent": "219670770266dfd938c9fb69287bc4883b3a2ed6",
+  "remote_main_unchanged": "27502ef9e0ee7492be2eaaf16b2acbd076ce7b91",
+  "remote_score": [
+    62,
+    87
+  ],
+  "previous_local": [
+    69,
+    100
+  ],
+  "current_local": [
+    70,
+    101
+  ],
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 1,
+    "unanswered": -1
+  },
+  "wrong_grids": 0,
+  "resource_failures": 0,
+  "old_correct_grids_identical": 100,
+  "partial_tasks": 8,
+  "HOLD_examples": 66,
+  "regression_scripts": 78,
+  "regression_checks": 3290,
+  "accepted_family_count_if_admitted": 78,
+  "protected_core_unchanged": true,
+  "origins": {
+    "HDS_actual_learning": "Fresh native machine observes three current teachers, prior0/quarantine0; equality is admitted at threshold3 and rejected at4 for the same fixed activation. Raw exhaust reports output in both cycles and is separate from equality. HDS did not discover the chart grammar.",
+    "teacher_fit": "Strict pair/grid validation before hashing; at least two distinct teachers. The sole ascending_full_footprints program is activated only by full exact reproduction of all three teachers. Immutable activation and all-role output consensus; target used only in teacher fit.",
+    "fixed_prior": "Original unique full-canvas background; a horizontal whole-chart view removes only exterior all-background columns conceptually. Every interior row and non-background axis color is considered. Axis color is confined to its row; complete C4 rectangular bars cross it, own all foreground and have disjoint slot columns.",
+    "old_assets": "Direct accepted clone_grid/grid_shape from既存凡例穴対応 and same_color_components_4 from既存順位着色. Byte-identical historical token_sort_primitives supplies contiguous_axis_tokens and token_footprint_offsets; this historical asset is distinguished from an accepted main family. Shared-domain old action is reproduced, not the old top-level selector.",
+    "new_fixed_grammar": "For every certified role, sort original contiguous offset footprints by length/min/max and assign them to original ordered slots while preserving each slot width/color and the axis. Reject bounds, collision, ownership and no-op failures; require every retained role to succeed with identical full grids. Generic axis-absence fit proof cannot admit a model and falls back to byte-identical v1 fit otherwise."
+  },
+  "teacher_accounting": {
+    "tasks": 120,
+    "teacher_pairs": 359,
+    "proven_empty_fit_tasks": 116,
+    "logical_HOLD_tasks": 3,
+    "fit_tasks": 1,
+    "positive_teacher_count": 3,
+    "fit_renderer_calls_executed": 10,
+    "symbolic_unexecuted_fit_teacher_calls": 349,
+    "direct_wrapper_returns": 359,
+    "direct_renderer_calls_executed": 3,
+    "whole_renderer_calls_executed": 13,
+    "fit_raw_pairs": 556,
+    "direct_raw_pairs": 153,
+    "whole_raw_pairs": 709,
+    "fit_retained_actions": 3,
+    "direct_retained_actions": 3,
+    "whole_retained_actions": 6,
+    "resource_failures_v2": 0,
+    "preserved_signal9_failures_v1": 3,
+    "max_actual_child_VmHWM_KiB": 20316,
+    "max_child_CPU_seconds": 0.197152
+  },
+  "limitations": [
+    "The whole-chart parser is a new fixed horizontal prior: original unique background, exterior background-column view, complete rectangular C4 bars crossing a single certified axis, at least three axis cells and three bars, and exact foreground ownership. It does not identify arbitrary charts.",
+    "Variable widths and even or asymmetric contiguous offset footprints are permitted. Old ascending footprint action is reused on its shared domain; the old top-level row-frequency selector is not reused. No rotations or coordinate-specific rescue are added.",
+    "Every retained role, including no-op and failure, participates in whole-output consensus. No-op roles are not discarded to choose a successful role. All bounds, stationary-foreground collision and ownership guards remain.",
+    "Slot colors and widths remain fixed while footprints are reassigned; total foreground/background and color histograms can change. The saved37-to35 witness disproves inherited count-conservation optimizations.",
+    "Old026 query-input exposure and unscored rejection remain explicit. The new contract was supported by pre-query legacy variable-width/even/asymmetric controls and separately frozen independent synthetics; no claim of an unseen public task.",
+    "The initial030 fullteacher run had three signal9 resource failures. They are preserved as incomplete, never relabeled HOLD. V2 axis absence is a necessary-condition proof: any validated teacher without an eligible axis color refutes the whole fixed fit domain; otherwise the exact v1 fitter runs. Symbolic unexecuted calls are not renderer observations.",
+    "Prototype78 synthetic executions contain77 unique input/type combinations because identity palette repeats its base. One defensive fixture and three teachers are counted separately; all42 shared old/new action outputs agree.",
+    "LOCAL ONLY. Earlier010 external-publication denial remains; no data egress or bypass is authorized. All raw source/teacher/native/query/failure histories remain local. Detailed21-field ledger and full archives are deferred off the solver path.",
+    "No HDS core, learning-definition, authority, same-instance repair or vNext changes."
+  ],
+  "compressed_evidence": [
+    {
+      "path": "public-score.json.gz",
+      "uncompressed_sha256": "0e291863ef4d15fd9381c3a69a92b6290f3066f8d1ea8cd1a830ea526c64a36b",
+      "uncompressed_bytes": 6804023
+    },
+    {
+      "path": "comparison.json.gz",
+      "uncompressed_sha256": "8d5253a916a880c3cbea4064b73da000d12f40b1521892cd72a1fc7d162a2021",
+      "uncompressed_bytes": 84633
+    },
+    {
+      "path": "input-only.json.gz",
+      "uncompressed_sha256": "d5f763900a3230e253d366583267c946bba8f011e38c1a66134fd00687cd0587",
+      "uncompressed_bytes": 538283
+    },
+    {
+      "path": "regressions.json.gz",
+      "uncompressed_sha256": "e2dd25b1c1e8bbe39d0568fff6d4552c245b5cad2e2fdd3fe993c1ed67dcc078",
+      "uncompressed_bytes": 159658
+    },
+    {
+      "path": "teacher-fit-index.json.gz",
+      "uncompressed_sha256": "1e6035bbd1190a89525b22ba45c645dcb6f90f3f2ff76d658eba380d6509cd0c",
+      "uncompressed_bytes": 6512510
+    },
+    {
+      "path": "source-freeze.json.gz",
+      "uncompressed_sha256": "a6cbf3ef7cbad52ee69d7bfc7179a25d2d6961b9f969eb34e9db5c5b7311a9b7",
+      "uncompressed_bytes": 150729
+    }
+  ],
+  "input_only_journal": {
+    "path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-030-full-footprint-chart/input-only-journals/run-000.jsonl",
+    "sha256": "1de25be5406fa86bd105b86ecd5170fdd2d79a5fb2140b674fe5e9ce982163d9",
+    "bytes": 1093948,
+    "complete_events": 17,
+    "incomplete_trailing_line": null,
+    "trace_complete": true
+  },
+  "input_seal": {
+    "input_only_sha256": "d5f763900a3230e253d366583267c946bba8f011e38c1a66134fd00687cd0587",
+    "freeze_sha256": "a6cbf3ef7cbad52ee69d7bfc7179a25d2d6961b9f969eb34e9db5c5b7311a9b7",
+    "exit_source_input_native_parity_gate": true,
+    "answers": 1,
+    "decision": "PROCEED_FULL120",
+    "scorer_budget_unchanged": true
+  }
+}

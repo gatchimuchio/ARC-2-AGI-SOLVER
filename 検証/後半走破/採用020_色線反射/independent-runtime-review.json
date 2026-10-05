@@ -1,0 +1,69 @@
+{
+  "decision": "PASS_RUNTIME_ADMISSION_LOCAL_PENDING_EXACT_PACKAGE",
+  "verified_utc": "2026-10-05T11:26:56.186413+00:00",
+  "freeze_sha256": "07032d2c99c492cdd9b1664248905c6855710369b197b50c73344bbceccb09f9",
+  "input_only_sha256": "96d5fd745ba5569b4be6262e47f7da4ea8924c8f18869b50b5f7f53161e0e416",
+  "official_sha256": "de2ade1c219f677d56e5007d0d07ddb893d3d60724cd7ca42c67c9c9ff81a6dd",
+  "all_frozen_files_exact": 276,
+  "input_only": {
+    "exit": 0,
+    "direct_HDS_equal_answers": 2,
+    "native_current_support": 3,
+    "native_prior_support": 0,
+    "native_equality": true,
+    "source_input_unchanged": true,
+    "journal_complete_events": 1049,
+    "journal_sha256": "168a4e9d61bc3743c92bb3c0a90fbaceecae5c3f2a3c8865fad228f88c4509bd",
+    "event_counts": {
+      "('teacher_fit', 'teacher_validation')": 1,
+      "('teacher_fit', 'model_start')": 8,
+      "('teacher_fit', 'render_start')": 24,
+      "('teacher_fit', 'role_completed')": 168,
+      "('teacher_fit', 'roles_return')": 24,
+      "('teacher_fit', 'state_prefix')": 508,
+      "('teacher_fit', 'render_return')": 24,
+      "('teacher_fit', 'model_completed')": 8,
+      "('teacher_fit', 'teacher_fit_completed')": 1,
+      "('direct_query', 'model_start')": 2,
+      "('direct_query', 'render_start')": 2,
+      "('direct_query', 'role_completed')": 22,
+      "('direct_query', 'roles_return')": 2,
+      "('direct_query', 'state_prefix')": 248,
+      "('direct_query', 'render_return')": 2,
+      "('direct_query', 'model_completed')": 2,
+      "('direct_query', 'retained_consensus')": 2,
+      "('whole_solver', 'whole_solver_start')": 1
+    }
+  },
+  "independent_full_score": {
+    "tasks": 120,
+    "examples": 167,
+    "complete": 64,
+    "correct": 92,
+    "HOLD": 75,
+    "wrong": 0,
+    "partial_tasks": 8,
+    "resource_failures": 0,
+    "old_correct_grids_identical": 90,
+    "new_correct_examples": [
+      [
+        "142ca369",
+        0
+      ],
+      [
+        "142ca369",
+        1
+      ]
+    ],
+    "delta_tasks": 1,
+    "delta_examples": 2
+  },
+  "regressions": "72 scripts/2247 checks PASS; exact-source prequery evidence reused",
+  "scope": "Read-only saved evidence/hash/grid comparisons. Official targets read only after sealed input-only and completed score, not for construction.",
+  "limitations": [
+    "Local accepted01863/90;remote275 remains62/87 with previous publication blocked",
+    "Five historical observation CPU failures retained; v2 uses exact normalized prefix equivalence, not byte-identical raw events",
+    "Cycle engine control is not valid-L reachability proof",
+    "Full raw retained locally; detailed ledger/archive off critical path"
+  ]
+}

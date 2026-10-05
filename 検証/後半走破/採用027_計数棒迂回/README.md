@@ -1,0 +1,11 @@
+# 計数棒迂回の短周期採用証拠
+
+境界seedから伸びる経路を、二色barの個数情報に従って自由端へ迂回させる。境界に接する端の色を数える入力role、四つの色、一次方向に垂直な全bar、全所有と単調な二turn経路は明示された固定priorである。clearanceは有限2programのnまたはn+1を全教師で比較し、n+1だけが全4教師を再現する。全保持role/modelの成功と完成格子合意を要求し、部分成功を選択しない。
+
+previousはLOCAL採用024の67/120・96/167。currentは68/120・98/167、完答+1・正答例+2。旧96格子は全同一、誤格子0、資源失敗0、HOLD69、部分正答8。全76回帰script・2941検査を通過。query2入力はdirect/HDS一致、native支持4・prior0・同値採用。HDS中核とprotected authorityは無変更。
+
+全120/359教師の718有限program返値と359直接予測を保存し、1課題fit・119論理HOLD・資源例外0。初版のobserverなし例外診断で内側geometry prefixが上書きされる欠損を保存し、v2はreport_exceptionの診断連鎖だけを変更した。成功/HOLDの意味ASTは不変であり、全教師原本を再利用する。元例外の同一性と内側prefixを4つの追加対照で確認し、更新された全回帰を実行した。query前に見つかった観測scriptの参照path誤りも原script/freezeごと保存して訂正済みである。
+
+既存のC4成分・格子複写・方向・線分列挙を直接再利用するが、countによる二turn作用は新規合成であり既存familyのそのままの再利用ではない。bar位置・形状とcanvas寸法を保ち、count色をもう一方のbar色へ正規化し、背景へpathを描くため、色別画素数や総前景数の保存は主張しない。混合方向、未通過bar、後退、再訪、衝突、曖昧roleは適用域外HOLDとなる。
+
+LOCAL継続用packageであり、remote mainは27502ef9の62/87。010の外部公開制限を解除せず、送信や迂回公開を認可しない。gzipは原JSONの可逆圧縮で展開hashはadmission.jsonにある。全教師・native・反例・query逐次journalを原本保存し、詳細台帳と全標本archiveは攻略経路から外して後送する。本小packageだけで全内部標本を収録したとはしない。絶対source参照に対応するproduction15原本は同じrepository pathで解決する。

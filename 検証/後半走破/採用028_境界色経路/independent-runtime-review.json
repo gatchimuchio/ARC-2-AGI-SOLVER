@@ -1,0 +1,61 @@
+{
+  "decision": "PASS_RUNTIME_ADMISSION_LOCAL_PENDING_EXACT_PACKAGE",
+  "verified_utc": "2026-10-05T15:16:20.048912+00:00",
+  "freeze_sha256": "dea06d5b82e7a932ec9e056cf157e96b2ee037bce0a9c0f6692343e52903c090",
+  "input_only_sha256": "d53f54badd1d86092ed479262eecf52153254e4674198f310a90901facd1ffdb",
+  "official_sha256": "ff937a0137c0c92d97fc3e9a5e8d0dc25cef3479a3f61a839b042f393e42649b",
+  "all_frozen_files_exact": 589,
+  "input_only": {
+    "exit": 0,
+    "direct_HDS_equal_answers": 2,
+    "native_current_support": 3,
+    "native_prior_support": 0,
+    "native_equality": true,
+    "source_input_unchanged": true,
+    "journal_complete_events": 33,
+    "journal_sha256": "c821fac0f1b5ce93d53892da6660ba343db0c832f5df048a14a1cd2cc3eed431",
+    "event_counts": {
+      "('teacher_fit', 'teacher_validation')": 1,
+      "('teacher_fit', 'program_start')": 3,
+      "('teacher_fit', 'program_return')": 9,
+      "('teacher_fit', 'teacher_return')": 9,
+      "('teacher_fit', 'program_completed')": 3,
+      "('teacher_fit', 'teacher_fit_completed')": 1,
+      "('direct_query', 'program_return')": 2,
+      "('direct_query', 'retained_program_return')": 2,
+      "('direct_query', 'retained_consensus')": 2,
+      "('whole_solver', 'whole_solver_start')": 1
+    }
+  },
+  "independent_full_score": {
+    "tasks": 120,
+    "examples": 167,
+    "complete": 69,
+    "correct": 100,
+    "HOLD": 67,
+    "wrong": 0,
+    "partial_tasks": 8,
+    "resource_failures": 0,
+    "old_correct_grids_identical": 98,
+    "new_correct_examples": [
+      [
+        "195c6913",
+        0
+      ],
+      [
+        "195c6913",
+        1
+      ]
+    ],
+    "delta_tasks": 1,
+    "delta_examples": 2
+  },
+  "regressions": "77 scripts/3111 checks PASS exact frozen source",
+  "scope": "Read-only saved evidence/hash/gridcomparison, targetread only after fixed input-only/completedscore;no candidate execution byreviewer.",
+  "limitations": [
+    "Fixedlegend/terrain/seed/twomonotoneheading priors explicit;phase choice fitscontinuous only",
+    "Prototypeunknownphasefallback/9unstructuredMemoryErrorlimits preserved;strictwrapperenum/prefix handling tested",
+    "Oldroute-sweep history incomplete, no whollyunseenbenchmarkclaim",
+    "Local68/98 previous;remote62/87/publicationblocked;fullrawlocal/detailsledgerdeferred"
+  ]
+}

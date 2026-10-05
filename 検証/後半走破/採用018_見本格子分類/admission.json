@@ -1,0 +1,98 @@
+{
+  "attempt_id": "attempt-018-example-grid-classification",
+  "status": "Runtime gates independently passed; exact local integration awaits parent approval",
+  "local_only": true,
+  "external_publication_authorized_by_this_package": false,
+  "expected_local_parent": "916e664cd1b3ed74b51d66a48d849d7af2e9d1cd",
+  "remote_main_unchanged": "27502ef9e0ee7492be2eaaf16b2acbd076ce7b91",
+  "remote_score": [
+    62,
+    87
+  ],
+  "previous_local": [
+    62,
+    88
+  ],
+  "current_local": [
+    63,
+    90
+  ],
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 2,
+    "unanswered": -2
+  },
+  "wrong_grids": 0,
+  "resource_failures": 0,
+  "old_correct_grids_identical": 88,
+  "partial_tasks": 8,
+  "HOLD_examples": 77,
+  "regression_scripts": 71,
+  "regression_checks": 2237,
+  "accepted_family_count_if_admitted": 71,
+  "protected_core_unchanged": true,
+  "origins": {
+    "HDS_actual_learning": "Fresh native machine,5 current teacher observations,0 prior,all teacher equality admitted,quarantine0; normal minimum support3. Meaning grammar not discovered by HDS.",
+    "teacher_fit": "All576 declared programs, fitted response colors and all30 matching programs retained in immutable tuples; no teacher targets retained.",
+    "fixed_prior": "Whole sample/lattice roles, declared feature/selection/line predicates, all allocations and retained programs must agree.",
+    "old_assets": "Existing direct grid/components/geometry helper imports; exact provenance retained in candidate fixture and original prototype records.",
+    "new_fixed_grammar": "New sample/grid classification family and exact complete-output disagreement proof. Proof evaluates valid complete witnesses; all retained programs remain evaluated."
+  },
+  "limitations": [
+    "Remote010 publication is blocked; this local continuation must not bypass that block by bundling its bytes externally.",
+    "Original valid-grid stress MemoryError and observation CPU failure remain resource failures. Final proof stress passed; universal worst-case resource guarantee is not claimed.",
+    "Two complete allocation outputs can prove non-consensus; proof diagnostics differ from exhaustive traces and unexecuted alternatives are recorded as proven, not enumerated.",
+    "Feature/selection/predicate alternatives remain semantically unidentified by teachers; all30 are retained.",
+    "Public evaluation is not a hidden or wholly unseen benchmark.",
+    "Detailed21-field ledger and full raw archive organization deferred off the solving critical path; raw teacher/native/query/resource/negative artifacts retained locally, not all embedded here.",
+    "No same-instance HDS repair or vNext implementation."
+  ],
+  "compressed_evidence": [
+    {
+      "path": "public-score.json.gz",
+      "uncompressed_sha256": "f7aae2d77d172c8b49855c0f8b266f4ed7d3dabcb29707577758f0bfe001da67",
+      "uncompressed_bytes": 5965720
+    },
+    {
+      "path": "comparison.json.gz",
+      "uncompressed_sha256": "4434d0786109c8e4ad0b1381adfa9fcd7d26b393b607b40fe1b7f7b50e48b250",
+      "uncompressed_bytes": 76516
+    },
+    {
+      "path": "input-only.json.gz",
+      "uncompressed_sha256": "aeb1693751564c6381948937a120c927b4ed0842f5f0b521193fde530f68a186",
+      "uncompressed_bytes": 1654947
+    },
+    {
+      "path": "regressions.json.gz",
+      "uncompressed_sha256": "1f75bfd46b2db78933ddf5ad99963e30ddd9ed5e1d9e7ab2bfee4d3794bee718",
+      "uncompressed_bytes": 104304
+    },
+    {
+      "path": "teacher-fit-index.json.gz",
+      "uncompressed_sha256": "13dfcd7942a8ce38aa8d0c46cf1b5d6c123cbbc80a81a4118b82e490d4297d50",
+      "uncompressed_bytes": 99635
+    },
+    {
+      "path": "source-freeze.json.gz",
+      "uncompressed_sha256": "0f31d8652f5f942e668974d501436fd40948bfa73c7fab709a7a4e1b1fb256d6",
+      "uncompressed_bytes": 71063
+    }
+  ],
+  "input_only_journal": {
+    "path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-018-example-grid-classification/input-only-journals/run-000.jsonl",
+    "sha256": "30305cf4b2c0e6b4e692b79ab13bacc0169563d3423c7c8b50700b206e2a1184",
+    "bytes": 9878891,
+    "complete_events": 18365,
+    "incomplete_trailing_line": null,
+    "trace_complete": true
+  },
+  "input_seal": {
+    "input_only_sha256": "aeb1693751564c6381948937a120c927b4ed0842f5f0b521193fde530f68a186",
+    "freeze_sha256": "0f31d8652f5f942e668974d501436fd40948bfa73c7fab709a7a4e1b1fb256d6",
+    "exit_source_input_native_parity_gate": true,
+    "answers": 2,
+    "decision": "PROCEED_FULL120",
+    "scorer_budget_unchanged": true
+  }
+}

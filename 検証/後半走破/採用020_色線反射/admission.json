@@ -1,0 +1,98 @@
+{
+  "attempt_id": "attempt-020-colored-ray-reflection",
+  "status": "Runtime gates independently passed; exact local integration awaits parent approval",
+  "local_only": true,
+  "external_publication_authorized_by_this_package": false,
+  "expected_local_parent": "a082f798396f799d8d126cade5e3910c11d49b7b",
+  "remote_main_unchanged": "27502ef9e0ee7492be2eaaf16b2acbd076ce7b91",
+  "remote_score": [
+    62,
+    87
+  ],
+  "previous_local": [
+    63,
+    90
+  ],
+  "current_local": [
+    64,
+    92
+  ],
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 2,
+    "unanswered": -2
+  },
+  "wrong_grids": 0,
+  "resource_failures": 0,
+  "old_correct_grids_identical": 90,
+  "partial_tasks": 8,
+  "HOLD_examples": 75,
+  "regression_scripts": 72,
+  "regression_checks": 2247,
+  "accepted_family_count_if_admitted": 72,
+  "protected_core_unchanged": true,
+  "origins": {
+    "HDS_actual_learning": "Fresh native machine,3 current teacher observations,0 prior,all teacher equality admitted at normal support3,quarantine0. HDS did not discover the geometric grammar.",
+    "teacher_fit": "All8 declared programs evaluated on all teachers; one program retained, no targets in immutable state.",
+    "fixed_prior": "Whole C4 L3/line3/point glyph roles, center-adjacent reflection ports, all sources and finite reachable causal states, simultaneous paint agreement.",
+    "old_assets": "Five existing helper definitions for strict grid/C4 bodies/diagonal segment/clone/D4 imported directly; source provenance retained.",
+    "new_fixed_grammar": "Colored diagonal rays with direction, turn-color and singleton reflection/absorption alternatives. Canvas exit terminates branches; collisions/HOLD and full causal closure preserved."
+  },
+  "limitations": [
+    "Local-only continuation; earlier010 publication block remains, no external payload transmission authorized here.",
+    "Initial5 observation CPU failures remain preserved as resource failures, not retroactively ordinary HOLD. Incremental complete-role logging reconstructs completed old prefixes; universal resource guarantee not claimed.",
+    "Engine-injected cycle control does not prove reachability from a valid L-source input.",
+    "Equal-color simultaneous reflector branching is an explicit fixed prior, not uniquely identified from the teachers.",
+    "Public evaluation is not a hidden or wholly unseen benchmark.",
+    "Detailed21-field ledger and full raw archive organization deferred; original teacher/native/query/resource/negative records remain local and are not all embedded in this small package.",
+    "No HDS core, same-instance defect repair or vNext implementation."
+  ],
+  "compressed_evidence": [
+    {
+      "path": "public-score.json.gz",
+      "uncompressed_sha256": "de2ade1c219f677d56e5007d0d07ddb893d3d60724cd7ca42c67c9c9ff81a6dd",
+      "uncompressed_bytes": 6088799
+    },
+    {
+      "path": "comparison.json.gz",
+      "uncompressed_sha256": "c4d75f2a6a8b6209c625d4abab89d9e78a342d4f4d176f0b98adeb8e3a5657ae",
+      "uncompressed_bytes": 79142
+    },
+    {
+      "path": "input-only.json.gz",
+      "uncompressed_sha256": "96d5fd745ba5569b4be6262e47f7da4ea8924c8f18869b50b5f7f53161e0e416",
+      "uncompressed_bytes": 502918
+    },
+    {
+      "path": "regressions.json.gz",
+      "uncompressed_sha256": "eb0bdb91d8a402938b883f039ce6d6b7eaaed81a3dc2a91331845a02035aaf48",
+      "uncompressed_bytes": 105757
+    },
+    {
+      "path": "teacher-fit-index.json.gz",
+      "uncompressed_sha256": "92da107d8f8c0c9d8a3004b3dbb856b8f208eb8e2aaba1ba61e1cf596b50b0bd",
+      "uncompressed_bytes": 55920
+    },
+    {
+      "path": "source-freeze.json.gz",
+      "uncompressed_sha256": "07032d2c99c492cdd9b1664248905c6855710369b197b50c73344bbceccb09f9",
+      "uncompressed_bytes": 72575
+    }
+  ],
+  "input_only_journal": {
+    "path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-020-colored-ray-reflection/input-only-journals/run-000.jsonl",
+    "sha256": "168a4e9d61bc3743c92bb3c0a90fbaceecae5c3f2a3c8865fad228f88c4509bd",
+    "bytes": 6861046,
+    "complete_events": 1049,
+    "incomplete_trailing_line": null,
+    "trace_complete": true
+  },
+  "input_seal": {
+    "input_only_sha256": "96d5fd745ba5569b4be6262e47f7da4ea8924c8f18869b50b5f7f53161e0e416",
+    "freeze_sha256": "07032d2c99c492cdd9b1664248905c6855710369b197b50c73344bbceccb09f9",
+    "exit_source_input_native_parity_gate": true,
+    "answers": 2,
+    "decision": "PROCEED_FULL120",
+    "scorer_budget_unchanged": true
+  }
+}

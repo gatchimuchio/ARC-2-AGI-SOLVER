@@ -1,0 +1,111 @@
+{
+  "attempt_id": "attempt-027-counted-bar-detours",
+  "status": "Runtime gates independently passed; exact local integration awaits parent approval",
+  "local_only": true,
+  "external_publication_authorized_by_this_package": false,
+  "expected_local_parent": "8693783fbfa82c2d4b1f81e4cd624c07b906bfcb",
+  "remote_main_unchanged": "27502ef9e0ee7492be2eaaf16b2acbd076ce7b91",
+  "remote_score": [
+    62,
+    87
+  ],
+  "previous_local": [
+    67,
+    96
+  ],
+  "current_local": [
+    68,
+    98
+  ],
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 2,
+    "unanswered": -2
+  },
+  "wrong_grids": 0,
+  "resource_failures": 0,
+  "old_correct_grids_identical": 96,
+  "partial_tasks": 8,
+  "HOLD_examples": 69,
+  "regression_scripts": 76,
+  "regression_checks": 2941,
+  "accepted_family_count_if_admitted": 76,
+  "protected_core_unchanged": true,
+  "origins": {
+    "HDS_actual_learning": "Fresh native machine,4 current teacher observations,0 prior,equality admitted,quarantine0. Higher threshold5 rejects equality with the same retained model; raw exhaust is separately recorded. Count-to-clearance grammar was not discovered by HDS.",
+    "teacher_fit": "Evaluate both finite programs count or count+1 for every teacher; only count+1 retains all4 exact teacher grids. Strict valid/distinct teachers, immutable all-model tuple, no target in role parsing or rendering.",
+    "fixed_prior": "Unique most-frequent background, exactly4 colors, one noncorner boundary seed, straight perpendicular two-color bars each with one boundary-attached endpoint, full foreground ownership, monotone traversal and all bars used. Every retained role/model must succeed and agree.",
+    "old_assets": "Direct existing valid_grid, body_components(C4), clone_grid, DIRECTIONS and line_cells; Counter and full-color-equivalence bar view. Whole existing corridor/path family is not reused as this renderer.",
+    "new_fixed_grammar": "Boundary endpoint color gives the count. Learned finite offset is0 or1; detour has two turns at count+offset clearance around each free bar tip. Normalize bar pixels to their other color, draw the complete seed-color path only after global ownership/bounds/noncollision/consensus guards."
+  },
+  "teacher_accounting": {
+    "tasks": 120,
+    "teacher_pairs": 359,
+    "program_teacher_returns": 718,
+    "direct_teacher_returns": 359,
+    "fit_tasks": 1,
+    "positive_teacher_count": 4,
+    "logical_HOLD_tasks": 119,
+    "resource_failures": 0,
+    "max_measured_child_VmHWM_KiB": 16408,
+    "max_child_CPU_seconds": 0.119323
+  },
+  "limitations": [
+    "The four-color boundary-seed/perpendicular-bar grammar, endpoint-color counting role and monotone two-turn route are explicit fixed priors. Four teachers do not uniquely prove this task meaning outside the declared domain.",
+    "All bars must be used; mixed directions, nonintersected bars, ambiguous boundary seeds, nonmonotone detours, revisits and conflicts remain HOLD. No arbitrary search cap is used in the normal path.",
+    "The original67 comparison transcribes contract fields and general exclusions; it is not an independent implementation audit of all67 families. Existing corridor differences are specifically source-checked.",
+    "Initial v1 exception diagnostics lost an inner geometry prefix when observer=None. Original source and checks are retained; v2 adds diagnostic chaining and four observer-free exception checks without changing success/HOLD semantics. All120 teacher evidence is reused on that demonstrated source equivalence.",
+    "The first pre-query observer script referenced a nonexistent integration index path. It was never run on query; original script/freeze and the single-path correction are preserved.",
+    "LOCAL ONLY; earlier010 publication denial remains and this package does not authorize external transmission or bypass.",
+    "Public evaluation is not a hidden or wholly unseen benchmark. Detailed21-field ledger and full raw archive organization are deferred, with original teacher/native/query/failure evidence retained locally.",
+    "No HDS core, learning definition, same-instance repair or vNext implementation."
+  ],
+  "compressed_evidence": [
+    {
+      "path": "public-score.json.gz",
+      "uncompressed_sha256": "0181b28e0883a828c914a494dd0869724e4e3182495cf83cb467e47456363e39",
+      "uncompressed_bytes": 6583730
+    },
+    {
+      "path": "comparison.json.gz",
+      "uncompressed_sha256": "553f64bf5b261bc62a58ecb2c2d6b0f99eaa6a6518b8541291766c0797513f53",
+      "uncompressed_bytes": 84329
+    },
+    {
+      "path": "input-only.json.gz",
+      "uncompressed_sha256": "46acea5c4ed22f8fc3cfb8fb5a51d2630c829e97dcc5a1e71a733ac9154194c6",
+      "uncompressed_bytes": 274083
+    },
+    {
+      "path": "regressions.json.gz",
+      "uncompressed_sha256": "d60fcc6b97306fae6cdd08fa71542d6a565e370c0f8dc85437b73d7dd8aaa0bc",
+      "uncompressed_bytes": 138315
+    },
+    {
+      "path": "teacher-fit-index.json.gz",
+      "uncompressed_sha256": "7ef0329ac77b1ab5d2f649ffde4167b902de9275c6da95628ed7ffb204e17ab2",
+      "uncompressed_bytes": 12397893
+    },
+    {
+      "path": "source-freeze.json.gz",
+      "uncompressed_sha256": "e2e2852949c402f721ff8544fdc5dc992bf4acd5c18441be4fb781780b5b1dde",
+      "uncompressed_bytes": 146209
+    }
+  ],
+  "input_only_journal": {
+    "path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-027-counted-bar-detours/input-only-journals/run-000.jsonl",
+    "sha256": "abf625dd13d8d0e819b4ccd694003723ebd67222a508bf4aabdcb8d0b26253f2",
+    "bytes": 267548,
+    "complete_events": 29,
+    "incomplete_trailing_line": null,
+    "trace_complete": true
+  },
+  "input_seal": {
+    "input_only_sha256": "46acea5c4ed22f8fc3cfb8fb5a51d2630c829e97dcc5a1e71a733ac9154194c6",
+    "freeze_sha256": "e2e2852949c402f721ff8544fdc5dc992bf4acd5c18441be4fb781780b5b1dde",
+    "exit_source_input_native_parity_gate": true,
+    "answers": 2,
+    "decision": "PROCEED_FULL120",
+    "scorer_budget_unchanged": true
+  }
+}

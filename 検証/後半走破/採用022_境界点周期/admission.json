@@ -1,0 +1,98 @@
+{
+  "attempt_id": "attempt-022-boundary-point-periods",
+  "status": "Runtime gates independently passed; exact local integration awaits parent approval",
+  "local_only": true,
+  "external_publication_authorized_by_this_package": false,
+  "expected_local_parent": "640659bcc25a1596d4737aa4ad3f24b8829875c7",
+  "remote_main_unchanged": "27502ef9e0ee7492be2eaaf16b2acbd076ce7b91",
+  "remote_score": [
+    62,
+    87
+  ],
+  "previous_local": [
+    64,
+    92
+  ],
+  "current_local": [
+    65,
+    94
+  ],
+  "delta": {
+    "correct_tasks": 1,
+    "correct_examples": 2,
+    "unanswered": -2
+  },
+  "wrong_grids": 0,
+  "resource_failures": 0,
+  "old_correct_grids_identical": 92,
+  "partial_tasks": 8,
+  "HOLD_examples": 73,
+  "regression_scripts": 73,
+  "regression_checks": 2258,
+  "accepted_family_count_if_admitted": 73,
+  "protected_core_unchanged": true,
+  "origins": {
+    "HDS_actual_learning": "Fresh native machine,3 current teacher observations,0 prior,equality admitted at support3,quarantine0. HDS did not discover the relation grammar.",
+    "teacher_fit": "All8 declared programs evaluated on3 teachers; sole m00 retained, no targets in immutable state.",
+    "fixed_prior": "Boundary equal-color point pairs determine period; phase-aligned terminal controls stopping and recoloring; off-phase foreground retained; every role/orientation and retained program must agree.",
+    "old_assets": "clone_grid, grid_shape, superposed_cell_value reused by direct import with exact AST. Related three old families compared in six axes; wholefamily wrapper fit failures distinguished from raw renderer execution.",
+    "new_fixed_grammar": "New boundary point/period/terminal relation family, with phase test, terminal/edge stopping, seed/terminal coloring alternatives."
+  },
+  "limitations": [
+    "LOCAL ONLY; earlier010 external publication denial remains, no external payload transmission authorized here.",
+    "Old rejected ordered-line trial had wrong1 but lacks task ID; its described signed-coordinate endpoint mechanism differs, yet historical task novelty or complete lack of exposure is not proved.",
+    "Grammar was frozen after observing3 teachers. Comparison text preceded grammar freeze, old family execution followed; source timestamps are local evidence only.",
+    "Two leave-one-out folds retain models with disagreeing held-out predictions and correctly HOLD; independent generalization is not proved.",
+    "Public evaluation is not hidden or wholly unseen.",
+    "Detailed21-field ledger and complete raw archive organization deferred; raw teacher/native/query/negative records retained locally and not all embedded here.",
+    "No HDS core changes or vNext implementation."
+  ],
+  "compressed_evidence": [
+    {
+      "path": "public-score.json.gz",
+      "uncompressed_sha256": "d095d934f17a1920c9166439d49847c512cbe5a4c7dc3640185fab942964699e",
+      "uncompressed_bytes": 6207341
+    },
+    {
+      "path": "comparison.json.gz",
+      "uncompressed_sha256": "f939e4f8a780ae825ccf1ee995b39342da4afe091382d510ba2684a64061a94e",
+      "uncompressed_bytes": 80248
+    },
+    {
+      "path": "input-only.json.gz",
+      "uncompressed_sha256": "15795d423e6c9c2942c0ee7606b9762a3dfcae8b932e85951543f13d9da3fb7f",
+      "uncompressed_bytes": 573488
+    },
+    {
+      "path": "regressions.json.gz",
+      "uncompressed_sha256": "5b7dab15c34dcca7f8445d9bcce914970ca170d452f6fd04096565c12dea06cc",
+      "uncompressed_bytes": 107207
+    },
+    {
+      "path": "teacher-fit-index.json.gz",
+      "uncompressed_sha256": "07a077cbf5ca269d4d6e057ce42e40dae9cc8b9fc930c648dd551efa03271943",
+      "uncompressed_bytes": 55933
+    },
+    {
+      "path": "source-freeze.json.gz",
+      "uncompressed_sha256": "e9b356cd7e61c231d56c7e3831a71fec1026fb095ae7e1024ef7ca6a9aa10706",
+      "uncompressed_bytes": 75234
+    }
+  ],
+  "input_only_journal": {
+    "path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-022-boundary-point-periods/input-only-journals/run-000.jsonl",
+    "sha256": "f558e8fa583cdb36750180a997c40b7e8ecf015d34e65cbe03d3daef3049b48a",
+    "bytes": 1034619,
+    "complete_events": 77,
+    "incomplete_trailing_line": null,
+    "trace_complete": true
+  },
+  "input_seal": {
+    "input_only_sha256": "15795d423e6c9c2942c0ee7606b9762a3dfcae8b932e85951543f13d9da3fb7f",
+    "freeze_sha256": "e9b356cd7e61c231d56c7e3831a71fec1026fb095ae7e1024ef7ca6a9aa10706",
+    "exit_source_input_native_parity_gate": true,
+    "answers": 2,
+    "decision": "PROCEED_FULL120",
+    "scorer_budget_unchanged": true
+  }
+}

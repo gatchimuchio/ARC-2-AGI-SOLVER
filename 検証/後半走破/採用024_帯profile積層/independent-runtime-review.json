@@ -1,0 +1,64 @@
+{
+  "decision": "PASS_RUNTIME_ADMISSION_LOCAL_PENDING_EXACT_PACKAGE",
+  "verified_utc": "2026-10-05T13:21:37.144768+00:00",
+  "freeze_sha256": "8f70e4d605b9055831dcc4858736558d6ea5e87b3caa1fc0ccbf1a7e046884ca",
+  "input_only_sha256": "78dd6759a1fa911c044efcd048f9aad4fb94354bab64d9e8756b20d7784337c3",
+  "official_sha256": "b524af7eab6be4eadcfa613261ac0661977bee366af69c36aa2c088bc0c33ad5",
+  "all_frozen_files_exact": 444,
+  "input_only": {
+    "exit": 0,
+    "direct_HDS_equal_answers": 1,
+    "native_current_support": 2,
+    "native_prior_support": 0,
+    "native_equality": true,
+    "source_input_unchanged": true,
+    "journal_complete_events": 287,
+    "journal_sha256": "1c99efab0cf0937eee25e36d118945c479365f8eee0d08ff2fe389b9ced4b150",
+    "event_counts": {
+      "('teacher_fit', 'teacher_validation')": 1,
+      "('teacher_fit', 'conservation_proof')": 1,
+      "('teacher_fit', 'program_start')": 1,
+      "('teacher_fit', 'roles_enumerated')": 2,
+      "('teacher_fit', 'search_prefix')": 181,
+      "('teacher_fit', 'role_completed')": 2,
+      "('teacher_fit', 'program_return')": 2,
+      "('teacher_fit', 'teacher_return')": 2,
+      "('teacher_fit', 'program_completed')": 1,
+      "('teacher_fit', 'teacher_fit_completed')": 1,
+      "('direct_query', 'roles_enumerated')": 1,
+      "('direct_query', 'search_prefix')": 87,
+      "('direct_query', 'role_completed')": 1,
+      "('direct_query', 'program_return')": 1,
+      "('direct_query', 'retained_program_return')": 1,
+      "('direct_query', 'retained_consensus')": 1,
+      "('whole_solver', 'whole_solver_start')": 1
+    }
+  },
+  "independent_full_score": {
+    "tasks": 120,
+    "examples": 167,
+    "complete": 67,
+    "correct": 96,
+    "HOLD": 71,
+    "wrong": 0,
+    "partial_tasks": 8,
+    "resource_failures": 0,
+    "old_correct_grids_identical": 95,
+    "new_correct_examples": [
+      [
+        "16b78196",
+        0
+      ]
+    ],
+    "delta_tasks": 1,
+    "delta_examples": 1
+  },
+  "regressions": "75 scripts/2287 checks PASS, finaldefault18group exactsource evidence reused",
+  "scope": "Read-only saved evidence/hash/grid comparisons. Targets read only after sealed input-only and completed score. No candidate execution by reviewer.",
+  "limitations": [
+    "Initial3resource failures/capturegap preserved; v2wholeprogram shape/colorproofs explicitsymbolic",
+    "Finalcompletedreturn copyguard preserves originalerrors; persistent sinkfailures cannotguaranteepersistence",
+    "Prototype first-fit source timing notimmutableattestation; normal/-O initiallysharedartifacts",
+    "Local66/95 prior, remote62/87/publicationblocked; rawpreserved/detailedledgerarchivedeferred"
+  ]
+}

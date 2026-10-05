@@ -1,0 +1,63 @@
+{
+  "decision": "PASS_RUNTIME_ADMISSION_LOCAL_PENDING_EXACT_PACKAGE",
+  "verified_utc": "2026-10-05T11:54:48.265740+00:00",
+  "freeze_sha256": "e9b356cd7e61c231d56c7e3831a71fec1026fb095ae7e1024ef7ca6a9aa10706",
+  "input_only_sha256": "15795d423e6c9c2942c0ee7606b9762a3dfcae8b932e85951543f13d9da3fb7f",
+  "official_sha256": "d095d934f17a1920c9166439d49847c512cbe5a4c7dc3640185fab942964699e",
+  "all_frozen_files_exact": 289,
+  "input_only": {
+    "exit": 0,
+    "direct_HDS_equal_answers": 2,
+    "native_current_support": 3,
+    "native_prior_support": 0,
+    "native_equality": true,
+    "source_input_unchanged": true,
+    "journal_complete_events": 77,
+    "journal_sha256": "f558e8fa583cdb36750180a997c40b7e8ecf015d34e65cbe03d3daef3049b48a",
+    "event_counts": {
+      "('teacher_fit', 'teacher_validation')": 1,
+      "('teacher_fit', 'model_start')": 8,
+      "('teacher_fit', 'render_start')": 24,
+      "('teacher_fit', 'render_return')": 24,
+      "('teacher_fit', 'model_completed')": 8,
+      "('teacher_fit', 'teacher_fit_completed')": 1,
+      "('direct_query', 'model_start')": 2,
+      "('direct_query', 'render_start')": 2,
+      "('direct_query', 'render_return')": 2,
+      "('direct_query', 'model_completed')": 2,
+      "('direct_query', 'retained_consensus')": 2,
+      "('whole_solver', 'whole_solver_start')": 1
+    }
+  },
+  "independent_full_score": {
+    "tasks": 120,
+    "examples": 167,
+    "complete": 65,
+    "correct": 94,
+    "HOLD": 73,
+    "wrong": 0,
+    "partial_tasks": 8,
+    "resource_failures": 0,
+    "old_correct_grids_identical": 92,
+    "new_correct_examples": [
+      [
+        "16de56c4",
+        0
+      ],
+      [
+        "16de56c4",
+        1
+      ]
+    ],
+    "delta_tasks": 1,
+    "delta_examples": 2
+  },
+  "regressions": "73 scripts/2258 checks PASS, exact-source prequery evidence reused",
+  "scope": "Read-only saved evidence/hash/grid comparisons. Targets read only after sealed input-only and completed score, not candidate construction.",
+  "limitations": [
+    "Local accepted02064/92;remote275 remains62/87 with previous publication blocked",
+    "Prior wrong1 ordered-line task ID unavailable; no proof of no prior exposure",
+    "Grammar designed after all3teachers; formal freeze not before those observations",
+    "Detailed ledger/full archive deferred, full raw retained locally"
+  ]
+}

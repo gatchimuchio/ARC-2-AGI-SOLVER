@@ -1,0 +1,11 @@
+# 境界色経路の短周期採用証拠
+
+入力だけからwall/travel色、正方形token、等間隔の線形凡例、境界seed、markerと二つの進行方向を列挙し、描画前にraw役割が一意であることを要求する。凡例とmarker tokenをwallへ消去した地形を使い、壁に接触するとmarker色を置いて二方向を交互に進む。経路セルは凡例順の色周期で塗る。接触を追加stepへ数える/旋回で位相をresetする/連続位相という3programを全教師で比較し、continuousだけが全3教師を再現する。
+
+previousはLOCAL採用027の68/120・98/167。currentは69/120・100/167、完答+1・正答例+2。旧98格子は全同一、誤格子0、資源失敗0、HOLD67、部分正答8。全77回帰script・3111検査を通過。query2入力はdirect/HDS一致、native支持3・prior0・同値採用。HDS中核とprotected authorityは無変更。
+
+全120/359教師の1077 phase返値と359直接予測を保存し、1課題fit・119論理HOLD・資源例外0。元6semantic ASTとsourceは保持した。純prototypeが未知phase文字列をcontinuousへ扱うAPI限界は残し、本番wrapperは宣言値だけを受理する。資源例外は完成済みmodelと内側geometry診断を保持して再送出し、通常HOLDへ隠さない。33教師派生変換と、37独立fixture/109実行は別の証拠として保存する。
+
+raw役割一意性、正方形・等間隔凡例、二つの単調headingは新しい固定priorでありHDSが導出した原理ではない。h+w-1の上界は単調性による完全な状態上界で、heuristic capではない。壁接触、token消去、経路追加以外のセルは保存するが、色別画素数や総前景数の保存は主張しない。旧arrow-region/route-sweepの詳細source/task/score履歴は未回収のままである。
+
+LOCAL継続用packageであり、remote mainは27502ef9の62/87。010の外部公開制限を解除せず、送信や迂回公開を認可しない。gzipは原JSONの可逆圧縮で展開hashはadmission.jsonにある。全教師・native・独立反例・query逐次journalを原本保存し、詳細台帳と全標本archiveは攻略経路から外して後送する。本小packageだけで全内部標本を収録したとはしない。絶対source参照に対応するproduction11原本は同じrepository pathで解決する。

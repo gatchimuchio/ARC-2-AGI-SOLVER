@@ -1,0 +1,60 @@
+{
+  "decision": "PASS_RUNTIME_ADMISSION_LOCAL_PENDING_EXACT_PACKAGE",
+  "verified_utc": "2026-10-05T14:08:33.237586+00:00",
+  "freeze_sha256": "e2e2852949c402f721ff8544fdc5dc992bf4acd5c18441be4fb781780b5b1dde",
+  "input_only_sha256": "46acea5c4ed22f8fc3cfb8fb5a51d2630c829e97dcc5a1e71a733ac9154194c6",
+  "official_sha256": "0181b28e0883a828c914a494dd0869724e4e3182495cf83cb467e47456363e39",
+  "all_frozen_files_exact": 583,
+  "input_only": {
+    "exit": 0,
+    "direct_HDS_equal_answers": 2,
+    "native_current_support": 4,
+    "native_prior_support": 0,
+    "native_equality": true,
+    "source_input_unchanged": true,
+    "journal_complete_events": 29,
+    "journal_sha256": "abf625dd13d8d0e819b4ccd694003723ebd67222a508bf4aabdcb8d0b26253f2",
+    "event_counts": {
+      "('teacher_fit', 'teacher_validation')": 1,
+      "('teacher_fit', 'program_start')": 2,
+      "('teacher_fit', 'program_return')": 8,
+      "('teacher_fit', 'teacher_return')": 8,
+      "('teacher_fit', 'program_completed')": 2,
+      "('teacher_fit', 'teacher_fit_completed')": 1,
+      "('direct_query', 'program_return')": 2,
+      "('direct_query', 'retained_program_return')": 2,
+      "('direct_query', 'retained_consensus')": 2,
+      "('whole_solver', 'whole_solver_start')": 1
+    }
+  },
+  "independent_full_score": {
+    "tasks": 120,
+    "examples": 167,
+    "complete": 68,
+    "correct": 98,
+    "HOLD": 69,
+    "wrong": 0,
+    "partial_tasks": 8,
+    "resource_failures": 0,
+    "old_correct_grids_identical": 96,
+    "new_correct_examples": [
+      [
+        "cb2d8a2c",
+        0
+      ],
+      [
+        "cb2d8a2c",
+        1
+      ]
+    ],
+    "delta_tasks": 1,
+    "delta_examples": 2
+  },
+  "regressions": "76 scripts/2941 checks PASS finalv2 source; completedteacher evidence reused by nonexception AST equivalence",
+  "scope": "Read-only saved evidence/hash/grid comparison. Officialtargets read only after fixed input-only and completedscore;no candidate execution byreviewer.",
+  "limitations": [
+    "Originalinnerdiagnostic overwrite andprequerywrongpath preserved;v2 exceptionchain andpathcorrection applied beforequery",
+    "Historicalsourceaccess/prior-exposure limits explicit;not fullyunseenbenchmark",
+    "Local67/96 prior,remote62/87/publicationblocked;rawlocalpreservation/detailedledgerlater"
+  ]
+}

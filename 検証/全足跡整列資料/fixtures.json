@@ -1,0 +1,750 @@
+{
+  "schema": "candidate030.fixtures.v1",
+  "construction": "Blank bg canvas; axis color across extent on row; fill each slot rectangle by its corresponding inclusive offset interval. Slots triples=(left,right,color). Expected positive grid uses lexicographic (length,minimum,maximum) sorted intervals with original slots. No implementation executed.",
+  "base": {
+    "h": 15,
+    "w": 15,
+    "row": 7,
+    "bg": 0,
+    "axis": 6,
+    "extent": [
+      0,
+      14
+    ],
+    "slots": [
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        5,
+        5,
+        2
+      ],
+      [
+        9,
+        9,
+        3
+      ]
+    ],
+    "intervals": [
+      [
+        -2,
+        3
+      ],
+      [
+        -1,
+        0
+      ],
+      [
+        -1,
+        2
+      ]
+    ]
+  },
+  "positive_variants": [
+    {
+      "name": "legacy_even_asymmetric",
+      "changes": {}
+    },
+    {
+      "name": "legacy_variable_width_37_to_35",
+      "changes": {
+        "slots": [
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            5,
+            5,
+            2
+          ],
+          [
+            8,
+            9,
+            3
+          ]
+        ],
+        "intervals": [
+          [
+            -3,
+            3
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            -2,
+            2
+          ]
+        ]
+      }
+    },
+    {
+      "name": "equal_length_secondary_keys",
+      "changes": {
+        "intervals": [
+          [
+            -1,
+            1
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "name": "one_sided_intervals",
+      "changes": {
+        "intervals": [
+          [
+            0,
+            5
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "name": "max_canvas_boundary_offsets",
+      "changes": {
+        "h": 30,
+        "w": 30,
+        "row": 10,
+        "extent": [
+          0,
+          29
+        ],
+        "slots": [
+          [
+            1,
+            3,
+            1
+          ],
+          [
+            10,
+            10,
+            2
+          ],
+          [
+            20,
+            21,
+            3
+          ]
+        ],
+        "intervals": [
+          [
+            -10,
+            19
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            4
+          ]
+        ]
+      }
+    },
+    {
+      "name": "horizontal_margins",
+      "changes": {
+        "w": 20,
+        "extent": [
+          2,
+          16
+        ],
+        "slots": [
+          [
+            2,
+            3,
+            1
+          ],
+          [
+            7,
+            7,
+            2
+          ],
+          [
+            10,
+            11,
+            3
+          ]
+        ],
+        "intervals": [
+          [
+            -3,
+            3
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            -2,
+            2
+          ]
+        ]
+      }
+    },
+    {
+      "name": "adjacent_distinct_colors",
+      "changes": {
+        "slots": [
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            2,
+            2,
+            2
+          ],
+          [
+            3,
+            4,
+            3
+          ]
+        ]
+      }
+    },
+    {
+      "name": "repeated_disconnected_color",
+      "changes": {
+        "slots": [
+          [
+            1,
+            2,
+            1
+          ],
+          [
+            5,
+            5,
+            2
+          ],
+          [
+            9,
+            10,
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "name": "axis_minimum_three",
+      "changes": {
+        "w": 7,
+        "extent": [
+          0,
+          6
+        ],
+        "slots": [
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            3,
+            3,
+            2
+          ],
+          [
+            5,
+            5,
+            3
+          ]
+        ]
+      }
+    },
+    {
+      "name": "six_bar_frequency_tie",
+      "changes": {
+        "w": 12,
+        "extent": [
+          0,
+          11
+        ],
+        "slots": [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            3,
+            3,
+            2
+          ],
+          [
+            5,
+            5,
+            1
+          ],
+          [
+            7,
+            7,
+            2
+          ],
+          [
+            9,
+            9,
+            1
+          ],
+          [
+            11,
+            11,
+            2
+          ]
+        ],
+        "intervals": [
+          [
+            -2,
+            2
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            -2,
+            2
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            -2,
+            2
+          ],
+          [
+            -1,
+            1
+          ]
+        ]
+      }
+    }
+  ],
+  "bounded_combinations": {
+    "name_prefix": "three_slot_interval_product",
+    "interval_options": [
+      [
+        -2,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        -1,
+        1
+      ]
+    ],
+    "slots": [
+      [
+        1,
+        2,
+        1
+      ],
+      [
+        5,
+        5,
+        2
+      ],
+      [
+        9,
+        11,
+        1
+      ]
+    ],
+    "product_repeat": 3,
+    "symbolic_count": 27,
+    "expected": "sorted interval reconstruction; already sorted stays whole HOLD"
+  },
+  "transforms": [
+    {
+      "name": "palette_shift",
+      "values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "target": "legacy_even_asymmetric",
+      "operation": "v -> (v+shift)%10"
+    },
+    {
+      "name": "vertical_shift",
+      "values": [
+        -2,
+        2
+      ],
+      "target": "legacy_even_asymmetric",
+      "operation": "row += shift"
+    },
+    {
+      "name": "horizontal_mirror_fresh_ascending",
+      "target": "legacy_even_asymmetric",
+      "operation": "reverse each row; expected independently sorted left-to-right original footprints"
+    }
+  ],
+  "negative_variants": [
+    {
+      "name": "already_sorted",
+      "changes": {
+        "intervals": [
+          [
+            -1,
+            0
+          ],
+          [
+            -1,
+            2
+          ],
+          [
+            -2,
+            3
+          ]
+        ]
+      }
+    },
+    {
+      "name": "two_bars",
+      "changes": {
+        "slots": [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            5,
+            5,
+            2
+          ]
+        ],
+        "intervals": [
+          [
+            -2,
+            3
+          ],
+          [
+            -1,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "name": "two_axis_cells",
+      "changes": {
+        "w": 5,
+        "extent": [
+          0,
+          4
+        ],
+        "slots": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            2,
+            2,
+            2
+          ],
+          [
+            4,
+            4,
+            3
+          ]
+        ]
+      }
+    },
+    {
+      "name": "axis_color_off_row",
+      "edits": [
+        [
+          0,
+          0,
+          6
+        ]
+      ]
+    },
+    {
+      "name": "unowned_foreground",
+      "edits": [
+        [
+          0,
+          14,
+          9
+        ]
+      ]
+    },
+    {
+      "name": "partial_branch",
+      "edits": [
+        [
+          5,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "interior_axis_background_hole",
+      "edits": [
+        [
+          7,
+          7,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "disconnected_same_column",
+      "edits": [
+        [
+          0,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "stationary_collision",
+      "edits": [
+        [
+          10,
+          9,
+          9
+        ]
+      ]
+    },
+    {
+      "name": "axis_color_as_bar",
+      "edits": [
+        [
+          6,
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "name": "unequal_adjacent_same_color_heights",
+      "changes": {
+        "slots": [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            2,
+            1
+          ],
+          [
+            9,
+            9,
+            3
+          ]
+        ]
+      }
+    },
+    {
+      "name": "vertical_transpose",
+      "operation": "transpose"
+    },
+    {
+      "name": "global_background_tie",
+      "literal": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [
+    {
+      "name": "two_roles_both_noop",
+      "h": 5,
+      "row": 2,
+      "axis_row": [
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1
+      ],
+      "extensions": [],
+      "roles": 2,
+      "statuses": [
+        "no_op",
+        "no_op"
+      ],
+      "outcome": "HOLD"
+    },
+    {
+      "name": "success_and_noop",
+      "h": 5,
+      "row": 2,
+      "axis_row": [
+        1,
+        2,
+        1,
+        2,
+        1,
+        3,
+        2
+      ],
+      "extensions": [
+        [
+          5,
+          1,
+          3,
+          3
+        ]
+      ],
+      "roles": 2,
+      "statuses": [
+        "success",
+        "no_op"
+      ],
+      "outcome": "HOLD"
+    },
+    {
+      "name": "two_success_disagree",
+      "h": 9,
+      "row": 4,
+      "axis_row": [
+        1,
+        2,
+        1,
+        2,
+        1,
+        3,
+        2,
+        4
+      ],
+      "extensions": [
+        [
+          5,
+          2,
+          6,
+          3
+        ],
+        [
+          7,
+          3,
+          5,
+          4
+        ]
+      ],
+      "roles": 2,
+      "statuses": [
+        "success",
+        "success"
+      ],
+      "outcome": "HOLD"
+    },
+    {
+      "name": "two_success_agree",
+      "h": 9,
+      "row": 4,
+      "axis_row": [
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        3,
+        4
+      ],
+      "extensions": [
+        [
+          6,
+          2,
+          6,
+          3
+        ],
+        [
+          7,
+          3,
+          5,
+          4
+        ]
+      ],
+      "roles": 2,
+      "statuses": [
+        "success",
+        "success"
+      ],
+      "outcome": "EMIT"
+    }
+  ],
+  "arc_invalid": [
+    "empty",
+    "empty_row",
+    "ragged",
+    "bool",
+    "float",
+    "negative",
+    "large_color",
+    "height31",
+    "width31",
+    "outer_tuple",
+    "row_tuple"
+  ],
+  "defensive_non_grid_cases": [
+    {
+      "name": "corrupted_certificate_role_cannot_be_dropped",
+      "construction": "remove one bar from a sound role; combine resulting failure with a successful original action; require whole HOLD; not a certified grid-domain failure"
+    }
+  ],
+  "teacher_authority": {
+    "path": "/workspace/scratch/7408259c1ab2/arc2-restored-592d2c5-audit/evaluation-teachers-only.json",
+    "sha256": "012924cb967106a6d72e9323b83534539471c27dc4f5fba5d8d4a0dbe334c8aa",
+    "key": "31f7f899.train",
+    "count": 3,
+    "read_stage": "only after reviewer clearance and execution freeze"
+  }
+}
