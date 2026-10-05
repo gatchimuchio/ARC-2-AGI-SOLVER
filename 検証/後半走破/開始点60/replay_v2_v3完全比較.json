@@ -1,0 +1,7 @@
+{
+  "tasks_exact": 120,
+  "call_records_projected_exact": 8503,
+  "every_full_candidate_grid_hash_verified": true,
+  "original_trace_sha256": "d006c80a3890db2bc646889542eb791e7637ce949f62c28829ea4eb7106ce9f3",
+  "full_grid_trace_sha256": "46a9d692e6d609c3ebb4d0e0fd78bc84074124a6c93f3912e0ac89e35c4dbad1"
+}

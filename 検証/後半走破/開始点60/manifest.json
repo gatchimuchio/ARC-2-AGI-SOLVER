@@ -1,0 +1,157 @@
+{
+  "purpose": "開始点60",
+  "baseline_commit": "cc668e34d7ca014daf9f8944767476d56c56fafc",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 5249,
+      "sha256": "7a12b7e73845fe6842b0ef1e93c890cc12b811cfee119d3c588f1b664becd911"
+    },
+    {
+      "path": "replay_v2_v3完全比較.json",
+      "bytes": 306,
+      "sha256": "8f999124a96248d7d28f6160b8f804c2c6472a66d724ae57c4d6457e5b16ad58"
+    },
+    {
+      "path": "replay凍結.json",
+      "bytes": 14804,
+      "sha256": "f690e7d63c83ecf97720ed32d4c428c86766270d3c9b594d61d3a1af8f44f68f"
+    },
+    {
+      "path": "replay凍結_v3.json",
+      "bytes": 14804,
+      "sha256": "68155174144fcf0917cd286bc41339f09904fa851e92fcb622069e2e1e56e230"
+    },
+    {
+      "path": "replay要約.json",
+      "bytes": 607,
+      "sha256": "41bd98a0bf20ae419b36f95d194f984052d4424ebf36a6bcd74eca8f12bbd8e0"
+    },
+    {
+      "path": "replay要約_v3.json",
+      "bytes": 607,
+      "sha256": "85388915675f526adaaf768c17e19b60d9380c5fddd2884bc12749e1b9707b21"
+    },
+    {
+      "path": "teacher-only三分割観測.tar.gz",
+      "bytes": 328492,
+      "sha256": "55041b2d466ac72570032f42b62c21b6d5c2607cb761750ad7f57096f2b90c64"
+    },
+    {
+      "path": "三分割観測manifest.json",
+      "bytes": 10454,
+      "sha256": "726855d12cd0004c999fe3a1743a779d292275632e44cb8bdcd3394eb75ed61a"
+    },
+    {
+      "path": "候補戻値全記録.jsonl.gz",
+      "bytes": 659712,
+      "sha256": "d006c80a3890db2bc646889542eb791e7637ce949f62c28829ea4eb7106ce9f3"
+    },
+    {
+      "path": "候補格子付き全記録_v3.jsonl.gz",
+      "bytes": 725710,
+      "sha256": "46a9d692e6d609c3ebb4d0e0fd78bc84074124a6c93f3912e0ac89e35c4dbad1"
+    },
+    {
+      "path": "候補観測replay.py",
+      "bytes": 8772,
+      "sha256": "e312f157159ce76aad3300485d5463bfa73f8b254b296d4d7329e271ddd9f4eb"
+    },
+    {
+      "path": "候補観測replay_v3.py",
+      "bytes": 8832,
+      "sha256": "5e31cac17d5ce4031017d0c000a24dc9d0c6ca844ea12844761bd898d1dc84df"
+    },
+    {
+      "path": "全120基準評価.json.gz",
+      "bytes": 216789,
+      "sha256": "9ba16535e487d7d040ad58fb92f9e875794358081bcceba2aa24e9fe8ea2b604"
+    },
+    {
+      "path": "全baselineファイル監査.json",
+      "bytes": 107662,
+      "sha256": "d5d876b5470e5cfd7f8e0f6f2a25592b02f1a113f8bd9d7960ac4a85158071b6"
+    },
+    {
+      "path": "全回帰.json",
+      "bytes": 20766,
+      "sha256": "0beb49e5bd447162dcb5de17239f855162a2b3263076cf7c8c7c0be931104409"
+    },
+    {
+      "path": "失敗HOLD索引.jsonl.gz",
+      "bytes": 237276,
+      "sha256": "2eddc269fe1173444f0eb670fad521cd20804ee4c0a34b9df113050bc6b63710"
+    },
+    {
+      "path": "失敗HOLD要約.json",
+      "bytes": 4974,
+      "sha256": "f93c98dd11e8b8d6d051fc8b5b29ac9f4eec5f5ac20692366c58c523557c2644"
+    },
+    {
+      "path": "失敗索引生成.py",
+      "bytes": 3045,
+      "sha256": "81b00f4ba099e5704882a5962b2ddd81c590e214a1e3a3fef23beb5cd787e885"
+    },
+    {
+      "path": "既存84格子比較.json.gz",
+      "bytes": 19749,
+      "sha256": "5d301d86101801fbe2a04e96541c949540e96d620f3465e5322f6414fdc4c998"
+    },
+    {
+      "path": "未解決60観測.json",
+      "bytes": 423259,
+      "sha256": "0ee9b0c3c9e9df7bc0a2ba58b6882d5a22553e6e957dc52c1de2d703525c08c7"
+    },
+    {
+      "path": "独立監査/reviewer-baseline-failure-index.json",
+      "bytes": 218,
+      "sha256": "cb50155c3c61a852741dda9dc7eb7a4053650167d940826d93c0aa4ae6bbdf0e"
+    },
+    {
+      "path": "独立監査/reviewer-baseline-fresh-comparison.json",
+      "bytes": 1136,
+      "sha256": "61d1800856d2ccbb22cb760b72a238a333298bfae867dedbee06add86e512996"
+    },
+    {
+      "path": "独立監査/reviewer-baseline-fullgrid-replay.json",
+      "bytes": 1191,
+      "sha256": "53e5acffa7d86fd929a1c1d0acf333548651de970d5d9c7b41c973cb467ba77c"
+    },
+    {
+      "path": "独立監査/reviewer-baseline-regressions.json",
+      "bytes": 10487,
+      "sha256": "5b8b33e0c08eb98087952b1bb3cec9ea6a78b34ff5b8891f189e471db9e47960"
+    },
+    {
+      "path": "独立監査/reviewer-baseline-replay.json",
+      "bytes": 5123,
+      "sha256": "71da5fb3293ed463b694d62c3b9cd62f4921514f0e0f8413a6a852667acd59fd"
+    },
+    {
+      "path": "独立監査/reviewer-gate-contract-v1.json",
+      "bytes": 6255,
+      "sha256": "1a0155012705086be1fb22153b4a8cdb14409599a0e15b579bec22e58bea0dfd"
+    },
+    {
+      "path": "独立監査/reviewer-seven-query-hold-details.json",
+      "bytes": 18726,
+      "sha256": "08f8d4bbe7657c68493230df47703d8d5f0545d2e3bf7aedb7de38caad5b1c59"
+    },
+    {
+      "path": "独立監査/reviewer-sixty-inventory.json",
+      "bytes": 10109,
+      "sha256": "aa55f6a4b2aa5bf6bab06c9e0ec7e0df55cc06ade535b913914255ef3621b3bf"
+    },
+    {
+      "path": "独立監査/reviewer-start-integrity.json",
+      "bytes": 2625,
+      "sha256": "30ba551aa200ad0c85d35da3f1a55d81d0b2457d84c14c9c3efa6d50dfa6f8bd"
+    },
+    {
+      "path": "開始点.json",
+      "bytes": 2796,
+      "sha256": "2b5fbbed0cc42f4dc8a940e7b5147049ee6f6af6d4f7361ad27184a1b37ed10b"
+    }
+  ],
+  "manifest_self_excluded": true
+}

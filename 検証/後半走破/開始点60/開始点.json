@@ -1,0 +1,55 @@
+{
+  "baseline": {
+    "repository": "gatchimuchio/ARC-2-AGI-SOLVER",
+    "commit": "cc668e34d7ca014daf9f8944767476d56c56fafc",
+    "tree": "08b4161457909e8575fa365abbcb5ed176bf3ef1",
+    "official_source_pin": "f3283f727488ad98fe575ea6a5ac981e4a188e49",
+    "old_assets_pin": "454670a13024ccf28dc7e9ed9d8ee256ee6cd365",
+    "source": "Fresh GitHub ref/commit/tree read, all328 blobs and exact commit/tree reconstructed locally; prior local checkouts preserved"
+  },
+  "purpose": "Current fixed-HDS public ARC2 completion and complete observation; no vNext implementation",
+  "baseline_score": {
+    "mode": "current",
+    "tasks": 120,
+    "test_examples": 167,
+    "correct_tasks": 60,
+    "accuracy": 0.5,
+    "correct_examples": 84,
+    "unanswered": 83,
+    "wrong_attempted_tasks": 7,
+    "resource_failures": {},
+    "seconds": 18.76807387000008,
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961",
+    "cpu_seconds_per_task": 10,
+    "address_space_mib": 512,
+    "wall_seconds_per_task": 60,
+    "workers": 3
+  },
+  "baseline_grid_comparison": "baseline-grid-equality.json",
+  "full_regressions": {
+    "scripts": 67,
+    "tests": 1091,
+    "success": true,
+    "evidence": "baseline-fresh-regressions.json"
+  },
+  "frozen67_ledger": "All original v1 bytes unchanged; future additions same schema versioned delta with composed index",
+  "preserved_observations": [
+    "same-instance previous usable outputs FAIL via foreign boundary ambiguity after3rd of67 experiences; predictions/memory/principles retained",
+    "67-experience native persistence exit137 twice; no persistence success claimed",
+    "rule semantic higher-order derivation unconfirmed"
+  ],
+  "parallel_scope": "Three disjoint20teacher-only observation shards; independent audit; only integrator may mutate one currentfamily; parent exact-package approval before nonforce remote update",
+  "scope_limits": [
+    "public evaluation development, not hidden-generalization evidence",
+    "existing runtime contract is dataflow separation, not OS sandbox",
+    "new separate observation replay cannot retroactively create missing historical diagnostics"
+  ],
+  "audit_files": {
+    "baseline-fresh.json": "2a43e65896a133f424d0cb166e0aa5f3e792ff4efd0b0752fb3a8fc597fbdeb9",
+    "baseline-fresh-regressions.json": "0beb49e5bd447162dcb5de17239f855162a2b3263076cf7c8c7c0be931104409",
+    "baseline-grid-equality.json": "ca6b7c89e89a06a004ba40affa432a151d607f5a7f44c4b16391559beb7e220b",
+    "baseline-whole-file-audit.json": "d5d876b5470e5cfd7f8e0f6f2a25592b02f1a113f8bd9d7960ac4a85158071b6",
+    "protected-baseline.json": "1a1bc078cc48050482ad1d80d0a78086560bc3b39772c54f581e723dfb0764a6"
+  }
+}

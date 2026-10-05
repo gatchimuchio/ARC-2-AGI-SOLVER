@@ -1,0 +1,16 @@
+{
+  "tasks": 120,
+  "examples": 167,
+  "exact_results_equal": 120,
+  "changed_results": [],
+  "resource_or_runtime_failures": [],
+  "calls": 8503,
+  "raw_sha256": "45708b4f805485a64b27abe214bb603cab3e4cd361a138220c46cf73068d7cea",
+  "raw_bytes": 7154899,
+  "gzip_sha256": "d006c80a3890db2bc646889542eb791e7637ce949f62c28829ea4eb7106ce9f3",
+  "gzip_bytes": 659712,
+  "lossless_verified": true,
+  "code_unchanged": true,
+  "seconds": 20.696695478000038,
+  "scope": "Returned candidate diagnostics only. Not a trace of all unexposed internal hypotheses. Separate replay, not original historical observation."
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "arc2-independent-fullgrid-replay-audit-v1",
+  "tasks": 120,
+  "calls": 8503,
+  "nonempty_candidates": 523,
+  "null_candidates": 7980,
+  "all120results_equal": true,
+  "old_calls_exact_after_newfield_removed": true,
+  "candidate_hash_errors": [],
+  "resource_or_runtime_failures": [],
+  "raw_sha256_verified": true,
+  "gzip_sha256_verified": true,
+  "old_raw_sha256": "45708b4f805485a64b27abe214bb603cab3e4cd361a138220c46cf73068d7cea",
+  "old_gzip_sha256": "d006c80a3890db2bc646889542eb791e7637ce949f62c28829ea4eb7106ce9f3",
+  "summary": {
+    "tasks": 120,
+    "examples": 167,
+    "exact_results_equal": 120,
+    "changed_results": [],
+    "resource_or_runtime_failures": [],
+    "calls": 8503,
+    "raw_sha256": "98a240e2d7452c4303b6c097d9aee74280a3b400c461c93cc79fa310306be1e6",
+    "raw_bytes": 7661817,
+    "gzip_sha256": "46a9d692e6d609c3ebb4d0e0fd78bc84074124a6c93f3912e0ac89e35c4dbad1",
+    "gzip_bytes": 725710,
+    "lossless_verified": true,
+    "code_unchanged": true,
+    "seconds": 20.306377003998932,
+    "scope": "Returned candidate diagnostics only. Not a trace of all unexposed internal hypotheses. Separate replay, not original historical observation."
+  }
+}

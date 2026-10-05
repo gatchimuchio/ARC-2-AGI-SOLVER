@@ -1,0 +1,517 @@
+{
+  "sources": [
+    {
+      "file": "observation-shard-1/observations.json",
+      "sha256": "a6167b0b9d8f1429e95216c9e12cc74c7bf82c1b284b7dea32fe6d243787539c",
+      "rows": 20,
+      "matches_assignment": true
+    },
+    {
+      "file": "observation-shard-2/observations.json",
+      "sha256": "cf92ec8ef65e968a6591a41546bc23da4689681d87ad1a79181b5edea0c2f736",
+      "rows": 20,
+      "matches_assignment": true
+    },
+    {
+      "file": "observation-shard-3/completed-observations.json",
+      "sha256": "33cd871ad1b52dd2d2e0d274758e256cf954286b170a86b5b3cc546c2568decd",
+      "rows": 20,
+      "matches_assignment": true
+    }
+  ],
+  "total_rows": 60,
+  "unique_tasks": 60,
+  "exact60_coverage": true,
+  "bad_output_contract": [],
+  "classification_by_task": {
+    "20270e3b": {
+      "raw": [
+        "現行表現では原因未確定"
+      ],
+      "normalized": [
+        "現行表現では原因未確定"
+      ]
+    },
+    "62593bfd": {
+      "raw": [
+        "現行表現では原因未確定"
+      ],
+      "normalized": [
+        "現行表現では原因未確定"
+      ]
+    },
+    "b6f77b65": {
+      "raw": [
+        "現行表現では原因未確定"
+      ],
+      "normalized": [
+        "現行表現では原因未確定"
+      ]
+    },
+    "16b78196": {
+      "raw": [
+        "新しい関係表現"
+      ],
+      "normalized": [
+        "新しい関係表現"
+      ]
+    },
+    "20a9e565": {
+      "raw": [
+        "新しい関係表現"
+      ],
+      "normalized": [
+        "新しい関係表現"
+      ]
+    },
+    "28a6681f": {
+      "raw": [
+        "新しい作用"
+      ],
+      "normalized": [
+        "新しい作用"
+      ]
+    },
+    "31f7f899": {
+      "raw": [
+        "新しい作用"
+      ],
+      "normalized": [
+        "新しい作用"
+      ]
+    },
+    "446ef5d2": {
+      "raw": [
+        "新しい入力view"
+      ],
+      "normalized": [
+        "新しい入力view"
+      ]
+    },
+    "5545f144": {
+      "raw": [
+        "現行表現では原因未確定"
+      ],
+      "normalized": [
+        "現行表現では原因未確定"
+      ]
+    },
+    "64efde09": {
+      "raw": [
+        "新しい関係表現"
+      ],
+      "normalized": [
+        "新しい関係表現"
+      ]
+    },
+    "71e489b6": {
+      "raw": [
+        "新しい入力view"
+      ],
+      "normalized": [
+        "新しい入力view"
+      ]
+    },
+    "7b80bb43": {
+      "raw": [
+        "新しい入力view"
+      ],
+      "normalized": [
+        "新しい入力view"
+      ]
+    },
+    "88e364bc": {
+      "raw": [
+        "現行表現では原因未確定"
+      ],
+      "normalized": [
+        "現行表現では原因未確定"
+      ]
+    },
+    "a251c730": {
+      "raw": [
+        "新しい入力view"
+      ],
+      "normalized": [
+        "新しい入力view"
+      ]
+    },
+    "a6f40cea": {
+      "raw": [
+        "新しい入力view"
+      ],
+      "normalized": [
+        "新しい入力view"
+      ]
+    },
+    "cb2d8a2c": {
+      "raw": [
+        "新しい関係表現"
+      ],
+      "normalized": [
+        "新しい関係表現"
+      ]
+    },
+    "d8e07eb2": {
+      "raw": [
+        "新しい関係表現"
+      ],
+      "normalized": [
+        "新しい関係表現"
+      ]
+    },
+    "dd6b8c4b": {
+      "raw": [
+        "既存primitiveの組合せ"
+      ],
+      "normalized": [
+        "既存primitiveの組合せ"
+      ]
+    },
+    "e12f9a14": {
+      "raw": [
+        "現行表現では原因未確定"
+      ],
+      "normalized": [
+        "現行表現では原因未確定"
+      ]
+    },
+    "eee78d87": {
+      "raw": [
+        "既存primitiveの組合せ"
+      ],
+      "normalized": [
+        "既存primitiveの組合せ"
+      ]
+    },
+    "36a08778": {
+      "raw": [
+        "現行表現では原因未確定"
+      ],
+      "normalized": [
+        "現行表現では原因未確定"
+      ]
+    },
+    "65b59efc": {
+      "raw": [
+        "現行表現では原因未確定"
+      ],
+      "normalized": [
+        "現行表現では原因未確定"
+      ]
+    },
+    "0934a4d8": {
+      "raw": [
+        "新規入力view"
+      ],
+      "normalized": [
+        "新しい入力view"
+      ]
+    },
+    "16de56c4": {
+      "raw": [
+        "新規関係表現"
+      ],
+      "normalized": [
+        "新しい関係表現"
+      ]
+    },
+    "21897d95": {
+      "raw": [
+        "現行表現では原因未確定"
+      ],
+      "normalized": [
+        "現行表現では原因未確定"
+      ]
+    },
+    "291dc1e1": {
+      "raw": [
+        "既存primitiveの組合せ"
+      ],
+      "normalized": [
+        "既存primitiveの組合せ"
+      ]
+    },
+    "3dc255db": {
+      "raw": [
+        "新規入力view"
+      ],
+      "normalized": [
+        "新しい入力view"
+      ]
+    },
+    "4c416de3": {
+      "raw": [
+        "新規入力view"
+      ],
+      "normalized": [
+        "新しい入力view"
+      ]
+    },
+    "581f7754": {
+      "raw": [
+        "現行表現では原因未確定"
+      ],
+      "normalized": [
+        "現行表現では原因未確定"
+      ]
+    },
+    "6e4f6532": {
+      "raw": [
+        "既存primitiveの組合せ"
+      ],
+      "normalized": [
+        "既存primitiveの組合せ"
+      ]
+    },
+    "7491f3cf": {
+      "raw": [
+        "新規関係表現"
+      ],
+      "normalized": [
+        "新しい関係表現"
+      ]
+    },
+    "80a900e0": {
+      "raw": [
+        "新規入力view"
+      ],
+      "normalized": [
+        "新しい入力view"
+      ]
+    },
+    "8b7bacbf": {
+      "raw": [
+        "新規関係表現"
+      ],
+      "normalized": [
+        "新しい関係表現"
+      ]
+    },
+    "a32d8b75": {
+      "raw": [
+        "既存primitiveの組合せ"
+      ],
+      "normalized": [
+        "既存primitiveの組合せ"
+      ]
+    },
+    "abc82100": {
+      "raw": [
+        "現行表現では原因未確定"
+      ],
+      "normalized": [
+        "現行表現では原因未確定"
+      ]
+    },
+    "cbebaa4b": {
+      "raw": [
+        "新規関係表現"
+      ],
+      "normalized": [
+        "新しい関係表現"
+      ]
+    },
+    "db0c5428": {
+      "raw": [
+        "現行表現では原因未確定"
+      ],
+      "normalized": [
+        "現行表現では原因未確定"
+      ]
+    },
+    "de809cff": {
+      "raw": [
+        "新規入力view"
+      ],
+      "normalized": [
+        "新しい入力view"
+      ]
+    },
+    "e376de54": {
+      "raw": [
+        "現行表現では原因未確定"
+      ],
+      "normalized": [
+        "現行表現では原因未確定"
+      ]
+    },
+    "f560132c": {
+      "raw": [
+        "現行表現では原因未確定"
+      ],
+      "normalized": [
+        "現行表現では原因未確定"
+      ]
+    },
+    "4c3d4a41": {
+      "raw": [
+        "現行表現では原因未確定"
+      ],
+      "normalized": [
+        "現行表現では原因未確定"
+      ]
+    },
+    "8e5c0c38": {
+      "raw": [
+        "現行表現では原因未確定"
+      ],
+      "normalized": [
+        "現行表現では原因未確定"
+      ]
+    },
+    "142ca369": {
+      "raw": [
+        "新しい関係表現"
+      ],
+      "normalized": [
+        "新しい関係表現"
+      ]
+    },
+    "195c6913": {
+      "raw": [
+        "新しい関係表現"
+      ],
+      "normalized": [
+        "新しい関係表現"
+      ]
+    },
+    "247ef758": {
+      "raw": [
+        "既存primitiveの組合せ"
+      ],
+      "normalized": [
+        "既存primitiveの組合せ"
+      ]
+    },
+    "2b83f449": {
+      "raw": [
+        "現行表現では原因未確定"
+      ],
+      "normalized": [
+        "現行表現では原因未確定"
+      ]
+    },
+    "409aa875": {
+      "raw": [
+        "新しい関係表現"
+      ],
+      "normalized": [
+        "新しい関係表現"
+      ]
+    },
+    "4c7dc4dd": {
+      "raw": [
+        "現行表現では原因未確定"
+      ],
+      "normalized": [
+        "現行表現では原因未確定"
+      ]
+    },
+    "5961cc34": {
+      "raw": [
+        "新しい関係表現"
+      ],
+      "normalized": [
+        "新しい関係表現"
+      ]
+    },
+    "6ffbe589": {
+      "raw": [
+        "既存primitiveの組合せ"
+      ],
+      "normalized": [
+        "既存primitiveの組合せ"
+      ]
+    },
+    "78332cb0": {
+      "raw": [
+        "新しい入力view"
+      ],
+      "normalized": [
+        "新しい入力view"
+      ]
+    },
+    "88bcf3b4": {
+      "raw": [
+        "新しい作用"
+      ],
+      "normalized": [
+        "新しい作用"
+      ]
+    },
+    "9bbf930d": {
+      "raw": [
+        "新しい関係表現"
+      ],
+      "normalized": [
+        "新しい関係表現"
+      ]
+    },
+    "a47bf94d": {
+      "raw": [
+        "新しい関係表現"
+      ],
+      "normalized": [
+        "新しい関係表現"
+      ]
+    },
+    "b10624e5": {
+      "raw": [
+        "既存primitiveの組合せ"
+      ],
+      "normalized": [
+        "既存primitiveの組合せ"
+      ]
+    },
+    "d35bdbdc": {
+      "raw": [
+        "新しい関係表現"
+      ],
+      "normalized": [
+        "新しい関係表現"
+      ]
+    },
+    "dbff022c": {
+      "raw": [
+        "既存primitiveの組合せ"
+      ],
+      "normalized": [
+        "既存primitiveの組合せ"
+      ]
+    },
+    "dfadab01": {
+      "raw": [
+        "新しい入力view"
+      ],
+      "normalized": [
+        "新しい入力view"
+      ]
+    },
+    "edb79dae": {
+      "raw": [
+        "新しい入力view"
+      ],
+      "normalized": [
+        "新しい入力view"
+      ]
+    },
+    "faa9f03d": {
+      "raw": [
+        "新しい関係表現"
+      ],
+      "normalized": [
+        "新しい関係表現"
+      ]
+    }
+  },
+  "missing_or_conflicting_classifications": [],
+  "classification_counts": {
+    "現行表現では原因未確定": 18,
+    "新しい関係表現": 17,
+    "新しい作用": 3,
+    "新しい入力view": 13,
+    "既存primitiveの組合せ": 9
+  },
+  "classification_is_observation_or_hypothesis_not_closed_task_proof": true
+}

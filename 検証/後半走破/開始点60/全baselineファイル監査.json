@@ -1,0 +1,2631 @@
+{
+  "remote_commit": "cc668e34d7ca014daf9f8944767476d56c56fafc",
+  "remote_tree": "08b4161457909e8575fa365abbcb5ed176bf3ef1",
+  "checks": [
+    {
+      "path": ".gitattributes",
+      "bytes": 90,
+      "git_blob_sha1": "f64b9dc42a2f42b8ef67b499bf948619f4beffe3",
+      "remote_blob_sha1": "f64b9dc42a2f42b8ef67b499bf948619f4beffe3",
+      "sha256": "fbb8c19565ad9a306c0f628a4adb49e8731e9ea86e22d90636ed61dc50309662",
+      "match": true
+    },
+    {
+      "path": ".github/workflows/main-only.yml",
+      "bytes": 1330,
+      "git_blob_sha1": "ec1441dc1693f4a217dddd44e3f19852e60d8397",
+      "remote_blob_sha1": "ec1441dc1693f4a217dddd44e3f19852e60d8397",
+      "sha256": "2dbc9eb9060aad27950234b00449e04469c9d9e48bb79c5cb52350d59b549e37",
+      "match": true
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 178,
+      "git_blob_sha1": "1a1673c5c80bc5bd6eceb34d69aeb53808b82815",
+      "remote_blob_sha1": "1a1673c5c80bc5bd6eceb34d69aeb53808b82815",
+      "sha256": "86b57cb65b8911f0bbc5449b2c179b8a2b2e5401f0559cf95198726fd2daac08",
+      "match": true
+    },
+    {
+      "path": ".gitmodules",
+      "bytes": 137,
+      "git_blob_sha1": "c5a39597a38a53f64f49c5fb1343c9584baa0941",
+      "remote_blob_sha1": "c5a39597a38a53f64f49c5fb1343c9584baa0941",
+      "sha256": "6c80c36de55626f6f4cf34293028d296b9ead7623f50ff90ab8fe887e6a10ecf",
+      "match": true
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 1618,
+      "git_blob_sha1": "f00e552e6d14c99d1734f326398624ad700fb6b4",
+      "remote_blob_sha1": "f00e552e6d14c99d1734f326398624ad700fb6b4",
+      "sha256": "315998bc0549de61f70fda28a9c9923bea8a61ba6d9b79019283165e5438109b",
+      "match": true
+    },
+    {
+      "path": "HDS/README.md",
+      "bytes": 443,
+      "git_blob_sha1": "725251d6971545dd4cb08778751dda98e356159c",
+      "remote_blob_sha1": "725251d6971545dd4cb08778751dda98e356159c",
+      "sha256": "11c35fe3e51087bf3d6b573451a03092d986dd7e1fcd9ef6f2425e58e30cc955",
+      "match": true
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/README.md",
+      "bytes": 734,
+      "git_blob_sha1": "76986707d4cff0a24b4c1146c24aca8eb598ab3d",
+      "remote_blob_sha1": "76986707d4cff0a24b4c1146c24aca8eb598ab3d",
+      "sha256": "87d576f513ac660fc21f97e2cfcb702388eadc1c93613c4609b59ace5c2e11b9",
+      "match": true
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/__init__.py",
+      "bytes": 527,
+      "git_blob_sha1": "ef58e4969fcd4ba4c4310285c4d45cc740f8150c",
+      "remote_blob_sha1": "ef58e4969fcd4ba4c4310285c4d45cc740f8150c",
+      "sha256": "eaed97760656afc40088ad7e0d85a02fbd59a0d0034054956e9ead63319fba57",
+      "match": true
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/台帳.py",
+      "bytes": 2815,
+      "git_blob_sha1": "31f6e4d86c42448d90a6e829b86ab99e441982dc",
+      "remote_blob_sha1": "31f6e4d86c42448d90a6e829b86ab99e441982dc",
+      "sha256": "a6cab8fca7cb591c42fa7444f9678fe0003da69faafcce852598286dceb522e2",
+      "match": true
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/吸気系.py",
+      "bytes": 3061,
+      "git_blob_sha1": "81ffd4ea6e1a2f611020faeb5d28416ab0d79172",
+      "remote_blob_sha1": "81ffd4ea6e1a2f611020faeb5d28416ab0d79172",
+      "sha256": "50c48e5a9a8aa39158d0cdaacc0501608a829486960d41cb2fea6cb02e5660a4",
+      "match": true
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/型.py",
+      "bytes": 6575,
+      "git_blob_sha1": "0ade344cf314d710ace16d4e53907b89ee47d742",
+      "remote_blob_sha1": "0ade344cf314d710ace16d4e53907b89ee47d742",
+      "sha256": "aa1241708655280b36564f5e3ff6968849b4d09790b8932aabad1570cbca302c",
+      "match": true
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/実行系.py",
+      "bytes": 34178,
+      "git_blob_sha1": "7dc89687e75d00b7b0b87f5fa23d950649a514f6",
+      "remote_blob_sha1": "7dc89687e75d00b7b0b87f5fa23d950649a514f6",
+      "sha256": "11d253705181873bcc22e312a0d0a2198fe16a82e3d7289ea8746fdc14695429",
+      "match": true
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/懐疑.py",
+      "bytes": 3392,
+      "git_blob_sha1": "82016fb3fc15f0baa7af3b5b7c792420c95188ca",
+      "remote_blob_sha1": "82016fb3fc15f0baa7af3b5b7c792420c95188ca",
+      "sha256": "bb7e85c2dbafbd430f1b7733bf3a2d307dc24e3227e79994b491cf711322f715",
+      "match": true
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/排気系.py",
+      "bytes": 2779,
+      "git_blob_sha1": "54f3bec51663dde9dedd38f8bf007d336d40b9ea",
+      "remote_blob_sha1": "54f3bec51663dde9dedd38f8bf007d336d40b9ea",
+      "sha256": "2ba7ceb8d0d6c784d092f91fe484477127f044e50f68c54c977374b17f2f6361",
+      "match": true
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/推論.py",
+      "bytes": 11404,
+      "git_blob_sha1": "e394dc97f4986ca3212b1e10398060ac2495d3e6",
+      "remote_blob_sha1": "e394dc97f4986ca3212b1e10398060ac2495d3e6",
+      "sha256": "315dd0d23a9682cdf14be71346341976cbdbcd2cbd924a250afc4ad53058dba6",
+      "match": true
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/検証.py",
+      "bytes": 2696,
+      "git_blob_sha1": "28e5ac81be2160a705e7edef016f92702640b5a8",
+      "remote_blob_sha1": "28e5ac81be2160a705e7edef016f92702640b5a8",
+      "sha256": "e23f271d38e1f52d75557dbf3342abf7b59a85fbdc315a06c0040fd7ca204eb3",
+      "match": true
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/永続化.py",
+      "bytes": 3125,
+      "git_blob_sha1": "68a4f62d4dfea55b481de0f36b8e2436afa6b0a2",
+      "remote_blob_sha1": "68a4f62d4dfea55b481de0f36b8e2436afa6b0a2",
+      "sha256": "8aa431b3012424fd8347c5b3d93a5fbf2218d35020836f5d40abb427f9d6da0d",
+      "match": true
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/系統.py",
+      "bytes": 1951,
+      "git_blob_sha1": "ef2088692ae333bca598fa5e7cd4b10de58c5ad1",
+      "remote_blob_sha1": "ef2088692ae333bca598fa5e7cd4b10de58c5ad1",
+      "sha256": "f57e34fcab9249ad7fef72d7b9088fbb440c01afcd4313c9447b7a31427bd4a5",
+      "match": true
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/適応.py",
+      "bytes": 10139,
+      "git_blob_sha1": "7af4f016518df38207e9b66d075846fa7efdea0d",
+      "remote_blob_sha1": "7af4f016518df38207e9b66d075846fa7efdea0d",
+      "sha256": "c74797d49472646010ed0b37bd17dfa602084ba3347ac9386dec265e78a797ac",
+      "match": true
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/pyproject.toml",
+      "bytes": 173,
+      "git_blob_sha1": "a37ffd808c861d4a150cdbbd4b98f0f0db115716",
+      "remote_blob_sha1": "a37ffd808c861d4a150cdbbd4b98f0f0db115716",
+      "sha256": "c0d318c4a533f7ad7a2fe6f141cc44480a718def8c9794caf4a866e89b63961e",
+      "match": true
+    },
+    {
+      "path": "README.md",
+      "bytes": 1161,
+      "git_blob_sha1": "20b7846ee1e0312905370b96cae33abb930ff240",
+      "remote_blob_sha1": "20b7846ee1e0312905370b96cae33abb930ff240",
+      "sha256": "48ebcc3896997b9e89a29ecc18115273049ec7a422a852c6f67fa29d4de280ac",
+      "match": true
+    },
+    {
+      "path": "入力/README.md",
+      "bytes": 377,
+      "git_blob_sha1": "a77c70ce60e92e0cf60be3c7e31de0da21b53bde",
+      "remote_blob_sha1": "a77c70ce60e92e0cf60be3c7e31de0da21b53bde",
+      "sha256": "38047188ca2cdd9a6f020986cbc817dabdd202f137e4d398a4dc87acfb99835a",
+      "match": true
+    },
+    {
+      "path": "入力/公式サンプル/README.md",
+      "bytes": 632,
+      "git_blob_sha1": "ce66702c0f4b4ac9d0e73d5f4aa85650fd5a70d5",
+      "remote_blob_sha1": "ce66702c0f4b4ac9d0e73d5f4aa85650fd5a70d5",
+      "sha256": "4ff47b5b854007bc7bcc8a3b1c391d264a3e48ee023bf47ff4046b552e10dc87",
+      "match": true
+    },
+    {
+      "path": "入力/公式サンプル/マニフェスト.json",
+      "bytes": 1810,
+      "git_blob_sha1": "5de8ed56483e9bfc20ae6b4c3dda14eb76e09ef0",
+      "remote_blob_sha1": "5de8ed56483e9bfc20ae6b4c3dda14eb76e09ef0",
+      "sha256": "6a5d2bdc19171d862b5030d44adc477a609a79dbd87b9d08c258f785fbfe312b",
+      "match": true
+    },
+    {
+      "path": "制御/現在状態.json",
+      "bytes": 377,
+      "git_blob_sha1": "30919687b6d08cff5a2508db19d7939fd79f64cc",
+      "remote_blob_sha1": "30919687b6d08cff5a2508db19d7939fd79f64cc",
+      "sha256": "059eb5fe6f7f02be205f12eb7a14d6d05e456b6d95a2aee4bf854a7a13006e3e",
+      "match": true
+    },
+    {
+      "path": "学習台帳/ARC2規則台帳_v1.json",
+      "bytes": 3512236,
+      "git_blob_sha1": "fdab32e1c2c6f6e89606c4f01ece1cfa22c6fd9d",
+      "remote_blob_sha1": "fdab32e1c2c6f6e89606c4f01ece1cfa22c6fd9d",
+      "sha256": "a4182171f2762b6cbde7852fe50c1cbbd2aa3ef5ddc7dc18117006dce1f012f0",
+      "match": true
+    },
+    {
+      "path": "学習台帳/ARC2規則索引_v1.json",
+      "bytes": 35807,
+      "git_blob_sha1": "7d1209166c4e6a467bcd7e24102fbcb4bf09c35b",
+      "remote_blob_sha1": "7d1209166c4e6a467bcd7e24102fbcb4bf09c35b",
+      "sha256": "9d2fcf5f3089592992673c4a02ea8935acf37139d16931e35f798f276a42b3b2",
+      "match": true
+    },
+    {
+      "path": "学習台帳/ARC2規則経験_v1.jsonl",
+      "bytes": 7621296,
+      "git_blob_sha1": "d8989c664c8d60d5f2070eb970420f08d1b07e24",
+      "remote_blob_sha1": "d8989c664c8d60d5f2070eb970420f08d1b07e24",
+      "sha256": "5905139cc6723b97c67035c00e3f2ea9633ff58ef0e96b81a6676f8c636ae7c1",
+      "match": true
+    },
+    {
+      "path": "学習台帳/ARC2語彙台帳_v1.json",
+      "bytes": 982789,
+      "git_blob_sha1": "3d663c70d3685a7c7f7fdefd32bd0cdbcc18ac01",
+      "remote_blob_sha1": "3d663c70d3685a7c7f7fdefd32bd0cdbcc18ac01",
+      "sha256": "07bd0efeed4513ffc32e9ba00d2d1b512f8c0974bbf15eba0e96f104e81c8c07",
+      "match": true
+    },
+    {
+      "path": "学習台帳/README.md",
+      "bytes": 4266,
+      "git_blob_sha1": "68dbc45c1d4d21fa1e5e5c399c666e9828985860",
+      "remote_blob_sha1": "68dbc45c1d4d21fa1e5e5c399c666e9828985860",
+      "sha256": "8a0762df89507a0b86e524d78f890021f641ebdfbca2889c7ab1d2dbe09e0571",
+      "match": true
+    },
+    {
+      "path": "戦略/README.md",
+      "bytes": 381,
+      "git_blob_sha1": "0d7f8d6a6ce85717d73210abce24e5d0d9866f20",
+      "remote_blob_sha1": "0d7f8d6a6ce85717d73210abce24e5d0d9866f20",
+      "sha256": "3db4a2e43e04ca3dceda90a28cbaebc11b68c0b4cb67d655659a449809f1098a",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/HDS接続.py",
+      "bytes": 20744,
+      "git_blob_sha1": "7f14455fc147d89d8a16b2aba588ea13b8f9f406",
+      "remote_blob_sha1": "7f14455fc147d89d8a16b2aba588ea13b8f9f406",
+      "sha256": "eeccb7ba3de27ca893514909c29413a62414c50c34758ca686095171acbdf610",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/README.md",
+      "bytes": 94241,
+      "git_blob_sha1": "d99e19c9921c49a903b89151b2d5975eb2c9a89b",
+      "remote_blob_sha1": "d99e19c9921c49a903b89151b2d5975eb2c9a89b",
+      "sha256": "16bcd330550c1c96a344854c1d9d696add1d73b3f0ee3fccffd2a7b5857b2319",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/テンプレート充填教材.json",
+      "bytes": 430,
+      "git_blob_sha1": "5f6a70164e572964ab718299218e32da0889e4c5",
+      "remote_blob_sha1": "5f6a70164e572964ab718299218e32da0889e4c5",
+      "sha256": "8f5f24571f0457c44af68b57b9aebbcf4dabbb9164f24942108e1b98f635f112",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/中心配色教材.py",
+      "bytes": 7573,
+      "git_blob_sha1": "556b5754538f43c46f339deb2a5b5600a0e47639",
+      "remote_blob_sha1": "556b5754538f43c46f339deb2a5b5600a0e47639",
+      "sha256": "8cf63b8a4fdd6850978d68d81dcd402ff6b8fd17c26afa99151410aa7d5237ae",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/二値原型教材.py",
+      "bytes": 5861,
+      "git_blob_sha1": "dceffa1c0f1ea2b86a748b847fbd655dee4d664d",
+      "remote_blob_sha1": "dceffa1c0f1ea2b86a748b847fbd655dee4d664d",
+      "sha256": "0b1bd665ad3066d26e79215e188043be4501ac9275285e8d9c2b80a61987423e",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/二軸補完教材.py",
+      "bytes": 6565,
+      "git_blob_sha1": "c323e279c2e6cbc5475b3bdae980e2dbd3a9c6cd",
+      "remote_blob_sha1": "c323e279c2e6cbc5475b3bdae980e2dbd3a9c6cd",
+      "sha256": "e5c356e9d2f7756f9e9e1f2255c1c3a3100805214461d6c809913cb38bc41714",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/倍率置換教材.py",
+      "bytes": 7166,
+      "git_blob_sha1": "96c30533a7a8908de3e472e4c2eddca4f4cea6bf",
+      "remote_blob_sha1": "96c30533a7a8908de3e472e4c2eddca4f4cea6bf",
+      "sha256": "bfdb0d7b7cf0ba601f70b4f9d57acbd1d045d9a987d0ef0ca72c3647bbe71ffe",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/側周期教材.py",
+      "bytes": 5501,
+      "git_blob_sha1": "4b21cd5988d3b33f91d4526a1c41c268fbbaa3e0",
+      "remote_blob_sha1": "4b21cd5988d3b33f91d4526a1c41c268fbbaa3e0",
+      "sha256": "a4cc660cfd6b9c9619633b669366d702c83e6c6105e68e385634b173ee6c7a93",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/凡例展開教材.py",
+      "bytes": 8536,
+      "git_blob_sha1": "4ef9c0d4bb397a11bb5c0bdf78a758c6030b167a",
+      "remote_blob_sha1": "4ef9c0d4bb397a11bb5c0bdf78a758c6030b167a",
+      "sha256": "d06ed33a718da03aa83552efd0db93b5b1b1fd72bf75593a1587fe87d8671b03",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/凡例旋回教材.py",
+      "bytes": 9369,
+      "git_blob_sha1": "e825a9195a61f8782712eed40f8c15300b3c0faf",
+      "remote_blob_sha1": "e825a9195a61f8782712eed40f8c15300b3c0faf",
+      "sha256": "f88ff14a2ddd52cf62b5d9ea3a7d05f4c5a6643c97789e947fb01023724f9983",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/凡例矩形教材.py",
+      "bytes": 23498,
+      "git_blob_sha1": "9f682d92b8a50190156e4fcb09df82f00cc3e9d3",
+      "remote_blob_sha1": "9f682d92b8a50190156e4fcb09df82f00cc3e9d3",
+      "sha256": "27e646039172e5271cdc3ea8aee30484e3896ca6f25bf02296b39c4d01b5a3b3",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/凡例穴対応.py",
+      "bytes": 2614,
+      "git_blob_sha1": "d0b83c70728684ea5ce6b5612893530b57423fdc",
+      "remote_blob_sha1": "d0b83c70728684ea5ce6b5612893530b57423fdc",
+      "sha256": "e8de37fa35683753d39859ac8dd8736033159b20b64993d0c522c53f546a2e0f",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/凡例経路教材.py",
+      "bytes": 7015,
+      "git_blob_sha1": "d4544d95787ee7ae68541580c5b5dc32cf943a20",
+      "remote_blob_sha1": "d4544d95787ee7ae68541580c5b5dc32cf943a20",
+      "sha256": "cf38bb6ccc4f41cfa06acff63ee3e2f1949e1845a80cf8d2e5bb33d0eba7a123",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/凡例集合教材.py",
+      "bytes": 9740,
+      "git_blob_sha1": "e1d43d928ec61891c118fb1a1e178e1283b32d08",
+      "remote_blob_sha1": "e1d43d928ec61891c118fb1a1e178e1283b32d08",
+      "sha256": "630765259176dd9efd68b2a273264b0c89f2bad79191f9862cb7edee543cc62d",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/制御複写教材.py",
+      "bytes": 9644,
+      "git_blob_sha1": "1c3553e04df81e40791b0c9a8d52321161512f84",
+      "remote_blob_sha1": "1c3553e04df81e40791b0c9a8d52321161512f84",
+      "sha256": "46c31162d5c522860bbe978864a7a083b92801f02b3ded6d037e8e9675a81928",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/包含正規化教材.py",
+      "bytes": 9681,
+      "git_blob_sha1": "abb5b8b44bd1d2288027298048922ed5cb45d60c",
+      "remote_blob_sha1": "abb5b8b44bd1d2288027298048922ed5cb45d60c",
+      "sha256": "11d5c0b88c42062dae05c022acd2b6bf1e3073ebd45c6ef05ad788569353589f",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/区切投射教材.py",
+      "bytes": 6582,
+      "git_blob_sha1": "a01baadc8eb8ff91cfdf9d8633ab03619735d3bd",
+      "remote_blob_sha1": "a01baadc8eb8ff91cfdf9d8633ab03619735d3bd",
+      "sha256": "656f8c7f4d6b3229f3776c8e041fd7bd04faa9c175a65be45bf312932d336f47",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/十字教材.py",
+      "bytes": 3214,
+      "git_blob_sha1": "409fdfa61591de187d2b29a14b5e2bc4ce12c5da",
+      "remote_blob_sha1": "409fdfa61591de187d2b29a14b5e2bc4ce12c5da",
+      "sha256": "2a9b11a894d9be2a4c1b1a019925e27c86ef1d7309427ecddc6118d58410f19f",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/十字曲線教材.py",
+      "bytes": 13067,
+      "git_blob_sha1": "556fe40e58ddb6ba9459616b63d0969f71cfd126",
+      "remote_blob_sha1": "556fe40e58ddb6ba9459616b63d0969f71cfd126",
+      "sha256": "b771fa5e83d90fcd50f95e71abdbcc4a808e3bf0983807959b9cdf9ed7ce55a6",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/反復行教材.py",
+      "bytes": 2936,
+      "git_blob_sha1": "d39c246a74e9189f9ebe79d129d1f5d3aa71bb28",
+      "remote_blob_sha1": "d39c246a74e9189f9ebe79d129d1f5d3aa71bb28",
+      "sha256": "276cc5353ebdedb25143ae55fdb1af729c34f8ae3d23654601f38aa6dde643a8",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/周期帯教材.py",
+      "bytes": 10377,
+      "git_blob_sha1": "1528557c415e017792aeac8488d6bf155d4b2375",
+      "remote_blob_sha1": "1528557c415e017792aeac8488d6bf155d4b2375",
+      "sha256": "bb1a62eccf9e1d5f2485b01911fd76b16a5f7462e9fc2caebcf2288b741fa28f",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/周期組修復教材.py",
+      "bytes": 4097,
+      "git_blob_sha1": "fa30f62dbfbfed5d86462cb2c196bf39c3758f5b",
+      "remote_blob_sha1": "fa30f62dbfbfed5d86462cb2c196bf39c3758f5b",
+      "sha256": "12ade801a2297bcfb69bf07f739f571be0ebfdb590a3d929bd775317fdbd7e90",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/四欄反復教材.py",
+      "bytes": 6980,
+      "git_blob_sha1": "c9387eba632ea8b811d56f75e653a6c1fe07a701",
+      "remote_blob_sha1": "c9387eba632ea8b811d56f75e653a6c1fe07a701",
+      "sha256": "ef38fc79d7e749db85ec813f2f90db29c97ee155e93865ef26d7d5079d2ac294",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/基点複製教材.py",
+      "bytes": 6670,
+      "git_blob_sha1": "7c98a914c98d2b9cd7748c8d8435ab39249c633f",
+      "remote_blob_sha1": "7c98a914c98d2b9cd7748c8d8435ab39249c633f",
+      "sha256": "4d3efbad983efc03f2f6234aa8994c3a893bf5969d3d2f91627af533253d1c41",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/対称剪定教材.py",
+      "bytes": 3664,
+      "git_blob_sha1": "9af64ef015067edb972d5597e31846b22c62113a",
+      "remote_blob_sha1": "9af64ef015067edb972d5597e31846b22c62113a",
+      "sha256": "cf67c6d1b377124637e378d8b8c2da60930555c7ffac5d1a1a44c634634244bf",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/対角線橋教材.py",
+      "bytes": 3237,
+      "git_blob_sha1": "0c49e87af336e0c517748725f16538bf1558c74b",
+      "remote_blob_sha1": "0c49e87af336e0c517748725f16538bf1558c74b",
+      "sha256": "102510745b8e74b519b0909211d28f2205ce868277dddff1e1fff63f87cb9f92",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/対角領域教材.py",
+      "bytes": 1895,
+      "git_blob_sha1": "71d9a2ffd6b6bc7eda36738fd762a6bc3aee74ae",
+      "remote_blob_sha1": "71d9a2ffd6b6bc7eda36738fd762a6bc3aee74ae",
+      "sha256": "ac27d68bc6afda7e32033c9b0e4bffaa414134974c4f8fe709d423a017830bc6",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/帯図形教材.py",
+      "bytes": 7285,
+      "git_blob_sha1": "796142bfee9b80dc88f4a0cd48ed556b82191c0a",
+      "remote_blob_sha1": "796142bfee9b80dc88f4a0cd48ed556b82191c0a",
+      "sha256": "c03031e6c7d88a512db6b3fdb9d4a1c393c3ffa79b8662d6c82f034f865cfeda",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/帯輪郭教材.py",
+      "bytes": 3994,
+      "git_blob_sha1": "bb59660046f9907d4f3d39b496a028dc29cd86c4",
+      "remote_blob_sha1": "bb59660046f9907d4f3d39b496a028dc29cd86c4",
+      "sha256": "d00d510e208f10c70ac5e3649a14061f539f9c52788cdcd98c0f1f4695274ef6",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/形状色教材.py",
+      "bytes": 2622,
+      "git_blob_sha1": "727127cbce032c1c519c7d063d86b9bdd060fcb4",
+      "remote_blob_sha1": "727127cbce032c1c519c7d063d86b9bdd060fcb4",
+      "sha256": "2936f95c6eaf9c40092ada3f1a2b304a171588ebfb61a9722b895397e8da6e93",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/成分直列教材.py",
+      "bytes": 4669,
+      "git_blob_sha1": "b9051ed6be423af2a528bd6c9ff8f55cd18ef25a",
+      "remote_blob_sha1": "b9051ed6be423af2a528bd6c9ff8f55cd18ef25a",
+      "sha256": "5f38d59178cd72013f2bd74d7be07692d3d10c100b91602c629b655bf150ab94",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/成分経路教材.py",
+      "bytes": 1792,
+      "git_blob_sha1": "b2b8ac262bb2adb83e8926fe6d343430b71df065",
+      "remote_blob_sha1": "b2b8ac262bb2adb83e8926fe6d343430b71df065",
+      "sha256": "45038bfbaf0dd14d847b41f01ba44a43bdca5d7c424c422df4daf16c4a90351c",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/接触配置教材.py",
+      "bytes": 10780,
+      "git_blob_sha1": "5cf7b52a3ed0e0601f05319fade66d736be0a7fe",
+      "remote_blob_sha1": "5cf7b52a3ed0e0601f05319fade66d736be0a7fe",
+      "sha256": "685d45d4ae7249220c6903d59c41241151adec2eccfe476112e5fdb66838273f",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/支持構造教材.py",
+      "bytes": 21412,
+      "git_blob_sha1": "71c7d2b12b06733d85668d25bc5b5e5f3cacf199",
+      "remote_blob_sha1": "71c7d2b12b06733d85668d25bc5b5e5f3cacf199",
+      "sha256": "f80f391b9f9eebe284adf77183ac74246b3afcc27b1dac34104b9f1b8cf24bbd",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/放射組立教材.py",
+      "bytes": 3115,
+      "git_blob_sha1": "e5941acb0207f20af01ae38370e25cae6e10e866",
+      "remote_blob_sha1": "e5941acb0207f20af01ae38370e25cae6e10e866",
+      "sha256": "d9b1f205b3716a5a28ca4ea79a5f29e9eca046dd23cd1e73e1fd9cfb3c09ea49",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存中心配色.py",
+      "bytes": 9753,
+      "git_blob_sha1": "da7f905ca6eceb76906685ebcd2f94a1b2e1bc7a",
+      "remote_blob_sha1": "da7f905ca6eceb76906685ebcd2f94a1b2e1bc7a",
+      "sha256": "2467778d5ff60d0e2c2434a9a5830eec84041ceed77efb5434d1562772dd42fe",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存二値原型.py",
+      "bytes": 9236,
+      "git_blob_sha1": "3414a7377024b6864e1595a22323481b1c1a1832",
+      "remote_blob_sha1": "3414a7377024b6864e1595a22323481b1c1a1832",
+      "sha256": "1f9eca0627198e784a5e38c3b08443545663d8d265d92b1c759457b487a5e723",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存二軸補完.py",
+      "bytes": 5989,
+      "git_blob_sha1": "4150e44ec7545bc2ddb9b0908d29eab68bca51d5",
+      "remote_blob_sha1": "4150e44ec7545bc2ddb9b0908d29eab68bca51d5",
+      "sha256": "f7e87a8b1502e48614de5133eb13f250bf9457293f748d4f8cf5f81803a524a8",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存倍率置換.py",
+      "bytes": 9358,
+      "git_blob_sha1": "b1c04a41dde00a8ce4129d506984aac44ce0d5e4",
+      "remote_blob_sha1": "b1c04a41dde00a8ce4129d506984aac44ce0d5e4",
+      "sha256": "5729598184dfe54d73c05969b63ae9d64521aa1c5008bd0c719f276a12d4410b",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存側周期.py",
+      "bytes": 6921,
+      "git_blob_sha1": "4b422a2bd876398ccfc1986370b447715a49ccfc",
+      "remote_blob_sha1": "4b422a2bd876398ccfc1986370b447715a49ccfc",
+      "sha256": "d55a69ad42c78db5a8f52842206793d4c8bd7857487dfcc6c7cc9397f8bda7fe",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存入れ子合成.py",
+      "bytes": 15498,
+      "git_blob_sha1": "784e84e051767564075e2abc9b85879d0e811ad1",
+      "remote_blob_sha1": "784e84e051767564075e2abc9b85879d0e811ad1",
+      "sha256": "a5a7b57187e2d03d4114186e10fbc58c51f6204ead5f18e4d482a0513f627193",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存凡例展開.py",
+      "bytes": 10757,
+      "git_blob_sha1": "c6717521ef30f89b6ede762171cf1acd43c3cfd4",
+      "remote_blob_sha1": "c6717521ef30f89b6ede762171cf1acd43c3cfd4",
+      "sha256": "69526f0e72677b67ea5ac9a8d62ff352dc0e477020c87497689de6db4e57d6aa",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存凡例旋回.py",
+      "bytes": 10227,
+      "git_blob_sha1": "9b947e1312395b84b4256e00446d81e74ad7f8ea",
+      "remote_blob_sha1": "9b947e1312395b84b4256e00446d81e74ad7f8ea",
+      "sha256": "7046a84e255870e08213e9d749c970662354fb0513f28832c728f6d3698ca39f",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存凡例穴対応.py",
+      "bytes": 7509,
+      "git_blob_sha1": "98f20d459d022c22e6aec9d0e5e9125ef36fb378",
+      "remote_blob_sha1": "98f20d459d022c22e6aec9d0e5e9125ef36fb378",
+      "sha256": "3e2471e03faaf58badbbb4d9426308beea41495201cdf9513c0e3993b7e832f2",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存凡例経路.py",
+      "bytes": 12669,
+      "git_blob_sha1": "b38ce0284ea2e930ee66781a10154c6a744d184c",
+      "remote_blob_sha1": "b38ce0284ea2e930ee66781a10154c6a744d184c",
+      "sha256": "71ec8be34047c9d3534932f09e1014af904c20a33ae8aa8dc3e52915f6aee77a",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存制御複写.py",
+      "bytes": 11418,
+      "git_blob_sha1": "0b1b07dfd5b94e010c90491255b6da8870dfae20",
+      "remote_blob_sha1": "0b1b07dfd5b94e010c90491255b6da8870dfae20",
+      "sha256": "b1f894ad36e60dfc73a726273d94492ab48ce3f16d70a486b37c98bf09d1558d",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存包含正規化.py",
+      "bytes": 14727,
+      "git_blob_sha1": "2efff01eaa2e6b5252d087cdb9025b8f60b139ae",
+      "remote_blob_sha1": "2efff01eaa2e6b5252d087cdb9025b8f60b139ae",
+      "sha256": "a70de4c33ec5aaa99abd8064d67539279b9ff86637e4170164148ba5eb436434",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存区切投射.py",
+      "bytes": 9224,
+      "git_blob_sha1": "39bba39e4c2f648b4028db2bedb4a9bd4a0e1ef7",
+      "remote_blob_sha1": "39bba39e4c2f648b4028db2bedb4a9bd4a0e1ef7",
+      "sha256": "8679762ff593cd8888611890cde283e1a7edd5097534b75e2b075b36d17c830c",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存十字着色.py",
+      "bytes": 1119,
+      "git_blob_sha1": "71714ae5cb096261c38b587a9b9ecbe1b135d528",
+      "remote_blob_sha1": "71714ae5cb096261c38b587a9b9ecbe1b135d528",
+      "sha256": "4489cb9c909821afc48e800292ae5ab455c98b4494e6f18eb03fe5f483e02451",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存反復行.py",
+      "bytes": 1959,
+      "git_blob_sha1": "7a6d93762da556acf995a114d2df0919659d0a68",
+      "remote_blob_sha1": "7a6d93762da556acf995a114d2df0919659d0a68",
+      "sha256": "13bffa2c0a1f7b27b33a014cab2bd1603219bdf8b8b2b2f320f592a7f5efff4e",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存周期帯.py",
+      "bytes": 12411,
+      "git_blob_sha1": "bc489ce36f0855db3bbd7673413b677a5f656a3d",
+      "remote_blob_sha1": "bc489ce36f0855db3bbd7673413b677a5f656a3d",
+      "sha256": "82616b0d90a0a6dd2bbe53e90199d501ae1db37dc487571a709278563a7b4de6",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存周期組修復.py",
+      "bytes": 6115,
+      "git_blob_sha1": "15b2a7c4dc8a5e52f02b3d774992ebe17783c5d4",
+      "remote_blob_sha1": "15b2a7c4dc8a5e52f02b3d774992ebe17783c5d4",
+      "sha256": "0ae1d350bca8318f15b24d2678c2c006497d14fbf74e9a9affbc5f4b2602d8ed",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存基点複製.py",
+      "bytes": 7148,
+      "git_blob_sha1": "d8124faa6df826cb5be0c165fb13d522aefaff79",
+      "remote_blob_sha1": "d8124faa6df826cb5be0c165fb13d522aefaff79",
+      "sha256": "1188cf6a6057b38b07a322734bd02f6c2b8907a99b672e35f1fb66220e6058b6",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存対称剪定.py",
+      "bytes": 5000,
+      "git_blob_sha1": "1e6fea8cedcde9a3be78afd8af63c9685cd1e087",
+      "remote_blob_sha1": "1e6fea8cedcde9a3be78afd8af63c9685cd1e087",
+      "sha256": "bed49d4165ea232e9c4f79fcffd73a392a3eff55cd3a3f4695a5bccb390a4a20",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存対角線橋.py",
+      "bytes": 5579,
+      "git_blob_sha1": "b5a49b9812bec03da9d22a9628ee091c90039417",
+      "remote_blob_sha1": "b5a49b9812bec03da9d22a9628ee091c90039417",
+      "sha256": "aafdf6019d65ae41785204495892a5077692fc3801988d09a7d4e54c563b8f8b",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存対角領域.py",
+      "bytes": 4094,
+      "git_blob_sha1": "2dc76e43ca96af0e720e69919ce27b8545928a5e",
+      "remote_blob_sha1": "2dc76e43ca96af0e720e69919ce27b8545928a5e",
+      "sha256": "9f1a959d3d6e77b8284cb2fe708fbd4afb96d610c4dbc562609f5a23341de92b",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存帯図形投射.py",
+      "bytes": 5585,
+      "git_blob_sha1": "9344d35b2f27d88e38f51729a5bc5874616b190b",
+      "remote_blob_sha1": "9344d35b2f27d88e38f51729a5bc5874616b190b",
+      "sha256": "413483a1c4fbfe07afa155e66810e48243bdf835386064249c06d4f213f37537",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存帯輪郭.py",
+      "bytes": 2051,
+      "git_blob_sha1": "e4e9eb36989aad0d39dbd84c2e05b5af56ad0010",
+      "remote_blob_sha1": "e4e9eb36989aad0d39dbd84c2e05b5af56ad0010",
+      "sha256": "9e84b1ed190fced0ddefc24ebd6ed293056343eceb307d50ae04e89887caa502",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存形状色転写.py",
+      "bytes": 7202,
+      "git_blob_sha1": "34ba6c63b43854e4fef61cc5c7fbefba2e730be3",
+      "remote_blob_sha1": "34ba6c63b43854e4fef61cc5c7fbefba2e730be3",
+      "sha256": "a11dd7b05494b23c1c8d518bfd4e66a7cbbd18a4f06a24b85014fdaa6c557cd6",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存成分最短経路.py",
+      "bytes": 15628,
+      "git_blob_sha1": "c95b08be5c1f32a455f0676da3ac78549ca307ff",
+      "remote_blob_sha1": "c95b08be5c1f32a455f0676da3ac78549ca307ff",
+      "sha256": "9017291824a0bea5f07a15b7c911222d7c6bcbd6c4736f5b93506af9d32177e0",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存成分直列.py",
+      "bytes": 4524,
+      "git_blob_sha1": "6977888a685869ba99f550c43e220d9faab02a6d",
+      "remote_blob_sha1": "6977888a685869ba99f550c43e220d9faab02a6d",
+      "sha256": "12e271d9df5e75eae69d10156b3673067a2a5ac1bf5b31782fa6acb883547c16",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存接触配置.py",
+      "bytes": 11734,
+      "git_blob_sha1": "bc09fe0f5c04e0aa9e0de9d30739411c54d08cc2",
+      "remote_blob_sha1": "bc09fe0f5c04e0aa9e0de9d30739411c54d08cc2",
+      "sha256": "6343a3b9f787bd31b42f89ce0d1d41c20554f8efa8c0b91c2a793307d4f982b1",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存放射組立.py",
+      "bytes": 15023,
+      "git_blob_sha1": "0e8deb1e87a014f6f9420e1dc36cee4e256ef7e0",
+      "remote_blob_sha1": "0e8deb1e87a014f6f9420e1dc36cee4e256ef7e0",
+      "sha256": "c7f1639072434c41ec1a24364bd12d72cb400ac56cdc28dcaf9c0a830235e558",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存枠列整列.py",
+      "bytes": 15133,
+      "git_blob_sha1": "406071f90c698f64f5fbc8580109e86f5e61633c",
+      "remote_blob_sha1": "406071f90c698f64f5fbc8580109e86f5e61633c",
+      "sha256": "87ab60635412a7117034a11954db0aeff379f68710f0cf1c202df5a3223bb79d",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存枠計数.py",
+      "bytes": 5424,
+      "git_blob_sha1": "48e1c9c5a0d26f263c2e7ba6936fdaf87b557728",
+      "remote_blob_sha1": "48e1c9c5a0d26f263c2e7ba6936fdaf87b557728",
+      "sha256": "4c33e933c18d0dcb7da410cd5af9a9a38979161e5f95eb370dc06cb78d711aa7",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存格子操作.py",
+      "bytes": 3624,
+      "git_blob_sha1": "90f27ed00b33b622b8d4642fc51b78de0cd8e668",
+      "remote_blob_sha1": "90f27ed00b33b622b8d4642fc51b78de0cd8e668",
+      "sha256": "d03c16e870a245dc18dd24446c09a3fcadbbf7bc9d184510105dc5ae46a32b23",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存標識移動.py",
+      "bytes": 12652,
+      "git_blob_sha1": "435869ea80f967f3c93ea737b00574ca2ec9b194",
+      "remote_blob_sha1": "435869ea80f967f3c93ea737b00574ca2ec9b194",
+      "sha256": "f5cc23af24f8c72464591bfdf66c0d64a8231de42ab8b0b66f5546a5eaaa36b2",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存標識組立.py",
+      "bytes": 9768,
+      "git_blob_sha1": "88c79596dac0a8081ad82ce3674a674dceba2b96",
+      "remote_blob_sha1": "88c79596dac0a8081ad82ce3674a674dceba2b96",
+      "sha256": "a39c7aea40afa220475d2a15958de012b8717a386addfdfe3b25b01829d91b04",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存標識計数.py",
+      "bytes": 7176,
+      "git_blob_sha1": "3b8136ea80bde6a2044e8fb161bab495ac42a2cd",
+      "remote_blob_sha1": "3b8136ea80bde6a2044e8fb161bab495ac42a2cd",
+      "sha256": "8fed1993cf3a6acc29d8d69b80be28e67885411c85cb3e4bb7cf51e7127aacc5",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存正方形座標.py",
+      "bytes": 1461,
+      "git_blob_sha1": "9bf49785b121b036cb33713d5cb82df17c5016b3",
+      "remote_blob_sha1": "9bf49785b121b036cb33713d5cb82df17c5016b3",
+      "sha256": "8ec3246e2f2ada0d9505e26cd2355dd791fd0b2f8281795b22adaff37d642d36",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存流路.py",
+      "bytes": 2347,
+      "git_blob_sha1": "b4204c9a8a0d10255d23e8c852a8a8ca5111efd9",
+      "remote_blob_sha1": "b4204c9a8a0d10255d23e8c852a8a8ca5111efd9",
+      "sha256": "3d46051b219954adec60f719f20d496c93efdd4ab54098435e3c3830a1e6b242",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存物体slot.py",
+      "bytes": 21527,
+      "git_blob_sha1": "4f69b4f4ddaa81fc61e725d6b8e6f9bb9a329932",
+      "remote_blob_sha1": "4f69b4f4ddaa81fc61e725d6b8e6f9bb9a329932",
+      "sha256": "8ffd2d89a32593258830e809fd2b136221b9073862987ccacf8b918ecc118c5d",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存物体特徴.py",
+      "bytes": 5401,
+      "git_blob_sha1": "cc04ca936fb8729798a5189d3e1fab0d5b53259a",
+      "remote_blob_sha1": "cc04ca936fb8729798a5189d3e1fab0d5b53259a",
+      "sha256": "e7a662182961e45cdba38a00bbd267ad03261cb1217dc8d08f2d867d9f4acc60",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存疎点転写.py",
+      "bytes": 17882,
+      "git_blob_sha1": "c4a040b61de6a2a1e0e204fd627977c47c0c8e5a",
+      "remote_blob_sha1": "c4a040b61de6a2a1e0e204fd627977c47c0c8e5a",
+      "sha256": "b9e676f2605cf2e05e92f4bae21f4f39afac40f1e8c41e0d175710cdcb69a248",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存種境界.py",
+      "bytes": 7891,
+      "git_blob_sha1": "dbc58b8d2ac7aba1d1f569c2fcff33da1c0815ff",
+      "remote_blob_sha1": "dbc58b8d2ac7aba1d1f569c2fcff33da1c0815ff",
+      "sha256": "b0d413e5e3d9180f81ab95aa6fdf1ad9d870ae8bc2cf5adae9cbb182f0896f73",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存穴充填.py",
+      "bytes": 11684,
+      "git_blob_sha1": "97cca8efc9ab2576cc3349ce9276595a86d72c12",
+      "remote_blob_sha1": "97cca8efc9ab2576cc3349ce9276595a86d72c12",
+      "sha256": "451d07ba636d4e4ce5a2443cfe56745f55fd16cf8845a2f4c9f62abd08d78b53",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存穴形拡大.py",
+      "bytes": 12228,
+      "git_blob_sha1": "81ba91cdb2f4d89cf4e03b28fd61341c30e79fe9",
+      "remote_blob_sha1": "81ba91cdb2f4d89cf4e03b28fd61341c30e79fe9",
+      "sha256": "ba17cc5fd91c700944078b2ca2178cb29bf4f8d71b30d1d76121439c692501ae",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存穴輪郭.py",
+      "bytes": 6171,
+      "git_blob_sha1": "be07fe4d1c68ae7d262f3aa22e96872d0b9ca9b0",
+      "remote_blob_sha1": "be07fe4d1c68ae7d262f3aa22e96872d0b9ca9b0",
+      "sha256": "df24878a9661cadf8b69a00c16688f783b870a2d485b9fbb3167f7e41bbf3f81",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存空白移動.py",
+      "bytes": 8800,
+      "git_blob_sha1": "f3a3637cab7f04ae74bcd242504ae4436cb7bf00",
+      "remote_blob_sha1": "f3a3637cab7f04ae74bcd242504ae4436cb7bf00",
+      "sha256": "70bf97bee5522d2fe364f8394a2643387b35021648d97ce8473b3e3565d6e7ec",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存色群関係.py",
+      "bytes": 3925,
+      "git_blob_sha1": "410e98a525a334cbe34c906ed0fe42af2c19ec5e",
+      "remote_blob_sha1": "410e98a525a334cbe34c906ed0fe42af2c19ec5e",
+      "sha256": "116068335b39fd1ed18a87008534537fcdaee41073a94d509b18946a3f6e66ef",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存行周期.py",
+      "bytes": 6372,
+      "git_blob_sha1": "f4bf138f69cabc877a19f9ec0ec4cd19bf839592",
+      "remote_blob_sha1": "f4bf138f69cabc877a19f9ec0ec4cd19bf839592",
+      "sha256": "b002d27838ec41822f4671499bc5a0d793614b9cdd3fefdf158735b3deb7fb4b",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存象限配色.py",
+      "bytes": 2899,
+      "git_blob_sha1": "3d031d3a27b8410579829ef692fac49c959d5813",
+      "remote_blob_sha1": "3d031d3a27b8410579829ef692fac49c959d5813",
+      "sha256": "eeef1a774d1bcf88bb8d44bd7ddbe8097c81730f47326694669b9b667e9e4780",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存距離層.py",
+      "bytes": 7649,
+      "git_blob_sha1": "7a17bb07ecda95150339e6fd725c8971a1c1c767",
+      "remote_blob_sha1": "7a17bb07ecda95150339e6fd725c8971a1c1c767",
+      "sha256": "83822e2ef7874ceeb9341bc1a55c2706fe286be9be4ff4a49d24088c01b154c3",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存軸反射.py",
+      "bytes": 7448,
+      "git_blob_sha1": "14831941a0448ac1fb2eca583e6672532de78177",
+      "remote_blob_sha1": "14831941a0448ac1fb2eca583e6672532de78177",
+      "sha256": "9802bf53c23011fc61b9d266185b0fafba0a5b761efb51fc09c6ddf298046df0",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存軸投射.py",
+      "bytes": 10984,
+      "git_blob_sha1": "bed44b5b399b944f615b096233e44d51c46d6cba",
+      "remote_blob_sha1": "bed44b5b399b944f615b096233e44d51c46d6cba",
+      "sha256": "47a7d378994e36ead4d2652c522be686396921957f493fd00e26a079531cee8e",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存辺対応抽出.py",
+      "bytes": 9523,
+      "git_blob_sha1": "857ea994aa1c5ac0d4a2b1d429d19bf2c1c54d25",
+      "remote_blob_sha1": "857ea994aa1c5ac0d4a2b1d429d19bf2c1c54d25",
+      "sha256": "cc97bcd03e21575da786af4dd0b6f86b6c3b16c6139e66fcc6352b95b46c2612",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存部分見本転写.py",
+      "bytes": 6266,
+      "git_blob_sha1": "6537f73d3a7b5568dcffa5370f4361e45facdb92",
+      "remote_blob_sha1": "6537f73d3a7b5568dcffa5370f4361e45facdb92",
+      "sha256": "8d1b8c390d22dfb9eedcdd3303e1e56dd54edfc97fe157a8259a16b37124f4d2",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存配置展開.py",
+      "bytes": 4192,
+      "git_blob_sha1": "cd3535e645a3bb24dc16c36833224a537efce1cb",
+      "remote_blob_sha1": "cd3535e645a3bb24dc16c36833224a537efce1cb",
+      "sha256": "89a04069344c12418e15f08a100354fe21a9d1f0221bba9c073b19b00ece70dc",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存重畳組立.py",
+      "bytes": 10256,
+      "git_blob_sha1": "e3e5f14f4fb2f240e1b05b8010499055e58b2e0d",
+      "remote_blob_sha1": "e3e5f14f4fb2f240e1b05b8010499055e58b2e0d",
+      "sha256": "708167bcf7cf20502570c519d69492b3bffa00f51ae9a55c6a1480b952eedf2b",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存順位着色.py",
+      "bytes": 5888,
+      "git_blob_sha1": "30d2abaccb8db13ba3b25a4246effc021c20602a",
+      "remote_blob_sha1": "30d2abaccb8db13ba3b25a4246effc021c20602a",
+      "sha256": "c66a6f7e90af955c8e2ec414c2abc780a0a9adeb56321b703365633d2461356a",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/既存領域転写.py",
+      "bytes": 13443,
+      "git_blob_sha1": "d40e65f5004023583395ef7a8456635ead072dd4",
+      "remote_blob_sha1": "d40e65f5004023583395ef7a8456635ead072dd4",
+      "sha256": "76a73e2228f7546a2ad22c30dfaf6550a494d3ee40cffdb22926afa4d75fe304",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/枠列整列教材.py",
+      "bytes": 8107,
+      "git_blob_sha1": "724f4491bcbbec4766c8fe8033b8ccbcb13fedae",
+      "remote_blob_sha1": "724f4491bcbbec4766c8fe8033b8ccbcb13fedae",
+      "sha256": "3e3aee7d38e3dda032c50b56f1e2e06f3ee883900062bc3c4fe81ef0f26bf340",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/枠計数教材.py",
+      "bytes": 5227,
+      "git_blob_sha1": "2a99524febf168fe82c720855cf47002a45c8f02",
+      "remote_blob_sha1": "2a99524febf168fe82c720855cf47002a45c8f02",
+      "sha256": "2af0fcf6bf5385d015aa57a813436db1e76f708799a3be7445242bcadd4d0c33",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/格子自己マスク.py",
+      "bytes": 4372,
+      "git_blob_sha1": "916c99fc1459c73da0121f5851672f958720c41a",
+      "remote_blob_sha1": "916c99fc1459c73da0121f5851672f958720c41a",
+      "sha256": "fee2fc508917c5facb3f0f597e1e0b8027e3d011935624663f521b255c5d9675",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/標点組立教材.py",
+      "bytes": 16326,
+      "git_blob_sha1": "f020afef4617a827e0df4a35a8673b4be7a3e976",
+      "remote_blob_sha1": "f020afef4617a827e0df4a35a8673b4be7a3e976",
+      "sha256": "9132b78e33211bd57cd2b03cde90d83c6289ad399aa554ac7430680c6d848997",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/標識移動教材.py",
+      "bytes": 5937,
+      "git_blob_sha1": "fd64cd7e62521539a7e6a9adbb7304b33a127179",
+      "remote_blob_sha1": "fd64cd7e62521539a7e6a9adbb7304b33a127179",
+      "sha256": "707e613c63b7ca281ef46eb7e90e7431d01d35d4135d41e452b29e15ca4f658c",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/標識組立教材.py",
+      "bytes": 6966,
+      "git_blob_sha1": "c1997009f31675044136aad05469d9189b757085",
+      "remote_blob_sha1": "c1997009f31675044136aad05469d9189b757085",
+      "sha256": "1aa0d7098a869a7491bb498d729dcd8866dfaf682a85652ed5e0981e6cfb0130",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/標識計数教材.py",
+      "bytes": 4784,
+      "git_blob_sha1": "932e43dfe1b77718735b3b5553d1cf03392b5203",
+      "remote_blob_sha1": "932e43dfe1b77718735b3b5553d1cf03392b5203",
+      "sha256": "556524c9b76de8912f17464ebfe5df3a4232f7358b4ec78553a8d020b2f60e71",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/櫛配置教材.py",
+      "bytes": 11040,
+      "git_blob_sha1": "9105257c3ec8e73414b8bece2d6530229485ca1b",
+      "remote_blob_sha1": "9105257c3ec8e73414b8bece2d6530229485ca1b",
+      "sha256": "278912927f61bed2943c7193671379fa7e83c4098ecb48d49fee45da6b5060a0",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/正方形格子教材.py",
+      "bytes": 7248,
+      "git_blob_sha1": "fe0d02fe4d442ac2cc2f1ae1353a6ef238127a44",
+      "remote_blob_sha1": "fe0d02fe4d442ac2cc2f1ae1353a6ef238127a44",
+      "sha256": "d059e8d71972d37acf096ec157ddf48600ceb977bd6d42b8428a950d149353d6",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/流路教材.py",
+      "bytes": 5175,
+      "git_blob_sha1": "2746b45fe8529dc3a71c79b2741d133ec0cb09f4",
+      "remote_blob_sha1": "2746b45fe8529dc3a71c79b2741d133ec0cb09f4",
+      "sha256": "041440b1d6ad157f89d423d87036a7239f6fc7bca1a8ec85c88eb731aa1d73e2",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/物体slot教材.py",
+      "bytes": 8872,
+      "git_blob_sha1": "6991c126f6a4d144dae989926f1bb0107519c72f",
+      "remote_blob_sha1": "6991c126f6a4d144dae989926f1bb0107519c72f",
+      "sha256": "cc2e57f365a052befd7189444bb49be1a518e120666c7acac93c4fe9161eb2d2",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/物体端投射.py",
+      "bytes": 4142,
+      "git_blob_sha1": "a843f2929c9b9df62dc205db1f35928ac3f9f210",
+      "remote_blob_sha1": "a843f2929c9b9df62dc205db1f35928ac3f9f210",
+      "sha256": "7539bfb42258fed95e6cd54b025ab3d6be9edb6f7391415d310262ce414e4778",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/物体群整列.py",
+      "bytes": 8082,
+      "git_blob_sha1": "90f51f4bee7679f19286f06f65de1625dfcb02f5",
+      "remote_blob_sha1": "90f51f4bee7679f19286f06f65de1625dfcb02f5",
+      "sha256": "15dbd63f269e11310c2567c77e77cfee9a2f7bb663a707738301ac5181d79895",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/疎点転写教材.py",
+      "bytes": 10954,
+      "git_blob_sha1": "84775235b6c50fc5dbf1e8ca1aef23bd44951ed3",
+      "remote_blob_sha1": "84775235b6c50fc5dbf1e8ca1aef23bd44951ed3",
+      "sha256": "e540b85b1cb38265d832539e7083886ffcd28ae1e00c722af1109cde5733663d",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/種境界教材.py",
+      "bytes": 5477,
+      "git_blob_sha1": "446a53df1e4b549eeced38c01bc24153287a9935",
+      "remote_blob_sha1": "446a53df1e4b549eeced38c01bc24153287a9935",
+      "sha256": "c477ccd6206d1e9ef3bf850479adcb0b4998ed6285950d485393a55f2299f87c",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/穴形拡大教材.py",
+      "bytes": 2330,
+      "git_blob_sha1": "8f50368918c846d3642683208de6568a36470dc6",
+      "remote_blob_sha1": "8f50368918c846d3642683208de6568a36470dc6",
+      "sha256": "6340fec9a292ccfbdde90582b6997ab4aa6c6d109bb4730e9454a5e33006bc87",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/穴輪郭教材.py",
+      "bytes": 3716,
+      "git_blob_sha1": "be7142f4a2e0cb01b5e948a9ecf6d97d0a418a7a",
+      "remote_blob_sha1": "be7142f4a2e0cb01b5e948a9ecf6d97d0a418a7a",
+      "sha256": "2fc85f714f602b7d3dbc0a15123bc2e7b1cc0eccd1508e418e0489471fee8883",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/空白移動教材.py",
+      "bytes": 3936,
+      "git_blob_sha1": "4a4488ebc8c0440b3ca555ad06f61f5b53f418f1",
+      "remote_blob_sha1": "4a4488ebc8c0440b3ca555ad06f61f5b53f418f1",
+      "sha256": "2de00c7f31a1833700fb11aa0f1d4e491f8243a0e4c2a782c1bbdac8e6a99483",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/色群充填.py",
+      "bytes": 3196,
+      "git_blob_sha1": "699c479dcab524949e214b1cf340f655aa5ba639",
+      "remote_blob_sha1": "699c479dcab524949e214b1cf340f655aa5ba639",
+      "sha256": "80efc7cc6813a9837ee51c110362483314fb7c6fca60ff3e6ca77ca333a6ae81",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/行周期教材.py",
+      "bytes": 3742,
+      "git_blob_sha1": "995df0098576d1f3a1ffcc96a40d536b1dc13433",
+      "remote_blob_sha1": "995df0098576d1f3a1ffcc96a40d536b1dc13433",
+      "sha256": "946d11e0b7bf96da548236bb4a790eec18b42b429dca9cb0e933f72cee8ad811",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/記号命令教材.py",
+      "bytes": 12829,
+      "git_blob_sha1": "acd12e52daca32402667b8cc2616c3cd1b7cf57c",
+      "remote_blob_sha1": "acd12e52daca32402667b8cc2616c3cd1b7cf57c",
+      "sha256": "71c822a941f1b066e09cbde4267dd8076f280487724b0588fbaa0458bfcfe968",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/象限配色教材.py",
+      "bytes": 6270,
+      "git_blob_sha1": "403a8a8b671ad31640a560127c92732fde70392e",
+      "remote_blob_sha1": "403a8a8b671ad31640a560127c92732fde70392e",
+      "sha256": "4895fdd6c07fafdf0df4b31daed0b73cc230cdcf705f3dfe8279145ad09db172",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/距離層教材.py",
+      "bytes": 4105,
+      "git_blob_sha1": "c3c4321bca9bc2ff221a7a0d4f244e36d167acd3",
+      "remote_blob_sha1": "c3c4321bca9bc2ff221a7a0d4f244e36d167acd3",
+      "sha256": "e25f0a0b2017c72e33f24a68e7bc0a188b6d9992c7d03a75ff2485209e4fbc5a",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/軸反射教材.py",
+      "bytes": 3378,
+      "git_blob_sha1": "0113e98c870bd0dfd672e162289372358eb467d8",
+      "remote_blob_sha1": "0113e98c870bd0dfd672e162289372358eb467d8",
+      "sha256": "e7f7d13133ffd9d42b672bafb602ac1048f823053a04f23fe60531868428597e",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/軸投射教材.py",
+      "bytes": 8388,
+      "git_blob_sha1": "5a92b60b5fd32c62983642cc7608b15f50f14b21",
+      "remote_blob_sha1": "5a92b60b5fd32c62983642cc7608b15f50f14b21",
+      "sha256": "4e30a5ccc4ce1e1e88805ceb32af33b1407b9735467bebc3bdfad247d559879d",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/遮蔽区画教材.py",
+      "bytes": 19259,
+      "git_blob_sha1": "18627c9f56b248a106abdbea5865c188db69a31e",
+      "remote_blob_sha1": "18627c9f56b248a106abdbea5865c188db69a31e",
+      "sha256": "9f636f450bdadde750312b6ea93c4ab9d2a060320ecfabc40ef19317a942bec4",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/部分見本教材.py",
+      "bytes": 2170,
+      "git_blob_sha1": "56e59a1665ba59dda53690c65db79978c7f32356",
+      "remote_blob_sha1": "56e59a1665ba59dda53690c65db79978c7f32356",
+      "sha256": "f5485c5b08a6daab6bdc95c92ff4234dd152fbde7172291625b158d3269b2ceb",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/配置展開教材.py",
+      "bytes": 5513,
+      "git_blob_sha1": "3d0436f977fdebc13ffca83fb30a958ca64b00d2",
+      "remote_blob_sha1": "3d0436f977fdebc13ffca83fb30a958ca64b00d2",
+      "sha256": "939cace016e9a428dbd888bf743f4f4ea7a86c953ed54397172a7f25d70a9e54",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/重畳組立教材.py",
+      "bytes": 6859,
+      "git_blob_sha1": "4343c4e613089bb303f8018c99691a918ef82be6",
+      "remote_blob_sha1": "4343c4e613089bb303f8018c99691a918ef82be6",
+      "sha256": "9781da7ae0d5af5acb8769b109cd46c0411ec959a6b6264aaacafc491e40f3bc",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/開口壁教材.py",
+      "bytes": 13758,
+      "git_blob_sha1": "0f2b4aa2286f9d5df0dad47b6e0d88c2e2631fb9",
+      "remote_blob_sha1": "0f2b4aa2286f9d5df0dad47b6e0d88c2e2631fb9",
+      "sha256": "bfd0d8bdc8622ccdbd95f0e951feca097dba89c6f7a8436252fd6b261b9a0d23",
+      "match": true
+    },
+    {
+      "path": "接続/ARC2/順位着色教材.py",
+      "bytes": 3675,
+      "git_blob_sha1": "29246a9b4c00645bf426bea06e7c51f34d7895e1",
+      "remote_blob_sha1": "29246a9b4c00645bf426bea06e7c51f34d7895e1",
+      "sha256": "c1027423bd169ae0837fe04c5ccd71d96b084858fa7ee6d049c2c9bcabac7143",
+      "match": true
+    },
+    {
+      "path": "検証/ARC2評価.py",
+      "bytes": 5571,
+      "git_blob_sha1": "b16f140609d7b49b90d1b42a2ac3ec0e33438749",
+      "remote_blob_sha1": "b16f140609d7b49b90d1b42a2ac3ec0e33438749",
+      "sha256": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+      "match": true
+    },
+    {
+      "path": "検証/README.md",
+      "bytes": 536,
+      "git_blob_sha1": "39024b95ebd9a7141682e5a1961ee3761a73cae3",
+      "remote_blob_sha1": "39024b95ebd9a7141682e5a1961ee3761a73cae3",
+      "sha256": "a6de8cf8eb1b2af3e715e54d474dcd92b6e1b95526427af8afa773ae62aaee12",
+      "match": true
+    },
+    {
+      "path": "検証/テンプレート充填回帰.py",
+      "bytes": 2879,
+      "git_blob_sha1": "3cd01a4d5db3c483d0ba81ef5d6fe2886b2e1dd9",
+      "remote_blob_sha1": "3cd01a4d5db3c483d0ba81ef5d6fe2886b2e1dd9",
+      "sha256": "dec0f45398cb741dca55e59444d4aa5a129158031c55e51d18f6b158a5939928",
+      "match": true
+    },
+    {
+      "path": "検証/テンプレート充填比較.json",
+      "bytes": 3163,
+      "git_blob_sha1": "f44ef7f2d863e7727a423adc0045679bc18dc816",
+      "remote_blob_sha1": "f44ef7f2d863e7727a423adc0045679bc18dc816",
+      "sha256": "a9d18517f5e6a0c6c7f144d1af3f745e5623aed00819602935b4c7692af56594",
+      "match": true
+    },
+    {
+      "path": "検証/中心配色回帰.py",
+      "bytes": 9214,
+      "git_blob_sha1": "22ea1f285f56cdd401428c7d65b3bdce029ea3fe",
+      "remote_blob_sha1": "22ea1f285f56cdd401428c7d65b3bdce029ea3fe",
+      "sha256": "a15240f2f6308181135b7d9965f02650e8f6dd830b34ca9e63549919f1c9e596",
+      "match": true
+    },
+    {
+      "path": "検証/中心配色比較.json",
+      "bytes": 7108,
+      "git_blob_sha1": "5ed06726d78533fd494944aacabb9ba7d8050747",
+      "remote_blob_sha1": "5ed06726d78533fd494944aacabb9ba7d8050747",
+      "sha256": "5b4c0e33acabac43eeaebae3c4042a653e5b61288944759314dc829f60972111",
+      "match": true
+    },
+    {
+      "path": "検証/二値原型回帰.py",
+      "bytes": 9867,
+      "git_blob_sha1": "46dbb5c258ccef1209c497294dfce26835f061f4",
+      "remote_blob_sha1": "46dbb5c258ccef1209c497294dfce26835f061f4",
+      "sha256": "afb303670da5e63cf3b8e7f8230fce4279553dc6a1be4e3c30f85d701f2057a9",
+      "match": true
+    },
+    {
+      "path": "検証/二値原型比較.json",
+      "bytes": 8659,
+      "git_blob_sha1": "bf02e05a8ef018f076fbfdf2be70369022be2836",
+      "remote_blob_sha1": "bf02e05a8ef018f076fbfdf2be70369022be2836",
+      "sha256": "aff874985074262552189e0ade2c7cc86cd0c26da876dde8110f42a0047b7e2a",
+      "match": true
+    },
+    {
+      "path": "検証/二軸補完回帰.py",
+      "bytes": 8823,
+      "git_blob_sha1": "fdb022b8844c0660fcab6e1a74ecbe271de421d7",
+      "remote_blob_sha1": "fdb022b8844c0660fcab6e1a74ecbe271de421d7",
+      "sha256": "36af579a6f9777ca04966bc6dd7d3f96d088af7818fbacd96ab0b903d1adc6f6",
+      "match": true
+    },
+    {
+      "path": "検証/二軸補完比較.json",
+      "bytes": 8686,
+      "git_blob_sha1": "cbac8dfbad18586b5d7bf0599e3e28a2fde9b652",
+      "remote_blob_sha1": "cbac8dfbad18586b5d7bf0599e3e28a2fde9b652",
+      "sha256": "74d82fc9aea22226256da3872a659e724e43f00e3d2cffb23d89dbac5eb49030",
+      "match": true
+    },
+    {
+      "path": "検証/倍率置換回帰.py",
+      "bytes": 9638,
+      "git_blob_sha1": "dfdf33391d4757a9be3b76ca9bb89783fe7b7138",
+      "remote_blob_sha1": "dfdf33391d4757a9be3b76ca9bb89783fe7b7138",
+      "sha256": "42c50b52604f8479c525b87c465658bd63d8e8cd575a4db6ce8f4e7ce7e019d4",
+      "match": true
+    },
+    {
+      "path": "検証/倍率置換比較.json",
+      "bytes": 7121,
+      "git_blob_sha1": "a6b5769fc84936eb888341ab7ac392072c8a3486",
+      "remote_blob_sha1": "a6b5769fc84936eb888341ab7ac392072c8a3486",
+      "sha256": "e96ec2a87ff60a1d8acf58777dac2da7c85c9cf12e3d948d41b79005c021910b",
+      "match": true
+    },
+    {
+      "path": "検証/側周期回帰.py",
+      "bytes": 7069,
+      "git_blob_sha1": "2685991831e0fe19bcde1ec60a67251d7a3b14df",
+      "remote_blob_sha1": "2685991831e0fe19bcde1ec60a67251d7a3b14df",
+      "sha256": "7f28584a516490b3e3c9a812a966d2b2801a2c961abb110bc7eef413ed896468",
+      "match": true
+    },
+    {
+      "path": "検証/側周期比較.json",
+      "bytes": 7508,
+      "git_blob_sha1": "61ff7f7ce0688dede2696fd0a2e7d55fa0633506",
+      "remote_blob_sha1": "61ff7f7ce0688dede2696fd0a2e7d55fa0633506",
+      "sha256": "1d88545f316512e81864a568545c01d26358f95926fd18e3dfe6708f36d605e0",
+      "match": true
+    },
+    {
+      "path": "検証/入れ子合成回帰.py",
+      "bytes": 5323,
+      "git_blob_sha1": "1f87bf2a225ffc8eaf2ad46c4ef670f72f9fba34",
+      "remote_blob_sha1": "1f87bf2a225ffc8eaf2ad46c4ef670f72f9fba34",
+      "sha256": "2a03c0d2a1caab7b1552c02c46f9575177a7ce4fa885427d7801586bd6f3e5f4",
+      "match": true
+    },
+    {
+      "path": "検証/入れ子合成比較.json",
+      "bytes": 3954,
+      "git_blob_sha1": "9b9724f49404461598955db313b8d9b36e6b1093",
+      "remote_blob_sha1": "9b9724f49404461598955db313b8d9b36e6b1093",
+      "sha256": "fd9a94b60ed2e36e7529d8826b44f4e4e9280570d92ff6f099d22af3b51934bb",
+      "match": true
+    },
+    {
+      "path": "検証/凡例展開回帰.py",
+      "bytes": 7262,
+      "git_blob_sha1": "17e9944ddc04a47adca1ce9d13963b760ea9e4c4",
+      "remote_blob_sha1": "17e9944ddc04a47adca1ce9d13963b760ea9e4c4",
+      "sha256": "1dd5b0ac57262d7b47eeacc13fbb4aaa48779a682b199d376d7d59f087ead2fa",
+      "match": true
+    },
+    {
+      "path": "検証/凡例展開比較.json",
+      "bytes": 9190,
+      "git_blob_sha1": "c9d9b8717d0d0c42ba2c1b6172e8119a30428e09",
+      "remote_blob_sha1": "c9d9b8717d0d0c42ba2c1b6172e8119a30428e09",
+      "sha256": "fc02abec813685177c1b7e5f0a7a8b6fbd99072debf2090a675d1b9762816adf",
+      "match": true
+    },
+    {
+      "path": "検証/凡例旋回回帰.py",
+      "bytes": 14244,
+      "git_blob_sha1": "234d3e78c8239af8b79ab6e2f37495a399b8addd",
+      "remote_blob_sha1": "234d3e78c8239af8b79ab6e2f37495a399b8addd",
+      "sha256": "6a46c2b04982b74c7c7e74fcbec8696564f941fb52890bf6927c9b1d4f13be8d",
+      "match": true
+    },
+    {
+      "path": "検証/凡例旋回比較.json",
+      "bytes": 8713,
+      "git_blob_sha1": "ff2927394479b88f068bc7da826513d49170d247",
+      "remote_blob_sha1": "ff2927394479b88f068bc7da826513d49170d247",
+      "sha256": "a5d073ac10bcb584fe744837e2a55ac64aa8c2a57e27566c5f6de0ac7017ec3d",
+      "match": true
+    },
+    {
+      "path": "検証/凡例矩形回帰.py",
+      "bytes": 15174,
+      "git_blob_sha1": "bf0aa2ba0171ae4d0fcf03221573ce29b637de33",
+      "remote_blob_sha1": "bf0aa2ba0171ae4d0fcf03221573ce29b637de33",
+      "sha256": "ea1f8657455185da279b71f60ae722ef408afab83a70f8a911bc2670876d1b38",
+      "match": true
+    },
+    {
+      "path": "検証/凡例矩形比較.json",
+      "bytes": 13130,
+      "git_blob_sha1": "b2f8754a76375e195f50c45e03056d7713d3068b",
+      "remote_blob_sha1": "b2f8754a76375e195f50c45e03056d7713d3068b",
+      "sha256": "b4617494b7c5562cd0b56c4024299c7ddb6a7061c1514ada6938eb86aff5732c",
+      "match": true
+    },
+    {
+      "path": "検証/凡例穴対応回帰.py",
+      "bytes": 4075,
+      "git_blob_sha1": "6f1141702dad6718460172316861dac270ce40c4",
+      "remote_blob_sha1": "6f1141702dad6718460172316861dac270ce40c4",
+      "sha256": "f86d27478e57d651820dd662086fee8f27d5828fc5e4b2bb77cef677be5e7d19",
+      "match": true
+    },
+    {
+      "path": "検証/凡例穴対応比較.json",
+      "bytes": 4289,
+      "git_blob_sha1": "96ce6708d5ca2fef989f72a34f2a2c8dc6e21bff",
+      "remote_blob_sha1": "96ce6708d5ca2fef989f72a34f2a2c8dc6e21bff",
+      "sha256": "d42524ca5fbea44b32a9d83c79178609610466a5599ba4cb9167f551bbb5521e",
+      "match": true
+    },
+    {
+      "path": "検証/凡例経路回帰.py",
+      "bytes": 8713,
+      "git_blob_sha1": "6855cf677641284bb6d5bca3f0718d0f8759d119",
+      "remote_blob_sha1": "6855cf677641284bb6d5bca3f0718d0f8759d119",
+      "sha256": "2203a09f4e2df2d9424bd781fb02e790ce09254e94327590f756643a20de6dca",
+      "match": true
+    },
+    {
+      "path": "検証/凡例経路比較.json",
+      "bytes": 6003,
+      "git_blob_sha1": "bd79df7cbf6f002e679033b66c44ae08744434a2",
+      "remote_blob_sha1": "bd79df7cbf6f002e679033b66c44ae08744434a2",
+      "sha256": "910f862a6b44354d25c2a349e46607b31c9a16a745e81dcccb89feee6476699a",
+      "match": true
+    },
+    {
+      "path": "検証/凡例集合回帰.py",
+      "bytes": 10195,
+      "git_blob_sha1": "9de42ecdcf2a0b3c4bf573984aa10d441d586859",
+      "remote_blob_sha1": "9de42ecdcf2a0b3c4bf573984aa10d441d586859",
+      "sha256": "adc2de20a6c5e07f53cba52bbcc550fe60c6afb081b55f12dfc46df699badddf",
+      "match": true
+    },
+    {
+      "path": "検証/凡例集合比較.json",
+      "bytes": 9865,
+      "git_blob_sha1": "6cb7b1290c7ff354f8efcc5486e2bd97ca445770",
+      "remote_blob_sha1": "6cb7b1290c7ff354f8efcc5486e2bd97ca445770",
+      "sha256": "e02d23339eaefb424bdb7bf464b5c894187998e384afbe74cf46535c9558d0fb",
+      "match": true
+    },
+    {
+      "path": "検証/制御複写回帰.py",
+      "bytes": 7793,
+      "git_blob_sha1": "7bca05297ec781fde484e49b8ef277752dd179a5",
+      "remote_blob_sha1": "7bca05297ec781fde484e49b8ef277752dd179a5",
+      "sha256": "a0752d5e0118f5848a9725ffbac6330e2bc0adfdefd21f1f031cfe525582df7a",
+      "match": true
+    },
+    {
+      "path": "検証/制御複写比較.json",
+      "bytes": 9042,
+      "git_blob_sha1": "975b5636f18f10bfe72c266e389473f51bd090d9",
+      "remote_blob_sha1": "975b5636f18f10bfe72c266e389473f51bd090d9",
+      "sha256": "607e02f9dc90f81175947a8ca03d8cc48ec3aae166e07057e7296503b6811151",
+      "match": true
+    },
+    {
+      "path": "検証/包含正規化回帰.py",
+      "bytes": 9163,
+      "git_blob_sha1": "4d964b41ec7b1d2805e5ec25153ac379f1e7176d",
+      "remote_blob_sha1": "4d964b41ec7b1d2805e5ec25153ac379f1e7176d",
+      "sha256": "c0a58022b77f3bdc44c7b4f19d5ff2a681f1dd50ca3c8dd1a8abdefef82d0bbf",
+      "match": true
+    },
+    {
+      "path": "検証/包含正規化比較.json",
+      "bytes": 6864,
+      "git_blob_sha1": "375ca48de900c5ce454ec749ae43393686af4549",
+      "remote_blob_sha1": "375ca48de900c5ce454ec749ae43393686af4549",
+      "sha256": "1d3892dc2a53a23fead878f34b5a88e31e3668112805371e8d97cc40e43d80eb",
+      "match": true
+    },
+    {
+      "path": "検証/区切投射回帰.py",
+      "bytes": 8755,
+      "git_blob_sha1": "611ef99d3ecde3e9dd23a73a790b943723bc4fe6",
+      "remote_blob_sha1": "611ef99d3ecde3e9dd23a73a790b943723bc4fe6",
+      "sha256": "e982faf67a0fdbc5100bbabbf29066ba8242208a65d46ce2f3baa4805d381b11",
+      "match": true
+    },
+    {
+      "path": "検証/区切投射比較.json",
+      "bytes": 7737,
+      "git_blob_sha1": "54a4004cb1990e56d5df6b05b8ee80640d9a223f",
+      "remote_blob_sha1": "54a4004cb1990e56d5df6b05b8ee80640d9a223f",
+      "sha256": "294f665ab36bcd54a78cd76d77959b5cf38a310dd279b329514a1e1cdd151f24",
+      "match": true
+    },
+    {
+      "path": "検証/十字回帰.py",
+      "bytes": 6988,
+      "git_blob_sha1": "d6ad3be68477e4a4cfce8f9165ce4947c7991084",
+      "remote_blob_sha1": "d6ad3be68477e4a4cfce8f9165ce4947c7991084",
+      "sha256": "79fccd1fed5066d6ce4176354b630bb22ce2cae3d613b6be705f05febe8cbc37",
+      "match": true
+    },
+    {
+      "path": "検証/十字曲線回帰.py",
+      "bytes": 16747,
+      "git_blob_sha1": "71e758a37a9ba62dad9ab279182478799a96c5ab",
+      "remote_blob_sha1": "71e758a37a9ba62dad9ab279182478799a96c5ab",
+      "sha256": "4a6a2e58f415548c55499b0a5970da9fb097b1a3bcf6dd20545af1fb5a7eabad",
+      "match": true
+    },
+    {
+      "path": "検証/十字曲線比較.json",
+      "bytes": 11731,
+      "git_blob_sha1": "17a6c7bdb46fe5a5d829b5b112015b620a19b6e0",
+      "remote_blob_sha1": "17a6c7bdb46fe5a5d829b5b112015b620a19b6e0",
+      "sha256": "bafd1a6c1f267a99ef6907ee3ab6e056201070b60e0baf7393507743112b5881",
+      "match": true
+    },
+    {
+      "path": "検証/十字比較.json",
+      "bytes": 6085,
+      "git_blob_sha1": "d96093c6fe18a434f9a57e8a5bc99e830098635e",
+      "remote_blob_sha1": "d96093c6fe18a434f9a57e8a5bc99e830098635e",
+      "sha256": "5e15baad6a04e3ad378752791f51ebc2583771723fc0a4af0b5f073e9912358b",
+      "match": true
+    },
+    {
+      "path": "検証/反復行回帰.py",
+      "bytes": 6488,
+      "git_blob_sha1": "1a8c0e9f00acddaa9935c7a05934ff978af07307",
+      "remote_blob_sha1": "1a8c0e9f00acddaa9935c7a05934ff978af07307",
+      "sha256": "a22c7865c24dd86f531b6fe44f91fd3d6cdd369a9f3007179b2668573a2aeb05",
+      "match": true
+    },
+    {
+      "path": "検証/反復行比較.json",
+      "bytes": 5756,
+      "git_blob_sha1": "3c11ba1e60a05a14d2ca9ebb174842f18f15ebd2",
+      "remote_blob_sha1": "3c11ba1e60a05a14d2ca9ebb174842f18f15ebd2",
+      "sha256": "a4cd5ba8cf1eaecaa458f74dd174ffaab0b8ca867de6dab0022f7e09457ca85d",
+      "match": true
+    },
+    {
+      "path": "検証/同一学習機械保持/README.md",
+      "bytes": 6319,
+      "git_blob_sha1": "ae78d9132b1120c46417915056837a891db72a7e",
+      "remote_blob_sha1": "ae78d9132b1120c46417915056837a891db72a7e",
+      "sha256": "38defd6777540e2b073ff5a3f9e0e84d71c642c54dcbd87a87b967abed96720f",
+      "match": true
+    },
+    {
+      "path": "検証/同一学習機械保持/artifact-manifest.json",
+      "bytes": 7945,
+      "git_blob_sha1": "8bcb73a14b0cb10f5c5d9318431db7fdafd8490c",
+      "remote_blob_sha1": "8bcb73a14b0cb10f5c5d9318431db7fdafd8490c",
+      "sha256": "de7e7010549fbfd9b6bcb591545c7652d960d423e294abe9447c1e3cc1cda5ee",
+      "match": true
+    },
+    {
+      "path": "検証/同一学習機械保持/independent-review/reviewer-earliest-retention-failure.json",
+      "bytes": 53082,
+      "git_blob_sha1": "4e43f468cee0ab73c8eda4b0515434b356febecf",
+      "remote_blob_sha1": "4e43f468cee0ab73c8eda4b0515434b356febecf",
+      "sha256": "04e288790dabb550cfdb579f31394b9431c445d0d9926c99d2b89b8bfa688a7c",
+      "match": true
+    },
+    {
+      "path": "検証/同一学習機械保持/independent-review/reviewer-retention-final-audit.json",
+      "bytes": 7667,
+      "git_blob_sha1": "5b2fe8b5fdd58e66ce8d1936b7005759bef32939",
+      "remote_blob_sha1": "5b2fe8b5fdd58e66ce8d1936b7005759bef32939",
+      "sha256": "6338be50f120c16ba81d0a50b2d9c0269279bebcc447891e34a168f0c91ba03b",
+      "match": true
+    },
+    {
+      "path": "検証/同一学習機械保持/native-v2/freeze.json",
+      "bytes": 18776,
+      "git_blob_sha1": "7215538954856ca6bf69fcee660571f7ff3fc211",
+      "remote_blob_sha1": "7215538954856ca6bf69fcee660571f7ff3fc211",
+      "sha256": "d9a04a3d00ab1248702ce53ad136c3ea0c0659ad38bb71b541f02ee206096d95",
+      "match": true
+    },
+    {
+      "path": "検証/同一学習機械保持/retention-study/earliest-failure-evidence.json",
+      "bytes": 146287,
+      "git_blob_sha1": "acb642b0c8d515eac082af59fdd2b26340f6fe3c",
+      "remote_blob_sha1": "acb642b0c8d515eac082af59fdd2b26340f6fe3c",
+      "sha256": "e750b69c0aaee8f797e3259ccf3e654efa83a5141d25264c87b764a26711965b",
+      "match": true
+    },
+    {
+      "path": "検証/同一学習機械保持/retention-study/observe_retention.py",
+      "bytes": 23346,
+      "git_blob_sha1": "65a3f6a581d24d596e54bbb9086af0ede90f1ffa",
+      "remote_blob_sha1": "65a3f6a581d24d596e54bbb9086af0ede90f1ffa",
+      "sha256": "483953c637cb85e6baefb4bdff86c8f3e4a96ebbec11f12cd4b4f249d4316f28",
+      "match": true
+    },
+    {
+      "path": "検証/同一学習機械保持/retention-study/protocol-v1.json",
+      "bytes": 12724,
+      "git_blob_sha1": "35458a988363d7d20cc9d444089b37336c1b4439",
+      "remote_blob_sha1": "35458a988363d7d20cc9d444089b37336c1b4439",
+      "sha256": "ab08b916cb952f59f9ec3c0d0527db56028d8ad4bc74fe737c8e06d16751f783",
+      "match": true
+    },
+    {
+      "path": "検証/同一学習機械保持/retention-study/run-v1.stdout",
+      "bytes": 9424,
+      "git_blob_sha1": "1ea6d038b3c932b7871bce6279961aa46eb789ba",
+      "remote_blob_sha1": "1ea6d038b3c932b7871bce6279961aa46eb789ba",
+      "sha256": "d65664101d5dff6495974d977542a262d00b6a10d4b07fe94513e1876a436003",
+      "match": true
+    },
+    {
+      "path": "検証/同一学習機械保持/retention-study/run-v1/after-67-ledger-digests.json",
+      "bytes": 3274,
+      "git_blob_sha1": "86ad8c64b1f6143c5cf433e72500954cab186292",
+      "remote_blob_sha1": "86ad8c64b1f6143c5cf433e72500954cab186292",
+      "sha256": "83c50a1e56639f1c67ff5fc2388dae178ef2d3ce7d1bb02074cee865845c74b1",
+      "match": true
+    },
+    {
+      "path": "検証/同一学習機械保持/retention-study/run-v1/after-lifecycle-memory-retention.json",
+      "bytes": 15650,
+      "git_blob_sha1": "85a9b56ce0f803042ed3faaa7681466a3866c81f",
+      "remote_blob_sha1": "85a9b56ce0f803042ed3faaa7681466a3866c81f",
+      "sha256": "77955440fe4e2535b253cc9605ab9108528819cee7460e585e344bb00124c6d0",
+      "match": true
+    },
+    {
+      "path": "検証/同一学習機械保持/retention-study/run-v1/baseline-current-principles.json",
+      "bytes": 9423,
+      "git_blob_sha1": "039e69dc9b7120fba9fce737a2427b26a49a333d",
+      "remote_blob_sha1": "039e69dc9b7120fba9fce737a2427b26a49a333d",
+      "sha256": "6588586e19797d92f9fac71074dfb770b1167588d8a74a03ff7c659e62d81510",
+      "match": true
+    },
+    {
+      "path": "検証/同一学習機械保持/retention-study/run-v1/baseline-ledger-digests.json",
+      "bytes": 3222,
+      "git_blob_sha1": "e34d61f88b9dc4dcf542940301ce75957542a29a",
+      "remote_blob_sha1": "e34d61f88b9dc4dcf542940301ce75957542a29a",
+      "sha256": "54808e55565bfd6273ad3cef0ed52447618d75e448e0e20ceead1a1d8c603695",
+      "match": true
+    },
+    {
+      "path": "検証/同一学習機械保持/retention-study/run-v1/baseline-result.json",
+      "bytes": 10790,
+      "git_blob_sha1": "3aea6855dc850ed7bea52590cbba265ca20f937a",
+      "remote_blob_sha1": "3aea6855dc850ed7bea52590cbba265ca20f937a",
+      "sha256": "9f97be5756760c97011192916984e132d688629c393bce8c1490821fb02171b9",
+      "match": true
+    },
+    {
+      "path": "検証/同一学習機械保持/retention-study/run-v1/final-report.json",
+      "bytes": 439310,
+      "git_blob_sha1": "88cdb62c06ae98ae2a96cd68952084ea316b5a26",
+      "remote_blob_sha1": "88cdb62c06ae98ae2a96cd68952084ea316b5a26",
+      "sha256": "afc4ee23f1b62d0733b181113eadfe6de43afd4ba8fe9ee61ddbd748887821ac",
+      "match": true
+    },
+    {
+      "path": "検証/同一学習機械保持/retention-study/run-v1/freeze.json",
+      "bytes": 206017,
+      "git_blob_sha1": "c99b4b9e6e8c443b51204040dcbf4f16d1c622c2",
+      "remote_blob_sha1": "c99b4b9e6e8c443b51204040dcbf4f16d1c622c2",
+      "sha256": "8595cafbceb2c64e1123ace964248cdbb852ecba6505c5671f57feac63182511",
+      "match": true
+    },
+    {
+      "path": "検証/同一学習機械保持/retention-study/run-v1/probe-batches.json",
+      "bytes": 530417,
+      "git_blob_sha1": "c89d6c0cd824ab520524a13e4b607ea437271f8b",
+      "remote_blob_sha1": "c89d6c0cd824ab520524a13e4b607ea437271f8b",
+      "sha256": "1689a82e55e1a534f82993bd907e7f09254e2c55db986dcaf2ca4f2b1bfba192",
+      "match": true
+    },
+    {
+      "path": "検証/同一学習機械保持/retention-study/run-v1/raw-native-results.jsonl.gz",
+      "bytes": 5672592,
+      "git_blob_sha1": "a1b194ab1f9ac98eab2e828f7ea6a6f0bfe6e04a",
+      "remote_blob_sha1": "a1b194ab1f9ac98eab2e828f7ea6a6f0bfe6e04a",
+      "sha256": "042477e9d83dcf1c098ec240bd3692ae8a57a1726e70f0d9be0a46ec45437c00",
+      "match": true
+    },
+    {
+      "path": "検証/同一学習機械保持/retention-study/run-v1/track-A-current-principles.json.gz",
+      "bytes": 1942263,
+      "git_blob_sha1": "2a7e83f4f5daa3bf94ac894be46a9d5f579eee82",
+      "remote_blob_sha1": "2a7e83f4f5daa3bf94ac894be46a9d5f579eee82",
+      "sha256": "9822cda648d12ed42ae461f04ea25d5b70d615b03319a4f0d906c76a44303739",
+      "match": true
+    },
+    {
+      "path": "検証/同一学習機械保持/retention-study/run-v1/track-A-cycle-summary.json",
+      "bytes": 200,
+      "git_blob_sha1": "6f26e1aecd20c086e4b396df7c2fade2d304e799",
+      "remote_blob_sha1": "6f26e1aecd20c086e4b396df7c2fade2d304e799",
+      "sha256": "5504abdedcbf6acc5f7b5d18ac20d069e6eaaf1692f1af91e34de849df6eecb5",
+      "match": true
+    },
+    {
+      "path": "検証/同一学習機械保持/retention-study/run-v1/track-A-memory-retention.json",
+      "bytes": 15650,
+      "git_blob_sha1": "85a9b56ce0f803042ed3faaa7681466a3866c81f",
+      "remote_blob_sha1": "85a9b56ce0f803042ed3faaa7681466a3866c81f",
+      "sha256": "77955440fe4e2535b253cc9605ab9108528819cee7460e585e344bb00124c6d0",
+      "match": true
+    },
+    {
+      "path": "検証/同一学習機械保持/retention-study/run-v1/track-A-principle-boundary-index.json",
+      "bytes": 210634,
+      "git_blob_sha1": "f0ecd55e425b60953221363523d867b49f20fc88",
+      "remote_blob_sha1": "f0ecd55e425b60953221363523d867b49f20fc88",
+      "sha256": "e950ae52cb1b04b682fda4f7afc7354f407a70dea1245bd953b394fe68d437a9",
+      "match": true
+    },
+    {
+      "path": "検証/同一学習機械保持/retention-study/run-v1/track-A-result.json",
+      "bytes": 1265800,
+      "git_blob_sha1": "e63302db5bdc8b5af6dff8a64570df89ab505cd6",
+      "remote_blob_sha1": "e63302db5bdc8b5af6dff8a64570df89ab505cd6",
+      "sha256": "f9bb5a43ec1dd91c84557f9ce881ec5b673784065ef11204743d32596e69791e",
+      "match": true
+    },
+    {
+      "path": "検証/同一学習機械保持/summary.json",
+      "bytes": 1409,
+      "git_blob_sha1": "6a2ff426792b1d90d7da1f9536c96dcf0ef98a2d",
+      "remote_blob_sha1": "6a2ff426792b1d90d7da1f9536c96dcf0ef98a2d",
+      "sha256": "9fb62dd3b936c4e26b2ebfc6438ee5a885cb0889debbe4bf066115861ac0b3c7",
+      "match": true
+    },
+    {
+      "path": "検証/周期帯回帰.py",
+      "bytes": 8681,
+      "git_blob_sha1": "103d2acbe40281e4c9e20d7b90ad255268366914",
+      "remote_blob_sha1": "103d2acbe40281e4c9e20d7b90ad255268366914",
+      "sha256": "9a7ee23e707f01417769ce354d4c9642a27cbaa532bb00c3319d5f7294c44587",
+      "match": true
+    },
+    {
+      "path": "検証/周期帯比較.json",
+      "bytes": 7394,
+      "git_blob_sha1": "a30c8714e887bb692bea6a5787b776735bf8d887",
+      "remote_blob_sha1": "a30c8714e887bb692bea6a5787b776735bf8d887",
+      "sha256": "b82dba1938b943ad6a27cfd71d16017798cf2b27e8ab956669d27fe700e34aa5",
+      "match": true
+    },
+    {
+      "path": "検証/周期組修復回帰.py",
+      "bytes": 6471,
+      "git_blob_sha1": "433d0a251f2386ea56059b5775f9ed87b77b7ac3",
+      "remote_blob_sha1": "433d0a251f2386ea56059b5775f9ed87b77b7ac3",
+      "sha256": "88f1706815f14e079b1432368885f1a7ccbcc93c753b9b2e2654235eb80deead",
+      "match": true
+    },
+    {
+      "path": "検証/周期組修復比較.json",
+      "bytes": 5583,
+      "git_blob_sha1": "53cc4bc2721016301f7cfa0a59e7891ff64685bb",
+      "remote_blob_sha1": "53cc4bc2721016301f7cfa0a59e7891ff64685bb",
+      "sha256": "07a8dc4e8dfd8bebfa8febd905977abdc6a13958dda87c9c6b1cd137edddbe3e",
+      "match": true
+    },
+    {
+      "path": "検証/四欄反復回帰.py",
+      "bytes": 10038,
+      "git_blob_sha1": "72cd81fee280562be7599d071f50214a7248f40b",
+      "remote_blob_sha1": "72cd81fee280562be7599d071f50214a7248f40b",
+      "sha256": "eb695b6fdf26a40077a7569cce05578c669bc59e1eb10fac81219c0aaeefc316",
+      "match": true
+    },
+    {
+      "path": "検証/四欄反復比較.json",
+      "bytes": 9184,
+      "git_blob_sha1": "52871b667db49d643a57d528870c04f47523c244",
+      "remote_blob_sha1": "52871b667db49d643a57d528870c04f47523c244",
+      "sha256": "c952d33e0a184d8be15fc50e7ef34d6cfa8879d5d3cabc70d852aacb254d5efb",
+      "match": true
+    },
+    {
+      "path": "検証/基点複製回帰.py",
+      "bytes": 7127,
+      "git_blob_sha1": "b0715bf9301d37976e908377157b77e894ef240b",
+      "remote_blob_sha1": "b0715bf9301d37976e908377157b77e894ef240b",
+      "sha256": "a7ba87735bacdfe23bb52348c46ea264d74e2edea0e188dcfc2785455eba6fd5",
+      "match": true
+    },
+    {
+      "path": "検証/基点複製比較.json",
+      "bytes": 8520,
+      "git_blob_sha1": "93c67b5c355b96784cb419566f1af26dce8a7b54",
+      "remote_blob_sha1": "93c67b5c355b96784cb419566f1af26dce8a7b54",
+      "sha256": "e2adc0421105ddb18a6b854754a670f909a335ed716c622c3ec9bb04696e8949",
+      "match": true
+    },
+    {
+      "path": "検証/学習規則再観測比較.json",
+      "bytes": 1420882,
+      "git_blob_sha1": "6c385594e8992e7e967b5a426247cf5c9f27aedd",
+      "remote_blob_sha1": "6c385594e8992e7e967b5a426247cf5c9f27aedd",
+      "sha256": "1f0b4d5a51fcd72b864c480f2458ff26a801ff97b8878d8b98ac1887adb3c13e",
+      "match": true
+    },
+    {
+      "path": "検証/学習規則再観測監査.md",
+      "bytes": 7999,
+      "git_blob_sha1": "4dc7c3b36ae1cb0a1b8fbb026a2d37e8625d9389",
+      "remote_blob_sha1": "4dc7c3b36ae1cb0a1b8fbb026a2d37e8625d9389",
+      "sha256": "322aa1c31880efa3f73b853202a18907c56a759cbf85c8974d09ce85cdae4efa",
+      "match": true
+    },
+    {
+      "path": "検証/対称剪定回帰.py",
+      "bytes": 7002,
+      "git_blob_sha1": "37056b1e074d2e8319fee946d4e6f9409e6fc2c3",
+      "remote_blob_sha1": "37056b1e074d2e8319fee946d4e6f9409e6fc2c3",
+      "sha256": "f45b34ccd75ff921ed4c872c9c66e4a9f1f803635576f32ec1fb819b254a776a",
+      "match": true
+    },
+    {
+      "path": "検証/対称剪定比較.json",
+      "bytes": 6016,
+      "git_blob_sha1": "39bea7ec44bf8d2ae5f40a94b5e857b39fb73bdb",
+      "remote_blob_sha1": "39bea7ec44bf8d2ae5f40a94b5e857b39fb73bdb",
+      "sha256": "d090a4a4710d20e0be5f48c8c672044ad140e95ff893e768709c0674b97a56e6",
+      "match": true
+    },
+    {
+      "path": "検証/対角線橋回帰.py",
+      "bytes": 5687,
+      "git_blob_sha1": "86a813e9c8d7a8f3535e16c3cabe717e03a06d8e",
+      "remote_blob_sha1": "86a813e9c8d7a8f3535e16c3cabe717e03a06d8e",
+      "sha256": "a4ac41f3fe0b29245554d3f55cca9872489582bd82b132382a8901efdd8165ea",
+      "match": true
+    },
+    {
+      "path": "検証/対角線橋比較.json",
+      "bytes": 5113,
+      "git_blob_sha1": "2bbc820d9b470a1b47b476bbf59d7fc667335183",
+      "remote_blob_sha1": "2bbc820d9b470a1b47b476bbf59d7fc667335183",
+      "sha256": "0494aefc02506a20e8404b40b7b2f32084574e511cc0b2e6396da26f5f5b4f2d",
+      "match": true
+    },
+    {
+      "path": "検証/対角領域回帰.py",
+      "bytes": 4793,
+      "git_blob_sha1": "1d5ca7e4cda010d706e900d4f3c91372e07ed208",
+      "remote_blob_sha1": "1d5ca7e4cda010d706e900d4f3c91372e07ed208",
+      "sha256": "2e6cc54b5db4cfe5af6e4aa6af3ca8df5e76101295124dc10e89e51afc8b48bd",
+      "match": true
+    },
+    {
+      "path": "検証/対角領域比較.json",
+      "bytes": 5120,
+      "git_blob_sha1": "5d398ef355d332ca848e60dd45ad78a8bad78cf4",
+      "remote_blob_sha1": "5d398ef355d332ca848e60dd45ad78a8bad78cf4",
+      "sha256": "844aa7c348e769414740d7e3d47c5b0428ea706b4548e49e34a44dd8d7a7fc91",
+      "match": true
+    },
+    {
+      "path": "検証/帯図形回帰.py",
+      "bytes": 13513,
+      "git_blob_sha1": "ce02dc3d38dcfa7daf51d8e3f262c27ed2379c4c",
+      "remote_blob_sha1": "ce02dc3d38dcfa7daf51d8e3f262c27ed2379c4c",
+      "sha256": "88ded742b7bae8f20734ece3b2669d054ac5bc7249d4dd3fc2420a83d1be039d",
+      "match": true
+    },
+    {
+      "path": "検証/帯図形比較.json",
+      "bytes": 8638,
+      "git_blob_sha1": "a3e6a438f49e7e0f9e74b5420a80221582f105b9",
+      "remote_blob_sha1": "a3e6a438f49e7e0f9e74b5420a80221582f105b9",
+      "sha256": "10f1e62b75a9b90524aa0bb66a51939e7e62d9518cfda3a55aaeccc9714abe17",
+      "match": true
+    },
+    {
+      "path": "検証/帯輪郭回帰.py",
+      "bytes": 4873,
+      "git_blob_sha1": "72b9f00f588990a751a590f4292b0ca73564be12",
+      "remote_blob_sha1": "72b9f00f588990a751a590f4292b0ca73564be12",
+      "sha256": "3dc367da4c0fda22de4d424ef198434d68afa101a9a6c220945154772cc9eb44",
+      "match": true
+    },
+    {
+      "path": "検証/帯輪郭比較.json",
+      "bytes": 7254,
+      "git_blob_sha1": "f6b25ad5b650fdd8d570518f8bddb4eb0e06ee87",
+      "remote_blob_sha1": "f6b25ad5b650fdd8d570518f8bddb4eb0e06ee87",
+      "sha256": "c54dcebb9063b138d226fac5c2c4090e45c527e3d2ec467097b994bb2f8ea6d7",
+      "match": true
+    },
+    {
+      "path": "検証/形状色回帰.py",
+      "bytes": 7880,
+      "git_blob_sha1": "eb52f532e076897c72a2ddb9429486300ce9d947",
+      "remote_blob_sha1": "eb52f532e076897c72a2ddb9429486300ce9d947",
+      "sha256": "778ffa536242434cf617391851588377dc2f388e8bfa88a33aa4b1971fa4b954",
+      "match": true
+    },
+    {
+      "path": "検証/形状色比較.json",
+      "bytes": 5589,
+      "git_blob_sha1": "6a11e25402043e24cd317142498e59367e55bb1f",
+      "remote_blob_sha1": "6a11e25402043e24cd317142498e59367e55bb1f",
+      "sha256": "f7f2ceef80cefd6d6c31600e93186213b1c523f6686c5453ebf53c4d9be7bbc0",
+      "match": true
+    },
+    {
+      "path": "検証/成分最短経路回帰.py",
+      "bytes": 5806,
+      "git_blob_sha1": "d46473e6eb584598f1bdab5548599732c359c2f4",
+      "remote_blob_sha1": "d46473e6eb584598f1bdab5548599732c359c2f4",
+      "sha256": "08b5c57ab38af813c50bba5342bc7fd285a0ebd032851c8be6febc0474fdb3e6",
+      "match": true
+    },
+    {
+      "path": "検証/成分最短経路比較.json",
+      "bytes": 5172,
+      "git_blob_sha1": "e0bd50fedc9d1715ef35b285cde5b956533a1057",
+      "remote_blob_sha1": "e0bd50fedc9d1715ef35b285cde5b956533a1057",
+      "sha256": "cc8d8a41c7fabb249da0e449a24fbd518775a2a58b33b0c2e58dc9a3cb0ae2d3",
+      "match": true
+    },
+    {
+      "path": "検証/成分直列回帰.py",
+      "bytes": 7030,
+      "git_blob_sha1": "2b8ba4f7b08a5efda16d3e2c237fd21d1c931dc3",
+      "remote_blob_sha1": "2b8ba4f7b08a5efda16d3e2c237fd21d1c931dc3",
+      "sha256": "2525a358bc12b348eed819fc127f8a569e75b5adde71d971dd9eda2dc930c88b",
+      "match": true
+    },
+    {
+      "path": "検証/成分直列比較.json",
+      "bytes": 6152,
+      "git_blob_sha1": "ed0cab1e409dbf4d415a15af27ce0f3fa3f98d73",
+      "remote_blob_sha1": "ed0cab1e409dbf4d415a15af27ce0f3fa3f98d73",
+      "sha256": "da9f68ca709e95ffa808bd03246f4b64594527550fcff8816a21296c06b0032e",
+      "match": true
+    },
+    {
+      "path": "検証/接触配置回帰.py",
+      "bytes": 9614,
+      "git_blob_sha1": "aee5080e1deb6dbb418c60f3abfbca7c0f384146",
+      "remote_blob_sha1": "aee5080e1deb6dbb418c60f3abfbca7c0f384146",
+      "sha256": "fe93dd36950c950a2349669fe17a977af70132b8793da7cf98043d38cbeca05d",
+      "match": true
+    },
+    {
+      "path": "検証/接触配置比較.json",
+      "bytes": 9208,
+      "git_blob_sha1": "8a55b47f23a6b6f7910fb79f4101d768fbe00647",
+      "remote_blob_sha1": "8a55b47f23a6b6f7910fb79f4101d768fbe00647",
+      "sha256": "b94b5c96b89d3cb73d8f4c640514ce04eb15711627dff3d9bf5b386c3eb665e8",
+      "match": true
+    },
+    {
+      "path": "検証/支持構造回帰.py",
+      "bytes": 25670,
+      "git_blob_sha1": "6f5e681796d62628d63317c0046a5aec5970569b",
+      "remote_blob_sha1": "6f5e681796d62628d63317c0046a5aec5970569b",
+      "sha256": "c3c454ad51c0f0a88fceb85fc92b579d1f8357999c69c84f7e67b8d245dc1522",
+      "match": true
+    },
+    {
+      "path": "検証/支持構造比較.json",
+      "bytes": 14182,
+      "git_blob_sha1": "e1095d8227b66a58f3ad461e6ffda41200f54921",
+      "remote_blob_sha1": "e1095d8227b66a58f3ad461e6ffda41200f54921",
+      "sha256": "b1738fb2632779bc832f416b8fe75f888312e7d37ee786d70c9a436f9f4bcfbd",
+      "match": true
+    },
+    {
+      "path": "検証/放射組立回帰.py",
+      "bytes": 7177,
+      "git_blob_sha1": "268c01add54b9524e5edbc93552836bbd3c1ef7c",
+      "remote_blob_sha1": "268c01add54b9524e5edbc93552836bbd3c1ef7c",
+      "sha256": "ec8197b2bba13fc506845842e7e0d6ef820ae389c24f87df11b0b9eeea075965",
+      "match": true
+    },
+    {
+      "path": "検証/放射組立比較.json",
+      "bytes": 5876,
+      "git_blob_sha1": "b1c9b98b27dddefde629489284857cb3da817799",
+      "remote_blob_sha1": "b1c9b98b27dddefde629489284857cb3da817799",
+      "sha256": "061b8f088358a9b2daa443ac3f9bbe49dbcb58370c979c6f841b71a33570a4e8",
+      "match": true
+    },
+    {
+      "path": "検証/既存ARC2採点.py",
+      "bytes": 3007,
+      "git_blob_sha1": "a1d1523b916150e3f1ab063f2bc8b6588a04af71",
+      "remote_blob_sha1": "a1d1523b916150e3f1ab063f2bc8b6588a04af71",
+      "sha256": "58bdc7cf6520feb2a4cdba2bcda8b6495fae8603c9abb9afa34d6c02d0ba8fc8",
+      "match": true
+    },
+    {
+      "path": "検証/枠列整列回帰.py",
+      "bytes": 8312,
+      "git_blob_sha1": "056bfdbfde5e677cb90416eb7166aeed5ac881d4",
+      "remote_blob_sha1": "056bfdbfde5e677cb90416eb7166aeed5ac881d4",
+      "sha256": "a2fbee5136e11d01d10478d0aa09bd7b1e843e1d2efbf69dc642ea8249082316",
+      "match": true
+    },
+    {
+      "path": "検証/枠列整列比較.json",
+      "bytes": 9065,
+      "git_blob_sha1": "8abb9364d80c7f75068f10473226d4493324f3fd",
+      "remote_blob_sha1": "8abb9364d80c7f75068f10473226d4493324f3fd",
+      "sha256": "b26a3812adbea814cbd84c0752fcd942df1df73513bc4caa7ad8164c99d9fb5d",
+      "match": true
+    },
+    {
+      "path": "検証/枠計数回帰.py",
+      "bytes": 8644,
+      "git_blob_sha1": "8e1bcc3f897efd74347ee3d5b5532e7b606f50ad",
+      "remote_blob_sha1": "8e1bcc3f897efd74347ee3d5b5532e7b606f50ad",
+      "sha256": "eb8198a8a6229b2fe443da227c3f90289da5d684558cabb73342c8f5fbe2c9fb",
+      "match": true
+    },
+    {
+      "path": "検証/枠計数比較.json",
+      "bytes": 6812,
+      "git_blob_sha1": "0485e3b6cedde9d13ee1949ea7102fea010b9b0f",
+      "remote_blob_sha1": "0485e3b6cedde9d13ee1949ea7102fea010b9b0f",
+      "sha256": "bcfe98e68b1a0257fdb855833778b841055fcc6ca37258fcc1acffd567f34562",
+      "match": true
+    },
+    {
+      "path": "検証/格子自己マスク回帰.py",
+      "bytes": 5605,
+      "git_blob_sha1": "d196f6e63540c627def8d1cebefc3a166828289b",
+      "remote_blob_sha1": "d196f6e63540c627def8d1cebefc3a166828289b",
+      "sha256": "aed0d55fbdbf24f0d4739ed3a88d1e256fbd0ac04d10cff52271e63ab2f38ae9",
+      "match": true
+    },
+    {
+      "path": "検証/格子自己マスク比較.json",
+      "bytes": 5008,
+      "git_blob_sha1": "95732b0788a23b1c2ff215794a776ef466fe1b10",
+      "remote_blob_sha1": "95732b0788a23b1c2ff215794a776ef466fe1b10",
+      "sha256": "aac984288d6d2edf48cb4353663dfcaa98bd68a64e11685bb4602cf0c39e2dd6",
+      "match": true
+    },
+    {
+      "path": "検証/標点組立回帰.py",
+      "bytes": 29894,
+      "git_blob_sha1": "717456f75eb4d0e97eb1a3665398452f4a269312",
+      "remote_blob_sha1": "717456f75eb4d0e97eb1a3665398452f4a269312",
+      "sha256": "d7af0a8893dc4da7b5d07f18cb739ae8cf3a3709228dc61c27f15d8143fbb194",
+      "match": true
+    },
+    {
+      "path": "検証/標点組立比較.json",
+      "bytes": 13912,
+      "git_blob_sha1": "58865e62d1fc36c9e0cabc4c96ec3faae10159ee",
+      "remote_blob_sha1": "58865e62d1fc36c9e0cabc4c96ec3faae10159ee",
+      "sha256": "f59739ec0d177a4a252f966741d5b43d0a4bb80cbf3c07dc84a2b217873dc0b2",
+      "match": true
+    },
+    {
+      "path": "検証/標識移動回帰.py",
+      "bytes": 7851,
+      "git_blob_sha1": "6271adf1a5ba43fd42a48d3421a4c2cb1d3061df",
+      "remote_blob_sha1": "6271adf1a5ba43fd42a48d3421a4c2cb1d3061df",
+      "sha256": "dbefe829a500be59827f5e57678bc342fe10267072e9f77cd99a32dd820c421f",
+      "match": true
+    },
+    {
+      "path": "検証/標識移動比較.json",
+      "bytes": 5967,
+      "git_blob_sha1": "3c49bf842c51bf423b31ec7ffb62d7c82c595b74",
+      "remote_blob_sha1": "3c49bf842c51bf423b31ec7ffb62d7c82c595b74",
+      "sha256": "bbccd7a058e3dc4906e6df645d70e1bb4811793018bc13e22dab8baceb7e9419",
+      "match": true
+    },
+    {
+      "path": "検証/標識組立回帰.py",
+      "bytes": 9416,
+      "git_blob_sha1": "74f410ee959b971bd2388e6e10a0ce8d0cbb9fdc",
+      "remote_blob_sha1": "74f410ee959b971bd2388e6e10a0ce8d0cbb9fdc",
+      "sha256": "307fe94e964abaa66f29dbbe70d531aff617bad556a69696c746734a52cd05ff",
+      "match": true
+    },
+    {
+      "path": "検証/標識組立比較.json",
+      "bytes": 7117,
+      "git_blob_sha1": "e0344af84981ba1f081073c171c0276e8c321ae9",
+      "remote_blob_sha1": "e0344af84981ba1f081073c171c0276e8c321ae9",
+      "sha256": "9d11b6f7c0eedb4b6d012a033f006bb7e1eb9b12b2dd7f08f2954333559270d7",
+      "match": true
+    },
+    {
+      "path": "検証/標識計数回帰.py",
+      "bytes": 8104,
+      "git_blob_sha1": "ba480731ae95127f2e59685fcdbd2b51e107f04d",
+      "remote_blob_sha1": "ba480731ae95127f2e59685fcdbd2b51e107f04d",
+      "sha256": "236e82448a82c0d7c28f8351891b3528084cb3087938d54e5fa7a1daf294eb29",
+      "match": true
+    },
+    {
+      "path": "検証/標識計数比較.json",
+      "bytes": 6570,
+      "git_blob_sha1": "ac276edafc5d388b1e30b46808b4f977e6119fa3",
+      "remote_blob_sha1": "ac276edafc5d388b1e30b46808b4f977e6119fa3",
+      "sha256": "4e8997606f3fc02da96124e8a7cc78ae32ad79bf03d0b02f39a647b776984722",
+      "match": true
+    },
+    {
+      "path": "検証/櫛配置回帰.py",
+      "bytes": 10443,
+      "git_blob_sha1": "278d455d1a994a9f2099a6f587cd294ba6323c1f",
+      "remote_blob_sha1": "278d455d1a994a9f2099a6f587cd294ba6323c1f",
+      "sha256": "9b68b8a05027087bcaec816ed4da22e228b99ed35a6501462fba1cc3476eeb2f",
+      "match": true
+    },
+    {
+      "path": "検証/櫛配置比較.json",
+      "bytes": 10867,
+      "git_blob_sha1": "807bf06fcfb87415de5e856b3331acd70e989d41",
+      "remote_blob_sha1": "807bf06fcfb87415de5e856b3331acd70e989d41",
+      "sha256": "9797f8887f6efef1347861ad2b2263181457743d871ca5b8910f2a78e4df6a35",
+      "match": true
+    },
+    {
+      "path": "検証/正方形格子回帰.py",
+      "bytes": 7541,
+      "git_blob_sha1": "c75a17a92ed825aade68be3f23b9f45d98e3d4e9",
+      "remote_blob_sha1": "c75a17a92ed825aade68be3f23b9f45d98e3d4e9",
+      "sha256": "bc72656b25effa8c966ca67f99b9e884b462c0743588648757985272780ed623",
+      "match": true
+    },
+    {
+      "path": "検証/正方形格子比較.json",
+      "bytes": 7706,
+      "git_blob_sha1": "dc998538806c3c67e51b0297406db75c70e2c8fb",
+      "remote_blob_sha1": "dc998538806c3c67e51b0297406db75c70e2c8fb",
+      "sha256": "797d49db400a1a345d34d5de94c820b771e44a982555b945692ee5ee619f79b0",
+      "match": true
+    },
+    {
+      "path": "検証/流路回帰.py",
+      "bytes": 7423,
+      "git_blob_sha1": "68fe4a14623924a5897cd684e743fdb826974fda",
+      "remote_blob_sha1": "68fe4a14623924a5897cd684e743fdb826974fda",
+      "sha256": "771e52af2c486c71e8d26c015a9a676b939c6fce330b907514de4835e5630c73",
+      "match": true
+    },
+    {
+      "path": "検証/流路比較.json",
+      "bytes": 6244,
+      "git_blob_sha1": "9307ccc3708e9b0a51e9123508085b0956dd0821",
+      "remote_blob_sha1": "9307ccc3708e9b0a51e9123508085b0956dd0821",
+      "sha256": "062311f45aaeabb0ff9a71f7bb4cbf4010720b54885084ed513dcdcfa455e706",
+      "match": true
+    },
+    {
+      "path": "検証/物体slot回帰.py",
+      "bytes": 9690,
+      "git_blob_sha1": "4e3c89026390f67f0f624b66d7e28aaaedd8c410",
+      "remote_blob_sha1": "4e3c89026390f67f0f624b66d7e28aaaedd8c410",
+      "sha256": "3361d4dc19c1d54376dba8138d92d077a0fdce0c3f82c312c30aee6a5846211d",
+      "match": true
+    },
+    {
+      "path": "検証/物体slot比較.json",
+      "bytes": 8371,
+      "git_blob_sha1": "0ddbb0180a62769177641c987711c4d403a6d6c1",
+      "remote_blob_sha1": "0ddbb0180a62769177641c987711c4d403a6d6c1",
+      "sha256": "410e0a0323f569c4bc2dbd6fca8aeb41a77442102d744ff9d194c0a3ebac8662",
+      "match": true
+    },
+    {
+      "path": "検証/物体端投射回帰.py",
+      "bytes": 3992,
+      "git_blob_sha1": "b3efb88a33c11ff55244b09db1422688bfb040ef",
+      "remote_blob_sha1": "b3efb88a33c11ff55244b09db1422688bfb040ef",
+      "sha256": "f4d14d5485795c4e01ec17e6f572a1111a2e98b7916e0f0fbf7215d9ce2304de",
+      "match": true
+    },
+    {
+      "path": "検証/物体端投射比較.json",
+      "bytes": 5474,
+      "git_blob_sha1": "469d6d7a05777d54e8de7186763b57ef39fca96d",
+      "remote_blob_sha1": "469d6d7a05777d54e8de7186763b57ef39fca96d",
+      "sha256": "d33415bfa47c918a0ebaf93c05c1504aea810ee6d7905c5cecbbe8f724f05590",
+      "match": true
+    },
+    {
+      "path": "検証/物体群整列回帰.py",
+      "bytes": 6996,
+      "git_blob_sha1": "fd7f05e21ecbf895c4271214541168d37861d563",
+      "remote_blob_sha1": "fd7f05e21ecbf895c4271214541168d37861d563",
+      "sha256": "b1d7ce70303fc198f6db08974ae7108c50c1dab684ef7ffa5a7d9b7852ac8e26",
+      "match": true
+    },
+    {
+      "path": "検証/物体群整列比較.json",
+      "bytes": 4887,
+      "git_blob_sha1": "94a95b838aa79fe71baccf43fdb1582652e832b8",
+      "remote_blob_sha1": "94a95b838aa79fe71baccf43fdb1582652e832b8",
+      "sha256": "fc9060a9da724b18338f45ab5cdf1d2c39471d089785e63188f099fc3e1ee5ca",
+      "match": true
+    },
+    {
+      "path": "検証/疎点転写回帰.py",
+      "bytes": 7808,
+      "git_blob_sha1": "760a4effabd09d3ef82811030b02457d457c0aa8",
+      "remote_blob_sha1": "760a4effabd09d3ef82811030b02457d457c0aa8",
+      "sha256": "bc178393513a58f66a98d8d3e57d1439ff5ef06a28509c2cf9fa6d9262269ccb",
+      "match": true
+    },
+    {
+      "path": "検証/疎点転写比較.json",
+      "bytes": 8611,
+      "git_blob_sha1": "2c52340e4e7f114814f5c0503081f0fe00a61471",
+      "remote_blob_sha1": "2c52340e4e7f114814f5c0503081f0fe00a61471",
+      "sha256": "7dbbc70354cbd03cfd47e718edc87fdadf0fc5ede6ca1ff957ad329f3a4189c8",
+      "match": true
+    },
+    {
+      "path": "検証/種境界回帰.py",
+      "bytes": 8663,
+      "git_blob_sha1": "7efc590dee86afe040da85dcfebb486c6f7e1486",
+      "remote_blob_sha1": "7efc590dee86afe040da85dcfebb486c6f7e1486",
+      "sha256": "45898ea950e72b7bf69897ea5e96b8c2419687a1597354220bb69bb8e8e24ed3",
+      "match": true
+    },
+    {
+      "path": "検証/種境界比較.json",
+      "bytes": 6390,
+      "git_blob_sha1": "9c5221e774ac11cde81df997433b401b3e800a42",
+      "remote_blob_sha1": "9c5221e774ac11cde81df997433b401b3e800a42",
+      "sha256": "7e9f0368e315e260dd7ff930903da1cf3d60a2822d07d1c4d5e8600b8721e4ad",
+      "match": true
+    },
+    {
+      "path": "検証/穴形拡大回帰.py",
+      "bytes": 6284,
+      "git_blob_sha1": "d432d5a77e831fe53c79acdfe727f01624730002",
+      "remote_blob_sha1": "d432d5a77e831fe53c79acdfe727f01624730002",
+      "sha256": "327a0f6cb4e1a63f5d7618945a2ae899d223d953a4b54fcf0c724cab93ccde9b",
+      "match": true
+    },
+    {
+      "path": "検証/穴形拡大比較.json",
+      "bytes": 5331,
+      "git_blob_sha1": "7da329e7c5711380814d0b8474653851d4d9d022",
+      "remote_blob_sha1": "7da329e7c5711380814d0b8474653851d4d9d022",
+      "sha256": "99f2dafd4ed7625b7de55fe62c323a8b87111185ef994a4ec31753a89e3f30c5",
+      "match": true
+    },
+    {
+      "path": "検証/穴輪郭回帰.py",
+      "bytes": 7200,
+      "git_blob_sha1": "9e7136f964843f1d6646ab487ad3ae99893ec734",
+      "remote_blob_sha1": "9e7136f964843f1d6646ab487ad3ae99893ec734",
+      "sha256": "2dead4f623f5474943e0dba512e31543cb8ef8cb1d0773a5f3f98f08fe7d7ae0",
+      "match": true
+    },
+    {
+      "path": "検証/穴輪郭比較.json",
+      "bytes": 5886,
+      "git_blob_sha1": "98ce02f86ab88368c64f1b26bc8592c81f0cf168",
+      "remote_blob_sha1": "98ce02f86ab88368c64f1b26bc8592c81f0cf168",
+      "sha256": "ad7d15cf09a44163c27e19ddd780c9047e61cfba1c25ffa123db182e19d1a4be",
+      "match": true
+    },
+    {
+      "path": "検証/空白移動回帰.py",
+      "bytes": 7494,
+      "git_blob_sha1": "2d710e6fc91ba2b1553578b53b6d64fa4c9625fb",
+      "remote_blob_sha1": "2d710e6fc91ba2b1553578b53b6d64fa4c9625fb",
+      "sha256": "7cc5d20f8598772bb0652327116e9194ac6e7d5a0fd9fd7b9b8d302861a52954",
+      "match": true
+    },
+    {
+      "path": "検証/空白移動比較.json",
+      "bytes": 5782,
+      "git_blob_sha1": "133f01fe75605c5f6bd0288f4c04b0711c7b75dd",
+      "remote_blob_sha1": "133f01fe75605c5f6bd0288f4c04b0711c7b75dd",
+      "sha256": "4230f3d74604c3f88bc69e089d24fda2ea6b2f00e1eba2a31abf04dcadaeb756",
+      "match": true
+    },
+    {
+      "path": "検証/色群充填回帰.py",
+      "bytes": 3787,
+      "git_blob_sha1": "0e3dbd4efd366a76799314cc42e3c0ccbe7de271",
+      "remote_blob_sha1": "0e3dbd4efd366a76799314cc42e3c0ccbe7de271",
+      "sha256": "d25b4263d8dadd7ba2d2ae1f242b1c31d47d82ce6565e5b153f91a0e89fe1daa",
+      "match": true
+    },
+    {
+      "path": "検証/色群充填比較.json",
+      "bytes": 4778,
+      "git_blob_sha1": "45d3ad5f5f385845094bab4368f674ab5b9bc8ce",
+      "remote_blob_sha1": "45d3ad5f5f385845094bab4368f674ab5b9bc8ce",
+      "sha256": "c6b0a221b72136ac307d45b0b86ab0d6f84690eecc7268455a1e3944ff24d4a8",
+      "match": true
+    },
+    {
+      "path": "検証/行周期回帰.py",
+      "bytes": 7032,
+      "git_blob_sha1": "64d81c1d07cf5dd45b82a4b9a1df67579dba7a09",
+      "remote_blob_sha1": "64d81c1d07cf5dd45b82a4b9a1df67579dba7a09",
+      "sha256": "518469bc18cc3165d621a7751f7b3597d42964e7fda767a61f8238bb6ee3bc9c",
+      "match": true
+    },
+    {
+      "path": "検証/行周期比較.json",
+      "bytes": 5869,
+      "git_blob_sha1": "749bc6810bbcdf5d569c3e40e837c2f7cebd83d7",
+      "remote_blob_sha1": "749bc6810bbcdf5d569c3e40e837c2f7cebd83d7",
+      "sha256": "f33aa8e3cec8518ed06baf291be7a97c6ad3163c1423eb1f27be4fc8778394f8",
+      "match": true
+    },
+    {
+      "path": "検証/記号命令回帰.py",
+      "bytes": 14970,
+      "git_blob_sha1": "14a5fe914eed09e1ec21cdbcf225958bd311bf41",
+      "remote_blob_sha1": "14a5fe914eed09e1ec21cdbcf225958bd311bf41",
+      "sha256": "17861c5115c69cfc5efedfb59e1711c25788cb299c6423441ccd5d2a457a08cb",
+      "match": true
+    },
+    {
+      "path": "検証/記号命令比較.json",
+      "bytes": 10807,
+      "git_blob_sha1": "2c765a6d31071597ca19c0497c8bfa935ab17441",
+      "remote_blob_sha1": "2c765a6d31071597ca19c0497c8bfa935ab17441",
+      "sha256": "09dbfc2f11defc29f4e323faf294f30780c57efb4eda1fa7ff55b61aa0528bef",
+      "match": true
+    },
+    {
+      "path": "検証/象限配色回帰.py",
+      "bytes": 9250,
+      "git_blob_sha1": "dd6a8a0593513a69dc19065ba5af89fd0ef41d31",
+      "remote_blob_sha1": "dd6a8a0593513a69dc19065ba5af89fd0ef41d31",
+      "sha256": "c11e035378a73ff0f8e02ed326888175d03a220993df5a20b0419ef940dc701d",
+      "match": true
+    },
+    {
+      "path": "検証/象限配色比較.json",
+      "bytes": 8677,
+      "git_blob_sha1": "20f1a88a9a30c8c1e08b185e40326bd386ccd38c",
+      "remote_blob_sha1": "20f1a88a9a30c8c1e08b185e40326bd386ccd38c",
+      "sha256": "62d25e1e9d9645e3590f061fe342bf85ba4cc3942c719c1c53ff8b959a56a9fc",
+      "match": true
+    },
+    {
+      "path": "検証/距離層回帰.py",
+      "bytes": 7553,
+      "git_blob_sha1": "d2ee327e9ba1a27a919e0793048d28d473f2defd",
+      "remote_blob_sha1": "d2ee327e9ba1a27a919e0793048d28d473f2defd",
+      "sha256": "05cf6850d782232916455d3ab2dd0bdd361bee90b5b11a2fd90e0cd917803a77",
+      "match": true
+    },
+    {
+      "path": "検証/距離層比較.json",
+      "bytes": 6076,
+      "git_blob_sha1": "b56251d0ebb82759f4f8ac3eb584dc4c152e6a0b",
+      "remote_blob_sha1": "b56251d0ebb82759f4f8ac3eb584dc4c152e6a0b",
+      "sha256": "b14728d0e176da6e35c9727bd8620b32cfd440a28f01ce3673aaf8d28e23a49f",
+      "match": true
+    },
+    {
+      "path": "検証/軸反射回帰.py",
+      "bytes": 5241,
+      "git_blob_sha1": "fe0c2fda3153fa286bc2fbc4611054f8f79d1fab",
+      "remote_blob_sha1": "fe0c2fda3153fa286bc2fbc4611054f8f79d1fab",
+      "sha256": "f897a37db25c17bece0a0da1f9e5e2175f283da46d1d020cdbca761aa3dc048c",
+      "match": true
+    },
+    {
+      "path": "検証/軸反射比較.json",
+      "bytes": 5494,
+      "git_blob_sha1": "112c1aedcdb92bac7638b84332a59c8d128b0bec",
+      "remote_blob_sha1": "112c1aedcdb92bac7638b84332a59c8d128b0bec",
+      "sha256": "74dcd7e76ab5b35cf02dab6149e9831a63c06ec43aa57ded8e7314ac471300ac",
+      "match": true
+    },
+    {
+      "path": "検証/軸投射回帰.py",
+      "bytes": 11180,
+      "git_blob_sha1": "5facfefee7975e35a9faf36c9989e2d1e583af70",
+      "remote_blob_sha1": "5facfefee7975e35a9faf36c9989e2d1e583af70",
+      "sha256": "844b58d4923bdbf9b148e1ac2cc14725cd4f2305bfefe5b251a8a9fcd0fa9921",
+      "match": true
+    },
+    {
+      "path": "検証/軸投射比較.json",
+      "bytes": 10130,
+      "git_blob_sha1": "72f0e875491c5ad347da1205b40d852ced6cae08",
+      "remote_blob_sha1": "72f0e875491c5ad347da1205b40d852ced6cae08",
+      "sha256": "b66e57926b3f154064db2cd83496f7af7cf6c79075fa9751d32be0bac7a77d3e",
+      "match": true
+    },
+    {
+      "path": "検証/辺対応抽出回帰.py",
+      "bytes": 4870,
+      "git_blob_sha1": "5762c09f0c7b506bc7994c65caace8b894f88632",
+      "remote_blob_sha1": "5762c09f0c7b506bc7994c65caace8b894f88632",
+      "sha256": "97cc20091314cb0708073623b0bc1a798085bcf4340eebab1a628d0050164862",
+      "match": true
+    },
+    {
+      "path": "検証/辺対応抽出比較.json",
+      "bytes": 4879,
+      "git_blob_sha1": "ccb6dbd30a7de95a43bfcdb2bb7811900b996fa9",
+      "remote_blob_sha1": "ccb6dbd30a7de95a43bfcdb2bb7811900b996fa9",
+      "sha256": "ab46ad10c149219964c48f1157427de4866d0ee55518763bb5d2de451cf1b550",
+      "match": true
+    },
+    {
+      "path": "検証/遮蔽区画回帰.py",
+      "bytes": 13559,
+      "git_blob_sha1": "53d5a2401418e5970a03ca64c05a90f226676207",
+      "remote_blob_sha1": "53d5a2401418e5970a03ca64c05a90f226676207",
+      "sha256": "b23458857ded3f2947229326a2fe7f11c0cda2ce9439a8b682eb45d1c5da6e06",
+      "match": true
+    },
+    {
+      "path": "検証/遮蔽区画比較.json",
+      "bytes": 12458,
+      "git_blob_sha1": "aa8ccdcb4dd13090290b57804f9be4c670f2debe",
+      "remote_blob_sha1": "aa8ccdcb4dd13090290b57804f9be4c670f2debe",
+      "sha256": "ef6226c363f46d78023da65ae7783abb8732c73e7258189b26edc6445e914b7d",
+      "match": true
+    },
+    {
+      "path": "検証/部分見本回帰.py",
+      "bytes": 6138,
+      "git_blob_sha1": "4eb3bdba20c4e7bfb3387de511ffb5a6dba8e9ad",
+      "remote_blob_sha1": "4eb3bdba20c4e7bfb3387de511ffb5a6dba8e9ad",
+      "sha256": "9954a505624d4644986d4aba0bc97a25ab3cfb60ac1ae0aa61702fb728798102",
+      "match": true
+    },
+    {
+      "path": "検証/部分見本比較.json",
+      "bytes": 5177,
+      "git_blob_sha1": "3ac5069b40cd4eb02d28977b78aba3ce48192240",
+      "remote_blob_sha1": "3ac5069b40cd4eb02d28977b78aba3ce48192240",
+      "sha256": "741f8e1a7aa5e6320d44d26a0533f3657c65a87c86e3f0c9d3966d291bc6b3ee",
+      "match": true
+    },
+    {
+      "path": "検証/配置展開回帰.py",
+      "bytes": 7139,
+      "git_blob_sha1": "c0a279e7700ccccda96428612c8e2cb10b4c367e",
+      "remote_blob_sha1": "c0a279e7700ccccda96428612c8e2cb10b4c367e",
+      "sha256": "cf9079e0467381e1b636be8b18e891a9f1d0d9221abf0eb351044f0892a5caab",
+      "match": true
+    },
+    {
+      "path": "検証/配置展開比較.json",
+      "bytes": 7921,
+      "git_blob_sha1": "671f362c5c20c948be49112cf390105cf21a97cf",
+      "remote_blob_sha1": "671f362c5c20c948be49112cf390105cf21a97cf",
+      "sha256": "38379322f12e4470096cd04e48211931d04ecf89e4de86bf1d0c1474c613a38d",
+      "match": true
+    },
+    {
+      "path": "検証/重畳組立回帰.py",
+      "bytes": 7536,
+      "git_blob_sha1": "6d6a3c3db3d5a44ab2d31120077789f8906b6e0e",
+      "remote_blob_sha1": "6d6a3c3db3d5a44ab2d31120077789f8906b6e0e",
+      "sha256": "337461ba948f3862987538e6a9b439f07e6a3d6ee447ac31bd47026f89e44da8",
+      "match": true
+    },
+    {
+      "path": "検証/重畳組立比較.json",
+      "bytes": 6125,
+      "git_blob_sha1": "98bb3efcb6387096f37cf8f1909895b72cd2e286",
+      "remote_blob_sha1": "98bb3efcb6387096f37cf8f1909895b72cd2e286",
+      "sha256": "e933704e7a5f5b25f0e7ed3bdc4e459271c35e6ad92c43adefec485d5b6b0847",
+      "match": true
+    },
+    {
+      "path": "検証/開口壁回帰.py",
+      "bytes": 12488,
+      "git_blob_sha1": "c3d8bf16596e622854f078c4fa009ccfee639262",
+      "remote_blob_sha1": "c3d8bf16596e622854f078c4fa009ccfee639262",
+      "sha256": "a13112966cb2a71bfb6caed61c65c57220949a65403848da5171c0bb40759da2",
+      "match": true
+    },
+    {
+      "path": "検証/開口壁比較.json",
+      "bytes": 10736,
+      "git_blob_sha1": "68ebcf0c909ef33d150872ae9923aac79e5d3e98",
+      "remote_blob_sha1": "68ebcf0c909ef33d150872ae9923aac79e5d3e98",
+      "sha256": "1d3d8c00d82f5998df84da77d6e578bb003aabd3eab4495977dbca0a7f7057f4",
+      "match": true
+    },
+    {
+      "path": "検証/順位着色回帰.py",
+      "bytes": 7381,
+      "git_blob_sha1": "72ef43ef6b920326e6aee705cf67fe46e0de9b8a",
+      "remote_blob_sha1": "72ef43ef6b920326e6aee705cf67fe46e0de9b8a",
+      "sha256": "0176a3b3f33f9a24f19eb9046e74755fec79775e3226ce31ee287585e4987b28",
+      "match": true
+    },
+    {
+      "path": "検証/順位着色比較.json",
+      "bytes": 5732,
+      "git_blob_sha1": "247f218b85cbf77bc550512e96d8bde6395a8895",
+      "remote_blob_sha1": "247f218b85cbf77bc550512e96d8bde6395a8895",
+      "sha256": "5f867f4e00d955e57c864519d06e53a251d10a81a5b9bf2fcb15c53c50c292f6",
+      "match": true
+    },
+    {
+      "path": "検証/領域転写回帰.py",
+      "bytes": 4043,
+      "git_blob_sha1": "7076e755ca0ddc091550055c9b5e56a0d511366b",
+      "remote_blob_sha1": "7076e755ca0ddc091550055c9b5e56a0d511366b",
+      "sha256": "068edf29b26ee52037a90da893b1efa4a562ee06da9dd6f4fab80c52b70939fd",
+      "match": true
+    },
+    {
+      "path": "検証/領域転写比較.json",
+      "bytes": 3614,
+      "git_blob_sha1": "68f445d732a45660f675f4cae951bdbd3e57c3a7",
+      "remote_blob_sha1": "68f445d732a45660f675f4cae951bdbd3e57c3a7",
+      "sha256": "58bb175faf14bbc414cc464bfaeee926054c93f57e2fe64a1eb2ad0ee71400c7",
+      "match": true
+    },
+    {
+      "path": "記憶/事前記憶/v0.4/1120題_HDS索引_1.json",
+      "bytes": 9149,
+      "git_blob_sha1": "e01b59c524e6decf08ea80ac24d6d6b10157688c",
+      "remote_blob_sha1": "e01b59c524e6decf08ea80ac24d6d6b10157688c",
+      "sha256": "565224491320ab44d1e3c5a5efaa60a60858462b5ce4cac27d91bc3dd3ea1e04",
+      "match": true
+    },
+    {
+      "path": "記憶/事前記憶/v0.4/1120題_HDS索引_2.json",
+      "bytes": 9184,
+      "git_blob_sha1": "581668ccb1b6f3937946e7dd5ecc2a6f44234978",
+      "remote_blob_sha1": "581668ccb1b6f3937946e7dd5ecc2a6f44234978",
+      "sha256": "d57df6203df27af435103d0f3e670dc48d2e98ed2b8e9e0004421b75224d8e10",
+      "match": true
+    },
+    {
+      "path": "記憶/事前記憶/v0.4/1120題_HDS索引_3.json",
+      "bytes": 9196,
+      "git_blob_sha1": "dcae55be67784615f10f1865eff8e629eef03761",
+      "remote_blob_sha1": "dcae55be67784615f10f1865eff8e629eef03761",
+      "sha256": "acea059cc3b977ef38f2c1111cb86d63483afbb93a1644caa87cf1dcbfdd97e1",
+      "match": true
+    },
+    {
+      "path": "記憶/事前記憶/v0.4/1120題_HDS索引_4.json",
+      "bytes": 9186,
+      "git_blob_sha1": "466148ae305acbe88d73df158ae70aacab6611a2",
+      "remote_blob_sha1": "466148ae305acbe88d73df158ae70aacab6611a2",
+      "sha256": "6b8bfb7a02c96e4ccd8b2c28f10135a6bf8b3ba7318d40170245acfbf52ccfce",
+      "match": true
+    },
+    {
+      "path": "記憶/事前記憶/v0.4/README.md",
+      "bytes": 903,
+      "git_blob_sha1": "4a3d060ba8c0f4f4e93811fda3a81c12308bda81",
+      "remote_blob_sha1": "4a3d060ba8c0f4f4e93811fda3a81c12308bda81",
+      "sha256": "4e83455a5c0ea26167cab48cd9a4e957189a0e9dea1ed0ed928e0937b5f7ff0f",
+      "match": true
+    },
+    {
+      "path": "記憶/事前記憶/v0.4/マニフェスト.json",
+      "bytes": 1037,
+      "git_blob_sha1": "d0a0adbb4c1ba27b5df6d40b3105b2d477571347",
+      "remote_blob_sha1": "d0a0adbb4c1ba27b5df6d40b3105b2d477571347",
+      "sha256": "bab4171f109a5704188b510753578a4f15a29eed73a05adfdb7333b1f605de2d",
+      "match": true
+    },
+    {
+      "path": "記憶/事前記憶/v0.4/定石語彙.json",
+      "bytes": 2657,
+      "git_blob_sha1": "ae3f0bcba2076e496335acba66a33e4479c8c3ef",
+      "remote_blob_sha1": "ae3f0bcba2076e496335acba66a33e4479c8c3ef",
+      "sha256": "74347f11f8a74dd30bef08102a3a57e2ed067a169876262a6d776c391efd590a",
+      "match": true
+    },
+    {
+      "path": "記憶/事前記憶/v0.4/横断蒸留知識.json",
+      "bytes": 1662,
+      "git_blob_sha1": "5328c0167beb8af2c69b97a5062aa60b845057dd",
+      "remote_blob_sha1": "5328c0167beb8af2c69b97a5062aa60b845057dd",
+      "sha256": "3e9bca011860633d69678edc1c3ec3605f52cc76811344c20186c8046b748c27",
+      "match": true
+    },
+    {
+      "path": "記憶/事前記憶/v0.4/水平蒸留サマリ.json",
+      "bytes": 944,
+      "git_blob_sha1": "c4e999216b915cd98da47b6bd82cbcae8f288cbe",
+      "remote_blob_sha1": "c4e999216b915cd98da47b6bd82cbcae8f288cbe",
+      "sha256": "fd77256807c166ff2dc7016b2022f9d45f7a894f0d23e83ecdfe1f2dec0e27a9",
+      "match": true
+    },
+    {
+      "path": "運用/権限順序.md",
+      "bytes": 948,
+      "git_blob_sha1": "cf7f8b7231c10bdcb57a0599d636e452be67d03a",
+      "remote_blob_sha1": "cf7f8b7231c10bdcb57a0599d636e452be67d03a",
+      "sha256": "fdcef65a4b6ffc2179f76036f52aa2a4c47c69b8298f42678a47c245414bb4a3",
+      "match": true
+    },
+    {
+      "path": "道具/リポジトリ環境監査.py",
+      "bytes": 1363,
+      "git_blob_sha1": "c559ab1320d5af2fb206fbca5588fd2239511a53",
+      "remote_blob_sha1": "c559ab1320d5af2fb206fbca5588fd2239511a53",
+      "sha256": "6d646591a2d3fb352101a9700c5d6767540e8d4bf8f53b916c5b80c9038a875a",
+      "match": true
+    },
+    {
+      "path": "道具/学習規則再観測.py",
+      "bytes": 7621,
+      "git_blob_sha1": "2278f84204f079917e345e85503a2b1b9b3e868e",
+      "remote_blob_sha1": "2278f84204f079917e345e85503a2b1b9b3e868e",
+      "sha256": "11749adbdf0f559fda4f42042382f7a0aab89d9d06aae4a4a269ab2e0b38f036",
+      "match": true
+    }
+  ],
+  "mismatches": []
+}

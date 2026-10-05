@@ -1,0 +1,894 @@
+{
+  "phase_scope": "between_families_or_query is wrapper label; all seven match partial-task query candidate failures",
+  "failures": [
+    {
+      "task_id": "20270e3b",
+      "sequence": 73,
+      "phase": "between_families_or_query",
+      "callable": "標識組立教材",
+      "input_sha256_before": "47d72d04cae7e151c55870a6bbca4c7cccabed3d1b3b419192555e52453e0b80",
+      "input_sha256_after": "47d72d04cae7e151c55870a6bbca4c7cccabed3d1b3b419192555e52453e0b80",
+      "candidate_is_none": true,
+      "candidate_sha256": null,
+      "detail": {
+        "failure": "dominant_translation_axis_tie"
+      }
+    },
+    {
+      "task_id": "36a08778",
+      "sequence": 75,
+      "phase": "between_families_or_query",
+      "callable": "流路教材",
+      "input_sha256_before": "a6537791717aa68c60b18d419d16e071f183c26ad3d92c28439d616dd3cd518a",
+      "input_sha256_after": "a6537791717aa68c60b18d419d16e071f183c26ad3d92c28439d616dd3cd518a",
+      "candidate_is_none": true,
+      "candidate_sha256": null,
+      "detail": {
+        "failure": "triggered_span_crosses_obstacle"
+      }
+    },
+    {
+      "task_id": "4c3d4a41",
+      "sequence": 70,
+      "phase": "between_families_or_query",
+      "callable": "櫛配置教材",
+      "input_sha256_before": "4016149f2db8ae38e3f079abc563e30aa89657fb802a6ded31b769dfdaafc664",
+      "input_sha256_after": "4016149f2db8ae38e3f079abc563e30aa89657fb802a6ded31b769dfdaafc664",
+      "candidate_is_none": true,
+      "candidate_sha256": null,
+      "detail": {
+        "parse": {
+          "background": 0,
+          "raw_frames": [
+            {
+              "colour": 5,
+              "bbox": [
+                0,
+                9,
+                7,
+                19
+              ],
+              "open_side": 3,
+              "gap": [
+                [
+                  4,
+                  9
+                ],
+                [
+                  5,
+                  9
+                ]
+              ],
+              "cells": [
+                [
+                  0,
+                  9
+                ],
+                [
+                  0,
+                  10
+                ],
+                [
+                  0,
+                  11
+                ],
+                [
+                  0,
+                  12
+                ],
+                [
+                  0,
+                  13
+                ],
+                [
+                  0,
+                  14
+                ],
+                [
+                  0,
+                  15
+                ],
+                [
+                  0,
+                  16
+                ],
+                [
+                  0,
+                  17
+                ],
+                [
+                  0,
+                  18
+                ],
+                [
+                  0,
+                  19
+                ],
+                [
+                  1,
+                  9
+                ],
+                [
+                  1,
+                  11
+                ],
+                [
+                  1,
+                  13
+                ],
+                [
+                  1,
+                  15
+                ],
+                [
+                  1,
+                  19
+                ],
+                [
+                  2,
+                  9
+                ],
+                [
+                  2,
+                  11
+                ],
+                [
+                  2,
+                  13
+                ],
+                [
+                  2,
+                  15
+                ],
+                [
+                  2,
+                  19
+                ],
+                [
+                  3,
+                  9
+                ],
+                [
+                  3,
+                  19
+                ],
+                [
+                  4,
+                  19
+                ],
+                [
+                  5,
+                  19
+                ],
+                [
+                  6,
+                  9
+                ],
+                [
+                  6,
+                  19
+                ],
+                [
+                  7,
+                  9
+                ],
+                [
+                  7,
+                  10
+                ],
+                [
+                  7,
+                  11
+                ],
+                [
+                  7,
+                  12
+                ],
+                [
+                  7,
+                  13
+                ],
+                [
+                  7,
+                  14
+                ],
+                [
+                  7,
+                  15
+                ],
+                [
+                  7,
+                  16
+                ],
+                [
+                  7,
+                  17
+                ],
+                [
+                  7,
+                  18
+                ],
+                [
+                  7,
+                  19
+                ]
+              ]
+            }
+          ],
+          "role_attempts": [
+            {
+              "raw_frame_index": 0,
+              "tooth_direction": [
+                -1,
+                0
+              ],
+              "failure": null
+            },
+            {
+              "raw_frame_index": 0,
+              "tooth_direction": [
+                1,
+                0
+              ],
+              "failure": "source_baseline_incomplete"
+            }
+          ],
+          "input_role_count": 1,
+          "role": {
+            "frame_bbox": [
+              0,
+              9,
+              7,
+              19
+            ],
+            "frame_colour": 5,
+            "inward": [
+              0,
+              1
+            ],
+            "tooth_direction": [
+              -1,
+              0
+            ],
+            "source_cells": [
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                5
+              ],
+              [
+                3,
+                1
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                3,
+                5
+              ],
+              [
+                4,
+                1
+              ],
+              [
+                4,
+                3
+              ],
+              [
+                4,
+                5
+              ],
+              [
+                4,
+                7
+              ],
+              [
+                5,
+                1
+              ],
+              [
+                5,
+                2
+              ],
+              [
+                5,
+                3
+              ],
+              [
+                5,
+                4
+              ],
+              [
+                5,
+                5
+              ],
+              [
+                5,
+                6
+              ],
+              [
+                5,
+                7
+              ]
+            ],
+            "baseline_v": -5,
+            "teeth": [
+              {
+                "u": 1,
+                "top": -3,
+                "height": 2
+              },
+              {
+                "u": 3,
+                "top": -2,
+                "height": 3
+              },
+              {
+                "u": 5,
+                "top": -2,
+                "height": 3
+              },
+              {
+                "u": 7,
+                "top": -4,
+                "height": 1
+              }
+            ],
+            "pins": [
+              {
+                "colour": 9,
+                "u": 11,
+                "low": -3,
+                "high": -3,
+                "cells": [
+                  [
+                    3,
+                    11
+                  ]
+                ],
+                "stem": [
+                  [
+                    1,
+                    11
+                  ],
+                  [
+                    2,
+                    11
+                  ]
+                ]
+              },
+              {
+                "colour": 6,
+                "u": 13,
+                "low": -4,
+                "high": -3,
+                "cells": [
+                  [
+                    3,
+                    13
+                  ],
+                  [
+                    4,
+                    13
+                  ]
+                ],
+                "stem": [
+                  [
+                    1,
+                    13
+                  ],
+                  [
+                    2,
+                    13
+                  ]
+                ]
+              },
+              {
+                "colour": 3,
+                "u": 15,
+                "low": -4,
+                "high": -3,
+                "cells": [
+                  [
+                    3,
+                    15
+                  ],
+                  [
+                    4,
+                    15
+                  ]
+                ],
+                "stem": [
+                  [
+                    1,
+                    15
+                  ],
+                  [
+                    2,
+                    15
+                  ]
+                ]
+              },
+              {
+                "colour": 8,
+                "u": 17,
+                "low": -3,
+                "high": -1,
+                "cells": [
+                  [
+                    1,
+                    17
+                  ],
+                  [
+                    2,
+                    17
+                  ],
+                  [
+                    3,
+                    17
+                  ]
+                ],
+                "stem": []
+              }
+            ],
+            "frame_boundary": [
+              [
+                0,
+                9
+              ],
+              [
+                0,
+                10
+              ],
+              [
+                0,
+                11
+              ],
+              [
+                0,
+                12
+              ],
+              [
+                0,
+                13
+              ],
+              [
+                0,
+                14
+              ],
+              [
+                0,
+                15
+              ],
+              [
+                0,
+                16
+              ],
+              [
+                0,
+                17
+              ],
+              [
+                0,
+                18
+              ],
+              [
+                0,
+                19
+              ],
+              [
+                1,
+                9
+              ],
+              [
+                1,
+                19
+              ],
+              [
+                2,
+                9
+              ],
+              [
+                2,
+                19
+              ],
+              [
+                3,
+                9
+              ],
+              [
+                3,
+                19
+              ],
+              [
+                4,
+                19
+              ],
+              [
+                5,
+                19
+              ],
+              [
+                6,
+                9
+              ],
+              [
+                6,
+                19
+              ],
+              [
+                7,
+                9
+              ],
+              [
+                7,
+                10
+              ],
+              [
+                7,
+                11
+              ],
+              [
+                7,
+                12
+              ],
+              [
+                7,
+                13
+              ],
+              [
+                7,
+                14
+              ],
+              [
+                7,
+                15
+              ],
+              [
+                7,
+                16
+              ],
+              [
+                7,
+                17
+              ],
+              [
+                7,
+                18
+              ],
+              [
+                7,
+                19
+              ]
+            ],
+            "stems": [
+              [
+                1,
+                11
+              ],
+              [
+                1,
+                13
+              ],
+              [
+                1,
+                15
+              ],
+              [
+                2,
+                11
+              ],
+              [
+                2,
+                13
+              ],
+              [
+                2,
+                15
+              ]
+            ]
+          }
+        },
+        "failure": "comb_target_hits_original_base"
+      }
+    },
+    {
+      "task_id": "62593bfd",
+      "sequence": 70,
+      "phase": "between_families_or_query",
+      "callable": "端投射教材",
+      "input_sha256_before": "90a8e1716bd7edbba441110749d75948163db6b987da019b966fc627fc88c925",
+      "input_sha256_after": "90a8e1716bd7edbba441110749d75948163db6b987da019b966fc627fc88c925",
+      "candidate_is_none": true,
+      "candidate_sha256": null,
+      "detail": {
+        "failure": "物体方向がHDSで未確定"
+      }
+    },
+    {
+      "task_id": "65b59efc",
+      "sequence": 72,
+      "phase": "between_families_or_query",
+      "callable": "凡例展開教材",
+      "input_sha256_before": "8ef23048bcca1e74f8c1ba556e18831f1ab480c90156f418dd4158d1a1b90d65",
+      "input_sha256_after": "8ef23048bcca1e74f8c1ba556e18831f1ab480c90156f418dd4158d1a1b90d65",
+      "candidate_is_none": true,
+      "candidate_sha256": null,
+      "detail": {
+        "failure": "raw_separator_role_not_unique",
+        "raw_rows": [
+          [
+            4,
+            5
+          ],
+          [
+            7,
+            6
+          ],
+          [
+            9,
+            5
+          ],
+          [
+            10,
+            5
+          ]
+        ]
+      }
+    },
+    {
+      "task_id": "8e5c0c38",
+      "sequence": 70,
+      "phase": "between_families_or_query",
+      "callable": "対称剪定教材",
+      "input_sha256_before": "a07e1ce455a7acfb84fac7fc13b1c7044c644a41e6b1f9229cf9448fc1cb339f",
+      "input_sha256_after": "a07e1ce455a7acfb84fac7fc13b1c7044c644a41e6b1f9229cf9448fc1cb339f",
+      "candidate_is_none": true,
+      "candidate_sha256": null,
+      "detail": {
+        "failure": "maximum_retention_axis_tie",
+        "color": 3
+      }
+    },
+    {
+      "task_id": "b6f77b65",
+      "sequence": 74,
+      "phase": "between_families_or_query",
+      "callable": "支持構造教材",
+      "input_sha256_before": "27b3ab983f88b8841f350c448ad1a191b18407caf8a1d2480e5442bfd829eec9",
+      "input_sha256_after": "27b3ab983f88b8841f350c448ad1a191b18407caf8a1d2480e5442bfd829eec9",
+      "candidate_is_none": true,
+      "candidate_sha256": null,
+      "detail": {
+        "parse": {
+          "shape": [
+            12,
+            12
+          ],
+          "background_candidates": [
+            0
+          ],
+          "raw_candidates": [],
+          "raw_count": 0,
+          "type_entered": false,
+          "background": 0,
+          "foreground_count": 49,
+          "components": [
+            [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            [
+              [
+                2,
+                2
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                3,
+                2
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                3,
+                6
+              ],
+              [
+                3,
+                7
+              ],
+              [
+                3,
+                8
+              ],
+              [
+                3,
+                9
+              ],
+              [
+                4,
+                2
+              ],
+              [
+                4,
+                4
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                4,
+                9
+              ],
+              [
+                5,
+                2
+              ],
+              [
+                5,
+                4
+              ],
+              [
+                5,
+                6
+              ],
+              [
+                5,
+                9
+              ],
+              [
+                6,
+                2
+              ],
+              [
+                6,
+                3
+              ],
+              [
+                6,
+                4
+              ],
+              [
+                6,
+                5
+              ],
+              [
+                6,
+                6
+              ],
+              [
+                6,
+                7
+              ],
+              [
+                6,
+                9
+              ],
+              [
+                7,
+                2
+              ],
+              [
+                7,
+                7
+              ],
+              [
+                7,
+                9
+              ],
+              [
+                8,
+                2
+              ],
+              [
+                8,
+                7
+              ],
+              [
+                8,
+                9
+              ],
+              [
+                9,
+                1
+              ],
+              [
+                9,
+                2
+              ],
+              [
+                9,
+                3
+              ],
+              [
+                9,
+                4
+              ],
+              [
+                9,
+                6
+              ],
+              [
+                9,
+                7
+              ],
+              [
+                9,
+                8
+              ],
+              [
+                9,
+                9
+              ],
+              [
+                9,
+                10
+              ],
+              [
+                10,
+                1
+              ],
+              [
+                10,
+                4
+              ],
+              [
+                10,
+                6
+              ],
+              [
+                10,
+                10
+              ],
+              [
+                11,
+                1
+              ],
+              [
+                11,
+                4
+              ],
+              [
+                11,
+                6
+              ],
+              [
+                11,
+                10
+              ]
+            ]
+          ],
+          "failure": "raw_cue_floor_not_unique"
+        },
+        "work_limit": 100000,
+        "work": 0,
+        "complete": false,
+        "rounds": [],
+        "failure": "input_not_interpretable"
+      }
+    }
+  ],
+  "code_differences": []
+}

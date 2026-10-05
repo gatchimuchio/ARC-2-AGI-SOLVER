@@ -1,0 +1,297 @@
+{
+  "source_root_at_observation": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit",
+  "archive": "teacher-only三分割観測.tar.gz",
+  "files": [
+    {
+      "path": "observation-shard-1/16b78196.png",
+      "bytes": 9685,
+      "sha256": "48faced34929e411f4a79d86fe73e4d23e9cd903763e15aefb24977c23ae46ea"
+    },
+    {
+      "path": "observation-shard-1/20270e3b.png",
+      "bytes": 5064,
+      "sha256": "4c18c8921754bb32441aede71c9b03918a2262b5e88751726eae5ee4595d72b6"
+    },
+    {
+      "path": "observation-shard-1/20a9e565.png",
+      "bytes": 9600,
+      "sha256": "5d5ffd5f4ca3c99d3d277b16398e6e3f7055a5c3b51521a9f4bb97a7ed1732ef"
+    },
+    {
+      "path": "observation-shard-1/28a6681f.png",
+      "bytes": 4379,
+      "sha256": "a820124fde0784928627fd631330422a25b15c3c440b77153c57cfc49064a451"
+    },
+    {
+      "path": "observation-shard-1/31f7f899.png",
+      "bytes": 5313,
+      "sha256": "ef55db31eed9ad7a6ca7c715f0351c76d4e34b090895cd3bba36327468cff8e5"
+    },
+    {
+      "path": "observation-shard-1/446ef5d2.png",
+      "bytes": 4108,
+      "sha256": "9ab56cd931f191cf8d36b66ac82353e7cb8efcb7dc3a3f1eade7b543e5779cc4"
+    },
+    {
+      "path": "observation-shard-1/5545f144.png",
+      "bytes": 4992,
+      "sha256": "1bee338e2d9f9f8fa9f93c542b56004572188f6327af78c44121744e06db054c"
+    },
+    {
+      "path": "observation-shard-1/62593bfd.png",
+      "bytes": 9702,
+      "sha256": "288ebdfdba95547ae593e6f114b8e26aa1d6cdf6765a17d4b3628a79de058a3d"
+    },
+    {
+      "path": "observation-shard-1/64efde09.png",
+      "bytes": 8813,
+      "sha256": "65cc9a206faa59ab005f7e3141b4fc1b1e19f813458f5e81e3ab536da1a7f8ea"
+    },
+    {
+      "path": "observation-shard-1/71e489b6.png",
+      "bytes": 6897,
+      "sha256": "a60519a123d078e964dd3236daad1e261a8efc96ab3bfc134e330fea99cfe9d7"
+    },
+    {
+      "path": "observation-shard-1/7b80bb43.png",
+      "bytes": 7968,
+      "sha256": "225d3530c3670048380b2f5f1dc907f9990c72fed09175bea64cedebafcfcf80"
+    },
+    {
+      "path": "observation-shard-1/88e364bc.png",
+      "bytes": 8244,
+      "sha256": "a3d9ebb521b4f2b32c7b14a2a828cd35be5d2cc462d103aec6f6eb0118d45bd4"
+    },
+    {
+      "path": "observation-shard-1/a251c730.png",
+      "bytes": 8134,
+      "sha256": "bc4e1d17dd295d892ef72334701a53d259a5e3e06c49b5cb583c280244b96ee2"
+    },
+    {
+      "path": "observation-shard-1/a6f40cea.png",
+      "bytes": 8609,
+      "sha256": "873dfa9d97df68fcc3aaa211e42132a2b1861003403737038e309b07eac25c73"
+    },
+    {
+      "path": "observation-shard-1/b6f77b65.png",
+      "bytes": 8151,
+      "sha256": "716feb32b968df9873f1412c7db048a078e727a057b03fd37c37d6ca204da993"
+    },
+    {
+      "path": "observation-shard-1/baseline-observations.json",
+      "bytes": 14159,
+      "sha256": "e425ee0b0e54a44e0646000c8db2dcc6f22a7d322dc58c8bce137834c1c5f030"
+    },
+    {
+      "path": "observation-shard-1/cb2d8a2c.png",
+      "bytes": 8725,
+      "sha256": "8a79283a7b8f1dcf2b409eb2dfa7fbfcfb476a545344fe1752b375f865a2f726"
+    },
+    {
+      "path": "observation-shard-1/d8e07eb2.png",
+      "bytes": 18754,
+      "sha256": "24a0206c051a30c6870c947fdeef0ee77116a18d3603e1401c079548227dc71a"
+    },
+    {
+      "path": "observation-shard-1/dd6b8c4b.png",
+      "bytes": 4916,
+      "sha256": "abdafb2e083c459cc53a8b69024b2e78fd3f12154cad35f4b1a7f1c09f7c740b"
+    },
+    {
+      "path": "observation-shard-1/e12f9a14.png",
+      "bytes": 9222,
+      "sha256": "0e2f9aa88f24ee4f62de34f114fa00c5e15940e7d0f397ea197110028152a503"
+    },
+    {
+      "path": "observation-shard-1/eee78d87.png",
+      "bytes": 5538,
+      "sha256": "ff0c98d33466fc824a0de39e468a2464ece3065882dba6913dd4336618603367"
+    },
+    {
+      "path": "observation-shard-1/observations.json",
+      "bytes": 72439,
+      "sha256": "a6167b0b9d8f1429e95216c9e12cc74c7bf82c1b284b7dea32fe6d243787539c"
+    },
+    {
+      "path": "observation-shard-1/report.txt",
+      "bytes": 40402,
+      "sha256": "d2557e59f8c61779c40f1236ac5cd9e2165582143417348d45df030aa8b6d167"
+    },
+    {
+      "path": "observation-shard-1/teacher-diagnostics.json",
+      "bytes": 49116,
+      "sha256": "4327e580f8ea316651c3806edcd22d2c2b82f03b0594e4ba1a35c150e817a221"
+    },
+    {
+      "path": "observation-shard-1/teacher-only-tasks.json",
+      "bytes": 660447,
+      "sha256": "e16e83d5cc8da57833b640c838c169a1fa4434028e2cc9e628513e7dafefc21f"
+    },
+    {
+      "path": "observation-shard-2/0934a4d8-axis-evidence.json",
+      "bytes": 6556,
+      "sha256": "35a74f481a38a7c16c6b96fadc77cc5ac21e43fb9aae17ca752998b9bdbb691f"
+    },
+    {
+      "path": "observation-shard-2/0934a4d8-observation.json",
+      "bytes": 5301,
+      "sha256": "e96eeb3701733009dadc88f0c07522417e0fcdd5f65bb3d777bccf4b519b0582"
+    },
+    {
+      "path": "observation-shard-2/baseline-observations.json",
+      "bytes": 13592,
+      "sha256": "a0b2ba76c50fdfbf27553cdcd552bd3eed74d098adcafa02547a40628c5968ce"
+    },
+    {
+      "path": "observation-shard-2/check_panel_combinations.py",
+      "bytes": 3671,
+      "sha256": "ba6d36d7606943da1c3a9c89b8fa6e6d56b5e088586954d3054c5b93837041d4"
+    },
+    {
+      "path": "observation-shard-2/check_reflection_view.py",
+      "bytes": 3524,
+      "sha256": "081a1ae38769e6591c471a367843db4c012c29c22abc4937315b9a87f27d349a"
+    },
+    {
+      "path": "observation-shard-2/check_teacher_hypotheses.py",
+      "bytes": 3577,
+      "sha256": "d3e0843ef203ce11602518d05a17aeda9fe1fc0344ff99e589f04687c3ae6ba4"
+    },
+    {
+      "path": "observation-shard-2/existing-family-diagnostic.txt",
+      "bytes": 14470,
+      "sha256": "5856409715b99a66df41e5cfab1697f2a1251ff2f5e1b7ec91948b4f5352a150"
+    },
+    {
+      "path": "observation-shard-2/existing-family-evidence.json",
+      "bytes": 26935,
+      "sha256": "044212edcd6513e0b4385abd927f2dc3e0896c275c85024f5336dd024ef06597"
+    },
+    {
+      "path": "observation-shard-2/graph-negative-evidence.json",
+      "bytes": 1112,
+      "sha256": "4ecf85055465ca042c9c8abea1215c5f853af55c8888e054f6230f96a3086fe3"
+    },
+    {
+      "path": "observation-shard-2/inspect_existing_families.py",
+      "bytes": 3184,
+      "sha256": "24b2b1a4dd2722b5b18bb45a832923a7811ae6c4cfe3df662e8b102fbd9ba1a7"
+    },
+    {
+      "path": "observation-shard-2/observations-report.md",
+      "bytes": 25670,
+      "sha256": "a0324c73c5eefdfc24da532d1e26ab3fe76f7fb90f9958e7c1c3f3ff346a9297"
+    },
+    {
+      "path": "observation-shard-2/observations.json",
+      "bytes": 75719,
+      "sha256": "cf92ec8ef65e968a6591a41546bc23da4689681d87ad1a79181b5edea0c2f736"
+    },
+    {
+      "path": "observation-shard-2/panel-combination-evidence.json",
+      "bytes": 2542,
+      "sha256": "a30e176de230b9e1aca1884584665be4d45a7987e05ecac32eada87e19688f2c"
+    },
+    {
+      "path": "observation-shard-2/teacher-hypothesis-evidence.json",
+      "bytes": 2511,
+      "sha256": "6f8a24dd51186f569cdbe2e5f3a34d29c4a26fafa2b7f05ab0546a13819e4075"
+    },
+    {
+      "path": "observation-shard-2/teacher-observation.txt",
+      "bytes": 48066,
+      "sha256": "71a44b5354aaa3e6a4a238adad2376cf3ba7825e0369e5eee753fbc85a5beb97"
+    },
+    {
+      "path": "observation-shard-2/teacher-only-tasks.json",
+      "bytes": 568554,
+      "sha256": "d29ca9e3fd874bd0f9c566c969a62dd51e9a44aaf7d97fb76d467724ce6920d5"
+    },
+    {
+      "path": "observation-shard-2/write_observations.py",
+      "bytes": 41719,
+      "sha256": "6f70deb429bb48d842113e727149d6dd43d447c3e80b348bbcbf60c6d7e01f08"
+    },
+    {
+      "path": "observation-shard-3/.composition-stdout.txt",
+      "bytes": 17163,
+      "sha256": "6a150afbb8eacf0d04bddf2cfbeb218b843e06fa5e4d0a9766e844c6d643da0e"
+    },
+    {
+      "path": "observation-shard-3/.diagnostic-stdout.txt",
+      "bytes": 28603,
+      "sha256": "fdfa50577703eb7a697dfa66d815cb4017f777a1eca70c6fde1873851abbf4ff"
+    },
+    {
+      "path": "observation-shard-3/baseline-observations.json",
+      "bytes": 13820,
+      "sha256": "25a95553854ce8e3015fb00660239a26122f1d08e6231fbbc25308a05f1f132e"
+    },
+    {
+      "path": "observation-shard-3/build_observation_report.py",
+      "bytes": 35130,
+      "sha256": "5891a9aec84395eebfaed86029bd0d24009bc25c2d26262487901364135ea89b"
+    },
+    {
+      "path": "observation-shard-3/completed-observations.json",
+      "bytes": 238627,
+      "sha256": "33cd871ad1b52dd2d2e0d274758e256cf954286b170a86b5b3cc546c2568decd"
+    },
+    {
+      "path": "observation-shard-3/composition-measurements.json",
+      "bytes": 17162,
+      "sha256": "97e65b70450568dd1bdc74f4a09df8d9ac53c96fd8ba24d34b461a70877be8f6"
+    },
+    {
+      "path": "observation-shard-3/composition_diagnostics.py",
+      "bytes": 9739,
+      "sha256": "479e23b25de76edddd23502d487b4a6f931882057c942045854864bfc7303c7d"
+    },
+    {
+      "path": "observation-shard-3/current-family-guard-measurements.json",
+      "bytes": 44387,
+      "sha256": "18d744928d59199cf11ed69ec982ccc8b29553458d862df64185c1de8bf0c2a1"
+    },
+    {
+      "path": "observation-shard-3/dbff022c-observation.json",
+      "bytes": 39004,
+      "sha256": "dd7493bdb08cfd089361272a4fd531c8a0edf0b513d38339beef5699f00c5390"
+    },
+    {
+      "path": "observation-shard-3/inspect_current_guards.py",
+      "bytes": 2870,
+      "sha256": "7094be86a3d22f4a82fc1ea0b98bf379af1a3a3f1b38998ee02a47cd5830049f"
+    },
+    {
+      "path": "observation-shard-3/observation-report.txt",
+      "bytes": 36218,
+      "sha256": "8acdc43bbac38dd0113fe16ddc510b2771b865d2c6d32506d491c6e6498237f4"
+    },
+    {
+      "path": "observation-shard-3/observations.json",
+      "bytes": 238627,
+      "sha256": "33cd871ad1b52dd2d2e0d274758e256cf954286b170a86b5b3cc546c2568decd"
+    },
+    {
+      "path": "observation-shard-3/release_dbff_observation.py",
+      "bytes": 5258,
+      "sha256": "b6e571c76f565e861de5347b7ebbec3ab637718ec4753f5ab4390e30ded83745"
+    },
+    {
+      "path": "observation-shard-3/teacher-measurements.json",
+      "bytes": 134212,
+      "sha256": "c42c58a4a4d46d530768897b8313dd06ef30aaeb16537262299f6c7c5ece18c9"
+    },
+    {
+      "path": "observation-shard-3/teacher-only-tasks.json",
+      "bytes": 553968,
+      "sha256": "e2bb22010c77b2aa8d20d307efe8e168accfa5b13bd1e592233747a3267a0545"
+    },
+    {
+      "path": "observation-shard-3/teacher_diagnostics.py",
+      "bytes": 4663,
+      "sha256": "cb5dcf3c8dbbb08d5ea13ebd3397b70f42b5f25ca00a45b1e483fb70824541e8"
+    }
+  ],
+  "raw_tar_sha256": "fac93dc2df1c328d25d2503ecb84ba849950b2651d823a6133e6c2ea42c99cfe"
+}

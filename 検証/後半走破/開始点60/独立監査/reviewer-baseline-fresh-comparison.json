@@ -1,0 +1,36 @@
+{
+  "baseline_commit": "cc668e34d7ca014daf9f8944767476d56c56fafc",
+  "previous_artifact_sha256": "89162c13b85753e123d7ab6fc74efaa50006bf53144eb34c85f3e2913f0a7541",
+  "current_artifact_sha256": "2a43e65896a133f424d0cb166e0aa5f3e792ff4efd0b0752fb3a8fc597fbdeb9",
+  "tasks": 120,
+  "examples": 167,
+  "answered": 84,
+  "wrong_grids": 0,
+  "changed_predictions": [],
+  "result_or_status_changes": [],
+  "execution_record_changes": [],
+  "summary": {
+    "mode": "current",
+    "tasks": 120,
+    "test_examples": 167,
+    "correct_tasks": 60,
+    "accuracy": 0.5,
+    "correct_examples": 84,
+    "unanswered": 83,
+    "wrong_attempted_tasks": 7,
+    "resource_failures": {},
+    "seconds": 18.76807387000008,
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961",
+    "cpu_seconds_per_task": 10,
+    "address_space_mib": 512,
+    "wall_seconds_per_task": 60,
+    "workers": 3
+  },
+  "regression_summary": {
+    "files": 67,
+    "tests": 1091,
+    "success": true,
+    "elapsed_seconds": 33.780521079999744
+  }
+}

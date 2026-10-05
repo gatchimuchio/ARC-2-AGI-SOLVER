@@ -1,0 +1,410 @@
+{
+  "files": 67,
+  "tests": 1091,
+  "success": true,
+  "elapsed_seconds": 33.780521079999744,
+  "records": [
+    {
+      "file": "検証/テンプレート充填回帰.py",
+      "exit_code": 0,
+      "tests": 6,
+      "output": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.034s\n\nOK\n"
+    },
+    {
+      "file": "検証/中心配色回帰.py",
+      "exit_code": 0,
+      "tests": 14,
+      "output": "..............\n----------------------------------------------------------------------\nRan 14 tests in 0.155s\n\nOK\n"
+    },
+    {
+      "file": "検証/二値原型回帰.py",
+      "exit_code": 0,
+      "tests": 21,
+      "output": ".....................\n----------------------------------------------------------------------\nRan 21 tests in 0.939s\n\nOK\n"
+    },
+    {
+      "file": "検証/二軸補完回帰.py",
+      "exit_code": 0,
+      "tests": 21,
+      "output": ".....................\n----------------------------------------------------------------------\nRan 21 tests in 0.115s\n\nOK\n"
+    },
+    {
+      "file": "検証/倍率置換回帰.py",
+      "exit_code": 0,
+      "tests": 15,
+      "output": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.143s\n\nOK\n"
+    },
+    {
+      "file": "検証/側周期回帰.py",
+      "exit_code": 0,
+      "tests": 15,
+      "output": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.057s\n\nOK\n"
+    },
+    {
+      "file": "検証/入れ子合成回帰.py",
+      "exit_code": 0,
+      "tests": 10,
+      "output": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.066s\n\nOK\n"
+    },
+    {
+      "file": "検証/凡例展開回帰.py",
+      "exit_code": 0,
+      "tests": 19,
+      "output": "...................\n----------------------------------------------------------------------\nRan 19 tests in 0.056s\n\nOK\n"
+    },
+    {
+      "file": "検証/凡例旋回回帰.py",
+      "exit_code": 0,
+      "tests": 20,
+      "output": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.527s\n\nOK\n"
+    },
+    {
+      "file": "検証/凡例矩形回帰.py",
+      "exit_code": 0,
+      "tests": 34,
+      "output": "..................................\n----------------------------------------------------------------------\nRan 34 tests in 1.287s\n\nOK\n"
+    },
+    {
+      "file": "検証/凡例穴対応回帰.py",
+      "exit_code": 0,
+      "tests": 8,
+      "output": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.166s\n\nOK\n"
+    },
+    {
+      "file": "検証/凡例経路回帰.py",
+      "exit_code": 0,
+      "tests": 15,
+      "output": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.089s\n\nOK\n"
+    },
+    {
+      "file": "検証/凡例集合回帰.py",
+      "exit_code": 0,
+      "tests": 22,
+      "output": "......................\n----------------------------------------------------------------------\nRan 22 tests in 0.126s\n\nOK\n"
+    },
+    {
+      "file": "検証/制御複写回帰.py",
+      "exit_code": 0,
+      "tests": 18,
+      "output": "..................\n----------------------------------------------------------------------\nRan 18 tests in 0.139s\n\nOK\n"
+    },
+    {
+      "file": "検証/包含正規化回帰.py",
+      "exit_code": 0,
+      "tests": 14,
+      "output": "..............\n----------------------------------------------------------------------\nRan 14 tests in 0.215s\n\nOK\n"
+    },
+    {
+      "file": "検証/区切投射回帰.py",
+      "exit_code": 0,
+      "tests": 17,
+      "output": ".................\n----------------------------------------------------------------------\nRan 17 tests in 0.041s\n\nOK\n"
+    },
+    {
+      "file": "検証/十字回帰.py",
+      "exit_code": 0,
+      "tests": 12,
+      "output": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.044s\n\nOK\n"
+    },
+    {
+      "file": "検証/十字曲線回帰.py",
+      "exit_code": 0,
+      "tests": 34,
+      "output": "..................................\n----------------------------------------------------------------------\nRan 34 tests in 0.437s\n\nOK\n"
+    },
+    {
+      "file": "検証/反復行回帰.py",
+      "exit_code": 0,
+      "tests": 13,
+      "output": ".............\n----------------------------------------------------------------------\nRan 13 tests in 0.027s\n\nOK\n"
+    },
+    {
+      "file": "検証/周期帯回帰.py",
+      "exit_code": 0,
+      "tests": 14,
+      "output": "..............\n----------------------------------------------------------------------\nRan 14 tests in 0.041s\n\nOK\n"
+    },
+    {
+      "file": "検証/周期組修復回帰.py",
+      "exit_code": 0,
+      "tests": 12,
+      "output": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.056s\n\nOK\n"
+    },
+    {
+      "file": "検証/四欄反復回帰.py",
+      "exit_code": 0,
+      "tests": 22,
+      "output": "......................\n----------------------------------------------------------------------\nRan 22 tests in 0.062s\n\nOK\n"
+    },
+    {
+      "file": "検証/基点複製回帰.py",
+      "exit_code": 0,
+      "tests": 18,
+      "output": "..................\n----------------------------------------------------------------------\nRan 18 tests in 0.094s\n\nOK\n"
+    },
+    {
+      "file": "検証/対称剪定回帰.py",
+      "exit_code": 0,
+      "tests": 13,
+      "output": ".............\n----------------------------------------------------------------------\nRan 13 tests in 0.080s\n\nOK\n"
+    },
+    {
+      "file": "検証/対角線橋回帰.py",
+      "exit_code": 0,
+      "tests": 10,
+      "output": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.142s\n\nOK\n"
+    },
+    {
+      "file": "検証/対角領域回帰.py",
+      "exit_code": 0,
+      "tests": 10,
+      "output": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.030s\n\nOK\n"
+    },
+    {
+      "file": "検証/帯図形回帰.py",
+      "exit_code": 0,
+      "tests": 18,
+      "output": "..................\n----------------------------------------------------------------------\nRan 18 tests in 0.628s\n\nOK\n"
+    },
+    {
+      "file": "検証/帯輪郭回帰.py",
+      "exit_code": 0,
+      "tests": 15,
+      "output": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.014s\n\nOK\n"
+    },
+    {
+      "file": "検証/形状色回帰.py",
+      "exit_code": 0,
+      "tests": 12,
+      "output": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.448s\n\nOK\n"
+    },
+    {
+      "file": "検証/成分最短経路回帰.py",
+      "exit_code": 0,
+      "tests": 10,
+      "output": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.082s\n\nOK\n"
+    },
+    {
+      "file": "検証/成分直列回帰.py",
+      "exit_code": 0,
+      "tests": 12,
+      "output": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.030s\n\nOK\n"
+    },
+    {
+      "file": "検証/接触配置回帰.py",
+      "exit_code": 0,
+      "tests": 20,
+      "output": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.899s\n\nOK\n"
+    },
+    {
+      "file": "検証/支持構造回帰.py",
+      "exit_code": 0,
+      "tests": 34,
+      "output": "..................................\n----------------------------------------------------------------------\nRan 34 tests in 0.169s\n\nOK\n"
+    },
+    {
+      "file": "検証/放射組立回帰.py",
+      "exit_code": 0,
+      "tests": 12,
+      "output": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.109s\n\nOK\n"
+    },
+    {
+      "file": "検証/枠列整列回帰.py",
+      "exit_code": 0,
+      "tests": 19,
+      "output": "...................\n----------------------------------------------------------------------\nRan 19 tests in 0.106s\n\nOK\n"
+    },
+    {
+      "file": "検証/枠計数回帰.py",
+      "exit_code": 0,
+      "tests": 14,
+      "output": "..............\n----------------------------------------------------------------------\nRan 14 tests in 0.097s\n\nOK\n"
+    },
+    {
+      "file": "検証/格子自己マスク回帰.py",
+      "exit_code": 0,
+      "tests": 9,
+      "output": ".........\n----------------------------------------------------------------------\nRan 9 tests in 0.211s\n\nOK\n"
+    },
+    {
+      "file": "検証/標点組立回帰.py",
+      "exit_code": 0,
+      "tests": 37,
+      "output": "{\"failures\": [], \"optimized\": false, \"passed_cases\": [\"test_absent_background_roles_are_not_removed\", \"test_all_distinct_colored_grids_force_complete_disagreement\", \"test_all_inputs_parsed_before_any_target_is_read\", \"test_all_ten_backgrounds_and_known_raw_roles\", \"test_assertions_raise_even_when_optimized\", \"test_bad_targets_do_not_select_a_packing\", \"test_base_consensus_and_all_four_rotation_aliases\", \"test_equal_color_physical_identity_exchange\", \"test_every_budget_threshold_discards_partial_answers\", \"test_exact_work_and_one_short_after_solutions\", \"test_exception_after_solution_discards_every_model\", \"test_first_occupied_cell_may_differ_from_bbox_top_left\", \"test_fit_searches_all_inputs_before_target_equality\", \"test_holes_and_overlapping_bounding_boxes_preserve_support\", \"test_identity_is_not_vetoed_after_complete_agreement_boundary_injection\", \"test_input_spacing_translation_and_host_rotation\", \"test_invalid_area_and_oversize_canvas\", \"test_invalid_aspect_and_budget\", \"test_invalid_grid_types_bounds_and_values\", \"test_marker_color_elsewhere_is_allowed\", \"test_multiple_backgrounds_cannot_be_rescued_by_area_or_packing\", \"test_non_square_ratio_is_fitted_and_reduced\", \"test_orientation_exception_and_render_boundary_exception\", \"test_palette_permutation_allows_body_zero_and_marker_zero\", \"test_piece_counts_one_two_and_four_are_allowed\", \"test_same_color_overlap_rejected_without_aborting_other_branches\", \"test_second_teacher_search_exception_rejects_fit\", \"test_target_mutation_cannot_change_fitted_aspect_or_prediction\", \"test_teacher_order_preserves_models_and_per_input_work\", \"test_teacher_output_validation_aspect_and_equality_failures\", \"test_two_distinct_current_inputs_required\", \"test_two_singleton_marker_choices_are_retained_and_hold\", \"test_valid_arc_bounds_are_inclusive\", \"test_wrapper_fit_stores_only_immutable_aspect\", \"test_wrapper_teacher_mutation_independence_and_input_unchanged\", \"test_wrapper_unfitted_holds_without_search\", \"test_zero_solutions_is_complete_hold\"], \"successful\": true, \"synthetic_fixture_metrics\": {\"absent_bbox_top_left\": {\"canvas_shape\": [3, 3], \"complete\": true, \"failure\": null, \"models_seen\": 1, \"physical_model_count\": 1, \"unique_grid_count\": 1, \"work\": 103, \"work_categories\": {\"nodes\": 3, \"orientations\": 44, \"placements\": 44, \"solutions\": 12}}, \"base\": {\"canvas_shape\": [2, 2], \"complete\": true, \"failure\": null, \"models_seen\": 4, \"physical_model_count\": 4, \"unique_grid_count\": 1, \"work\": 82, \"work_categories\": {\"nodes\": 6, \"orientations\": 24, \"placements\": 24, \"solutions\": 28}}, \"colored_disagreement\": {\"canvas_shape\": [2, 3], \"complete\": true, \"failure\": \"complete_grids_disagree\", \"models_seen\": 384, \"physical_model_count\": 384, \"unique_grid_count\": 6, \"work\": 5758, \"work_categories\": {\"nodes\": 494, \"orientations\": 40, \"placements\": 1000, \"solutions\": 4224}}, \"exception_after_one_solution\": {\"complete\": false, \"failure\": \"search_exception\", \"models_seen\": 1, \"physical_model_count\": 0, \"work\": 43}, \"exchangeable_same_color\": {\"canvas_shape\": [2, 3], \"complete\": true, \"failure\": null, \"models_seen\": 384, \"physical_model_count\": 384, \"unique_grid_count\": 1, \"work\": 5758, \"work_categories\": {\"nodes\": 494, \"orientations\": 40, \"placements\": 1000, \"solutions\": 4224}}, \"holed_support\": {\"canvas_shape\": [3, 3], \"complete\": true, \"failure\": null, \"models_seen\": 4, \"physical_model_count\": 4, \"unique_grid_count\": 1, \"work\": 142, \"work_categories\": {\"nodes\": 6, \"orientations\": 44, \"placements\": 44, \"solutions\": 48}}, \"marker_color_elsewhere\": {\"canvas_shape\": [3, 3], \"complete\": true, \"failure\": null, \"models_seen\": 4, \"physical_model_count\": 4, \"unique_grid_count\": 1, \"work\": 142, \"work_categories\": {\"nodes\": 6, \"orientations\": 44, \"placements\": 44, \"solutions\": 48}}, \"one_host_only\": {\"canvas_shape\": [2, 2], \"complete\": true, \"failure\": null, \"models_seen\": 1, \"physical_model_count\": 1, \"unique_grid_count\": 1, \"work\": 48, \"work_categories\": {\"nodes\": 2, \"orientations\": 20, \"placements\": 20, \"solutions\": 6}}, \"one_unit_short_after_solutions\": {\"complete\": false, \"failure\": \"search_budget_incomplete\", \"models_seen\": 4, \"physical_model_count\": 0, \"work\": 78}, \"same_color_collision\": {\"canvas_shape\": [3, 3], \"complete\": true, \"failure\": \"complete_grids_disagree\", \"models_seen\": 64, \"physical_model_count\": 64, \"unique_grid_count\": 2, \"work\": 1971, \"work_categories\": {\"nodes\": 123, \"orientations\": 52, \"placements\": 900, \"solutions\": 896}}}, \"tests_run\": 37}\n"
+    },
+    {
+      "file": "検証/標識移動回帰.py",
+      "exit_code": 0,
+      "tests": 12,
+      "output": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.063s\n\nOK\n"
+    },
+    {
+      "file": "検証/標識組立回帰.py",
+      "exit_code": 0,
+      "tests": 14,
+      "output": "..............\n----------------------------------------------------------------------\nRan 14 tests in 0.157s\n\nOK\n"
+    },
+    {
+      "file": "検証/標識計数回帰.py",
+      "exit_code": 0,
+      "tests": 14,
+      "output": "..............\n----------------------------------------------------------------------\nRan 14 tests in 0.232s\n\nOK\n"
+    },
+    {
+      "file": "検証/櫛配置回帰.py",
+      "exit_code": 0,
+      "tests": 29,
+      "output": ".............................\n----------------------------------------------------------------------\nRan 29 tests in 0.319s\n\nOK\n"
+    },
+    {
+      "file": "検証/正方形格子回帰.py",
+      "exit_code": 0,
+      "tests": 14,
+      "output": "..............\n----------------------------------------------------------------------\nRan 14 tests in 0.220s\n\nOK\n"
+    },
+    {
+      "file": "検証/流路回帰.py",
+      "exit_code": 0,
+      "tests": 13,
+      "output": ".............\n----------------------------------------------------------------------\nRan 13 tests in 0.123s\n\nOK\n"
+    },
+    {
+      "file": "検証/物体slot回帰.py",
+      "exit_code": 0,
+      "tests": 19,
+      "output": "...................\n----------------------------------------------------------------------\nRan 19 tests in 0.105s\n\nOK\n"
+    },
+    {
+      "file": "検証/物体端投射回帰.py",
+      "exit_code": 0,
+      "tests": 7,
+      "output": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.304s\n\nOK\n"
+    },
+    {
+      "file": "検証/物体群整列回帰.py",
+      "exit_code": 0,
+      "tests": 10,
+      "output": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.260s\n\nOK\n"
+    },
+    {
+      "file": "検証/疎点転写回帰.py",
+      "exit_code": 0,
+      "tests": 19,
+      "output": "...................\n----------------------------------------------------------------------\nRan 19 tests in 0.113s\n\nOK\n"
+    },
+    {
+      "file": "検証/種境界回帰.py",
+      "exit_code": 0,
+      "tests": 15,
+      "output": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.062s\n\nOK\n"
+    },
+    {
+      "file": "検証/穴形拡大回帰.py",
+      "exit_code": 0,
+      "tests": 13,
+      "output": ".............\n----------------------------------------------------------------------\nRan 13 tests in 0.224s\n\nOK\n"
+    },
+    {
+      "file": "検証/穴輪郭回帰.py",
+      "exit_code": 0,
+      "tests": 12,
+      "output": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.163s\n\nOK\n"
+    },
+    {
+      "file": "検証/空白移動回帰.py",
+      "exit_code": 0,
+      "tests": 13,
+      "output": ".............\n----------------------------------------------------------------------\nRan 13 tests in 0.035s\n\nOK\n"
+    },
+    {
+      "file": "検証/色群充填回帰.py",
+      "exit_code": 0,
+      "tests": 8,
+      "output": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.048s\n\nOK\n"
+    },
+    {
+      "file": "検証/行周期回帰.py",
+      "exit_code": 0,
+      "tests": 13,
+      "output": ".............\n----------------------------------------------------------------------\nRan 13 tests in 0.087s\n\nOK\n"
+    },
+    {
+      "file": "検証/記号命令回帰.py",
+      "exit_code": 0,
+      "tests": 24,
+      "output": "........................\n----------------------------------------------------------------------\nRan 24 tests in 0.267s\n\nOK\n"
+    },
+    {
+      "file": "検証/象限配色回帰.py",
+      "exit_code": 0,
+      "tests": 21,
+      "output": ".....................\n----------------------------------------------------------------------\nRan 21 tests in 0.050s\n\nOK\n"
+    },
+    {
+      "file": "検証/距離層回帰.py",
+      "exit_code": 0,
+      "tests": 15,
+      "output": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.096s\n\nOK\n"
+    },
+    {
+      "file": "検証/軸反射回帰.py",
+      "exit_code": 0,
+      "tests": 12,
+      "output": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.043s\n\nOK\n"
+    },
+    {
+      "file": "検証/軸投射回帰.py",
+      "exit_code": 0,
+      "tests": 24,
+      "output": "........................\n----------------------------------------------------------------------\nRan 24 tests in 0.066s\n\nOK\n"
+    },
+    {
+      "file": "検証/辺対応抽出回帰.py",
+      "exit_code": 0,
+      "tests": 9,
+      "output": ".........\n----------------------------------------------------------------------\nRan 9 tests in 0.070s\n\nOK\n"
+    },
+    {
+      "file": "検証/遮蔽区画回帰.py",
+      "exit_code": 0,
+      "tests": 30,
+      "output": "..............................\n----------------------------------------------------------------------\nRan 30 tests in 0.238s\n\nOK\n"
+    },
+    {
+      "file": "検証/部分見本回帰.py",
+      "exit_code": 0,
+      "tests": 11,
+      "output": "...........\n----------------------------------------------------------------------\nRan 11 tests in 0.291s\n\nOK\n"
+    },
+    {
+      "file": "検証/配置展開回帰.py",
+      "exit_code": 0,
+      "tests": 18,
+      "output": "..................\n----------------------------------------------------------------------\nRan 18 tests in 0.042s\n\nOK\n"
+    },
+    {
+      "file": "検証/重畳組立回帰.py",
+      "exit_code": 0,
+      "tests": 13,
+      "output": ".............\n----------------------------------------------------------------------\nRan 13 tests in 1.166s\n\nOK\n"
+    },
+    {
+      "file": "検証/開口壁回帰.py",
+      "exit_code": 0,
+      "tests": 28,
+      "output": "............................\n----------------------------------------------------------------------\nRan 28 tests in 0.297s\n\nOK\n"
+    },
+    {
+      "file": "検証/順位着色回帰.py",
+      "exit_code": 0,
+      "tests": 14,
+      "output": "..............\n----------------------------------------------------------------------\nRan 14 tests in 0.078s\n\nOK\n"
+    },
+    {
+      "file": "検証/領域転写回帰.py",
+      "exit_code": 0,
+      "tests": 8,
+      "output": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.057s\n\nOK\n"
+    }
+  ]
+}

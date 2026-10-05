@@ -1,0 +1,136 @@
+{
+  "schema": "arc2-second-half-independent-gate-contract-v1",
+  "baseline_remote_commit": "cc668e34d7ca014daf9f8944767476d56c56fafc",
+  "baseline_remote_tree": "08b4161457909e8575fa365abbcb5ed176bf3ef1",
+  "status": "review recommendation; not a modification of protected authority",
+  "frozen_samples": [
+    "all pre-existing comparison/evidence artifacts",
+    "all 学習台帳/*_v1 payload bytes and IDs",
+    "same-instance retention FAIL and two exit137 persistence trials",
+    "HDS, authority, official pin, scorer, runner"
+  ],
+  "ledger_evolution": {
+    "strategy": "Keep 67-entry v1 bytes immutable. Append a versioned delta using identical 21-field record schema and five-origin evidence structures; append composed index referencing base+delta. Do not label historical v1 runtime state as current.",
+    "rule_id": "Never recycle an existing rule ID; first additions may start arc2-comparison-068, with explicit registry mapping. A comparison count is not a distinct learned principle count.",
+    "required_21_fields": [
+      "対象",
+      "役割",
+      "観測事実",
+      "関係",
+      "条件",
+      "作用",
+      "保存条件",
+      "反証条件",
+      "競合条件",
+      "HOLD条件",
+      "支持経験",
+      "反例経験",
+      "適用範囲",
+      "教師fitで選択",
+      "入力から毎回導出",
+      "固定prior",
+      "旧資産由来",
+      "新規固定文法",
+      "新規実装",
+      "HDSが実際に学習した要素",
+      "関連する他規則"
+    ],
+    "origin_axes": [
+      "A HDS実学習",
+      "B 教師fit",
+      "C 固定prior",
+      "D 旧資産",
+      "E 新規固定文法"
+    ],
+    "evidence": "Each claim cites source commit/blob or pre-publication content SHA256, path, JSON Pointer and Unicode span or code line span. No data fill by inference. Not-recorded and explicit-negative stay separate.",
+    "guard_origin": "New guard/wrapper/acceptance proof belongs to 新規実装 unless concrete evidence establishes another origin; fit bool alone is not a learned parameter."
+  },
+  "attempt_record_required": [
+    "immutable attempt ID",
+    "candidate revision/code hashes",
+    "previous accepted code and score artifact hashes",
+    "teacher-only origin/refuter observations",
+    "reuse check across object/relation/action/preservation/HOLD/prior",
+    "all finite hypothesis definition and no-pruning justification",
+    "input role resolution before later success",
+    "all teacher fit results and counterexamples",
+    "frozen candidate/output hashes before scoring",
+    "same HDS training/support/admission/quarantine evidence",
+    "query input-only transport/access audit",
+    "full120/167 execution and scoring artifacts",
+    "all previous correct grids byte/structure exact equality",
+    "wrong grid count independently computed",
+    "resource/error statuses distinct from no-answer",
+    "full regression script manifest/counts/exits",
+    "accept/reject decision and limitations"
+  ],
+  "failure_record_required": [
+    "event ID and attempt ID",
+    "stage and task/example audit identity (never runtime routing)",
+    "family and frozen code hash",
+    "type",
+    "raw reason/status/exception/return code",
+    "input provenance and allowed exposure stage",
+    "candidate counts/exhaustiveness/completeness",
+    "evidence artifact hash/path/offset",
+    "observed versus inferred cause",
+    "retained diagnostic data",
+    "follow-up or vNext candidate reference"
+  ],
+  "failure_types": [
+    "candidate_generation_failure",
+    "teacher_reproduction_failure",
+    "query_HOLD",
+    "ambiguous",
+    "conflicting_predictions",
+    "resource_failure",
+    "timeout",
+    "out_of_scope",
+    "false_positive_attempt",
+    "regression",
+    "semantic_deficit",
+    "boundary_deficit"
+  ],
+  "failure_scope": "Persist rejected attempts as well as adopted changes. Stage statuses may be not_run; never translate not_run into pass. Final no-answer and timeout/resource failure are separate axes.",
+  "metrics": {
+    "base": {
+      "complete_tasks": 60,
+      "correct_examples": 84,
+      "total_tasks": 120,
+      "total_examples": 167,
+      "partial_tasks": 7,
+      "unanswered_examples": 83,
+      "wrong_grids": 0,
+      "resource_failures": 0,
+      "comparison_families": 67,
+      "regression_scripts": 67,
+      "regression_tests": 1091
+    },
+    "per_checkpoint": [
+      "solved task IDs",
+      "correct example identities",
+      "rule-family registry count",
+      "new primitive count",
+      "partial task and answered example counts",
+      "HOLD task/example counts and reasons",
+      "wrong grids",
+      "resource failures by type",
+      "regressions by test and prior correct grid",
+      "reused-rule solved task IDs",
+      "new-family solved task IDs",
+      "new failures and observed LM deficits"
+    ],
+    "counting": "Define partial_task as 0<correct_examples<test_count. wrong_attempted_tasks from legacy scorer includes partials and must not substitute for wrong_grid. Define reuse denominator before reporting rate; tasks and examples remain distinct. Always compare both last accepted and frozen60."
+  },
+  "gate": {
+    "candidate": "previous correct grids identical AND wrong grids=0 AND no resource-failure increase AND all teachers reproduced AND query input-only AND information separation maintained AND all regressions PASS",
+    "speedup": "All outputs, HOLD statuses and reasons, all regressions and evidence identical; measured speed improvement under same resources. Only mathematically exact avoidance of redundant work. No heuristic/top-k pruning or timeout reduction.",
+    "parallel": "Read-only disjoint teacher shards and independent test processes; same HDS only sequential; one candidate integration and one canonical write at a time.",
+    "stop": "120 complete and all artifact gates OR evidenced dominant limit of current route. No vNext development or core/authority modification."
+  },
+  "caveats": [
+    "Public evaluation development is not hidden/generalization measurement.",
+    "Existing runner separation is a data-flow contract, not an OS filesystem sandbox; do not overstate.",
+    "Inherited old-asset exposure caveats and failed studies remain intact."
+  ]
+}

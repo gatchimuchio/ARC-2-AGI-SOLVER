@@ -1,0 +1,11 @@
+{
+  "unique_event_ids": true,
+  "count": 8063,
+  "types": {
+    "candidate_generation_failure": 7980,
+    "query_HOLD": 83
+  },
+  "bad_source_pointers": [],
+  "raw_sha256_matches": true,
+  "gzip_sha256_matches": true
+}

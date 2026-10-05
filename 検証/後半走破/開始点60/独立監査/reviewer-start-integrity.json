@@ -1,0 +1,83 @@
+{
+  "baseline": "cc668e34d7ca014daf9f8944767476d56c56fafc",
+  "repo_root": "/workspace/scratch/7408259c1ab2/arc2-second-half",
+  "all_files": 328,
+  "mismatch": [],
+  "protected": [
+    {
+      "path": "AGENTS.md",
+      "blob": "f00e552e6d14c99d1734f326398624ad700fb6b4"
+    },
+    {
+      "path": "HDS/README.md",
+      "blob": "725251d6971545dd4cb08778751dda98e356159c"
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/README.md",
+      "blob": "76986707d4cff0a24b4c1146c24aca8eb598ab3d"
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/__init__.py",
+      "blob": "ef58e4969fcd4ba4c4310285c4d45cc740f8150c"
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/台帳.py",
+      "blob": "31f6e4d86c42448d90a6e829b86ab99e441982dc"
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/吸気系.py",
+      "blob": "81ffd4ea6e1a2f611020faeb5d28416ab0d79172"
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/型.py",
+      "blob": "0ade344cf314d710ace16d4e53907b89ee47d742"
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/実行系.py",
+      "blob": "7dc89687e75d00b7b0b87f5fa23d950649a514f6"
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/懐疑.py",
+      "blob": "82016fb3fc15f0baa7af3b5b7c792420c95188ca"
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/排気系.py",
+      "blob": "54f3bec51663dde9dedd38f8bf007d336d40b9ea"
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/推論.py",
+      "blob": "e394dc97f4986ca3212b1e10398060ac2495d3e6"
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/検証.py",
+      "blob": "28e5ac81be2160a705e7edef016f92702640b5a8"
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/永続化.py",
+      "blob": "68a4f62d4dfea55b481de0f36b8e2436afa6b0a2"
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/系統.py",
+      "blob": "ef2088692ae333bca598fa5e7cd4b10de58c5ad1"
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/適応.py",
+      "blob": "7af4f016518df38207e9b66d075846fa7efdea0d"
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/pyproject.toml",
+      "blob": "a37ffd808c861d4a150cdbbd4b98f0f0db115716"
+    },
+    {
+      "path": "制御/現在状態.json",
+      "blob": "30919687b6d08cff5a2508db19d7939fd79f64cc"
+    },
+    {
+      "path": "運用/権限順序.md",
+      "blob": "cf7f8b7231c10bdcb57a0599d636e452be67d03a"
+    }
+  ],
+  "official_pin": "f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "official_files": 1125,
+  "official_mismatches": []
+}
