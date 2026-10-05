@@ -1,0 +1,1289 @@
+{
+  "schema": "arc2-candidate008-checkpoint069-final-metrics-v1",
+  "attempt_id": "attempt-008-cue-aligned-stack",
+  "admission_status": "conditional local package; parent exact package audit and ADMIT pending",
+  "baseline60": {
+    "commit": "cc668e34d7ca014daf9f8944767476d56c56fafc",
+    "complete_tasks": 60,
+    "correct_examples": 84,
+    "HOLD_examples": 83,
+    "partial_tasks": 7,
+    "families": 67,
+    "wrong_grids": 0,
+    "resource_failures": 0
+  },
+  "last_accepted61": {
+    "solver_commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+    "complete_tasks": 61,
+    "correct_examples": 86,
+    "HOLD_examples": 81,
+    "partial_tasks": 7,
+    "families": 68,
+    "wrong_grids": 0,
+    "resource_failures": 0
+  },
+  "candidate62": {
+    "complete_tasks": 62,
+    "correct_examples": 87,
+    "total_tasks": 120,
+    "total_examples": 167,
+    "HOLD_examples": 80,
+    "partial_tasks": 7,
+    "all_HOLD_tasks": 51,
+    "incomplete_tasks": 58,
+    "families_if_admitted": 69,
+    "wrong_grids": 0,
+    "resource_failures": 0,
+    "regressed_correct_grids": 0,
+    "failed_regression_scripts": 0,
+    "strict_no_new_rule_reuse_tasks": 0,
+    "existing_assets_in_new_family_solved_tasks_if_admitted": 2,
+    "new_accepted_families_from60_if_admitted": 2
+  },
+  "delta_from60": {
+    "complete_tasks": 2,
+    "correct_examples": 3,
+    "HOLD_examples": -3,
+    "families_if_admitted": 2,
+    "partial_tasks": 0,
+    "wrong_grids": 0,
+    "resource_failures": 0
+  },
+  "delta_from61": {
+    "complete_tasks": 1,
+    "correct_examples": 1,
+    "HOLD_examples": -1,
+    "families_if_admitted": 1,
+    "partial_tasks": 0,
+    "wrong_grids": 0,
+    "resource_failures": 0
+  },
+  "examples": [
+    {
+      "task_id_audit_only": "0934a4d8",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/0/results/0"
+    },
+    {
+      "task_id_audit_only": "135a2760",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/1/results/0"
+    },
+    {
+      "task_id_audit_only": "136b0064",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/2/results/0"
+    },
+    {
+      "task_id_audit_only": "13e47133",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/3/results/0"
+    },
+    {
+      "task_id_audit_only": "13e47133",
+      "query_index_audit_only": 1,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/3/results/1"
+    },
+    {
+      "task_id_audit_only": "142ca369",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/4/results/0"
+    },
+    {
+      "task_id_audit_only": "142ca369",
+      "query_index_audit_only": 1,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/4/results/1"
+    },
+    {
+      "task_id_audit_only": "16b78196",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/5/results/0"
+    },
+    {
+      "task_id_audit_only": "16de56c4",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/6/results/0"
+    },
+    {
+      "task_id_audit_only": "16de56c4",
+      "query_index_audit_only": 1,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/6/results/1"
+    },
+    {
+      "task_id_audit_only": "1818057f",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/7/results/0"
+    },
+    {
+      "task_id_audit_only": "195c6913",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/8/results/0"
+    },
+    {
+      "task_id_audit_only": "195c6913",
+      "query_index_audit_only": 1,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/8/results/1"
+    },
+    {
+      "task_id_audit_only": "1ae2feb7",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/9/results/0"
+    },
+    {
+      "task_id_audit_only": "1ae2feb7",
+      "query_index_audit_only": 1,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/9/results/1"
+    },
+    {
+      "task_id_audit_only": "1ae2feb7",
+      "query_index_audit_only": 2,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/9/results/2"
+    },
+    {
+      "task_id_audit_only": "20270e3b",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/10/results/0"
+    },
+    {
+      "task_id_audit_only": "20270e3b",
+      "query_index_audit_only": 1,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/10/results/1"
+    },
+    {
+      "task_id_audit_only": "20a9e565",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/11/results/0"
+    },
+    {
+      "task_id_audit_only": "20a9e565",
+      "query_index_audit_only": 1,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/11/results/1"
+    },
+    {
+      "task_id_audit_only": "21897d95",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/12/results/0"
+    },
+    {
+      "task_id_audit_only": "21897d95",
+      "query_index_audit_only": 1,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/12/results/1"
+    },
+    {
+      "task_id_audit_only": "221dfab4",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/13/results/0"
+    },
+    {
+      "task_id_audit_only": "221dfab4",
+      "query_index_audit_only": 1,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/13/results/1"
+    },
+    {
+      "task_id_audit_only": "247ef758",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/14/results/0"
+    },
+    {
+      "task_id_audit_only": "247ef758",
+      "query_index_audit_only": 1,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/14/results/1"
+    },
+    {
+      "task_id_audit_only": "269e22fb",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/15/results/0"
+    },
+    {
+      "task_id_audit_only": "269e22fb",
+      "query_index_audit_only": 1,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/15/results/1"
+    },
+    {
+      "task_id_audit_only": "271d71e2",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/16/results/0"
+    },
+    {
+      "task_id_audit_only": "28a6681f",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/17/results/0"
+    },
+    {
+      "task_id_audit_only": "291dc1e1",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/18/results/0"
+    },
+    {
+      "task_id_audit_only": "2b83f449",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/19/results/0"
+    },
+    {
+      "task_id_audit_only": "2ba387bc",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/20/results/0"
+    },
+    {
+      "task_id_audit_only": "2c181942",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/21/results/0"
+    },
+    {
+      "task_id_audit_only": "2d0172a1",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/22/results/0"
+    },
+    {
+      "task_id_audit_only": "2d0172a1",
+      "query_index_audit_only": 1,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/22/results/1"
+    },
+    {
+      "task_id_audit_only": "31f7f899",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/23/results/0"
+    },
+    {
+      "task_id_audit_only": "332f06d7",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/24/results/0"
+    },
+    {
+      "task_id_audit_only": "35ab12c3",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/25/results/0"
+    },
+    {
+      "task_id_audit_only": "36a08778",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/26/results/0"
+    },
+    {
+      "task_id_audit_only": "36a08778",
+      "query_index_audit_only": 1,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/26/results/1"
+    },
+    {
+      "task_id_audit_only": "38007db0",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/27/results/0"
+    },
+    {
+      "task_id_audit_only": "38007db0",
+      "query_index_audit_only": 1,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/27/results/1"
+    },
+    {
+      "task_id_audit_only": "3a25b0d8",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/28/results/0"
+    },
+    {
+      "task_id_audit_only": "3a25b0d8",
+      "query_index_audit_only": 1,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/28/results/1"
+    },
+    {
+      "task_id_audit_only": "3dc255db",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/29/results/0"
+    },
+    {
+      "task_id_audit_only": "3e6067c3",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/30/results/0"
+    },
+    {
+      "task_id_audit_only": "3e6067c3",
+      "query_index_audit_only": 1,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/30/results/1"
+    },
+    {
+      "task_id_audit_only": "409aa875",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/31/results/0"
+    },
+    {
+      "task_id_audit_only": "446ef5d2",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/32/results/0"
+    },
+    {
+      "task_id_audit_only": "446ef5d2",
+      "query_index_audit_only": 1,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/32/results/1"
+    },
+    {
+      "task_id_audit_only": "45a5af55",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/33/results/0"
+    },
+    {
+      "task_id_audit_only": "4a21e3da",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/34/results/0"
+    },
+    {
+      "task_id_audit_only": "4c3d4a41",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/35/results/0"
+    },
+    {
+      "task_id_audit_only": "4c3d4a41",
+      "query_index_audit_only": 1,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/35/results/1"
+    },
+    {
+      "task_id_audit_only": "4c416de3",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/36/results/0"
+    },
+    {
+      "task_id_audit_only": "4c7dc4dd",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/37/results/0"
+    },
+    {
+      "task_id_audit_only": "4c7dc4dd",
+      "query_index_audit_only": 1,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/37/results/1"
+    },
+    {
+      "task_id_audit_only": "4e34c42c",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/38/results/0"
+    },
+    {
+      "task_id_audit_only": "4e34c42c",
+      "query_index_audit_only": 1,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/38/results/1"
+    },
+    {
+      "task_id_audit_only": "53fb4810",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/39/results/0"
+    },
+    {
+      "task_id_audit_only": "5545f144",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/40/results/0"
+    },
+    {
+      "task_id_audit_only": "581f7754",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/41/results/0"
+    },
+    {
+      "task_id_audit_only": "581f7754",
+      "query_index_audit_only": 1,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/41/results/1"
+    },
+    {
+      "task_id_audit_only": "58490d8a",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/42/results/0"
+    },
+    {
+      "task_id_audit_only": "58f5dbd5",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/43/results/0"
+    },
+    {
+      "task_id_audit_only": "5961cc34",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/44/results/0"
+    },
+    {
+      "task_id_audit_only": "5dbc8537",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/45/results/0"
+    },
+    {
+      "task_id_audit_only": "5dbc8537",
+      "query_index_audit_only": 1,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/45/results/1"
+    },
+    {
+      "task_id_audit_only": "62593bfd",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/46/results/0"
+    },
+    {
+      "task_id_audit_only": "62593bfd",
+      "query_index_audit_only": 1,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/46/results/1"
+    },
+    {
+      "task_id_audit_only": "64efde09",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/47/results/0"
+    },
+    {
+      "task_id_audit_only": "65b59efc",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/48/results/0"
+    },
+    {
+      "task_id_audit_only": "65b59efc",
+      "query_index_audit_only": 1,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/48/results/1"
+    },
+    {
+      "task_id_audit_only": "67e490f4",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/49/results/0"
+    },
+    {
+      "task_id_audit_only": "6e453dd6",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/50/results/0"
+    },
+    {
+      "task_id_audit_only": "6e4f6532",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/51/results/0"
+    },
+    {
+      "task_id_audit_only": "6e4f6532",
+      "query_index_audit_only": 1,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/51/results/1"
+    },
+    {
+      "task_id_audit_only": "6ffbe589",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/52/results/0"
+    },
+    {
+      "task_id_audit_only": "71e489b6",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/53/results/0"
+    },
+    {
+      "task_id_audit_only": "71e489b6",
+      "query_index_audit_only": 1,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/53/results/1"
+    },
+    {
+      "task_id_audit_only": "7491f3cf",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/54/results/0"
+    },
+    {
+      "task_id_audit_only": "7666fa5d",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/55/results/0"
+    },
+    {
+      "task_id_audit_only": "78332cb0",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/56/results/0"
+    },
+    {
+      "task_id_audit_only": "78332cb0",
+      "query_index_audit_only": 1,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/56/results/1"
+    },
+    {
+      "task_id_audit_only": "7b0280bc",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/57/results/0"
+    },
+    {
+      "task_id_audit_only": "7b3084d4",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/58/results/0"
+    },
+    {
+      "task_id_audit_only": "7b5033c1",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/59/results/0"
+    },
+    {
+      "task_id_audit_only": "7b80bb43",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/60/results/0"
+    },
+    {
+      "task_id_audit_only": "7c66cb00",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/61/results/0"
+    },
+    {
+      "task_id_audit_only": "7ed72f31",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/62/results/0"
+    },
+    {
+      "task_id_audit_only": "7ed72f31",
+      "query_index_audit_only": 1,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/62/results/1"
+    },
+    {
+      "task_id_audit_only": "800d221b",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/63/results/0"
+    },
+    {
+      "task_id_audit_only": "80a900e0",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/64/results/0"
+    },
+    {
+      "task_id_audit_only": "8698868d",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/65/results/0"
+    },
+    {
+      "task_id_audit_only": "88bcf3b4",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/66/results/0"
+    },
+    {
+      "task_id_audit_only": "88bcf3b4",
+      "query_index_audit_only": 1,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/66/results/1"
+    },
+    {
+      "task_id_audit_only": "88e364bc",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/67/results/0"
+    },
+    {
+      "task_id_audit_only": "88e364bc",
+      "query_index_audit_only": 1,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/67/results/1"
+    },
+    {
+      "task_id_audit_only": "89565ca0",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/68/results/0"
+    },
+    {
+      "task_id_audit_only": "898e7135",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/69/results/0"
+    },
+    {
+      "task_id_audit_only": "8b7bacbf",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/70/results/0"
+    },
+    {
+      "task_id_audit_only": "8b7bacbf",
+      "query_index_audit_only": 1,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/70/results/1"
+    },
+    {
+      "task_id_audit_only": "8b9c3697",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/71/results/0"
+    },
+    {
+      "task_id_audit_only": "8e5c0c38",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/72/results/0"
+    },
+    {
+      "task_id_audit_only": "8e5c0c38",
+      "query_index_audit_only": 1,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/72/results/1"
+    },
+    {
+      "task_id_audit_only": "8f215267",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/73/results/0"
+    },
+    {
+      "task_id_audit_only": "8f3a5a89",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/74/results/0"
+    },
+    {
+      "task_id_audit_only": "9385bd28",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/75/results/0"
+    },
+    {
+      "task_id_audit_only": "9385bd28",
+      "query_index_audit_only": 1,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/75/results/1"
+    },
+    {
+      "task_id_audit_only": "97d7923e",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/76/results/0"
+    },
+    {
+      "task_id_audit_only": "981571dc",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/77/results/0"
+    },
+    {
+      "task_id_audit_only": "9aaea919",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/78/results/0"
+    },
+    {
+      "task_id_audit_only": "9bbf930d",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/79/results/0"
+    },
+    {
+      "task_id_audit_only": "a251c730",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/80/results/0"
+    },
+    {
+      "task_id_audit_only": "a25697e4",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/81/results/0"
+    },
+    {
+      "task_id_audit_only": "a25697e4",
+      "query_index_audit_only": 1,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/81/results/1"
+    },
+    {
+      "task_id_audit_only": "a32d8b75",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/82/results/0"
+    },
+    {
+      "task_id_audit_only": "a32d8b75",
+      "query_index_audit_only": 1,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/82/results/1"
+    },
+    {
+      "task_id_audit_only": "a395ee82",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/83/results/0"
+    },
+    {
+      "task_id_audit_only": "a47bf94d",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/84/results/0"
+    },
+    {
+      "task_id_audit_only": "a6f40cea",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/85/results/0"
+    },
+    {
+      "task_id_audit_only": "aa4ec2a5",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/86/results/0"
+    },
+    {
+      "task_id_audit_only": "abc82100",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/87/results/0"
+    },
+    {
+      "task_id_audit_only": "b0039139",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/88/results/0"
+    },
+    {
+      "task_id_audit_only": "b0039139",
+      "query_index_audit_only": 1,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/88/results/1"
+    },
+    {
+      "task_id_audit_only": "b10624e5",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/89/results/0"
+    },
+    {
+      "task_id_audit_only": "b5ca7ac4",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/90/results/0"
+    },
+    {
+      "task_id_audit_only": "b6f77b65",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/91/results/0"
+    },
+    {
+      "task_id_audit_only": "b6f77b65",
+      "query_index_audit_only": 1,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/91/results/1"
+    },
+    {
+      "task_id_audit_only": "b99e7126",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/92/results/0"
+    },
+    {
+      "task_id_audit_only": "b9e38dc0",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/93/results/0"
+    },
+    {
+      "task_id_audit_only": "bf45cf4b",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/94/results/0"
+    },
+    {
+      "task_id_audit_only": "c4d067a0",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/95/results/0"
+    },
+    {
+      "task_id_audit_only": "c7f57c3e",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/96/results/0"
+    },
+    {
+      "task_id_audit_only": "cb2d8a2c",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/97/results/0"
+    },
+    {
+      "task_id_audit_only": "cb2d8a2c",
+      "query_index_audit_only": 1,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/97/results/1"
+    },
+    {
+      "task_id_audit_only": "cbebaa4b",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/98/results/0"
+    },
+    {
+      "task_id_audit_only": "cbebaa4b",
+      "query_index_audit_only": 1,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/98/results/1"
+    },
+    {
+      "task_id_audit_only": "d35bdbdc",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/99/results/0"
+    },
+    {
+      "task_id_audit_only": "d35bdbdc",
+      "query_index_audit_only": 1,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/99/results/1"
+    },
+    {
+      "task_id_audit_only": "d35bdbdc",
+      "query_index_audit_only": 2,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/99/results/2"
+    },
+    {
+      "task_id_audit_only": "d59b0160",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/100/results/0"
+    },
+    {
+      "task_id_audit_only": "d8e07eb2",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/101/results/0"
+    },
+    {
+      "task_id_audit_only": "d8e07eb2",
+      "query_index_audit_only": 1,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/101/results/1"
+    },
+    {
+      "task_id_audit_only": "da515329",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/102/results/0"
+    },
+    {
+      "task_id_audit_only": "db0c5428",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/103/results/0"
+    },
+    {
+      "task_id_audit_only": "db695cfb",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/104/results/0"
+    },
+    {
+      "task_id_audit_only": "dbff022c",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/105/results/0"
+    },
+    {
+      "task_id_audit_only": "dd6b8c4b",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/106/results/0"
+    },
+    {
+      "task_id_audit_only": "dd6b8c4b",
+      "query_index_audit_only": 1,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/106/results/1"
+    },
+    {
+      "task_id_audit_only": "de809cff",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/107/results/0"
+    },
+    {
+      "task_id_audit_only": "dfadab01",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/108/results/0"
+    },
+    {
+      "task_id_audit_only": "e12f9a14",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/109/results/0"
+    },
+    {
+      "task_id_audit_only": "e12f9a14",
+      "query_index_audit_only": 1,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/109/results/1"
+    },
+    {
+      "task_id_audit_only": "e3721c99",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/110/results/0"
+    },
+    {
+      "task_id_audit_only": "e3721c99",
+      "query_index_audit_only": 1,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/110/results/1"
+    },
+    {
+      "task_id_audit_only": "e376de54",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/111/results/0"
+    },
+    {
+      "task_id_audit_only": "e8686506",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/112/results/0"
+    },
+    {
+      "task_id_audit_only": "e87109e9",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/113/results/0"
+    },
+    {
+      "task_id_audit_only": "edb79dae",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/114/results/0"
+    },
+    {
+      "task_id_audit_only": "eee78d87",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/115/results/0"
+    },
+    {
+      "task_id_audit_only": "f560132c",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/116/results/0"
+    },
+    {
+      "task_id_audit_only": "f931b4a8",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/117/results/0"
+    },
+    {
+      "task_id_audit_only": "f931b4a8",
+      "query_index_audit_only": 1,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/117/results/1"
+    },
+    {
+      "task_id_audit_only": "faa9f03d",
+      "query_index_audit_only": 0,
+      "answered": false,
+      "status": "断定保留",
+      "source_pointer": "/execution/118/results/0"
+    },
+    {
+      "task_id_audit_only": "fc7cae8d",
+      "query_index_audit_only": 0,
+      "answered": true,
+      "status": "出力",
+      "source_pointer": "/execution/119/results/0"
+    }
+  ],
+  "primitive_counts": {
+    "definition": "Named semantic view/distance/order/action helpers, identical counting basis to candidate002; utility/serialization/consensus/enumeration/HDS adapter functions excluded",
+    "new_semantic_helpers": 5,
+    "names": [
+      "component_inventory",
+      "prepare_input",
+      "all_orders",
+      "render_role",
+      "cue_rotation"
+    ],
+    "prior_accepted002": 4,
+    "cumulative_from60_if_admitted": 9,
+    "existing_main_functions_directly_reused": 3,
+    "existing_main_function_names": [
+      "mixed_region_dicts_for_grid",
+      "transform_grid_by_name",
+      "component_hole_count"
+    ],
+    "source_dependencies": 22,
+    "source_dependencies_are_semantic_helpers": false,
+    "prior_trial_AST_reuse_counts_as_existing_main_reuse": false,
+    "strict_no_new_rule_reuse_since60": {
+      "solved_tasks": 0,
+      "newly_closed_tasks": 2
+    },
+    "existing_primitive_composition_in_new_families": {
+      "solved_tasks": 2,
+      "newly_closed_tasks": 2
+    },
+    "independent_HDS_learned_principle_count": "not inferred from helper/family count",
+    "review": "sources/audit/reviewer-candidate008-metrics.json"
+  },
+  "rejected_trial_caveat": "Accepted score excludes rejected candidate007 wrong1 and original candidate004 resource failures3; those remain preserved in their trial records and are not claimed absent",
+  "source": {
+    "path": "sources/candidate008/current-official.json",
+    "sha256": "65c9c51a9cdb442404c1a3f4b27de159e9073429f7a0f5ff4ae942a2384b031a"
+  },
+  "source_core_status": "Unchanged HDS v0.4.2; existing bridge registration only",
+  "original_pending_checkpoint": {
+    "path": "sources/candidate008/checkpoint-metrics.json",
+    "sha256": "38dc7fef9cdc9f1a6650cfc80f5f10f09672b6688eb9436a535317a32aadf724",
+    "preserved_unchanged": true
+  },
+  "publication_commit": null,
+  "limitations": [
+    "公開evaluationの61→62完全課題/86→87例であり、未見またはhidden汎化の証明ではない。",
+    "既知教師研究後の別prospective固定prior。元15360/24からのpruningでもHDS発見でもない。",
+    "prospective以前の不変証明は重要6原成果物のみ。root metadataは後から生成・更新され、旧metadata全体不変の主張はしない。",
+    "最初の817成功regressionには実行script単体freezeがない。最終821と現行69/1983はsource hash付き。初期失敗があったという証拠はない。",
+    "直接fit/query observerは完了teacher/model境界のprefixを保存する。未完了role/order内部prefixを完全に記録する保証はなく、whole native solverはfinal結果のみ。",
+    "資源合成注入はMemoryError/RecursionError/TimeoutError×3境界=9scenario。実CPU/AS枯渇、wall hard kill、切れたjournalの実証ではない。Python open auditはOS隔離ではない。",
+    "現在全replay8751callの返却診断を記録した別観測。原歴史実行そのものではなく、未公開内部仮説まで網羅するclaimではない。",
+    "support5は同値不採用・予測空である一方raw排気は出力。この原記録を改変せず、排気文字列単独を採用根拠にしない。",
+    "過去別trialのcandidate007 wrong1、candidate004 resource3等は別履歴に残る。accepted scoreのwrong0/resource0で消し去らない。他候補payloadは本採用へ含めない。",
+    "新069文章経験は既存67/068長寿命HDSへ再投入しない。HDS core v0.4.2は不変。vNext未実装。",
+    "親の正確package監査・ADMIT・publicationは未実施。公開commitとその親commitは未確定でありnull。"
+  ]
+}

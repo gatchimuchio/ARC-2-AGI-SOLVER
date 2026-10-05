@@ -1,0 +1,410 @@
+{
+  "schema": "arc2-candidate008-metadata-correction-v2",
+  "revision": 2,
+  "state": "local conditional replacement; independent parent audit and ADMIT pending",
+  "scope": "Description precision only: distinguish foreground/full-crop preservation from reconstructed inter-component background padding. No runtime/source/grammar/model/evaluation changes or reruns.",
+  "corrections": {
+    "作用": {
+      "before": "cue導出proper C4回転後の全cropを、最大crop幅のgapless縦stackへexact/floor/ceil規約で中央配置する。余白はその入力roleの背景色。guideのみ消費し、全payloadを保持する。",
+      "after": "cue導出proper C4回転後の全cropを、最大crop幅のgapless縦stackへexact/floor/ceil規約で中央配置する。全foregroundと各完全crop内部を保持し、成分間の背景paddingは積層結果に合わせて再構成する。guideを出力から除き、再構成する余白にはその入力roleの背景色を用いる。"
+    },
+    "保存条件": {
+      "before": "全foreground所有と完全crop内の他成分混入を検査し、crop全色count・foreground色count・穴数・全体foregroundを保存する。入力、教師、immutable保持6モデルは不変。旧67台帳と068既公開bytesは不変。",
+      "after": "全foreground所有と完全crop内の他成分混入を検査し、crop全色count・foreground色count・穴数・全体foregroundを保存する。各完全crop内部は共通proper C4変換で保持するが、component bbox外の成分間背景paddingは保存対象ではなく積層結果に合わせて再構成する。guideは出力から除く。入力、教師、immutable保持6モデルは不変。旧67台帳と068既公開bytesは不変。"
+    }
+  },
+  "previous_publication_manifest": {
+    "path": "publication-files.json",
+    "sha256": "8f9c42b78716673dd7d7bec309f5fcf6c540df2fd5657812a56d8e74fe454adf",
+    "bytes": 12610,
+    "history_archive": "metadata-v1-history.tar.gz"
+  },
+  "history_archive": {
+    "path": "metadata-v1-history.tar.gz",
+    "bytes": 312732,
+    "sha256": "e4cfeb5d4ee57536d3d27e079d5bf1e31d8ea30f3bc63a3ebd8bf8effc1c1377",
+    "members": [
+      {
+        "path": "ADMISSION.json",
+        "bytes": 3800,
+        "sha256": "796d51cae35da9e9d5a00343a6afc4a15502e99a35464b9a59831830cbbbd448"
+      },
+      {
+        "path": "PUBLICATION.md",
+        "bytes": 5729,
+        "sha256": "c676e67dd78e99ea72583ce901e2e13384a8fc5a009d4ea57c342c1d5cbac1c4"
+      },
+      {
+        "path": "README.md",
+        "bytes": 353,
+        "sha256": "dbf5fc2aae9f6859a200ed1ba411634330e4973172e281e693dbfeae97a7174c"
+      },
+      {
+        "path": "build_package.py",
+        "bytes": 51111,
+        "sha256": "75db25cfa58ce030b9b820a788d7599d6ffc41291a2758e9695b597a852c54dc"
+      },
+      {
+        "path": "checkpoint069.json",
+        "bytes": 37330,
+        "sha256": "868be3d5a4040701dae660d8a9bbc3670e8a80fbc14f5504f0c852c9273b960c"
+      },
+      {
+        "path": "external-references.json",
+        "bytes": 7596,
+        "sha256": "a9ac48db89fd02368d214462cdb31eb11921510f404d56209a7d1eba5545e021"
+      },
+      {
+        "path": "lossless-manifest.json",
+        "bytes": 569200,
+        "sha256": "1f2d8d780c1ffa9bf50ee62d8d9cd78b2b9797bfa44279208e5a001173abe94f"
+      },
+      {
+        "path": "package-validation.json",
+        "bytes": 3061,
+        "sha256": "638db306b3e47606fe55c87022f6aafc2c8ff53db3e5111a5b925564ceb5fa17"
+      },
+      {
+        "path": "publication-files.json",
+        "bytes": 12610,
+        "sha256": "8f9c42b78716673dd7d7bec309f5fcf6c540df2fd5657812a56d8e74fe454adf"
+      },
+      {
+        "path": "source-preservation.json",
+        "bytes": 76323,
+        "sha256": "40dde9be88790d3faae3d25e83a1e6d332a2d3ffe6f89e74286aa3a237ed387b"
+      },
+      {
+        "path": "全標本索引.json",
+        "bytes": 880998,
+        "sha256": "71d7ba8678ee6fb73ca9e1e1f86e394163627eac66f9ca2bb3a103efd808078d"
+      },
+      {
+        "path": "報告十項目.json",
+        "bytes": 3511,
+        "sha256": "5173cec56f2d363894b3bc7d641d07bc6530c2f7f4d33f5effbbb991b39b9e34"
+      },
+      {
+        "path": "学習台帳/ARC2規則台帳_delta_069_v1.json",
+        "bytes": 323233,
+        "sha256": "a8902143a717df70a66e50e2f0c3c77863c364f010d727b73362401ef5f56687"
+      },
+      {
+        "path": "学習台帳/ARC2規則索引_composed_069_v1.json",
+        "bytes": 5538,
+        "sha256": "ff4852c52f88374e6ef19dbcbe979317a5bb44270ae46cbccb33fd2080219bb4"
+      },
+      {
+        "path": "学習台帳/ARC2規則経験_delta_069_v1.jsonl",
+        "bytes": 648110,
+        "sha256": "2c7b2b0fd18863588db20d404fb0711a1f9a2ffd09b83501fcdeffcce0833b79"
+      },
+      {
+        "path": "比較.json",
+        "bytes": 12525,
+        "sha256": "8d5ed8df6b843b29146a1a6eb8c4185a8c9a263c612fb2485c270ca66ad8e7f7"
+      }
+    ]
+  },
+  "history_original_package_files": [
+    {
+      "original_repository_path": "検証/後半走破/到達点62_枠端積層/比較.json",
+      "history_path": "比較.json",
+      "bytes": 12525,
+      "sha256": "8d5ed8df6b843b29146a1a6eb8c4185a8c9a263c612fb2485c270ca66ad8e7f7"
+    },
+    {
+      "original_repository_path": "検証/後半走破/到達点62_枠端積層/checkpoint069.json",
+      "history_path": "checkpoint069.json",
+      "bytes": 37330,
+      "sha256": "868be3d5a4040701dae660d8a9bbc3670e8a80fbc14f5504f0c852c9273b960c"
+    },
+    {
+      "original_repository_path": "検証/後半走破/到達点62_枠端積層/ADMISSION.json",
+      "history_path": "ADMISSION.json",
+      "bytes": 3800,
+      "sha256": "796d51cae35da9e9d5a00343a6afc4a15502e99a35464b9a59831830cbbbd448"
+    },
+    {
+      "original_repository_path": "検証/後半走破/到達点62_枠端積層/報告十項目.json",
+      "history_path": "報告十項目.json",
+      "bytes": 3511,
+      "sha256": "5173cec56f2d363894b3bc7d641d07bc6530c2f7f4d33f5effbbb991b39b9e34"
+    },
+    {
+      "original_repository_path": "検証/後半走破/到達点62_枠端積層/全標本索引.json",
+      "history_path": "全標本索引.json",
+      "bytes": 880998,
+      "sha256": "71d7ba8678ee6fb73ca9e1e1f86e394163627eac66f9ca2bb3a103efd808078d"
+    },
+    {
+      "original_repository_path": "検証/後半走破/到達点62_枠端積層/source-preservation.json",
+      "history_path": "source-preservation.json",
+      "bytes": 76323,
+      "sha256": "40dde9be88790d3faae3d25e83a1e6d332a2d3ffe6f89e74286aa3a237ed387b"
+    },
+    {
+      "original_repository_path": "検証/後半走破/到達点62_枠端積層/lossless-manifest.json",
+      "history_path": "lossless-manifest.json",
+      "bytes": 569200,
+      "sha256": "1f2d8d780c1ffa9bf50ee62d8d9cd78b2b9797bfa44279208e5a001173abe94f"
+    },
+    {
+      "original_repository_path": "検証/後半走破/到達点62_枠端積層/external-references.json",
+      "history_path": "external-references.json",
+      "bytes": 7596,
+      "sha256": "a9ac48db89fd02368d214462cdb31eb11921510f404d56209a7d1eba5545e021"
+    },
+    {
+      "original_repository_path": "検証/後半走破/到達点62_枠端積層/README.md",
+      "history_path": "README.md",
+      "bytes": 353,
+      "sha256": "dbf5fc2aae9f6859a200ed1ba411634330e4973172e281e693dbfeae97a7174c"
+    },
+    {
+      "original_repository_path": "検証/後半走破/到達点62_枠端積層/PUBLICATION.md",
+      "history_path": "PUBLICATION.md",
+      "bytes": 5729,
+      "sha256": "c676e67dd78e99ea72583ce901e2e13384a8fc5a009d4ea57c342c1d5cbac1c4"
+    },
+    {
+      "original_repository_path": "検証/後半走破/到達点62_枠端積層/package-validation.json",
+      "history_path": "package-validation.json",
+      "bytes": 3061,
+      "sha256": "638db306b3e47606fe55c87022f6aafc2c8ff53db3e5111a5b925564ceb5fa17"
+    },
+    {
+      "original_repository_path": "検証/後半走破/到達点62_枠端積層/学習台帳/ARC2規則台帳_delta_069_v1.json",
+      "history_path": "学習台帳/ARC2規則台帳_delta_069_v1.json",
+      "bytes": 323233,
+      "sha256": "a8902143a717df70a66e50e2f0c3c77863c364f010d727b73362401ef5f56687"
+    },
+    {
+      "original_repository_path": "検証/後半走破/到達点62_枠端積層/学習台帳/ARC2規則経験_delta_069_v1.jsonl",
+      "history_path": "学習台帳/ARC2規則経験_delta_069_v1.jsonl",
+      "bytes": 648110,
+      "sha256": "2c7b2b0fd18863588db20d404fb0711a1f9a2ffd09b83501fcdeffcce0833b79"
+    },
+    {
+      "original_repository_path": "検証/後半走破/到達点62_枠端積層/学習台帳/ARC2規則索引_composed_069_v1.json",
+      "history_path": "学習台帳/ARC2規則索引_composed_069_v1.json",
+      "bytes": 5538,
+      "sha256": "ff4852c52f88374e6ef19dbcbe979317a5bb44270ae46cbccb33fd2080219bb4"
+    },
+    {
+      "original_repository_path": "検証/後半走破/到達点62_枠端積層/evidencearchive.tar.gz",
+      "history_path": "evidencearchive.tar.gz",
+      "bytes": 8303591,
+      "sha256": "cbc1f6d390179ec517b26b64fb4c8ae759c0e53dd273efe431ac266a91af5c0a"
+    }
+  ],
+  "history_byte_identical_current_archive": {
+    "path": "evidencearchive.tar.gz",
+    "bytes": 8303591,
+    "sha256": "cbc1f6d390179ec517b26b64fb4c8ae759c0e53dd273efe431ac266a91af5c0a",
+    "local_immutable_copy": "history/metadata-v1/evidencearchive.tar.gz",
+    "reason": "Exact same bytes at the current root; omitted from the small history transport archive only to avoid duplicate upload."
+  },
+  "history_runtime_files_unchanged": [
+    {
+      "kind": "runtime_or_targeted_regression",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-008-border-ordered-stack/admission-staging/sources/repository/接続/ARC2/枠端積層候補.py",
+      "repository_path": "接続/ARC2/枠端積層候補.py",
+      "bytes": 3805,
+      "sha256": "61a25f250c9901d6ab98f9a0a74971e33f133372cf77b7191e1370555bc8dbc1"
+    },
+    {
+      "kind": "runtime_or_targeted_regression",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-008-border-ordered-stack/admission-staging/sources/repository/接続/ARC2/枠端積層幾何.py",
+      "repository_path": "接続/ARC2/枠端積層幾何.py",
+      "bytes": 12002,
+      "sha256": "7474cc2ac839d4b2230572f862e36f74708a4aa3cf82b161c678281b6abb7ea9"
+    },
+    {
+      "kind": "runtime_or_targeted_regression",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-008-border-ordered-stack/admission-staging/sources/repository/接続/ARC2/枠端積層教材.py",
+      "repository_path": "接続/ARC2/枠端積層教材.py",
+      "bytes": 7151,
+      "sha256": "15a9d0b1455b6c2040922e15efaa37880f4b4f9aeb64cfa19463fa96e49eaa13"
+    },
+    {
+      "kind": "runtime_or_targeted_regression",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-008-border-ordered-stack/admission-staging/sources/repository/検証/枠端積層回帰.py",
+      "repository_path": "検証/枠端積層回帰.py",
+      "bytes": 27603,
+      "sha256": "835e80323df2285ba33dcbc71db0fbb96761f3ffa1db6b338be662364afe8b6f"
+    },
+    {
+      "kind": "runtime_or_targeted_regression",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-008-border-ordered-stack/admission-staging/sources/repository/検証/枠端積層資料/README.md",
+      "repository_path": "検証/枠端積層資料/README.md",
+      "bytes": 1105,
+      "sha256": "269f1d159a7af4fc8682b3a46b09f4ff180372d2674797fb3a76254144749040"
+    },
+    {
+      "kind": "runtime_or_targeted_regression",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-008-border-ordered-stack/admission-staging/sources/repository/検証/枠端積層資料/保持モデル.json.gz",
+      "repository_path": "検証/枠端積層資料/保持モデル.json.gz",
+      "bytes": 112,
+      "sha256": "74218e32a4964c53af6726eb5f00d1945616ccdd040974384511a1b35d216e5e"
+    },
+    {
+      "kind": "runtime_or_targeted_regression",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-008-border-ordered-stack/admission-staging/sources/repository/検証/枠端積層資料/候補固定AST.json.gz",
+      "repository_path": "検証/枠端積層資料/候補固定AST.json.gz",
+      "bytes": 6576,
+      "sha256": "86b99774d9b47899aa1767069b4735360a89633d96689a1d953619b52afd587b"
+    },
+    {
+      "kind": "runtime_or_targeted_regression",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-008-border-ordered-stack/admission-staging/sources/repository/検証/枠端積層資料/全240教師返値.json.gz",
+      "repository_path": "検証/枠端積層資料/全240教師返値.json.gz",
+      "bytes": 12488,
+      "sha256": "5c7bb9bfef1a79ec6fd6fbde95c41352ca1d74e70b3b4d06494557e2934671ae"
+    },
+    {
+      "kind": "runtime_or_targeted_regression",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-008-border-ordered-stack/admission-staging/sources/repository/検証/枠端積層資料/全対照返値.json.gz",
+      "repository_path": "検証/枠端積層資料/全対照返値.json.gz",
+      "bytes": 95300,
+      "sha256": "cc2a3312b35f0cb3ae42ba6fc45a18f7853dac7fb28b1d9e4a4c24a59730d6bc"
+    },
+    {
+      "kind": "runtime_or_targeted_regression",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-008-border-ordered-stack/admission-staging/sources/repository/検証/枠端積層資料/公開helper固定AST.json.gz",
+      "repository_path": "検証/枠端積層資料/公開helper固定AST.json.gz",
+      "bytes": 1314,
+      "sha256": "02f62da356fb770000d8bbaf8c7c2931642e821d3f115cde75d9feefe2bb5410"
+    },
+    {
+      "kind": "runtime_or_targeted_regression",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-008-border-ordered-stack/admission-staging/sources/repository/検証/枠端積層資料/教師.json.gz",
+      "repository_path": "検証/枠端積層資料/教師.json.gz",
+      "bytes": 324,
+      "sha256": "657dd07f84ffe455093ebbe3405edf094018eee2becb7a6248d97eeb305e74a6"
+    },
+    {
+      "kind": "runtime_or_targeted_regression",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-008-border-ordered-stack/admission-staging/sources/repository/検証/枠端積層資料/期待対照.json.gz",
+      "repository_path": "検証/枠端積層資料/期待対照.json.gz",
+      "bytes": 1670,
+      "sha256": "5cfa81920b806136855ac4f4a7679be118c5c3ea7a71747b2274c0cd32c41284"
+    },
+    {
+      "kind": "runtime_or_targeted_regression",
+      "local_path": "/workspace/scratch/7408259c1ab2/arc2-second-half-audit/candidate-008-border-ordered-stack/admission-staging/sources/repository/接続/ARC2/HDS接続.py",
+      "repository_path": "接続/ARC2/HDS接続.py",
+      "bytes": 21155,
+      "sha256": "e3911369f33fc35207277575c5d61cd017b21d9120df7864753e47fed7615268"
+    }
+  ],
+  "history_resolution": "Extract metadata-v1-history.tar.gz to its own root. Resolve original package files there, the original evidencearchive.tar.gz through the exact byte-identical current archive, and thirteen runtime files through their unchanged hash-pinned local/repository paths. Its sources are the same complete original archive. Old manifest absolute local_path strings are provenance; use this history-root map for replaced metadata.",
+  "changed_existing_package_files": [
+    {
+      "path": "比較.json",
+      "previous_sha256": "8d5ed8df6b843b29146a1a6eb8c4185a8c9a263c612fb2485c270ca66ad8e7f7",
+      "current_sha256": "e503315373853f88d7d3d9b44b11ced4b538d2782e7c5883c816abfba9f94494",
+      "previous_bytes": 12525,
+      "current_bytes": 12863
+    },
+    {
+      "path": "README.md",
+      "previous_sha256": "dbf5fc2aae9f6859a200ed1ba411634330e4973172e281e693dbfeae97a7174c",
+      "current_sha256": "c94cfdc844a7e359103014ddb9c3331b49612e69acfabb9e8d7cfa627bd5f0aa",
+      "previous_bytes": 353,
+      "current_bytes": 640
+    },
+    {
+      "path": "PUBLICATION.md",
+      "previous_sha256": "c676e67dd78e99ea72583ce901e2e13384a8fc5a009d4ea57c342c1d5cbac1c4",
+      "current_sha256": "993159fb41e96131955766fbebdc0bdae097807d068160e62c30afe5fb3162ec",
+      "previous_bytes": 5729,
+      "current_bytes": 7116
+    },
+    {
+      "path": "学習台帳/ARC2規則台帳_delta_069_v1.json",
+      "previous_sha256": "a8902143a717df70a66e50e2f0c3c77863c364f010d727b73362401ef5f56687",
+      "current_sha256": "a662f9840f00bde52abf8c5c2ca7ceee90739b0bef338378e843c67ee521cacd",
+      "previous_bytes": 323233,
+      "current_bytes": 323909
+    },
+    {
+      "path": "学習台帳/ARC2規則経験_delta_069_v1.jsonl",
+      "previous_sha256": "2c7b2b0fd18863588db20d404fb0711a1f9a2ffd09b83501fcdeffcce0833b79",
+      "current_sha256": "71d154159593492ad75f8bde4ab55472f30a6e06f687938c3a0deac09bf4ad6e",
+      "previous_bytes": 648110,
+      "current_bytes": 649800
+    },
+    {
+      "path": "学習台帳/ARC2規則索引_composed_069_v1.json",
+      "previous_sha256": "ff4852c52f88374e6ef19dbcbe979317a5bb44270ae46cbccb33fd2080219bb4",
+      "current_sha256": "8305e7f9b88ff54896d14f258705258bd3de77c1a48d0787315542d206c08e7e",
+      "previous_bytes": 5538,
+      "current_bytes": 5538
+    }
+  ],
+  "unchanged_existing_package_files": [
+    {
+      "path": "checkpoint069.json",
+      "sha256": "868be3d5a4040701dae660d8a9bbc3670e8a80fbc14f5504f0c852c9273b960c",
+      "bytes": 37330
+    },
+    {
+      "path": "ADMISSION.json",
+      "sha256": "796d51cae35da9e9d5a00343a6afc4a15502e99a35464b9a59831830cbbbd448",
+      "bytes": 3800
+    },
+    {
+      "path": "報告十項目.json",
+      "sha256": "5173cec56f2d363894b3bc7d641d07bc6530c2f7f4d33f5effbbb991b39b9e34",
+      "bytes": 3511
+    },
+    {
+      "path": "全標本索引.json",
+      "sha256": "71d7ba8678ee6fb73ca9e1e1f86e394163627eac66f9ca2bb3a103efd808078d",
+      "bytes": 880998
+    },
+    {
+      "path": "source-preservation.json",
+      "sha256": "40dde9be88790d3faae3d25e83a1e6d332a2d3ffe6f89e74286aa3a237ed387b",
+      "bytes": 76323
+    },
+    {
+      "path": "lossless-manifest.json",
+      "sha256": "1f2d8d780c1ffa9bf50ee62d8d9cd78b2b9797bfa44279208e5a001173abe94f",
+      "bytes": 569200
+    },
+    {
+      "path": "external-references.json",
+      "sha256": "a9ac48db89fd02368d214462cdb31eb11921510f404d56209a7d1eba5545e021",
+      "bytes": 7596
+    },
+    {
+      "path": "package-validation.json",
+      "sha256": "638db306b3e47606fe55c87022f6aafc2c8ff53db3e5111a5b925564ceb5fa17",
+      "bytes": 3061
+    },
+    {
+      "path": "evidencearchive.tar.gz",
+      "sha256": "cbc1f6d390179ec517b26b64fb4c8ae759c0e53dd273efe431ac266a91af5c0a",
+      "bytes": 8303591
+    }
+  ],
+  "verification": {
+    "citations_verified": 132,
+    "natural_projection_mappings_verified": 29,
+    "natural_projection_content_unchanged": true,
+    "natural_projection_sha256": "802210a97f987441dbd1be4f8de77268e1ae76301ae238469fe0df5c84a512d8",
+    "reason_projection_unchanged": "Its action and preservation inputs were already verbatim frozen implementation excerpts; the ambiguous prose was only in source classification metadata. Updated experience wrappers/full-source metadata now use the corrected comparison.",
+    "old_and_new_ledger_schema_equal": true,
+    "old_and_new_experience_schema_equal": true,
+    "runtime_files_unchanged": 13,
+    "production_freeze_entries_unchanged": 232,
+    "evidence_archive_unchanged": true,
+    "old_metadata_exact_bytes_preserved": true,
+    "solver_or_source_reexecution": false,
+    "git_or_runtime_write": false
+  },
+  "publication_commit": null,
+  "publication_parent_commit": null
+}

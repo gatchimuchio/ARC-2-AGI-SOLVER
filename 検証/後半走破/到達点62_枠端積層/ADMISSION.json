@@ -1,0 +1,69 @@
+{
+  "schema": "arc2-candidate-admission-v1",
+  "candidate": "attempt-008-cue-aligned-stack",
+  "採否": "条件付き採用案・未ADMIT",
+  "適用開始条件": "親による正確package監査と明示ADMIT、許可されたpublicationの全blob hash/size確認後に限り有効。現在はローカル案であり採用/公開済ではない。",
+  "previous_main": null,
+  "solver_baseline": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+  "publication_commit": null,
+  "publication_parent_commit": null,
+  "purpose": "固定proper C4 cue priorを持つ全6教師適合モデルの完全合意候補を既存HDS同値gateへ接続する。",
+  "previous": {
+    "complete_tasks": 61,
+    "correct_examples": 86,
+    "HOLD_examples": 81,
+    "partial_tasks": 7,
+    "wrong_grid": 0,
+    "resource_failures": 0
+  },
+  "current": {
+    "complete_tasks": 62,
+    "correct_examples": 87,
+    "HOLD_examples": 80,
+    "partial_tasks": 7,
+    "wrong_grid": 0,
+    "resource_failures": 0
+  },
+  "delta": {
+    "complete_tasks": 1,
+    "correct_examples": 1,
+    "HOLD_examples": -1,
+    "partial_tasks": 0,
+    "wrong_grid": 0,
+    "resource_failures": 0
+  },
+  "precision_gate": {
+    "all_previous86_grids_identical": true,
+    "wrong_grids": 0,
+    "resource_failures": 0,
+    "full_regression_scripts": 69,
+    "full_regression_checks": 1983,
+    "full120_replay_exact": true,
+    "core_unchanged": "v0.4.2"
+  },
+  "runtime_family_count_if_admitted": 69,
+  "new_family_count": 1,
+  "new_semantic_helpers": [
+    "component_inventory",
+    "prepare_input",
+    "all_orders",
+    "render_role",
+    "cue_rotation"
+  ],
+  "cumulative_new_semantic_helpers_from60_if_admitted": 9,
+  "source_resolution_root": "検証/後半走破/到達点62_枠端積層",
+  "evidence_resolution": "PUBLICATION.md describes explicit roots, complete archive, byte-identical deduplication and immutable published Git pins. publication-files.json is a LOCAL exact transport manifest, not an authorization to publish.",
+  "limitations": [
+    "公開evaluationの61→62完全課題/86→87例であり、未見またはhidden汎化の証明ではない。",
+    "既知教師研究後の別prospective固定prior。元15360/24からのpruningでもHDS発見でもない。",
+    "prospective以前の不変証明は重要6原成果物のみ。root metadataは後から生成・更新され、旧metadata全体不変の主張はしない。",
+    "最初の817成功regressionには実行script単体freezeがない。最終821と現行69/1983はsource hash付き。初期失敗があったという証拠はない。",
+    "直接fit/query observerは完了teacher/model境界のprefixを保存する。未完了role/order内部prefixを完全に記録する保証はなく、whole native solverはfinal結果のみ。",
+    "資源合成注入はMemoryError/RecursionError/TimeoutError×3境界=9scenario。実CPU/AS枯渇、wall hard kill、切れたjournalの実証ではない。Python open auditはOS隔離ではない。",
+    "現在全replay8751callの返却診断を記録した別観測。原歴史実行そのものではなく、未公開内部仮説まで網羅するclaimではない。",
+    "support5は同値不採用・予測空である一方raw排気は出力。この原記録を改変せず、排気文字列単独を採用根拠にしない。",
+    "過去別trialのcandidate007 wrong1、candidate004 resource3等は別履歴に残る。accepted scoreのwrong0/resource0で消し去らない。他候補payloadは本採用へ含めない。",
+    "新069文章経験は既存67/068長寿命HDSへ再投入しない。HDS core v0.4.2は不変。vNext未実装。",
+    "親の正確package監査・ADMIT・publicationは未実施。公開commitとその親commitは未確定でありnull。"
+  ]
+}

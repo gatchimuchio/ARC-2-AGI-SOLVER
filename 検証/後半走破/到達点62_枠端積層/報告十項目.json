@@ -1,0 +1,37 @@
+{
+  "対象": "candidate008 枠端積層の条件付き069採用package。ローカルのみ、親の正確監査/ADMIT待ち。",
+  "観測": "62/120完全課題、87/167正解例、HOLD80、partial7、wrong0/resource0。旧86格子一致、69script1983check、全120replay一致。",
+  "既存規則適用結果": "旧67+公開068はbytes不変。HDS v0.4.2同値を4実観測で学習。既存main3関数を再利用し、新5helper、60から累計9。",
+  "不足": "正式ADMIT・publication commit未確定。未知/hidden汎化、hard-kill実証、文章経験再投入、vNextは未実施。",
+  "候補": "ARC枠端積層を069としてappend-only登録する完全package。240全program→保持6、native4支持、proper C4固定priorを明記。",
+  "反証": "元15360/24全履歴、negative教師、HOLD対照、全120教師86160返値、資源9scenario、support5不採用、現在失敗8298イベントを保持。",
+  "適用範囲": "宣言済境界role・完全crop・cue proper C4・全保持model成功合意。公開evaluation上の前進に限定。",
+  "未確認事項": [
+    "公開evaluationの61→62完全課題/86→87例であり、未見またはhidden汎化の証明ではない。",
+    "既知教師研究後の別prospective固定prior。元15360/24からのpruningでもHDS発見でもない。",
+    "prospective以前の不変証明は重要6原成果物のみ。root metadataは後から生成・更新され、旧metadata全体不変の主張はしない。",
+    "最初の817成功regressionには実行script単体freezeがない。最終821と現行69/1983はsource hash付き。初期失敗があったという証拠はない。",
+    "直接fit/query observerは完了teacher/model境界のprefixを保存する。未完了role/order内部prefixを完全に記録する保証はなく、whole native solverはfinal結果のみ。",
+    "資源合成注入はMemoryError/RecursionError/TimeoutError×3境界=9scenario。実CPU/AS枯渇、wall hard kill、切れたjournalの実証ではない。Python open auditはOS隔離ではない。",
+    "現在全replay8751callの返却診断を記録した別観測。原歴史実行そのものではなく、未公開内部仮説まで網羅するclaimではない。",
+    "support5は同値不採用・予測空である一方raw排気は出力。この原記録を改変せず、排気文字列単独を採用根拠にしない。",
+    "過去別trialのcandidate007 wrong1、candidate004 resource3等は別履歴に残る。accepted scoreのwrong0/resource0で消し去らない。他候補payloadは本採用へ含めない。",
+    "新069文章経験は既存67/068長寿命HDSへ再投入しない。HDS core v0.4.2は不変。vNext未実装。",
+    "親の正確package監査・ADMIT・publicationは未実施。公開commitとその親commitは未確定でありnull。"
+  ],
+  "推奨次検査": "親がpublication-files.jsonの全repository_path/bytes/hash、source引用、lossless archive、旧台帳pinsを独立監査し、別途ADMITを判断する。",
+  "証拠参照": [
+    "比較.json",
+    "checkpoint069.json",
+    "ADMISSION.json",
+    "学習台帳/ARC2規則台帳_delta_069_v1.json",
+    "学習台帳/ARC2規則経験_delta_069_v1.jsonl",
+    "学習台帳/ARC2規則索引_composed_069_v1.json",
+    "全標本索引.json",
+    "source-preservation.json",
+    "lossless-manifest.json",
+    "evidencearchive.tar.gz",
+    "external-references.json",
+    "publication-files.json"
+  ]
+}

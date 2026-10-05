@@ -1,0 +1,137 @@
+{
+  "スキーマ版": "arc2-rule-composed-index-v1",
+  "baseline": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+  "状態": "conditional; exact package audit and parent ADMIT pending",
+  "登録単位": "比較系統。HDS独立原理数ではない",
+  "base_count": 68,
+  "delta_count": 1,
+  "composed_count": 69,
+  "base_unchanged": [
+    {
+      "repository_path": "学習台帳/ARC2規則台帳_v1.json",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+      "git_blob_sha": "fdab32e1c2c6f6e89606c4f01ece1cfa22c6fd9d",
+      "sha256": "a4182171f2762b6cbde7852fe50c1cbbd2aa3ef5ddc7dc18117006dce1f012f0",
+      "bytes": 3512236,
+      "storage": "external_pinned_repository",
+      "byte_identity_verified": true
+    },
+    {
+      "repository_path": "学習台帳/ARC2規則索引_v1.json",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+      "git_blob_sha": "7d1209166c4e6a467bcd7e24102fbcb4bf09c35b",
+      "sha256": "9d2fcf5f3089592992673c4a02ea8935acf37139d16931e35f798f276a42b3b2",
+      "bytes": 35807,
+      "storage": "external_pinned_repository",
+      "byte_identity_verified": true
+    },
+    {
+      "repository_path": "学習台帳/ARC2規則経験_v1.jsonl",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+      "git_blob_sha": "d8989c664c8d60d5f2070eb970420f08d1b07e24",
+      "sha256": "5905139cc6723b97c67035c00e3f2ea9633ff58ef0e96b81a6676f8c636ae7c1",
+      "bytes": 7621296,
+      "storage": "external_pinned_repository",
+      "byte_identity_verified": true
+    },
+    {
+      "repository_path": "学習台帳/ARC2語彙台帳_v1.json",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+      "git_blob_sha": "3d663c70d3685a7c7f7fdefd32bd0cdbcc18ac01",
+      "sha256": "07bd0efeed4513ffc32e9ba00d2d1b512f8c0974bbf15eba0e96f104e81c8c07",
+      "bytes": 982789,
+      "storage": "external_pinned_repository",
+      "byte_identity_verified": true
+    },
+    {
+      "repository_path": "学習台帳/README.md",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+      "git_blob_sha": "68dbc45c1d4d21fa1e5e5c399c666e9828985860",
+      "sha256": "8a0762df89507a0b86e524d78f890021f641ebdfbca2889c7ab1d2dbe09e0571",
+      "bytes": 4266,
+      "storage": "external_pinned_repository",
+      "byte_identity_verified": true
+    },
+    {
+      "repository_path": "検証/後半走破/到達点61_距離回収/学習台帳/ARC2規則台帳_delta_068_v1.json",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+      "git_blob_sha": "387e34f858b3fadc338d41e9af2b18d75ac5695c",
+      "sha256": "a868d71edaa7b7abaff2a9ed5e2338327922048d8a6dad8859785359218127e3",
+      "bytes": 278661,
+      "storage": "external_pinned_repository",
+      "byte_identity_verified": true
+    },
+    {
+      "repository_path": "検証/後半走破/到達点61_距離回収/学習台帳/ARC2規則索引_composed_068_v1.json",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+      "git_blob_sha": "7fd3e7e1b4e8a96c22f50cb10a52a4f069c61668",
+      "sha256": "835cb8ebd0e47be3e9907ebdc258226d0319fabdf83c076618b596a891535a00",
+      "bytes": 2456,
+      "storage": "external_pinned_repository",
+      "byte_identity_verified": true
+    },
+    {
+      "repository_path": "検証/後半走破/到達点61_距離回収/学習台帳/ARC2規則経験_delta_068_v1.jsonl",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+      "git_blob_sha": "23a547894384f0d880f5d22a8e27f9aa96c01bc1",
+      "sha256": "22a683bfe181635c09be45586be1b0004281c5a36792fdaf11f5e46e3249488d",
+      "bytes": 543986,
+      "storage": "external_pinned_repository",
+      "byte_identity_verified": true
+    }
+  ],
+  "delta": [
+    {
+      "path": "学習台帳/ARC2規則台帳_delta_069_v1.json",
+      "sha256": "a662f9840f00bde52abf8c5c2ca7ceee90739b0bef338378e843c67ee521cacd"
+    },
+    {
+      "path": "学習台帳/ARC2規則経験_delta_069_v1.jsonl",
+      "sha256": "71d154159593492ad75f8bde4ab55472f30a6e06f687938c3a0deac09bf4ad6e"
+    }
+  ],
+  "規則": [
+    {
+      "規則ID": "arc2-comparison-069",
+      "規則名": "枠端積層",
+      "台帳path": "学習台帳/ARC2規則台帳_delta_069_v1.json",
+      "台帳pointer": "/規則/0",
+      "出典比較記録": "比較.json",
+      "出典commit": null,
+      "blob_SHA": "46994e91b0f2d732715ac5c64fca06be3164ea01",
+      "未記録項目": []
+    }
+  ],
+  "registry_mapping": {
+    "arc2-comparison-069": {
+      "family": "ARC枠端積層",
+      "module": "接続/ARC2/枠端積層教材.py",
+      "class": "枠端積層教材",
+      "accepted_family_count_on_admission": 69,
+      "new_family_count": 1
+    }
+  },
+  "new_experience_runtime": "not_run; no reinjection into existing67/068 long-lived HDS",
+  "source_content_sha256": "e503315373853f88d7d3d9b44b11ced4b538d2782e7c5883c816abfba9f94494",
+  "composition": [
+    {
+      "kind": "immutable_base",
+      "count": 67,
+      "repository_path": "学習台帳/ARC2規則台帳_v1.json",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689"
+    },
+    {
+      "kind": "immutable_published_delta",
+      "count": 1,
+      "repository_path": "検証/後半走破/到達点61_距離回収/学習台帳/ARC2規則台帳_delta_068_v1.json",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689"
+    },
+    {
+      "kind": "conditional_new_delta",
+      "count": 1,
+      "path": "学習台帳/ARC2規則台帳_delta_069_v1.json",
+      "publication_commit": null
+    }
+  ],
+  "source_resolution_root": "検証/後半走破/到達点62_枠端積層"
+}

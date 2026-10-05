@@ -1,0 +1,7 @@
+# 枠端積層の回帰資料
+
+この専用namespaceはsanitized 4教師、固定した240文法の全960教師返値、6保持モデル、87対照の全522返値と期待結果を圧縮保存する。各fixtureはruntime候補から読まれない。未知taskのtestやquery、answer mapは含まない。
+
+親ディレクトリの枠端積層回帰.pyを引数なしで実行する。実行時のcwdには依存しない。既存repoに配置した場合はそのrepoの既存primitiveとHDS v0.4.2を使い、staging状態では隣接するarc2-second-halfの正本を使う。成果は実行ごとに一意のtemporary directoryへ保存される。root READMEは変更しない。
+
+元の15,360文法／24保持モデルとは別のprospective 240文法である。教師4例をfitした6モデル全ての合意を要求し、斜め接触と奇数centerの反例HOLDを保持する。cueからのproper C4回転は固定幾何priorであり、HDSが発見した規則とは扱わない。native HDSは同じ完成候補と教師出力の同値支持を実際の公開学習経路で学習する。

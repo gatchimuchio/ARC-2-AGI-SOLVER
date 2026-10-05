@@ -1,0 +1,161 @@
+{
+  "schema": "arc2-lossless-pinned-external-references-v1",
+  "pinned_commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+  "members": [
+    {
+      "repository_path": "学習台帳/ARC2規則台帳_v1.json",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+      "git_blob_sha": "fdab32e1c2c6f6e89606c4f01ece1cfa22c6fd9d",
+      "sha256": "a4182171f2762b6cbde7852fe50c1cbbd2aa3ef5ddc7dc18117006dce1f012f0",
+      "bytes": 3512236,
+      "storage": "external_pinned_repository",
+      "byte_identity_verified": true
+    },
+    {
+      "repository_path": "学習台帳/ARC2規則索引_v1.json",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+      "git_blob_sha": "7d1209166c4e6a467bcd7e24102fbcb4bf09c35b",
+      "sha256": "9d2fcf5f3089592992673c4a02ea8935acf37139d16931e35f798f276a42b3b2",
+      "bytes": 35807,
+      "storage": "external_pinned_repository",
+      "byte_identity_verified": true
+    },
+    {
+      "repository_path": "学習台帳/ARC2規則経験_v1.jsonl",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+      "git_blob_sha": "d8989c664c8d60d5f2070eb970420f08d1b07e24",
+      "sha256": "5905139cc6723b97c67035c00e3f2ea9633ff58ef0e96b81a6676f8c636ae7c1",
+      "bytes": 7621296,
+      "storage": "external_pinned_repository",
+      "byte_identity_verified": true
+    },
+    {
+      "repository_path": "学習台帳/ARC2語彙台帳_v1.json",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+      "git_blob_sha": "3d663c70d3685a7c7f7fdefd32bd0cdbcc18ac01",
+      "sha256": "07bd0efeed4513ffc32e9ba00d2d1b512f8c0974bbf15eba0e96f104e81c8c07",
+      "bytes": 982789,
+      "storage": "external_pinned_repository",
+      "byte_identity_verified": true
+    },
+    {
+      "repository_path": "学習台帳/README.md",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+      "git_blob_sha": "68dbc45c1d4d21fa1e5e5c399c666e9828985860",
+      "sha256": "8a0762df89507a0b86e524d78f890021f641ebdfbca2889c7ab1d2dbe09e0571",
+      "bytes": 4266,
+      "storage": "external_pinned_repository",
+      "byte_identity_verified": true
+    },
+    {
+      "repository_path": "検証/後半走破/到達点61_距離回収/ADMISSION.json",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+      "git_blob_sha": "2cf79bda45a29951770cbd1c27e17c6ecf607e0b",
+      "sha256": "ab95aa1d5ab4a520aa57fdcfc4e051aaf0e17f725f239075ea62c604e18f3806",
+      "bytes": 2675,
+      "storage": "external_pinned_repository",
+      "byte_identity_verified": true
+    },
+    {
+      "repository_path": "検証/後半走破/到達点61_距離回収/PUBLICATION.md",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+      "git_blob_sha": "76f65ea8b54d45fe9c818b3dd42d71ab2d96d379",
+      "sha256": "36c4378a49363b72a13da9181cecdba12d517edce6c9d4784eaaf45b0ea89f62",
+      "bytes": 1260,
+      "storage": "external_pinned_repository",
+      "byte_identity_verified": true
+    },
+    {
+      "repository_path": "検証/後半走破/到達点61_距離回収/checkpoint61.json",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+      "git_blob_sha": "eb43704913e7ad10852f14900fa371e7024055be",
+      "sha256": "5aebb1622b798d257dcd76e0650ea5f1a56cbaac7988019f01b81bd2f626b4c4",
+      "bytes": 74727,
+      "storage": "external_pinned_repository",
+      "byte_identity_verified": true
+    },
+    {
+      "repository_path": "検証/後半走破/到達点61_距離回収/delta-publication-validation-v3.json",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+      "git_blob_sha": "88d246088c635b1bc7c6ca486966b7b5710d5fe8",
+      "sha256": "7827b9bce7a112e7f76666816e63bf4d5556596cdf14f138a7cfdc42e0a9ebfc",
+      "bytes": 968,
+      "storage": "external_pinned_repository",
+      "byte_identity_verified": true
+    },
+    {
+      "repository_path": "検証/後半走破/到達点61_距離回収/evidencearchive-delta-v3.tar.gz",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+      "git_blob_sha": "74b189c3e9cd9210813a58ead630235e13990101",
+      "sha256": "389d101f9ca95a06fda2d81d28bbe958a990334ceedbd16b96d72e8cb8f115ec",
+      "bytes": 3024410,
+      "storage": "external_pinned_repository",
+      "byte_identity_verified": true
+    },
+    {
+      "repository_path": "検証/後半走破/到達点61_距離回収/external-references-v2.json",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+      "git_blob_sha": "2171c7f83c393508fbb22d41b443722cbbf63ac0",
+      "sha256": "6e584aa12b1a3c946a26b2dcaccd36e259c7962119251e326ef56dc78c12f8c2",
+      "bytes": 221662,
+      "storage": "external_pinned_repository",
+      "byte_identity_verified": true
+    },
+    {
+      "repository_path": "検証/後半走破/到達点61_距離回収/lossless-delta-manifest-v3.json",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+      "git_blob_sha": "daa6ecd2f3de96f540be9eb8143174ce96cbddbf",
+      "sha256": "bdef4fa67f6aed6a4f3c61f2a36fd9f87f758eee40b5c6b3984171d55bb147fd",
+      "bytes": 196143,
+      "storage": "external_pinned_repository",
+      "byte_identity_verified": true
+    },
+    {
+      "repository_path": "検証/後半走破/到達点61_距離回収/publication-files-v3.json",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+      "git_blob_sha": "a41c43829803e5e02bc57777fe72a9236cfdeb49",
+      "sha256": "edcec99a34e2fd2b97bfefa6420d1f9ce0dd8a275da0c7c5dbcf7734d4f49d29",
+      "bytes": 7097,
+      "storage": "external_pinned_repository",
+      "byte_identity_verified": true
+    },
+    {
+      "repository_path": "検証/後半走破/到達点61_距離回収/学習台帳/ARC2規則台帳_delta_068_v1.json",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+      "git_blob_sha": "387e34f858b3fadc338d41e9af2b18d75ac5695c",
+      "sha256": "a868d71edaa7b7abaff2a9ed5e2338327922048d8a6dad8859785359218127e3",
+      "bytes": 278661,
+      "storage": "external_pinned_repository",
+      "byte_identity_verified": true
+    },
+    {
+      "repository_path": "検証/後半走破/到達点61_距離回収/学習台帳/ARC2規則索引_composed_068_v1.json",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+      "git_blob_sha": "7fd3e7e1b4e8a96c22f50cb10a52a4f069c61668",
+      "sha256": "835cb8ebd0e47be3e9907ebdc258226d0319fabdf83c076618b596a891535a00",
+      "bytes": 2456,
+      "storage": "external_pinned_repository",
+      "byte_identity_verified": true
+    },
+    {
+      "repository_path": "検証/後半走破/到達点61_距離回収/学習台帳/ARC2規則経験_delta_068_v1.jsonl",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+      "git_blob_sha": "23a547894384f0d880f5d22a8e27f9aa96c01bc1",
+      "sha256": "22a683bfe181635c09be45586be1b0004281c5a36792fdaf11f5e46e3249488d",
+      "bytes": 543986,
+      "storage": "external_pinned_repository",
+      "byte_identity_verified": true
+    },
+    {
+      "repository_path": "検証/後半走破/到達点61_距離回収/比較.json",
+      "commit": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+      "git_blob_sha": "5c33725d11244aee36ca15099ac1d799e5cb6cbd",
+      "sha256": "59a155e6e6302ae1807f898cb050e94b98668d78ce45d60e04ef002599578947",
+      "bytes": 103026,
+      "storage": "external_pinned_repository",
+      "byte_identity_verified": true
+    }
+  ],
+  "member_count": 17,
+  "semantics": "Resolve each exact Git commit/path/blob and verify byte length and SHA256. These existing repository bytes are not republished or modified. Old candidate002 publication metadata remains historical; the outer d2bbed2 pin identifies its actual published bytes."
+}

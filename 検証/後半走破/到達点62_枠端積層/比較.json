@@ -1,0 +1,122 @@
+{
+  "スキーマ版": "arc2-candidate008-admission-comparison-v1",
+  "attempt_id": "attempt-008-cue-aligned-stack",
+  "規則ID": "arc2-comparison-069",
+  "状態": "local_conditional_package_parent_exact_audit_and_ADMIT_pending",
+  "publication_commit": null,
+  "publication_parent_commit": null,
+  "accepted_solver_baseline": "d2bbed2ac72d30cb7024de0f7839d656ae770689",
+  "source_resolution_root": "検証/後半走破/到達点62_枠端積層",
+  "規則21項目": {
+    "対象": "相異なるcorner・horizontal-edge・vertical-edgeの一様境界記号と、残余領域の背景仮説・全foreground混色成分・完全crop。4隅を全列挙し、全foregroundの所有を検証する。",
+    "役割": "guideとpayloadを入力のみから分離する。背景は残余領域の全最頻色候補を保持しguide記号と区別する。cue色は10色を文法に含め、教師fitで1を保持した。色番号自体を幾何priorとしない。",
+    "観測事実": "同条件の公開120課題167例はaccepted61/86からcandidate62/87へ。新正解は291dc1e1の1例、旧86正解格子は同一、partial7、HOLD80、wrong grid0、resource0。69回帰script1983checkが成功した。",
+    "関係": "cornerからcue辺他端への有向vectorを右へ送る一意のproper C4回転を毎入力で導出する。同じ回転をそのroleの全完全cropへ適用し、cue軸・他軸の距離順で積層する。",
+    "条件": "全240 programを全教師上で実行し、全role・全順序の成功と完全教師格子一致で残る全6モデルを保持する。照会も全6モデル・全role・全順序の成功と完全格子合意を要し、native同値採用、隔離、排気gateを通る。",
+    "作用": "cue導出proper C4回転後の全cropを、最大crop幅のgapless縦stackへexact/floor/ceil規約で中央配置する。全foregroundと各完全crop内部を保持し、成分間の背景paddingは積層結果に合わせて再構成する。guideを出力から除き、再構成する余白にはその入力roleの背景色を用いる。",
+    "保存条件": "全foreground所有と完全crop内の他成分混入を検査し、crop全色count・foreground色count・穴数・全体foregroundを保存する。各完全crop内部は共通proper C4変換で保持するが、component bbox外の成分間背景paddingは保存対象ではなく積層結果に合わせて再構成する。guideは出力から除く。入力、教師、immutable保持6モデルは不変。旧67台帳と068既公開bytesは不変。",
+    "反証条件": "教師格子の非一致・role失敗・順序失敗・成分不完全所有・crop他成分混入・ARC範囲外・非整数中央・返値競合は成功根拠にならない。MemoryError/RecursionError/TimeoutError等の資源例外は再送出し、semantic HOLDへ変換しない。",
+    "競合条件": "複数role、完全key同点順序、4/8 connectivity、中央規約、保持model、採用済みfamilyのいずれかが異なる完全格子を出す場合は全体HOLD。成功した一部モデルだけを選ばない。",
+    "HOLD条件": "保持modelなし、任意の保持model/role/order失敗、完全格子競合、同値未採用、隔離または既存排気保留。C4/C8 diagonal-contactとodd-center対照はHOLDのまま。資源失敗は別状態。",
+    "支持経験": "公開全120課題359教師の240 program全86160返値を保存。唯一291dc1e1で6モデル保持、24 exact teacher-return、168非一致teacher-grid、85968 semantic HOLD。nativeは4教師実観測、prior0、quarantine0、support3/4同値採用、support5同値不採用。",
+    "反例経験": "元15360/24文法の全返値・negative教師・全対照、別prospective240/6の全返値・87対照522保持model返値・native支持5不採用・資源注入9scenarioを全保存。全120の候補返値失敗8218と最終HOLD80は原rawへ戻れる索引を持つ。",
+    "適用範囲": "宣言済み境界roleと完全混色crop、proper C4 cue正規化、教師でfitする固定240文法に限定する。公開evaluationでの改善であり、未見・hidden・一般汎化の証明ではない。新規文章経験の長寿命HDS再投入は未実施。",
+    "教師fitで選択": "10 cue色×2 connectivity×2 fast符号×2 slow符号×3中央規約の240全programから、全4教師の完全一致でcue1・両符号+1の6モデルを保持。connectivity4/8と中央exact/floor/ceilは未識別のまま全部残す。",
+    "入力から毎回導出": "4隅・一様辺・背景全最頻候補・guide/payload全所有・混色成分・完全crop・有向cue vector・proper C4回転・距離key・全同点順序・寸法と保存検査を照会入力だけから再導出する。",
+    "固定prior": "既知教師を見た元15360/24研究の後、別fit前に宣言したprospective規約。cue辺有向vectorを右へ送るproper C4を同roleの全payloadへ共通適用する。独立発見・教師非依存prior・元24モデルのpruningとは呼ばない。",
+    "旧資産由来": "accepted mainのmixed_region_dicts_for_grid、transform_grid_by_name、component_hole_countの3関数を直接再利用。HDS v0.4.2と既存同値/隔離/排気を維持。22 dependency sourceは22 semantic helperではない。旧trial AST再用はmain既存資産再用と別に記録する。",
+    "新規固定文法": "全240 Cartesian program、境界全role、全同点順序、cue由来共通proper C4、完全crop積層と全成功全合意guard。元15360/24文法を別の完全な履歴として保存する。HDSが文法を発見したとはしない。",
+    "新規実装": "同じ計数定義で新semantic helperはcomponent_inventory、prepare_input、all_orders、render_role、cue_rotationの5。utility、列挙、consensus、fit、serialization、HDS adapterを除く。002の4と合わせbaseline60から累計9。family増分は1、累計2でありHDS独立学習原理数ではない。",
+    "HDSが実際に学習した要素": "同一6保持モデルによる候補出力と教師出力の同値を、既存HDS実行と4個の実観測参照で学習した。support3/4で同値原理が採用されsupport5では不採用。raw排気状態は全て出力かつprediction空をそのまま保存し、状態だけから採用や答えを推定しない。C4意味・文法・役割発見をHDSの学習とはしない。",
+    "関連する他規則": "旧比較031成分直列と047物体群整列には契約差があり、既存規則だけで新2課題を閉じた件数は0/2。旧primitiveを含む新familyで閉じた件数は2/2（068距離回収と069枠端積層）。旧契約の同一性や未確認一般化は主張しない。"
+  },
+  "由来五分類": {
+    "A_HDS実学習": "同一6保持モデルによる候補出力と教師出力の同値を、既存HDS実行と4個の実観測参照で学習した。support3/4で同値原理が採用されsupport5では不採用。raw排気状態は全て出力かつprediction空をそのまま保存し、状態だけから採用や答えを推定しない。C4意味・文法・役割発見をHDSの学習とはしない。",
+    "B_教師fit選択": "10 cue色×2 connectivity×2 fast符号×2 slow符号×3中央規約の240全programから、全4教師の完全一致でcue1・両符号+1の6モデルを保持。connectivity4/8と中央exact/floor/ceilは未識別のまま全部残す。",
+    "C_固定prior": "既知教師を見た元15360/24研究の後、別fit前に宣言したprospective規約。cue辺有向vectorを右へ送るproper C4を同roleの全payloadへ共通適用する。独立発見・教師非依存prior・元24モデルのpruningとは呼ばない。",
+    "D_旧資産継承": "accepted mainのmixed_region_dicts_for_grid、transform_grid_by_name、component_hole_countの3関数を直接再利用。HDS v0.4.2と既存同値/隔離/排気を維持。22 dependency sourceは22 semantic helperではない。旧trial AST再用はmain既存資産再用と別に記録する。",
+    "E_新規固定文法": "全240 Cartesian program、境界全role、全同点順序、cue由来共通proper C4、完全crop積層と全成功全合意guard。元15360/24文法を別の完全な履歴として保存する。HDSが文法を発見したとはしない。 同じ計数定義で新semantic helperはcomponent_inventory、prepare_input、all_orders、render_role、cue_rotationの5。utility、列挙、consensus、fit、serialization、HDS adapterを除く。002の4と合わせbaseline60から累計9。family増分は1、累計2でありHDS独立学習原理数ではない。"
+  },
+  "same_conditions": {
+    "tasks": 120,
+    "test_examples": 167,
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961",
+    "cpu_seconds_per_task": 10,
+    "address_space_mib": 512,
+    "wall_seconds_per_task": 60,
+    "workers": 3
+  },
+  "previous": {
+    "complete_tasks": 61,
+    "correct_examples": 86,
+    "HOLD_examples": 81,
+    "partial_tasks": 7,
+    "wrong_grid": 0,
+    "resource_failures": 0
+  },
+  "current": {
+    "complete_tasks": 62,
+    "correct_examples": 87,
+    "HOLD_examples": 80,
+    "partial_tasks": 7,
+    "wrong_grid": 0,
+    "resource_failures": 0
+  },
+  "delta": {
+    "complete_tasks": 1,
+    "correct_examples": 1,
+    "HOLD_examples": -1,
+    "partial_tasks": 0,
+    "wrong_grid": 0,
+    "resource_failures": 0
+  },
+  "baseline60": {
+    "commit": "cc668e34d7ca014daf9f8944767476d56c56fafc",
+    "complete_tasks": 60,
+    "correct_examples": 84,
+    "HOLD_examples": 83,
+    "partial_tasks": 7,
+    "families": 67,
+    "wrong_grids": 0,
+    "resource_failures": 0
+  },
+  "delta_from60": {
+    "complete_tasks": 2,
+    "correct_examples": 3,
+    "HOLD_examples": -3,
+    "families_if_admitted": 2,
+    "partial_tasks": 0,
+    "wrong_grids": 0,
+    "resource_failures": 0
+  },
+  "gate_evidence": {
+    "score": "sources/audit/reviewer-candidate008-score.json",
+    "teacher": "sources/audit/reviewer-candidate008-teacher-evidence.json",
+    "replay": "sources/audit/reviewer-candidate008-replay.json",
+    "metrics": "sources/audit/reviewer-candidate008-metrics.json"
+  },
+  "limitations": [
+    "公開evaluationの61→62完全課題/86→87例であり、未見またはhidden汎化の証明ではない。",
+    "既知教師研究後の別prospective固定prior。元15360/24からのpruningでもHDS発見でもない。",
+    "prospective以前の不変証明は重要6原成果物のみ。root metadataは後から生成・更新され、旧metadata全体不変の主張はしない。",
+    "最初の817成功regressionには実行script単体freezeがない。最終821と現行69/1983はsource hash付き。初期失敗があったという証拠はない。",
+    "直接fit/query observerは完了teacher/model境界のprefixを保存する。未完了role/order内部prefixを完全に記録する保証はなく、whole native solverはfinal結果のみ。",
+    "資源合成注入はMemoryError/RecursionError/TimeoutError×3境界=9scenario。実CPU/AS枯渇、wall hard kill、切れたjournalの実証ではない。Python open auditはOS隔離ではない。",
+    "現在全replay8751callの返却診断を記録した別観測。原歴史実行そのものではなく、未公開内部仮説まで網羅するclaimではない。",
+    "support5は同値不採用・予測空である一方raw排気は出力。この原記録を改変せず、排気文字列単独を採用根拠にしない。",
+    "過去別trialのcandidate007 wrong1、candidate004 resource3等は別履歴に残る。accepted scoreのwrong0/resource0で消し去らない。他候補payloadは本採用へ含めない。",
+    "新069文章経験は既存67/068長寿命HDSへ再投入しない。HDS core v0.4.2は不変。vNext未実装。",
+    "親の正確package監査・ADMIT・publicationは未実施。公開commitとその親commitは未確定でありnull。"
+  ],
+  "source_paths": {
+    "original_pending_checkpoint": "sources/candidate008/checkpoint-metrics.json",
+    "current_official": "sources/candidate008/current-official.json",
+    "full_comparison": "sources/candidate008/current-comparison.json",
+    "all_teacher_returns": "sources/candidate008/all120-teacher-preflight/",
+    "direct_query_journal": "sources/candidate008/input-only-journals/run-000.jsonl",
+    "current_all_return_raw": "sources/candidate008/current-full-replay/raw.jsonl.gz",
+    "negative_index": "sources/candidate008/current-full-replay/failure-events-v2.jsonl.gz"
+  },
+  "classification_author": "外部監査による出典分類。Learning Machine自身の出力ではない。"
+}
