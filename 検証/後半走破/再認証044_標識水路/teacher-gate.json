@@ -1,0 +1,65 @@
+{
+  "schema": "independent-candidate044-final-teacher-only-disposition-v1",
+  "reviewed_at_utc": "2026-10-06T04:51:21.570309+00:00",
+  "status": "PASS_FRESH_TEACHER_ONLY_RECERTIFICATION",
+  "runtime_lock_sha256": "4e8860cff879fe8690cb2f9ca3f36c3f1b6088410d500790299482762203f337",
+  "teacher_source_sha256": "012924cb967106a6d72e9323b83534539471c27dc4f5fba5d8d4a0dbe334c8aa",
+  "run_directory": "all120-teacher-preflight/fresh-local70-aqeynt27",
+  "official_full120_runs_reviewed": 1,
+  "task_count": 120,
+  "teacher_pair_count": 359,
+  "dispositions": {
+    "proven_empty_fit": 113,
+    "logical_HOLD": 6,
+    "FIT": 1
+  },
+  "exact_fit_task": "9bbf930d",
+  "exact_fit_teacher_count": 3,
+  "retained_models": [
+    [
+      "refreshed_color"
+    ]
+  ],
+  "actual_fit_render_calls": 57,
+  "symbolic_unexecuted_fit_slots": 1020,
+  "planned_fit_slots": 1077,
+  "teacher_prediction_method_records": 359,
+  "actual_prediction_render_calls": 3,
+  "zero_model_prediction_method_records": 356,
+  "journal_complete_event_count": 4027,
+  "resource_cases": 0,
+  "exception_cases": 0,
+  "incomplete_cases": 0,
+  "maxima": {
+    "wait4_cpu_seconds": 0.587105,
+    "parent_whole_wall_seconds": 0.6045249770004375,
+    "proc_VmHWM_KiB": 22016,
+    "wait4_ru_maxrss_KiB": 25984
+  },
+  "full_teacher_receipt_sha256": "f794c25b2c7263f96d1c33b0c74f7fe621ed2da481c125a994b3e449f043c95d",
+  "postrun_seal_sha256": "20326a9282a36235f3413bece187a82fdaa576bae3b7debb04de257d92d6aa3b",
+  "sealed_files_verified": 770,
+  "sealed_bytes_verified": 3782906,
+  "record_audit": "reviewer-independent-marker-channel-20261006/independent-full120-record-audit.json",
+  "record_audit_sha256": "f7d420065b81958beb16807dc9bf912a147548eac4ef24674c917c19cac3525e",
+  "seal_audit": "reviewer-independent-marker-channel-20261006/independent-full120-seal-audit.json",
+  "seal_audit_sha256": "1c5301ca701a41e4f8300850cd91b310c901eef88f55289934324ec06fa34d44",
+  "disposition_report": "reviewer-independent-marker-channel-20261006/FINAL-TEACHER-ONLY-DISPOSITION-v2.md",
+  "disposition_report_sha256": "c7dc1789caee95bb36185cdc64c628f6f687135f6c24d034c92189d91b71d737",
+  "reviewer_candidate_helper_harness_native_or_scorer_executions_or_imports": 0,
+  "original_queries_or_solutions_read": false,
+  "historical_public_query_and_score_exposure": true,
+  "historical_original_raw_restored": false,
+  "restored_LOCAL76_107": false,
+  "new_authorizations": {
+    "second_full120": false,
+    "production_integration": false,
+    "original_query": false,
+    "scorer": false,
+    "adoption": false,
+    "external_write": false
+  },
+  "blocking_findings": [],
+  "supersedes_receipt": "reviewer-full120-teacher-only-disposition.json",
+  "revision_reason": "Clarifies decoded child-input value equality separately from byte-identical sanitized authority; no numerical result or evidence changed."
+}

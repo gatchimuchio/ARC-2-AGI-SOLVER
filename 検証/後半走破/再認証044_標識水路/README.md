@@ -1,0 +1,25 @@
+# 標識水路の再認証（LOCAL package）
+
+新しく再認証した039の採用commit d4a27cfdcc236295bbb56b770f6433434351bb78（71課題/102例）へ、元044と同一SHAの候補・教材を追加しました。未変更の通常120課題/167例・元採点器で72課題/103例、HOLD64、誤出力0、資源・runtime失敗0。旧102正解格子はすべて同一で、差分は+1課題/+1例です。80本/3598チェックが通過しています。
+
+これは復元70から伸ばした新しい再認証branchです。欠落した旧LOCAL76のcommit/raw全体を復元したという主張ではありません。旧044の公開query・採点結果への露出と、元試作のtimeout観測prefixが再開状態ではなかったこと、cycle fixtureが未確立だったこと、旧ledger-summary露出の限界を保持します。今回の正常教師・native・query・通常scoreは新たな記録です。
+
+## 意味と由来
+
+候補は入力の標識rail、対応する色flank、初期状態のlaunch条件を所有付きで読み、固定3則 initial_color/refreshed_color/any_color を全保持して教師で厳密に選別します。initial_colorは初期の対応flank色であり、実際に移動する色は標識rail色です。描画はrail上のkセルを消し、互いに異なる元背景kセルへ同色を書き、他セルを保持します。このshapeと全色Counterの必要条件だけで全fit領域が不可能なら、完全witnessと未実行slotを記録して省略します。
+
+このview/launch/actionは人手設計の外部priorで、HDSが意味部品を発見したという主張ではありません。既存helper・HDS v0.4.2・事前記憶・保護規範は同一です。bridge変更はimport/constructor/機構登録/返却記録の4登録だけです。
+
+## 検証範囲
+
+新しい120課題/359教師は113証明empty、6通常HOLD、唯一9bbf930dのrefreshed_colorが3/3fitです。実57fit renderと1020証明未実行slot、359prediction wrapperと実3保持renderを区別します。資源・例外・未完了は0です。
+
+focusedの合成nativeは2教師で支持2が同値採用、支持3が保留です。固定input-onlyのfresh public nativeでは実3教師の現在支持、事前0、隔離0、同値採用を確認し、direct/native/通常scoreの完全格子が一致しました。全保持モデルと入出力・source同一性を確認し、score_eligible=trueを封印してから通常全120を1回実行しました。各childの10CPU秒/512MiB/全体60秒は変更していません。
+
+観測driverは039で独立に検査したgeneric v2と同じbytesを再利用しました。039の合成nativeが既存基底から早期返却し、当初positive pair期待が未達だったという限定も保持し、044専用の追加observer試験を行ったとは主張しません。今回044の両通常childは完成しています。
+
+public回帰は元135項目中の132の非管理assertionをすべて保持し、dependency pin検査は別計数です。配布準備では移植-Oのloader-only検査を使い、元挙動検査を重複実行していません。loaderの初期import不足とSIGKILL（原因不明）を履歴として保存しています。
+
+## 保管と外部操作
+
+この小packageはsourceと圧縮gate資料です。全rawはindex/freezeで参照する別workspace証拠にあり、小packageに全rawを含むとは主張しません。過去の欠落証拠を生成し直したものではありません。今回のpackage処理では外部書込・upload・CIは行っていません。既存のuser公開権限を変更せず、現在の拒否された経路の保留を維持しています。

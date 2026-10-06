@@ -1,0 +1,20 @@
+{
+  "status": "PASS_REVERSIBLE_INTEGRATION_AND_SAVED_REGRESSIONS",
+  "utc": "2026-10-06T05:54:42.631234+00:00",
+  "base_commit": "d4a27cfdcc236295bbb56b770f6433434351bb78",
+  "base_tree": "47437b0b7237a8a00eb7299dff67242bc2bc6e53",
+  "source_paths_exact": 7,
+  "prior_nonbridge_blobs_verified": 644,
+  "prior_modes_verified": 645,
+  "official_pin_unchanged": true,
+  "four_registry_entries_strip_to_byte_identical_accepted039_bridge": true,
+  "scripts": 80,
+  "checks": 3598,
+  "script_hashes_verified": 80,
+  "fresh044_public_checks": 132,
+  "integration_receipt_sha256": "483a3de1615eaf58ee46580b8004ac2eeede1131dca5fcdf25466c12d7757edd",
+  "regression_receipt_sha256": "533bdf66f7505856e31adfe4e6d3eeea710812eea2347423146dcb331107beb2",
+  "source_runtime_executions_by_reviewer": 0,
+  "query_release": false,
+  "remaining": "Exact fixed input-only bundle/source freeze and native whole route actual3-current equality gate. Existing synthetic native support2/3 is accurately qualified; no redundant teacher replay required."
+}

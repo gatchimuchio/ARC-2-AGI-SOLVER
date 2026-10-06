@@ -1,0 +1,38 @@
+{
+  "teacher-summary.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification044-from-local70-20261006/all120-teacher-preflight/fresh-local70-aqeynt27/summary.json.gz",
+    "bytes": 159138,
+    "sha256": "4904a757ca3db6a213de9fad0b2f304a31e962658200b9cfcd88518426bf21f0",
+    "source_already_gzip": true
+  },
+  "teacher-index.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification044-from-local70-20261006/production-integration/teacher-index.json",
+    "bytes": 236051,
+    "sha256": "a967235193928f71cb203d7df2821f937fce79fad44fc264fa3110a24c312267",
+    "source_already_gzip": false
+  },
+  "regressions.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification044-from-local70-20261006/production-integration/fresh-regressions.json",
+    "bytes": 206763,
+    "sha256": "533bdf66f7505856e31adfe4e6d3eeea710812eea2347423146dcb331107beb2",
+    "source_already_gzip": false
+  },
+  "paired-input-only.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification044-from-local70-20261006/production-integration/fixed-query/sealed-input-only.json",
+    "bytes": 324221,
+    "sha256": "0318464ca974b4de104e6fece5d22b9a33a376d1dc7276e2e2a0d88202af5f5f",
+    "source_already_gzip": false
+  },
+  "current-official.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification044-from-local70-20261006/production-integration/current-official.json",
+    "bytes": 6955922,
+    "sha256": "dd930c8ddef20ff038e7304f74a8ce73cdd944eca28ce4f62f75494a23d1a303",
+    "source_already_gzip": false
+  },
+  "production-freeze.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification044-from-local70-20261006/production-integration/production-freeze.json",
+    "bytes": 1108677,
+    "sha256": "8d02554d24e191aec9543c2aa3b1109d475acdf27eb54fbea4db0f3156af0065",
+    "source_already_gzip": false
+  }
+}

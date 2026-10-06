@@ -1,0 +1,61 @@
+{
+  "schema": "fresh044-independent-runtime-admission-review-v1",
+  "status": "PASS_RUNTIME_ELIGIBLE_FOR_PARENT_LOCAL_ADMISSION",
+  "utc": "2026-10-06T06:01:49.724870+00:00",
+  "base_commit": "d4a27cfdcc236295bbb56b770f6433434351bb78",
+  "base_score": "71tasks/102examples",
+  "current": {
+    "tasks": 120,
+    "test_examples": 167,
+    "correct_tasks": 72,
+    "correct_examples": 103,
+    "HOLD_examples": 64,
+    "partial_tasks": 8,
+    "wrong_emitted_grids": 0,
+    "resource_or_runtime_errors": 0
+  },
+  "delta": {
+    "tasks": 1,
+    "examples": 1,
+    "HOLD_examples": -1
+  },
+  "all_previous_correct_grids_retained": 102,
+  "only_changed_query": {
+    "task_id": "9bbf930d",
+    "query": 0,
+    "prior_was_HOLD": true
+  },
+  "direct_native_official_whole_grid_equal": true,
+  "ordinary_paired_routes_completed": 2,
+  "constructor_or_fit_restoration_used": false,
+  "native_actual_current": 3,
+  "native_prior": 0,
+  "native_quarantine": 0,
+  "native_equality": true,
+  "synthetic_native_threshold_evidence": "Fresh support2/3, not relabeled as actual-task3/4. Actual whole-public query supplies3-current equality.",
+  "independent_postscore_emitted_grid_comparisons": 103,
+  "original_scorer_summary_and_task_membership_verified": true,
+  "normal_limits": {
+    "cpu_seconds": 10,
+    "address_space_MiB": 512,
+    "whole_child_wall_seconds": 60,
+    "workers": 3
+  },
+  "regressions": {
+    "scripts": 80,
+    "checks": 3598
+  },
+  "source_and_evidence_pins_unchanged": 3765,
+  "official_score_sha256": "dd930c8ddef20ff038e7304f74a8ce73cdd944eca28ce4f62f75494a23d1a303",
+  "baseline_score_sha256": "4871ccbe7fbdda3b9eada1b141b3c4a1f9976a7cf49bbff25ad0715891d71eb7",
+  "decision_sha256": "0bed7de98464ec61eedc3071229632096ea0109aa07a6c2eea62a254f0662f37",
+  "sealed_input_sha256": "0318464ca974b4de104e6fece5d22b9a33a376d1dc7276e2e2a0d88202af5f5f",
+  "eligibility_seal_sha256": "ab5a1913d22c516f0de42ef3f40663aff7dd027f696b53237ea8f717e6d7dea1",
+  "limitations": [
+    "This is fresh recertification on accepted039 over recovered70; historical76 and missing old raw are not restored.",
+    "Historical public query/score exposure remains explicit. No failed target grids were disclosed or used for repairs.",
+    "Parent LOCAL adoption and exact compact package review remain separate."
+  ],
+  "reviewer_candidate_harness_native_test_or_scorer_executions": 0,
+  "adoption_performed": false
+}
