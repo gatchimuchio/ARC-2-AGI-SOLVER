@@ -1,0 +1,81 @@
+{
+  "schema": "fresh031-independent-runtime-admission-review-v1",
+  "status": "PASS_RUNTIME_ELIGIBLE_FOR_PARENT_LOCAL_ADMISSION",
+  "utc": "2026-10-06T06:34:27.277930+00:00",
+  "base_commit": "c4b6135a0a2fb8b1682003f210cc012e4f91923c",
+  "base_score": "72tasks/103examples",
+  "current": {
+    "tasks": 120,
+    "test_examples": 167,
+    "correct_tasks": 73,
+    "correct_examples": 104,
+    "HOLD_examples": 63,
+    "partial_tasks": 8,
+    "wrong_emitted_grids": 0,
+    "resource_or_runtime_errors": 0
+  },
+  "delta": {
+    "tasks": 1,
+    "examples": 1,
+    "HOLD_examples": -1
+  },
+  "all_previous_correct_grids_retained": 103,
+  "only_changed_query": {
+    "task_id": "4c416de3",
+    "query": 0,
+    "prior_was_HOLD": true
+  },
+  "direct_native_official_whole_grid_equal": true,
+  "independent_postscore_emitted_grid_comparisons": 104,
+  "original_scorer_summary_and_membership_verified": true,
+  "normal_limits": {
+    "cpu_seconds": 10,
+    "address_space_MiB": 512,
+    "whole_child_wall_seconds": 60,
+    "workers": 3
+  },
+  "regressions": {
+    "processes_executed_once": 81,
+    "declared_checks": 3714,
+    "fresh031_behavioral_checks": 116,
+    "additional_administrative_checks": 67,
+    "saved_only_collector_correction_preserved": true
+  },
+  "source_and_evidence_pins_unchanged": 3836,
+  "official_score_sha256": "ac757c1a3f7d8b9c153aecf5af07b0ebcc058ebd135b3269ce4ce0824e34216f",
+  "baseline_score_sha256": "dd930c8ddef20ff038e7304f74a8ce73cdd944eca28ce4f62f75494a23d1a303",
+  "decision_sha256": "deda1fb48e0d4e988d9de09ecc1d581fac5ac2366a87413f11aebc48943f1fe6",
+  "composed_seal_sha256": "ec812dc44588833ee70494965c3c549ae1a159b6a3d72e085883550a3ff232fb",
+  "original_false_seal_sha256": "5acb04f4da1be91079cdbab0ad2aaaa406ea69796fec0a7b84983ddfcd39c80c",
+  "original_incomplete_attempt_review_sha256": "79a9f63058a4a147b3a8c5d3d70919d23806255cca50a7de2917346d44d1178a",
+  "original_observer_outcome": {
+    "kind": "SIGXCPU during query",
+    "constructor_completed": true,
+    "structural_probes": 3,
+    "completed_fit_returns": 12,
+    "query_prefixes": 7,
+    "query_return_completed": false,
+    "score": "NOT_RUN",
+    "delta": null
+  },
+  "continuation": {
+    "restored_fields": 5,
+    "original_query_attempts": 1,
+    "fresh_query_retries": 1,
+    "completed_retry_queries": 1,
+    "refit_or_constructor_calls": 0,
+    "native_reexecutions": 0,
+    "ordinary_full120_runs": 1,
+    "method": "New immutable instance from exact complete saved state; query restarted, not resumed."
+  },
+  "measured_teacher_child_cpu_seconds": 9.53838,
+  "future_timing_guarantee": false,
+  "limitations": [
+    "Fresh recertification chain, not restoration of historical76/old raw. Historical query/score exposure remains explicit.",
+    "Original incomplete observer outcome is preserved; only the new explicitly phase-composed seal permits scoring.",
+    "No failed target grids were disclosed or used for source repair.",
+    "Parent LOCAL adoption and exact compact package review remain separate."
+  ],
+  "reviewer_candidate_harness_native_test_or_scorer_executions": 0,
+  "adoption_performed": false
+}

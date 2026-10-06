@@ -1,0 +1,37 @@
+{
+  "scope": "Fresh031 on accepted04472/103, with explicit incomplete-query retry and saved-native composition",
+  "score": "RUN_ONCE",
+  "summary": {
+    "mode": "current",
+    "tasks": 120,
+    "test_examples": 167,
+    "correct_tasks": 73,
+    "accuracy": 0.6083333333333333,
+    "correct_examples": 104,
+    "unanswered": 63,
+    "wrong_attempted_tasks": 8,
+    "resource_failures": {},
+    "seconds": 37.94212168000013,
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961",
+    "cpu_seconds_per_task": 10,
+    "address_space_mib": 512,
+    "wall_seconds_per_task": 60,
+    "workers": 3
+  },
+  "wrong_predictions": 0,
+  "all_previous_103_grids_identical": true,
+  "changed_prior_grids": [],
+  "paired_official_grid_equal": true,
+  "delta": {
+    "tasks": 1,
+    "examples": 1
+  },
+  "runtime_gate_pass": true,
+  "source_pins_unchanged": true,
+  "original_observer_resource_outcome_preserved": true,
+  "composed_seal_sha256": "ec812dc44588833ee70494965c3c549ae1a159b6a3d72e085883550a3ff232fb",
+  "baseline_sha256": "dd930c8ddef20ff038e7304f74a8ce73cdd944eca28ce4f62f75494a23d1a303",
+  "current_sha256": "ac757c1a3f7d8b9c153aecf5af07b0ebcc058ebd135b3269ce4ce0824e34216f",
+  "parent_admission_required": true
+}

@@ -1,0 +1,268 @@
+{
+  "schema": "independent-fresh031-incomplete-paired-query-attempt-v1",
+  "utc": "2026-10-06T06:22:02.503672+00:00",
+  "verdict": "DIRECT_QUERY_INCOMPLETE_RESOURCE_STOP_NATIVE_COMPLETE_UNSCORED",
+  "sealed_input_only_sha256": "5acb04f4da1be91079cdbab0ad2aaaa406ea69796fec0a7b84983ddfcd39c80c",
+  "decision_sha256": "02f4911c5ee35fb1648fc1ad86011d6d6a9fc6b23792611cf4d4c34e75034f61",
+  "freeze_sha256": "20e93be576aeff9effea4546ce312c06d56d1bd304aadfa0e1aa0dec036abe2f",
+  "bundle_sha256": "240325c142734b1a1d31af3cbf99c68583d17e71b88bab8976d5f1bfe2e0e738",
+  "driver_sha256": "7bdb69e29f3020d53258ff2427bff8c133b315abff04d4087d6048f991e1eeac",
+  "score_eligible": false,
+  "score": "NOT_RUN",
+  "delta": null,
+  "direct": {
+    "exit_code": -24,
+    "signal": "SIGXCPU",
+    "whole_child_wall_seconds": 10.515762606000862,
+    "exact_child_cpu_seconds": null,
+    "exact_child_peak_memory": null,
+    "stdout_bytes": 0,
+    "stderr_bytes": 0,
+    "parent_wall_timeout": false,
+    "parent_fallback_envelope": {
+      "completed": false,
+      "recovered_from_durable_observer_record": true,
+      "resource_failure": true,
+      "runtime_failure": true,
+      "stdout_schema_failure": "Expecting value: line 1 column 1 (char 0)",
+      "transport_incomplete": true
+    },
+    "resource_classification": "OS CPU-limit signal. The parent runtime_failure flag comes from empty stdout schema fallback; no caught candidate exception or ExactCoverResourceLimit was captured.",
+    "fit_completed": true,
+    "ordinary_constructor_return_confirmed": true,
+    "fit_audit_file_complete": true,
+    "complete_programs": 4,
+    "unique_program_teacher_returns": 12,
+    "teachers": 3,
+    "actual_common_prefix_executions": 3,
+    "actual_declared_fit_renderer_calls": 12,
+    "actual_renderer_executions_in_fit": 15,
+    "all_fitted_action_records_match_complete_audit": true,
+    "base_fit_event_fields_equal_final_audit": true,
+    "wrapper_additions": [
+      "actual_common_prefix_executions",
+      "actual_declared_fit_renderer_calls",
+      "actual_renderer_executions_in_fit",
+      "necessity",
+      "unexecuted_calls"
+    ],
+    "durable_five_field_fitted_state": {
+      "モデル群": [
+        "copy_exact_mask_replace_owned_frame__only_marked_corners"
+      ],
+      "不足理由": null,
+      "教師数": 3,
+      "異入力数": 3,
+      "適合数": 1
+    },
+    "direct_fit_return_recovery_sequence": 432,
+    "teacher_fit_completed_journal_sequence": 432,
+    "original_query_began": true,
+    "completed_post_constructor_query_prefix_records": 7,
+    "query_prefix_kind": "rectangle_prefix_completed",
+    "query_prefix_journal_sequences": [
+      433,
+      434,
+      435,
+      436,
+      437,
+      438,
+      439
+    ],
+    "query_prefix_digest": "579fc78c6ed7c7767e0784a45e155bd9aa5794792cf1097bc4a56eeac9eb2dc7",
+    "completed_original_query_program_returns": 0,
+    "completed_original_query_retained_model_returns": 0,
+    "completed_original_query_consensus_returns": 0,
+    "completed_direct_query_returns": 0,
+    "journal_completed_events": 440,
+    "gzip_eof": false,
+    "gzip_error": null,
+    "gzip_trailing_bytes": 0,
+    "decoded_partial_json_suffix_bytes": 0,
+    "recovery_completed_events": 440,
+    "recovery_candidate_events": 439,
+    "recovery_fit_return_events": 1,
+    "complete_newline_terminated_recovery_prefix": true,
+    "all_sequences_valid": true,
+    "all_candidate_records_equal_recovery": true,
+    "missing_final_fields": [
+      "source_verified_after",
+      "input_sha256_after",
+      "read_boundary",
+      "child_cpu_before_final_envelope",
+      "child_VmHWM_KiB",
+      "exception_type",
+      "secondary_failures",
+      "models",
+      "result"
+    ],
+    "boundary": "After ordinary constructor return and complete fit-audit save, the original query began and emitted seven completed rectangle-prefix records. SIGXCPU interrupted subsequent query-prefix work. No complete query output or pending returned query output is recorded; further in-memory progress cannot be reconstructed."
+  },
+  "native": {
+    "exit_code": 0,
+    "completed": true,
+    "resource_failure": false,
+    "runtime_failure": false,
+    "secondary_failures": [],
+    "cpu_before_final_envelope_seconds": 1.736173,
+    "whole_child_wall_seconds": 1.7625221149992285,
+    "peak_KiB": 41392,
+    "ordinary_fresh_whole_public_route": true,
+    "model": [
+      "copy_exact_mask_replace_owned_frame__only_marked_corners"
+    ],
+    "all_model_records_match_frozen_expectation": true,
+    "full_native_result_identical_in_stdout_journal_recovery": true,
+    "actual_family_record": {
+      "事前観測数": 0,
+      "同値採用": true,
+      "境界": "ARC隅模様転写",
+      "採用可": true,
+      "状態": "全教師再現",
+      "現在観測数": 3,
+      "隔離数": 0
+    },
+    "global_quarantined": 0,
+    "query_result_count": 1,
+    "nonempty_valid_grid": true,
+    "solution_correctness_assessed": false,
+    "journal_events": 2,
+    "gzip_eof": true,
+    "recovery_events": 2,
+    "input_hash_before_after_matches": true,
+    "source_verified_before_after": true,
+    "read_audit_installed": true,
+    "read_opens": 680,
+    "read_denials": 0,
+    "all_reads_allowed": true,
+    "recovery_capture_complete": true
+  },
+  "identity": {
+    "all169_runtime_pins_match_current_hashes": true,
+    "exact_freeze_and_bundle_hashes_match_release_context": true,
+    "original_input_only_payload_hash_and_config_match": true,
+    "both_route_begin_input_hashes_match": true,
+    "native_final_input_hashes_match": true,
+    "direct_final_input_and_source_fields_remain_missing": true,
+    "all_saved_raw_stream_journal_recovery_and_parent_hashes_match": true
+  },
+  "preserved_qualifications": [
+    "This original paired attempt remains false and unscored; the saved native answer cannot supply the missing direct query answer or establish parity.",
+    "The selected teacher preflight measured approximately9.53838 CPU seconds. It did not guarantee completion of this ordinary observed fit-plus-query child, and this audit supplies no general runtime guarantee.",
+    "Direct final CPU/memory, read audit, input/source checks, primary/secondary diagnostics and query output are missing. Current pin equality and successful native fields do not fill those gaps.",
+    "All direct-fit conclusions here derive from this attempt’s own complete callbacks, constructor checkpoint and fit-audit file, not from borrowed fresh120 evidence.",
+    "No restored-state continuation, query retry, new fit or native rerun was performed or released by this receipt. Any later proposal must separately disclose one incomplete original query and a new retry, preserve all five state fields and this original false seal.",
+    "The accepted044 baseline and source/teacher measurement limitations remain unchanged; official scoring and adoption are separate.",
+    "No solution target was read; no reviewed source was imported or executed."
+  ],
+  "paired_failure_labels": [
+    "direct:complete",
+    "direct:raw-capture",
+    "direct:source-identity",
+    "direct:read-boundary",
+    "direct:input-identity",
+    "direct:all-fitted-models",
+    "direct:original-query-count"
+  ],
+  "raw_check_receipt_sha256": "7f47272f52779d1fbd6ddfa84d4dca37a152642b618bb007c3b9f04e49fc0204",
+  "reviewer_fit_query_native_score_calls": 0,
+  "source_or_original_artifacts_modified": false,
+  "execution_release_granted": false,
+  "evidence_pins": [
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/production-freeze.json",
+      "bytes": 1119146,
+      "sha256": "20e93be576aeff9effea4546ce312c06d56d1bd304aadfa0e1aa0dec036abe2f"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/paired-bundle-v2.json",
+      "bytes": 43037,
+      "sha256": "240325c142734b1a1d31af3cbf99c68583d17e71b88bab8976d5f1bfe2e0e738"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/production-release.json",
+      "bytes": 462,
+      "sha256": "f34d0f26f576cfb61db4c6b126b2c99fd9fd0f30c765a75a09524ea4a93375b3"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/query-paired-release.json",
+      "bytes": 427,
+      "sha256": "031fa0369e341d3182b597ede02199f281164f8aae9e054e400af64d709ed689"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/decision.json",
+      "bytes": 748,
+      "sha256": "02f4911c5ee35fb1648fc1ad86011d6d6a9fc6b23792611cf4d4c34e75034f61"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/fixed-query/sealed-input-only.json",
+      "bytes": 209429,
+      "sha256": "5acb04f4da1be91079cdbab0ad2aaaa406ea69796fec0a7b84983ddfcd39c80c"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/fixed-query/child-config.json",
+      "bytes": 36205,
+      "sha256": "a9491a77373eba4236b251042319ccdaf27710c40451b90656513e55b3fc341f"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/fixed-query/INDEPENDENT-INCOMPLETE-RAW-CHECK.json",
+      "bytes": 4021,
+      "sha256": "7f47272f52779d1fbd6ddfa84d4dca37a152642b618bb007c3b9f04e49fc0204"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/fixed-query/task-000-direct/events.jsonl.gz",
+      "bytes": 1220104,
+      "sha256": "59caf2f30909cf057fe9bf276619a1084b7322fd5780a403fed3c1fbbc2bc31a"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/fixed-query/task-000-direct/fit-audit.json",
+      "bytes": 3531083,
+      "sha256": "b23fc694e6fb8b95f3446fec4f9143557869c15c8f93f1f6d77507a347424e5b"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/fixed-query/task-000-direct/observer-recovery.jsonl",
+      "bytes": 19858546,
+      "sha256": "e12fd59ca123de944b406cae071e48cfe4ea279dd7bad9390eaf305845797940"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/fixed-query/task-000-direct/parent-record.json",
+      "bytes": 19859384,
+      "sha256": "96f0910092af3428e730f6001fb0de8c5ca4d68717aacb2efe238fc723f5efd3"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/fixed-query/task-000-direct/stderr.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/fixed-query/task-000-direct/stdout.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/fixed-query/task-000-native/events.jsonl.gz",
+      "bytes": 6168,
+      "sha256": "46becead5631e28314587fd82a2d90cddf503f7673862113f4acf71889a85085"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/fixed-query/task-000-native/observer-recovery.jsonl",
+      "bytes": 237454,
+      "sha256": "d17efa6a9096b45b25e112a232407025fbac25bda73173b672340dd1ee48a783"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/fixed-query/task-000-native/parent-record.json",
+      "bytes": 446446,
+      "sha256": "244785d124ae14620314da9204ef6863ef578de31b351345ea65799d13ab3069"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/fixed-query/task-000-native/stderr.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/fixed-query/task-000-native/stdout.bin",
+      "bytes": 208373,
+      "sha256": "54fb40f7548101e2f0bea2e1b93a99400d81f32157d9e81667523ca495e1a818"
+    }
+  ]
+}

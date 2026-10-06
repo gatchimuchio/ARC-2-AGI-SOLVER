@@ -1,0 +1,82 @@
+{
+  "schema": "independent031-teacher-only-final-verdict-v1",
+  "created_utc": "2026-10-06T05:47:15.918673+00:00",
+  "teacher_only_passed": true,
+  "status": "Released single full120 run independently closed from saved evidence; isolated compact payload static review passed.",
+  "runtime_lock_sha256": "bcbe46ce44251a664836d410f3078af90d9b0f11818e8d26aaf27aded633c333",
+  "readback_receipt": {
+    "path": "reviewer-independent-full120-readback-v1.json",
+    "sha256": "3f7b730b4df319ab36f9b28b5a74f6249116af5ac811708364598bbdb15c7537"
+  },
+  "full120_seal": {
+    "path": "full120-sealed-files.json",
+    "sha256": "eeb32690ce665f0ece32fb60e78582b3e8402980c7db4f44a8c41d0695d52ac8",
+    "files_verified": 728
+  },
+  "recovery_archive": {
+    "path": "recovery-bundle/complete-evidence.tar.gz",
+    "sha256": "953be485f295b9f6285754949e10e3968a85e11cb1c6a6b1b98530ebd3f994db",
+    "manifest_sha256": "34968319ec7cf6453d592fff0dd45fabab9909bfd5ce23e1d21bf8844884441b",
+    "all947_members_verified": true
+  },
+  "results": {
+    "tasks": 120,
+    "teacher_pairs": 359,
+    "necessary_invariant_proofs": 102,
+    "fresh_structural_proofs": 17,
+    "FIT_tasks": 1,
+    "FIT_task": "4c416de3",
+    "retained_programs": [
+      "copy_exact_mask_replace_owned_frame__only_marked_corners"
+    ],
+    "exact_teacher_predictions": 3,
+    "actual_structural_probe_render_calls": 20,
+    "actual_declared_fit_render_calls": 12,
+    "symbolic_unexecuted_declared_slots": 1424,
+    "teacher_prediction_invocations": 359,
+    "actual_retained_prediction_render_calls": 3,
+    "resource_incomplete_tasks": 0,
+    "exception_tasks": 0,
+    "nonzero_exits": 0
+  },
+  "review_scope": [
+    "All359 complete fresh certificates checked against saved teacher input/output, including exact palettes/counts/shapes/changed cells, all possible frame-color roles, disjoint complete maximal C8 component partitions, bounding boxes/interior witnesses and every violation flag.",
+    "All120 stdin authorities, raw completion records, journals, per-PID exits/usage, saved receipt/summary links and stdout projections reconciled.",
+    "Every actual probe/fit/prediction return linked to raw core starts/returns; exhaustive4xN fallback, all-retained consensus, explicit symbolic matrices and zero-model invocations reconciled.",
+    "All728 sealed files and947 archive members independently verified by byte count/SHA256/live-byte equality.",
+    "All8 compact payload files checked;3 runtime files exactly match source; decompressed fixtures exact; baseline/helper/nativeAST pins retained; behavioral ASTs and evidence-support globals preserved; loader-only saved receipt has0 candidate/native calls."
+  ],
+  "compact_payload": {
+    "static_review_passed": true,
+    "manifest_sha256": "4f11e5e3a6e15bdcb9924c962abd2551cc5d84e17954b70c7a503f47480f3995",
+    "file_count": 8,
+    "bytes": 61938,
+    "behavioral_checks_preserved": 116,
+    "prior_administrative_checks_separate": 3,
+    "new_semantic_runs_claimed": 0,
+    "production_integration_performed": false
+  },
+  "measured_resources": {
+    "max_child_cpu_seconds": 9.53838,
+    "cpu_limit_seconds": 10,
+    "observed_cpu_margin_seconds": 0.46162,
+    "max_whole_child_wall_seconds": 9.56169577899891,
+    "wall_limit_seconds": 60,
+    "max_RSS_KiB": 65388,
+    "address_space_limit_MiB": 512,
+    "timing_warning": "Near-cap observed CPU timing; no guarantee that a future or integrated execution will complete below10CPU seconds."
+  },
+  "limits": [
+    "Historical query/score exposure remains explicit. This is fresh LOCAL70 recertification, not restoration of historical LOCAL71-76 evidence or commits.",
+    "Teacher reproduction does not establish hidden generalization, a query result, or an accepted task-count improvement.",
+    "No new query, scorer, production bridge integration, admission or release is granted by this verdict.",
+    "Candidate031 remains isolated;039 production and044 next ordering are unchanged by this review."
+  ],
+  "reviewer_execution": {
+    "candidate_harness_helper_imports_or_runs": 0,
+    "teacher_or_query_or_score_executions": 0,
+    "full120_reruns": 0,
+    "source_fixture_or_payload_edits": 0,
+    "method": "Static AST/hash/Git and standard-library saved-record checks; additive reviewer receipts only."
+  }
+}

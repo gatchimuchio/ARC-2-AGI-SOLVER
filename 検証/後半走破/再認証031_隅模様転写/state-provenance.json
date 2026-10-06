@@ -1,0 +1,56 @@
+{
+  "schema": "fresh031-completed-fit-five-field-restoration-v1",
+  "source": "Original direct_fit_return and complete fit-audit, matched to independently audited fresh120 fit",
+  "original_direct_constructor_completion_confirmed": true,
+  "original_direct_process_outcome": "SIGXCPU during query geometry prefix",
+  "original_query_attempts": 1,
+  "original_completed_query_returns": 0,
+  "planned_new_query_attempts": 1,
+  "planned_query_retry_from_start": true,
+  "planned_geometry_resume": false,
+  "planned_constructor_refit_native_replays": 0,
+  "not_original_live_instance": true,
+  "complete_fit_records": 4,
+  "complete_declared_teacher_returns": 12,
+  "completed_common_prefix_programs": 3,
+  "full_fit_canonical_sha256": "b4586de2647203aa5432d1326b248b70f19965b73223b84add3f8a6ac6a72e0e",
+  "encoding_normalization": {
+    "direct_int_keys": 21,
+    "stage_int_keys": 21
+  },
+  "normalization_scope": "Only two explicit integer-key map encodings, preserving key types and all values; no filtering",
+  "source_record": {
+    "path": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/all120-teacher-preflight/fresh-local70-5fla5sga/036.record.json.gz",
+    "sha256": "d3b123847ade3e8c9d825543615a5531cbb6de9695d19bff81508a60613ca1e0"
+  },
+  "direct_recovery": {
+    "path": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/fixed-query/task-000-direct/observer-recovery.jsonl",
+    "sha256": "e12fd59ca123de944b406cae071e48cfe4ea279dd7bad9390eaf305845797940",
+    "complete_records": 440
+  },
+  "fit_audit": {
+    "path": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/fixed-query/task-000-direct/fit-audit.json",
+    "sha256": "b23fc694e6fb8b95f3446fec4f9143557869c15c8f93f1f6d77507a347424e5b"
+  },
+  "pre_fit_return_event_counts": {
+    "necessity_teacher_validation": 1,
+    "necessity_certificate_completed": 3,
+    "common_prefix_start": 3,
+    "rectangle_prefix_completed": 295,
+    "frame_color_completed": 90,
+    "program_return": 15,
+    "common_prefix_completed": 3,
+    "teacher_validation": 1,
+    "program_start": 4,
+    "teacher_return": 12,
+    "program_completed": 4,
+    "teacher_fit_completed": 1
+  },
+  "post_fit_return_event_counts": {
+    "rectangle_prefix_completed": 7
+  },
+  "old_false_seal_sha256": "5acb04f4da1be91079cdbab0ad2aaaa406ea69796fec0a7b84983ddfcd39c80c",
+  "state_sha256": "72aaeeab7fddc74b266063384b6bfd3cb9b834206d884ed40371366a85132ed0",
+  "input_payload_sha256": "12878016749033fa71751f0550b87ce307dc593b525073a5bb44375ee1ce0f1d",
+  "code_execution_by_extractor": false
+}

@@ -1,0 +1,23 @@
+{
+  "status": "PASS_INTEGRATION_AND_SAVED_ONLY_REGRESSION_COUNT_CORRECTION",
+  "utc": "2026-10-06T06:12:39.262513+00:00",
+  "base_commit": "c4b6135a0a2fb8b1682003f210cc012e4f91923c",
+  "source_paths_exact": 9,
+  "prior_nonbridge_blobs_unchanged": 663,
+  "prior_modes_verified": 664,
+  "official_pin_unchanged": true,
+  "four_registrations_strip_to_byte_identical_accepted044_bridge": true,
+  "integration_sha256": "e174c285e235efc43f542b0d58f96455e931fe393662ad306ce68f233c3f45a0",
+  "initial_aggregate_sha256": "fe7f45bdf26a8e680bbe128b42b0360c12237c959f78b6714d18fa702df65b78",
+  "corrected_aggregate_sha256": "289c93c2bb5cf88a50b0d758e0bcc3bae63dc6a4d3f8c506fa91aa81e1b01719",
+  "processes_executed_once": 81,
+  "all_processes_exit0": true,
+  "declared_checks": 3714,
+  "fresh031_behavioral_checks": 116,
+  "fresh031_additional_administrative_checks": 67,
+  "correction": "Initial collector expected successful/tests_run; actual031 stdout reports passed/behavioral_check_count. All original raw/process/source records retained; full saved arrays and all stdout common fields agree. No tests rerun or source changed.",
+  "measured_teacher_cpu_seconds": 9.53838,
+  "future_timing_guarantee": false,
+  "reviewer_runtime_execution": 0,
+  "query_release": false
+}

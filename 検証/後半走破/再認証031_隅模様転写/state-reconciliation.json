@@ -1,0 +1,43 @@
+{
+  "schema": "independent031-five-field-saved-state-reconciliation-v1",
+  "utc": "2026-10-06T06:25:06.871224+00:00",
+  "full_fit_record_equal_fresh120_after_explicit_integer_map_encoding_normalization": true,
+  "all_four_program_records_and12_unique_teacher_actions_equal": true,
+  "original_teacher_inputs_and_training_labels_equal": true,
+  "all_five_fields_match_original_completed_constructor_checkpoint": true,
+  "string_models_preserved_in_exact_order": true,
+  "compact_state_and_train_hash_verified": true,
+  "restored_state_sha256": "72aaeeab7fddc74b266063384b6bfd3cb9b834206d884ed40371366a85132ed0",
+  "provenance_sha256": "779c46d12596186e3c5196525e17a3751bf13f6a17eb4f492ecddabc00658317",
+  "independent_fresh120_source_record_sha256": "d3b123847ade3e8c9d825543615a5531cbb6de9695d19bff81508a60613ca1e0",
+  "normalization": "Only __mapping__ integer-key pairs and __arc2_typed_mapping__ integer keys; key types and every value retained. No filtering.",
+  "source_packet_sha256": "5212db897b7a58ff4186d9e255bfe22039622d40ef0934d369a323c9dd93b207",
+  "all_packet_and_runtime_source_pins_match": true,
+  "inherited_transport_ast_equivalence": {
+    "capture": true,
+    "RecoveryRecord": true,
+    "install_read_boundary": true,
+    "wire": true,
+    "wire_key": true,
+    "canonical": true,
+    "Journal": true,
+    "traceback_prefix": true,
+    "read_journal": true,
+    "read_recovery": true,
+    "recover_envelope": true,
+    "journal_count_matches": true
+  },
+  "source_sensitive_call_sites": [
+    {
+      "name": "候補",
+      "line": 501
+    }
+  ],
+  "original_query_attempts": 1,
+  "original_query_completed": false,
+  "new_query_attempt_is_retry_from_start": true,
+  "live_original_object_recovered": false,
+  "source_execution_calls": 0,
+  "query_fit_native_score_calls": 0,
+  "solution_targets_read": false
+}

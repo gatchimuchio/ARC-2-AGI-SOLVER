@@ -1,0 +1,25 @@
+# 隅模様転写の再認証（LOCAL package）
+
+採用済み044 commit c4b6135a0a2fb8b1682003f210cc012e4f91923c（72課題/103例）へ、元031のhashと一致した候補・基底教材・証明front-endを追加しました。未変更の通常120課題/167例と元採点器で73課題/104例、HOLD63、誤出力0、資源/runtime失敗0。旧103正解格子はすべて同一で、差分は+1課題/+1例です。
+
+これは復元70から新しく伸ばした再認証branchです。旧LOCAL76の履歴や欠落rawを復元したものではありません。旧031の公開query/採点露出と、以前の不正確な「inactiveのセルは変化しない」という強い記述を履歴上の限界として保持します。固定contractは、inactiveの隅はproposalを出さず後から再activationしない一方、別のactive隅は所有されたframeセルへ書ける、という規則です。全proposalを同時に照合し、領域外・所有外・異色競合を拒否します。
+
+## 根拠と範囲
+
+入力viewとmask転写actionは人手設計の外部priorです。4つのaction/policy programを全保持して教師で厳密にfitし、queryでは全保持モデルの一致を要求します。HDSが意味部品を発見したという主張ではありません。学習機械v0.4.2・旧helper・事前記憶・保護規範は同一で、bridgeは4登録だけを追加しました。
+
+新しい全120課題/359教師は119証明empty、唯一4c416de3の1モデルが3/3fit。全体で20構造probe、12宣言fit render、3保持prediction renderを実行し、1424宣言slotは必要条件/共通prefix証明による未実行と区別しました。exact-cover100000 node停止は資源未完了で、意味HOLDには変換しません。教師childの最大9.53838CPU秒/10秒は狭い観測余裕であり、将来性能の保証ではありません。
+
+## 観測の未完了と新しいquery再試行
+
+最初の固定direct childはconstructorを完成してdirect_fit_returnとfit-auditを保存した後、queryのrectangle prefix7件を記録してSIGXCPUで終了しました。完成query返値はなく、この試行は資源未完了・false seal・未採点/null差分のままです。同行したfresh public native経路は通常予算内で完成しました。
+
+別の固定継続では、保存された完全fit/全4program×3教師記録が独立検査済みの新全教師記録と一致することを、整数mapの2つの可逆encodingだけを正規化して確認しました。モデルtuple、教師数、異入力数、適合数、不足理由の5不変fieldを新objectへ復元し、両fit関数と両constructorを禁止しました。中断したqueryを最初から1回再試行し、既存native結果と親側で比較しました。古いgeometry途中から再開したとは主張しません。query試行は旧未完了1＋新完成1、refit/native検証の再実行0です。native答えをdirect childへ渡していません。
+
+新しい合成sealのscore_eligible=trueを先に保存してから、未変更の通常全120を1回実行しました。10CPU秒/512MiB/全child60秒の予算は同じです。合成nativeの支持3/4と、実課題nativeの現在支持3、事前0、隔離0、同値採用、direct/native/official完全格子一致を検証しました。
+
+## 回帰と保管
+
+81本の回帰processは各1回で全てexit0でした。新031はstdoutにpassed/behavioral_check_countを使うため、最初の親collectorが0件と誤集計しました。元false集計を保存し、実stdoutと完全saved summaryの116behavioral/67administrative配列を照合して、挙動3714チェックの正しい集計を別保存しました。テスト再実行は0で、管理pin検査は別計数です。
+
+この小packageはsourceと圧縮gate資料です。全rawはindex/freezeが参照する別workspace証拠にあり、小packageが全rawを含むとは主張しません。今回の処理で外部書込・upload・CIは行っていません。既存user公開権限を変更せず、拒否された経路の現在の保留を維持しています。

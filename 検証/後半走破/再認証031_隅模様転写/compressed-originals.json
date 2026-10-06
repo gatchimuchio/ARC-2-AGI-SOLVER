@@ -1,0 +1,50 @@
+{
+  "teacher-summary.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/all120-teacher-preflight/fresh-local70-5fla5sga/summary.json.gz",
+    "bytes": 46197,
+    "sha256": "29d7e43bc13967be5f14cc82b13e2bb3a582a32a66c795dcbc9deb3ef222eed6",
+    "source_already_gzip": true
+  },
+  "teacher-index.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/teacher-index.json",
+    "bytes": 236147,
+    "sha256": "ae26052a592efe8782b570261c3c96fba2d3a0be2c23049f47ef709e0ccdbf7c",
+    "source_already_gzip": false
+  },
+  "regressions.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/fresh-regressions-count-corrected.json",
+    "bytes": 209464,
+    "sha256": "289c93c2bb5cf88a50b0d758e0bcc3bae63dc6a4d3f8c506fa91aa81e1b01719",
+    "source_already_gzip": false
+  },
+  "regressions-original-count-mismatch.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/fresh-regressions.json",
+    "bytes": 208547,
+    "sha256": "fe7f45bdf26a8e680bbe128b42b0360c12237c959f78b6714d18fa702df65b78",
+    "source_already_gzip": false
+  },
+  "original-incomplete-seal.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/fixed-query/sealed-input-only.json",
+    "bytes": 209429,
+    "sha256": "5acb04f4da1be91079cdbab0ad2aaaa406ea69796fec0a7b84983ddfcd39c80c",
+    "source_already_gzip": false
+  },
+  "composed-input-only.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/direct-continuation/composed-input-only.json",
+    "bytes": 3900168,
+    "sha256": "ec812dc44588833ee70494965c3c549ae1a159b6a3d72e085883550a3ff232fb",
+    "source_already_gzip": false
+  },
+  "current-official.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/current-official.json",
+    "bytes": 7057239,
+    "sha256": "ac757c1a3f7d8b9c153aecf5af07b0ebcc058ebd135b3269ce4ce0824e34216f",
+    "source_already_gzip": false
+  },
+  "continuation-freeze.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification031-from-local70-20261006/production-integration/direct-continuation/CONTINUATION-FREEZE.json",
+    "bytes": 1170847,
+    "sha256": "74b5e5b2abfedd45c4184a343c241cb486d190f4f06b35e2ed14a717ae1d86fa",
+    "source_already_gzip": false
+  }
+}
