@@ -1,0 +1,20 @@
+{
+  "schema": "fresh036-independent-production-regression-readback-v1",
+  "reviewed_at_utc": "2026-10-06T07:47:35.018690+00:00",
+  "successful": true,
+  "report_sha256": "c860c0b5531d0408edb99fa05ae1b9814859aa79cd1ea40b780ad881cedd5fe6",
+  "collector_sha256": "d226c217d55d9c1e5827d5bdcce90edade1bc22a7a769aa195e02158c5b43c7d",
+  "collector_static_review_sha256": "e51e4c22d3e863340d683373d9f7139fba7b73248612c53031534da81dd1a6f8",
+  "integration_source_review_sha256": "5f3bf379c6e6f0b9869585fa8a2bb3afdc4eee022e6a2f14906cb7e1ed2d0710",
+  "script_count": 82,
+  "aggregate_declared_checks": 4065,
+  "prior81_source_hashes_and_declared_counts_unchanged": true,
+  "new_behavioral_checks": 351,
+  "new_administrative_checks_separate": 50,
+  "all82_exit_success_stdout_stderr_record_source_hashes_verified": true,
+  "new_script_deployed_default_root_behavioral_run_verified": true,
+  "explicit_root_loader_only_scope_preserved": true,
+  "candidate_queries_in_new_script": 0,
+  "full120_runs_in_new_script": 0,
+  "reviewer_execution": "Saved JSON/gzip/stdout/record/hash verification only; no collector, candidate, helper, regression, native or scorer execution. Final production freeze and input-only query require their separate gate."
+}

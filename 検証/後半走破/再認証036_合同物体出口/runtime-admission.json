@@ -1,0 +1,96 @@
+{
+  "schema": "fresh036-independent-runtime-admission-review-v1",
+  "status": "PASS_RUNTIME_ELIGIBLE_FOR_PARENT_LOCAL_ADMISSION",
+  "utc": "2026-10-06T07:56:43.121711+00:00",
+  "base_commit": "9eb139bac66f6885d78ee4c1dd488b08d1428fee",
+  "base_score": "73tasks/104examples",
+  "current": {
+    "correct_tasks": 74,
+    "correct_examples": 105,
+    "tasks": 120,
+    "test_examples": 167,
+    "HOLD_examples": 62,
+    "partially_solved_tasks": 8,
+    "wrong_emitted_grids": 0,
+    "resource_failures": 0
+  },
+  "delta": {
+    "tasks": 1,
+    "examples": 1,
+    "HOLD_examples": -1
+  },
+  "all_previous_correct_grids_retained": 104,
+  "only_changed_query": [
+    {
+      "task_id": "64efde09",
+      "query_index": 0
+    }
+  ],
+  "direct_native_official_whole_grid_equal": true,
+  "independent_postscore_emitted_grid_comparisons": 105,
+  "original_scorer_summary_and_membership_verified": true,
+  "official_challenge_solutions_tasks_examples_equal_baseline": true,
+  "normal_limits": {
+    "cpu_seconds_per_task": 10,
+    "address_space_MiB": 512,
+    "wall_seconds_per_task": 60,
+    "workers": 3
+  },
+  "regressions": {
+    "scripts": 82,
+    "aggregate_declared_checks": 4065,
+    "new_behavioral_checks": 351,
+    "new_administrative_checks_separate": 50,
+    "receipt_sha256": "45af8fc93716428f8b2ec57db37102ea732ad456b499a18f3b6b83147a6148fa"
+  },
+  "source_and_evidence_pins_unchanged": 5037,
+  "production_freeze_sha256": "066e1a92024fb68f546bccb0f3e3aa63509860d6c455882ca91c0accb0c9e2ad",
+  "official_score_sha256": "5d83ea73adf1c6029575ad3eb2176f206ae262a04debc58bdb7427105de87886",
+  "baseline_score_sha256": "ac757c1a3f7d8b9c153aecf5af07b0ebcc058ebd135b3269ce4ce0824e34216f",
+  "decision_sha256": "cb1235fc0e8ecc7cd3826558310314c98928fc5b7d3435c44ad3b2d34068c095",
+  "input_only_seal_sha256": "42650b6971da29248c1a475d2714b15cabb5cbd0648c3363ca495be51f042555",
+  "independent_ordinary_pair_receipt_sha256": "8c0b56dc655411cc0e996e778c9758213cee3c5f2672ab989e828c6419a294dd",
+  "ordinary_pair": {
+    "both_children_complete": true,
+    "both_retained_models": [
+      [
+        4
+      ],
+      [
+        8
+      ]
+    ],
+    "native_current_observations": 2,
+    "native_prior_observations": 0,
+    "native_quarantine": 0,
+    "direct_cpu_before_final_envelope": 0.785248,
+    "native_cpu_before_final_envelope": 1.575776,
+    "query_continuations": 0
+  },
+  "teacher_gate": {
+    "kind": "119original_successful_children_plus_one_same_budget_whole_child_observer_retry",
+    "independent_closure_sha256": "8a11525bfd43209f178aa7b39d30ae2698a942c238f4a5bf355f00812654b5c6",
+    "original_resource_task": "d8e07eb2",
+    "original_resource_cpu_seconds": 10.339061,
+    "original_resource_outcome_preserved": true,
+    "new_retry_cpu_seconds": 7.048949,
+    "old_new_84event_gzip_bytes_equal": true,
+    "selected_actual_fit_rows": 124,
+    "selected_symbolic_unexecuted_slots": 594,
+    "selected_prediction_method_completions": 359,
+    "physical_actual_fit_renders_across_attempts": 134,
+    "physical_prediction_method_completions_across_attempts": 364,
+    "actual_retained_prediction_renders": 4
+  },
+  "future_timing_guarantee": false,
+  "limitations": [
+    "Exact recovered core; runtime adapter is a newly reconstructed proof wrapper with primary-error guards, not an exact historical final-v2 source recovery.",
+    "Historical public query/score exposure remains known; original post70 raw and history are not restored.",
+    "Synthetic native3/4 evidence is distinct from the actual2-current ordinary native query gate.",
+    "The original teacher resource attempt stays unsuccessful; the incremental teacher aggregate does not claim one successful original full120 run.",
+    "Paired child self CPU is measured before final stdout serialization; normal OS limits remain active through exit and parent whole-child wall is separately checked.",
+    "Aggregate regression counts are declared checks and are not presented as uniformly behavioral-only assertions."
+  ],
+  "reviewer_candidate_harness_native_test_or_scorer_executions": 0,
+  "adoption_performed": false
+}

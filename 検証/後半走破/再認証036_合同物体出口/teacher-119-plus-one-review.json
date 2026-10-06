@@ -1,0 +1,82 @@
+{
+  "schema": "fresh036-independent119-plus-one-teacher-closure-v1",
+  "reviewed_at_utc": "2026-10-06T07:42:03.228067+00:00",
+  "teacher_only_composition_verified": true,
+  "runtime_lock_sha256": "a6f957b2d39d5e8f2c84bb0f9dbc946f3506014cba68a3c120f95d4947c5fb6b",
+  "runtime_file_count_verified": 53,
+  "release_sha256": "7d49c74d36076a073b0087f72fbb330f2d9b2d7696881f6084e940ade3e873cb",
+  "retry_contract_sha256": "1ec52a66900dd645042a250da21d4581429671f00dd6b035f4d4842c52eb0efe",
+  "encoder_source_parity_review_sha256": "b2a1de38150a16263f89de1d8b9ddce8185dc7f146766aa7360236a37ea35fe3",
+  "new_whole_child_retry": {
+    "index": 101,
+    "task_id": "d8e07eb2",
+    "receipt_sha256": "933812bf187f55c9b47c25d3ef2a64a49d2d08e52e0895d2330606205e70df1f",
+    "completion_record_sha256": "7db32519250f0c2d0580ef6bf9c85a525ccb0b0d1db041a9efd35fcccfb717ad",
+    "exit_code": 0,
+    "completed": true,
+    "disposition": "logical_HOLD",
+    "cpu_seconds_wait4_total": 7.048949,
+    "wall_seconds_whole_child": 7.056031159998383,
+    "wait4_user_cpu_seconds": 6.97743,
+    "wait4_system_cpu_seconds": 0.071519,
+    "maxrss_KiB": 150172,
+    "retained_models": [],
+    "actual_fit_rows": 10,
+    "model_rows": 2,
+    "teacher_prediction_completions": 5,
+    "pending_or_incomplete_calls": 0,
+    "whole_budget_overrides_pass": true
+  },
+  "raw_parity": {
+    "all_compressed_event_bytes_identical": true,
+    "journal_sha256": "712b433282903bbf7b1c7f0159dfe890f977f6739707cc615307bc4287346c68",
+    "events": 84,
+    "decoded_bytes": 30649014,
+    "complete_rows_models_and_predictions_equal_original": true,
+    "completion_record_fit_and_predictions_equal_durable_events": true,
+    "teacher_input_bytes_equal_original": true
+  },
+  "composition": {
+    "original_successful_children_reused": 119,
+    "new_whole_child_retries": 1,
+    "selected_tasks": 120,
+    "selected_teachers": 359,
+    "each119_original_row_and_receipt_origin_hash_verified": true,
+    "aggregate_sha256": "c583ff8a43146acdc6ff47c3a647458cf9b103eb31ea0783001cd02166fce353",
+    "counts": {
+      "selected_actual_fit_calls": 124,
+      "selected_symbolic_slots": 594,
+      "selected_teacher_predictions": 359,
+      "all_experiments_actual_fit_calls": 134,
+      "all_experiments_teacher_predictions": 364
+    },
+    "dispositions": {
+      "proven_empty_fit": 101,
+      "logical_HOLD": 18,
+      "FIT": 1
+    },
+    "exact_fit_tasks": [
+      "64efde09"
+    ],
+    "max_selected_child_cpu_seconds": 7.048949,
+    "max_selected_child_wall_seconds": 7.056031159998383
+  },
+  "original_failure_preserved": {
+    "full120_successful": false,
+    "original_resource_closure_sha256": "24c74a8fbe84339d43555e66f038979215f2f98d77ec987b334211fefa86eadd",
+    "original_resource_receipt_sha256": "f57d63f3537f91859546188865b1d07189209029ff04d33b5338247c5aa64220",
+    "original_resource_cpu_seconds": 10.339061000000001,
+    "original_resource_exit_code": -9,
+    "original_721_file_manifest_sha256": "deeb5cb92915173dea9e544ff65bdfd7122e954d696ababf5517df61f6d6c2ab",
+    "not_reclassified_as_success_or_HOLD": true
+  },
+  "scope_limits": {
+    "no_full120_rerun": true,
+    "query_or_scorer_execution": false,
+    "integration_or_adoption_cleared": false,
+    "historical_query_score_exposure_retained": true,
+    "adapter_is_new_reconstruction_not_exact_final_v2": true,
+    "reviewer_candidate_helper_harness_imports_or_executions": 0,
+    "review_method": "Saved JSON/gzip/byte/hash and static source comparisons only; no repeated all120 semantic audit"
+  }
+}

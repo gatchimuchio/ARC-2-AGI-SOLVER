@@ -1,0 +1,79 @@
+{
+  "schema": "fresh036-independent-compact-payload-source-review-v1",
+  "reviewed_at_utc": "2026-10-06T07:45:35.647323+00:00",
+  "compact_source_extraction_pass": true,
+  "manifest_sha256": "5369ae02f915014a008cc98027d6a939b3772ce1fcbdfb6df54ea6ed1f8f9478",
+  "manifest_path": "production-payload-manifest.json",
+  "payload_files": 7,
+  "payload_total_bytes": 105677,
+  "all_manifest_hashes_sizes_verified": true,
+  "runtime_files_byte_identical": {
+    "接続/ARC2/合同物体出口候補.py": "4b4b86ad5d13b113633ec619775f25975291126fcd599a4fa998bde0ea10e266",
+    "接続/ARC2/合同物体出口教材.py": "3a6dfedd6933adae3907ee9d24ceb4ffa5cfe365fcc3a9ccbef65c69c3fe55b2"
+  },
+  "behavioral_preservation": {
+    "original_focused_checks": 354,
+    "preserved_behavior_checks": 351,
+    "expected_behavioral_list_exact_order_verified": true,
+    "administrative_checks_relocated": [
+      "all-pins-still-match",
+      "full-transitive-import-closure",
+      "native-three-function-ASTs"
+    ],
+    "unchanged_AST_functions": [
+      "check",
+      "save",
+      "basics",
+      "strict",
+      "proofs",
+      "exceptions",
+      "harness_controls",
+      "install_control_return_journal"
+    ],
+    "geometry_delta": "Compressed fixture read path only",
+    "native_delta": "Compressed dependency metadata read path and native-AST administrative check destination only",
+    "fixture_decoded_bytes_identical": true,
+    "compact_behavioral_suite_executed": false
+  },
+  "evidence_support_preservation": {
+    "unchanged_AST_definitions": 18,
+    "capture_delta": "Only runtime directory and exact traced-control filename predicates adapted to deployment roots",
+    "RAW_FIELDS_AST_identical": true,
+    "primary_exception_and_completed_pending_prefix_logic_unchanged": true,
+    "traced_raw_pending_and_name_preserved": true,
+    "accumulated_control_rows_still_omitted": true,
+    "no_teacher_authority_loader_or_full120_runner_in_extracted_support": true
+  },
+  "accepted_base_readback": {
+    "repository_root": "/workspace/scratch/7408259c1ab2/recertification-production-after031-20261006",
+    "base_source_pin_count": 17,
+    "all_base_source_bytes_match": true,
+    "three_native_bridge_ASTs_match": true,
+    "whole_bridge_hash_intentionally_not_required": true
+  },
+  "loader_only_evidence": {
+    "receipt_path": "production-preparation/loader-only/receipt.json",
+    "receipt_sha256": "45715ac1a4bc9b8d691f016726a6e35d0355f789b73773738244ad4eccfcefc3",
+    "one_observed_mode": "-O with explicit repository root",
+    "successful": true,
+    "exit_code": 0,
+    "cpu_seconds": 0.410709,
+    "whole_wall_seconds": 0.42343943400010176,
+    "maxrss_KiB": 25984,
+    "candidate_native_behavior_calls": 0,
+    "tests_run": 0,
+    "stdout_stderr_and_saved_summary_verified": true,
+    "deployed_default_root_executed": false,
+    "deployed_default_root_source_reviewed_only": true
+  },
+  "provenance_links": {
+    "AST_preparation_receipt_sha256": "dfb5e7211b2e0f16adbd542dd0485243cffc17bf5a071441b258b78fa9a66ced",
+    "teacher_only119_plus_one_closure": "../recertification036-lossless-capture-20261006/reviewer-119-plus-one-closure.json",
+    "historical_final_v2_not_restored": true,
+    "historical_public_query_score_exposure_retained": true
+  },
+  "reviewer_candidate_helper_native_harness_imports_or_executions": 0,
+  "review_method": "Static AST/hash/source and standard-library saved JSON/gzip comparisons only",
+  "production_integration_or_adoption_release": false,
+  "additional_behavioral_run_requested_or_performed": false
+}

@@ -1,0 +1,44 @@
+{
+  "teacher-aggregate.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification036-lossless-capture-20261006/one-child-retry/aggregate.json.gz",
+    "bytes": 102983,
+    "sha256": "c583ff8a43146acdc6ff47c3a647458cf9b103eb31ea0783001cd02166fce353",
+    "source_already_gzip": true
+  },
+  "teacher-original-resource-summary.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification036-reconstructed-proof-20261006/all120-teacher-preflight/fresh-local70-uiuet8hf/summary.json.gz",
+    "bytes": 95670,
+    "sha256": "98e1096ff7e542cae1ac804df6aa47ded8674078ef275116c750d6534424d53f",
+    "source_already_gzip": true
+  },
+  "teacher-index.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification036-reconstructed-proof-20261006/production-integration/teacher-index.json",
+    "bytes": 261463,
+    "sha256": "123407e3e18b00ac60bbef52fb594bfe3a5287ef5c5694d80409bf5e38534b69",
+    "source_already_gzip": false
+  },
+  "regressions.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification036-reconstructed-proof-20261006/production-integration/regression-run/report.json",
+    "bytes": 249237,
+    "sha256": "c860c0b5531d0408edb99fa05ae1b9814859aa79cd1ea40b780ad881cedd5fe6",
+    "source_already_gzip": false
+  },
+  "sealed-input-only.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification036-reconstructed-proof-20261006/production-integration/fixed-query/sealed-input-only.json",
+    "bytes": 386340,
+    "sha256": "42650b6971da29248c1a475d2714b15cabb5cbd0648c3363ca495be51f042555",
+    "source_already_gzip": false
+  },
+  "current-official.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification036-reconstructed-proof-20261006/production-integration/current-official.json",
+    "bytes": 7143246,
+    "sha256": "5d83ea73adf1c6029575ad3eb2176f206ae262a04debc58bdb7427105de87886",
+    "source_already_gzip": false
+  },
+  "production-freeze.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification036-reconstructed-proof-20261006/production-integration/production-freeze.json",
+    "bytes": 1473772,
+    "sha256": "066e1a92024fb68f546bccb0f3e3aa63509860d6c455882ca91c0accb0c9e2ad",
+    "source_already_gzip": false
+  }
+}

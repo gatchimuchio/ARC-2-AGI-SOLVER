@@ -1,0 +1,27 @@
+# 合同物体出口の新しい再認証（LOCAL package）
+
+採用済み031 commit 9eb139bac66f6885d78ee4c1dd488b08d1428fee（73課題/104例）へ、合同物体の出口に関する教材を追加しました。未変更の通常120課題/167例と元採点器を1回実行し、74課題/105例、HOLD62、誤出力0、資源/runtime失敗0です。旧104正解格子はすべて同一で、差分は+1課題/+1例。唯一の新しい正解は64efde09です。
+
+これは復元70から新しく伸ばしたbranchです。旧LOCAL76のcommitや欠落rawを復元したとは主張しません。coreは回収済み元sourceとSHA256 4b4b86ad5d13b113633ec619775f25975291126fcd599a4fa998bde0ea10e266で一致します。一方、proof adapterは記録済み編集から新しく再構築し、5か所の例外報告呼出しを保護しました。旧final-v2の原SHAは未回収であるため、その正確復元とは主張しません。過去のpublic query/score露出は明示したままです。
+
+入力の物体・cue viewとD4対応/ray actionは人手設計の外部priorです。C4/C8の両program、許される対応・normalを保持し、全教師の厳密fitと全保持候補の完全格子一致を要求します。HDSによる意味部品の発見という主張ではありません。入力shapeと元foregroundの保存は全program共通の必要条件として使い、反証が完成した場合だけ宣言領域をsymbolic未実行にします。未完了処理は意味HOLDに変換しません。学習機械、旧helper、事前記憶、保護規範は同一で、bridgeは4登録だけを追加しています。
+
+## 教師証拠と保存処理の修正
+
+最初の120-task teacher passは119 childが通常予算内で完成し、d8e07eb2が10.339061CPU秒で停止しました。このtaskは10個のfit返値、保持0、5個の空model prediction、全84 eventを保存済みでしたが、最終completion recordがありません。元試行はresource_incomplete・不合格のまま保持しています。
+
+変更はjournalのplain-JSON encoding経路だけです。候補、fit/render、予算、各eventの保存/fsyncは同一です。保存済み4,977 gzip memberをnormal/-Oで旧・新JSON/gzip bytesが完全一致することを検査し、typed/未知型fallback、失敗prefixとfinalizationも確認しました。1回の固定保存event比較はencoding+gzip 3.890949→1.203194CPU秒で、実candidateを再実行していません。
+
+その後、d8だけを同じ10CPU秒/512MiB/全child60秒の枠で1回再実行しました。実whole-child 7.048949CPU/7.056031wallで完成し、全84 journal eventは初回のbytesと完全一致しています。119件の既完成childは繰り返していません。
+
+選択する120課題/359教師の集計は101 proof-empty、18 logical HOLD、唯一64efde09の2教師にC4/C8両modelがfit。選択行は124 actual fit返値＋594 symbolic slots、359 prediction呼出し（実renderer4）です。両実験を合わせた物理実行は134 actual fit返値と364 prediction呼出しです。indexは各taskの出所を保持しています。これは明示的な119原実行＋1再実行の合成教師証拠であり、失敗した最初の120全体を合格へ書き換えたものではありません。
+
+初期focused controlsでも、過去のcontrol report行を診断へ再帰的に取り込む増幅による10.390631CPUの停止がありました。runtimeの完全prefixとtransportのraw_pendingを保持しつつcontrolの累積report行を除外し、既完成groupを繰り返さずに残りの検査を完成しています。失敗原本も別raw証拠に残っています。
+
+## 固定query・回帰・保管
+
+固定input-only gateは通常のfresh direct constructor経路とfresh whole-public native経路の両方が完成しました。C4/C8モデル同一、全格子一致、実taskの現在支持2、事前0、隔離0、同値採用を確認しています。合成3教師では支持2/3で同値採用、支持4で同値不採用を検査しました。一般exhaustの状態は全thresholdで出力であり、支持4の全体返値をHOLDと呼ぶものではありません。score_eligible=trueを先に封印し、その後に同じ通常全120を1回だけ実行しています。queryのstate復元や再試行はありません。
+
+回帰82本は各1回で全て成功し、宣言チェック数は4,065です。新036の351 behavioral checksを保持し、元354のうち3管理検査を別計数へ移しています。新public実行の50管理pin検査は4,065に加算していません。accepted031のstdout schemaは親collectorが明示的に認識し、全81旧stdoutの保存データ照合で3,714を確認済みです。新default-rootの実回帰とexplicit-root optimized loader-onlyの両方が検証されています。
+
+この小packageはsourceと圧縮gate資料です。全rawはindex/freezeが参照する別workspace証拠にあり、このpackageが全rawを含むとは主張しません。旧履歴の欠落raw、再構築部分、過去公開query露出、元resource failureは保持します。新しい採用数を旧76や歴史helper総数へ読み替えません。外部書込・upload・CIは今回行っておらず、既存user公開権限の変更もありません。

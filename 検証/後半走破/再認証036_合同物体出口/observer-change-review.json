@@ -1,0 +1,133 @@
+{
+  "schema": "fresh036-independent-encoder-source-and-saved-parity-v1",
+  "reviewed_at_utc": "2026-10-06T07:37:33.786442+00:00",
+  "source_and_saved_parity_pass": true,
+  "runtime_lock_sha256": "a6f957b2d39d5e8f2c84bb0f9dbc946f3506014cba68a3c120f95d4947c5fb6b",
+  "runtime_file_count": 53,
+  "replay_lock_sha256": "d2af2862ad636bd61b6cf7400d89f45338c1ca60981f50e4ce468f95bf1c6769",
+  "retry_contract_sha256": "1ec52a66900dd645042a250da21d4581429671f00dd6b035f4d4842c52eb0efe",
+  "technical_eligibility_for_one_same_budget_whole_child_retry": true,
+  "candidate_retry_execution_released": false,
+  "requires_separate_audit_lead_release": true,
+  "candidate_executions_by_reviewer": 0,
+  "candidate_or_harness_imports_by_reviewer": 0,
+  "static_delta": {
+    "only_changed_inherited_file": "run_preflight.py",
+    "two_new_functions": [
+      "plain_json",
+      "encoded_journal"
+    ],
+    "two_new_constants": [
+      "PLAIN_EVENT_KINDS",
+      "PLAIN_SCALARS"
+    ],
+    "journal_encoder_call_changes": 1,
+    "remaining_AST_identical_to_original": true,
+    "candidate_core_sha256": "4b4b86ad5d13b113633ec619775f25975291126fcd599a4fa998bde0ea10e266",
+    "adapter_sha256": "3a6dfedd6933adae3907ee9d24ceb4ffa5cfe365fcc3a9ccbef65c69c3fe55b2",
+    "exact_string_kind_guard": true,
+    "unchanged": [
+      "geometry",
+      "proof",
+      "fitting",
+      "model order",
+      "helper/native closure",
+      "event structure",
+      "pending append/write/fsync ordering",
+      "completion/failure readers",
+      "whole-child budget overrides"
+    ]
+  },
+  "immutable_input_verification": {
+    "unique_compressed_sources": 440,
+    "original_source_aliases": 494,
+    "gzip_members": 4977,
+    "decoded_bytes": 70185953,
+    "shards": 19,
+    "max_shard_decoded_bytes": 6118116,
+    "all_source_alias_hashes_match_original_evidence": true,
+    "all_member_offsets_order_lengths_and_hashes_match": true,
+    "intentionally_damaged_fixture_aliases_excluded": 8,
+    "unchanged_reader_semantics_retained": true
+  },
+  "parity_readback": {
+    "summary_path": "evidence/encoder-parity/summary.json",
+    "summary_sha256": "ddabd75265e748680362545deb0260e6edc1190ae7ac6d02683b0bc3424e1fd5",
+    "bounded_children": 42,
+    "modes": [
+      "normal",
+      "-O"
+    ],
+    "each_mode_complete_unique_member_coverage": 4977,
+    "saved_old_new_decoded_and_compressed_byte_parity": true,
+    "every_member_receipt_hash_independently_reconciled": true,
+    "typed_and_malformed_kind_fallback_cases_each_mode": 29,
+    "normal_optimized_fallback_records_equal": true,
+    "journal_encoder_write_close_faults_each_mode": 3,
+    "saved_finalization_cases_each_mode": 6,
+    "all_parent_exact_PID_wait4_and_resource_limits_verified": true,
+    "max_child_cpu_seconds": 2.052348,
+    "max_child_wall_seconds": 2.057039036999413,
+    "max_child_rss_KiB": 124036,
+    "candidate_import_constructor_model_calls": 0
+  },
+  "fixed_timing_readback": {
+    "summary_path": "evidence/encoder-timing/summary.json",
+    "summary_sha256": "aa2d91baa7931e588b0602d3d629cf37780ae41e4c7bea613f2418270ade4ea0",
+    "order": [
+      "old",
+      "new"
+    ],
+    "repetitions_each": 1,
+    "saved_events": 84,
+    "saved_decoded_bytes": 30649014,
+    "exact_stream_sha256": "a6901a6365c104cdbdaac742c16b98e6156ffb3745a47f1c7c1dbccc264a4704",
+    "comparison": {
+      "old_encoding_cpu_seconds": 3.8589927509999993,
+      "new_encoding_cpu_seconds": 1.1603508480000002,
+      "encoding_ratio_new_over_old": 0.3006874909778757,
+      "old_encoding_plus_gzip_cpu_seconds": 3.8909487879999993,
+      "new_encoding_plus_gzip_cpu_seconds": 1.2031941170000002,
+      "order": [
+        "old",
+        "new"
+      ],
+      "repetitions_each": 1,
+      "candidate_runtime_performance_claim": false
+    },
+    "old_whole_metadata_child_cpu_seconds": 4.6150079999999996,
+    "new_whole_metadata_child_cpu_seconds": 1.99398,
+    "no_live_candidate_performance_guarantee": true
+  },
+  "retry_scope_if_separately_released": {
+    "task_id": "d8e07eb2",
+    "index": 101,
+    "teachers": 5,
+    "teacher_input_sha256": "0e96e42910a374cb2513c0c2b1a5c8c9e279d9006fb26e5b0067405b85d8554a",
+    "limits": {
+      "cpu_seconds": 10,
+      "address_space_MiB": 512,
+      "wall_seconds": 60
+    },
+    "normal_whole_child_attempts": 1,
+    "repeat_other119_children": false,
+    "must_compare_all84_saved_events_raw_rows_model_state_predictions": true,
+    "selected_expected_fit_actual_symbolic": [
+      124,
+      594
+    ],
+    "selected_expected_prediction_method_completions": 359,
+    "physical_expected_fit_actual_after_complete_retry": 134,
+    "physical_expected_prediction_method_completions_after_complete_retry": 364,
+    "finalization_only_replay_is_not_whole_child_completion": true,
+    "late_or_abnormal_exit_remains_resource_or_exception_incomplete": true
+  },
+  "original_run_preservation": {
+    "full_receipt_sha256": "cf3d62c64424add5a851ef44542cb335d097d7faa17d675a878c49c4084ac476",
+    "721_file_seal_sha256": "deeb5cb92915173dea9e544ff65bdfd7122e954d696ababf5517df61f6d6c2ab",
+    "independent_resource_closure_sha256": "24c74a8fbe84339d43555e66f038979215f2f98d77ec987b334211fefa86eadd",
+    "original_resource_attempt_remains_incomplete": true,
+    "historical_reconstruction_and_exposure_limits_retained": true
+  },
+  "adoption_integration_queries_scores_or_full120_rerun_released": false
+}
