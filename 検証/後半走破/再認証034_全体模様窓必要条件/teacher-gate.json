@@ -1,0 +1,55 @@
+{
+  "schema": "NEW034-necessity-independent-teacher-only-disposition-v1",
+  "reviewer": "/root/audit_arc2_second_half_gates/audit_whole_mask_reconstruction",
+  "issued_at_utc": "2026-10-06T08:15:39.914738+00:00",
+  "runtime_lock_sha256": "a2aaea1b22a4c84215ec9bc5a858d35b34c23256da3d5e1791af316bea16ac84",
+  "full_run_seal_sha256": "2ff9e138853e0a14f5b28b8e557cd5879e990c5dd43219ff3101e411ee5268b4",
+  "teacher_only_disposition": "PASS",
+  "completed_tasks": 120,
+  "teacher_pairs": 359,
+  "dispositions": {
+    "proven_empty_fit": 118,
+    "logical_HOLD": 1,
+    "FIT": 1
+  },
+  "actual_fit_rows": 1536,
+  "symbolic_unexecuted_slots": 8269824,
+  "planned_slots": 8271360,
+  "incomplete_slots": 0,
+  "teacher_predictions": 359,
+  "retained_model_prediction_returns": 96,
+  "exact_fit_task": "eee78d87",
+  "fresh_complete_retained_model_count": 32,
+  "all_original23040_model_identities_and_order_accounted": true,
+  "all_certificates_actual_returns_symbolic_states_and_retained_alternatives_independently_checked": true,
+  "all730_sealed_files_and120_raw_journals_verified": true,
+  "old_overlap": {
+    "da515329_recorded_rows_checked": 69120,
+    "eee78d87_recorded_rows_checked": 49737,
+    "eee_fresh_actual_full_return_overlaps_equal_old": 1107,
+    "eee_new_actual_rows_outside_old_recorded_prefix": 429,
+    "old_retained_prefix24_preserved_without_claiming_old_pool_finality": true,
+    "old_missing_returns_reconstructed": 0,
+    "all728_old_sealed_files_still_unchanged": true,
+    "old_resource_failures_remain_failures": true
+  },
+  "resources": {
+    "max_wait4_cpu_seconds": 7.242739,
+    "max_whole_child_wall_seconds": 7.3595158380012435,
+    "max_wait4_maxrss_KiB": 273956,
+    "limits": [
+      10,
+      512,
+      60
+    ],
+    "resource_or_exception_cases": 0
+  },
+  "evidence": {
+    "reviewer-full120-records-a2aaea1b.json": "f74b94ecf49debbe85327e28c026ba94f1cecfab9c7eeca1122cc277414f682a",
+    "reviewer-full120-journal-overlap-a2aaea1b.json": "cfbbe019571fbcd66bc416c5091b3aeb01f8d49161e952e67a1f48739189b4de",
+    "full-teacher-receipt.json": "4943aaf424170cd33ff773bec9824ef3e1481e65b81e296e98ca46e1b8e4511e"
+  },
+  "method": "Saved-only standard-library schema/hash/raw-record/mathematical comparison; no candidate/helper/oracle/harness execution or rerun",
+  "historical_raw_restoration_claim": false,
+  "production_query_scoring_integration_adoption_released": false
+}

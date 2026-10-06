@@ -1,0 +1,71 @@
+{
+  "schema": "NEW034-independent-one-capture-case-retry-release-v1",
+  "approved": true,
+  "case14_retry_released": true,
+  "scope": "fresh034-capture-only-case14-retry-v1",
+  "released_at_utc": "2026-10-06T09:00:38.592194+00:00",
+  "retry_contract_sha256": "16e0a2455d50289c9681d9bd03a48d29ce3ff0144bbb00757aa11ab8678ae3bc",
+  "changed_payload_manifest_sha256": "47bf71bc720b2c6546673cbf3c9ee7fc42fd3371284b903b03f3c58650a1454a",
+  "source_parity_clearance_sha256": "e3cfff3207052da502025cdcf2f3f7b794ef300c40cbe7deb69e175051d584f7",
+  "qualified_packet_sha256": "a6674c622dc616c9980753d928937e304783c77c6b72df093cdc91e903bc4c3b",
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-B",
+    "/workspace/scratch/7408259c1ab2/recertification-production-after036-20261006/検証/全体模様窓回帰.py",
+    "--repository-root",
+    "/workspace/scratch/7408259c1ab2/recertification-production-after036-20261006",
+    "--worker",
+    "14",
+    "--case-output",
+    "/workspace/scratch/7408259c1ab2/recertification034-necessity-proof-wrapper-20261006/production-integration/case14-capture-retry-v1/case-14"
+  ],
+  "working_directory": "/workspace/scratch/7408259c1ab2/recertification-production-after036-20261006",
+  "limits": {
+    "cpu_seconds": 10,
+    "address_space_MiB": 512,
+    "whole_child_wall_seconds": 60
+  },
+  "case_index": 14,
+  "case": [
+    "fault",
+    "success_raw_return",
+    "MemoryError"
+  ],
+  "required_pre_run_checks": [
+    "All 17 deployed payload files match changed-public-manifest.json",
+    "Only support488684b2 and dependency-pins4f31017a differ from accepted a175 public payload",
+    "Existing candidate034 integration and all other production sources unchanged",
+    "Fresh output directory; no overwritten original report or raw prefix"
+  ],
+  "supervisor_contract": [
+    "New child process group with resource limits applied before or inside candidate/control entry",
+    "Capture stdout and stderr from start; enforce whole child wall with group kill",
+    "Persist complete wait4 terminal before parsing worker stdout or summary",
+    "Exit 0 plus written success is insufficient if actual wait4 CPU >10 or whole wall >60",
+    "Preserve all raw artifacts and any incomplete/failing terminal; no automatic retry",
+    "Check changed payload/source hashes after exit"
+  ],
+  "successful_evidence_requirements": {
+    "exit_code": 0,
+    "timed_out": false,
+    "cpu_at_most": 10,
+    "wall_at_most": 60,
+    "case_summary_passed": true,
+    "stdout_tests_run": 1,
+    "stdout_case_index": 14,
+    "complete_fault_prefix_sha256": "88d114dabb76de720013b9f70efc0a6878f89fb453bff789598951758e501896",
+    "fault_prefix_expected": "Exact complete saved first failure prefix, including all certificates and pending successful raw return"
+  },
+  "execution_count": 1,
+  "preparation_authorized": "Apply exactly the two capture/admin-pin file differences from the17-file changed manifest, reverify every deployed file and unchanged runtime, save concrete supervisor source and invoked command before the single launch. No candidate semantic changes.",
+  "coverage_if_successful": "Explicit composition: 82 original old-script passes +28 original new-case passes +1 fresh bounded case14 pass. Original failed 83-script process and original case14 CPU failure remain failures. No new successful whole-script process is implied.",
+  "original_failures_preserved": true,
+  "old_full_record_metadata_replay_failure_preserved": true,
+  "no_old_full_record_timing_claim": true,
+  "repeat_82_old_scripts_released": false,
+  "repeat_28_completed_new_cases_released": false,
+  "query_execution_released": false,
+  "scorer_released": false,
+  "adoption_released": false,
+  "reviewer_candidate_control_execution": 0
+}

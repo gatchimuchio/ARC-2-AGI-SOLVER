@@ -1,0 +1,43 @@
+{
+  "scope": "One changed-capture normal case14 retry",
+  "successful": true,
+  "exit_code": 0,
+  "wait_status": 0,
+  "actual_process_and_waited_child_cpu_seconds": 5.520008000000001,
+  "whole_wall_seconds": 5.52588203799678,
+  "max_rss_KiB": 277816,
+  "timed_out": false,
+  "summary": {
+    "successful": true,
+    "tests_run": 1,
+    "case_index": 14,
+    "administrative_check_count": 73
+  },
+  "case_summary": {
+    "passed": true,
+    "mode": "fault",
+    "case": "success_raw_return",
+    "optimized": 0,
+    "checks": [],
+    "results": {
+      "case": "success_raw_return",
+      "exception": "MemoryError",
+      "prefix": {
+        "completed_models": 20,
+        "logical_prefix": 40,
+        "self_refuted": 36,
+        "actual": 4
+      }
+    },
+    "administrative_check_count": 73,
+    "official_query_calls": 0,
+    "scorer_calls": 0
+  },
+  "full_fault_prefix_sha256": "88d114dabb76de720013b9f70efc0a6878f89fb453bff789598951758e501896",
+  "full_fault_prefix_byte_identity_required": true,
+  "release_sha256": "0842e2aa4c34f70cce03d8a478d1b46782e2930a1111035dfcd84ce86925744a",
+  "original_failure_preserved": true,
+  "new_whole_script_run": false,
+  "repeated_old_scripts": 0,
+  "repeated_completed_new_cases": 0
+}

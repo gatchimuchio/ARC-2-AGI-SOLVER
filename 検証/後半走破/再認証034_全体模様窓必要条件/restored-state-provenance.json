@@ -1,0 +1,121 @@
+{
+  "scope": "Saved completed fresh public-constructor state proof; no candidate execution",
+  "state": {
+    "path": "/workspace/scratch/7408259c1ab2/recertification034-necessity-proof-wrapper-20261006/restored-query-state/state.json",
+    "bytes": 4642,
+    "sha256": "3d1babd5edd4b323777b79d08eebae9ec807eaf65a7282467c1b3dd1df208905"
+  },
+  "sources": [
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification034-necessity-proof-wrapper-20261006/all120-teacher-preflight/fresh-local70-dmd661x_/115.teacher-input.json",
+      "bytes": 1965,
+      "sha256": "7fff4e3aa892ab8c2aeab1241d2330157b10e2c192568a9673e34a15015cef2b"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification034-necessity-proof-wrapper-20261006/all120-teacher-preflight/fresh-local70-dmd661x_/115.record.json.gz",
+      "bytes": 1327848,
+      "sha256": "725fa12ba88f2d4d73d61c7e3ac1d71109bbf0ac744242efb34807e8f0f6e78d"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification034-necessity-proof-wrapper-20261006/all120-teacher-preflight/fresh-local70-dmd661x_/115.receipt.json.gz",
+      "bytes": 55087,
+      "sha256": "c542322f3f2326f95fc803f8456343893371095077a67e54c9f9d80e97b35d83"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification034-necessity-proof-wrapper-20261006/all120-teacher-preflight/fresh-local70-dmd661x_/115.events.jsonl.gz",
+      "bytes": 26510545,
+      "sha256": "ae50f45538407ac4580965fcf8b1a6b08a9d95b5c707c37a13900701bedc052b"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification034-necessity-proof-wrapper-20261006/all120-teacher-preflight/fresh-local70-dmd661x_/115.stdout.json",
+      "bytes": 3516,
+      "sha256": "3ea5d82eda50d4ac5b84e175c4c13c24c70d507b34572c6d9f37fa833eaa3294"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification034-necessity-proof-wrapper-20261006/all120-teacher-preflight/fresh-local70-dmd661x_/115.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification034-necessity-proof-wrapper-20261006/all120-teacher-preflight/fresh-local70-dmd661x_/summary.json.gz",
+      "bytes": 164019,
+      "sha256": "7ad42f527a9a60dfe2c68526fb03ef8af49bc3eb13c0e43ecea9d783027cfafe"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification034-necessity-proof-wrapper-20261006/runtime-lock.json",
+      "bytes": 6833,
+      "sha256": "a2aaea1b22a4c84215ec9bc5a858d35b34c23256da3d5e1791af316bea16ac84"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification034-necessity-proof-wrapper-20261006/reviewer-teacher-only-disposition.json",
+      "bytes": 2401,
+      "sha256": "f58276a531f3bee94293c8345eae69c07fc32f1ab3e383ca8cddce936d07cd39"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification034-necessity-proof-wrapper-20261006/restored-query-state/extract_state.py",
+      "bytes": 6568,
+      "sha256": "30567fb89b952966d3dc10abac5ee2e32e7df3a93de04041df0183c73951c50e"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification034-necessity-proof-wrapper-20261006/payload/接続/ARC2/全体模様窓必要条件教材.py",
+      "bytes": 3755,
+      "sha256": "0e26aa30710a66f0a3cdd39c1e14d73a260f3a25f2c5e210d59b00e2c2723e91"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification034-necessity-proof-wrapper-20261006/payload/接続/ARC2/全体模様窓教材.py",
+      "bytes": 3605,
+      "sha256": "1b9dbce6ae437ac865d51cf87b24ce1a1c10dbf1e98213b69e5628be94f1a13d"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification034-necessity-proof-wrapper-20261006/payload/接続/ARC2/全体模様窓視点.py",
+      "bytes": 2927,
+      "sha256": "bf8ef6214beb1b99c296572e05b09c2d26c875316582a22eedaaae5ea25fd2bd"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification034-necessity-proof-wrapper-20261006/payload/接続/ARC2/周期模様窓候補.py",
+      "bytes": 4751,
+      "sha256": "4666e2f267b2b57054e4f290c42f2d62a5e4d1eaa2f20c215c04fa44ea18dd58"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification034-necessity-proof-wrapper-20261006/payload/接続/ARC2/周期模様窓基底教材.py",
+      "bytes": 9983,
+      "sha256": "3bf6cee95ab60e2588a78580882c022188664b83d4ada42532b2271a910ffe32"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification034-necessity-proof-wrapper-20261006/payload/接続/ARC2/周期模様窓必要条件教材.py",
+      "bytes": 18726,
+      "sha256": "6e11a53cc273986557f683345f42ffb4acaa8f696c0c5ae0a7f0b5be1219b5cd"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification034-necessity-proof-wrapper-20261006/payload/接続/ARC2/周期模様窓教材.py",
+      "bytes": 3952,
+      "sha256": "de2378434c03e509baff79054004912644465a1956b67fa630e8518c18399138"
+    }
+  ],
+  "constructor_class": "全体模様窓必要条件教材",
+  "immutable_fields": [
+    "モデル群",
+    "教師数",
+    "不足理由"
+  ],
+  "constructor_AST": "FunctionDef(name='__init__', args=arguments(posonlyargs=[], args=[arg(arg='self'), arg(arg='教師群'), arg(arg='監査'), arg(arg='観測')], kwonlyargs=[], kw_defaults=[], defaults=[Constant(value=None), Constant(value=None)]), body=[Assign(targets=[Tuple(elts=[Name(id='models', ctx=Store()), Name(id='record', ctx=Store())], ctx=Store())], value=Call(func=Name(id='fit', ctx=Load()), args=[Name(id='教師群', ctx=Load()), Name(id='観測', ctx=Load())], keywords=[])), Expr(value=Call(func=Attribute(value=Name(id='object', ctx=Load()), attr='__setattr__', ctx=Load()), args=[Name(id='self', ctx=Load()), Constant(value='モデル群'), Name(id='models', ctx=Load())], keywords=[])), Expr(value=Call(func=Attribute(value=Name(id='object', ctx=Load()), attr='__setattr__', ctx=Load()), args=[Name(id='self', ctx=Load()), Constant(value='教師数'), Subscript(value=Name(id='record', ctx=Load()), slice=Constant(value='teacher_count'), ctx=Load())], keywords=[])), Expr(value=Call(func=Attribute(value=Name(id='object', ctx=Load()), attr='__setattr__', ctx=Load()), args=[Name(id='self', ctx=Load()), Constant(value='不足理由'), Call(func=Attribute(value=Name(id='record', ctx=Load()), attr='get', ctx=Load()), args=[Constant(value='failure')], keywords=[])], keywords=[])), If(test=Compare(left=Name(id='監査', ctx=Load()), ops=[IsNot()], comparators=[Constant(value=None)]), body=[Expr(value=Call(func=Attribute(value=Name(id='監査', ctx=Load()), attr='update', ctx=Load()), args=[Name(id='record', ctx=Load())], keywords=[]))], orelse=[])], decorator_list=[], type_params=[])",
+  "prediction_AST": "FunctionDef(name='候補', args=arguments(posonlyargs=[], args=[arg(arg='self'), arg(arg='格子'), arg(arg='_policy'), arg(arg='観測')], kwonlyargs=[], kw_defaults=[], defaults=[Constant(value=None)]), body=[Return(value=Call(func=Name(id='predict', ctx=Load()), args=[Name(id='格子', ctx=Load()), Attribute(value=Name(id='self', ctx=Load()), attr='モデル群', ctx=Load()), Name(id='観測', ctx=Load())], keywords=[]))], decorator_list=[], type_params=[])",
+  "constructor_return_evidence": "The fixed child assigns obj from the public constructor, then saves three completed predictions from that same object before successful final completion",
+  "scalar_derivation": {
+    "モデル群": "completed record.models",
+    "教師数": "completed record.fit.teacher_count",
+    "不足理由": "completed record.fit.failure"
+  },
+  "model_count": 32,
+  "all_model_indices_and_literal_specs_verified": true,
+  "full_teacher_gate": "Fresh proof-aware complete run; old af45 evidence is prefix-only",
+  "historical_partial_pool_used": false,
+  "candidate_imports": 0,
+  "constructor_calls": 0,
+  "fit_calls": 0,
+  "query_calls": 0,
+  "native_calls": 0,
+  "proposed_direct_route": "Restored-state first query phase, not continuation or retry",
+  "observation_time_is_not_whole_fit_plus_query_performance": true,
+  "normal_full120_remains_performance_gate": true
+}

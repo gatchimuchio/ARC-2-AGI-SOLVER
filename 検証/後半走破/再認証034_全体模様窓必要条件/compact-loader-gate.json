@@ -1,0 +1,55 @@
+{
+  "schema": "NEW034-independent-compact-package-loader-disposition-v1",
+  "reviewer": "/root/audit_arc2_second_half_gates/audit_whole_mask_reconstruction",
+  "issued_at_utc": "2026-10-06T08:42:28.094625+00:00",
+  "status": "PASS_COMPACT_SOURCE_AND_FOUR_DEPLOYMENT_ONLY_LOADERS",
+  "manifest_sha256": "a175b6ca2f00313fb51e9dc47fd0f38ca40253a42dd85e435d51b98ed1129058",
+  "launcher_sha256": "3cc9701406dd7004c01fc6ef475b1e0c518acaa6c29fb41b340dc20de6e563ba",
+  "payload_files": 17,
+  "payload_bytes": 1015139,
+  "source_release_receipt_sha256": "ecfbe2c087aa887e245fc42fc507aa63f15dfac3fd632d2bb28a2f184d5b2136",
+  "target_commit": "ae453ea299bb71bcc9ad311b331edb9c367dbd30",
+  "target_tree": "f37e9f05c87054f5f47b84b9416ef064d79ecab5",
+  "all7_runtime_files_byte_exact": true,
+  "behavioral_function_and_assertion_AST_parity_verified": true,
+  "all4_loader_terminal_stdout_and_payload_pins_independently_verified": true,
+  "loaders": [
+    {
+      "label": "normal",
+      "receipt_sha256": "e7f5239517e9df928210dec7b9b01ad7df235ffff0650d5c8f83977a9544eea3",
+      "cpu_seconds": 0.317951,
+      "wall_seconds": 0.32638767800017376,
+      "tests_run": 0,
+      "runtime_calls": {}
+    },
+    {
+      "label": "optimized",
+      "receipt_sha256": "ee7714f693e7438bab8e3b63d7ad3817688412c171143848752625ddf0d60152",
+      "cpu_seconds": 0.55045,
+      "wall_seconds": 0.5713977060004254,
+      "tests_run": 0,
+      "runtime_calls": {}
+    },
+    {
+      "label": "portable-normal",
+      "receipt_sha256": "549e32cabc11d7491f784cfc8e2231142ce792a7c19d26d61629e7116854d1be",
+      "cpu_seconds": 0.327028,
+      "wall_seconds": 0.328601068998978,
+      "tests_run": 0,
+      "runtime_calls": {}
+    },
+    {
+      "label": "portable-optimized",
+      "receipt_sha256": "79cbef6d02c3f54fe2eb999774f85e34d499a0397217f0b6b4df5539e9f9fc1c",
+      "cpu_seconds": 0.536053,
+      "wall_seconds": 0.5451181559983524,
+      "tests_run": 0,
+      "runtime_calls": {}
+    }
+  ],
+  "packaging_behavioral_reruns": 0,
+  "public29_case_suite_measured_here": false,
+  "public110_outer_120_collector_margin_measured_here": false,
+  "teacher_stage_BASE70_provenance_and_target_after036_native_AST_distinction_preserved": true,
+  "production_query_scoring_integration_adoption_release_from_this_receipt": false
+}
