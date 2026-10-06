@@ -1,0 +1,39 @@
+{
+  "scope": "Fresh035 reconstructed-adapter recertification on accepted03475/106; historical76 not restored",
+  "score": "RUN_ONCE",
+  "summary": {
+    "mode": "current",
+    "tasks": 120,
+    "test_examples": 167,
+    "correct_tasks": 76,
+    "accuracy": 0.6333333333333333,
+    "correct_examples": 107,
+    "unanswered": 60,
+    "wrong_attempted_tasks": 8,
+    "resource_failures": {},
+    "seconds": 43.676866825000616,
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961",
+    "cpu_seconds_per_task": 10,
+    "address_space_mib": 512,
+    "wall_seconds_per_task": 60,
+    "workers": 3
+  },
+  "wrong_predictions": 0,
+  "all_previous_106_grids_identical": true,
+  "changed_prior_grids": [],
+  "paired_official_grid_equal": true,
+  "delta": {
+    "tasks": 1,
+    "examples": 1
+  },
+  "runtime_gate_pass": true,
+  "source_pins_unchanged": true,
+  "sealed_input": {
+    "path": "/workspace/scratch/7408259c1ab2/recertification035-reconstructed-adapter-observation-v2-20261006/production-integration/fixed-query/sealed-input-only.json",
+    "sha256": "5270dcef682c74686be23a1074e8d0c7c4500f6788deaf95a66c48b6927715d3"
+  },
+  "baseline_sha256": "5b0ba353c6034bfe9c4d7fc885f6716b51f70600900075667188131cb8740234",
+  "current_sha256": "e3a6c2698686e8fe60656b01fde319fef9720393d3afa84a79e8c2d9c2372d6d",
+  "parent_admission_required": true
+}

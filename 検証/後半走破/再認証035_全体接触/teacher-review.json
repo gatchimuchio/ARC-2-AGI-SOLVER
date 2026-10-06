@@ -1,0 +1,57 @@
+{
+  "schema": "candidate035-full120-teacher-closure-v1",
+  "created_at_utc": "2026-10-06T08:45:56.390494+00:00",
+  "verdict": "PASS",
+  "runtime_lock_sha256": "d6e44d7a92f94d4f6e2290fb5f6f9d84f6f0b0de55ff393dd3939b9bc8a5c53b",
+  "summary_sha256": "7436f25f80c6b4e118399d065553e387b77c103f202ac84811abe7860ca47382",
+  "full_teacher_receipt_sha256": "a02737b0b45db0c883bcf2d0d725a67b31aa129df5682bf9103d07cda5c3200e",
+  "independent_saved_comparison_sha256": "d238f76fbaca65e0e9dc610e5e0cb172c94bd2891941abd13594ebe13f476bf1",
+  "teacher_only_full120_complete": true,
+  "task_count": 120,
+  "teacher_pair_count": 359,
+  "actual_fit_program_teacher_returns": 1436,
+  "actual_prediction_method_invocations": 359,
+  "actual_retained_model_prediction_renders": 4,
+  "empty_model_prediction_returns": 355,
+  "actual_core_execute_returns": 20,
+  "actual_core_execute_breakdown": {
+    "fit": 16,
+    "prediction": 4
+  },
+  "dispositions": {
+    "logical_HOLD": 119,
+    "FIT": 1
+  },
+  "selected5961": {
+    "index": 44,
+    "teacher_count": 4,
+    "fit_rows": 16,
+    "models": [
+      [
+        "absorb",
+        "erase"
+      ]
+    ],
+    "model_all_exact": [
+      true,
+      false,
+      false,
+      false
+    ],
+    "prediction_render_returns": 4,
+    "all_predictions_exact": true
+  },
+  "resource_or_exception_or_incomplete": 0,
+  "raw_journal_complete_members_call_matrices_FIFOs_consensus_retention_and_terminal_budgets_reconciled": true,
+  "teacher_source_sha256": "012924cb967106a6d72e9323b83534539471c27dc4f5fba5d8d4a0dbe334c8aa",
+  "source_runtime_pins_unchanged": true,
+  "reviewer_execution_or_import_of_candidate_helper_harness_native_or_oracle": false,
+  "review_method": "Saved train-only JSON/gzip, hashes, and saved-trace arithmetic only",
+  "scope_limits": [
+    "This verifies one fresh strict teacher-only preflight on immutable LOCAL73 dependency basis.",
+    "No original historical raw evidence is restored, and packaged sources remain reconstructed.",
+    "No production integration, original query, scorer, public native stage, or adoption is released.",
+    "Actual four-current native behavior remains untested here; prior native controls used two synthetic current observations."
+  ],
+  "next_gate": "Compact static/loader-only preparation may be reviewed separately; no candidate replay is authorized by this receipt."
+}

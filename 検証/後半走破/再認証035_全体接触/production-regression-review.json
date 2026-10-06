@@ -1,0 +1,33 @@
+{
+  "schema": "fresh035-independent-integration-and-production-regression-readback-v1",
+  "status": "PASS_CURRENT_SOURCE_AND_SINGLE_REGRESSION_SUITE",
+  "utc": "2026-10-06T09:49:47.093879+00:00",
+  "integration_receipt_sha256": "37d0f54d0d03cc16e2955adfcece2b3351dc81b21ebad4841352c4332148c466",
+  "base_commit": "f936413a5bab7d99b31a9ef86651c5f9f1f7c219",
+  "base_tree": "8a0cdb799601e496160e1e3d51e3407b6556d3f6",
+  "sources_verified": 10,
+  "prior_nonbridge_blob_bytes_modes_verified": 748,
+  "official_pins": [
+    {
+      "path": "入力/公式ソース/ARC-AGI-2",
+      "commit": "f3283f727488ad98fe575ea6a5ac981e4a188e49"
+    }
+  ],
+  "four_registration_removal_restores_entire_base_bridge_bytes_AST": true,
+  "family": "ARC全体接触",
+  "result_key": "body_port_rays",
+  "regression_report_sha256": "730155d95d3b71847ca9791c91b808cf7dff390b1d89197846f6cded253f2755",
+  "script_process_count": 84,
+  "aggregate_declared_checks": 4349,
+  "all84_exact_stdout_stderr_records_source_hashes_and_exit0_verified": true,
+  "prior83_declared_counts_and_script_hashes_unchanged": true,
+  "new_behavioral_checks": 255,
+  "new_behavioral_stages": 20,
+  "new_administrative_checks_separate": 119,
+  "new_public_default_root_behavior_run_verified": true,
+  "previously_incremental034_script_now_has_new_actual_successful_process": true,
+  "old034_failed_process_not_reclassified": true,
+  "compact_portable_optimization_scope": "Previous source-stage normal/optimized/portable behavior, static compact preservation, four compact loader-only checks, and this single deployed normal behavior run. No new compact optimized/portable behavior rerun is claimed.",
+  "reviewer_candidate_helper_native_test_or_scorer_execution": 0,
+  "query_execution_released": false
+}

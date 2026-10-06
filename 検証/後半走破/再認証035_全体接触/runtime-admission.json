@@ -1,0 +1,106 @@
+{
+  "schema": "fresh035-independent-runtime-admission-review-v1",
+  "status": "PASS_RUNTIME_ELIGIBLE_FOR_PARENT_LOCAL_ADMISSION",
+  "utc": "2026-10-06T09:57:30.574710+00:00",
+  "base_commit": "f936413a5bab7d99b31a9ef86651c5f9f1f7c219",
+  "base_score": "75tasks/106examples",
+  "current": {
+    "correct_tasks": 76,
+    "correct_examples": 107,
+    "tasks": 120,
+    "test_examples": 167,
+    "HOLD_examples": 60,
+    "partially_solved_tasks": 8,
+    "wrong_emitted_grids": 0,
+    "resource_failures": 0
+  },
+  "delta": {
+    "tasks": 1,
+    "examples": 1,
+    "HOLD_examples": -1
+  },
+  "all_previous_correct_grids_retained": 106,
+  "only_changed_query": [
+    {
+      "task_id": "5961cc34",
+      "query_index": 0
+    }
+  ],
+  "direct_native_official_whole_grid_equal": true,
+  "independent_postscore_emitted_grid_comparisons": 107,
+  "original_scorer_summary_and_membership_verified": true,
+  "official_challenge_solutions_tasks_examples_equal_baseline": true,
+  "normal_limits": {
+    "cpu_seconds_per_task": 10,
+    "address_space_MiB": 512,
+    "wall_seconds_per_task": 60,
+    "workers": 3
+  },
+  "regressions": {
+    "current_script_processes": 84,
+    "aggregate_declared_checks": 4349,
+    "new_behavioral_assertions": 255,
+    "new_behavioral_stages": 20,
+    "new_administrative_checks_separate": 119,
+    "all84_exit0_and_full_log_source_records_verified": true,
+    "current034_public_script_actual_process_passed": true,
+    "old034_failed_processes_remain_failed": true,
+    "independent_readback_sha256": "0ae32d31c9271c84229d2d85b90b72ba91bcd5a754935f624805dd0215917921"
+  },
+  "source_and_evidence_pins_unchanged": 4623,
+  "production_freeze_sha256": "fd12470718c09621ff25e26d1ec1e0874bff8946109acbe59ee68751fd9ff3a1",
+  "official_score_sha256": "e3a6c2698686e8fe60656b01fde319fef9720393d3afa84a79e8c2d9c2372d6d",
+  "baseline_score_sha256": "5b0ba353c6034bfe9c4d7fc885f6716b51f70600900075667188131cb8740234",
+  "decision_sha256": "7e4045ecbf83105480ed013b21c3c0396e260b2c780d5f438cfe7d3c069b76b9",
+  "input_only_seal_sha256": "5270dcef682c74686be23a1074e8d0c7c4500f6788deaf95a66c48b6927715d3",
+  "independent_ordinary_pair_closure_sha256": "f505c0dcd7b46a141f7b63536066e0562bd30f94934b95367247cb54df8ce105",
+  "ordinary_pair": {
+    "direct_fresh_constructor_completed": true,
+    "direct_fit_rows_complete": 16,
+    "teacher_count": 4,
+    "retained_models": [
+      [
+        "absorb",
+        "erase"
+      ]
+    ],
+    "original_query_calls": 1,
+    "native_fresh_whole_public": true,
+    "native_current_observations": 4,
+    "native_prior_observations": 0,
+    "native_quarantine": 0,
+    "no_restored_state_or_continuation": true,
+    "direct_cpu_before_final_envelope": 0.601048,
+    "native_cpu_before_final_envelope": 1.746608,
+    "runtime_pins_verified": 180
+  },
+  "teacher_gate": {
+    "tasks": 120,
+    "teachers": 359,
+    "actual_fit_render_returns": 1436,
+    "symbolic_unexecuted_slots": 0,
+    "prediction_method_returns": 359,
+    "empty_model_prediction_returns": 355,
+    "actual_retained_prediction_renders": 4,
+    "core_geometry_execute_returns_total": 20,
+    "core_geometry_execute_returns_fit": 16,
+    "core_geometry_execute_returns_prediction": 4,
+    "FIT_task": "5961cc34",
+    "logical_HOLD_tasks": 119,
+    "resource_exception_incomplete": 0,
+    "independent_closure_sha256": "60673d48641220287fb3a6cbe32bdcfae4fae8abb8f2f84e5cc76c8b99dbf4da"
+  },
+  "future_timing_guarantee": false,
+  "limitations": [
+    "Only the original9692-byte prototype has a recovered historical SHA match. Packaged core and adapter are reconstructed and newly reviewed; no historical final packaged-file hash identity is claimed.",
+    "Historical public query/score exposure remains known; missing original post70 raw/history is not restored.",
+    "The single fresh normal score reaches the historically reported76/107 count; this is fresh recertification, not a new improvement beyond that historical count or restoration of missing historical evidence.",
+    "All-role/normal alternatives and all four fit programs remain complete; actual fit/render calls, geometry execute calls and prediction invocations are separate quantities.",
+    "Synthetic native2-current support2/3 controls are distinct from actual4-current ordinary native query.",
+    "Compact behavior preservation and original source-stage normal/optimized/portable coverage plus four loader checks support this current deployed normal suite; no new packaged optimized/portable behavioral rerun is claimed.",
+    "Deliberate resource/late-exit controls remain resource or exception outcomes, not successful candidate evaluations."
+  ],
+  "reviewer_candidate_helper_harness_native_test_or_scorer_execution": 0,
+  "adoption_performed": false,
+  "external_writes": 0
+}

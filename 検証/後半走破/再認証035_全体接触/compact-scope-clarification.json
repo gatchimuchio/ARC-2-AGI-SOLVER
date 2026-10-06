@@ -1,0 +1,7 @@
+{
+  "schema": "fresh035-compact-scope-clarification-v1",
+  "original_manifest_sha256": "480338264e08cd0c54ec06e5d69bdda00b40482f76c7304a79b7721cde3d53de",
+  "preserved_initial_flag": true,
+  "clarification": "The original requires_fresh_public_normal_optimized_and_portable_checks field was a preparation note. Reviewed source-stage normal/optimized/portable behavioral evidence and four compact loader controls remain their recorded scopes. One deployed normal public regression supplies packaged behavioral coverage; packaged optimized/portable behavioral reruns are neither required nor claimed.",
+  "audit_lead_confirmation_received_utc": "2026-10-06T09:42:15Z"
+}

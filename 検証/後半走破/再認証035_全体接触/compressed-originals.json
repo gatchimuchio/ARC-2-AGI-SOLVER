@@ -1,0 +1,38 @@
+{
+  "teacher-summary.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification035-reconstructed-adapter-observation-v2-20261006/all120-teacher-preflight/fresh-local73-4y1bnffe/summary.json.gz",
+    "bytes": 57987,
+    "sha256": "7436f25f80c6b4e118399d065553e387b77c103f202ac84811abe7860ca47382",
+    "source_already_gzip": true
+  },
+  "teacher-index.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification035-reconstructed-adapter-observation-v2-20261006/production-integration/teacher-index.json",
+    "bytes": 253124,
+    "sha256": "f11104c4fe4efe8be1e41343985fbe1b829f44cef1513c8154f8e7a6cba7bd35",
+    "source_already_gzip": false
+  },
+  "regressions.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification035-reconstructed-adapter-observation-v2-20261006/production-integration/regression-run/report.json",
+    "bytes": 279033,
+    "sha256": "730155d95d3b71847ca9791c91b808cf7dff390b1d89197846f6cded253f2755",
+    "source_already_gzip": false
+  },
+  "sealed-input-only.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification035-reconstructed-adapter-observation-v2-20261006/production-integration/fixed-query/sealed-input-only.json",
+    "bytes": 329214,
+    "sha256": "5270dcef682c74686be23a1074e8d0c7c4500f6788deaf95a66c48b6927715d3",
+    "source_already_gzip": false
+  },
+  "current-official.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification035-reconstructed-adapter-observation-v2-20261006/production-integration/current-official.json",
+    "bytes": 7328784,
+    "sha256": "e3a6c2698686e8fe60656b01fde319fef9720393d3afa84a79e8c2d9c2372d6d",
+    "source_already_gzip": false
+  },
+  "production-freeze.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification035-reconstructed-adapter-observation-v2-20261006/production-integration/production-freeze.json",
+    "bytes": 1396114,
+    "sha256": "fd12470718c09621ff25e26d1ec1e0874bff8946109acbe59ee68751fd9ff3a1",
+    "source_already_gzip": false
+  }
+}

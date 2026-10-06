@@ -1,0 +1,67 @@
+{
+  "schema": "candidate035-compact-loader-disposition-v1",
+  "created_at_utc": "2026-10-06T08:57:37.939491+00:00",
+  "verdict": "PASS",
+  "compact_manifest_sha256": "480338264e08cd0c54ec06e5d69bdda00b40482f76c7304a79b7721cde3d53de",
+  "loader_terminal_sha256": "e2152dc30d0dcc81976ac54d3e0b9875df17ddbfbb89af881fc28f63ffb53fc2",
+  "loader_release_sha256": "0c44da714d169a4a34a963cab6cce3bdfcabd37489da4e6b4d10997e49399160",
+  "supervisor_sha256": "2e9f6e217a1f1ca9f336c3b795c9f76ce465c98d33c23c61f174ee31ac0d7f83",
+  "static_receipt_sha256": "2a374694b4bcb90383d11e85d469fe54eefb3c9743da5d294d73971a6d198ff7",
+  "artifact_hashes_sizes_and_coverage_checked": 21,
+  "deployed_copy_file_hashes_checked": 30,
+  "loader_commands_completed_once": 4,
+  "rows": [
+    {
+      "index": 0,
+      "child_pid": 5,
+      "completed": true,
+      "exit_code": 0,
+      "tests_run": 0,
+      "actual_child_process_cpu_seconds": 0.146837,
+      "parent_wall_seconds": 0.15426938000018708,
+      "wait4_ru_maxrss_KiB": 23704
+    },
+    {
+      "index": 1,
+      "child_pid": 5,
+      "completed": true,
+      "exit_code": 0,
+      "tests_run": 0,
+      "actual_child_process_cpu_seconds": 0.40501,
+      "parent_wall_seconds": 0.4086737930010713,
+      "wait4_ru_maxrss_KiB": 25456
+    },
+    {
+      "index": 2,
+      "child_pid": 5,
+      "completed": true,
+      "exit_code": 0,
+      "tests_run": 0,
+      "actual_child_process_cpu_seconds": 0.145838,
+      "parent_wall_seconds": 0.15387852899948484,
+      "wait4_ru_maxrss_KiB": 23756
+    },
+    {
+      "index": 3,
+      "child_pid": 5,
+      "completed": true,
+      "exit_code": 0,
+      "tests_run": 0,
+      "actual_child_process_cpu_seconds": 0.423538,
+      "parent_wall_seconds": 0.42725771199911833,
+      "wait4_ru_maxrss_KiB": 25588
+    }
+  ],
+  "pid_scope": "PID values are local to each supervisor invocation. All4 receipts record child_pid5; global PID uniqueness is neither claimed nor required. Each pinned supervisor accounts for its own process.pid with wait4.",
+  "tests_run": 0,
+  "candidate_behavior_calls": 0,
+  "fit_parse_execute_render_predict_native_calls": 0,
+  "behavioral_suite_executed": false,
+  "administrative_checks_per_loader": 61,
+  "administrative_checks_count_as_behavioral_tests": false,
+  "original_explicit_and_relocated_default_roots_normal_optimized_verified": true,
+  "source_and_compact_pins_unchanged": true,
+  "reviewer_candidate_helper_harness_or_native_imports_or_execution": false,
+  "source_plus_teacher_closures_remain_separate": true,
+  "scope": "Packaging and loader-only verification complete. No new20-stage public behavioral regression, official teacher/full120 rerun, native-public, production integration, query, scorer, adoption or remote-write authorization is conferred."
+}

@@ -1,0 +1,22 @@
+{
+  "schema": "candidate035-compact-static-review-v1",
+  "reviewed_at_utc": "2026-10-06T08:54:17.258695+00:00",
+  "verdict": "STATIC_PASS",
+  "compact_manifest_sha256": "480338264e08cd0c54ec06e5d69bdda00b40482f76c7304a79b7721cde3d53de",
+  "loader_plan_sha256": "3adadef9728951143b7c7c9447ff20d60c81f5a46429893a3b22a287320da790",
+  "runtime_lock_sha256": "d6e44d7a92f94d4f6e2290fb5f6f9d84f6f0b0de55ff393dd3939b9bc8a5c53b",
+  "files_verified": 9,
+  "bytes_verified": 110657,
+  "candidate_core_adapter_bytes_unchanged": true,
+  "compressed_expected_data_bytes_exact": true,
+  "base_source_and_native_function_AST_pins_match": true,
+  "all7_reused_control_function_ASTs_match_after_declared_packaging_transforms": true,
+  "all14_support_definitions_match_after_declared_capture_root_binding": true,
+  "administrative_checks_excluded_from_behavioral_counts": true,
+  "loader_only_main_branch_skips_behavioral_stages": true,
+  "prospective_behavioral_assertion_count": 255,
+  "behavioral_assertions_newly_executed": 0,
+  "reviewer_candidate_helper_harness_import_or_execution": false,
+  "full120_teacher_closure_sha256": "60673d48641220287fb3a6cbe32bdcfae4fae8abb8f2f84e5cc76c8b99dbf4da",
+  "limits_and_scope": "Only the separately bounded four loader-only commands may be released after supervisor inspection. No20-stage behavioral rerun, production/query/scorer/native-public gate."
+}
