@@ -1,0 +1,44 @@
+{
+  "teacher-summary.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/all120-teacher-preflight/fresh-local70-t2k19xbg/summary.json.gz",
+    "sha256": "88760099bea13a87919585e58a351d60f3d3779ea9a01386bb2c0160438d7ee4",
+    "bytes": 85375,
+    "source_already_gzip": true
+  },
+  "teacher-index.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/teacher-index.json",
+    "sha256": "bb90e1ab9b34a0c57075dd5830475bd9fe4ad1f1e23a9721485da1bfdef4befe",
+    "bytes": 270645,
+    "source_already_gzip": false
+  },
+  "regressions.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/fresh-regressions.json",
+    "sha256": "540385feefa60c241d1a79c1dae9cfa75b6c838918558f29419043c9562c8f07",
+    "bytes": 195670,
+    "source_already_gzip": false
+  },
+  "original-incomplete-seal.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/fixed-query/sealed-input-only.json",
+    "sha256": "4af46b5a7355334c98bd879ff2e011ae3c20d36339f8861cc28ba98adbaf3793",
+    "bytes": 194237,
+    "source_already_gzip": false
+  },
+  "composed-input-only.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/direct-continuation/composed-input-only.json",
+    "sha256": "ad89f3edc7bda422144eea9b20da52d39e755a92678ce651cd61c2748b2b84d3",
+    "bytes": 415168,
+    "source_already_gzip": false
+  },
+  "current-official.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/current-official.json",
+    "sha256": "4871ccbe7fbdda3b9eada1b141b3c4a1f9976a7cf49bbff25ad0715891d71eb7",
+    "bytes": 6877842,
+    "source_already_gzip": false
+  },
+  "continuation-freeze.json.gz": {
+    "source": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/direct-continuation/CONTINUATION-FREEZE.json",
+    "sha256": "17fe20f57f4df612d3b914c8a7bc84d4a637b3469afc1666f1edfd3988d8ad76",
+    "bytes": 1176516,
+    "source_already_gzip": false
+  }
+}

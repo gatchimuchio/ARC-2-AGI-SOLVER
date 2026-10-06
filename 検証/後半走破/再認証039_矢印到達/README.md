@@ -1,0 +1,21 @@
+# 矢印到達の再認証（LOCAL専用）
+
+復元済み70課題/101例の原commit4341d14b2020d0b264ed2882ee7ab882127d6cd3へ、元039と同一SHAの候補・教材を追加した、新しい再認証成果です。同じ通常120課題/167例で71課題/102例、HOLD65、誤出力0・資源失敗0。旧101正解格子はすべて同一です。前後差は+1課題/+1例です。
+
+原本の旧LOCAL76のcommit・raw全体を復元したものではありません。旧公開query・採点結果の露出履歴を保持しています。今回のsourceは元の039全文とhash一致で回収し、合成fixtureと119HOLD/1FITの120課題/359教師、native支持3/4、移植検査と79本/3466チェックを新たに検証しました。独立検査と通常採点はこのbranch上の結果です。
+
+## 実行と観測
+
+最初の固定input-only確認ではdirect観測childがSIGXCPUで終了しました。全5800モデル×3教師の17400返値とteacher_fit_completedは保存済みですが、constructor-return checkpoint・query返値・最終envelopeはなく、constructorの復帰は未確認です。これは資源未完了として保持し、旧false sealと未採点/null差分を変更していません。同じ試行のfresh native公開経路は通常予算内で完成しました。
+
+別の固定観測継続では、保存された完全fit記録が新しい全教師検査の記録と一致することを照合し、モデルtuple・教師数・異入力数・不足理由の4不変fieldだけを復元しました。constructor/fit/core-fitを禁止し、未実行だったdirect query1回だけを同じ10CPU秒/512MiB/全child60秒で実行し、保存native格子と照合しました。native再実行・再fitは0です。新しい合成sealのscore_eligible=trueを先に保存してから、未変更の通常全120/元採点器を1回実行しました。通常runtimeの予算は変更していません。
+
+実observer合成検査の当初のpositive pair期待は未達です。directは完成し、nativeは既存格子値基底から正しい格子を返して新family記録を持たず、observerがKeyErrorとして返値を保存して不適格にしました。この負例と35合成教師の資源cap（35parse、0render、一次例外の2報告層）を独立に照合した限定的観測検査として記録しています。公開runtimeの失敗を隠した成功検査とは扱っていません。
+
+## 根拠の由来と制限
+
+- 入力viewとpainting actionは回収した人手設計の外部priorです。全5800候補を教師で厳密に選別し、保持全モデルの一致を要求します。HDSがこれらの意味部品を新発見したという主張ではありません。
+- 学習機械v0.4.2・旧helper・事前記憶・保護された規範を変更していません。bridgeの差分はimport、constructor、機構登録、返却記録の4登録だけです。
+- 現在教師は120課題/359対の全返値・失敗・証明による未実行を保存し、実17400fit返値と2064800未実行slotを区別します。過去の欠落rawを再作成したとは主張しません。
+- runtimeには元trainとtest inputだけを渡します。事前教材は従来の固定training source、query正解は採点親側だけです。継続childへnative答えを渡していません。
+- この小packageはsourceと圧縮gate資料です。全rawはfreeze/indexに記載したworkspace側の別証拠にあり、小packageが全rawを含むとは主張しません。外部書込・GitHub公開・CIは行っていません。

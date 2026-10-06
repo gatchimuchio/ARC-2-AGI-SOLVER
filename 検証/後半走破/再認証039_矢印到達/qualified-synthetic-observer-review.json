@@ -1,0 +1,221 @@
+{
+  "schema": "actual039-observer-independent-qualified-closure-v1",
+  "reviewed_utc": "2026-10-06T05:26:56.152614+00:00",
+  "status": "QUALIFIED_OBSERVER_COVERAGE_CLOSED",
+  "original_positive_pair_expectation": "UNMET_NATIVE_CANDIDATE_FAMILY_EXPECTATION",
+  "original_positive_pair_passed": false,
+  "suitable_for_final_production_freeze_review": true,
+  "source_or_query_execution_authorized_by_this_receipt": false,
+  "driver_sha256": "7bdb69e29f3020d53258ff2427bff8c133b315abff04d4087d6048f991e1eeac",
+  "control_plan_sha256": "d0dfe0e38b3605e1ae3ac798f0422e415c300faf24d1fdbdf5b34f8757a3cddc",
+  "launch_freeze_sha256": "2de08c6f456e783d2dce5f74b9a933fba6a6de08ae18cd4c92e79a8ecbf9e908",
+  "released_execution_sha256": "4218edd630958ec05f8df7d3daf4f752f7e1429af8adb153d35eabba3cd97d0e",
+  "direct_positive": {
+    "status": "PASS_DIRECT_SYNTHETIC_OBSERVER",
+    "completed": true,
+    "models": [
+      [
+        1,
+        "component",
+        9,
+        8
+      ]
+    ],
+    "teachers": 3,
+    "distinct_models_evaluated": 5800,
+    "model_teacher_returns": 17400,
+    "all_5800_by_3_unique_model_teacher_indices_present": true,
+    "query_count": 1,
+    "exact_expected_whole_grid_answer": true,
+    "retained_query_returns": 1,
+    "total_render_completed": 17401,
+    "journal_events": 58017,
+    "recovery_events": 58019,
+    "cpu_seconds": 4.1841360000000005,
+    "whole_wall_seconds": 4.2073179789995265,
+    "qualification": "One real candidate constructor and one candidate query on the released literal synthetic data. No original evaluation query was used."
+  },
+  "native_positive": {
+    "status": "EXPECTED_POSITIVE_FAMILY_PATH_NOT_REACHED_CORRECTLY_INELIGIBLE",
+    "whole_native_solver_returned": true,
+    "mechanism": "格子値基底",
+    "exact_returned_answer": true,
+    "complete_raw_return_identical_in_stdout_journal_recovery": true,
+    "expected_arrow_pulses_record_present": false,
+    "observer_completed": false,
+    "exception_type": "builtins.KeyError",
+    "exception_message": "'arrow_pulses'",
+    "resource_failure": false,
+    "runtime_failure": true,
+    "journal_events": 3,
+    "recovery_events": 3,
+    "cpu_seconds": 0.44029699999999994,
+    "whole_wall_seconds": 0.46344378300000244,
+    "qualification": "The existing base solver returned on repeated teacher0 input before candidate-family construction. This is not a successful native candidate fit/query or successful positive pair. The observer retained the whole return and rejected the missing expected family/model record."
+  },
+  "cap": {
+    "status": "PASS_EXPECTED_RESOURCE_OBSERVER",
+    "teacher_count": 35,
+    "parse_start_count": 35,
+    "parse_return_count": 35,
+    "parse_completed_count": 35,
+    "parse_record_indices_exactly_0_through_34": true,
+    "preserved_scene_count": 35,
+    "model_teacher_start_count": 0,
+    "render_count": 0,
+    "model_teacher_return_count": 0,
+    "query_return_count": 0,
+    "required_calls": 203000,
+    "enumeration_budget": 200000,
+    "exception_type": "接続.ARC2.矢印到達教材.EnumerationBudgetExceeded",
+    "resource_failure": true,
+    "runtime_failure": false,
+    "completed": false,
+    "semantic_HOLD": false,
+    "original_primary_exception_preserved": true,
+    "reporting_events": 2,
+    "reporting_layers": [
+      "fit_exception",
+      "state_entry_exception"
+    ],
+    "journal_events": 110,
+    "recovery_events": 110,
+    "exit_code": 0,
+    "cpu_seconds": 0.172951,
+    "whole_wall_seconds": 0.1955484059999435,
+    "qualification": "Exit 0 denotes successfully reported expected resource failure, not a completed/score-eligible result. The two exception events represent the same original failure reported at two layers."
+  },
+  "pair_verdict": {
+    "answers": 0,
+    "checks_pass": false,
+    "failures": [
+      "native:complete",
+      "native:all-fitted-models"
+    ],
+    "score_eligible": false
+  },
+  "transport_and_boundary": {
+    "all_three_closed_gzip_streams": true,
+    "unaccounted_gzip_tail_bytes": 0,
+    "all_event_and_recovery_sequences_and_counts_valid": true,
+    "positive_parent_records_match_raw_streams_and_sealed_report": true,
+    "all_recovery_final_envelopes_match_raw_stdout": true,
+    "all_three_read_audits_installed": true,
+    "read_denials": 0,
+    "all_observed_reads_allowed_by_runtime_pins_or_declared_infrastructure": true,
+    "all_three_input_hashes_match_sealed_synthetic_payloads_before_and_after": true,
+    "all_three_source_verified_before_and_after": true,
+    "all_three_recovery_capture_complete": true,
+    "all_three_secondary_failures_empty": true,
+    "all_three_stderr_empty": true,
+    "all_three_resource_measurements_within_released_limits": true,
+    "python_open_audit_is_os_sandbox": false
+  },
+  "identity_verification": {
+    "independently_rehashed_release_pins": 171,
+    "rehashed_pin_mismatches": 0,
+    "unopened_original_prior_file": {
+      "path": "/workspace/scratch/7408259c1ab2/recertification-production-20261006/入力/公式ソース/ARC-AGI-2/data/training/93b4f4b3.json",
+      "expected_sha256": "d84bde1258daea05eb115295751ea20c026384fb04436da0b640d462aa7d7f22",
+      "stat_size_verified": true,
+      "hash_verification_basis": "Released child checks all runtime pins before and after; reviewer did not open original task contents."
+    },
+    "launch_release_pin_lists_identical": true,
+    "child_configuration_matches_source_only_bundle_fields": true,
+    "all_result_available_raw_pins_verified": true
+  },
+  "continuation_and_reporting_qualifications": [
+    "Original frozen launcher stopped on its assertion that positive score_eligible must be true; launcher stderr and sealed false pair verdict are preserved.",
+    "The third, previously released cap child was executed through inline orchestration after a before-run command/input/release receipt. Its saved command matches the original frozen script child invocation, including the exact driver, existing child config, synthetic payload and output. No new frozen launcher or new source release is claimed.",
+    "The saved artifacts correspond to three originally released children; the lead reports each ran once and neither positive route was repeated. This reviewer ran no child or candidate.",
+    "The first saved-only readback expected one exception event. The preserved initial checker and correction receipt show a single correction to two explicit reporting layers; no candidate rerun was needed.",
+    "The audit lead explicitly accepts this qualified observer coverage with previously closed selected-native and fake positive composition evidence; no additional native positive synthetic is required for this gate. Those separate gates are not revalidated by this receipt.",
+    "Final production source/prior/model/payload freeze and any original-query execution release remain separate. Historical public-query/score exposure remains explicit, and missing original post-70 raw is not restored."
+  ],
+  "review_method": "Read-only standard-library JSON/gzip/zlib/hash inspection and AST parse of orchestration/readback source. No reviewed driver, harness, helper, candidate, native/HDS or scorer source was imported or executed.",
+  "reviewer_candidate_calls": 0,
+  "reviewer_child_calls": 0,
+  "reviewer_original_query_calls": 0,
+  "scorer_executed": false,
+  "raw_detail_receipt": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/actual-observer-controls/INDEPENDENT-ACTUAL-RAW-CHECK.json",
+  "raw_detail_receipt_sha256": "69d676debf84b9764c3efa1847748cc1349aaefe5ded1cd528e74d822e515d5d",
+  "evidence_pins": [
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/actual-observer-controls/CONTROL-PLAN.json",
+      "bytes": 2631,
+      "sha256": "d0dfe0e38b3605e1ae3ac798f0422e415c300faf24d1fdbdf5b34f8757a3cddc"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/actual-observer-controls/LAUNCH-FREEZE.json",
+      "bytes": 41639,
+      "sha256": "2de08c6f456e783d2dce5f74b9a933fba6a6de08ae18cd4c92e79a8ecbf9e908"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/actual-observer-controls/EXECUTION-RELEASE.json",
+      "bytes": 46377,
+      "sha256": "4218edd630958ec05f8df7d3daf4f752f7e1429af8adb153d35eabba3cd97d0e"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/actual-observer-controls/run_frozen_controls.py",
+      "bytes": 4817,
+      "sha256": "662e8df1e06ecb340ec1586aba390c90ee78fcc66afe46532a766123067b91ea"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/actual-observer-controls/synthetic-bundle.json",
+      "bytes": 39989,
+      "sha256": "3840f4aba833a1559025faad4044b05dffc1110a19e582a5ee8f22270ef21c10"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/actual-observer-controls/synthetic-positive-input.json",
+      "bytes": 5368,
+      "sha256": "b52d35f5c4e3c94ae5eea42b97fea33376a70226aa266742264b60d743e1e713"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/actual-observer-controls/synthetic-budget-input.json",
+      "bytes": 98955,
+      "sha256": "d0088673d571071ed7c8de5df403b2955c3e61aa0f9db0e4a7ba95e9808a05e3"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/actual-observer-controls/positive/child-config.json",
+      "bytes": 33669,
+      "sha256": "cc112804e81e8b15b4285012f9a2107dded56f1246124f50cf4b6b9b696a2fb3"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/actual-observer-controls/positive/sealed-input-only.json",
+      "bytes": 196765,
+      "sha256": "bd26821d8e37afceb682a55760171ab923786ad4e4cffacfeee09c2577b199e2"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/actual-observer-controls/cap-continuation-before.json",
+      "bytes": 1009,
+      "sha256": "5e5bf63af084b32360f584951b788345bf9de0de47a9a9737ccd15c5b123245c"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/actual-observer-controls/budget/exit.json",
+      "bytes": 647,
+      "sha256": "3713d3107d7fdca92d630741653d2fd489a2e734c94b6e9dd1dda5413d27eb3a"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/actual-observer-controls/saved-readback-correction.json",
+      "bytes": 402,
+      "sha256": "530b0de284fe3c325751c684c2c1ffc1df8109f8a1fbfb1091bbf99bdce0f78c"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/actual-observer-controls/read_saved_controls.initial.py",
+      "bytes": 4361,
+      "sha256": "862c0eda93ca70334fd9fd397d21685cb1e108a6c308e248d08c4c64e12a1ac4"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/actual-observer-controls/read_saved_controls.py",
+      "bytes": 4483,
+      "sha256": "f46348b19950a586a8eb40da47172543b9427f4ffdb6eed0897e036f49dbf2b3"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/actual-observer-controls/RESULT.json",
+      "bytes": 6808,
+      "sha256": "49e7bf9816805e70ab01a6da6b88ab2001c0ee1dcd33e4b3ca4be0cd86ea7458"
+    }
+  ],
+  "original_artifacts_modified": false,
+  "additive_receipts_only": true
+}

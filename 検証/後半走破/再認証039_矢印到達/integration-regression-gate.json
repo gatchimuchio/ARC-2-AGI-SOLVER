@@ -1,0 +1,23 @@
+{
+  "schema": "fresh039-independent-integration-and-regression-readback-v1",
+  "utc": "2026-10-06T05:12:49.791560+00:00",
+  "status": "PASS_PREQUERY_PREPARATION",
+  "base_commit": "4341d14b2020d0b264ed2882ee7ab882127d6cd3",
+  "base_tree": "58b3879f67c03f5762e7211b3cb2638a75e07fa6",
+  "production_root": "/workspace/scratch/7408259c1ab2/recertification-production-20261006",
+  "integration_receipt_sha256": "215378ba268702e6f04b0cadc1ba4484b0c3e2622bf77e0ba830c5c865e3894a",
+  "regression_receipt_sha256": "540385feefa60c241d1a79c1dae9cfa75b6c838918558f29419043c9562c8f07",
+  "exact_payload_and_bridge_paths": 6,
+  "prior_nonbridge_git_blobs_verified": 622,
+  "prior_git_modes_verified": 623,
+  "bridge_four_registrations_exactly_removed_to_identical_base_bytes": true,
+  "regression_scripts": 79,
+  "checks": 3466,
+  "script_source_hashes_verified": 79,
+  "public039_checks": 176,
+  "limitations": [
+    "The two earlier inline integration assertion failures are preserved by the lead; this review verifies the actual resulting state without inferring the first failed expression.",
+    "This gate does not release queries or scoring. Corrected paired observer and final freeze are pending."
+  ],
+  "candidate_helper_harness_native_test_or_scorer_executions_by_reviewer": 0
+}

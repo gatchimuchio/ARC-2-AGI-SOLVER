@@ -1,0 +1,69 @@
+{
+  "schema": "fresh039-independent-runtime-admission-review-v1",
+  "utc": "2026-10-06T05:45:56.035886+00:00",
+  "status": "PASS_RUNTIME_ELIGIBLE_FOR_PARENT_LOCAL_ADMISSION",
+  "base": "Recovered exact LOCAL70,70tasks/101examples; historical76/raw not restored",
+  "current": {
+    "tasks": 120,
+    "test_examples": 167,
+    "correct_tasks": 71,
+    "correct_examples": 102,
+    "HOLD_examples": 65,
+    "partial_tasks": 8,
+    "wrong_emitted_grids": 0,
+    "resource_or_runtime_errors": 0
+  },
+  "delta": {
+    "tasks": 1,
+    "examples": 1,
+    "HOLD_examples": -1
+  },
+  "all_previous_correct_grids_retained": 101,
+  "only_changed_query": {
+    "task_id": "409aa875",
+    "query": 0,
+    "prior_was_HOLD": true
+  },
+  "direct_native_official_whole_grid_equal": true,
+  "original_scorer_summary_and_task_membership_verified": true,
+  "independent_postscore_grid_comparisons": 102,
+  "normal_limits": {
+    "cpu_seconds": 10,
+    "address_space_MiB": 512,
+    "whole_child_wall_seconds": 60,
+    "workers": 3
+  },
+  "regressions": {
+    "scripts": 79,
+    "checks": 3466
+  },
+  "source_and_evidence_pins_unchanged": 3906,
+  "official_score_sha256": "4871ccbe7fbdda3b9eada1b141b3c4a1f9976a7cf49bbff25ad0715891d71eb7",
+  "baseline_score_sha256": "d00d2e1387df771f8b210026a4a2d86decb1ab78da0acee628a1fb73ef916656",
+  "decision_sha256": "2a59f4b4812b7216e352ca9f4f9fcc3fee38149db34dc1fd83a6121c464575e3",
+  "composed_input_sha256": "ad89f3edc7bda422144eea9b20da52d39e755a92678ce651cd61c2748b2b84d3",
+  "query_closure_sha256": "07ec35eb0149dc3b420ce6ac4853bfba3d8ed33f5c1952e63c44f269f336bf8b",
+  "original_observer_failure_preserved": {
+    "kind": "SIGXCPU resource incomplete",
+    "all17400_fit_returns_durable": true,
+    "public_constructor_return": "unconfirmed",
+    "query_calls_in_original_direct_attempt": 0,
+    "original_paired_score_eligible": false,
+    "original_scoring": "NOT_RUN"
+  },
+  "continuation": {
+    "method": "Exact four-field immutable saved-state restoration",
+    "new_direct_queries": 1,
+    "new_fit_or_constructor_calls": 0,
+    "native_reexecutions": 0,
+    "fresh_normal_full120_runs": 1
+  },
+  "scope_limitations": [
+    "The original paired attempt remains incomplete; the new phase-composed evidence explicitly replaces its eligibility for verification without rewriting its result.",
+    "The score restores one known mechanism onto recovered70; this is not restored historical75/76 or a new improvement beyond the historical best.",
+    "No failed query target grids were exposed or used for mechanism repair.",
+    "Parent LOCAL adoption and exact compact package review remain separate."
+  ],
+  "reviewer_candidate_harness_native_test_or_scorer_executions": 0,
+  "adoption_performed": false
+}

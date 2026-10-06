@@ -1,0 +1,291 @@
+{
+  "schema": "fresh039-independent-incomplete-paired-attempt-v1",
+  "utc": "2026-10-06T05:36:43.487409+00:00",
+  "status": "INCOMPLETE_DIRECT_RESOURCE_STOP_NATIVE_COMPLETE_UNSCORED",
+  "sealed_result_sha256": "4af46b5a7355334c98bd879ff2e011ae3c20d36339f8861cc28ba98adbaf3793",
+  "decision_sha256": "0caa4e1207df6921c5c10d757452c8bf7cdf82d7a413271f0f44f81fb31d3b8d",
+  "original_seal_unchanged": true,
+  "score_eligible": false,
+  "score": "NOT_RUN",
+  "delta": null,
+  "scorer_executed": false,
+  "direct": {
+    "exit_code": -24,
+    "signal": "SIGXCPU",
+    "parent_whole_child_wall_seconds": 10.577487275000749,
+    "exact_child_cpu_seconds": null,
+    "child_cpu_measurement_missing": true,
+    "configured_limits": {
+      "soft_cpu_seconds": 10,
+      "hard_cpu_seconds": 11,
+      "address_space_MiB": 512,
+      "whole_child_wall_seconds": 60
+    },
+    "parent_wall_timeout": false,
+    "stdout_bytes": 0,
+    "stderr_bytes": 0,
+    "parent_synthesized_envelope": {
+      "completed": false,
+      "recovered_from_durable_observer_record": true,
+      "resource_failure": true,
+      "runtime_failure": true,
+      "stdout_schema_failure": "Expecting value: line 1 column 1 (char 0)",
+      "transport_incomplete": true
+    },
+    "classification_qualification": "resource_failure is set from exit -24. runtime_failure is the parent empty-stdout schema fallback; no caught candidate/runtime exception is available. These flags must not be read as two captured primary failures.",
+    "journal": {
+      "compressed_bytes": 2856987,
+      "sha256": "a5593a203ecf8ba8c8c72fe89ac54e61219d3f7b858e6411fa564c2ef3d472de",
+      "completed_events": 58012,
+      "gzip_eof": false,
+      "gzip_error": null,
+      "trailing_compressed_bytes": 0,
+      "incomplete_decoded_suffix_bytes": 0,
+      "sequences_valid": true
+    },
+    "recovery": {
+      "bytes": 48943534,
+      "sha256": "bb530b0de4d43c5cb90b3af34fb86211dbb25884c1c6c9b682ea524cffa41a06",
+      "completed_events": 58011,
+      "complete_newline_terminated_prefix": true,
+      "sequences_valid": true,
+      "last_sequence": 58010,
+      "only_outer_kind": "candidate_event"
+    },
+    "final_durable_candidate_event": "teacher_fit_completed",
+    "completed_fit_evidence": {
+      "teachers_parsed": 3,
+      "model_teacher_starts": 17400,
+      "render_returns": 17400,
+      "model_teacher_returns": 17400,
+      "unique_model_teacher_pairs": 17400,
+      "model_indices": 5800,
+      "teacher_indices": [
+        0,
+        1,
+        2
+      ],
+      "model_completed_events": 5800,
+      "sole_retained_model": [
+        [
+          5,
+          "component",
+          9,
+          1
+        ]
+      ],
+      "all_return_outputs_and_records_match_fit_completion_aggregate": true
+    },
+    "journal_recovery_comparison": {
+      "candidate_events_compared": 58011,
+      "equivalent_after_documented_projection_normalization": true,
+      "raw_representation_differences": {
+        "parse_return": 3,
+        "parse_completed": 3
+      },
+      "normalization": "Only dataclass instance_fields versus fields tags; no value mismatches."
+    },
+    "missing_completed_checkpoints": [
+      "direct_fit_return",
+      "direct_query_return",
+      "direct_record_return",
+      "primary_failure",
+      "route_final"
+    ],
+    "missing_artifacts_or_fields": [
+      "fit-audit.json",
+      "direct final stdout envelope",
+      "direct read-audit summary",
+      "direct final input identity",
+      "direct final source verification",
+      "direct exact CPU/peak memory measurement",
+      "direct primary exception/traceback",
+      "direct secondary-failure list",
+      "direct query result"
+    ],
+    "boundary_conclusion": "All fit callbacks and teacher_fit_completed are durable. Public constructor return and progress between that callback and completion of the following direct_fit_return recovery checkpoint are unconfirmed. No direct query parse/render/return is evidenced. There is no serialized pending suffix to recover; unrecorded in-memory work cannot be reconstructed.",
+    "input_before_boundary": "route_begin input hash matches the frozen input-only payload. No direct input-after hash is available."
+  },
+  "native": {
+    "exit_code": 0,
+    "completed": true,
+    "resource_failure": false,
+    "runtime_failure": false,
+    "child_cpu_before_final_envelope_seconds": 1.4026800000000001,
+    "parent_whole_child_wall_seconds": 1.4280507339990436,
+    "peak_KiB": 71136,
+    "sole_model": [
+      [
+        5,
+        "component",
+        9,
+        1
+      ]
+    ],
+    "models_equal_frozen_expectation_and_native_record": true,
+    "query_results": 1,
+    "nonempty_valid_grid_answer": true,
+    "correctness_against_target_assessed": false,
+    "whole_native_result_identical_in_stdout_journal_recovery": true,
+    "native_family": {
+      "境界": "ARC矢印到達",
+      "採用可": true,
+      "同値採用": true,
+      "現在観測数": 3,
+      "事前観測数": 0,
+      "隔離数": 0
+    },
+    "global_quarantined": 0,
+    "journal_events": 2,
+    "closed_gzip_eof": true,
+    "recovery_events": 2,
+    "recovery_final_matches_stdout": true,
+    "input_hashes_before_after_match_frozen_payload": true,
+    "source_verified_before_after": true,
+    "read_boundary_installed": true,
+    "read_opens": 659,
+    "read_denials": 0,
+    "all_reads_in_pins_or_declared_infrastructure": true,
+    "recovery_capture_complete": true,
+    "secondary_failures": [],
+    "qualification": "A successful native route does not supply the missing direct envelope or establish paired parity. Its recorded CPU value is measured before final envelope serialization, not an exact whole-process CPU total."
+  },
+  "identity_and_original_evidence": {
+    "all_3870_unique_manifest_hash_pins_match": true,
+    "verification_method": "Cryptographic hash-only streaming for pinned original data; target contents were not decoded, compared with predictions or disclosed.",
+    "frozen_input_payload_sha256_matches_bundle": true,
+    "input_schema": "train input/output pairs and one test input only",
+    "child_configuration_matches_frozen_bundle_source_fields": true,
+    "all_parent_raw_stdout_stderr_journal_and_recovery_hashes_match": true,
+    "sealed_source_unchanged": true,
+    "direct_and_native_same_route_begin_input_hash": true,
+    "decision_preserves_false_gate_and_null_delta": true,
+    "paired_failure_labels": [
+      "direct:complete",
+      "direct:raw-capture",
+      "direct:source-identity",
+      "direct:read-boundary",
+      "direct:input-identity",
+      "direct:all-fitted-models",
+      "direct:original-query-count"
+    ]
+  },
+  "limits_of_inference": [
+    "Do not characterize this as a mechanism failure, incorrect prediction, all-HOLD result, completed direct route or recovered historical raw.",
+    "The CPU signal and durable stop boundary do not prove how remaining constructor/capture work was divided, nor do they provide a runtime guarantee for another execution.",
+    "Missing direct primary/secondary diagnostics and final read/source/input fields remain missing. Current source pin equality and native fields do not replace them.",
+    "This is an additive reconciliation of the original attempt. Any state-restored capture continuation requires a separate exact source gate and execution release; it must preserve the original false seal and disclose composition provenance.",
+    "Operational baseline and historical public-query/score exposure are unchanged. No scoring or adoption follows from this receipt."
+  ],
+  "reviewed_code_imported_or_executed": false,
+  "reviewer_fit_calls": 0,
+  "reviewer_query_calls": 0,
+  "reviewer_native_calls": 0,
+  "source_edited": false,
+  "release_granted": false,
+  "original_artifacts_modified": false,
+  "raw_detail_receipt": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/fixed-query/INDEPENDENT-INCOMPLETE-RAW-CHECK.json",
+  "raw_detail_receipt_sha256": "dff37caf808b98e4090f77e286aa439374ecbcca23bd0e4fc3cbd4bb4c346ca5",
+  "evidence_pins": [
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/fixed-query/sealed-input-only.json",
+      "bytes": 194237,
+      "sha256": "4af46b5a7355334c98bd879ff2e011ae3c20d36339f8861cc28ba98adbaf3793"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/decision.json",
+      "bytes": 748,
+      "sha256": "0caa4e1207df6921c5c10d757452c8bf7cdf82d7a413271f0f44f81fb31d3b8d"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/production-freeze-v2.json",
+      "bytes": 1159946,
+      "sha256": "7012bc366e3dbccc9964d248a4b7eee0e4d47d32c1f83ecfd44089bc939eb69b"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/production-release-v2.json",
+      "bytes": 575,
+      "sha256": "e2db49f6dd7a1188331078547a52e6565a6a6ba8814080edcaf7035420573d9a"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/query-paired-release.json",
+      "bytes": 565,
+      "sha256": "a10d607fa2ea85b5f7252f13476ff8c0068fb0180a9df5441f843bb1db4d0054"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/paired-bundle-v2.json",
+      "bytes": 40163,
+      "sha256": "ef9c857a49ed42e6452366a02ef6d6ca5e5f967b2155eef880ca776bed16c765"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/fixed-query/child-config.json",
+      "bytes": 33669,
+      "sha256": "cc112804e81e8b15b4285012f9a2107dded56f1246124f50cf4b6b9b696a2fb3"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/paired-started.json",
+      "bytes": 667,
+      "sha256": "199585bd4f2483e65e3c442a6ff59ae8aa31427f67570a3ce756c1c2cfd3b9c6"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/paired-exit.json",
+      "bytes": 706,
+      "sha256": "410343923dddfaa70a94a86fb2b73934ad96ba9539dfdd9eeda9c3184cc9e880"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/fixed-query/INDEPENDENT-INCOMPLETE-RAW-CHECK.json",
+      "bytes": 2584,
+      "sha256": "dff37caf808b98e4090f77e286aa439374ecbcca23bd0e4fc3cbd4bb4c346ca5"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/fixed-query/task-000-direct/events.jsonl.gz",
+      "bytes": 2856987,
+      "sha256": "a5593a203ecf8ba8c8c72fe89ac54e61219d3f7b858e6411fa564c2ef3d472de"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/fixed-query/task-000-direct/observer-recovery.jsonl",
+      "bytes": 48943534,
+      "sha256": "bb530b0de4d43c5cb90b3af34fb86211dbb25884c1c6c9b682ea524cffa41a06"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/fixed-query/task-000-direct/parent-record.json",
+      "bytes": 48944374,
+      "sha256": "1ede498207bde5fce5d31ae8d48cf8bf2915984948bff26d96416bd4d929e389"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/fixed-query/task-000-direct/stderr.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/fixed-query/task-000-direct/stdout.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/fixed-query/task-000-native/events.jsonl.gz",
+      "bytes": 5848,
+      "sha256": "2e95b857cc102378a4132baa426e6527375fc64aa02735956db7016ea0a64729"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/fixed-query/task-000-native/observer-recovery.jsonl",
+      "bytes": 220641,
+      "sha256": "93219c8a65990290818deb1eca1fb087bb268db4c7f51fd631b56bc194fb468e"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/fixed-query/task-000-native/parent-record.json",
+      "bytes": 414441,
+      "sha256": "2fda256346c1391b445d33ce3a4f459046d7a1ebc3286fa1c4bb4d8b35084aa6"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/fixed-query/task-000-native/stderr.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/fixed-query/task-000-native/stdout.bin",
+      "bytes": 193181,
+      "sha256": "ae445f953d90c3a54cb31dd55e37493917e65b55368b3ab43493910c8cbefc5d"
+    }
+  ]
+}

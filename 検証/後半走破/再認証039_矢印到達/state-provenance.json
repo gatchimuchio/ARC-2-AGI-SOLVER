@@ -1,0 +1,39 @@
+{
+  "schema": "saved-complete-fit-state-restoration-v1",
+  "original_direct_outcome": "SIGXCPU, incomplete process/constructor checkpoint",
+  "not_original_live_instance": true,
+  "full_fit_record_equals_fresh_audited120": true,
+  "fit_records": 5800,
+  "actual_model_teacher_returns": 17400,
+  "query_returns_in_original_direct_prefix": 0,
+  "source_record": {
+    "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/all120-teacher-preflight/fresh-local70-t2k19xbg/031.record.json.gz",
+    "sha256": "abef2806a29534feb017893640d7cd7c5550b9142c14836ae68cb13d52f06a9d"
+  },
+  "direct_recovery": {
+    "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/fixed-query/task-000-direct/observer-recovery.jsonl",
+    "sha256": "bb530b0de4d43c5cb90b3af34fb86211dbb25884c1c6c9b682ea524cffa41a06",
+    "complete_records": 58011
+  },
+  "old_false_seal": {
+    "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/fixed-query/sealed-input-only.json",
+    "sha256": "4af46b5a7355334c98bd879ff2e011ae3c20d36339f8861cc28ba98adbaf3793"
+  },
+  "state_file": {
+    "path": "/workspace/scratch/7408259c1ab2/recertification039-from-local70-20261006/production-integration/direct-continuation/restored-state.json",
+    "sha256": "dc930774b4016c4152dc10141a7b86250e03549f0fb08e0dcf0e943bb5def191"
+  },
+  "input_payload_sha256": "9f1cc8c1a50a94db3506bfaeffc033e49834792a039f917ca84740a8f56bfc35",
+  "fit_event_counts": {
+    "teacher_validation": 1,
+    "parse_start": 3,
+    "parse_return": 3,
+    "parse_completed": 3,
+    "model_teacher_start": 17400,
+    "render_completed": 17400,
+    "model_teacher_return": 17400,
+    "model_completed": 5800,
+    "teacher_fit_completed": 1
+  },
+  "new_scoring_or_query_by_this_program": false
+}
