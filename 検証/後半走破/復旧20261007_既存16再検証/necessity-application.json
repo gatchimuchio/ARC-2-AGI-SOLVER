@@ -1,0 +1,23 @@
+{
+  "source_base": "/workspace/scratch/7408259c1ab2/recovered16-candidate-20261007",
+  "new_root": "/workspace/scratch/7408259c1ab2/recovered16-candidate-necessity-20261007",
+  "source_changes": [
+    {
+      "path": "接続/ARC2/合同物体出口教材.py",
+      "before": "3a6dfedd6933adae3907ee9d24ceb4ffa5cfe365fcc3a9ccbef65c69c3fe55b2",
+      "after": "59d11f2caab1dbf8f9de51e6025ce5a48901b4d56e96349731d97fc1e1d48cfc"
+    },
+    {
+      "path": "検証/合同物体出口回帰.py",
+      "before": "e5cc2871573082e741483ba47e5419287ee5ce5fd8f3b7bacc07d5bffa73a8f6",
+      "after": "16493f3da90ba6cd3b8350ea0ed62cfc00a82047f85872066c9f3b7f65ac5485"
+    },
+    {
+      "path": "検証/合同物体出口資料/dependency-pins.json.gz",
+      "before": "d2c13ed4c935af04bf5c2f68dbb15a2afe2812af210d55646404541b41c16a1f",
+      "after": "80b27aec3a0e893c02f83256e0631882a3446be40b742f9c46ca8d3acb0b0792"
+    }
+  ],
+  "preserved_failed_score": "/workspace/scratch/7408259c1ab2/recovered16-evidence-20261007/current-official.json",
+  "scope": "Input-only structural necessity using existing complete proof accounting; model/render/HDS unchanged"
+}

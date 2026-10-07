@@ -87,7 +87,7 @@ def parse_input(grid):
     role['record']=record
     return role,record
 
-def render_parsed(grid,role):
+def render_parsed(grid,role,*,_matched_stem_union=False):
     record={'parse':role['record']};teeth=role['teeth'];pins=role['pins'];a=role['a'];b=role['b'];base=role['frame']['colour']
     if len(teeth)!=len(pins):return None,dict(record,failure='all_teeth_pins_count_mismatch')
     shifts={pin['u']-tooth['u']for pin,tooth in zip(pins,teeth)}
@@ -95,8 +95,14 @@ def render_parsed(grid,role):
     shift=next(iter(shifts));target={(r+shift*a[0],c+shift*a[1])for r,c in role['source']}
     r0,c0,r1,c1=role['frame']['bbox']
     if any(not(r0<r<r1 and c0<c<c1)for r,c in target):return None,dict(record,failure='whole_comb_target_outside_frame')
-    if any(grid[r][c]==base for r,c in target):return None,dict(record,failure='comb_target_hits_original_base')
-    if any(grid[r][c]!=role['background']and(r,c)not in role['pin_cells']for r,c in target):return None,dict(record,failure='comb_target_unowned_stationary_overlap')
+    base_overlap={p for p in target if grid[p[0]][p[1]]==base}
+    if base_overlap:
+        if not _matched_stem_union:return None,dict(record,failure='comb_target_hits_original_base')
+        matched_overlap=set()
+        for pin,tooth in zip(pins,teeth):
+            matched_overlap|={p for p in target&pin['stem']if p[0]*a[0]+p[1]*a[1]==tooth['u']+shift}
+        if base_overlap!=matched_overlap:return None,dict(record,failure='comb_target_hits_original_base')
+    if any(grid[r][c]!=role['background']and(r,c)not in role['pin_cells']|base_overlap for r,c in target):return None,dict(record,failure='comb_target_unowned_stationary_overlap')
     paint={};moves=[];clipped=Counter();kept=Counter()
     for pin,tooth in zip(pins,teeth):
         advance=max(0,tooth['top']+1-pin['low']);translated={(r+advance*b[0],c+advance*b[1])for r,c in pin['cells']}
@@ -115,11 +121,13 @@ def render_parsed(grid,role):
     if any(after[c]!=n for c,n in kept.items()):return None,dict(record,failure='pin_visible_colour_count_failed')
     for c in {p['colour']for p in pins}:
         if after[c]!=kept[c]or before[c]!=kept[c]+clipped[c]:return None,dict(record,failure='pin_retained_clipped_coverage_failed')
-    if after[base]!=before[base]-len(stem_overwritten):return None,dict(record,failure='base_colour_count_failed')
+    if after[base]!=before[base]-len(stem_overwritten|base_overlap):return None,dict(record,failure='base_colour_count_failed')
     owned=role['source']|role['pin_cells']|target|set(paint)
     if any(out[r][c]!=grid[r][c]for r,row in enumerate(grid)for c in range(len(row))if(r,c)not in owned):return None,dict(record,failure='unaffected_cell_changed')
     if any(out[r][c]!=grid[r][c]for r,c in role['boundary']|set(map(tuple,role['frame']['gap']))):return None,dict(record,failure='frame_or_opening_changed')
-    return out,dict(record,translation=[shift*a[0],shift*a[1]],comb_source_cells=len(role['source']),comb_target_cells=len(target),target=sorted(target),pin_moves=moves,pin_count=len(pins),pin_source_cells=len(role['pin_cells']),pin_visible_cells=len(paint),pin_clipped_cells=sum(clipped.values()),stem_overwritten_cells=sorted(stem_overwritten),before_colour_counts=sorted(before.items()),after_colour_counts=sorted(after.items()),protected_cells=len(grid)*len(grid[0])-len(owned),changed_cells=sum(out[r][c]!=grid[r][c]for r,row in enumerate(grid)for c in range(len(row))))
+    result=dict(record,translation=[shift*a[0],shift*a[1]],comb_source_cells=len(role['source']),comb_target_cells=len(target),target=sorted(target),pin_moves=moves,pin_count=len(pins),pin_source_cells=len(role['pin_cells']),pin_visible_cells=len(paint),pin_clipped_cells=sum(clipped.values()),stem_overwritten_cells=sorted(stem_overwritten),before_colour_counts=sorted(before.items()),after_colour_counts=sorted(after.items()),protected_cells=len(grid)*len(grid[0])-len(owned),changed_cells=sum(out[r][c]!=grid[r][c]for r,row in enumerate(grid)for c in range(len(row))))
+    if base_overlap:result['comb_stem_union_cells']=sorted(base_overlap)
+    return out,result
 
 def render(grid):
     role,record=parse_input(grid)
@@ -141,7 +149,13 @@ class 櫛配置教材:
     def 候補(self, 格子, _policy):
         if not self.適合:
             return None, {"failure": "全教師を再現する櫛配置押上げなし"}
-        return render(格子)
+        output,record=render(格子)
+        if record.get('failure')!='comb_target_hits_original_base':return output,record
+        # Prospective same-family ownership widening; teacher fitting remains strict.
+        role,_=parse_input(格子)
+        if role is None:return output,record
+        merged,detail=render_parsed(格子,role,_matched_stem_union=True)
+        return (merged,detail)if merged is not None else(output,record)
 
     def 記録(self):
         return {"適合": self.適合}

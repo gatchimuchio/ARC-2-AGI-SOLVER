@@ -342,3 +342,80 @@ class 標点組立教材:
 
     def 記録(self):
         return {"適合": self.共有縦横比 is not None, "共有縦横比": self.共有縦横比}
+
+
+# Existing-family adapter: preserve every definition above byte-for-byte.
+# Import the palette view only inside the completed no-fit branch; this avoids
+# a circular import when the frozen view imports this module's existing helpers.
+既存標点組立教材 = 標点組立教材
+
+
+class ExistingAssemblyIncomplete(RuntimeError):
+    def __init__(self, record):
+        super().__init__(str(record.get('failure', 'incomplete_existing_assembly')))
+        self.record = record
+
+
+def _completed_original_no_fit(record):
+    logical_without_search = {'area_not_compatible_with_aspect', 'canvas_outside_arc_bounds'}
+    def inspect(value):
+        if isinstance(value, dict):
+            if (value.get('failure') in {'parse_exception', 'search_exception', 'search_budget_incomplete'}
+                    or 'exception_type' in value
+                    or (value.get('complete') is False
+                        and value.get('failure') not in logical_without_search)):
+                raise ExistingAssemblyIncomplete(value)
+            for child in value.values():
+                inspect(child)
+        elif isinstance(value, (list, tuple)):
+            for child in value:
+                inspect(child)
+    inspect(record)
+    if record.get('failure') not in {
+        'fewer_than_two_teachers', 'fewer_than_two_distinct_inputs',
+        'teacher_raw_role_failed', 'invalid_teacher_output',
+        'teacher_aspects_disagree', 'teacher_assembly_or_equality_failed',
+    }:
+        raise ExistingAssemblyIncomplete(record)
+    return True
+
+
+class 標点組立教材(既存標点組立教材):
+    def __init__(self, 教師群):
+        # Exactly one call to the unchanged original fit. Original success uses
+        # the unchanged parent's candidate and record methods.
+        self.共有縦横比, original_record = fit_teachers(教師群)
+        if self.共有縦横比 is not None:
+            return
+        _completed_original_no_fit(original_record)
+        if (original_record.get('failure') != 'teacher_raw_role_failed'
+                or not isinstance(教師群, (list, tuple)) or len(教師群) < 2
+                or any(not isinstance(pair, dict) or not valid_grid(pair.get('input'))
+                       or not valid_grid(pair.get('output')) for pair in 教師群)
+                or len({tuple(map(tuple, pair['input'])) for pair in 教師群}) < 2):
+            return
+        from .埋込凡例組立候補 import fit_teachers as fit_palette
+        palette_policy, _ = fit_palette(教師群)
+        if palette_policy is not None:
+            self.配色規則 = palette_policy
+
+    def 候補(self, 格子, _policy):
+        if self.共有縦横比 is not None or not hasattr(self, '配色規則'):
+            return super().候補(格子, _policy)
+        from .埋込凡例組立候補 import render as render_palette
+        output, record = render_palette(格子, self.配色規則)
+        # JSON cannot encode tuple map keys. Preserve every diagnostic entry,
+        # in model order, without changing the frozen candidate or its decision.
+        public_record = dict(record)
+        for name in ('physical_counts', 'output_counts'):
+            if name in public_record:
+                public_record[name] = {'__map_entries__': [
+                    [list(model), count] for model, count in sorted(record[name].items())]}
+        return output, public_record
+
+    def 記録(self):
+        original = super().記録()
+        if self.共有縦横比 is not None or not hasattr(self, '配色規則'):
+            return original
+        return {**original, 'embedded_corner_palette': {
+            'fit': self.配色規則 is not None, 'policy': self.配色規則}}

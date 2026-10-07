@@ -1,0 +1,97 @@
+{
+  "historical_samples": [
+    "093",
+    "096"
+  ],
+  "status": "new_train_only_fixture_not_historical_byte_recovery",
+  "source_path": "arc2-restored-592d2c5-audit/evaluation-teachers-only.json",
+  "source_sha256": "012924cb967106a6d72e9323b83534539471c27dc4f5fba5d8d4a0dbe334c8aa",
+  "fixture_path": "recovered16-candidate-20261007/検証/復旧現行資料/093096/teachers-only.json",
+  "fixture_sha256": "99de67a4f060024056619b4b8f16ec32201e0df471cca2eb01d6e6421c7da7ea",
+  "requested_historical_sha256": "8081272394d39f8e5a978641efeb5cffb72e924be48041261a76fca7af1c769a",
+  "exact_historical_hash_match": false,
+  "task_ids": [
+    "88e364bc",
+    "cbebaa4b"
+  ],
+  "task_bindings": {
+    "093": "88e364bc",
+    "096": "cbebaa4b"
+  },
+  "task_binding_sources": {
+    "093": "source-recovery-20261007/093/portable/check_adapter.py:62",
+    "096": "parent-confirmed historical task identity, 2026-10-07"
+  },
+  "layout": "task_map",
+  "serialization": {
+    "ensure_ascii": false,
+    "indent": 2,
+    "separators": null,
+    "sort_keys": false,
+    "trailing_newline": "\n"
+  },
+  "tasks": {
+    "88e364bc": {
+      "train_count": 3,
+      "train_shapes": [
+        {
+          "input": [
+            20,
+            20
+          ],
+          "output": [
+            20,
+            20
+          ]
+        },
+        {
+          "input": [
+            20,
+            20
+          ],
+          "output": [
+            20,
+            20
+          ]
+        },
+        {
+          "input": [
+            20,
+            20
+          ],
+          "output": [
+            20,
+            20
+          ]
+        }
+      ]
+    },
+    "cbebaa4b": {
+      "train_count": 2,
+      "train_shapes": [
+        {
+          "input": [
+            22,
+            22
+          ],
+          "output": [
+            22,
+            22
+          ]
+        },
+        {
+          "input": [
+            22,
+            22
+          ],
+          "output": [
+            22,
+            22
+          ]
+        }
+      ]
+    }
+  },
+  "binding_note": "New fixture from verified current train-only source. Original shared historical container with SHA8081272394d39f8e5a978641efeb5cffb72e924be48041261a76fca7af1c769a remains unavailable.",
+  "source_restriction": "Only verified train-only JSON and source/metadata text inspected. No query/test input, solution, scoring output, candidate imports, or candidate/test execution."
+}

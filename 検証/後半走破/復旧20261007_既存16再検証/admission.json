@@ -1,0 +1,31 @@
+{
+  "decision": "ADMIT_LOCAL",
+  "received_from_parent": "2026-10-07T16:34:32Z",
+  "purpose": "Fresh measured recovery of16 exact historical runtime changes plus proved necessity optimization",
+  "base_commit": "c61848414078708148bb67bce10694b1ef5441f3",
+  "previous": [
+    76,
+    107
+  ],
+  "current": [
+    89,
+    124
+  ],
+  "delta": [
+    13,
+    17
+  ],
+  "old_correct_grids_identical": 107,
+  "wrong_emitted_grids": 0,
+  "normal_resource_failures": 0,
+  "regression_scripts": 98,
+  "reported_checks": 4542,
+  "post_document_checks": {
+    "contact": 255,
+    "corner": 116
+  },
+  "runtime_and_test_bodies_equal_scored_freeze": true,
+  "lost92_history_restoration_claim": false,
+  "new066_072_075_included": false,
+  "external_publication": false
+}

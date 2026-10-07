@@ -113,11 +113,48 @@ def fit_guarded(teachers):
 class 倍率置換教材:
     def __init__(self, 教師群):
         self.適合 = fit_guarded(教師群)
+        if self.適合 is False:
+            models, record = _fit_complete_frame_no_fit(教師群)
+            if models:
+                self.枠モデル群, self.枠適合記録 = models, record
 
     def 候補(self, 格子, _policy):
+        if hasattr(self, '枠モデル群'):
+            from .多類枠倍率置換 import render
+            return render(格子, self.枠モデル群)
         if not self.適合:
             return None, {'failure': '全教師を再現する倍率motif置換なし'}
         return guarded_render(格子)
 
     def 記録(self):
+        if hasattr(self, '枠モデル群'):
+            return {'全教師再現': self.適合, '全教師共通枠倍率置換': self.枠適合記録}
         return {'全教師再現': self.適合}
+
+
+def _fit_complete_frame_no_fit(teachers):
+    """Recheck every raw teacher; only recognized structural no-fit enables views."""
+    from .凡例集合教材 import valid_grid
+    if (not isinstance(teachers, (list, tuple)) or len(teachers) < 2
+            or any(not isinstance(pair, dict) or not valid_grid(pair.get('input'))
+                   or not valid_grid(pair.get('output')) for pair in teachers)
+            or len({tuple(map(tuple, pair['input'])) for pair in teachers}) != len(teachers)):
+        return None, None
+    # fit_guarded short-circuits. Materialize the complete raw inventory first;
+    # a later exception must propagate even if an earlier record is unrecognized.
+    raw = [old.render_motif_pair_scaled_anchor_swap(pair['input']) for pair in teachers]
+    for output, record in raw:
+        if (output is not None or not isinstance(record, dict)
+                or set(record) != {'failure', 'primitive_group_count', 'component_count'}
+                or record['failure'] != 'primitive_group_count_not_two'
+                or type(record['primitive_group_count']) is not int
+                or type(record['component_count']) is not int
+                or record['component_count'] < 2
+                or not 1 <= record['primitive_group_count'] <= record['component_count']
+                or record['primitive_group_count'] == 2):
+            return None, None
+    # Lazy import avoids the strict view -> guarded renderer dependency cycle.
+    from .多類枠倍率置換 import fit_teachers
+    models, fit_record = fit_teachers(teachers)
+    return models, {'complete': True, 'raw_records': [record for _, record in raw],
+                    'retained_models': models, 'strict_fit_record': fit_record}

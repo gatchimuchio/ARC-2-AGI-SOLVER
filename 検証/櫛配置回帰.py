@@ -106,9 +106,21 @@ class Controls(unittest.TestCase):
     def test_17_whole_comb_out_of_frame_no_clip(self):
         g,o=sample(heights=(12,3,7));rec=self.hold(g,'whole_comb_target_outside_frame');self.assertEqual(rec['parse']['input_role_count'],1)
 
-    def test_18_comb_may_not_merge_with_old_stem(self):
+    def test_18_strict_renderer_and_class_matched_stem_union(self):
         g,o=sample(heights=(9,3,7),pin_ranges=((5,9),(5,11),(6,12)))
         rec=self.hold(g,'comb_target_hits_original_base');self.assertEqual(rec['parse']['input_role_count'],1)
+        a,ao=sample();b,bo=sample(source_first=1)
+        material=p.櫛配置教材([{'input':a,'output':ao},{'input':b,'output':bo}])
+        out,detail=material.候補(g,None);self.assertEqual(out,o)
+        self.assertEqual(detail['comb_stem_union_cells'],[(4,18)])
+        removed=set(detail['stem_overwritten_cells'])|set(detail['comb_stem_union_cells'])
+        self.assertEqual(dict(detail['after_colour_counts'])[5],dict(detail['before_colour_counts'])[5]-len(removed))
+        self.assertEqual(detail['comb_source_cells'],detail['comb_target_cells'])
+        self.assertEqual(detail['pin_source_cells'],detail['pin_visible_cells']+detail['pin_clipped_cells'])
+        self.assertFalse(p.fit_teachers([{'input':a,'output':ao},{'input':g,'output':o}])[0])
+        g[14][26]=5
+        self.assertEqual(material.候補(g,None),p.render(g))
+        self.assertIsNone(material.候補(g,None)[0])
 
     def test_19_declared_complete_pin_clip(self):
         g,o=sample(heights=(10,),pin_ranges=((3,8),),colours=(1,));out,rec=p.render(g)
@@ -161,11 +173,13 @@ class Controls(unittest.TestCase):
             self.assertEqual(rec['現在観測数'],2);self.assertEqual(rec['事前観測数'],0)
             self.assertEqual(rec['同値採用'],admitted);self.assertEqual(rec['隔離数'],0)
 
-    def test_28_partial_native_hold_is_input_derived(self):
+    def test_28_native_matched_stem_union_is_input_derived(self):
         a,ao=sample();b,bo=sample(heights=(6,4,7));train=[{'input':a,'output':ao},{'input':b,'output':bo}]
         good,expected=sample(source_first=3)
-        bad,_=sample(heights=(9,3,7),pin_ranges=((5,9),(5,11),(6,12)))
-        for queries,answers in[([good,bad],[expected,None]),([bad,good],[None,expected])]:
+        merged,merged_expected=sample(heights=(9,3,7),pin_ranges=((5,9),(5,11),(6,12)))
+        self.assertEqual(p.render(merged)[1]['failure'],'comb_target_hits_original_base')
+        bad,_=sample(heights=(12,3,7))
+        for queries,answers in[([good,merged,bad],[expected,merged_expected,None]),([bad,merged,good],[None,merged_expected,expected])]:
             result=課題を解く({'train':train,'test':[{'input':g}for g in queries]},[])
             self.assertEqual([r['answer']for r in result['results']],answers)
         train2=copy.deepcopy(train);material=p.櫛配置教材(train2);train2[0]['input'][:]=[[0]];train2[0]['output'][:]=[[0]]

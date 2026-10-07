@@ -1,0 +1,208 @@
+{
+  "evidence_kind": "NEW current recovered16 public-test bindings; no historical measurement claim",
+  "root": "/workspace/scratch/7408259c1ab2/recovered16-candidate-20261007",
+  "test_execution": false,
+  "static_parse": "all16 scripts parsed without imports or execution",
+  "tests": [
+    {
+      "change": "055",
+      "script": "検証/復旧055_標識組立完全所有回帰.py",
+      "argv": [
+        "python",
+        "-B",
+        "/workspace/scratch/7408259c1ab2/recovered16-candidate-20261007/検証/復旧055_標識組立完全所有回帰.py"
+      ],
+      "sha256": "57bc91338c4917951c24b8541abb64f896a0d366d7035a147bd4656a8e55891e",
+      "declared_unittest_methods": null,
+      "binding": "NEW current path/CLI binding; pre055 exact reference and exact historical train fixture"
+    },
+    {
+      "change": "056",
+      "script": "検証/復旧056_流路境界回帰.py",
+      "argv": [
+        "python",
+        "-B",
+        "/workspace/scratch/7408259c1ab2/recovered16-candidate-20261007/検証/復旧056_流路境界回帰.py"
+      ],
+      "sha256": "76039f13c8d5a841a1bb3afe9edd34f59119f9ce59ff411e39679e3cbd9f217e",
+      "declared_unittest_methods": null,
+      "binding": "NEW current ordinary check; excludes only constructor/record AST identity superseded by061"
+    },
+    {
+      "change": "057",
+      "script": "検証/櫛配置回帰.py",
+      "argv": [
+        "python",
+        "-B",
+        "/workspace/scratch/7408259c1ab2/recovered16-candidate-20261007/検証/櫛配置回帰.py"
+      ],
+      "sha256": "c752ae2422a0fd814c07e627746a47fec18d9a364a7868bdb19558cd553d48ad",
+      "declared_unittest_methods": 29,
+      "binding": "Exact recovered script replaces old baseline script"
+    },
+    {
+      "change": "058",
+      "script": "検証/凡例展開回帰.py",
+      "argv": [
+        "python",
+        "-B",
+        "/workspace/scratch/7408259c1ab2/recovered16-candidate-20261007/検証/凡例展開回帰.py"
+      ],
+      "sha256": "ad02dba95580c946446ddb0b60e13b9c22c2aa58043f01fa66cdad2b0b35856a",
+      "declared_unittest_methods": 21,
+      "binding": "Exact recovered script replaces old baseline script"
+    },
+    {
+      "change": "059",
+      "script": "検証/標識軸転写所有補完回帰.py",
+      "argv": [
+        "python",
+        "-B",
+        "/workspace/scratch/7408259c1ab2/recovered16-candidate-20261007/検証/標識軸転写所有補完回帰.py"
+      ],
+      "sha256": "12d85daa1c2cb75ae38acde3adebf6295c48e27063f8aa2b4f442b6a2d9e624e",
+      "declared_unittest_methods": null,
+      "binding": "Exact recovered script; existing train and synthetic constructors in candidate fixtures"
+    },
+    {
+      "change": "061",
+      "script": "検証/有限量流路回帰.py",
+      "argv": [
+        "python",
+        "-B",
+        "/workspace/scratch/7408259c1ab2/recovered16-candidate-20261007/検証/有限量流路回帰.py"
+      ],
+      "sha256": "e1e02c498e204a47758262727d791e08d2771addc21b5b2cb3ef9076e1c3af20",
+      "declared_unittest_methods": 5,
+      "binding": "Exact recovered script with literal ordinary controls"
+    },
+    {
+      "change": "076",
+      "script": "検証/埋込凡例組立回帰.py",
+      "argv": [
+        "python",
+        "-B",
+        "/workspace/scratch/7408259c1ab2/recovered16-candidate-20261007/検証/埋込凡例組立回帰.py"
+      ],
+      "sha256": "c6afa1957411b83bf9694bf018a5d8336ce6d06f05275c3ed5eaa16cc6e64621",
+      "declared_unittest_methods": null,
+      "binding": "Exact recovered script and train-pairs fixture"
+    },
+    {
+      "change": "092",
+      "script": "検証/格子基点視野回帰.py",
+      "argv": [
+        "python",
+        "-B",
+        "/workspace/scratch/7408259c1ab2/recovered16-candidate-20261007/検証/格子基点視野回帰.py"
+      ],
+      "sha256": "c5d8aa87fe1685001e43f8f16d12190d0da948ef1340122094ca522d2d741438",
+      "declared_unittest_methods": null,
+      "binding": "Exact recovered script and teacher fixture; reads current baseline anchor regression"
+    },
+    {
+      "change": "093",
+      "script": "検証/復旧093_凡例方向移動回帰.py",
+      "argv": [
+        "python",
+        "-B",
+        "/workspace/scratch/7408259c1ab2/recovered16-candidate-20261007/検証/復旧093_凡例方向移動回帰.py"
+      ],
+      "sha256": "87778c5bfa1cb12bfa47e7c5bd23d1292e2633e308bb7d96672a1164c3e510d0",
+      "declared_unittest_methods": null,
+      "binding": "NEW root/CLI/fixture-hash binding; original body preserved"
+    },
+    {
+      "change": "096",
+      "script": "検証/疎標点重畳境界検証.py",
+      "argv": [
+        "python",
+        "-B",
+        "/workspace/scratch/7408259c1ab2/recovered16-candidate-20261007/検証/疎標点重畳境界検証.py"
+      ],
+      "sha256": "c9994e3a403ac39cb10b1277fc47ea850cf6e94c6590e23cb6da8cc9be5ee7bd",
+      "declared_unittest_methods": null,
+      "binding": "NEW root/CLI/train-task defaults; original body preserved"
+    },
+    {
+      "change": "112",
+      "script": "検証/枠見本所有補完回帰.py",
+      "argv": [
+        "python",
+        "-B",
+        "/workspace/scratch/7408259c1ab2/recovered16-candidate-20261007/検証/枠見本所有補完回帰.py"
+      ],
+      "sha256": "b13fb5c3818e58d0f4cfe0da1f3aebc61d884c921e7a05ed152b5b8456babb2a",
+      "declared_unittest_methods": 10,
+      "binding": "Exact recovered script and teacher fixture"
+    },
+    {
+      "change": "113",
+      "script": "検証/枠命令配置回帰.py",
+      "argv": [
+        "python",
+        "-B",
+        "/workspace/scratch/7408259c1ab2/recovered16-candidate-20261007/検証/枠命令配置回帰.py"
+      ],
+      "sha256": "850ab80818f6e9ba438f5f8b5d1ac0d92a16676dda30b28802901ede30ea6f37",
+      "declared_unittest_methods": 5,
+      "binding": "NEW five ordinary checks from recovered methods and independently literal new controls; original tiny-controls unavailable"
+    },
+    {
+      "change": "114",
+      "script": "検証/並列枠命令回帰.py",
+      "argv": [
+        "python",
+        "-B",
+        "/workspace/scratch/7408259c1ab2/recovered16-candidate-20261007/検証/並列枠命令回帰.py"
+      ],
+      "sha256": "84b8df646f686732060a02342295d1ec3e8708b3c62fa0c64109d133f61e226c",
+      "declared_unittest_methods": null,
+      "binding": "Exact recovered script and exact existing113 train fixture"
+    },
+    {
+      "change": "115",
+      "script": "検証/反復枠タイル公開確認.py",
+      "argv": [
+        "python",
+        "-B",
+        "/workspace/scratch/7408259c1ab2/recovered16-candidate-20261007/検証/反復枠タイル公開確認.py"
+      ],
+      "sha256": "8f22cab26af27d15f1df0ccace8ff743fdb020a8991a8ef7b4b7426a07114295",
+      "declared_unittest_methods": 5,
+      "binding": "Exact recovered script, teachers and two historical test helpers"
+    },
+    {
+      "change": "116",
+      "script": "検証/多類枠倍率置換回帰.py",
+      "argv": [
+        "python",
+        "-B",
+        "/workspace/scratch/7408259c1ab2/recovered16-candidate-20261007/検証/多類枠倍率置換回帰.py"
+      ],
+      "sha256": "1b04e6df06ff0cf1dbd6d2e374637b62c9bbcd62203c1dc3eceac2ad3d34525e",
+      "declared_unittest_methods": null,
+      "binding": "Recovered final summary variant: successful boolean; exact recovered original also remains in source archive"
+    },
+    {
+      "change": "117",
+      "script": "検証/枠局所命令回帰.py",
+      "argv": [
+        "python",
+        "-B",
+        "/workspace/scratch/7408259c1ab2/recovered16-candidate-20261007/検証/枠局所命令回帰.py"
+      ],
+      "sha256": "d5a91faae471b3450b34a05cff68981dbc862ff4b4a587d4d76582bf0cd43381",
+      "declared_unittest_methods": 6,
+      "binding": "NEW six checks: four self-contained recovered methods plus direct literal periodic-action and existing ordinary positive-state check"
+    }
+  ],
+  "known_gaps": [
+    "113 historical tiny-controls.json expected records unavailable; current controls do not recreate them",
+    "117 historical synthetic-fixtures.json expected records unavailable; direct finite-action checks do not replace all missing full-frame historical contrast coverage",
+    "093/096 historical teacher container SHA8081272394d39f8e5a978641efeb5cffb72e924be48041261a76fca7af1c769a unavailable; NEW two-task train-only subset SHA99de67a4f060024056619b4b8f16ec32201e0df471cca2eb01d6e6421c7da7ea supplied",
+    "056 constructor/record AST identity is intentionally inapplicable after adopted061; unchanged fit-function AST and behavior assertions retained"
+  ],
+  "preparation_note": "One broad metadata text search incidentally surfaced historical audit/scoring summary fields. It was stopped and none were used to derive controls, expected outputs, fixture bindings, or implementation. No solution grids were used. Subsequent data work used only the verified train-only source.",
+  "writes_scope": "candidate/検証 only; original source recovery files and runtime untouched"
+}

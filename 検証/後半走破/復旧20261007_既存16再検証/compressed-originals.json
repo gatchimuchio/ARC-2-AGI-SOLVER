@@ -1,0 +1,58 @@
+[
+  {
+    "path": "previous-official.json.gz",
+    "raw_sha256": "4d2e9c827cd1727e624ae0aa34039d43a2451a41041297700a3e0a21893f2221",
+    "raw_bytes": 7328783,
+    "gzip_sha256": "6278601414e4471928d57f383a9b83f867cdf8d7ea075c52e59f90f0c5c8c7b3",
+    "gzip_bytes": 668737
+  },
+  {
+    "path": "current-official.json.gz",
+    "raw_sha256": "7e483f17914a29c51d21a0ca750cf8791209dcaf2c1c377db1c16112cffd6d63",
+    "raw_bytes": 13358305,
+    "gzip_sha256": "4a95b830beb350cc3b91050c7f498e94c841c54bbcb0da13e9e2f9af60769818",
+    "gzip_bytes": 754202
+  },
+  {
+    "path": "regressions-selected.json.gz",
+    "raw_sha256": "cbda47accbb2805d7bbaf787b7ddfd3b4900780ab617af9aa91cf26848ff021a",
+    "raw_bytes": 298907,
+    "gzip_sha256": "3175f343b2cc395ef8d251283abd399e0a3a09859e4c8ffe773e6f3fc79757d9",
+    "gzip_bytes": 44158
+  },
+  {
+    "path": "regressions-current-failed-stress.json.gz",
+    "raw_sha256": "f2aa7f511b57474c42698f2c6437c73decfbc52f1e160c0c55f986cbf5ddc170",
+    "raw_bytes": 298213,
+    "gzip_sha256": "77aeb16a3f0d3a9c1586b654d47023b9525c371f1116c509b69a86cdbb192958",
+    "gzip_bytes": 43830
+  },
+  {
+    "path": "regressions-first-count-schema-failure.json.gz",
+    "raw_sha256": "3b2da3d06b73c8ef30fcdf81f032cddc00621d4467e4413eacf3c9e691be169f",
+    "raw_bytes": 296660,
+    "gzip_sha256": "1adb62c8dbdeef6b95d5354613dec5ae61235c204fdcb834a6cb4053985d18f6",
+    "gzip_bytes": 43780
+  },
+  {
+    "path": "first-score-cpu-failure.json.gz",
+    "raw_sha256": "a3600c985a710e8acae961bffa439c285f9256a4b0758ae70f113f2593e7a8f7",
+    "raw_bytes": 13264040,
+    "gzip_sha256": "daf39b0e2721cd8df9930d81713d7655b4525bca3184b66e06f405a5befa5f88",
+    "gzip_bytes": 747142
+  },
+  {
+    "path": "input-only-before096-activation.json.gz",
+    "raw_sha256": "1887c0f6b95fba2e7a2d45ef34e0c540d88d9ccad19762f407b12b0420cf568d",
+    "raw_bytes": 2831819,
+    "gzip_sha256": "1d6e4352824ba602f97ebe94c66da692cfa20a92f46721e84f39b04bf4ee308f",
+    "gzip_bytes": 120148
+  },
+  {
+    "path": "tested-freeze.json.gz",
+    "raw_sha256": "909e1b6165504ea0805d8d6d90c9e438492a38b1f6ccf0e273c21b3afeb9c390",
+    "raw_bytes": 419936,
+    "gzip_sha256": "552cc9a74d0fbea3544411da6e08dca7613f82f56e355ea05437daff309af3db",
+    "gzip_bytes": 104015
+  }
+]

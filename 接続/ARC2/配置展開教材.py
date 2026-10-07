@@ -2,6 +2,7 @@
 from __future__ import annotations
 from collections import Counter
 from .既存配置展開 import foreground_mixed_components,crop_bbox,render_layout_mask_macro_tile_expander
+from . import 枠命令配置接続 as frame_binding
 
 def valid_grid(grid):
     return(isinstance(grid,list)and 1<=len(grid)<=30 and isinstance(grid[0],list)and 1<=len(grid[0])<=30
@@ -70,12 +71,19 @@ def fit_teachers(teachers):
 
 class 配置展開教材:
     def __init__(self, 教師群):
-        self.適合, _ = fit_teachers(教師群)
+        self.適合, record = fit_teachers(教師群)
+        if frame_binding.completed_no_fit(教師群, self.適合, record):
+            self.枠命令モデル群, self.枠命令適合記録 = frame_binding.fit(教師群)
 
     def 候補(self, 格子, _policy):
+        if hasattr(self, '枠命令モデル群'):
+            return frame_binding.predict(格子, self.枠命令モデル群)
         if not self.適合:
             return None, {"failure": "全教師を再現する配置mask展開なし"}
         return guarded_render(格子)
 
     def 記録(self):
+        if hasattr(self, '枠命令モデル群'):
+            return {"全教師共通配置積": self.適合,
+                    "全教師共通枠命令配置": frame_binding.compact(self.枠命令適合記録)}
         return {"全教師共通配置積": self.適合}

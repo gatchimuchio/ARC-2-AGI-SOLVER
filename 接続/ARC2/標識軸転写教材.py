@@ -81,6 +81,9 @@ def predict(grid, models, observer=None):
         for model_index, model in enumerate(models):
             program = expand_model(model)['program']
             output, detail = core.render(grid, program)
+            if output is None:
+                from .標識軸転写所有補完 import complete_failed_render
+                output, detail = complete_failed_render(grid, program, output, detail)
             row = dict(index=model_index, program=program, output=output, detail=detail)
             trace['program_returns'].append(row)
             emit(observer, 'retained_model_return', model_index=model_index,

@@ -123,7 +123,12 @@ class 標識組立教材:
     def 候補(self, 格子, _policy):
         if self.役割 is None:
             return None, {'failure': '全教師を再現する標識組立なし'}
-        return guarded_render(格子, self.役割)
+        result = guarded_render(格子, self.役割)
+        if result[0] is not None or result[1].get('failure') != 'dominant_translation_axis_tie':
+            return result
+        # Extend this structural rejection only; fitting and all other results stay exact.
+        from .標識組立完全所有 import guarded_render as complete_body_render
+        return complete_body_render(格子, self.役割)
 
     def 記録(self):
         return {'全教師再現': self.役割 is not None, '教師由来役割': self.役割}

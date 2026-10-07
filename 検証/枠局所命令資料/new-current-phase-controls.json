@@ -1,0 +1,129 @@
+{
+  "evidence_kind": "NEW literal ordinary117 action checks; not recovered historical synthetic-fixtures.json",
+  "phase": [
+    {
+      "name": "row",
+      "input": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "output": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "blank": 0,
+      "group_color": 8,
+      "model": [
+        "periodic_complement",
+        "identity",
+        1,
+        0
+      ]
+    },
+    {
+      "name": "column",
+      "input": [
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "output": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "blank": 0,
+      "group_color": 8,
+      "model": [
+        "periodic_complement",
+        "identity",
+        0,
+        1
+      ]
+    },
+    {
+      "name": "checkerboard",
+      "input": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "output": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "blank": 0,
+      "group_color": 8,
+      "model": [
+        "periodic_complement",
+        "identity",
+        1,
+        1
+      ]
+    },
+    {
+      "name": "nonzero_blank_palette_permutation",
+      "input": [
+        [
+          3,
+          7
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "output": [
+        [
+          7,
+          3
+        ],
+        [
+          7,
+          5
+        ]
+      ],
+      "blank": 7,
+      "group_color": 9,
+      "model": [
+        "periodic_complement",
+        "identity",
+        1,
+        0
+      ]
+    }
+  ]
+}

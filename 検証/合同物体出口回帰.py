@@ -99,13 +99,13 @@ def proofs(a,teachers,out):
  check('malformed-later-teacher-prevents-proof',record['failure']=='invalid_teacher_pair');rows.append({'name':'all-teachers-first','record':record})
  # Background is inferred only from the original input, even when target mode changes.
  pair={'input':[[0,0,0],[0,1,0],[0,0,0]],'output':[[7,7,7],[7,1,7],[7,7,7]]}
- cert=a.teacher_necessity_certificate(0,pair);check('no-target-derived-background',cert['input_background']==0 and cert['violations']==[]);rows.append({'name':'target-mode-change','pair':pair,'certificate':cert})
+ cert=a.teacher_necessity_certificate(0,pair);check('no-target-derived-background',cert['input_background']==0 and cert['foreground_changes']==[] and cert['violations']==['no_possible_border_singleton_cue'] and cert['orthogonally_isolated_border_foreground']==[]);rows.append({'name':'target-mode-change','pair':pair,'certificate':cert})
  pair={'input':[[0,1],[1,0]],'output':[[7,1],[1,7]]};cert=a.teacher_necessity_certificate(0,pair)
  check('tied-original-background-inapplicable',cert['input_background']is None and cert['foreground_check_applicable']is False and cert['violations']==[]);rows.append({'name':'tie','pair':pair,'certificate':cert})
  pairs=[{'input':[[0,0,0],[0,1,1],[0,0,0]],'output':[[0,0,0],[0,1,1],[0,0,0]]},{'input':[[0,0,0,0],[0,2,2,0],[0,0,0,0]],'output':[[0,0,0,0],[0,2,2,0],[0,0,0,0]]}]
  events=[];models,record=a.fit(pairs,events.append)
- check('C4-no-cues-does-not-prune-C8',models==()and record['evaluated_teacher_calls']==4 and record['symbolic_unexecuted_teacher_calls']==0 and [r['model']for r in record['model_returns']]==[(4,),(8,)] and all(any(f['failure']=='no_cues'for f in call['record']['failures'])for r in record['model_returns']for call in r['returns']))
- rows.append({'name':'no-cues-full-two-program-fallback','teachers':pairs,'models':models,'record':record,'events':events})
+ check('no-border-cues-refutes-C4-and-C8',models==()and record['evaluated_teacher_calls']==0 and record['symbolic_unexecuted_teacher_calls']==4 and record['model_returns']==[] and record['proof_complete']and record['logical_domain_complete']and record['symbolic_model_teacher_pairs']==[[m,i]for m in range(2)for i in range(2)] and len(record['teacher_necessity_certificates'])==2 and all(c['complete']and c['border_cue_check_applicable']and c['orthogonally_isolated_border_foreground']==[] and c['violations']==['no_possible_border_singleton_cue']for c in record['teacher_necessity_certificates']))
+ rows.append({'name':'no-border-cues-complete-two-program-proof','teachers':pairs,'models':models,'record':record,'events':events})
  original=a.teacher_necessity_certificate;count=0;primary=MemoryError('synthetic second certificate');events=[];caught=None
  def interrupt(index,pair):
   nonlocal count

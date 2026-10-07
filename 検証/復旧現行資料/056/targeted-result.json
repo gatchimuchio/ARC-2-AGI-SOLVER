@@ -1,0 +1,13 @@
+{
+  "stage": "targeted",
+  "successful": true,
+  "evidence_kind": "NEW current056 ordinary check",
+  "existing_regression_tests": 13,
+  "contrasts": 2,
+  "actual_jump_hold_record_preserved": true,
+  "independent_route_accepted": true,
+  "teacher_fit_domain_preserved": true,
+  "old_synthetic_successes_equal": 6,
+  "source_sha256": "508bb3055c14d847b43f6780343bd87c3c1fe01dba949d064dfc5151259d87f9",
+  "tests_run": 15
+}

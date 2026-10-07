@@ -1,0 +1,188 @@
+{
+  "evidence_kind": "NEW current test bindings, not historical result evidence",
+  "files": [
+    {
+      "source": "source-recovery-20261007/057/検証/櫛配置回帰.py",
+      "target": "検証/櫛配置回帰.py",
+      "source_sha256": "c752ae2422a0fd814c07e627746a47fec18d9a364a7868bdb19558cd553d48ad",
+      "binding": "Exact recovered bytes; current candidate-root location binding",
+      "current_sha256": "c752ae2422a0fd814c07e627746a47fec18d9a364a7868bdb19558cd553d48ad"
+    },
+    {
+      "source": "source-recovery-20261007/058/検証/凡例展開回帰.py",
+      "target": "検証/凡例展開回帰.py",
+      "source_sha256": "ad02dba95580c946446ddb0b60e13b9c22c2aa58043f01fa66cdad2b0b35856a",
+      "binding": "Exact recovered bytes; current candidate-root location binding",
+      "current_sha256": "ad02dba95580c946446ddb0b60e13b9c22c2aa58043f01fa66cdad2b0b35856a"
+    },
+    {
+      "source": "source-recovery-20261007/059/payload/検証/標識軸転写所有補完回帰.py",
+      "target": "検証/標識軸転写所有補完回帰.py",
+      "source_sha256": "12d85daa1c2cb75ae38acde3adebf6295c48e27063f8aa2b4f442b6a2d9e624e",
+      "binding": "Exact recovered bytes; current candidate-root location binding",
+      "current_sha256": "12d85daa1c2cb75ae38acde3adebf6295c48e27063f8aa2b4f442b6a2d9e624e"
+    },
+    {
+      "source": "source-recovery-20261007/061/検証/有限量流路回帰.py",
+      "target": "検証/有限量流路回帰.py",
+      "source_sha256": "e1e02c498e204a47758262727d791e08d2771addc21b5b2cb3ef9076e1c3af20",
+      "binding": "Exact recovered bytes; current candidate-root location binding",
+      "current_sha256": "e1e02c498e204a47758262727d791e08d2771addc21b5b2cb3ef9076e1c3af20"
+    },
+    {
+      "source": "source-recovery-20261007/076/tests/検証/埋込凡例組立回帰.py",
+      "target": "検証/埋込凡例組立回帰.py",
+      "source_sha256": "c6afa1957411b83bf9694bf018a5d8336ce6d06f05275c3ed5eaa16cc6e64621",
+      "binding": "Exact recovered bytes; current candidate-root location binding",
+      "current_sha256": "c6afa1957411b83bf9694bf018a5d8336ce6d06f05275c3ed5eaa16cc6e64621"
+    },
+    {
+      "source": "source-recovery-20261007/092/overlay/検証/格子基点視野回帰.py",
+      "target": "検証/格子基点視野回帰.py",
+      "source_sha256": "c5d8aa87fe1685001e43f8f16d12190d0da948ef1340122094ca522d2d741438",
+      "binding": "Exact recovered bytes; current candidate-root location binding",
+      "current_sha256": "c5d8aa87fe1685001e43f8f16d12190d0da948ef1340122094ca522d2d741438"
+    },
+    {
+      "source": "source-recovery-20261007/096/検証/疎標点重畳境界検証.py",
+      "target": "検証/疎標点重畳境界検証.py",
+      "source_sha256": "2b4e3e88c29595cd456c108a826908b123d370fe7ed51415f6f2d90dafb7bdbe",
+      "binding": "NEW current CLI/root/teacher-fixture hash bindings; recovered source unchanged",
+      "current_sha256": "c9994e3a403ac39cb10b1277fc47ea850cf6e94c6590e23cb6da8cc9be5ee7bd"
+    },
+    {
+      "source": "source-recovery-20261007/112/検証/枠見本所有補完回帰.py",
+      "target": "検証/枠見本所有補完回帰.py",
+      "source_sha256": "b13fb5c3818e58d0f4cfe0da1f3aebc61d884c921e7a05ed152b5b8456babb2a",
+      "binding": "Exact recovered bytes; current candidate-root location binding",
+      "current_sha256": "b13fb5c3818e58d0f4cfe0da1f3aebc61d884c921e7a05ed152b5b8456babb2a"
+    },
+    {
+      "source": "source-recovery-20261007/114/検証/並列枠命令回帰.py",
+      "target": "検証/並列枠命令回帰.py",
+      "source_sha256": "84b8df646f686732060a02342295d1ec3e8708b3c62fa0c64109d133f61e226c",
+      "binding": "Exact recovered bytes; current candidate-root location binding",
+      "current_sha256": "84b8df646f686732060a02342295d1ec3e8708b3c62fa0c64109d133f61e226c"
+    },
+    {
+      "source": "source-recovery-20261007/115/検証/反復枠タイル公開確認.py",
+      "target": "検証/反復枠タイル公開確認.py",
+      "source_sha256": "8f22cab26af27d15f1df0ccace8ff743fdb020a8991a8ef7b4b7426a07114295",
+      "binding": "Exact recovered bytes; current candidate-root location binding",
+      "current_sha256": "8f22cab26af27d15f1df0ccace8ff743fdb020a8991a8ef7b4b7426a07114295"
+    },
+    {
+      "source": "source-recovery-20261007/116/検証/多類枠倍率置換回帰.final.py",
+      "target": "検証/多類枠倍率置換回帰.py",
+      "source_sha256": "1b04e6df06ff0cf1dbd6d2e374637b62c9bbcd62203c1dc3eceac2ad3d34525e",
+      "binding": "Exact recovered bytes; current candidate-root location binding",
+      "current_sha256": "1b04e6df06ff0cf1dbd6d2e374637b62c9bbcd62203c1dc3eceac2ad3d34525e"
+    },
+    {
+      "source": "source-recovery-20261007/076/tests/検証/埋込配色組立/train-pairs.json",
+      "target": "検証/埋込配色組立/train-pairs.json",
+      "source_sha256": "c62acf1a2ac149af8e93670b921e6a01307db7701a363afebeb209d6cd1aae77",
+      "binding": "Exact recovered bytes; current candidate-root location binding",
+      "current_sha256": "c62acf1a2ac149af8e93670b921e6a01307db7701a363afebeb209d6cd1aae77"
+    },
+    {
+      "source": "source-recovery-20261007/092/overlay/検証/格子基点教師.json",
+      "target": "検証/格子基点教師.json",
+      "source_sha256": "013fc9adfe476430e47f448017c02d85721de10528e7cce56cc9c2930bd14fc7",
+      "binding": "Exact recovered bytes; current candidate-root location binding",
+      "current_sha256": "013fc9adfe476430e47f448017c02d85721de10528e7cce56cc9c2930bd14fc7"
+    },
+    {
+      "source": "source-recovery-20261007/112/検証/枠見本所有資料/教師.json",
+      "target": "検証/枠見本所有資料/教師.json",
+      "source_sha256": "eeb8a343b58dbde9e9b7db2abf4085767ff170295c37bffa8f21d96aa019b356",
+      "binding": "Exact recovered bytes; current candidate-root location binding",
+      "current_sha256": "eeb8a343b58dbde9e9b7db2abf4085767ff170295c37bffa8f21d96aa019b356"
+    },
+    {
+      "source": "source-recovery-20261007/113/検証/枠命令配置資料/teachers-only.json",
+      "target": "検証/枠命令配置資料/teachers-only.json",
+      "source_sha256": "a58925d31a29fda5b45f2102f3e93637e18d80ab210f840da44233473f891bb7",
+      "binding": "Exact recovered bytes; current candidate-root location binding",
+      "current_sha256": "a58925d31a29fda5b45f2102f3e93637e18d80ab210f840da44233473f891bb7"
+    },
+    {
+      "source": "source-recovery-20261007/115/検証/反復枠タイル資料/teachers-only.json",
+      "target": "検証/反復枠タイル資料/teachers-only.json",
+      "source_sha256": "66987b63ca67aef7bfd8d7373db7abddc7aa5df9aefb7548178d95e821e2ba6c",
+      "binding": "Exact recovered bytes; current candidate-root location binding",
+      "current_sha256": "66987b63ca67aef7bfd8d7373db7abddc7aa5df9aefb7548178d95e821e2ba6c"
+    },
+    {
+      "source": "source-recovery-20261007/115/検証/反復枠タイル資料/正方形格子旧実装.py",
+      "target": "検証/反復枠タイル資料/正方形格子旧実装.py",
+      "source_sha256": "d059e8d71972d37acf096ec157ddf48600ceb977bd6d42b8428a950d149353d6",
+      "binding": "Exact recovered bytes; current candidate-root location binding",
+      "current_sha256": "d059e8d71972d37acf096ec157ddf48600ceb977bd6d42b8428a950d149353d6"
+    },
+    {
+      "source": "source-recovery-20261007/115/検証/反復枠タイル資料/既存対照.py",
+      "target": "検証/反復枠タイル資料/既存対照.py",
+      "source_sha256": "b674a9441d48f6687e3e23f188e411ef7cea72d65df2feb2e4cca3f64d67ca5b",
+      "binding": "Exact recovered bytes; current candidate-root location binding",
+      "current_sha256": "b674a9441d48f6687e3e23f188e411ef7cea72d65df2feb2e4cca3f64d67ca5b"
+    },
+    {
+      "source": "source-recovery-20261007/116/検証/多類枠倍率置換資料/teachers-only.json",
+      "target": "検証/多類枠倍率置換資料/teachers-only.json",
+      "source_sha256": "84b7afad0044fdf920a5e42fe42efc8b7dfefc0b74d270e180c801d91db40cd0",
+      "binding": "Exact recovered bytes; current candidate-root location binding",
+      "current_sha256": "84b7afad0044fdf920a5e42fe42efc8b7dfefc0b74d270e180c801d91db40cd0"
+    },
+    {
+      "source": "source-recovery-20261007/117/検証/枠局所命令資料/teachers-only.json",
+      "target": "検証/枠局所命令資料/teachers-only.json",
+      "source_sha256": "58414ab7a9c595ff76434cfc1371c033f1030fe20b629119eac4e52ecc49b549",
+      "binding": "Exact recovered bytes; current candidate-root location binding",
+      "current_sha256": "58414ab7a9c595ff76434cfc1371c033f1030fe20b629119eac4e52ecc49b549"
+    },
+    {
+      "source": "source-recovery-20261007/055/check.py",
+      "target": "検証/復旧現行資料/055/recovered-original.py.txt",
+      "source_sha256": "1f9effb955e455e542e63cdbe6b7c5b93e01fea8c7a722f865572337c89c4586",
+      "binding": "Exact original retained as text; historical path/fixture requirements unresolved here",
+      "current_sha256": "1f9effb955e455e542e63cdbe6b7c5b93e01fea8c7a722f865572337c89c4586"
+    },
+    {
+      "source": "source-recovery-20261007/056/check.py",
+      "target": "検証/復旧現行資料/056/recovered-original.py.txt",
+      "source_sha256": "a5ec9954a75f30238ceaa6dad53a21ee8bb8f3f13abb36783ada84a779d9691a",
+      "binding": "Exact original retained as text; historical path/fixture requirements unresolved here",
+      "current_sha256": "a5ec9954a75f30238ceaa6dad53a21ee8bb8f3f13abb36783ada84a779d9691a"
+    },
+    {
+      "source": "source-recovery-20261007/113/検証/枠命令配置回帰.py",
+      "target": "検証/復旧現行資料/113/recovered-original.py.txt",
+      "source_sha256": "9383c5dd6b25f91ef13ccb29aa55e077dee8d4ad19f6577eec99227c1ec8114b",
+      "binding": "Exact original retained as text; historical path/fixture requirements unresolved here",
+      "current_sha256": "9383c5dd6b25f91ef13ccb29aa55e077dee8d4ad19f6577eec99227c1ec8114b"
+    },
+    {
+      "source": "source-recovery-20261007/117/枠局所命令回帰.py",
+      "target": "検証/復旧現行資料/117/recovered-original.py.txt",
+      "source_sha256": "cf6e1d96f4e69282bea6a72ffe575ec82cb0d9d7b2dde5c3382aa760b043c88a",
+      "binding": "Exact original retained as text; historical path/fixture requirements unresolved here",
+      "current_sha256": "cf6e1d96f4e69282bea6a72ffe575ec82cb0d9d7b2dde5c3382aa760b043c88a"
+    },
+    {
+      "source": "source-recovery-20261007/093/portable/check_adapter.py",
+      "target": "検証/復旧093_凡例方向移動回帰.py",
+      "source_sha256": "a077bd5ae6206f4b1e8e898214061612ae54f8b87f0a6b0f0c8bd109512452ff",
+      "binding": "NEW current CLI/root/teacher-fixture hash bindings; recovered source unchanged",
+      "current_sha256": "87778c5bfa1cb12bfa47e7c5bd23d1292e2633e308bb7d96672a1164c3e510d0"
+    },
+    {
+      "source": "source-recovery-20261007/056/reference/流路教材.py",
+      "target": "検証/復旧現行資料/056/流路教材.before056.py",
+      "source_sha256": "041440b1d6ad157f89d423d87036a7239f6fc7bca1a8ec85c88eb731aa1d73e2",
+      "binding": "Exact recovered bytes; current candidate-root location binding",
+      "current_sha256": "041440b1d6ad157f89d423d87036a7239f6fc7bca1a8ec85c88eb731aa1d73e2"
+    }
+  ],
+  "test_execution": false
+}

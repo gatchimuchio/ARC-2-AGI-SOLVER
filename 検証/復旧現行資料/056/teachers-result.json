@@ -1,0 +1,11 @@
+{
+  "stage": "teachers",
+  "successful": true,
+  "evidence_kind": "NEW current056 ordinary check",
+  "teachers": 6,
+  "all_outputs_and_records_equal": true,
+  "fitter_ast_unchanged": true,
+  "default_guard_strict": true,
+  "source_sha256": "508bb3055c14d847b43f6780343bd87c3c1fe01dba949d064dfc5151259d87f9",
+  "tests_run": 6
+}

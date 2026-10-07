@@ -1,0 +1,11 @@
+{
+  "stage": "teachers",
+  "teachers": 4,
+  "exact_output_cells": 176,
+  "old_records_equal": true,
+  "fitter_ast_equal": true,
+  "successful": true,
+  "tests_run": 4,
+  "evidence_kind": "NEW current test binding",
+  "source_sha256": "98542bfb2ea5309573e5ab80d1a16fe789d293cfe45dd77ce50132718c7267a6"
+}

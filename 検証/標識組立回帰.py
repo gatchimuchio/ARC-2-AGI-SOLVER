@@ -143,13 +143,13 @@ class 標識組立回帰(unittest.TestCase):
         engine.実行(観測へ({'候補': pairs[0]['output'], '出力': [[9]]}, boundary))
         self.assertIsNone(出力格子(engine, 観測へ({'候補': query['output']}, boundary), 同値必須=True)['answer'])
 
-    def test_採用後の軸同率queryは全体HOLDと情報分離(self):
+    def test_採用後の軸同率queryは完全所有組立と情報分離(self):
         task = {'train': 教師(), 'test': [{'input': 軸同率()}]}
         result = 課題を解く(task, [])
         record = next(r for r in result['families'] if r['境界'] == 'ARC標識誘導組立')
         self.assertTrue(record['採用可']); self.assertTrue(record['同値採用'])
         self.assertEqual(record['現在観測数'], 4)
-        self.assertIsNone(result['results'][0]['answer'])
+        self.assertEqual(result['results'][0]['answer'], [[1, 4, 4], [4, 4, 1]])
         task['task_id'] = 'forbidden'
         with self.assertRaises(ValueError): 課題を解く(task, [])
         task.pop('task_id'); task['test'][0]['output'] = [[1]]

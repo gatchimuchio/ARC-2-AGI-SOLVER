@@ -1,6 +1,8 @@
 """全seed整合格子写像の新しい組合せ。既存component/square/D4のみ再利用。"""
 from __future__ import annotations
 from collections import Counter
+from .正方形格子反復枠接続 import fit_after_complete_square_no_fit
+from .反復枠タイル本体 import predict as predict_tile_body
 from .既存物体特徴 import color_component_dicts_for_grid
 from .既存正方形座標 import solid_square_component, d4_motif_transform_coord
 MODELS=tuple(f'rot{angle}{suffix}' for angle in (0,90,180,270) for suffix in ('','_flip_h'))
@@ -123,12 +125,21 @@ def consensus(grid,models):
 
 class 正方形格子教材:
     def __init__(self, 教師群):
-        self.モデル, _ = fit_models(教師群)
+        self.モデル, old_fit_record = fit_models(教師群)
+        if self.モデル is None:
+            self.反復枠モデル, _ = fit_after_complete_square_no_fit(
+                教師群, self.モデル, old_fit_record, MODELS)
 
     def 候補(self, 格子, _policy):
         if not self.モデル:
+            state = getattr(self, "反復枠モデル", None)
+            if state is not None:
+                return predict_tile_body(格子, state)
             return None, {"failure": "全教師を再現する正方形格子写像なし"}
         return consensus(格子, self.モデル)
 
     def 記録(self):
+        state = getattr(self, "反復枠モデル", None)
+        if self.モデル is None and state is not None:
+            return {"全教師共通モデル": [], "反復枠タイル共通モデル": list(state["programs"])}
         return {"全教師共通モデル": list(self.モデル or ())}

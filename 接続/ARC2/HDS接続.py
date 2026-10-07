@@ -55,7 +55,7 @@ from .疎点転写教材 import 疎点転写教材
 from .帯輪郭教材 import 帯輪郭教材
 from .制御複写教材 import 制御複写教材
 from .配置展開教材 import 配置展開教材
-from .基点複製教材 import 基点複製教材
+from .格子基点複製接続 import 基点複製教材
 from .接触配置教材 import 接触配置教材
 from .凡例展開教材 import 凡例展開教材
 from .枠列整列教材 import 枠列整列教材

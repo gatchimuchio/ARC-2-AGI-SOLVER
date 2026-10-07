@@ -1,0 +1,30 @@
+{
+  "scope": "Fresh restored76 normal120 baseline",
+  "actual_exec_session": 53749,
+  "initial_chunk": "02fa97",
+  "terminal_chunk": "449cdb",
+  "exit_code": 0,
+  "summary": {
+    "mode": "current",
+    "tasks": 120,
+    "test_examples": 167,
+    "correct_tasks": 76,
+    "accuracy": 0.6333333333333333,
+    "correct_examples": 107,
+    "unanswered": 60,
+    "wrong_attempted_tasks": 8,
+    "resource_failures": {},
+    "seconds": 46.34767025300016,
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961",
+    "cpu_seconds_per_task": 10,
+    "address_space_mib": 512,
+    "wall_seconds_per_task": 60,
+    "workers": 3
+  },
+  "all167_answer_or_hold_values_equal_historical76": true,
+  "historical_score_gzip_sha256": "cab1c38c74842b0b42cd6c9eca1b4c0c64315ec069386387f0b6cd69165ab42b",
+  "new_score_sha256": "4d2e9c827cd1727e624ae0aa34039d43a2451a41041297700a3e0a21893f2221",
+  "emitted_grids": 107,
+  "wrong_emitted_grids": 0
+}

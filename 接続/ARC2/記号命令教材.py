@@ -195,13 +195,23 @@ def consensus(grid,models):
 
 class 記号命令教材:
     def __init__(self, 教師群):
-        models, _ = fit_models(教師群)
+        models, old_fit_record = fit_models(教師群)
         self.モデル = tuple(models) if models is not None else ()
+        if models is None:
+            from .枠局所命令接続 import fit_after_complete_instruction_no_fit
+            state, _ = fit_after_complete_instruction_no_fit(教師群, models, old_fit_record)
+            if state is not None:
+                self.枠局所命令 = state
 
     def 候補(self, 格子, _policy):
         if not self.モデル:
+            if getattr(self, "枠局所命令", None) is not None:
+                from .枠局所命令接続 import render_embedded
+                return render_embedded(格子)
             return None, {"failure": "全教師を再現する完走命令表なし"}
         return consensus(格子, self.モデル)
 
     def 記録(self):
+        if getattr(self, "枠局所命令", None) is not None:
+            return {"完走適合model数": 0, "読取順序": [], "埋込枠局所命令": True}
         return {"完走適合model数": len(self.モデル), "読取順序": sorted({m[0] for m in self.モデル})}

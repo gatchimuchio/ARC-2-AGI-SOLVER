@@ -1,0 +1,14 @@
+[
+  {
+    "path": "検証/全体接触資料/dependency-pins.json.gz",
+    "old_sha256": "34a6bcbeac26f00a32493386b1fcb825cde98790ff155821d9c4ab69e3045f1d",
+    "new_sha256": "9a721461f7a9acb1c4c758779640f69556bc94e7dc605193e6e2833d556d4890",
+    "change": "only mutable status pin moved to explicit historical provenance; executable and authority pins unchanged"
+  },
+  {
+    "path": "検証/隅模様転写資料/dependency-pins.json.gz",
+    "old_sha256": "d892d7aa3749f2827f0ac9d3fcc60f933c4394ae0678485b96445864db08cf50",
+    "new_sha256": "a816dd9a0b912537f4bd2768f4a86f1cb2d640ac5ebfcfcadda57d64e1b78435",
+    "change": "only mutable status pin moved to explicit historical provenance; executable and authority pins unchanged"
+  }
+]

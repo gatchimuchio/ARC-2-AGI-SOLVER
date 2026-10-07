@@ -1,0 +1,28 @@
+{
+  "comparison_exit_code": 0,
+  "comparison_terminal_chunk": "9f2d52",
+  "comparison": {
+    "previous": {
+      "cpu_seconds": 2.7317648809999997,
+      "retained_count": 0,
+      "evaluated_teacher_calls": 10,
+      "symbolic_unexecuted_teacher_calls": 0
+    },
+    "current": {
+      "cpu_seconds": 0.0,
+      "retained_count": 0,
+      "evaluated_teacher_calls": 0,
+      "symbolic_unexecuted_teacher_calls": 10
+    },
+    "model_parity": true,
+    "input_immutable": true
+  },
+  "targeted_exit_code": 0,
+  "targeted_terminal_chunk": "4a8957",
+  "targeted_checks": 351,
+  "whole_input_call_session": 96169,
+  "whole_input_call_exit_code": 0,
+  "whole_input_call_terminal_chunk": "4a4fd9",
+  "both_previous_grids_identical": true,
+  "input_call_sha256": "378518ed03be37b4676a8d4c1e7195a69075d291af036b1ab7bd782e6cfa8697"
+}

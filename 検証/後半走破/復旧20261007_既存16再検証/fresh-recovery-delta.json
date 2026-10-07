@@ -1,0 +1,115 @@
+{
+  "scope": "Fresh validation of16 recovered changes plus general border-singleton necessity; not restored historical92 evidence",
+  "previous": {
+    "tasks": 76,
+    "correct_grids": 107
+  },
+  "current": {
+    "tasks": 89,
+    "correct_grids": 124
+  },
+  "delta": {
+    "tasks": 13,
+    "correct_grids": 17
+  },
+  "old_correct_grids_identical": 107,
+  "old_grid_losses": [],
+  "new_correct_grids": [
+    [
+      "20270e3b",
+      1
+    ],
+    [
+      "28a6681f",
+      0
+    ],
+    [
+      "36a08778",
+      1
+    ],
+    [
+      "4c3d4a41",
+      0
+    ],
+    [
+      "4c7dc4dd",
+      0
+    ],
+    [
+      "65b59efc",
+      1
+    ],
+    [
+      "6e4f6532",
+      0
+    ],
+    [
+      "88e364bc",
+      1
+    ],
+    [
+      "a251c730",
+      0
+    ],
+    [
+      "a32d8b75",
+      0
+    ],
+    [
+      "a32d8b75",
+      1
+    ],
+    [
+      "b10624e5",
+      0
+    ],
+    [
+      "cbebaa4b",
+      0
+    ],
+    [
+      "cbebaa4b",
+      1
+    ],
+    [
+      "db0c5428",
+      0
+    ],
+    [
+      "edb79dae",
+      0
+    ],
+    [
+      "f560132c",
+      0
+    ]
+  ],
+  "wrong_emitted_grids": 0,
+  "normal_resource_failures": {},
+  "all_source_pins_match": 1966,
+  "full_regression": {
+    "scripts": 98,
+    "checks": 4542,
+    "coverage": "97 current script records plus unchanged earlier29-case window scope",
+    "prior_failed_collectors_and_cpu_score_preserved": true
+  },
+  "baseline_score_sha256": "4d2e9c827cd1727e624ae0aa34039d43a2451a41041297700a3e0a21893f2221",
+  "current_score_sha256": "7e483f17914a29c51d21a0ca750cf8791209dcaf2c1c377db1c16112cffd6d63",
+  "exec_session": 65728,
+  "actual_terminal_chunk": "b1e3a5",
+  "actual_exit_code": 0,
+  "admission_eligible": true,
+  "parent_admission_pending": true,
+  "historical_pre_loss_high_water": {
+    "tasks": 92,
+    "correct_grids": 127,
+    "commit": "1c3875bb2ae9c66bd77d24e7fbb684f43ab76aca",
+    "raw_and_original_commit_missing": true
+  },
+  "missing_original_changes": [
+    "066",
+    "072",
+    "075"
+  ],
+  "new_reconstructions_not_integrated": true
+}

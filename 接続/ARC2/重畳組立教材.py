@@ -143,3 +143,8 @@ class 重畳組立教材:
 
     def 記録(self):
         return {'全教師再現': self.全教師再現}
+
+
+既存重畳組立教材 = 重畳組立教材
+from .疎標点重畳教材 import extend_overlap_family as _extend_overlap_family
+重畳組立教材 = _extend_overlap_family(既存重畳組立教材, guarded_overlap_mosaic)

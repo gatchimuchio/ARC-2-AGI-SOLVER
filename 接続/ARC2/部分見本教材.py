@@ -42,3 +42,63 @@ class 部分見本教材:
 
     def 記録(self):
         return {'全教師再現':self.全教師再現}
+
+
+# Preserve the accepted family and its successful return path verbatim.
+from . import 枠見本所有補完 as _framed
+
+
+_元部分見本教材 = 部分見本教材
+
+
+class 部分見本教材(_元部分見本教材):
+    def __init__(self, 教師群):
+        super().__init__(教師群)
+        self.枠見本モデル群 = None
+        self.枠見本適合 = None
+        if self.全教師再現:
+            return
+        if (not isinstance(教師群, (list, tuple)) or len(教師群) < 2
+                or any(not isinstance(pair, dict)
+                       or not _framed.valid_grid(pair.get('input'))
+                       or not _framed.valid_grid(pair.get('output')) for pair in 教師群)
+                or len({tuple(map(tuple, pair['input'])) for pair in 教師群}) != len(教師群)):
+            return
+        # The original all(...) may stop at its first mismatch. Finish every
+        # original teacher return before permitting the framed no-fit fallback.
+        failures = {'invalid_grid', 'background_tie', 'no_valid_panel_exemplar_group',
+                    'mask_bbox_center_not_integer', 'normalized_output_exceeds_arc_bounds',
+                    'source_output_shape_mismatch'}
+        matches = []
+        for pair in 教師群:
+            output, record = guarded_panel_exemplar(pair['input'])
+            if (not isinstance(record, dict) or record.get('complete', True) is not True
+                    or record.get('exhausted', True) is not True
+                    or 'resource_exception' in record or 'exception' in record
+                    or (output is None and record.get('failure') not in failures)
+                    or (output is not None and (not _framed.valid_grid(output)
+                                               or 'failure' in record))):
+                raise ValueError('original_panel_fit_incomplete')
+            matches.append(output == pair['output'])
+        if all(matches):
+            raise ValueError('original_panel_fit_replay_inconsistent')
+        models, record = _framed.fit_teachers(教師群)
+        if not isinstance(record, dict) or record.get('complete') is not True:
+            raise ValueError('framed_panel_fit_incomplete')
+        if models is not None:
+            if not models:
+                raise ValueError('framed_panel_fit_empty_models')
+            self.枠見本モデル群 = tuple(tuple(model) for model in models)
+            self.枠見本適合 = record
+
+    def 候補(self, 格子, _policy):
+        if self.全教師再現 or self.枠見本モデル群 is None:
+            return super().候補(格子, _policy)
+        return _framed.render(格子, self.枠見本モデル群)
+
+    def 記録(self):
+        record = super().記録()
+        if self.枠見本モデル群 is not None:
+            record['枠見本所有補完'] = {'models': self.枠見本モデル群,
+                                      'fit': self.枠見本適合}
+        return record

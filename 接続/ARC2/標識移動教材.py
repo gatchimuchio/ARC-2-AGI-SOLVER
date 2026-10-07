@@ -114,3 +114,46 @@ class 標識移動教材:
 
     def 記録(self):
         return {'適合方針数': self.適合方針数, '方針': self.方針, '接触消去教師数': self.接触消去教師数}
+
+
+# Extend this family only at its completed zero-fit boundary. The original
+# implementation above remains intact, including ambiguous-fit and guard paths.
+from . import 凡例方向移動候補 as _凡例方向移動
+
+_既存標識移動教材 = 標識移動教材
+
+
+def _凡例方向移動の保存条件(teachers):
+    if not teachers or any(not _凡例方向移動.valid_grid(p['input'])
+                           or not _凡例方向移動.valid_grid(p['output']) for p in teachers):
+        return False
+    if len({tuple(map(tuple,p['input'])) for p in teachers}) != len(teachers):
+        return False
+    # Clone, equal-size source erasure, and disjoint equal-size destination
+    # painting necessarily preserve the full grid shape and every color count.
+    return all((len(p['input']),len(p['input'][0])) == (len(p['output']),len(p['output'][0]))
+               and Counter(v for row in p['input'] for v in row)
+                   == Counter(v for row in p['output'] for v in row) for p in teachers)
+
+
+class 標識移動教材(_既存標識移動教材):
+    def __init__(self, 教師群):
+        super().__init__(教師群)
+        self.凡例方向モデル = None
+        self.凡例方向fit記録 = None
+        if (self.方針 is None and self.適合方針数 == 0
+                and _凡例方向移動の保存条件(教師群)):
+            self.凡例方向モデル, self.凡例方向fit記録 = _凡例方向移動.fit_teachers(教師群)
+            if self.凡例方向fit記録.get('complete') is not True:
+                raise RuntimeError('legend direction fitting did not complete')
+
+    def 候補(self, 格子, _policy):
+        if self.凡例方向モデル is not None:
+            return _凡例方向移動.predict(格子,self.凡例方向モデル)
+        return super().候補(格子,_policy)
+
+    def 記録(self):
+        original = super().記録()
+        if self.凡例方向fit記録 is None:
+            return original
+        return {**original, '凡例方向移動': self.凡例方向fit記録}

@@ -159,15 +159,32 @@ def teacher_necessity_certificate(index, pair):
         changes = [{'cell': [r,c], 'input': value, 'output': target[r][c]}
                    for r,row in enumerate(grid) for c,value in enumerate(row)
                    if value != background and value != target[r][c]]
+    # A successful C4 or C8 render needs a border singleton cue. Every
+    # C8 singleton is also orthogonally isolated, irrespective of its color.
+    border_cue_applicable = len(modes) == 1
+    border_cue_candidates = None
+    if border_cue_applicable:
+        background = modes[0]
+        h, w = shape
+        border_cue_candidates = [[r, c] for r, row in enumerate(grid)
+            for c, value in enumerate(row)
+            if value != background and (r in (0, h - 1) or c in (0, w - 1))
+            and all(not (0 <= r + dr < h and 0 <= c + dc < w)
+                    or grid[r + dr][c + dc] == background
+                    for dr, dc in ((1, 0), (-1, 0), (0, 1), (0, -1)))]
     violations = []
     if not same_shape:
         violations.append('shape_change')
     if changes:
         violations.append('original_foreground_changed')
+    if border_cue_applicable and not border_cue_candidates:
+        violations.append('no_possible_border_singleton_cue')
     return {'teacher_index': index, 'complete': True, 'input_shape': shape, 'output_shape': target_shape,
             'shape_equal': same_shape, 'input_background_candidates': modes,
             'input_background': modes[0] if len(modes) == 1 else None,
             'foreground_check_applicable': applicable, 'foreground_changes': changes,
+            'border_cue_check_applicable': border_cue_applicable,
+            'orthogonally_isolated_border_foreground': border_cue_candidates,
             'violations': violations, 'all_programs_necessarily_fail': bool(violations)}
 
 def teacher_necessities(teachers, observer, budget):

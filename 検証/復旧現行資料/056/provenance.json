@@ -1,0 +1,84 @@
+{
+  "historical_samples": [
+    "056"
+  ],
+  "source_path": "arc2-restored-592d2c5-audit/evaluation-teachers-only.json",
+  "source_sha256": "012924cb967106a6d72e9323b83534539471c27dc4f5fba5d8d4a0dbe334c8aa",
+  "fixture_path": "recovered16-candidate-20261007/検証/復旧現行資料/056/teachers-only.json",
+  "fixture_sha256": "5368a97207740963e80d47f783d5fcb5deb253cfa70278d6f24365262523c62c",
+  "historical_sha256": "5368a97207740963e80d47f783d5fcb5deb253cfa70278d6f24365262523c62c",
+  "exact_historical_hash_match": true,
+  "task_id": "36a08778",
+  "layout": "train_object",
+  "serialization": {
+    "ensure_ascii": false,
+    "indent": 2,
+    "separators": null,
+    "sort_keys": false,
+    "trailing_newline": "\n"
+  },
+  "source_restriction": "train-only JSON; no queries, solutions, scoring outputs, candidate imports, or candidate/test execution",
+  "train_count": 6,
+  "train_shapes": [
+    {
+      "input": [
+        14,
+        14
+      ],
+      "output": [
+        14,
+        14
+      ]
+    },
+    {
+      "input": [
+        16,
+        13
+      ],
+      "output": [
+        16,
+        13
+      ]
+    },
+    {
+      "input": [
+        8,
+        9
+      ],
+      "output": [
+        8,
+        9
+      ]
+    },
+    {
+      "input": [
+        14,
+        5
+      ],
+      "output": [
+        14,
+        5
+      ]
+    },
+    {
+      "input": [
+        8,
+        20
+      ],
+      "output": [
+        8,
+        20
+      ]
+    },
+    {
+      "input": [
+        15,
+        16
+      ],
+      "output": [
+        15,
+        16
+      ]
+    }
+  ]
+}

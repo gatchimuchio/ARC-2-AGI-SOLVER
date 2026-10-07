@@ -1,0 +1,378 @@
+{
+  "scope": "Current source recovery inventory; not an adopted runtime or a recreated historical result",
+  "restored_checkpoint": {
+    "commit": "c61848414078708148bb67bce10694b1ef5441f3",
+    "tree": "4e16550fc8749eae9b905d42f7f39e73a6ef7b78",
+    "historical_score_tasks": 76,
+    "historical_score_grids": 107,
+    "actual_solver_rerun": false
+  },
+  "last_pre_loss_verified": {
+    "commit": "1c3875bb2ae9c66bd77d24e7fbb684f43ab76aca",
+    "historical_score_tasks": 92,
+    "historical_score_grids": 127,
+    "commit_and_raw_currently_available": false
+  },
+  "recovered_adopted_change_count": 16,
+  "runtime_file_versions": 41,
+  "changes": [
+    {
+      "change": "055",
+      "runtime_status": "recovered_against_full_historical_sha256",
+      "files": [
+        {
+          "recovery_path": "source-recovery-20261007/055/payload/接続/ARC2/標識組立完全所有.py",
+          "intended_runtime_path": "接続/ARC2/標識組立完全所有.py",
+          "bytes": 8698,
+          "sha256": "dd4fc62838ec4fc01db3654291e396961db50fc5e57d2792bc6687af117c2249"
+        },
+        {
+          "recovery_path": "source-recovery-20261007/055/payload/接続/ARC2/標識組立教材.py",
+          "intended_runtime_path": "接続/ARC2/標識組立教材.py",
+          "bytes": 7324,
+          "sha256": "98542bfb2ea5309573e5ab80d1a16fe789d293cfe45dd77ce50132718c7267a6"
+        }
+      ]
+    },
+    {
+      "change": "056",
+      "runtime_status": "recovered_against_full_historical_sha256",
+      "files": [
+        {
+          "recovery_path": "source-recovery-20261007/056/payload/接続/ARC2/流路教材.py",
+          "intended_runtime_path": "接続/ARC2/流路教材.py",
+          "bytes": 5903,
+          "sha256": "7694b34d6e549a2a17e5b732b4877fa4aa711adc4c5f8a025ca6d76127674169"
+        }
+      ]
+    },
+    {
+      "change": "057",
+      "runtime_status": "recovered_against_full_historical_sha256",
+      "files": [
+        {
+          "recovery_path": "source-recovery-20261007/057/接続/ARC2/櫛配置教材.py",
+          "intended_runtime_path": "接続/ARC2/櫛配置教材.py",
+          "bytes": 11945,
+          "sha256": "36f6c238720701edcd6ceaf78f0d95f2e2ba5aa5b1acddf54fefcaf186563cdd"
+        }
+      ]
+    },
+    {
+      "change": "058",
+      "runtime_status": "recovered_against_full_historical_sha256",
+      "files": [
+        {
+          "recovery_path": "source-recovery-20261007/058/接続/ARC2/凡例展開教材.py",
+          "intended_runtime_path": "接続/ARC2/凡例展開教材.py",
+          "bytes": 10077,
+          "sha256": "5128d236c64f62805e1780a187a1a92f2ae89ec92a6c4e63237ecf50eb097dec"
+        }
+      ]
+    },
+    {
+      "change": "059",
+      "runtime_status": "recovered_against_full_historical_sha256",
+      "files": [
+        {
+          "recovery_path": "source-recovery-20261007/059/payload/接続/ARC2/標識軸転写所有補完.py",
+          "intended_runtime_path": "接続/ARC2/標識軸転写所有補完.py",
+          "bytes": 5840,
+          "sha256": "4e1cf6f509e987f64ada430f5a512305dfc49fe742e091505082eb50516708f6"
+        },
+        {
+          "recovery_path": "source-recovery-20261007/059/payload/接続/ARC2/標識軸転写教材.py",
+          "intended_runtime_path": "接続/ARC2/標識軸転写教材.py",
+          "bytes": 7030,
+          "sha256": "4bc598cf750d39f93d7bf7b9cbe307e4b7f3db65be1303f285ee655c34c60abe"
+        }
+      ]
+    },
+    {
+      "change": "061",
+      "runtime_status": "recovered_against_full_historical_sha256",
+      "files": [
+        {
+          "recovery_path": "source-recovery-20261007/061/接続/ARC2/有限量流路候補.py",
+          "intended_runtime_path": "接続/ARC2/有限量流路候補.py",
+          "bytes": 5894,
+          "sha256": "8912688b491182ea2fe06d10d411aa962612f581dc0ca0b43c713b5f670e10eb"
+        },
+        {
+          "recovery_path": "source-recovery-20261007/061/接続/ARC2/有限量流路接続.py",
+          "intended_runtime_path": "接続/ARC2/有限量流路接続.py",
+          "bytes": 4975,
+          "sha256": "86f50bb97de01afec29a99ce9b9898eb7584e899bafdb6a41fa66bea0b41ec4c"
+        },
+        {
+          "recovery_path": "source-recovery-20261007/061/接続/ARC2/流路教材.py",
+          "intended_runtime_path": "接続/ARC2/流路教材.py",
+          "bytes": 6406,
+          "sha256": "508bb3055c14d847b43f6780343bd87c3c1fe01dba949d064dfc5151259d87f9"
+        }
+      ]
+    },
+    {
+      "change": "076",
+      "runtime_status": "recovered_against_full_historical_sha256",
+      "files": [
+        {
+          "recovery_path": "source-recovery-20261007/076/runtime/接続/ARC2/埋込凡例組立候補.py",
+          "intended_runtime_path": "接続/ARC2/埋込凡例組立候補.py",
+          "bytes": 10169,
+          "sha256": "c774a82fd0c7091e5d345e3a803f0cd81bc511e87f39d8200cf374cadf5a8d63"
+        },
+        {
+          "recovery_path": "source-recovery-20261007/076/runtime/接続/ARC2/標点組立教材.py",
+          "intended_runtime_path": "接続/ARC2/標点組立教材.py",
+          "bytes": 20027,
+          "sha256": "6c9bacb9971e47b7ad2a80b5debd9638a0233be3f03a0f432ad077f70262d1d9"
+        }
+      ]
+    },
+    {
+      "change": "092",
+      "runtime_status": "recovered_against_full_historical_sha256",
+      "files": [
+        {
+          "recovery_path": "source-recovery-20261007/092/overlay/接続/ARC2/格子基点複製接続.py",
+          "intended_runtime_path": "接続/ARC2/格子基点複製接続.py",
+          "bytes": 2527,
+          "sha256": "53cbc4af4382a0d52e73cc2a1a7705fb71a86a4934e1d8dbac99936140793858"
+        },
+        {
+          "recovery_path": "source-recovery-20261007/092/overlay/接続/ARC2/格子基点視野.py",
+          "intended_runtime_path": "接続/ARC2/格子基点視野.py",
+          "bytes": 6025,
+          "sha256": "8960feaf7b776c7829d48c0c4b37a47da8ab48e768d6a4d1a73ca2d103d21d5c"
+        },
+        {
+          "recovery_path": "source-recovery-20261007/092/overlay/接続/ARC2/格子基点転写核.py",
+          "intended_runtime_path": "接続/ARC2/格子基点転写核.py",
+          "bytes": 8202,
+          "sha256": "3deaae23e8cac7b72465c18c73f8ae2fc4102ffbb6c95b722816bd8921df0b7a"
+        }
+      ]
+    },
+    {
+      "change": "093",
+      "runtime_status": "recovered_against_full_historical_sha256",
+      "files": [
+        {
+          "recovery_path": "source-recovery-20261007/093/portable/接続/ARC2/凡例方向移動候補.py",
+          "intended_runtime_path": "接続/ARC2/凡例方向移動候補.py",
+          "bytes": 11239,
+          "sha256": "4f344c2ae754f733a10e5180e5f445ac13e46f11d9360c6091930ebf0323ba8e"
+        },
+        {
+          "recovery_path": "source-recovery-20261007/093/portable/接続/ARC2/標識移動教材.py",
+          "intended_runtime_path": "接続/ARC2/標識移動教材.py",
+          "bytes": 7986,
+          "sha256": "90169a5bcf60a1821069e987290d55b44c16db30a4b4e22d0d0d2e071ca06aad"
+        }
+      ]
+    },
+    {
+      "change": "096",
+      "runtime_status": "recovered_against_full_historical_sha256",
+      "files": [
+        {
+          "recovery_path": "source-recovery-20261007/096/接続/ARC2/疎標点重畳候補.py",
+          "intended_runtime_path": "接続/ARC2/疎標点重畳候補.py",
+          "bytes": 8503,
+          "sha256": "1713eac98ca8225efb3412c38e1783558bf84e314fae66c85f2daaec6cb7516e"
+        },
+        {
+          "recovery_path": "source-recovery-20261007/096/接続/ARC2/疎標点重畳教材.py",
+          "intended_runtime_path": "接続/ARC2/疎標点重畳教材.py",
+          "bytes": 3612,
+          "sha256": "a8a37726a894f9930a71ee9e0aedb51d977bbfd21a0cfa9708bec5d20c7ca54e"
+        }
+      ]
+    },
+    {
+      "change": "112",
+      "runtime_status": "recovered_against_full_historical_sha256",
+      "files": [
+        {
+          "recovery_path": "source-recovery-20261007/112/接続/ARC2/枠見本所有補完.py",
+          "intended_runtime_path": "接続/ARC2/枠見本所有補完.py",
+          "bytes": 20691,
+          "sha256": "22bca60d05dbf4d10f82a64157e16e093aa66050863af915a57cf9bc90626ec8"
+        },
+        {
+          "recovery_path": "source-recovery-20261007/112/接続/ARC2/部分見本教材.py",
+          "intended_runtime_path": "接続/ARC2/部分見本教材.py",
+          "bytes": 5138,
+          "sha256": "36f3b5b7468bafc5bfb6a54b722c4ee8d0340f73ff0614ffc7933ff3e197b7e2"
+        }
+      ]
+    },
+    {
+      "change": "113",
+      "runtime_status": "recovered_against_full_historical_sha256",
+      "files": [
+        {
+          "recovery_path": "source-recovery-20261007/113/接続/ARC2/全枠命令配置.py",
+          "intended_runtime_path": "接続/ARC2/全枠命令配置.py",
+          "bytes": 2062,
+          "sha256": "469a8b8be0875002967585868163a8b58a36d92950c6b78aac6b4b2d7d23e67f"
+        },
+        {
+          "recovery_path": "source-recovery-20261007/113/接続/ARC2/厳密枠命令配置.py",
+          "intended_runtime_path": "接続/ARC2/厳密枠命令配置.py",
+          "bytes": 7667,
+          "sha256": "83cf5ac23fb59530f3d186b34e0ce8360392c6c1b8503f8c66d0111930690a86"
+        },
+        {
+          "recovery_path": "source-recovery-20261007/113/接続/ARC2/枠命令配置接続.py",
+          "intended_runtime_path": "接続/ARC2/枠命令配置接続.py",
+          "bytes": 4069,
+          "sha256": "7e76b3fbe96ee8617474255bda4b1ff4ef2e91bd426698203935027fa76b75e3"
+        },
+        {
+          "recovery_path": "source-recovery-20261007/113/接続/ARC2/配置展開教材.py",
+          "intended_runtime_path": "接続/ARC2/配置展開教材.py",
+          "bytes": 6096,
+          "sha256": "dd1b253da8f1bb6190510089a648e0bf294f3a3156432a5fe504ca3ad88957e4"
+        },
+        {
+          "recovery_path": "source-recovery-20261007/113/接続/ARC2/関係枠命令配置.py",
+          "intended_runtime_path": "接続/ARC2/関係枠命令配置.py",
+          "bytes": 9497,
+          "sha256": "33182eb9d62facdad6f6591f1bc650b60a8a56de8cde0fc6df139f2c73bb8c28"
+        }
+      ]
+    },
+    {
+      "change": "114",
+      "runtime_status": "recovered_against_full_historical_sha256",
+      "files": [
+        {
+          "recovery_path": "source-recovery-20261007/114/並列枠命令配置.py",
+          "intended_runtime_path": "接続/ARC2/並列枠命令配置.py",
+          "bytes": 8305,
+          "sha256": "fe30021e81a14dfc65785f737e787c5ba5dc415d8f4d5fe77ebb923482300d32"
+        },
+        {
+          "recovery_path": "source-recovery-20261007/114/枠命令配置接続.py",
+          "intended_runtime_path": "接続/ARC2/枠命令配置接続.py",
+          "bytes": 8478,
+          "sha256": "495c113455c26c0ff46b96e7d4d2c143dcddaa8e4a45a726f27901c5c7c767c0"
+        },
+        {
+          "recovery_path": "source-recovery-20261007/114/配置展開教材.py",
+          "intended_runtime_path": "接続/ARC2/配置展開教材.py",
+          "bytes": 6089,
+          "sha256": "a7f7a65ec351f0dd1d9a6bc819b5e384351ca339d952f70259b22b6191709c39"
+        }
+      ]
+    },
+    {
+      "change": "115",
+      "runtime_status": "recovered_against_full_historical_sha256",
+      "files": [
+        {
+          "recovery_path": "source-recovery-20261007/115/接続/ARC2/反復枠タイル本体.py",
+          "intended_runtime_path": "接続/ARC2/反復枠タイル本体.py",
+          "bytes": 10143,
+          "sha256": "70c6393be0fd34e242a6be4ea5950aecfde7cfc0e3a28263672f41e6feb67cb6"
+        },
+        {
+          "recovery_path": "source-recovery-20261007/115/接続/ARC2/反復枠共通部品.py",
+          "intended_runtime_path": "接続/ARC2/反復枠共通部品.py",
+          "bytes": 1526,
+          "sha256": "a55986c28fdab66c330435bdfef0e04dc78d52e7d271f4af0a33da39bff5293c"
+        },
+        {
+          "recovery_path": "source-recovery-20261007/115/接続/ARC2/反復枠旧候補.py",
+          "intended_runtime_path": "接続/ARC2/反復枠旧候補.py",
+          "bytes": 12927,
+          "sha256": "ccdd3e90d9c8226c4d0db1b24bb4f43eb7249a1d834d3792015887c3164dc241"
+        },
+        {
+          "recovery_path": "source-recovery-20261007/115/接続/ARC2/正方形格子反復枠接続.py",
+          "intended_runtime_path": "接続/ARC2/正方形格子反復枠接続.py",
+          "bytes": 2263,
+          "sha256": "8c255b1887499946b07fab57782ceec23dc9befbc23ee9cfce264433aae1205d"
+        },
+        {
+          "recovery_path": "source-recovery-20261007/115/接続/ARC2/正方形格子教材.py",
+          "intended_runtime_path": "接続/ARC2/正方形格子教材.py",
+          "bytes": 7963,
+          "sha256": "5ae12d116c08a9f972bf2c56dad7a73ef21ea0befa4076a886d28988396f8c4e"
+        }
+      ]
+    },
+    {
+      "change": "116",
+      "runtime_status": "recovered_against_full_historical_sha256",
+      "files": [
+        {
+          "recovery_path": "source-recovery-20261007/116/接続/ARC2/倍率置換教材.py",
+          "intended_runtime_path": "接続/ARC2/倍率置換教材.py",
+          "bytes": 9408,
+          "sha256": "451a39ea6f2631cb1ae051f0c7ee7386fe982c9916c3311418b2f338e948de50"
+        },
+        {
+          "recovery_path": "source-recovery-20261007/116/接続/ARC2/厳格枠倍率置換.py",
+          "intended_runtime_path": "接続/ARC2/厳格枠倍率置換.py",
+          "bytes": 10655,
+          "sha256": "ba35c68ef9c94f38004ebe749c8fe52efabc91fc51ce21a3114588a4ae6dfecf"
+        },
+        {
+          "recovery_path": "source-recovery-20261007/116/接続/ARC2/多類枠倍率置換.py",
+          "intended_runtime_path": "接続/ARC2/多類枠倍率置換.py",
+          "bytes": 12552,
+          "sha256": "aeda8a97ab0709ad02ea816f02390396ece82d684099f5512368c04fd374d212"
+        }
+      ]
+    },
+    {
+      "change": "117",
+      "runtime_status": "recovered_against_full_historical_sha256",
+      "files": [
+        {
+          "recovery_path": "source-recovery-20261007/117/厳密枠局所命令.py",
+          "intended_runtime_path": "接続/ARC2/厳密枠局所命令.py",
+          "bytes": 10065,
+          "sha256": "450e4862ec937a2402f3b30962870aa5b9874daa4ab43c2e4043a416193d8860"
+        },
+        {
+          "recovery_path": "source-recovery-20261007/117/周期補色局所命令.py",
+          "intended_runtime_path": "接続/ARC2/周期補色局所命令.py",
+          "bytes": 6352,
+          "sha256": "1c4978e3b4f0c908cd776828d406bdd76f362dc943d3ead080e4040900f71bcb"
+        },
+        {
+          "recovery_path": "source-recovery-20261007/117/枠局所命令接続.py",
+          "intended_runtime_path": "接続/ARC2/枠局所命令接続.py",
+          "bytes": 3185,
+          "sha256": "656336c088db6462af096b9be041c6d5adb87123eb9d067a6c590c90fb78dd4a"
+        },
+        {
+          "recovery_path": "source-recovery-20261007/117/記号命令教材.py",
+          "intended_runtime_path": "接続/ARC2/記号命令教材.py",
+          "bytes": 13471,
+          "sha256": "d98a4a38ae10fda6f530ae35b5682aa88d50292156396bf7b8bbd610db470d48"
+        }
+      ]
+    }
+  ],
+  "runtime_change_gaps": [
+    "066",
+    "072",
+    "075 including 074 dependency"
+  ],
+  "remaining_test_metadata_gaps": [
+    "Some production-only regression adaptations and dependency pins still need exact historical byte recovery",
+    "113 tiny-controls.json literal expected records unavailable",
+    "117 synthetic-fixtures.json expected records unavailable; no candidate code was run to regenerate them"
+  ],
+  "historical_raw_and_later_commit_objects_restored": false,
+  "candidate_test_or_evaluation_execution": false,
+  "integration_performed": false,
+  "unadopted118_semantic_source_recovered": true,
+  "unadopted118_semantic_identity": "e3f9b51e0b20f5d0124c7a42a662c2b00f35caeba2a87f3bba5efacb477a7825",
+  "fully_restored_library76_zip_sha256": "5ed2103d320e523e6448584919290ffac9ad2c70463225572beeea7fd11f8f48"
+}

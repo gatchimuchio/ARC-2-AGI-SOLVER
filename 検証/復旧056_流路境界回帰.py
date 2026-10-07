@@ -1,0 +1,109 @@
+# NEW current ordinary check; recovered056 literal controls against final061 runtime.
+"""Ordinary teacher and existing flow regression checks; no query input access."""
+import argparse
+import ast
+import hashlib
+import importlib
+import importlib.util
+import json
+from pathlib import Path
+import sys
+import unittest
+
+ROOT = Path(__file__).resolve().parent / '復旧現行資料/056'
+BASE = Path(__file__).resolve().parents[1]
+SOURCE = BASE / '接続/ARC2/流路教材.py'
+REFERENCE = ROOT / '流路教材.before056.py'
+sys.path[:0] = [str(BASE), str(BASE / 'HDS/学習系統/v0.4.2')]
+
+
+def load(name, path):
+    spec = importlib.util.spec_from_file_location(name, path)
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[name] = module
+    spec.loader.exec_module(module)
+    return module
+
+
+package = importlib.import_module('接続.ARC2')
+before = load('接続.ARC2._reference056', REFERENCE)
+after = load('接続.ARC2.流路教材', SOURCE)
+package.流路教材 = after
+
+
+def require(condition, label):
+    if not condition:
+        raise AssertionError(label)
+
+
+def teachers():
+    require(hashlib.sha256(REFERENCE.read_bytes()).hexdigest() ==
+            '041440b1d6ad157f89d423d87036a7239f6fc7bca1a8ec85c88eb731aa1d73e2',
+            'frozen pre056 reference hash')
+    old_nodes = {n.name: n for n in ast.parse(REFERENCE.read_text()).body if hasattr(n, 'name')}
+    new_nodes = {n.name: n for n in ast.parse(SOURCE.read_text()).body if hasattr(n, 'name')}
+    for name in ('raw_fits', 'fit_guarded'):
+        require(ast.dump(old_nodes[name]) == ast.dump(new_nodes[name]), name + ' unchanged')
+    require(after.guarded_render.__kwdefaults__ == {'_obstacle_bounded': False},
+            'fitter uses original strict guard by default')
+    # NEW current056: constructor/record AST identity is inapplicable after061.
+    # Runtime behavior and teacher records below remain checked against pre056.
+    pairs = json.loads((ROOT / 'teachers-only.json').read_text())['train']
+    previous, current = before.流路教材(pairs), after.流路教材(pairs)
+    require(previous.役割 == current.役割 and previous.役割 is not None, 'same fitted roles')
+    require(previous.記録() == current.記録(), 'same model record')
+    for index, pair in enumerate(pairs):
+        old_result, new_result = previous.候補(pair['input'], None), current.候補(pair['input'], None)
+        require(old_result == new_result, f'teacher {index} complete record preserved')
+        require(new_result[0] == pair['output'], f'teacher {index} exact output')
+    return {'teachers': len(pairs), 'all_outputs_and_records_equal': True,
+            'fitter_ast_unchanged': True, 'default_guard_strict': True}
+
+
+def targeted():
+    regression = load('_candidate056_existing_regression', BASE / '検証/流路回帰.py')
+    suite = unittest.defaultTestLoader.loadTestsFromModule(regression)
+    result = unittest.TextTestRunner(verbosity=1).run(suite)
+    require(result.wasSuccessful(), 'existing flow regression')
+    model = after.流路教材(regression.教師())
+    blocked = regression.飛越()
+    previous = before.guarded_render(blocked, regression.FIT)
+    require(previous[1]['failure'] == 'triggered_span_crosses_obstacle', 'negative exercises crossing')
+    require(after.guarded_render(blocked, regression.FIT, _obstacle_bounded=True)[1]['failure']
+            == 'source_output_disagrees', 'old renderer has unreachable added cells')
+    require(model.候補(blocked, None) == previous, 'actual jump stays HOLD with original record')
+    independent = regression.飛越()
+    independent[0][5] = 1
+    raw = regression.gravity_corridor_route(independent, regression.FIT)
+    require(before.guarded_render(independent, regression.FIT)[0] is None, 'positive was held')
+    require(after.guarded_render(independent, regression.FIT)[0] is None, 'default guard stays strict')
+    require(model.候補(independent, None)[0] == raw, 'independent paths certify unchanged source')
+    widened_pair = {'input': independent, 'output': raw}
+    require(after.raw_fits([widened_pair]) == [regression.FIT], 'raw fit exists in domain contrast')
+    require(before.流路教材([widened_pair]).役割 is None
+            and after.流路教材([widened_pair]).役割 is None, 'teacher fit domain not widened')
+    for pair in regression.教師():
+        require(model.候補(pair['input'], None) == before.guarded_render(pair['input'], regression.FIT),
+                'old synthetic success output and record preserved')
+    return {'existing_regression_tests': result.testsRun, 'contrasts': 2,
+            'actual_jump_hold_record_preserved': True, 'independent_route_accepted': True,
+            'teacher_fit_domain_preserved': True, 'old_synthetic_successes_equal': 6}
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('stage', nargs='?', default='all', choices=('teachers', 'targeted', 'all'))
+    stage = parser.parse_args().stage
+    stages = ('teachers', 'targeted') if stage == 'all' else (stage,)
+    rows = []
+    for selected in stages:
+        result = {'stage': selected, 'successful': True,
+                  'evidence_kind': 'NEW current056 ordinary check',
+                  **{'teachers': teachers, 'targeted': targeted}[selected](),
+                  'source_sha256': hashlib.sha256(SOURCE.read_bytes()).hexdigest()}
+        result['tests_run'] = result.get('teachers', result.get('existing_regression_tests', 0) + result.get('contrasts', 0))
+        (ROOT / (selected + '-result.json')).write_text(json.dumps(result, indent=2) + '\n')
+        rows.append(result)
+    print(json.dumps({'stage': stage, 'successful': True,
+                      'tests_run': sum(row['tests_run'] for row in rows),
+                      'evidence_kind': 'NEW current056 ordinary check', 'stages': rows}))

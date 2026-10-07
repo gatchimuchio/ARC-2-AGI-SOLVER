@@ -1,6 +1,7 @@
 """Certify the fixed downward run-span prior; never replace its output."""
 from collections import Counter, deque
 from . import 既存流路 as old
+from . import 有限量流路接続 as finite
 
 
 def raw_fits(teachers):
@@ -30,7 +31,7 @@ def raw_fits(teachers):
     return fits
 
 
-def guarded_render(grid, fit):
+def guarded_render(grid, fit, *, _obstacle_bounded=False):
     if (not isinstance(grid, list) or not 1 <= len(grid) <= 30
             or not isinstance(grid[0], list) or not 1 <= len(grid[0]) <= 30
             or any(not isinstance(row, list) or len(row) != len(grid[0])
@@ -68,7 +69,15 @@ def guarded_render(grid, fit):
             contacts.add((r + 1, left, right))
             if left == 0 or right == width - 1:
                 clipped.add((r + 1, left, right))
-            for col in range(max(0, left - 1), min(width - 1, right + 1) + 1):
+            span_left, span_right = max(0, left - 1), min(width - 1, right + 1)
+            if _obstacle_bounded:
+                lower, upper = span_left, span_right
+                span_left = span_right = c
+                while span_left > lower and grid[r][span_left - 1] != obstacle:
+                    span_left -= 1
+                while span_right < upper and grid[r][span_right + 1] != obstacle:
+                    span_right += 1
+            for col in range(span_left, span_right + 1):
                 if grid[r][col] == obstacle:
                     return None, {'failure': 'triggered_span_crosses_obstacle'}
                 next_cells.append((r, col))
@@ -105,14 +114,25 @@ def fit_guarded(teachers):
 
 class 流路教材:
     def __init__(self, 教師群):
-        self.役割 = fit_guarded(教師群)
+        self.役割 = fit_guarded(教師群) if finite.valid_teachers(教師群) else None
+        self.有限役割 = () if self.役割 is not None else finite.fit(教師群)
 
     def 候補(self, 格子, _policy):
+        if self.有限役割:
+            return finite.consensus(格子, self.有限役割)
         if self.役割 is None:
             return None, {'failure': '全教師を再現する流路役割なし'}
-        return guarded_render(格子, self.役割)
+        output, record = guarded_render(格子, self.役割)
+        if record.get('failure') != 'triggered_span_crosses_obstacle':
+            return output, record
+        bounded, detail = guarded_render(格子, self.役割, _obstacle_bounded=True)
+        return (bounded, detail) if bounded is not None else (output, record)
 
     def 記録(self):
+        if self.有限役割:
+            return {'全教師再現': True, 'flow': None, 'obstacle': None,
+                    'mode': 'prospective_finite_material_composition',
+                    '有限役割': self.有限役割}
         return {'全教師再現': self.役割 is not None,
                 'flow': None if self.役割 is None else self.役割.flow_color,
                 'obstacle': None if self.役割 is None else self.役割.obstacle_color}

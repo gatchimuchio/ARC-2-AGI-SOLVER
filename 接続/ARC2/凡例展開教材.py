@@ -11,7 +11,7 @@ def original_render(grid):
     try:return _legend_token_macro_render(grid)
     except(IndexError,KeyError,TypeError,ValueError)as error:return None,{'failure':'original_parse_exception','type':type(error).__name__}
 
-def guarded_render(grid):
+def guarded_render(grid, *, allow_owned_raw_rows=False):
     if not valid_grid(grid):return None,{'failure':'invalid_arc_grid'}
     counts=Counter(v for row in grid for v in row);leaders=[v for v,n in counts.items()if n==max(counts.values())]
     if len(leaders)!=1:return None,{'failure':'background_tie'}
@@ -19,8 +19,19 @@ def guarded_render(grid):
     for r,row in enumerate(grid):
         values=[v for v in row if v!=bg]
         if len(values)>=2 and len(set(values))==1:raw_rows.append((r,values[0]))
-    if len(raw_rows)<2 or len({c for r,c in raw_rows})!=1:return None,{'failure':'raw_separator_role_not_unique','raw_rows':[list(x)for x in raw_rows]}
+    if len(raw_rows)<2 or(len({c for r,c in raw_rows})!=1 and not allow_owned_raw_rows):return None,{'failure':'raw_separator_role_not_unique','raw_rows':[list(x)for x in raw_rows]}
     first,sep=raw_rows[0];second=raw_rows[1][0]
+    data_rows=[r for r,c in raw_rows if c!=sep]
+    if data_rows:
+        same_color_rows=[r for r,c in raw_rows if r>first and c==sep]
+        if not same_color_rows:return None,{'failure':'raw_separator_role_not_unique','raw_rows':[list(x)for x in raw_rows]}
+        second=same_color_rows[0]
+        # Legacy bands remain fixed; every foreign row must have a data role.
+        if second!=2*first+1 or any(not first<r<second for r in data_rows):
+            return None,{'failure':'raw_separator_role_not_unique','raw_rows':[list(x)for x in raw_rows]}
+        # Retain a hold if another raw row could define the same band grammar.
+        if any(r!=first and 1<=r*r<=30 and(2*r+1,c)in raw_rows for r,c in raw_rows):
+            return None,{'failure':'raw_separator_role_not_unique','raw_rows':[list(x)for x in raw_rows]}
     try:parsed,rejection=_legend_token_macro_parse(grid)
     except(IndexError,KeyError,TypeError,ValueError)as error:return None,{'failure':'original_parse_exception','type':type(error).__name__}
     if parsed is None:return None,{'failure':'original_parse_unresolved','raw_record':rejection}
@@ -53,6 +64,11 @@ def guarded_render(grid):
         if expected_map!=map_record:return None,{'failure':'original_map_disagrees'}
         expected_maps.append(expected_map)
     if parsed['templates']!=patterns or {m['token_color']for m in maps}!=set(patterns):return None,{'failure':'token_dictionary_not_bijective'}
+    if data_rows:
+        data_cells={(r,t['slot_start']+c)for t in templates for r in range(n)for c in range(n)if t['pattern'][r][c]!=bg}
+        data_cells.update((first+1+r,m['slot_start']+c)for m in maps for r,c in m['cells'])
+        foreign_cells={(r,c)for r in data_rows for c,v in enumerate(grid[r])if v!=bg}
+        if foreign_cells-data_cells:return None,{'failure':'unowned_raw_row_foreground','cells':[list(p)for p in sorted(foreign_cells-data_cells)]}
     marker_candidates=[]
     for r in range(second+1,h):
         values=[]
@@ -104,7 +120,10 @@ class 凡例展開教材:
     def 候補(self, 格子, _policy):
         if not self.適合:
             return None, {"failure": "全教師を再現する凡例token展開なし"}
-        return guarded_render(格子)
+        answer,record=guarded_render(格子)
+        if answer is None and record.get('failure')=='raw_separator_role_not_unique':
+            return guarded_render(格子,allow_owned_raw_rows=True)
+        return answer,record
 
     def 記録(self):
         return {"全教師共通凡例展開": self.適合}

@@ -54,6 +54,22 @@ class Controls(unittest.TestCase):
         self.assertIsNotNone(g.original_render(x)[0])
         with patch.object(g,'_legend_token_macro_parse',side_effect=RuntimeError('must not run')):
             self.assertEqual(g.guarded_render(x)[1]['failure'],'raw_separator_role_not_unique')
+    def test_query_uniform_map_row_keeps_strict_teacher_domain(self):
+        pairs=[teacher(),teacher(4,True)];material=g.凡例展開教材(pairs)
+        x=sample();x[5][:3]=[1,1,1]
+        self.assertEqual(g.guarded_render(x)[1]['failure'],'raw_separator_role_not_unique')
+        raw,raw_record=g.original_render(x);out,record=material.候補(x,None)
+        self.assertEqual(out,raw);self.assertEqual(record['raw_record'],raw_record)
+        self.assertIn([5,1],record['raw_separator_rows'])
+        self.assertFalse(g.fit_teachers([pairs[0],{'input':x,'output':raw}])[0])
+        for pair in pairs:self.assertEqual(material.候補(pair['input'],None),g.guarded_render(pair['input']))
+    def test_query_unowned_uniform_row_is_still_early_hold(self):
+        material=g.凡例展開教材([teacher(),teacher(4,True)])
+        x=sample();x[5][:3]=[1,1,1];x.append([0]*len(x[0]));x[-1][:2]=[9,9]
+        with patch.object(g,'_legend_token_macro_parse',side_effect=RuntimeError('must not run')):
+            self.assertEqual(material.候補(x,None)[1]['failure'],'raw_separator_role_not_unique')
+        x=sample();x[5][:4]=[1,1,1,1]
+        self.assertEqual(material.候補(x,None)[1]['failure'],'unowned_raw_row_foreground')
     def test_overlapping_macro_rejected_without_late_selection(self):
         x=sample();x[4][1]=1
         self.assertIsNotNone(g.original_render(x)[0]);self.assertEqual(g.guarded_render(x)[1]['failure'],'macro_position_overlap')
