@@ -18,13 +18,15 @@ jobs:
           fetch-depth: 0
           submodules: false
 
-      - name: Download recovery archive
+      - name: Download recovery transport
         shell: bash
         run: |
           set -euo pipefail
           curl --fail --location --retry 3 --retry-delay 2 \
-            'https://oaisdmntprjapaneast.blob.core.windows.net/files/00000000-8aa0-8209-b3de-c1a476b71539/raw?se=2026-10-07T17:46:58Z&sp=r&sv=2026-02-06&sr=b&scid=72386f39-dc69-4c16-83bc-22fec8040424&skoid=b1bca990-dcac-4c31-8ca1-ac563cf24c54&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-10-07T01:03:10Z&ske=2026-10-08T01:03:10Z&sks=b&skv=2026-02-06&sig=A8kXUKy3O8wASzBzM%2BMxFjVfqMEdlHya6rSnICOfW4Y%3D' \
-            --output /tmp/recovery.zip
+            'https://sdmntprjapaneast.oaiusercontent.com/files/00000000-6eb8-8209-a4dd-cf2afffe69d0/raw?se=2026-10-07T17%3A56%3A16Z&sp=r&sv=2026-02-06&sr=b&scid=efca04d9-f10b-568d-97e8-c92c5e7ed580&skoid=b1bca990-dcac-4c31-8ca1-ac563cf24c54&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-10-07T00%3A52%3A56Z&ske=2026-10-08T00%3A52%3A56Z&sks=b&skv=2026-02-06&sig=%2BjkzDjOLaAiUDEpXbWbVYh7iAh9C8TBZCYQtjH5ck4w%3D' \
+            --output /tmp/recovery.b64.txt
+          test "$(sha256sum /tmp/recovery.b64.txt | awk '{print $1}')" = "4cc84673eea2962af130f8023e406f4485dbc0115c8315ffae9dd052877474b6"
+          base64 --decode /tmp/recovery.b64.txt > /tmp/recovery.zip
           test "$(sha256sum /tmp/recovery.zip | awk '{print $1}')" = "d220580ab4baf815bfff07a7ea4004665a349e5e84b28526a46ebcbff0c9c4d1"
 
       - name: Restore and verify exact accepted commit
