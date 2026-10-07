@@ -1,0 +1,49 @@
+name: Restore accepted LOCAL89
+on:
+  push:
+    branches:
+      - restore-local89-20261008
+
+permissions:
+  contents: write
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout required LOCAL76 base
+        uses: actions/checkout@v4
+        with:
+          ref: c61848414078708148bb67bce10694b1ef5441f3
+          fetch-depth: 0
+          submodules: false
+
+      - name: Download recovery archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2 \
+            'https://oaisdmntprjapaneast.blob.core.windows.net/files/00000000-8aa0-8209-b3de-c1a476b71539/raw?se=2026-10-07T17:46:58Z&sp=r&sv=2026-02-06&sr=b&scid=72386f39-dc69-4c16-83bc-22fec8040424&skoid=b1bca990-dcac-4c31-8ca1-ac563cf24c54&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-10-07T01:03:10Z&ske=2026-10-08T01:03:10Z&sks=b&skv=2026-02-06&sig=A8kXUKy3O8wASzBzM%2BMxFjVfqMEdlHya6rSnICOfW4Y%3D' \
+            --output /tmp/recovery.zip
+          test "$(sha256sum /tmp/recovery.zip | awk '{print $1}')" = "d220580ab4baf815bfff07a7ea4004665a349e5e84b28526a46ebcbff0c9c4d1"
+
+      - name: Restore and verify exact accepted commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/recovery
+          unzip -q /tmp/recovery.zip -d /tmp/recovery
+          python /tmp/recovery/restore_verify.py --base "$GITHUB_WORKSPACE" --destination /tmp/recovered89
+          test "$(git -C /tmp/recovered89 rev-parse HEAD)" = "ece0dc7a886476e8402e50421b1efce1a635e8f9"
+          test "$(git -C /tmp/recovered89 rev-parse HEAD^{tree})" = "a0b6b4d78343de3a9cc708472bac3d106ce42637"
+          git -C /tmp/recovered89 fsck --full --strict
+
+      - name: Fast-forward main to accepted LOCAL89
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test "$(git ls-remote origin refs/heads/main | cut -f1)" = "c61848414078708148bb67bce10694b1ef5441f3"
+          git -C /tmp/recovered89 remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git -C /tmp/recovered89 push origin HEAD:refs/heads/main
