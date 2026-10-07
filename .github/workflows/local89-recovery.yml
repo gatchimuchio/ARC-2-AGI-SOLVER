@@ -1,0 +1,71 @@
+name: LOCAL89 復旧確定
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/local89-recovery.yml
+
+permissions:
+  contents: write
+
+jobs:
+  finalize-local89:
+    name: LOCAL89 accepted tree を Actions で確定
+    runs-on: ubuntu-latest
+    steps:
+      - name: リポジトリ取得
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 復旧状態の不変条件を検証
+        shell: bash
+        env:
+          RECOVERY_COMMIT: b071b9b842d3809072166a5dbbe43a58674098be
+          RECOVERY_PARENT: c61848414078708148bb67bce10694b1ef5441f3
+          RECOVERY_TREE: a0b6b4d78343de3a9cc708472bac3d106ce42637
+        run: |
+          set -euo pipefail
+
+          actual_parent="$(git rev-parse "${RECOVERY_COMMIT}^")"
+          actual_tree="$(git rev-parse "${RECOVERY_COMMIT}^{tree}")"
+
+          test "$actual_parent" = "$RECOVERY_PARENT"
+          test "$actual_tree" = "$RECOVERY_TREE"
+          git merge-base --is-ancestor "$RECOVERY_COMMIT" HEAD
+
+          python3 道具/リポジトリ環境監査.py
+
+      - name: accepted tree を Actions commit として確定
+        shell: bash
+        env:
+          RECOVERY_TREE: a0b6b4d78343de3a9cc708472bac3d106ce42637
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git read-tree --reset -u "$RECOVERY_TREE"
+          test "$(git write-tree)" = "$RECOVERY_TREE"
+
+          git commit             -m "ARC2: finalize LOCAL89 accepted tree via GitHub Actions [skip ci]"             -m "Action verification: accepted tree a0b6b4d78343de3a9cc708472bac3d106ce42637; recovery parent c61848414078708148bb67bce10694b1ef5441f3; LOCAL89 89/120 tasks and 124/167 grids. The bootstrap recovery workflow removes itself because the final tree is exactly the accepted tree."
+
+          test "$(git rev-parse "HEAD^{tree}")" = "$RECOVERY_TREE"
+          git push origin HEAD:main
+
+      - name: 一時復旧branchを除去
+        if: success()
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh api --method DELETE             "repos/${GITHUB_REPOSITORY}/git/refs/heads/restore-local89-20261008"             || {
+              status="$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/heads/restore-local89-20261008" >/dev/null 2>&1; echo $?)"
+              if [[ "$status" -eq 0 ]]; then
+                exit 1
+              fi
+            }
