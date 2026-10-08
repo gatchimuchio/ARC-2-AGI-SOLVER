@@ -1,0 +1,26 @@
+{
+  "binary_region_models": [],
+  "binary_hole_failures": [
+    {
+      "failure": "unexpected_input_colors",
+      "input_colors": [
+        0,
+        3,
+        4
+      ],
+      "hole_outline_background_color": 0,
+      "hole_outline_object_color": 3
+    },
+    {
+      "failure": "unexpected_input_colors",
+      "input_colors": [
+        0,
+        1,
+        2
+      ],
+      "hole_outline_background_color": 0,
+      "hole_outline_object_color": 1
+    }
+  ],
+  "first_gap": "composition of independently certified surface ownership with dynamic opposite-surface outline and simultaneous conflict checks"
+}

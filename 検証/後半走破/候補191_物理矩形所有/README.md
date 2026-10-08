@@ -1,0 +1,3 @@
+候補191r3の完全矩形物理片不可分viewを既存ARC矩形継目familyへ接続し107/150。旧149格子全保持、誤出力/通常資源失敗0。旧153/154に構造roleがある入力では全返却tuple・HOLD・RESOURCEを保持し、roleなしだけ新viewへ進む。完全矩形mixed-C8成分と矩形leaf不可分は教師整合の追加priorで、論理的一意性とは主張しない。旧13片3出力HOLDを保存し、物理12片の完全seam列挙1出力で446ef5d2 q0が新規正答、q1旧tuple保持。r1の全回帰資源失敗を保存。r2の無条件fit必要条件案は旧域RESOURCEを変えるため棄却し、r3は旧域を先に保持して新域のみ教師renderer不変量の不可能証明で列挙を省く。全教師を評価し資源失敗を伝播。矩形回帰fixtureはmock対象だけ現apiへ変更、旧kernel検査/assert/期待output不変。純粋33・統合23・独立初版35/r3 42、native一致、新規109本7839検査＋依存/AST同一window29、同条件120/167公式1回で検証。候補190の全対称tie不一致HOLDと全既存失敗履歴を非runtime証拠として保持。HDS v0.4.2中核・全体gate不変。現行local採用、Git commit pending、remote writeなし。残13課題。
+
+履歴bundle内r2 READMEは当時の案であり採用権威ではない。r2は旧域資源結果を変えるため棄却、r3のみ採用。190は非採用HOLD。

@@ -1,0 +1,8 @@
+{
+  "old_renderer_sha256": "70241e17570721987ffa12185e70e6eec7e0629704e4f5fbc84a4decf9965740",
+  "new_renderer_sha256": "5bfb14ba308720f9767173feee25ee7a07cf204083e6ee478fd157177953882d",
+  "original_fixture": "original-source-fixture-pins.json",
+  "original_fixture_sha256": "3e057eb64b75c29172a72cc34ca7819788c6706bb1b444efe88509b148a35bc3",
+  "reason": "Authorized version binding for frozen stage2 renderer only; all behavioral assertions, expected outputs, other pins and regression script bytes unchanged.",
+  "parent_authorized": true
+}

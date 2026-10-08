@@ -1,0 +1,98 @@
+"""Independent teacher/synthetic audit. No query, prediction, REPORT or evaluator access."""
+import sys, json, hashlib, importlib.util, itertools, random
+from pathlib import Path
+from unittest.mock import patch
+ROOT=Path(__file__).resolve().parent
+BASE=ROOT.parent/'arc2-current104/source'
+sys.path.insert(0,str(BASE))
+P=ROOT/'接続/ARC2/標点巡回核.py'
+spec=importlib.util.spec_from_file_location('independently_audited_kernel',P)
+k=importlib.util.module_from_spec(spec);sys.modules[spec.name]=k;spec.loader.exec_module(k)
+checks={}
+def check(name, condition):
+    assert condition,name
+    checks[name]=True
+teachers=json.load(open(ROOT.parent/'arc2-current99/teachers-only/5545f144.json'))['train']
+freeze=json.load(open(ROOT/'prequery-freeze.json'))['kernel_sha256']
+sha=hashlib.sha256(P.read_bytes()).hexdigest()
+check('frozen_sha_matches',sha==freeze)
+fitted,record=k.fit(teachers)
+check('all_six_model_candidates_recorded',len(record['returns'])==6)
+check('three_ascending_routes_retained',fitted.models==tuple(x for x in k.PROGRAMS if x[0]=='ascending'))
+check('all_teachers_exact',all(k.predict(t['input'],fitted)[0]==t['output'] for t in teachers))
+# Color permutation and all dihedral transformations preserve teacher fit.
+def rot(g):return [list(x) for x in zip(*g[::-1])]
+def refl(g):return [row[::-1] for row in g]
+for reflected in (False,True):
+ for turns in range(4):
+  def transform(g):
+   g=[[9-v for v in row] for row in g]
+   if reflected:g=refl(g)
+   for _ in range(turns):g=rot(g)
+   return g
+  ts=[{q:transform(t[q]) for q in ('input','output')} for t in teachers]
+  f,r=k.fit(ts)
+  check(f'dihedral_color_{reflected}_{turns}',f is not None and all(k.predict(t['input'],f)[0]==t['output'] for t in ts))
+for call in (lambda:k.fit(teachers,max_nodes=0),lambda:k.predict(teachers[0]['input'],fitted,max_nodes=0),lambda:k.render(teachers[0]['input'],k.PROGRAMS[0],max_nodes=0)):
+ try:call()
+ except k.SearchIncomplete:pass
+ else:raise AssertionError('budget swallowed')
+check('budget_exception_propagates_fit_predict_render',True)
+role={'tip':(8,8),'direction':(-1,0),'offsets':((-1,-1),(-1,1),(0,0)),'background':0,'foreground':7}
+def fixture(markers):
+ r=dict(role,markers=frozenset(markers));g,e=k.paint((18,18),r,r['tip'],r['direction'],r['markers']);assert not e
+ return r,g
+r,g=fixture({(8,4),(4,4),(4,12),(8,12)})
+o,rec=k.walk([g],r,'any_nonbackward',100000)
+check('all_successful_disagreeing_routes_hold',o is None and rec['failure']=='retained_walk_disagreement' and len(rec['returns'])==2 and all(x['failure'] is None for x in rec['returns']))
+check('terminal_consumes_every_marker',all(x['consumed']==4 and len(x['steps'])==4 for x in rec['returns']))
+check('one_marker_consumed_per_tip',all([s['remaining_count'] for s in x['steps']]==[3,2,1,0] for x in rec['returns']))
+# Exhaustive independent finite transition oracle uses geometry, never kernel next_steps/paint.
+def oracle(tip,direction,markers):
+ if not markers:return [(tip,direction,())]
+ choices=[]
+ for point in sorted(markers):
+  dr,dc=point[0]-tip[0],point[1]-tip[1]
+  if bool(dr)==bool(dc):continue
+  d=((dr>0)-(dr<0),(dc>0)-(dc<0))
+  if d==(-direction[0],-direction[1]):continue
+  if any(p!=point and (p[0]-tip[0])*d[1]==(p[1]-tip[1])*d[0] and 0<(p[0]-tip[0])*d[0]+(p[1]-tip[1])*d[1]<abs(dr)+abs(dc) for p in markers):continue
+  choices.append((point,d))
+ if not choices:return [(None,None,())]
+ out=[]
+ for point,d in choices:
+  for end,ed,path in oracle(point,d,markers-{point}):out.append((end,ed,(point,)+path))
+ return out
+pool=[(r,c) for r in (4,8,12) for c in (4,8,12) if (r,c)!=(8,8)]
+mixed=None
+for count in (3,4,5):
+ for pts in itertools.combinations(pool,count):
+  r,g=fixture(pts);o,rec=k.walk([g],r,'any_nonbackward',100000)
+  expected=oracle(r['tip'],r['direction'],r['markers'])
+  check('oracle_branch_count_'+str(count)+'_'+str(pts),len(expected)==len(rec['returns']))
+  assert sorted(tuple(s['tip'] for s in x['steps']) for x in rec['returns'])==sorted(x[2] for x in expected)
+  if any(x['output'] is None for x in rec['returns']) and any(x['output'] is not None for x in rec['returns']):mixed=(pts,rec)
+check('exhaustive_finite_oracle_agreement',True)
+check('failed_branch_not_pruned_despite_success',mixed is not None and mixed[1]['failure']=='retained_walk_failed')
+# Logical marker under actor remains owned, is union-rendered, and reappears after actor leaves.
+r,g=fixture({(8,12),(9,11),(4,12)})
+markers=r['markers']-{(8,12)}
+a,e=k.paint((18,18),r,(8,12),(0,1),markers)
+check('same_color_overlap_union',e is None and a[9][11]==7 and (9,11) in markers)
+b,e=k.paint((18,18),r,(4,12),(-1,0),markers-{(4,12)})
+check('occluded_marker_reappears_without_consumption',e is None and b[9][11]==7)
+# All snapshot comparisons are made; malformed later snapshot cannot survive.
+t=teachers[0];views=k.panel_views(t['input']);panels=views[0]['panels'];r=k.first_roles(panels[0])[0]
+bad=[[row[:] for row in p] for p in panels];bad[-1][0][0]=r['foreground'] if bad[-1][0][0]==r['background'] else r['background']
+o,rec=k.walk(bad,r,'straight_then_turn',100000)
+check('all_snapshots_checked_and_mismatch_hold',o is None and all(len(x.get('snapshot_matches',[]))==len(panels) and not x['snapshot_matches'][-1] for x in rec['returns']))
+# Consensus plumbing: explicitly inject alternative retained roles/models and verify no winner picking.
+with patch.object(k,'panel_views',return_value=[{'panels':[g],'separator':None,'axis':None}]),patch.object(k,'first_roles',return_value=[{'x':1},{'x':2}]),patch.object(k,'walk',side_effect=[([[0]],{}),(None,{'failure':'synthetic'})]):
+ o,rec=k.render(g,k.PROGRAMS[0]);check('failed_role_hold',o is None and len(rec['returns'])==2)
+with patch.object(k,'render',side_effect=[([[0]],{}),([[1]],{})]):
+ o,rec=k.predict(g,k.Fitted(k.PROGRAMS[:2]));check('model_disagreement_hold',o is None and rec['failure']=='retained_model_disagreement')
+with patch.object(k,'render',side_effect=[([[0]],{}),(None,{})]):
+ o,rec=k.predict(g,k.Fitted(k.PROGRAMS[:2]));check('model_failure_hold',o is None and rec['failure']=='retained_model_failed')
+summary={'status':'PASS_WITH_EXPLICIT_PRIORS','kernel_sha256':sha,'checks_passed':len(checks),'checks':checks,'teacher_models':fitted.models,'mixed_success_failure_markers':mixed[0],'limitations':['Teacher consistency does not prove unique mechanism or route.','All-marker terminal, equally spaced omitted-terminal snapshots, unique initial actor plus isolated markers, unique modal background, no backward move, nearest collinear marker, and occluded marker retention are explicit priors.','No query, input-only-prediction, REPORT, official answer or evaluation was read.','No production source modified.'], 'static_review':{'finite_termination':'Every child removes exactly one finite marker; depth <= marker count. Budget overflow propagates.','runtime_inputs':'Kernel imports baseline utilities only; no runtime filesystem, ID/hash, answer map or fixed-output branching observed.'}}
+(ROOT/'independent_audit_result.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps({q:summary[q] for q in ('status','kernel_sha256','checks_passed','teacher_models')},ensure_ascii=False))

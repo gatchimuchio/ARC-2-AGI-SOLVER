@@ -1,0 +1,2 @@
+Parent approval received 2026-10-08 08:17:42 UTC:
+全regressionとpin通過時、OPENBLAS_NUM_THREADS=1固定・CPU10/512MiB/wall60不変で旧107baseline1回と192r2候補1回の公式比較を許可。旧107の同設定が107/150・旧150同一を確認してから候補、baselineが違えば止めて報告。候補性能/誤出力/resource即報告、原文再読。

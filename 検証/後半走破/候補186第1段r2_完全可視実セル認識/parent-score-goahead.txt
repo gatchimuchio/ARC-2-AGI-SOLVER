@@ -1,0 +1,2 @@
+Parent authorization 2026-10-08 06:00 UTC: 同条件120/167の公式評価を1回だけ許可します。旧144格子完全保持・誤出力0・資源0を確認し、採用前にdeltaを報告してください。第2段は混ぜません。
+Independent audit PASS is the final report of audit_visible_footprint_stage, bound to SHA 70241e17570721987ffa12185e70e6eec7e0629704e4f5fbc84a4decf9965740.

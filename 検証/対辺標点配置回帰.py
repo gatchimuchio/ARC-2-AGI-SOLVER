@@ -17,7 +17,7 @@ resource.setrlimit(resource.RLIMIT_CPU, (10, 10))
 resource.setrlimit(resource.RLIMIT_AS, (512*1024**2, 512*1024**2))
 HERE = Path(__file__).resolve().parent / '対辺標点配置資料'
 PROPOSAL = HERE
-EXPECTED_CORE = 'dbc768521416ada613a7a41aeb394a38f3ec63f17b89cd69bd221aaeffb04e55'
+EXPECTED_CORE = '441bd607d19ba96d56890397a2cef29ac2502aeaaa49fc744aa8b8b9aa2c3ab5'
 sha = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
 assert sha(Path(m.core.__file__)) == EXPECTED_CORE
 teachers = json.loads((PROPOSAL/'teachers-only.json').read_text())['train']

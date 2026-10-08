@@ -1,0 +1,29 @@
+{
+  "successful": true,
+  "tests_run": 22,
+  "checks": [
+    "three retained models",
+    "compact model-only state",
+    "empty prior",
+    "serializable state",
+    "teacher exact 0",
+    "teacher exact 1",
+    "teacher exact 2",
+    "teacher exact 3",
+    "no teacher mutation",
+    "query frozen parity",
+    "full query diagnostics preserved",
+    "set all elements preserved",
+    "unsupported diagnostic raises",
+    "empty no fit",
+    "empty HOLD",
+    "duplicate no fit",
+    "duplicate HOLD",
+    "wrong no fit",
+    "wrong HOLD",
+    "fit_teachers exception propagates",
+    "predict exception propagates",
+    "kernel frozen"
+  ],
+  "scorer_calls": 0
+}

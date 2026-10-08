@@ -1,0 +1,15 @@
+{
+  "base_unchanged": true,
+  "base_files": 2671,
+  "changed": [
+    "接続/ARC2/HDS接続.py"
+  ],
+  "added": [
+    "RUNTIME.md",
+    "requirements-runtime.txt",
+    "接続/ARC2/直交領域所有核.py"
+  ],
+  "protected_files_unchanged": 20,
+  "core_and_gate_unchanged": true,
+  "scorer_calls": 0
+}

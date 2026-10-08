@@ -1,0 +1,35 @@
+from pathlib import Path
+import sys,json,hashlib,copy
+from unittest.mock import patch
+E=Path(__file__).resolve().parent;R=E.parent/'source';B=E.parents[1]
+sys.path.insert(0,str(R))
+from 接続.ARC2 import 直交領域所有核 as m
+checks=[]
+def check(n,c):
+ assert c,n
+ checks.append(n)
+t=json.loads((B/'arc2-current99/teachers-only/71e489b6.json').read_text())['train'];before=copy.deepcopy(t)
+q=json.loads((B/'arc2-current99/solver-input-only/71e489b6.json').read_text())['test'];a=m.直交領域所有教材(t)
+check('model only state',set(vars(a))=={'models'})
+check('retained teacher fitted role',a.models==[(0,1,7)])
+check('JSON serializable record',bool(json.dumps(a.記録())))
+for i,p in enumerate(t):
+ out,record=a.候補(p['input'],{});check('teacher exact '+str(i),out==p['output']);json.dumps(record)
+check('teacher unchanged',before==t)
+expected=json.loads((E/'pure.stdout').read_text())
+for i,p in enumerate(q):
+ out,record=a.候補(p['input'],{});check('query parity '+str(i),out==expected[i]);json.dumps(record)
+for name,data in [('empty',[]),('multicolor',[{'input':[[0,1,2]]*3,'output':[[7,1,2]]*3}]),('no novel',[{'input':[[0,1,0]]*3,'output':[[1,0,1]]*3}]),('bad shape',[{'input':[[0,1,0]]*3,'output':[[1,7,1]]*4}])]:
+ with patch.object(m,'unique_region',side_effect=AssertionError('domain gate bypassed')):
+  bad=m.直交領域所有教材(data);check(name+' domain early HOLD',bad.models==[] and bad.候補(q[0]['input'])[0] is None)
+for stage,call in [('fit',lambda:m.直交領域所有教材(t)),('query',lambda:a.候補(q[0]['input']))]:
+ with patch.object(m,'unique_region',side_effect=m.SearchIncomplete('injected')):
+  try:call()
+  except m.SearchIncomplete:check(stage+' incomplete propagates',True)
+  else:raise AssertionError(stage)
+a.models=[(0,1,7),(1,0,7)]
+for records,name in [([(None,{}),(expected[0],{})],'retained failure'),([(expected[0],{}),([[8]],{})],'retained disagreement')]:
+ with patch.object(m,'apply_roles',side_effect=records)as fn:
+  check(name,a.候補(q[0]['input'])[0] is None and fn.call_count==2)
+report=dict(successful=True,tests_run=len(checks),checks=checks,scorer_calls=0)
+(E/'targeted.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps(report))

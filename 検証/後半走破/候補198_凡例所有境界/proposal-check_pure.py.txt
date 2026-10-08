@@ -1,0 +1,40 @@
+import sys,json,importlib.util,resource,random
+from pathlib import Path
+resource.setrlimit(resource.RLIMIT_CPU,(10,10));resource.setrlimit(resource.RLIMIT_AS,(512*1024**2,512*1024**2))
+sys.dont_write_bytecode=True
+root=Path(__file__).resolve().parent;sys.path.insert(0,str(root.parent/'arc2-current111/source'))
+s=importlib.util.spec_from_file_location('marker198',root/'marker_owner.py');m=importlib.util.module_from_spec(s);sys.modules[s.name]=m;s.loader.exec_module(m)
+p=json.load(open(root.parent/'arc2-current99/solver-input-only/88e364bc.json'));f=m.Fitted(tuple(m.Model(**x) for x in json.load(open(root/'freeze.json'))['models']))
+checks=0
+for i,t in enumerate(p['train']+p['test']):
+ a=t['input'];o,_=m.predict(a,f);assert o is not None
+ def turn(g):return [list(r) for r in zip(*g[::-1])]
+ for reflect in (False,True):
+  for rotation in range(4):
+   def tx(g):
+    g=[r[::-1] for r in g] if reflect else [r[:] for r in g]
+    for _ in range(rotation):g=turn(g)
+    return g
+   for seed in range(4):
+    cmap=list(range(10));random.Random(seed).shuffle(cmap)
+    def recolor(g):return [[cmap[v] for v in row] for row in g]
+    ff=m.Fitted(tuple(m.Model(*(cmap[getattr(v,k)] for k in ['background','tail','head','marker']),v.marker_diagonal,v.other_markers) for v in f.models))
+    ans,rec=m.predict(recolor(tx(a)),ff)
+    assert ans==recolor(tx(o)),(i,reflect,rotation,seed,rec['failure']);checks+=1
+# Explicit failure aggregation and exception propagation, never success filtering.
+orig=m.render_model
+count=[0]
+def fail_some(g,model):
+ count[0]+=1
+ return (None,{'failure':'synthetic'}) if count[0]==1 else orig(g,model)
+m.render_model=fail_some
+assert m.predict(p['train'][0]['input'],f)[0] is None;checks+=1
+class SearchIncomplete(Exception):pass
+def raises(*a):raise SearchIncomplete('resource sentinel')
+m.render_model=raises
+try:m.predict(p['train'][0]['input'],f)
+except SearchIncomplete:checks+=1
+else:raise AssertionError('exception swallowed')
+m.render_model=orig
+print(json.dumps({'checks':checks,'metamorphic':160,'mixed_failure_hold':True,'exception_propagated':True}))
+(root/'checks.json').write_text(json.dumps({'checks':checks,'metamorphic':160,'mixed_failure_hold':True,'exception_propagated':True},indent=2))

@@ -1,0 +1,15 @@
+{
+  "accepted": false,
+  "exception": "SearchIncomplete",
+  "message": "{'status': 'nonintegral_milp_result'}",
+  "calls": [
+    {
+      "relax": true,
+      "fractional_mock": true
+    },
+    {
+      "relax": false,
+      "fractional_mock": true
+    }
+  ]
+}

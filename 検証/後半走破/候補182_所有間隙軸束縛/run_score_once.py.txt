@@ -1,0 +1,24 @@
+from pathlib import Path
+import subprocess,json,hashlib,stat,time,datetime,sys
+E=Path(__file__).resolve().parent;R=E.parent/'source';A=E.parents[1]/'arc2-current101/source';PY=sys.executable
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+assert json.loads((E/'native-parity.json').read_text())['status']=='NATIVE_GAIN'
+assert json.loads((E/'full-regression-selected.json').read_text())['success']
+assert json.loads((E/'targeted.json').read_text())['successful']
+freeze=json.loads((E/'pre-regression-freeze.json').read_text())
+assert all(sha(R/n)==h for n,h in freeze.items())
+assert sha(R/'接続/ARC2/対称剪定教材.py')=='5180f09276ef059e851d60c6e0592c16790ea3abe5dda6a0bc49964d85ddfe6f'
+# Require independent audit and explicit parent score authorization.
+assert json.loads((E/'independent-audit-binding.json').read_text())['status']=='PASS'
+assert (E/'parent-score-goahead.txt').exists()
+pins=[dict(path=str(p.relative_to(R)),bytes=p.stat().st_size,sha256=sha(p),mode=oct(stat.S_IMODE(p.stat().st_mode)))for p in sorted(R.rglob('*'))if p.is_file()and '.git'not in p.parts and '__pycache__'not in p.parts]
+(E/'pre-score-freeze.json').write_text(json.dumps({'base_commit':'4915c462','files':pins,'regression_sha256':sha(E/'full-regression-selected.json')},ensure_ascii=False,indent=2))
+command=[PY,'-B',str(R/'検証/ARC2評価.py'),'--mode','current','--output',str(E/'current-official.json')]
+with (E/'score-command.json').open('x')as f:json.dump(command,f,ensure_ascii=False)
+start=time.monotonic()
+with (E/'score.stdout').open('xb')as out,(E/'score.stderr').open('xb')as err:
+ p=subprocess.Popen(command,cwd=R,stdout=out,stderr=err);rc=p.wait()
+terminal={'pid':p.pid,'exit_code':rc,'reaped':True,'wall_seconds':time.monotonic()-start,'completed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat()};(E/'score-terminal.json').write_text(json.dumps(terminal));print(terminal,flush=True)
+assert not rc
+assert all(sha(R/x['path'])==x['sha256']and (R/x['path']).stat().st_size==x['bytes']and oct(stat.S_IMODE((R/x['path']).stat().st_mode))==x['mode']for x in pins)
+(E/'post-score-pin-conservation.json').write_text(json.dumps({'all_pins_unchanged':len(pins),'official_scorer_calls':1}))

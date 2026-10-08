@@ -1,0 +1,1 @@
+Parent authorized one official candidate run on 2026-10-08 after native, targeted, regressions, pins, independent audits all PASS. No adoption or packaging.

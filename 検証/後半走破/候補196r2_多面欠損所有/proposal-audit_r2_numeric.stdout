@@ -1,0 +1,1 @@
+{'status': 'PASS', 'checks': 15, 'cases': ['fractional_milp_rejected', 'fractional_fallback_raises', 'timeout', 'nan_x', 'nan_fun', 'residual', 'nan_gap', 'positive_gap', 'missing_gap', 'missing_dual', 'nan_dual', 'wrong_dual', 'wrong_objective', 'first_milp', 'second_milp'], 'note': 'Fault injection, not real-solver reproduction.'}

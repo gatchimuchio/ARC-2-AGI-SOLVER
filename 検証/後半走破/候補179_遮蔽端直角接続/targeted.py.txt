@@ -1,0 +1,26 @@
+from pathlib import Path
+import sys,json,hashlib,ast
+E=Path(__file__).resolve().parent;R=E.parent/'source';B=E.parents[1]/'arc2-current99/source'
+sys.path[:0]=[str(R),str(R/'HDS/学習系統/v0.4.2')]
+from 接続.ARC2.遮蔽端接続教材 import 遮蔽端接続教材
+from 接続.ARC2 import 遮蔽端接続核 as api
+from unittest.mock import patch
+p=json.loads((E.parents[1]/'arc2-current99/solver-input-only/a47bf94d.json').read_text());assert all(set(q)=={'input'}for q in p['test']);a=遮蔽端接続教材(p['train']);checks=[]
+assert len(a.models)==4 and a.記録()['事前支持数']==0;checks.append('four_models_empty_prior')
+for t in p['train']:assert a.候補(t['input'],{})[0]==t['output']
+checks.append('all_teachers_exact')
+q=p['test'][0]['input'];expected=a.候補(q,{})[0];assert expected is not None;checks.append('query_consensus')
+assert 遮蔽端接続教材([]).候補(q,{})[0]is None;checks.append('empty_teachers_hold')
+a.models+=((0,9,5,8,'straight'),);assert a.候補(q,{})[0]is None;checks.append('retained_failure_hold')
+with patch.object(api,'predict',side_effect=RuntimeError('failure')):
+ try:a.候補(q,{})
+ except RuntimeError:pass
+ else:raise AssertionError('exception hidden')
+checks.append('exception_propagates')
+for pth in B.rglob('*'):
+ if pth.is_file()and'__pycache__'not in pth.parts and pth.suffix=='.py' and pth.name!='HDS接続.py':assert pth.read_bytes()==(R/pth.relative_to(B)).read_bytes()
+checks.append('existing_python_unchanged')
+b=ast.parse((B/'接続/ARC2/HDS接続.py').read_text());c=ast.parse((R/'接続/ARC2/HDS接続.py').read_text());bf={n.name:ast.dump(n)for n in b.body if isinstance(n,ast.FunctionDef)};cf={n.name:ast.dump(n)for n in c.body if isinstance(n,ast.FunctionDef)}
+assert all(cf[n]==v for n,v in bf.items()if n!='課題を解く');checks.append('all_other_HDS_bridge_functions_unchanged')
+freeze={str(p.relative_to(R)):hashlib.sha256(p.read_bytes()).hexdigest()for p in R.rglob('*')if p.is_file()and'__pycache__'not in p.parts}
+(E/'pre-regression-freeze.json').write_text(json.dumps(freeze,ensure_ascii=False));report={'successful':True,'checks':checks};(E/'targeted.json').write_text(json.dumps(report));print(json.dumps(report))

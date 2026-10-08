@@ -1,0 +1,1 @@
+Parent approved EXPECTED_CORE one-line synchronization only; preserve original fixture, first stop, diff; assertions, outputs and all other pins unchanged. 2026-10-08T10:07:16Z

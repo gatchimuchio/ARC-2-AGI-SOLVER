@@ -1,0 +1,40 @@
+{
+  "sha256": "a6637e397866052318eba6344ab942abbe44701affb9728fe5fdcf5b4ee5b8e1",
+  "models": [
+    {
+      "background": 0,
+      "tail": 1,
+      "head": 2,
+      "marker": 4,
+      "marker_diagonal": false,
+      "other_markers": "block"
+    },
+    {
+      "background": 0,
+      "tail": 1,
+      "head": 2,
+      "marker": 4,
+      "marker_diagonal": false,
+      "other_markers": "transparent"
+    },
+    {
+      "background": 0,
+      "tail": 1,
+      "head": 2,
+      "marker": 4,
+      "marker_diagonal": true,
+      "other_markers": "block"
+    },
+    {
+      "background": 0,
+      "tail": 1,
+      "head": 2,
+      "marker": 4,
+      "marker_diagonal": true,
+      "other_markers": "transparent"
+    }
+  ],
+  "teachers_exact": 3,
+  "additional_prior": "diagonal boundary step requires both orthogonal intermediate footprints in the same owner region; transient marker occupancy is not boundary",
+  "teacher_unique": false
+}

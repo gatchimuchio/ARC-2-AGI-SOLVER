@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "changed": [
+    "接続/ARC2/HDS接続.py"
+  ],
+  "added": [
+    "接続/ARC2/局所軌条鎖所有教材.py",
+    "接続/ARC2/局所軌条鎖所有核.py"
+  ],
+  "removed": [],
+  "base_files_unchanged": 2713,
+  "frozen_files_unchanged": 2715,
+  "source_pins": {
+    "接続/ARC2/HDS接続.py": "0d297188b9058445ef52c86e976dd5021bd81b4e4f985a69d1ef86a1302d7279",
+    "接続/ARC2/局所軌条鎖所有教材.py": "99b3213741cec0c19ee862b8c30aab28a8364322126619eeb73dccad2032a5d6",
+    "接続/ARC2/局所軌条鎖所有核.py": "5025b46ef8c0bfc52b0f69a8e760e6551438a948d753b73663a931836297b679"
+  },
+  "scorer_calls": 0
+}

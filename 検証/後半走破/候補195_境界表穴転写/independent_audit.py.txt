@@ -1,0 +1,77 @@
+import sys,json,copy,hashlib,resource
+resource.setrlimit(resource.RLIMIT_CPU,(10,10));resource.setrlimit(resource.RLIMIT_AS,(512*1024**2,512*1024**2))
+sys.path.insert(0,'arc2-current109/source');sys.path.insert(0,'proposal195-table-scene-20261008')
+import boundary_table as m
+T=json.load(open('arc2-current99/teachers-only/dbff022c.json'))['train']
+checks={}; models,rec=m.fit(T);checks['teacher_fit']={'model':models,'exact':rec['teacher_exact']}
+def base():return [[0]*14 for _ in range(12)]
+def table(g,r,c,a=(1,2,3),b=(4,5,6)):
+ g[r][c:c+len(a)]=a;g[r+1][c:c+len(b)]=b
+ return g
+def ring(g,r,c,k=1):
+ for i in range(3):
+  for j in range(3):
+   if i in (0,2) or j in (0,2):g[r+i][c+j]=k
+ return g
+def run(name,g,expfail=None,roles=None,center=None):
+ before=copy.deepcopy(g);out,ev=m.render(g);assert before==g
+ if expfail:assert out is None and ev['failure']==expfail,(name,ev)
+ else:
+  assert out is not None,(name,ev)
+  assert all(out[r][c]==g[r][c] for r in range(len(g)) for c in range(len(g[0])) if g[r][c]!=0)
+  if center:assert out[center[0]][center[1]]==center[2],(name,out)
+ if roles is not None:assert len(ev['roles'])==roles,(name,ev)
+ checks[name]={'failure':ev.get('failure'),'roles':len(ev.get('roles',[])),'role_failures':[r['failure'] for r in ev.get('roles',[])]}
+run('single',ring(table(base(),0,0),5,5),roles=1,center=(6,6,4))
+g=ring(table(base(),0,0),5,5);g[6][6]=7;run('foreign_occupant',g,'retained_role_failure')
+g=ring(table(base(),0,0,(1,1,3),(4,5,6)),5,5);run('conflicting_key',g,'retained_role_failure')
+g=ring(table(base(),0,0),5,5);table(g,10,10,(4,5,6),(1,2,3));run('all_tables_agree',g,roles=2,center=(6,6,4))
+g=ring(table(base(),0,0),5,5);table(g,10,10,(7,5,6),(1,2,3));run('all_tables_disagree',g,'retained_role_disagreement',roles=2)
+g=ring(table(base(),0,0),5,5);table(g,10,10,(7,5,6),(1,1,3));run('one_table_failure_not_dropped',g,'retained_role_failure',roles=2)
+g=ring(table(base(),5,0),1,9);run('equidistant_lanes_disagree',g,'retained_role_disagreement',roles=2)
+g=table(base(),5,0);run('equidistant_lanes_agree',g,roles=2)
+g=ring(table(base(),0,0),5,5);g[5][5]=0;run('C8_wall_C4_cavity',g,center=(6,6,4))
+g=ring(table(base(),0,0),5,5);g[5][6]=0;run('open_C4_leak',g,center=(6,6,0))
+invalid=[None,[],[[]],[[True]],[[1.0]],[[10]],[[1],[1,2]],tuple([[0]])]
+for g in invalid:assert m.render(g)[0] is None
+checks['invalid_grid_guards']=len(invalid)
+for t in [None,[],[T[0]], [T[0],T[0]], [{'input':[[0]],'output':None},T[0]]]:assert m.fit(t)[0]==()
+checks['teacher_guards']='pass'
+checks['model_guards']={}
+for name,mods in [('empty',[]),('wrong',[('x',1)]),('scalar',1),('bad_member',[1]),('none_member',[None])]:
+ try:checks['model_guards'][name]=m.predict([[0]],mods)[1]
+ except Exception as e:checks['model_guards'][name]={'exception':type(e).__name__,'message':str(e)}
+print(json.dumps(checks,ensure_ascii=False,indent=2))
+json.dump(checks,open('proposal195-table-scene-20261008/independent-audit-results.json','w'),ensure_ascii=False,indent=2)
+g=ring(table(base(),0,0,(1,2,3),(2,3,4)),4,2,1);ring(g,8,9,2)
+y,e=m.render(g);assert y[5][3]==2 and y[9][10]==3;checks['simultaneous_chain']='pass'
+g=[[0]*10 for _ in range(10)];table(g,4,4,(1,2),(3,4));run('four_way_2x2_tie',g,roles=4)
+g=table([[0]*18 for _ in range(18)],0,0)
+for r in range(5,14):
+ for c in range(5,14):
+  if r in (5,13) or c in (5,13):g[r][c]=1
+ring(g,8,8,1);run('nested_same_color_foreign_owner',g,'retained_role_failure')
+def rot(g):return [list(x)for x in zip(*g[::-1])]
+def flip(g):return [row[::-1]for row in g]
+mc=0
+for t in T:
+ for mirrored in (False,True):
+  a=flip(t['input'])if mirrored else t['input'];b=flip(t['output'])if mirrored else t['output']
+  for i in range(4):
+   y,_=m.render(a);assert y==b
+   a,b=rot(a),rot(b);mc+=1
+checks['dihedral_teacher_exact']=mc
+p={i:(i*3+7)%10 for i in range(10)}
+for t in T:
+ a=[[p[v]for v in row]for row in t['input']];b=[[p[v]for v in row]for row in t['output']]
+ assert m.render(a)[0]==b
+checks['color_permuted_teacher_exact']=len(T)
+import random
+rng=random.Random(195)
+for i in range(250):
+ h,w=rng.randrange(1,31),rng.randrange(1,31)
+ g=[[rng.randrange(10) if rng.random()<.35 else 0 for _ in range(w)]for _ in range(h)]
+ m.render(g)
+checks['random_valid_grid_no_exception']=250
+json.dump(checks,open('proposal195-table-scene-20261008/independent-audit-results.json','w'),ensure_ascii=False,indent=2)
+print('ADDITIONAL:',json.dumps({k:v for k,v in checks.items()if k in ('four_way_2x2_tie','nested_same_color_foreign_owner','simultaneous_chain','dihedral_teacher_exact','color_permuted_teacher_exact','random_valid_grid_no_exception')},ensure_ascii=False))

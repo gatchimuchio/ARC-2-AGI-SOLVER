@@ -1,0 +1,10 @@
+{
+  "added": [
+    "接続/ARC2/空洞種伝播教材.py",
+    "接続/ARC2/空洞種伝播核.py"
+  ],
+  "changed": [
+    "接続/ARC2/HDS接続.py"
+  ],
+  "deleted": []
+}

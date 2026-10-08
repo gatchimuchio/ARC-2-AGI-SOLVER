@@ -1,0 +1,4 @@
+{
+  "initial": "pre-native manifest count assertion; no runtime started",
+  "post_native": "pure-evidence list/dict report assumption; both runtime processes successful; parity checked from saved outputs; no rerun"
+}

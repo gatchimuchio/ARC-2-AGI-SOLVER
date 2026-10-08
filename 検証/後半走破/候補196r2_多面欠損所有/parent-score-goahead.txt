@@ -1,0 +1,1 @@
+Parent /root 2026-10-08 09:24:34 UTC: 親r2共有192options1行＋RUNTIMEdiff確認。独立PASS/native/旧192保存確認済。targeted/full/pins全部PASSを条件に同OPENBLAS1CPU10/512MiB/wall60で候補公式120/167を1回許可。共有kernel thread設定差は明記、previous195current110/155、全旧155保持・wrong/resource確認。即結果報告→原文再読。採用packaging待機。

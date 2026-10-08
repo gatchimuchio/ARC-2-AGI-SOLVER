@@ -1,0 +1,36 @@
+{
+  "previous": [
+    109,
+    154
+  ],
+  "current": [
+    110,
+    155
+  ],
+  "delta": [
+    1,
+    1
+  ],
+  "old_grids_identical": 154,
+  "lost": [],
+  "changed": [],
+  "new_emitted_grids": [
+    [
+      "dbff022c",
+      0
+    ]
+  ],
+  "wrong_emitted": 0,
+  "resource_failures": {},
+  "pins": 2776,
+  "same_conditions": true,
+  "env": {
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "regression": {
+    "scripts": 110,
+    "checks": 7868,
+    "coverage_is_composed": true
+  },
+  "score_sha256": "8ec7285e650abc9a8cf9b245db0c0bd17ccae40df97de2d3e751e71155f8dd22"
+}

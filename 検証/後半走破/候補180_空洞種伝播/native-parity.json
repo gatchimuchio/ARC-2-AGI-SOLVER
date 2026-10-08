@@ -1,0 +1,16 @@
+{
+  "status": "NATIVE_GAIN",
+  "parity": true,
+  "previous_emitted": 0,
+  "current_emitted": 2,
+  "scorer_calls": 0,
+  "family": {
+    "境界": "ARC空洞種伝播",
+    "事前観測数": 0,
+    "現在観測数": 4,
+    "採用可": true,
+    "同値採用": true,
+    "状態": "全教師再現",
+    "隔離数": 0
+  }
+}

@@ -1,0 +1,101 @@
+import os, sys, json, importlib.util, hashlib, resource, ast, copy
+from pathlib import Path
+resource.setrlimit(resource.RLIMIT_CPU,(10,10))
+resource.setrlimit(resource.RLIMIT_AS,(512*1024**2,512*1024**2))
+ROOT=Path(__file__).resolve().parent.parent
+sys.path.insert(0,str(ROOT/'arc2-current111/source'))
+def load(name,path):
+ spec=importlib.util.spec_from_file_location(name,path); m=importlib.util.module_from_spec(spec); sys.modules[name]=m; spec.loader.exec_module(m); return m
+path=ROOT/'proposal198-marker-owner-20261008/marker_owner.py'
+m=load('audit198',path)
+old=load('audit171',ROOT/'arc2-current99/evidence/not-adopted/proposal171-marker-movement-view-20261007/revision2/接続/ARC2/凡例方向移動候補.py')
+report={'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'checks':{}}
+def check(name,flag):
+ assert flag,name
+ report['checks'][name]=True
+raw=json.loads((ROOT/'arc2-current99/teachers-only/88e364bc.json').read_text())
+check('teacher_file_only_train',set(raw)=={'train'})
+teachers=raw['train']
+fit,diag=m.fit_teachers(teachers)
+check('all_480_models',diag['model_count']==480)
+check('all_teacher_calls',diag['call_count']==480*len(teachers) and all(len(x['returns'])==len(teachers) for x in diag['alternatives']))
+check('four_models_retained',len(fit.models)==4)
+report.update(teacher_count=len(teachers),model_count=diag['model_count'],call_count=diag['call_count'],retained=diag['retained_models'])
+oldfit,olddiag=old.fit_teachers(teachers)
+check('old_prior_also_fits_teachers',len(oldfit.models)==4)
+for p in teachers:
+ check('teacher_prediction_consensus',m.predict(p['input'],fit)[0]==p['output'])
+invalid=[None,{},[],[teachers[0]],[teachers[0],teachers[0]],[None,teachers[0]],[{},teachers[0]],[dict(input=[[0]],output=[[0,0]]),teachers[0]]]
+for p in invalid: check('teacher_guards',m.fit_teachers(p)[1]['failure']=='invalid_teachers')
+for grid in [None,[],[[]],[[True]],[[10]],[[0],[0,1]],[[0]*31],[[0]]*31]:
+ check('grid_guards',m.render_model(grid,fit.models[0])[1]['failure']=='invalid_grid')
+# Direct executable synthetic scenes isolate the changed boundary contract.
+def run(source,region,direction=(1,1),other='block',extras=(),module=m):
+ grid=[[0]*8 for _ in range(8)]
+ for r,c in source|set(extras):grid[r][c]=3
+ box=[min(r for r,c in source),min(c for r,c in source),max(r for r,c in source),max(c for r,c in source)]
+ scene={'markers':[{'cells':sorted(source),'bbox':box}], 'legends':{5:direction},'holes':{5:[set(region)]},'patch_cells':set()}
+ out,rec=module.execute(grid,module.Model(0,1,2,3,False,other),scene,((5,0),))
+ return out,rec
+region={(r,c) for r in range(1,7) for c in range(1,7)}
+# One missing flank forbids corner-cutting although the endpoint itself is free.
+for gap in [(2,1),(1,2)]:
+ reg=region-{gap}
+ new=run({(1,1)},reg)[1]['events'][0]['path']; prev=run({(1,1)},reg,module=old)[1]['events'][0]['path']
+ check('both_orthogonal_flanks_required',new==[(1,1)] and len(prev)>1)
+# A flank can be in-bounds but belong to a different owner region.
+check('flank_owner_membership',run({(1,1)},region-{(1,2)})[1]['events'][0]['target']==[(1,1)])
+# Full rectangle footprint, not just anchor or one cell, must fit owner region.
+source={(1,1),(1,2),(2,1),(2,2)}
+check('full_flank_footprint',run(source,region-{(3,2)})[1]['events'][0]['path']==[(1,1)])
+for other in ['block','transparent']:
+ check('intermediate_marker_not_wall_'+other,len(run({(1,1)},region,other=other,extras={(2,1)})[1]['events'][0]['path'])==6)
+check('endpoint_block_contract',run({(1,1)},region,extras={(2,2)})[1]['events'][0]['path']==[(1,1)])
+check('endpoint_transparent_contract',len(run({(1,1)},region,other='transparent',extras={(2,2)})[1]['events'][0]['path'])==6)
+for dr in [-1,0,1]:
+ for dc in [-1,0,1]:
+  if (dr,dc)==(0,0):continue
+  source={(3,3)}
+  check('open_region_all_directions',run(source,region,(dr,dc))[0]==run(source,region,(dr,dc),module=old)[0])
+# All 2x3 owner products collected, including after ordinary failure.
+orig_parse,orig_execute=m.parse,m.execute
+calls=[]
+m.parse=lambda g,model:({'markers':[{'owners':[(5,0),(6,0)]},{'owners':[(7,0),(8,0),(9,0)]}]},{'failure':None})
+def ex(g,model,scene,owners):
+ calls.append(owners);return (None if len(calls)==1 else [[0]]),{'failure':None}
+m.execute=ex
+check('owner_failure_hold',m.render_model([[0]],fit.models[0])[1]['failure']=='owner_alternative_failed')
+check('all_six_owners_after_failure',len(calls)==6)
+calls.clear()
+def ex(g,model,scene,owners):
+ calls.append(owners);return [[int(len(calls)==1)]],{'failure':None}
+m.execute=ex
+check('owner_disagreement_hold',m.render_model([[0]],fit.models[0])[1]['failure']=='owner_outputs_disagree' and len(calls)==6)
+m.parse,m.execute=orig_parse,orig_execute
+orig_render=m.render_model
+for failure in [True,False]:
+ calls=[]
+ def render(g,model):
+  calls.append(model)
+  return (None if failure and len(calls)==1 else [[int(len(calls)==1)]]),{}
+ m.render_model=render
+ result=m.predict([[0]],fit)
+ check('all_retained_failure_hold' if failure else 'all_retained_disagreement_hold',len(calls)==4 and result[0] is None and result[1]['failure']==('retained_model_failed' if failure else 'retained_model_outputs_disagree'))
+# Runtime exceptions are not silently converted into a normal candidate failure.
+def boom(*args): raise RuntimeError('audit sentinel')
+m.render_model=boom
+for name,fn in [('fit_exception_propagates',lambda:m.fit_teachers(teachers)),('predict_exception_propagates',lambda:m.predict([[0]],fit))]:
+ try: fn()
+ except RuntimeError as e: check(name,str(e)=='audit sentinel')
+ else:raise AssertionError(name)
+m.render_model=orig_render
+orig_shift=m.shifted_sparse_point_mask
+m.shifted_sparse_point_mask=lambda *args:None
+try:run({(1,1)},region)
+except RuntimeError as e:check('helper_inconsistency_propagates','swept shift disagree' in str(e))
+else:raise AssertionError('helper inconsistency')
+m.shifted_sparse_point_mask=orig_shift
+check('no_io_or_exception_swallow',not any(isinstance(n,ast.Try) for n in ast.walk(ast.parse(path.read_text()))) and not any(isinstance(n,ast.Call) and isinstance(n.func,ast.Name) and n.func.id in {'open','eval','exec','__import__'} for n in ast.walk(ast.parse(path.read_text()))))
+report['conclusion']='PASS within teacher/synthetic scope. Explicit additional topology prior, not teacher-unique deduction. No query or official answer inspected; no performance claim.'
+(ROOT/'proposal198-marker-owner-20261008/independent_boundary_audit.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps(report,ensure_ascii=False,indent=2))

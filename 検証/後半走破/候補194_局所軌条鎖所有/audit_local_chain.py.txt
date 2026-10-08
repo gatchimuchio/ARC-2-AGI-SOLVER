@@ -1,0 +1,72 @@
+"""Independent teacher/synthetic audit; no query or result reads."""
+import sys,json,hashlib,copy,resource
+from pathlib import Path
+resource.setrlimit(resource.RLIMIT_CPU,(10,10));resource.setrlimit(resource.RLIMIT_AS,(512*1024**2,512*1024**2))
+sys.path[:0]=['arc2-current108/source','proposal194-multicolor-ownership-20261008']
+import local_chain as m
+checks=[]
+def check(name,ok,detail=None):
+ assert ok,(name,detail)
+ checks.append({'name':name,'pass':True,'detail':detail})
+p=Path('proposal194-multicolor-ownership-20261008/local_chain.py')
+check('frozen_sha',hashlib.sha256(p.read_bytes()).hexdigest()=='5025b46ef8c0bfc52b0f69a8e760e6551438a948d753b73663a931836297b679')
+tr=json.load(open('arc2-current99/teachers-only/88bcf3b4.json'))['train']
+state=m.fit(tr)
+check('all_four_models_retained',state['models']==list(m.MODELS),state)
+for i,e in enumerate(tr):
+ o,r=m.predict(e['input'],state);check('teacher_'+str(i),o==e['output'])
+ for _,trace in r['models']:
+  for candidate in trace['candidates']:
+   for c in candidate['chains']:
+    check('teacher_logical_count_'+str(i),c['source_count']==c['logical_count'])
+check('single_and_duplicate_not_guarded_in_pure',m.fit(tr[:1]) is not None and m.fit([tr[0],tr[0]]) is not None,'Adapter must enforce at least two distinct valid teacher pairs.')
+def grid(h=22,w=15):return [[0]*w for _ in range(h)]
+def motif(g,r,rail=2,chain=4,obstacle=6):
+ for c in range(4):g[r][c]=rail
+ for dr,c in [(1,1),(1,2),(1,3),(2,1),(2,2)]:g[r+dr][c]=chain
+ g[r+1][6]=obstacle
+ return g
+g=motif(motif(grid(),3),13)
+parsed,_=m.roles(g);check('same_color_objects_separate',len(parsed[1])==6 and len(parsed[2])==2)
+o,r=m.render(g);check('same_color_two_local_owners',o is not None and len(r['candidates'][0]['chains'])==2,r)
+# A separated same-color passive object cannot become a chain by color alone.
+g[20][13]=4;o,r=m.render(g);check('same_color_passive_preserved',o is not None and o[20][13]==4)
+# Two lateral roles on one rail are both retained, not first-match chosen.
+g=motif(grid(),3);g[4][6]=0;g[3][7]=6
+for c in (1,2,3):g[2][c]=5
+parsed,_=m.roles(g);check('both_lateral_roles_retained',len(parsed[2])==1 and len(parsed[2][0])==2)
+o,r=m.render(g);check('role_disagreement_holds',o is None and len(r['candidates'])==2,r['failure'])
+# Equidistant targets: Chebyshev and squared Euclidean each keep every tie.
+for metric,targets in [('chebyshev',[(4,6),(6,6)]),('euclidean_squared',[(3,6),(5,6)])]:
+ g=motif(grid(),3);g[4][6]=0
+ for color,(rr,cc) in enumerate(targets,6):g[rr][cc]=color
+ o,r=m.render(g,metric);check('all_target_ties_'+metric,o is None and len(r['candidates'])==2,r['failure'])
+# One valid and one invalid retained target must HOLD, rather than drop invalid.
+g=motif(grid(),3);g[4][6]=0;g[1][6]=6;g[7][6]=7
+o,r=m.render(g);check('any_candidate_failure_holds',o is None and r['failure']=='retained_candidate_failure' and len(r['candidates'])==2,r)
+# Prior family underdetermination: early and late both fit every teacher, disagree here.
+g=motif(grid(),3)
+a,ar=m.render(g,'chebyshev','early');b,br=m.render(g,'chebyshev','late')
+check('early_late_distinct_off_teacher',a is not None and b is not None and a!=b)
+o,r=m.predict(g,state);check('model_disagreement_holds',o is None and r['failure']=='model_disagreement')
+# Clip keeps logical chain length; missing visible cells are boundary clipping only.
+for i,clip in [(0,2),(3,1)]:
+ o,r=m.render(tr[i]['input']);c=r['candidates'][0]['chains'][0]
+ check('justified_clip_'+str(i),c['clipped_count']==clip and c['logical_count']==c['source_count'])
+# Fault injection into dependency verifies unexpected implementation errors propagate.
+old=m.color_components
+try:
+ def boom(*a,**k):raise RuntimeError('audit sentinel')
+ m.color_components=boom
+ try:m.fit(tr)
+ except RuntimeError as e:check('exception_propagation',str(e)=='audit sentinel')
+ else:raise AssertionError('exception swallowed')
+finally:m.color_components=old
+# Ownership overlap explicitly HOLDs even if another assignment could succeed.
+old=m.roles
+try:
+ parsed,_=old(motif(grid(),3));bg,obs,groups=parsed
+ m.roles=lambda g:((bg,obs,[groups[0],groups[0]]),None)
+ o,r=m.render(motif(grid(),3));check('ownership_overlap_holds',o is None and r['candidates'][0]['failure']=='ownership_overlap')
+finally:m.roles=old
+print(json.dumps({'status':'PASS_CONDITIONAL_ON_STRICT_ADAPTER','checks':checks,'limitations':['Only explicit finite prior family audited; teachers do not uniquely identify rule.','Pure fit lacks minimum-two-unique and teacher schema guards; adapter required.','No query, official answer, RESULT, pure-evidence or image read.']},ensure_ascii=False,indent=2))

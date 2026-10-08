@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "checks": [
+    [
+      "71e489b6",
+      0
+    ],
+    [
+      "71e489b6",
+      1
+    ],
+    [
+      "71e489b6",
+      2
+    ],
+    [
+      "de809cff",
+      0
+    ],
+    [
+      "de809cff",
+      1
+    ]
+  ],
+  "transpose_checks": 5,
+  "cpu_s": 1.9986626969999999,
+  "scipy": "1.17.0",
+  "numpy": "2.3.5",
+  "highs": "1.8.0",
+  "memory_threads": {
+    "VmPeak": "263748 kB",
+    "VmSize": "260168 kB",
+    "VmRSS": "73684 kB",
+    "Threads": "1"
+  },
+  "diff": "threads=1 resource option only; objective, constraints, tolerance, gap, dual, integrality, guards unchanged",
+  "scipy_option_route": "_milp_iv passes unknown option verbatim; warning retained",
+  "pure196": "SHA unchanged"
+}

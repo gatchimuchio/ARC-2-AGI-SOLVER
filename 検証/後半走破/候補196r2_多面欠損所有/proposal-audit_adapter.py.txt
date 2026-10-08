@@ -1,0 +1,26 @@
+import sys,json,pathlib,copy,hashlib
+from unittest.mock import patch
+ROOT=pathlib.Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/'candidate196-production/source'))
+from 接続.ARC2.多面欠損所有教材 import 多面欠損所有教材 as Adapter, api
+from 接続.ARC2.直交領域所有核 import SearchIncomplete
+teachers=json.loads((ROOT/'arc2-current99/teachers-only/de809cff.json').read_text())['train']
+a=Adapter(teachers)
+assert list(vars(a))==['model'] and a.model==[{'background':0,'marker':8,'version':1}]
+assert type(a.model[0]['version']) is int
+assert all(a.候補(t['input'])[0]==t['output'] for t in teachers)
+assert a.記録()['事前支持数']==0
+for bad in (None,[],teachers[:1],teachers+[teachers[0]],[{'input':[[True]*3]*3,'output':[[1]*3]*3}]*2):
+ with patch.object(api,'fit_teachers',side_effect=AssertionError('guard bypass')):
+  b=Adapter(bad); assert b.model==[] and b.候補(teachers[0]['input'])[0] is None
+for exc in (SearchIncomplete('numeric'),MemoryError('resource')):
+ with patch.object(api,'fit_teachers',side_effect=exc):
+  try:Adapter(teachers)
+  except type(exc) as e:assert e is exc
+  else:raise AssertionError('fit exception swallowed')
+ with patch.object(api,'predict',side_effect=exc):
+  try:a.候補(teachers[0]['input'])
+  except type(exc) as e:assert e is exc
+  else:raise AssertionError('predict exception swallowed')
+assert hashlib.sha256(pathlib.Path(api.__file__).read_bytes()).hexdigest()=='79df6217c61f32536e8a3ef218aad458c5a5ac2ae563b25978070df2f2578b46'
+print(json.dumps({'adapter':'PASS','teacher_exact':2,'state':'fit-produced models only; no teachers/output retained','version_contract':'fit constructs exact int1; arbitrary externally injected models outside audited contract','guard':'invalid or duplicate/insufficient teachers produce no models and no fit call','exceptions':'SearchIncomplete and MemoryError propagated unchanged by construction and candidate','gate_static':'HDS registration uses empty prior tuple and ordinary adoption/equivalence gate; no exception handler in adapter','kernel_sha256':'79df6217c61f32536e8a3ef218aad458c5a5ac2ae563b25978070df2f2578b46'},ensure_ascii=False,indent=2))

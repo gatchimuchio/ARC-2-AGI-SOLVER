@@ -1,0 +1,24 @@
+from pathlib import Path
+import json,hashlib,gzip,ast,shutil
+E=Path(__file__).resolve().parent;R=E.parent/'source';A=E.parent/'previous-source';B=E.parents[1]/'arc2-current99'
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+current=json.loads((E/'full-regression-current.json').read_text());assert current['success']
+restored=[]
+# Imported accepted source has no generated reports; preserve newly generated files outside runtime tree.
+for n in ['検証/対辺標点配置資料/portable-contrast-result.json','検証/対辺標点配置資料/portable-teacher-result.json','検証/計数色層旋回資料/validation.json']:
+ assert not (A/n).exists()
+ p=E/'fresh-generated-reports'/n;p.parent.mkdir(parents=True,exist_ok=True)
+ restored.append({'path':n,'fresh_sha256':sha(R/n),'previously_present':False});shutil.move(R/n,p)
+D=json.loads(gzip.decompress((R/'検証/全体模様窓資料/dependency-pins.json.gz').read_bytes()))
+window=set(D['payload_pins'])|set(D['base_source_pins']);window|={str(p.relative_to(R))for p in (R/'検証/全体模様窓資料').rglob('*')if p.is_file()and'__pycache__'not in p.parts}
+for name in D['native_bridge_ast']:
+ def body(root):return ast.dump(next(n for n in ast.parse((root/'接続/ARC2/HDS接続.py').read_text()).body if isinstance(n,ast.FunctionDef)and n.name==name))
+ assert body(R)==body(A),name
+for name in window:assert (R/name).read_bytes()==(A/name).read_bytes(),name
+priorfile=B/'logical-evidence/source/検証/後半走破/候補177_未観測端対応遅延合成/production177/full-regression-selected.json.gz.expanded';prior=json.loads(priorfile.read_text());old=next(r for r in prior['records']if r['file']=='検証/全体模様窓回帰.py');assert old['successful']and old['tests']==29 and old['sha256']==sha(R/old['file'])
+selected=dict(current);selected['records']=current['records']+[old];selected.update(scope='Candidate179 fresh regressions plus exact unchanged prior window29-case scope',files=len(selected['records']),expected_files=len(selected['records']),tests=sum(r['tests']for r in selected['records']),coverage_is_composed=True,prior_report_sha256=sha(priorfile),window_files_unchanged=len(window),generated_reports_preserved=restored)
+freeze=json.loads((E/'pre-regression-freeze.json').read_text());changed=[n for n,h in freeze.items()if sha(R/n)!=h];assert not changed,changed
+protected=['AGENTS.md','制御/現在状態.json']+[str(p.relative_to(A))for p in (A/'HDS').rglob('*')if p.is_file()and'__pycache__'not in p.parts]
+for n in protected:assert sha(A/n)==sha(R/n),n
+selected.update(frozen_files_unchanged=len(freeze),protected_core_files_unchanged=len(protected),scorer_calls=0)
+(E/'full-regression-selected.json').write_text(json.dumps(selected,ensure_ascii=False,indent=2));print(json.dumps({'files':selected['files'],'checks':selected['tests'],'success':selected['success'],'scorer_calls':0}))

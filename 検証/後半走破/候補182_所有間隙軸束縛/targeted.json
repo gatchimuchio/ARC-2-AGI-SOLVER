@@ -1,0 +1,25 @@
+{
+  "successful": true,
+  "checks": [
+    "all teachers pure fit",
+    "both input-only candidates available",
+    "previous ordinary success byte-equivalent",
+    "previous tied query reproduced",
+    "transform flip_h0",
+    "transform flip_h1",
+    "transform flip_v0",
+    "transform flip_v1",
+    "transform rot1800",
+    "transform rot1801",
+    "color relabeling",
+    "gapless tied shape retains HOLD",
+    "flag off exactly old tie",
+    "foreign color invalidates gap ownership",
+    "asymmetric gap has no complete axis",
+    "teacher mismatch never admits new view",
+    "duplicate teacher still denied",
+    "source output disagreement remains HOLD",
+    "exception propagates",
+    "only frozen file changed"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "models": [
+    [
+      0,
+      1,
+      7
+    ]
+  ],
+  "record": {
+    "models": [
+      [
+        0,
+        1,
+        7
+      ]
+    ],
+    "prior": "unit_edit_plus_orthogonal_turns_with_edge_majority3",
+    "version": 1
+  },
+  "teacher_matches": [
+    true,
+    true,
+    true
+  ],
+  "seconds": 0.4759490489959717
+}

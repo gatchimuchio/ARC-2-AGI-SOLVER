@@ -1,0 +1,224 @@
+{
+  "verdict": "PASS r3 fit-only necessary-condition optimization",
+  "query_evidence_read": false,
+  "checks": [
+    {
+      "name": "physical_rectangle_view.py_unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchored_rectangle.py_unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "seam_rectangle.py_unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "touching_rectangle.py_unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "propagated_rectangle.py_unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "only_fit_function_changed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "original_teachers_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "impossible_new_teachers_complete_hold",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "positive_symmetry_0_False_0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "positive_symmetry_0_False_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "positive_symmetry_0_False_7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "positive_symmetry_0_True_0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "positive_symmetry_0_True_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "positive_symmetry_0_True_7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "positive_symmetry_1_False_0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "positive_symmetry_1_False_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "positive_symmetry_1_False_7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "positive_symmetry_1_True_0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "positive_symmetry_1_True_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "positive_symmetry_1_True_7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "positive_symmetry_2_False_0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "positive_symmetry_2_False_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "positive_symmetry_2_False_7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "positive_symmetry_2_True_0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "positive_symmetry_2_True_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "positive_symmetry_2_True_7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "positive_symmetry_3_False_0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "positive_symmetry_3_False_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "positive_symmetry_3_False_7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "positive_symmetry_3_True_0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "positive_symmetry_3_True_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "positive_symmetry_3_True_7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "legacy_success_all_records_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "legacy_success_aggregate_status",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "legacy_hold_all_records_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "legacy_hold_aggregate_status",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "legacy_resource_all_records_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "legacy_resource_aggregate_status",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mixed_resource_preserved_RESOURCE_INCOMPLETE",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mixed_resource_preserved_HOLD",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "qualified_new_HOLD_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "qualified_new_RESOURCE_INCOMPLETE_preserved",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "check_count": 42,
+  "reason": "Every renderer keeps canvas dimensions, assigns each nonbackground nonmarker pixel exactly once with its color unchanged, erases the globally three-pixel marker, and fills remaining cells with a distinct background. Consequently exactly marker:-3 and background:+3 are necessary. They are not sufficient and are never used to select an input ownership or assembly.",
+  "boundaries": [
+    "Legacy structural roles always run before certificates can suppress new enumeration, including legacy resource and failed roles.",
+    "Mixed-teacher resource dominates aggregate status; no early return suppresses later old-resource records.",
+    "New-view resource on a teacher with an impossible output invariant is intentionally replaced by proven fit HOLD; predict is unchanged.",
+    "No query performance, full regression, or logical uniqueness conclusion."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "status": "ACCEPTED_LOCAL",
+  "previous": [
+    109,
+    154
+  ],
+  "current": [
+    110,
+    155
+  ],
+  "commit": null,
+  "commit_status": "pending; no remote write",
+  "runtime_exact_tested": true,
+  "score_sha256": "8ec7285e650abc9a8cf9b245db0c0bd17ccae40df97de2d3e751e71155f8dd22",
+  "baseline_calls": 0,
+  "candidate_calls": 1,
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "1"
+  }
+}

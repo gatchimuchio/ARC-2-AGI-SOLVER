@@ -1,0 +1,20 @@
+{
+  "runtime": {
+    "anchored_rectangle.py": "3b25da045f96cb799a4d84c0c4159fd3b39e34214212f72936ea5b87940e4ad7",
+    "seam_rectangle.py": "1e7d97da06e3c72808147c0e6e4fedd0956798733dfd3f605954695836f6d0c4",
+    "touching_rectangle.py": "121d31d0921c9383b769b3b6515aa669259f4aca397c82da70760ba3a6889357",
+    "propagated_rectangle.py": "cf9ca4dc1fe6a4bfb077e09cdf97dc7f5cb27e9f2cf93b2d5363e49b992d72ce",
+    "physical_rectangle_view.py": "5b8df414047c09c4eeef3be280dc6b80dd87e4ddb1f4ac28714a2a2f605907cd",
+    "physical_rectangle.py": "4262c3d95d5e4efaaf97c1b985ddf31aa4b9d29a4072162cef4973a66eec76d7"
+  },
+  "query_files": {
+    "q0-physical.json": "3a5413c487e842285940b026699668e85394a0176f7c19aecc0bf38f39daae0c",
+    "q1-physical.json": "5ceebf958d912d5a22909aa74715322ddcfdbefd36e319f6a2491b527d9d1bb7"
+  },
+  "status": "R3_PURE_FROZEN_NOT_ADOPTED",
+  "previous": "proposal191-rectangle-assembly-20261008/freeze.json",
+  "only_changed_runtime": [
+    "physical_rectangle.py"
+  ],
+  "r2_rejected": "Unconditional teacher prefilter could suppress genuine legacy RESOURCE; r3 restricts necessary proof to legacy no_structural_role."
+}

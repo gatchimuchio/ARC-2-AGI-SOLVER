@@ -1,0 +1,26 @@
+import sys,json,resource
+resource.setrlimit(resource.RLIMIT_CPU,(10,10));resource.setrlimit(resource.RLIMIT_AS,(512*1024**2,512*1024**2))
+sys.path.insert(0,'arc2-current110/source');import multisurface_defects as m
+model={'background':0,'marker':8,'version':1};old=m.unique_region;checks=0
+# Two uniquely owned surfaces with nearby holes compete on outline cells.
+g=[[1]*7 for _ in range(3)]+[[2]*7 for _ in range(4)];g[2][3]=0;g[3][3]=0;g[0][0]=2
+masks=[[[int(r<3)for c in range(7)]for r in range(7)],[[int(r>=3)for c in range(7)]for r in range(7)]]
+def install(ms):
+ queue=list(ms)
+ m.unique_region=lambda g:(queue.pop(0),{'synthetic':'unique'})
+install(masks);out,info=m.apply_model(g,model);assert out is None and info['failure']=='conflicting_outline_ownership';checks+=1
+# Global ownership overlap must not be resolved by color iteration order.
+install([[[1]*7 for _ in range(7)]]*2);out,info=m.apply_model(g,model);assert out is None and info['failure']=='overlapping_surface_ownership';checks+=1
+# A hole on canvas edge is included and the outline clips normally.
+g=[[1]*8 for _ in range(4)]+[[2]*8 for _ in range(4)];g[0][2]=0;g[7][5]=0;g[1][6]=2
+ms=[[[int(r<4)for c in range(8)]for r in range(8)],[[int(r>=4)for c in range(8)]for r in range(8)]]
+install(ms);out,info=m.apply_model(g,model);assert out is not None and out[0][2]==8 and out[0][1]==2 and out[7][5]==8 and out[7][4]==1 and out[1][6]==1;checks+=1
+# A surplus cell and hole outline cannot be assigned by render order.
+g[0][1]=2
+install(ms);out,info=m.apply_model(g,model);assert out is None and info['failure']=='surplus_outline_ownership_collision';checks+=1
+m.unique_region=old
+# Retained outputs are compared rather than first-success selected.
+oldapply=m.apply_model;m.apply_model=lambda g,model:([[model['background']]*3]*3,{})
+assert m.predict([[0]*3]*3,[model,dict(model,background=1)])[0] is None;checks+=1
+m.apply_model=oldapply
+print(json.dumps({'checks':checks,'status':'PASS','scope':'synthetic ownership/renderer/control unit cases; mocks isolate accepted optimizer'}))

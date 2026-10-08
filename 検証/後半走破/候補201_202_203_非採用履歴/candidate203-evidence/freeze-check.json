@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "baseline_unchanged": true,
+  "frozen_files": 3022,
+  "changed": [
+    "接続/ARC2/HDS接続.py"
+  ],
+  "added": [
+    "接続/ARC2/枠軸投影教材.py",
+    "接続/ARC2/枠軸投影核.py"
+  ],
+  "scorer_calls": 1,
+  "protected_core_unchanged": true,
+  "HiGHS_threads1_unchanged": true
+}

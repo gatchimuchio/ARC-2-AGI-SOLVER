@@ -1,0 +1,14 @@
+import json,sys,time,resource
+from pathlib import Path
+sys.path.insert(0,str(Path('arc2-current108/source').resolve()))
+from local_chain import fit,predict,render
+p=Path(__file__).parent
+d=json.load(open('arc2-current99/solver-input-only/88bcf3b4.json'))
+t=time.process_time();state=fit(d['train']);print('state',state)
+report={'state':state,'teachers':[],'queries':[]}
+for e in d['train']:
+ o,r=render(e['input']);report['teachers'].append({'fit':o==e['output'],'detail':r});print('teacher',o==e['output'],r.get('failure'))
+for e in d['test']:
+ o,r=predict(e['input'],state);report['queries'].append({'output':o,'detail':r});print('query',o is not None,r.get('failure'))
+report['cpu']=time.process_time()-t;report['peak_kib']=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+json.dump(report,open(p/'pure-evidence.json','w'),indent=2)

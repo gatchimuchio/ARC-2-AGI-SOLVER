@@ -1,0 +1,9 @@
+{
+  "changed_field": "renderer_sha256",
+  "previous": "22198d1649cbf33488aeccd4a9d0e2a39e6b6a0b9a88327eae7a36ce278dd25b",
+  "current": "70241e17570721987ffa12185e70e6eec7e0629704e4f5fbc84a4decf9965740",
+  "original_script_sha256": "6edfe7edfab13b677771c1fbb2fa52e79a27d39fd099e47a9ad81f0b758b21f7",
+  "normal_execution_checks": 11,
+  "status": "PASS",
+  "behavioral_assertions_unchanged": true
+}

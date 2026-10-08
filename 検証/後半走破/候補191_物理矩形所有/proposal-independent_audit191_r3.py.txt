@@ -1,0 +1,57 @@
+"""Independent r3-only teacher/synthetic audit; no query evidence reads."""
+import sys,json,copy,ast,hashlib
+from pathlib import Path
+from unittest.mock import patch
+P=Path(__file__).resolve().parent;ROOT=P.parent;OLD=ROOT/'proposal191-rectangle-assembly-20261008'
+sys.path[:0]=[str(P),str(ROOT/'arc2-current106/source')]
+import physical_rectangle as p, anchored_rectangle as b
+checks=[]
+def check(name,ok,detail=None):
+ checks.append(dict(name=name,passed=bool(ok),detail=detail));assert ok,name
+teachers=json.loads((ROOT/'arc2-current99/teachers-only/446ef5d2.json').read_text())['train']
+for name in ['physical_rectangle_view.py','anchored_rectangle.py','seam_rectangle.py','touching_rectangle.py','propagated_rectangle.py']:
+ check(name+'_unchanged',(P/name).read_bytes()==(OLD/name).read_bytes())
+def funcs(path):return {x.name:ast.dump(x,include_attributes=False) for x in ast.parse(path.read_text()).body if isinstance(x,(ast.FunctionDef,ast.ClassDef))}
+a,c=funcs(OLD/'physical_rectangle.py'),funcs(P/'physical_rectangle.py')
+check('only_fit_function_changed',{k:v for k,v in a.items() if k!='fit'}=={k:v for k,v in c.items() if k!='fit'})
+state,rec=p.fit(teachers);check('original_teachers_exact',state is not None and all(rec['teacher_exact']))
+# Isolate the no-legacy branch; bad targets require no new physical enumeration.
+bad=copy.deepcopy(teachers)
+for x in bad:x['output']=copy.deepcopy(x['input'])
+with patch.object(p.legacy,'predict',return_value=(None,{'status':'HOLD','failure':'no_structural_role'})),patch.object(p,'predict',side_effect=AssertionError('must not enumerate impossible new branch')):
+ state,record=p.fit(bad)
+check('impossible_new_teachers_complete_hold',state is None and record['status']=='HOLD' and all(x['failure']=='teacher_render_invariant_impossible' for x in record['all_teacher_returns']))
+# Renderer-derived positive examples across color bijections, 4 rotations and mirror.
+def transform(g,n,mirror):
+ x=[row[::-1] for row in g] if mirror else copy.deepcopy(g)
+ for _ in range(n):x=[list(r) for r in zip(*x[::-1])]
+ return x
+for n in range(4):
+ for mirror in (False,True):
+  for shift in (0,3,7):
+   ts=[{k:[[(z+shift)%10 for z in row] for row in transform(v,n,mirror)] for k,v in t.items()} for t in teachers]
+   s,r=p.fit(ts)
+   check(f'positive_symmetry_{n}_{mirror}_{shift}',s is not None and r['status']=='FIT')
+# Old success, HOLD and resource must survive even impossible teacher count certificates.
+for label,oldrec in [('success',{'status':'CANDIDATE','complete':True}),('hold',{'status':'HOLD','failure':'retained_role_failed','complete':True}),('resource',{'status':'RESOURCE_INCOMPLETE','failure':'budget_incomplete','complete':False,'work':123})]:
+ oldout=teachers[0]['input'] if label=='success' else None
+ sentinel=(oldout,oldrec)
+ with patch.object(p.legacy,'predict',return_value=sentinel),patch.object(p,'predict',side_effect=AssertionError('legacy fallback prohibited')):
+  s,r=p.fit(bad)
+ check('legacy_'+label+'_all_records_preserved',r['all_teacher_returns']==[oldrec,oldrec])
+ check('legacy_'+label+'_aggregate_status',r['status']==('RESOURCE_INCOMPLETE' if label=='resource' else 'HOLD'))
+resource={'status':'RESOURCE_INCOMPLETE','failure':'budget_incomplete','complete':False,'work':321}
+no_role={'status':'HOLD','failure':'no_structural_role'}
+for records in [[(None,resource),(None,no_role)],[(None,no_role),(None,resource)]]:
+ with patch.object(p.legacy,'predict',side_effect=records),patch.object(p,'predict',side_effect=AssertionError('impossible new teacher must not enumerate')):
+  s,r=p.fit(bad)
+ check('mixed_resource_preserved_'+str(records[0][1]['status']),s is None and r['status']=='RESOURCE_INCOMPLETE' and resource in r['all_teacher_returns'])
+# Passing color/shape certificate cannot override a real new-view failure or resource.
+for status in ('HOLD','RESOURCE_INCOMPLETE'):
+ rr={'status':status,'failure':'synthetic_failure','complete':status=='HOLD'}
+ with patch.object(p.legacy,'predict',return_value=(None,no_role)),patch.object(p,'predict',return_value=(None,rr)) as pred:
+  s,r=p.fit(teachers)
+ check('qualified_new_'+status+'_preserved',s is None and r['status']==status and r['all_teacher_returns']==[rr,rr] and pred.call_count==2)
+report={'verdict':'PASS r3 fit-only necessary-condition optimization','query_evidence_read':False,'checks':checks,'check_count':len(checks),'reason':'Every renderer keeps canvas dimensions, assigns each nonbackground nonmarker pixel exactly once with its color unchanged, erases the globally three-pixel marker, and fills remaining cells with a distinct background. Consequently exactly marker:-3 and background:+3 are necessary. They are not sufficient and are never used to select an input ownership or assembly.','boundaries':['Legacy structural roles always run before certificates can suppress new enumeration, including legacy resource and failed roles.','Mixed-teacher resource dominates aggregate status; no early return suppresses later old-resource records.','New-view resource on a teacher with an impossible output invariant is intentionally replaced by proven fit HOLD; predict is unchanged.','No query performance, full regression, or logical uniqueness conclusion.']}
+(P/'independent_audit191_r3.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps({'verdict':report['verdict'],'check_count':len(checks),'all_passed':all(x['passed'] for x in checks)},ensure_ascii=False))

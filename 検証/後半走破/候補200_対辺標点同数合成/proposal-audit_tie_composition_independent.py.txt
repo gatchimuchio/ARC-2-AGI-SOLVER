@@ -1,0 +1,94 @@
+import sys, importlib.util, json, random, copy, resource, collections, hashlib
+from pathlib import Path
+resource.setrlimit(resource.RLIMIT_CPU,(10,10));resource.setrlimit(resource.RLIMIT_AS,(512*1024*1024,512*1024*1024))
+ROOT=Path(__file__).resolve().parent.parent
+sys.path.insert(0,str(ROOT/'arc2-current112/source'))
+def load(name,path):
+ s=importlib.util.spec_from_file_location(name,path);m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
+old=load('old',ROOT/'arc2-current112/source/接続/ARC2/対辺標点配置核.py');new=load('new',Path(__file__).parent/'対辺標点配置核.py')
+teachers=json.load(open(ROOT/'arc2-current99/teachers-only/247ef758.json'))['train']
+a,ar=old.fit(teachers);b,br=new.fit(teachers)
+assert a==b and ar==br
+assert old.PROGRAMS==new.PROGRAMS and len(a)==4
+report={'sha256':hashlib.sha256((Path(__file__).parent/'対辺標点配置核.py').read_bytes()).hexdigest(),'teacher_fit':a,'teacher_fit_full_tuple_identical':True,'teacher_roles':[len(old.parse(p['input'])[0]) for p in teachers], 'teacher_only_note':'Four old programs survive; teachers do not uniquely identify the bbox tie prior. It is an explicit prior only.'}
+# Input-only arbitrary roles, including mixed failures and equal bbox conflicts.
+rng=random.Random(200);counts=collections.Counter();failure_domains=collections.Counter()
+for trial in range(1500):
+ h,w=13,22;s=9;left=10
+ view=[[0]*w for _ in range(h)];source=[[0]*s for _ in range(h)]
+ masks={}
+ for col in [1,2,3]:
+  pts=set()
+  cr,cc=rng.randrange(2,11),rng.randrange(2,7)
+  shape=rng.choice([[(0,0)],[(-1,0),(0,0),(1,0)],[(0,-1),(0,0),(0,1)],[(-1,-1),(1,1)],[(-1,1),(1,-1)],[(0,0),(1,0)]])
+  pts.update((cr+dr,cc+dc) for dr,dc in shape)
+  # Do not permit two colors to occupy a source cell.
+  if any(source[r][c] for r,c in pts):continue
+  masks[col]=sorted(pts)
+  for r,c in pts:source[r][c]=col;view[r][c]=col
+ rows={c:[rng.randrange(0,h)] for c in masks};cols={c:[rng.randrange(left,w)] for c in masks}
+ # Half of cases deliberately concentrate placements.
+ if trial%2==0:
+  rows={c:[6] for c in masks};cols={c:[16] for c in masks}
+ role=dict(view=view,source=source,orientation=0,separator=s,left=left,background=0,masks=masks,rows=rows,cols=cols)
+ for program in old.PROGRAMS:
+  before=old.act(role,program);after=new.act(role,program)
+  fs=before[1]['failures'];allowed=(program[1]=='small_first' and before[0] is None and fs and all(f=='equal_priority_color_conflict' for f in fs))
+  if not allowed:assert before==after
+  if before!=after:
+   assert allowed
+   counts['changed_pure_tie']+=1
+  elif allowed:counts['unresolved_pure_tie']+=1
+  else:counts['preserved_outside_domain']+=1
+  if before[0] is not None:counts['old_success_preserved']+=1
+  if fs:failure_domains['+'.join(sorted(set(fs)))]+=1
+  # The old implementation is precisely the new non-prior path.
+  assert before==new._act(role,program)
+# Exceptions from malformed external role structures remain exceptions, not recovered output.
+base=role
+for key in ['view','source','masks','rows','cols','orientation','left','background']:
+ broken=copy.deepcopy(base);broken.pop(key)
+ for program in old.PROGRAMS:
+  ret=[]
+  for mod in [old,new]:
+   try:ret.append(('return',mod.act(broken,program)))
+   except Exception as e:ret.append(('exception',type(e).__name__,str(e)))
+  assert ret[0]==ret[1];counts['exception_or_tuple_preserved']+=1
+# All-role/program consensus retains every return; no geometric answer filtering.
+for p in teachers:
+ assert old.parse(p['input'])==new.parse(p['input'])
+ assert old.consensus(p['input'],a)==new.consensus(p['input'],b)
+report['synthetic_counts']=dict(counts);report['failure_domains']=dict(failure_domains)
+print(json.dumps(report,ensure_ascii=False,indent=2))
+# Equal count AND equal bbox must stay ambiguous rather than color/order filtering.
+view=[[0]*22 for _ in range(13)];source=[[0]*9 for _ in range(13)]
+masks={1:[(4,2),(6,4)],2:[(4,4),(6,2)]}
+for c,pts in masks.items():
+ for r,k in pts:source[r][k]=c;view[r][k]=c
+role=dict(view=view,source=source,orientation=0,separator=9,left=10,background=0,masks=masks,rows={1:[6],2:[6]},cols={1:[16],2:[18]})
+assert old.act(role,('color_union','small_first'))==new.act(role,('color_union','small_first'))
+assert new.act(role,('color_union','small_first'))[0] is None
+report['equal_bbox_ambiguity_preserved']=True
+# Exercise complete reduction without allowing prior candidate or role selection.
+saved_parse,saved_act,saved_render=new.parse,new.act,new.render
+seen=[]
+new.parse=lambda g:([0,1,2],{'roles':3})
+new.act=lambda role,p:(seen.append(role) or ([[role]],{}))
+out,detail=new.render([[0]],new.PROGRAMS[0]);assert out is None and detail['failure']=='role_grid_disagreement' and seen==[0,1,2]
+seen.clear();new.act=lambda role,p:(seen.append(role) or (None if role==1 else [[0]],{}))
+out,detail=new.render([[0]],new.PROGRAMS[0]);assert out is None and detail['failure']=='retained_role_failed' and seen==[0,1,2]
+new.parse,new.act=saved_parse,saved_act
+seen.clear();new.render=lambda g,p:(seen.append(p) or ([[1 if p==b[-1] else 0]],{}))
+out,detail=new.consensus([[0]],b);assert out is None and detail['failure']=='program_grid_disagreement' and seen==list(b)
+seen.clear();new.render=lambda g,p:(seen.append(p) or (None if p==b[0] else [[0]],{}))
+out,detail=new.consensus([[0]],b);assert out is None and detail['failure']=='retained_program_failed' and seen==list(b)
+new.render=saved_render
+report['all_roles_all_four_models_veto_checks']=True
+# Verify source preservation of all finite enumeration / reduction functions.
+import ast
+sources=[ast.parse((ROOT/'arc2-current112/source/接続/ARC2/対辺標点配置核.py').read_text()),ast.parse((Path(__file__).parent/'対辺標点配置核.py').read_text())]
+for name in ['parse','render','fit','consensus']:
+ nodes=[next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name==name) for tree in sources]
+ assert ast.dump(nodes[0],include_attributes=False)==ast.dump(nodes[1],include_attributes=False)
+report['parse_render_fit_consensus_ast_identical']=True
+(Path(__file__).parent/'audit_tie_composition_independent.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')

@@ -1,0 +1,32 @@
+from pathlib import Path
+import subprocess,json,hashlib,time,datetime,sys,os
+E=Path(__file__).resolve().parent;R=E.parent/'source';B=E.parents[1];A=B/'arc2-current107/source';env={**os.environ,'OPENBLAS_NUM_THREADS':'1'}
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+assert json.loads((E/'native-parity.json').read_text())['status']=='NATIVE_GAIN'
+assert json.loads((E/'full-regression-selected.json').read_text())['success']
+assert json.loads((E/'targeted.json').read_text())['successful']
+assert json.loads((E/'freeze-check.json').read_text())['base_unchanged']
+assert (E/'parent-score-goahead.txt').exists()
+freeze=json.loads((E/'pre-regression-freeze.json').read_text());assert all(sha(R/n)==h for n,h in freeze.items())
+(E/'pre-score-freeze.json').write_text(json.dumps({'base_source':str(A),'commit':'pending','files':[{'path':n,'sha256':h}for n,h in freeze.items()],'env':{'OPENBLAS_NUM_THREADS':'1'}}))
+def run(name,root):
+ command=[sys.executable,'-B',str(root/'検証/ARC2評価.py'),'--mode','current','--output',str(E/(name+'-official.json'))]
+ with(E/(name+'-command.json')).open('x')as f:json.dump({'command':command,'env':{'OPENBLAS_NUM_THREADS':'1'}},f)
+ start=time.monotonic()
+ with(E/(name+'.stdout')).open('xb')as out,(E/(name+'.stderr')).open('xb')as err:
+  p=subprocess.Popen(command,cwd=root,env=env,stdout=out,stderr=err);rc=p.wait()
+ terminal=dict(exit_code=rc,reaped=True,wall_seconds=time.monotonic()-start)
+ (E/(name+'-terminal.json')).write_text(json.dumps(terminal));assert rc==0
+ return json.loads((E/(name+'-official.json')).read_text())
+previous=run('baseline',A)
+historical=json.loads((B/'candidate191-r3-production/evidence-20261008/current-official.json').read_text())
+old={v['task_id']:v for v in historical['execution']};new={v['task_id']:v for v in previous['execution']}
+assert (previous['summary']['correct_tasks'],previous['summary']['correct_examples'])==(107,150)
+assert not previous['summary']['resource_failures']
+assert all([r['answer']for r in old[t]['results']]==[r['answer']for r in new[t]['results']]for t in old)
+(E/'baseline-verification.json').write_text(json.dumps(dict(status='PASS',tasks=107,grids=150,all_old_outputs_identical=True,old_environment='unset',new_environment={'OPENBLAS_NUM_THREADS':'1'})))
+print('BASELINE_PASS_107_150',flush=True)
+current=run('current',R)
+assert all(sha(R/n)==h for n,h in freeze.items())
+(E/'post-score-pin-conservation.json').write_text(json.dumps(dict(all_pins_unchanged=len(freeze),baseline_calls=1,candidate_calls=1)))
+print(json.dumps(current['summary']),flush=True)

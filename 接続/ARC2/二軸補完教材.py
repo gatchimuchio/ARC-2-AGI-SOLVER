@@ -114,13 +114,32 @@ def fit_teachers(train):
 
 class 二軸補完教材:
     def __init__(self, 教師群):
-        model, _ = fit_teachers(教師群)
+        model, record = fit_teachers(教師群)
         self.軸 = tuple(model['axes']) if model is not None else None
+        if self.軸 is None:
+            # A fitted original view owns every success and HOLD unchanged.
+            # The masked crop view is considered only outside that fit domain.
+            from .遮蔽軌道窓 import fit
+            self.遮蔽モデル, masked_record = fit(教師群)
+            self.視点判定 = {
+                "旧視点不成立": record.get('failure'),
+                "遮蔽視点": "成立" if self.遮蔽モデル is not None else "不成立",
+                "遮蔽不成立": masked_record.get('failure'),
+                "競合制御": "旧視点成立時は遮蔽fitを実行せず旧成功とHOLDを保持",
+            }
 
     def 候補(self, 格子, _policy):
         if self.軸 is None:
-            return None, {"failure": "全教師を再現する共有二軸なし"}
+            if self.遮蔽モデル is None:
+                return None, {"failure": "全教師を再現する共有二軸なし"}
+            from .遮蔽軌道窓 import predict
+            output, record = predict(格子, self.遮蔽モデル)
+            return output, {"view": "masked_orbit", "view_selection": self.視点判定,
+                            "masked_record": record}
         return guarded_render(格子, self.軸)
 
     def 記録(self):
-        return {"共有反射和": list(self.軸) if self.軸 is not None else None}
+        if self.軸 is not None:
+            return {"共有反射和": list(self.軸)}
+        return {"共有反射和": None, "視点判定": self.視点判定,
+                "遮蔽モデル": self.遮蔽モデル}

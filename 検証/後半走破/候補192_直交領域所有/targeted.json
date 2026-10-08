@@ -1,0 +1,24 @@
+{
+  "successful": true,
+  "tests_run": 17,
+  "checks": [
+    "model only state",
+    "retained teacher fitted role",
+    "JSON serializable record",
+    "teacher exact 0",
+    "teacher exact 1",
+    "teacher exact 2",
+    "teacher unchanged",
+    "query parity 0",
+    "query parity 1",
+    "empty domain early HOLD",
+    "multicolor domain early HOLD",
+    "no novel domain early HOLD",
+    "bad shape domain early HOLD",
+    "fit incomplete propagates",
+    "query incomplete propagates",
+    "retained failure",
+    "retained disagreement"
+  ],
+  "scorer_calls": 0
+}

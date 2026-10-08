@@ -1,0 +1,18 @@
+{
+  "mode": "current",
+  "tasks": 120,
+  "test_examples": 167,
+  "correct_tasks": 111,
+  "accuracy": 0.925,
+  "correct_examples": 156,
+  "unanswered": 11,
+  "wrong_attempted_tasks": 3,
+  "resource_failures": {},
+  "seconds": 80.14205119699909,
+  "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+  "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961",
+  "cpu_seconds_per_task": 10,
+  "address_space_mib": 512,
+  "wall_seconds_per_task": 60,
+  "workers": 3
+}

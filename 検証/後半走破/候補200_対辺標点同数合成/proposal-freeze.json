@@ -1,0 +1,14 @@
+{
+  "status": "PURE_READY_NOT_ADOPTED",
+  "base": "112/157",
+  "files": {
+    "audit_ownership.py": "8dec31825fa586d53a738dc496ac641b668674b7eb6405ddebadda8bb23bd9f4",
+    "PRIOR.md": "9b715e933c8ba6123ab836e4b922e662e900c86b6a6d8e90e816efb8ed5f2868",
+    "対辺標点配置候補.py": "4e49c84456fcefa9a3fe9beb9d613ea1cf3f4dae5dc01e7549340b3b55ab154f",
+    "observation.json": "a4dc745bc9447952f464b9dc9aec73ac1e2273ffbe1bb5753b5b8a9ccd78f1a9",
+    "README.md": "cade07458a2ff31b156601ecf7c249a9a28460d1a9be7f2a05c6e2f00fd4f403",
+    "対辺標点配置核.py": "441bd607d19ba96d56890397a2cef29ac2502aeaaa49fc744aa8b8b9aa2c3ab5",
+    "check_candidate.py": "507dd777a6d5527e3b2e97f826e2b6a0c68613c779c962fda06d79d474dafe3c",
+    "candidate-result.json": "01b4b28a679a6678a76657b52d337c078820fc6e05ffbb7d304e7d8ba0f61088"
+  }
+}

@@ -1,0 +1,10 @@
+import json,sys,resource,time,hashlib,os
+resource.setrlimit(resource.RLIMIT_CPU,(10,10));resource.setrlimit(resource.RLIMIT_AS,(512*1024**2,512*1024**2))
+sys.path.insert(0,os.path.abspath('arc2-current109/source'))
+from boundary_table import fit,predict,render
+x=json.load(open('arc2-current99/solver-input-only/dbff022c.json'))
+t0=time.monotonic();models,info=fit(x['train']);y,d=predict(x['test'][0]['input'],models)
+report={'models':models,'fit':info,'query':{'output':y,'diagnostic':d},'resource':{'OPENBLAS_NUM_THREADS':os.environ.get('OPENBLAS_NUM_THREADS'),'CPU':10,'AS_MiB':512,'wall':60},'elapsed':time.monotonic()-t0}
+json.dump(report,open('proposal195-table-scene-20261008/pure-evidence.json','w'),indent=2)
+print('teacher_exact',info.get('teacher_exact'),'query',y is not None,'roles',[(r['side'],r['mapping']) for r in d.get('roles',[])])
+assert all(info['teacher_exact']) and y is not None

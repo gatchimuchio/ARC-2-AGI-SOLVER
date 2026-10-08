@@ -1,0 +1,30 @@
+from pathlib import Path
+import json,subprocess,time,sys,resource,os,hashlib
+E=Path(__file__).resolve().parent;B=E.parents[1];R=E.parent/'source';A=B/'arc2-current111/source';Q=B/'arc2-current99/solver-input-only/88e364bc.json'
+os.environ['OPENBLAS_NUM_THREADS']='1'
+def limits():
+ resource.setrlimit(resource.RLIMIT_CPU,(10,11));resource.setrlimit(resource.RLIMIT_AS,(536870912,536870912))
+def run(name,command,root,data):
+ start=time.monotonic()
+ with (E/(name+'.stdout')).open('xb') as out,(E/(name+'.stderr')).open('xb') as err:
+  p=subprocess.Popen(command,cwd=root,stdin=subprocess.PIPE,stdout=out,stderr=err,preexec_fn=limits)
+  try:p.communicate(data,timeout=60);timed=False
+  except subprocess.TimeoutExpired:p.kill();p.wait();timed=True
+ record=dict(exit_code=p.returncode,reaped=True,timeout=timed,wall_seconds=time.monotonic()-start)
+ (E/(name+'-terminal.json')).write_text(json.dumps(record));assert not p.returncode and not timed,record
+ return json.loads((E/(name+'.stdout')).read_text())
+for root in [A,R]:
+ assert len(list((root/'入力/公式サンプル').glob('*.json')))==120
+ assert (root/'入力/公式ソース/ARC-AGI-2/data/training').exists()
+data=Q.read_bytes();payload=json.loads(data);assert all(set(q)=={'input'}for q in payload['test'])
+previous=run('previous-native',[sys.executable,'-B',str(A/'検証/ARC2評価.py'),'--runtime','current'],A,data)
+current=run('native',[sys.executable,'-B',str(R/'検証/ARC2評価.py'),'--runtime','current'],R,data)
+pure=json.loads((B/'proposal198-marker-owner-20261008/pure-evidence.json').read_text())
+print(pure.keys())
+assert [x['answer']for x in current['results']]==[x['output']for x in pure['queries']]
+assert previous['families']==current['families']
+assert current['results'][1]==previous['results'][1]
+assert previous['results'][0]['answer'] is None and current['results'][0]['answer'] is not None
+assert all(current[k]==v for k,v in previous.items()if k!='results')
+report=dict(status='NATIVE_GAIN',families=len(current['families']),all_existing_families_and_records_identical=True,query1_identical=True,query0_new_output=True,pure_parity=True,scorer_calls=0)
+(E/'native-parity.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps(report))

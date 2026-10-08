@@ -1,0 +1,61 @@
+import sys,json,resource,hashlib
+from pathlib import Path
+resource.setrlimit(resource.RLIMIT_CPU,(10,10));resource.setrlimit(resource.RLIMIT_AS,(512*1024**2,512*1024**2))
+root=Path(__file__).resolve().parent.parent
+sys.path.insert(0,str(root/'candidate198-production/source'))
+import 接続.ARC2.標識移動教材 as a
+from dataclasses import asdict
+old,new=a._凡例方向移動,a._凡例所有境界
+checks={}
+def ck(name,value):assert value,name;checks[name]=True
+ck('pure_hash_matches',hashlib.sha256(Path(new.__file__).read_bytes()).hexdigest()=='a6637e397866052318eba6344ab942abbe44701affb9728fe5fdcf5b4ee5b8e1')
+teachers=json.loads((root/'arc2-current99/teachers-only/88e364bc.json').read_text())['train']
+obj=a.標識移動教材(teachers)
+ck('teacher_four_old_and_new',len(obj.凡例方向モデル.models)==len(obj.凡例所有モデル.models)==4)
+ck('new_state_model_only',set(vars(obj))=={'方針','接触消去教師数','適合方針数','凡例方向モデル','凡例方向fit記録','凡例所有モデル'} and set(vars(obj.凡例所有モデル))=={'models'})
+oldfit,newfit=obj.凡例方向モデル,obj.凡例所有モデル
+base_init=a._既存標識移動教材.__init__
+def base(self,t):self.方針=None;self.適合方針数=0;self.接触消去教師数=0
+a._既存標識移動教材.__init__=base
+of,nf=old.fit_teachers,new.fit_teachers
+old.fit_teachers=lambda t:(oldfit,{'complete':True})
+for name,models in [('same',newfit.models),('subset',newfit.models[:-1]),('reordered',newfit.models[::-1]),('extra',newfit.models+(newfit.models[0],))]:
+ new.fit_teachers=lambda t,models=models:(new.Fitted(models),{'complete':True})
+ z=a.標識移動教材(teachers)
+ ck('fit_'+name,(z.凡例所有モデル is not None)==(name=='same'))
+new.fit_teachers=lambda t:(newfit,{'complete':False})
+try:a.標識移動教材(teachers)
+except RuntimeError:ck('incomplete_fit_raises',True)
+else:raise AssertionError('incomplete fit')
+new.fit_teachers=lambda t:(None,{'failure':'invalid_teachers'})
+ck('invalid_new_teacher_no_state',a.標識移動教材(teachers).凡例所有モデル is None)
+old.fit_teachers,new.fit_teachers=of,nf
+a._既存標識移動教材.__init__=base_init
+op,np,opr,npr=old.parse,new.parse,old.predict,new.predict
+for oldroles,newroles,route in [([None]*4,[None,{},None,None],'new'),([None,{},None,None],[{}]*4,'old'),([None]*4,[None]*4,'old')]:
+ calls=[]
+ old.parse=lambda g,m:(calls.append(('oldparse',m)) or oldroles[oldfit.models.index(m)],{})
+ new.parse=lambda g,m:(calls.append(('newparse',m)) or newroles[newfit.models.index(m)],{})
+ old.predict=lambda g,f:(calls.append(('oldpredict',f)) or None,{'failure':'old_hold'})
+ new.predict=lambda g,f:(calls.append(('newpredict',f)) or None,{'failure':'new_hold'})
+ result=obj.候補([[0]],None)
+ ck('route_'+route+'_'+str(bool(any(s is not None for s in oldroles))),result[1]['failure']==route+'_hold')
+ ck('all_old_roles_checked',len([c for c in calls if c[0]=='oldparse'])==4)
+ ck('new_roles_all_or_none',len([c for c in calls if c[0]=='newparse'])==(0 if any(s is not None for s in oldroles) else 4))
+ ck('entire_fit_forwarded',calls[-1][1] is (newfit if route=='new' else oldfit))
+# A role recognition error cannot open the alternate domain.
+def boom(*args):raise RuntimeError('sentinel')
+old.parse=boom
+try:obj.候補([[0]],None)
+except RuntimeError as e:ck('old_recognition_exception_propagates',str(e)=='sentinel')
+else:raise AssertionError('old recognition exception')
+old.parse=lambda *args:(None,{})
+new.parse=lambda *args:({}, {})
+new.predict=boom
+try:obj.候補([[0]],None)
+except RuntimeError as e:ck('new_prediction_exception_propagates',str(e)=='sentinel')
+else:raise AssertionError('new predict exception')
+old.parse,new.parse,old.predict,new.predict=op,np,opr,npr
+report={'conclusion':'PASS. Teacher and mock only; query unopened. Additional state is models only; prior old fit diagnostics remain unchanged.','checks':checks,'adapter_sha256':hashlib.sha256(Path(a.__file__).read_bytes()).hexdigest()}
+(root/'proposal198-marker-owner-20261008/independent_adapter_audit.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps(report,ensure_ascii=False,indent=2))

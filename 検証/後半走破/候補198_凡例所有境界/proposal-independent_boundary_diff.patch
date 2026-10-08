@@ -1,0 +1,44 @@
+--- "arc2-current99/evidence/not-adopted/proposal171-marker-movement-view-20261007/revision2/\346\216\245\347\266\232/ARC2/\345\207\241\344\276\213\346\226\271\345\220\221\347\247\273\345\213\225\345\200\231\350\243\234.py"	2026-10-08 13:13:28.563192605 +0900
++++ proposal198-marker-owner-20261008/marker_owner.py	2026-10-08 18:42:31.493160108 +0900
+@@ -4,7 +4,11 @@
+ Fixed priors: isolated, filled rectangular legend patches with a uniform wall
+ perimeter; each legend is fully partitioned into straight tail-to-head chains;
+ four-neighbour wall enclosures; rectilinear or diagonal unit translation to the
+-first blocked placement; simultaneous source erase and endpoint paint.
++first blocked swept placement; simultaneous source erase and endpoint paint.
++Additional prior: a diagonal unit step requires both orthogonal intermediate
++footprints to remain in the same owner region (no boundary corner cutting).
++Intermediate marker occupancy is not a boundary; existing endpoint collision
++models remain unchanged. This is a boundary-topology prior, not swept physics.
+ """
+ from dataclasses import asdict, dataclass
+ from itertools import permutations, product
+@@ -170,6 +174,14 @@
+         path = [(top,left)]
+         row,col = top,left
+         while (row+dr,col+dc) in valid:
++            if dr and dc:
++                flanks = ((row+dr,col), (row,col+dc))
++                flank_masks = [shifted_sparse_point_mask(source,rr-top,cc-left,h,w)
++                               for rr,cc in flanks]
++                if any(mask is None for mask in flank_masks):
++                    raise RuntimeError("placement helper and swept shift disagree")
++                if any(not mask <= region for mask in flank_masks):
++                    break
+             moved = shifted_sparse_point_mask(source,row+dr-top,col+dc-left,h,w)
+             if moved is None:
+                 raise RuntimeError("placement helper and shift helper disagree")
+@@ -227,7 +239,12 @@
+ 
+ 
+ def fit_teachers(teachers):
+-    if not teachers or any(not valid_grid(p["input"]) or not valid_grid(p["output"]) for p in teachers):
++    if (not isinstance(teachers,list) or len(teachers)<2
++            or any(not isinstance(p,dict) or not valid_grid(p.get("input"))
++                   or not valid_grid(p.get("output"))
++                   or len(p["input"])!=len(p["output"])
++                   or len(p["input"][0])!=len(p["output"][0]) for p in teachers)
++            or len({tuple(map(tuple,p["input"])) for p in teachers})!=len(teachers)):
+         return None, {"failure": "invalid_teachers"}
+     alternatives,retained = [],[]
+     for model in all_models(teachers):

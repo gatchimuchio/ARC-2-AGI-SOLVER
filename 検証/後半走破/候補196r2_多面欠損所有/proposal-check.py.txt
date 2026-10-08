@@ -1,0 +1,24 @@
+import json,sys,resource,time
+resource.setrlimit(resource.RLIMIT_CPU,(10,10));resource.setrlimit(resource.RLIMIT_AS,(512*1024**2,512*1024**2))
+sys.path.insert(0,'arc2-current110/source')
+import multisurface_defects as m
+T=json.load(open('arc2-current99/teachers-only/de809cff.json'))['train'];Q=json.load(open('arc2-current99/solver-input-only/de809cff.json'))['test']
+t=time.monotonic();models=m.fit_teachers(T);assert models
+train=[m.predict(p['input'],models) for p in T];assert all(o==p['output'] for p,(o,i) in zip(T,train))
+queries=[m.predict(p['input'],models) for p in Q];assert all(o is not None for o,i in queries)
+checks=4
+for bad in (None,[],{},T[:1],T+[T[0]],[{'input':True,'output':[]}],T+[{'input':T[0]['input']}],T+[{'input':[[True]*3]*3,'output':[[0]*3]*3}]):assert m.fit_teachers(bad)==[];checks+=1
+for bad in (None,[],[[True]*3]*3,[[0]*3]*3):assert m.predict(bad,models)[0] is None;checks+=1
+assert m.predict(Q[0]['input'],models+[{'background':9,'marker':8,'version':1}])[0] is None;checks+=1
+old=m.unique_region
+try:
+ m.unique_region=lambda g:(None,{'failure':'ambiguous'})
+ assert m.predict(Q[0]['input'],models)[0] is None;checks+=1
+ def fail(g):raise RuntimeError('injected resource / unexpected exception')
+ m.unique_region=fail
+ try:m.predict(Q[0]['input'],models)
+ except RuntimeError:checks+=1
+ else:raise AssertionError('exception swallowed')
+finally:m.unique_region=old
+json.dump({'models':models,'teachers_fit':len(train),'queries':[{'output':o,'info':i}for o,i in queries],'checks':checks,'seconds':time.monotonic()-t,'limits':'OPENBLAS1 CPU10 512MiB wall60','hidden_read':False},open('proposal196-defect-ownership-20261008/pure-evidence.json','w'),indent=2)
+print('PASS',checks,models,time.monotonic()-t)

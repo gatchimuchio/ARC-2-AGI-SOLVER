@@ -1,0 +1,16 @@
+{
+  "changed": [
+    "接続/ARC2/矩形継目教材.py",
+    "検証/矩形継目回帰.py"
+  ],
+  "added": [
+    "接続/ARC2/矩形継目/touching_rectangle.py",
+    "接続/ARC2/矩形継目/propagated_rectangle.py",
+    "接続/ARC2/矩形継目/physical_rectangle_view.py",
+    "接続/ARC2/矩形継目/physical_rectangle.py"
+  ],
+  "core_gate_and_registration_unchanged": true,
+  "scorer_calls": 0,
+  "proposal": "proposal191-r3-rectangle-assembly-20261008",
+  "historical_failures": "candidate191-production/evidence-20261008/full-regression-current.json"
+}

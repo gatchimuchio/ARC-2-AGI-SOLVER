@@ -1,0 +1,20 @@
+import sys,json,importlib.util,resource,hashlib
+from pathlib import Path
+resource.setrlimit(resource.RLIMIT_CPU,(10,10));resource.setrlimit(resource.RLIMIT_AS,(512*1024**2,512*1024**2))
+sys.dont_write_bytecode=True
+root=Path(__file__).resolve().parent;sys.path.insert(0,str(root.parent/'arc2-current111/source'))
+def load(name,p):
+ s=importlib.util.spec_from_file_location(name,p);m=importlib.util.module_from_spec(s);sys.modules[name]=m;s.loader.exec_module(m);return m
+new=load('newmarker',root/'marker_owner.py')
+old=load('oldmarker',root.parent/'arc2-current99/evidence/not-adopted/proposal171-marker-movement-view-20261007/revision2/接続/ARC2/凡例方向移動候補.py')
+p=json.load(open(root.parent/'arc2-current99/solver-input-only/88e364bc.json'))
+f,rec=new.fit_teachers(p['train']);print('FIT',f,rec['model_count']);assert f
+for t in p['train']:assert new.predict(t['input'],f)[0]==t['output']
+freeze={'sha256':hashlib.sha256((root/'marker_owner.py').read_bytes()).hexdigest(),'models':[vars(m) for m in f.models],'teachers_exact':len(p['train']),'additional_prior':'diagonal boundary step requires both orthogonal intermediate footprints in the same owner region; transient marker occupancy is not boundary','teacher_unique':False}
+(root/'freeze.json').write_text(json.dumps(freeze,indent=2))
+recs=[]
+for i,t in enumerate(p['train']+p['test']):
+ om=old.Model(**vars(f.models[0]));oo,orr=old.render_model(t['input'],om);no,nrr=new.predict(t['input'],f)
+ recs.append({'kind':'teacher' if i<3 else 'query','index':i if i<3 else i-3,'output':no,'record':nrr,'change_from171':None if no is None or oo is None else [(r,c,oo[r][c],no[r][c]) for r in range(len(no)) for c in range(len(no[0])) if no[r][c]!=oo[r][c]]})
+ print(recs[-1]['kind'],recs[-1]['index'],'failure',nrr['failure'],'delta',recs[-1]['change_from171'])
+(root/'pure-evidence.json').write_text(json.dumps(recs,indent=2))

@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "kernel_sha256": "1522b9a4201eea9dcf123352eea49968173b855783d43d5ac6ffa354211079fc",
+  "source_report": "proposal187-masked-pattern-20261008/AUDIT_INDEPENDENT.md",
+  "results_sha256": "9a04100a7a3f5ba750beb33d24e5ab9f5684d96dd7e147a3d7ba31bafeec777c",
+  "details": {
+    "sha256": "1522b9a4201eea9dcf123352eea49968173b855783d43d5ac6ffa354211079fc",
+    "teacher_exact": 4,
+    "axes": [
+      31,
+      31
+    ],
+    "brute_force_cases": 908,
+    "synthetic_bind_successes": 284,
+    "synthetic_holds": 624,
+    "old_success_paths_preserved": 297,
+    "compression_exact": true,
+    "maximal_candidate_and_donor_exact": true,
+    "exception_propagation": true
+  }
+}

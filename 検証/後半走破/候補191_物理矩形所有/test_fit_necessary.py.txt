@@ -1,0 +1,33 @@
+import json,sys,runpy,importlib.util
+from pathlib import Path
+from unittest.mock import patch
+E=Path(__file__).resolve().parent;B=E.parents[1];P=B/'proposal191-r3-rectangle-assembly-20261008';BASE=E.parent/'source';sys.path.insert(0,str(BASE));sys.path.insert(0,str(P))
+from 接続.ARC2.矩形継目 import physical_rectangle as new
+spec=importlib.util.spec_from_file_location('old191',P.parent/'proposal191-rectangle-assembly-20261008/physical_rectangle.py');old=importlib.util.module_from_spec(spec);sys.modules['old191']=old;spec.loader.exec_module(old)
+cases=[]
+for file,fn in [('形状色回帰.py','教師'),('物体端投射回帰.py','複数教材')]:
+ d=runpy.run_path(str(BASE/'検証'/file),run_name='only_fixture')
+ ts=d[fn]() if fn=='教師' else [d[fn](d['形群'][:4]),d[fn](d['形群'][4:])]
+ _,before=old.fit(ts)
+ assert before['status']=='RESOURCE_INCOMPLETE'
+ with patch.object(new,'physical_predict',side_effect=AssertionError('new CSP must not run for impossible teachers')):
+  state,after=new.fit(ts)
+ assert state is None and after['status']=='HOLD' 
+ cases.append({'fixture':file,'before':before,'after':after})
+T=json.load(open(P.parent/'arc2-current99/teachers-only/446ef5d2.json'))['train']
+assert old.fit(T)[1]==new.fit(T)[1]
+# Predict itself is unchanged, including the genuine resource failure on the
+# unrelated input if a caller bypasses fit. No exception is suppressed.
+for case in cases:assert case['before']['status']=='RESOURCE_INCOMPLETE'
+# Old role domain with genuine enumeration exhaustion remains incomplete even
+# though the supplied teachers violate the marker count invariant.
+g=[[0]*30 for _ in range(10)]
+for i in range(10):g[2][2+2*i]=1
+for r,c in [(1,1),(1,2),(2,1)]:g[r][c]=9
+g2=g+[[0]*30]
+for ts in ([{'input':g,'output':g},{'input':g2,'output':g2}],
+           [cases and {'input':g,'output':g},T[0]]):
+ before=old.fit(ts)[1];after=new.fit(ts)[1]
+ assert before==after and after['status']=='RESOURCE_INCOMPLETE'
+json.dump({'teacher_parity':True,'cases':cases},open(E/'fit-necessary-evidence.json','w'),ensure_ascii=False,indent=2)
+print('PASS: two failing fixture teacher sets rejected by proved invariants; original teacher fit record unchanged')

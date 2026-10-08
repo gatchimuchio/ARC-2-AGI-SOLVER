@@ -1,0 +1,10 @@
+from pathlib import Path
+import json,resource,sys,time
+E=Path(__file__).resolve().parent;B=E.parents[1];R=E.parent/'source'
+resource.setrlimit(resource.RLIMIT_CPU,(10,11));resource.setrlimit(resource.RLIMIT_AS,(536870912,536870912));sys.path.insert(0,str(R))
+from 接続.ARC2.直交領域所有核 import 直交領域所有教材
+p=json.loads((B/'arc2-current99/solver-input-only/71e489b6.json').read_text());assert all(set(q)=={'input'}for q in p['test']);old=json.loads((B/'proposal192-r2-outline-cleanup-20261008/pure-results.json').read_text());a=直交領域所有教材(p['train']);assert a.models==old['models'] or [list(x)for x in a.models]==old['models'];rows=[]
+for i,q in enumerate(p['train']+p['test']):
+ out,info=a.候補(q['input']);assert out==old['cases'][i]['output'];assert json.loads(json.dumps(info))==old['cases'][i]['record'];rows.append({'case':i,'exact_output':True,'exact_numeric_certificate':True})
+assert len(rows)==5
+r={'status':'PASS','cases':rows,'model_preserved':True,'no_query_labels_read':True,'scorer_calls':0};(E/'old192-parity.json').write_text(json.dumps(r,indent=2));print(json.dumps(r))

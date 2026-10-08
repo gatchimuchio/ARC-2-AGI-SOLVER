@@ -1,0 +1,9 @@
+[
+  {
+    "stage": "targeted",
+    "initial": "Compared in-memory tuple-bearing record with JSON-deserialized lists, causing query_0_parity assertion",
+    "resolution": "Normalize actual through JSON roundtrip for full structural comparison; outputs, solver and old fixtures unchanged",
+    "original": "targeted-initial.py",
+    "stderr": "targeted-initial.stderr"
+  }
+]

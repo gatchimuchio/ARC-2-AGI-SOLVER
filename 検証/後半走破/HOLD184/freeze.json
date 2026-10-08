@@ -1,0 +1,12 @@
+{
+  "status": "HOLD_NO_RUNTIME_CHANGE",
+  "files": {
+    "README.md": "6a965d27270ccb1b01a67c44d8fc4f9b23d582c22652d09579b55a5da02768ae",
+    "observation.json": "60d798350738917c3f38434aaee567b47f16f8bc56b14ee71008b12f900a2a28",
+    "observations.png": "79a3650f4ab7d5f0cac81d59717482fc3e4ce3d08a852607b9e8b16b60ff4df6"
+  },
+  "existing_source": {
+    "対辺標点配置候補.py": "4e49c84456fcefa9a3fe9beb9d613ea1cf3f4dae5dc01e7549340b3b55ab154f",
+    "対辺標点配置核.py": "dbc768521416ada613a7a41aeb394a38f3ec63f17b89cd69bd221aaeffb04e55"
+  }
+}

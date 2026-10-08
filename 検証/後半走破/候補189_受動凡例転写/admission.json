@@ -1,0 +1,17 @@
+{
+  "status": "ACCEPTED_LOCAL",
+  "previous": [
+    105,
+    148
+  ],
+  "current": [
+    106,
+    149
+  ],
+  "verified_parent": "4915c462c0f6d4400a87454b43302e0ff70f654e",
+  "commit": null,
+  "commit_status": "pending; no remote write",
+  "runtime_exact_tested": true,
+  "score_sha256": "cb0c3bb382f2fc7d09d9b2a1450222afa02411906dfd054a5125f2ba4e935412",
+  "scorer_calls": 1
+}

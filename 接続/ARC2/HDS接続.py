@@ -99,6 +99,20 @@ from .領域指令教材 import 領域指令教材
 from .全panel端連鎖教材 import 全panel端連鎖教材
 from .矩形継目教材 import 矩形継目教材
 from .観測成長教材 import 観測成長教材
+from .遮蔽端接続教材 import 遮蔽端接続教材
+from .空洞種伝播教材 import 空洞種伝播教材
+from .標点巡回教材 import 標点巡回教材
+from .受動凡例転写教材 import 受動凡例転写教材
+from .直交領域所有核 import 直交領域所有教材
+from .局所軌条鎖所有教材 import 局所軌条鎖所有教材
+from .境界表穴転写教材 import 境界表穴転写教材
+from .多面欠損所有教材 import 多面欠損所有教材
+from .枠質量保存教材 import 枠質量保存教材
+from .斜端点間隙教材 import 斜端点間隙教材
+from .標識経路層教材 import 標識経路層教材
+from .特徴条件整列教材 import 特徴条件整列教材
+from .周期枠位相教材 import 周期枠位相教材
+from .有限例外光線教材 import 有限例外光線教材
 
 
 def 事前教材を読む():
@@ -300,6 +314,23 @@ def 課題を解く(課題, 事前教材):
     全panel端連鎖 = 全panel端連鎖教材(課題["train"])
     矩形継目 = 矩形継目教材(課題["train"])
     観測成長 = 観測成長教材(課題["train"])
+    遮蔽端接続 = 遮蔽端接続教材(課題["train"])
+    空洞種伝播 = 空洞種伝播教材(課題["train"])
+    標点巡回 = 標点巡回教材(課題["train"])
+    受動凡例転写 = 受動凡例転写教材(課題["train"])
+    直交領域所有 = 直交領域所有教材(課題["train"])
+    局所軌条鎖所有 = 局所軌条鎖所有教材(課題["train"])
+    境界表穴転写 = 境界表穴転写教材(課題["train"])
+    多面欠損所有 = 多面欠損所有教材(課題["train"])
+    枠質量保存 = 枠質量保存教材(課題["train"])
+    斜端点間隙 = 斜端点間隙教材(課題["train"])
+    標識経路層 = 標識経路層教材(課題["train"])
+    特徴条件整列 = 特徴条件整列教材(課題["train"])
+    特徴条件整列.学習する(機械, 観測へ)
+    有限例外光線 = 有限例外光線教材(課題["train"])
+    有限例外光線.学習する(機械, 観測へ)
+    周期枠位相 = 周期枠位相教材(課題["train"])
+    周期枠位相.学習する(機械, 観測へ)
     機構群 = (
         ("ARCテンプレート穴充填", _template_hole_pack_render, 事前教材),
         ("ARC入れ子パネル合成", _nested_panel_relation_render, ()),
@@ -392,6 +423,20 @@ def 課題を解く(課題, 事前教材):
         ("ARC全panel端連鎖", 全panel端連鎖.候補, ()),
         ("ARC矩形継目", 矩形継目.候補, ()),
         ("ARC観測成長", 観測成長.候補, ()),
+        ("ARC遮蔽端接続", 遮蔽端接続.候補, ()),
+        ("ARC空洞種伝播", 空洞種伝播.候補, ()),
+        ("ARC標点巡回", 標点巡回.候補, ()),
+        ("ARC受動凡例転写", 受動凡例転写.候補, ()),
+        ("ARC直交領域所有", 直交領域所有.候補, ()),
+        ("ARC局所軌条鎖所有", 局所軌条鎖所有.候補, ()),
+        ("ARC境界表穴転写", 境界表穴転写.候補, ()),
+        ("ARC多面欠損所有", 多面欠損所有.候補, ()),
+        ("ARC枠質量保存", 枠質量保存.候補, ()),
+        ("ARC斜端点間隙", 斜端点間隙.候補, ()),
+        ("ARC標識経路層", 標識経路層.候補, ()),
+        ("ARC特徴条件整列", 特徴条件整列.候補, ()),
+        ("ARC有限例外光線", 有限例外光線.候補, ()),
+        ("ARC周期枠位相", 周期枠位相.候補, ()),
     )
     記録群 = [候補機構を学習(機械, 課題, 教材, 境界, 候補器)
               for 境界, 候補器, 教材 in 機構群]
@@ -431,6 +476,20 @@ def 課題を解く(課題, 事前教材):
             "whole_panel_port_chain": 全panel端連鎖.記録(),
             "rectangle_seam": 矩形継目.記録(),
             "observed_growth": 観測成長.記録(),
+            "occluded_port_composition": 遮蔽端接続.記録(),
+            "cavity_seed_propagation": 空洞種伝播.記録(),
+            "marker_traversal": 標点巡回.記録(),
+            "passive_keyed_stamp": 受動凡例転写.記録(),
+            "orthogonal_region_ownership": 直交領域所有.記録(),
+            "local_rail_chain_ownership": 局所軌条鎖所有.記録(),
+            "boundary_table_cavity": 境界表穴転写.記録(),
+            "multisurface_defects": 多面欠損所有.記録(),
+            "frame_payload_conservation": 枠質量保存.記録(),
+            "diagonal_endpoint_gap": 斜端点間隙.記録(),
+            "marked_path_layers": 標識経路層.記録(),
+            "feature_conditioned_alignment": 特徴条件整列.記録(),
+            "period_relative_frame_phase": 周期枠位相.記録(),
+            "finite_exception_rays": 有限例外光線.記録(),
             "counted_color_layers": 計数色層旋回.記録(),
             "minimum_support": 必要支持数, "families": 記録群,
             "quarantined": 隔離数, "object_learning": 端教材.記録(), "legend_learning": 凡例教材.記録(), "grouped_packing": 色群教材.記録(), "group_order": 整列教材.記録(), "lattice_self_mask": 格子教材.記録(), "component_path": 経路教材.記録(), "diagonal_bridge": 橋教材.記録(), "diagonal_region": 対角教材.記録(), "axis_reflection": 反射教材.記録(), "tuple_repair": 周期教材.記録(), "panel_exemplar": 見本教材.記録(), "hole_scale": 拡大教材.記録(), "guided_compaction": 移動教材.記録(), "radial_assembly": 放射教材.記録(), "hole_outline": 輪郭教材.記録(), "template_shape_color": 形状教材.記録(), "legend_gap": 凡例経路.記録(), "separator_run": 行周期.記録(), "overlap_mosaic": 重畳教材.記録(), "farthest_blank": 空白教材.記録(), "header_rank": 順位教材.記録(), "separator_layer": 距離教材.記録(), "vertical_pruning": 剪定教材.記録(), "periodic_panel": 反復教材.記録(), "seeded_boundary": 種境界.記録(), "corridor": 流路.記録(), "panel_path": 直列.記録(), "plus_motif": 十字.記録(), "frame_count": 枠計数.記録(), "marker_count": 標識計数.記録(), "marker_assembly": 標識組立.記録(), "motif_swap": 倍率置換.記録(), "nested_inventory": 包含正規化.記録(), "periodic_band": 周期帯.記録(), "square_palette": 中心配色.記録(), "square_anchor": 正方形格子.記録(), "repeated_side": 側周期.記録(), "separator_projection": 区切投射.記録(), "object_slot": 物体slot.記録(), "sparse_point": 疎点転写.記録(), "stripe_ring": 帯輪郭.記録(), "control_bar": 制御複写.記録(), "layout_macro": 配置展開.記録(), "anchored_motif": 基点複製.記録(), "chiral_payload": 接触配置.記録(), "legend_macro": 凡例展開.記録(), "framed_lanes": 枠列整列.記録(), "legend_turn": 凡例旋回.記録(), "band_glyph": 帯図形.記録(), "binary_completion": 二値原型.記録(), "quadrant_palette": 象限配色.記録(), "palette_subset": 凡例集合.記録(), "zero_reflection": 二軸補完.記録(), "four_field_repeat": 四欄反復.記録(), "edge_axis_projection": 軸投射.記録(), "glyph_instruction": 記号命令.記録(), "comb_pin": 櫛配置.記録(), "open_wall": 開口壁.記録(), "partition_faces": 区画計数.記録(), "bbox_legend": 凡例矩形.記録(), "cross_arm": 十字曲線.記録(), "support_contact": 支持構造.記録(), "marked_piece": 標点組立.記録(), "distance_collection": 距離回収.記録(), "border_stack": 枠端積層.記録(), "labeled_axis_transfer": 標識軸転写.記録(), "example_grid_classification": 見本格子分類.記録(), "colored_ray_reflection": 色線反射.記録(), "boundary_point_period": 境界点周期.記録(), "bounded_glyph_window": 有限字形視野.記録(), "band_profile_stack": 帯profile積層.記録(), "counted_bar_detour": 計数棒迂回.記録(), "boundary_color_path": 境界色経路.記録(), "full_footprint_chart": 全足跡整列.記録(), "arrow_pulses": 矢印到達.記録(), "marker_channel": 標識水路.記録(), "corner_patch_transfer": 隅模様転写.記録(), "congruent_object_ports": 合同物体出口.記録(), "whole_mask_view": 全体模様窓.記録(), "body_port_rays": 全体接触.記録()}

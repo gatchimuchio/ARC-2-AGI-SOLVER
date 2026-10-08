@@ -1,0 +1,20 @@
+{
+  "added": [
+    {
+      "path": "接続/ARC2/遮蔽端接続核.py",
+      "sha256": "82a6d8715706245d9eb3a256d812e397b1c1f0e83e46c33bd0c1a8bd15705e2f"
+    },
+    {
+      "path": "接続/ARC2/遮蔽端接続教材.py",
+      "sha256": "16199db9fe615468cb40d7c7ce2dab900632923ae09ffbdebfaf2138ff0f805b"
+    }
+  ],
+  "changed": [
+    {
+      "path": "接続/ARC2/HDS接続.py",
+      "previous_sha256": "84acb30a3efb369364de74d9f9bf7d7c441e8b647393b9cb38652327d66aa5cd",
+      "current_sha256": "64646e9c465fef62b041c2ceb2bda41fcb3640e21e989867e2a54536b5a2a5d5"
+    }
+  ],
+  "accepted_source_unchanged": true
+}

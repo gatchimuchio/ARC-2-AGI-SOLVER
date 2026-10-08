@@ -1,0 +1,15 @@
+from pathlib import Path
+import subprocess,resource,json,time,sys,os
+E=Path(__file__).resolve().parent;R=E.parent/'source';Q=E.parents[1]/'arc2-current99/solver-input-only/88bcf3b4.json'
+def limits():
+ resource.setrlimit(resource.RLIMIT_CPU,(10,11));resource.setrlimit(resource.RLIMIT_AS,(536870912,536870912))
+data=Q.read_bytes();assert all(set(q)=={'input'}for q in json.loads(data)['test'])
+assert list((R/'入力/公式サンプル').glob('*.json')) and (R/'入力/公式ソース/ARC-AGI-2/data/training').exists()
+start=time.monotonic()
+with (E/'previous-native.stdout').open('xb')as out,(E/'previous-native.stderr').open('xb')as err:
+ p=subprocess.Popen([sys.executable,'-B',str(R/'検証/ARC2評価.py'),'--runtime','current'],cwd=R,stdin=subprocess.PIPE,stdout=out,stderr=err,preexec_fn=limits,env=dict(os.environ,OPENBLAS_NUM_THREADS='1'))
+ try:p.communicate(data,timeout=60);timed=False
+ except subprocess.TimeoutExpired:p.kill();p.wait();timed=True
+rec=dict(exit_code=p.returncode,timeout=timed,reaped=True,wall_seconds=time.monotonic()-start)
+(E/'previous-native-terminal.json').write_text(json.dumps(rec));assert not p.returncode and not timed,rec
+v=json.loads((E/'previous-native.stdout').read_text());print(json.dumps(dict(families=len(v['families']),admitted=[f for f in v['families']if f['採用可']and f['同値採用']],answers=[r['answer']is not None for r in v['results']]),ensure_ascii=False))

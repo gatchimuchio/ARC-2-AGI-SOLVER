@@ -1,0 +1,362 @@
+{
+  "status": "PASS_CONDITIONAL_ON_STRICT_ADAPTER",
+  "checks": [
+    {
+      "name": "frozen_sha",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "all_four_models_retained",
+      "pass": true,
+      "detail": {
+        "version": 1,
+        "models": [
+          [
+            "chebyshev",
+            "early"
+          ],
+          [
+            "chebyshev",
+            "late"
+          ],
+          [
+            "euclidean_squared",
+            "early"
+          ],
+          [
+            "euclidean_squared",
+            "late"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "teacher_0",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_logical_count_0",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_logical_count_0",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_logical_count_0",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_logical_count_0",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_logical_count_1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_logical_count_1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_logical_count_1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_logical_count_1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_2",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_logical_count_2",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_logical_count_2",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_logical_count_2",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_logical_count_2",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_logical_count_3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_logical_count_3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_logical_count_3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_logical_count_3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_logical_count_4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_logical_count_4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_logical_count_4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_logical_count_4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "single_and_duplicate_not_guarded_in_pure",
+      "pass": true,
+      "detail": "Adapter must enforce at least two distinct valid teacher pairs."
+    },
+    {
+      "name": "same_color_objects_separate",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "same_color_two_local_owners",
+      "pass": true,
+      "detail": {
+        "failure": null,
+        "candidates": [
+          {
+            "chains": [
+              {
+                "rail": 0,
+                "chain": 2,
+                "target": 4,
+                "anchor": [
+                  4,
+                  3
+                ],
+                "source_count": 5,
+                "logical_count": 5,
+                "clipped_count": 0,
+                "points": [
+                  [
+                    4,
+                    3
+                  ],
+                  [
+                    5,
+                    4
+                  ],
+                  [
+                    5,
+                    5
+                  ],
+                  [
+                    5,
+                    6
+                  ],
+                  [
+                    4,
+                    7
+                  ]
+                ]
+              },
+              {
+                "rail": 1,
+                "chain": 3,
+                "target": 5,
+                "anchor": [
+                  14,
+                  3
+                ],
+                "source_count": 5,
+                "logical_count": 5,
+                "clipped_count": 0,
+                "points": [
+                  [
+                    14,
+                    3
+                  ],
+                  [
+                    15,
+                    4
+                  ],
+                  [
+                    15,
+                    5
+                  ],
+                  [
+                    15,
+                    6
+                  ],
+                  [
+                    14,
+                    7
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "same_color_passive_preserved",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "both_lateral_roles_retained",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "role_disagreement_holds",
+      "pass": true,
+      "detail": "candidate_disagreement"
+    },
+    {
+      "name": "all_target_ties_chebyshev",
+      "pass": true,
+      "detail": "candidate_disagreement"
+    },
+    {
+      "name": "all_target_ties_euclidean_squared",
+      "pass": true,
+      "detail": "candidate_disagreement"
+    },
+    {
+      "name": "any_candidate_failure_holds",
+      "pass": true,
+      "detail": {
+        "failure": "retained_candidate_failure",
+        "candidates": [
+          {
+            "chains": [
+              {
+                "rail": 0,
+                "chain": 1,
+                "target": 2,
+                "anchor": [
+                  4,
+                  3
+                ],
+                "source_count": 5,
+                "logical_count": 5,
+                "clipped_count": 0,
+                "points": [
+                  [
+                    4,
+                    3
+                  ],
+                  [
+                    3,
+                    4
+                  ],
+                  [
+                    2,
+                    5
+                  ],
+                  [
+                    2,
+                    6
+                  ],
+                  [
+                    1,
+                    7
+                  ]
+                ]
+              }
+            ]
+          },
+          {
+            "chains": [],
+            "failure": "non_unit_profile"
+          }
+        ]
+      }
+    },
+    {
+      "name": "early_late_distinct_off_teacher",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "model_disagreement_holds",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "justified_clip_0",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "justified_clip_3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exception_propagation",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ownership_overlap_holds",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "limitations": [
+    "Only explicit finite prior family audited; teachers do not uniquely identify rule.",
+    "Pure fit lacks minimum-two-unique and teacher schema guards; adapter required.",
+    "No query, official answer, RESULT, pure-evidence or image read."
+  ]
+}

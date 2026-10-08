@@ -1,0 +1,6 @@
+{
+  "checks": 162,
+  "metamorphic": 160,
+  "mixed_failure_hold": true,
+  "exception_propagated": true
+}

@@ -1,0 +1,36 @@
+from pathlib import Path
+import sys,json,hashlib,copy
+from unittest.mock import patch
+E=Path(__file__).resolve().parent;R=E.parent/'source';B=E.parents[1]
+sys.path.insert(0,str(R))
+from 接続.ARC2 import 標点巡回核 as m,標点巡回教材 as g
+checks=[]
+def check(n,c):
+ assert c,n
+ checks.append(n)
+t=json.loads((B/'arc2-current99/teachers-only/5545f144.json').read_text())['train'];before=copy.deepcopy(t)
+q=json.loads((B/'arc2-current99/solver-input-only/5545f144.json').read_text())['test'][0]['input'];expected=json.loads((B/'proposal188-marker-traversal-20261008/input-only-prediction.json').read_text())[0]['output']
+a=g.標点巡回教材(t)
+check('three retained models',len(a.fitted.models)==3)
+check('compact model-only state',set(vars(a))=={'fitted','teacher_count'})
+check('empty prior',a.記録()['事前支持数']==0)
+check('serializable state',json.loads(json.dumps(a.記録()))==a.記録())
+for i,p in enumerate(t):
+ out,record=a.候補(p['input'],{});check('teacher exact '+str(i),out==p['output']);json.dumps(record)
+check('no teacher mutation',before==t)
+check('query frozen parity',a.候補(q,{})[0]==expected)
+check('full query diagnostics preserved',a.候補(q,{})[1]==g.診断をJSON値へ(m.predict(q,a.fitted)[1]))
+check('set all elements preserved',g.診断をJSON値へ({'a':frozenset({(2,3),(4,5)})})=={'a':[[2,3],[4,5]]})
+try:g.診断をJSON値へ(object())
+except TypeError:check('unsupported diagnostic raises',True)
+else:raise AssertionError('silent object omission')
+for name,data in [('empty',[]),('duplicate',[t[0],t[0]]),('wrong',copy.deepcopy(t))]:
+ if name=='wrong':data[0]['output'][0][0]=(data[0]['output'][0][0]+1)%10
+ bad=g.標点巡回教材(data);check(name+' no fit',bad.fitted is None);check(name+' HOLD',bad.候補(q,{})[0]is None);json.dumps(bad.記録());json.dumps(bad.候補(q,{})[1])
+for method,call in [('fit',lambda:g.標点巡回教材(t)),('predict',lambda:a.候補(q,{}))]:
+ with patch.object(m,method,side_effect=m.SearchIncomplete('budget')):
+  try:call()
+  except m.SearchIncomplete:check(method+' SearchIncomplete propagates',True)
+  else:raise AssertionError('resource swallowed')
+check('kernel frozen',hashlib.sha256((R/'接続/ARC2/標点巡回核.py').read_bytes()).hexdigest()==json.loads((B/'proposal188-marker-traversal-20261008/prequery-freeze.json').read_text())['kernel_sha256'])
+report={'successful':True,'tests_run':len(checks),'checks':checks,'scorer_calls':0};(E/'targeted.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps(report,ensure_ascii=False))

@@ -1,0 +1,61 @@
+import json,sys,hashlib
+from pathlib import Path
+E=Path(__file__).resolve().parent
+B=E.parents[1]
+ROOT=B/'proposal191-r3-rectangle-assembly-20261008'
+sys.path.insert(0,str(E.parent/'source'))
+sys.path.insert(0,str(ROOT))
+from 接続.ARC2.矩形継目 import physical_rectangle as new
+from 接続.ARC2.矩形継目 import physical_rectangle_view as view
+from 接続.ARC2.矩形継目 import touching_rectangle as oldview
+import global_rectangle as oldglobal
+from 接続.ARC2.矩形継目 import seam_rectangle as legacy
+checks=[]
+def check(name,value):
+ assert value,name
+ checks.append(name)
+D=json.load(open(ROOT.parent/'arc2-current99/teachers-only/446ef5d2.json'))['train']
+Q=json.load(open(ROOT.parent/'arc2-current99/solver-input-only/446ef5d2.json'))['test']
+s,rec=new.fit(D);check('all_teacher_fit',s is not None)
+json.dump(rec,open(E/'teacher-evidence.json','w'))
+for i,p in enumerate(D):
+ check(f'physical_teacher_{i}',new.physical_predict(s,p['input'])[0]==p['output'])
+ check(f'legacy_tuple_teacher_{i}',new.predict(s,p['input'])==legacy.predict(legacy.State(),p['input']))
+for i,q in enumerate(Q):
+ out,r=new.predict(s,q['input']);check(f'query_{i}_candidate',out is not None)
+ json.dump({'output':out,'record':r},open(E/f'q{i}-physical.json','w'))
+ if i==1:check('legacy_query_1_tuple', (out,r)==legacy.predict(legacy.State(),q['input']))
+# Structural old roles preserve even HOLD and resource results, without new view.
+for p in D:
+ for budget in (1,10,100,1000):
+  check(f'legacy_budget_{len(checks)}',new.predict(s,p['input'],budget=budget)==legacy.predict(legacy.State(),p['input'],budget=budget))
+# Every color permutation uses the same input-only recognition and assembly.
+for shift in (1,3,7):
+ transform=lambda a:[[(v+shift)%10 for v in row]for row in a]
+ td=[{'input':transform(p['input']),'output':transform(p['output'])}for p in D]
+ ss,_=new.fit(td);check(f'colorfit{shift}',ss is not None)
+ for i,q in enumerate(Q):
+  out,_=new.predict(ss,transform(q['input']));expected=transform(json.load(open(ROOT/f'q{i}-physical.json'))['output']);check(f'colorquery{shift}-{i}',out==expected)
+# A rectangle with a double border is rigid, even when saturated old view cuts it.
+body=tuple((r,c,v)for r,row in enumerate([[2,2],[1,1],[1,1],[3,3]])for c,v in enumerate(row))
+parts,cuts=view.partitions(body,1,new.base.WorkBudget(100000));check('rectangular_body_one_leaf',len(parts)==1 and len(parts[0])==1)
+oldparts,_=oldview.partitions(body,1,new.base.WorkBudget(100000));check('old_saturation_really_split',len(oldparts[0])==2)
+# A stepped nonrectangular body retains required separation.
+body=tuple((r,c,v)for r,row in enumerate([[2,2,2],[1,1,1],[None,1,1],[None,3,3]])for c,v in enumerate(row)if v is not None)
+parts,cuts=view.partitions(body,1,new.base.WorkBudget(100000));check('stepped_body_two_leaves',len(parts)==1 and len(parts[0])==2)
+check('input_only_budget_hold',new.predict(s,Q[0]['input'],budget=1)[1]['status']=='RESOURCE_INCOMPLETE')
+# All ambiguous completed assemblies are retained, including in the new domain.
+for touching in (False,True):
+ grid=[[0]*12 for _ in range(12)]
+ positions=[(1,1),(1,7),(6,1),(4,8) if touching else (6,7)]
+ for color,(r,c) in zip((2,3,4,5),positions):
+  for dr in range(3):
+   for dc in range(3):grid[r+dr][c+dc]=color if (dr,dc)==(1,1) else 1
+ for r,c in ((0,0),(0,1),(1,0)):grid[r][c]=9
+ out,record=new.predict(s,grid)
+ check(f'all_ambiguities_hold_{touching}',out is None and record['status']=='HOLD')
+ if touching:
+  check('new_domain_ambiguities_all_retained',record['all_role_returns'][0]['distinct_outputs']==6)
+ else:check('old_hold_tuple_unchanged',(out,record)==legacy.predict(legacy.State(),grid))
+json.dump({'count':len(checks),'checks':checks},open(E/'pure-tests.json','w'),indent=2)
+print('PASS',len(checks))

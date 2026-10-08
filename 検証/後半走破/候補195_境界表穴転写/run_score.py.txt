@@ -1,0 +1,38 @@
+from pathlib import Path
+import subprocess,json,hashlib,time,sys,os
+E=Path(__file__).resolve().parent;R=E.parent/'source';B=E.parents[1]
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+assert json.loads((E/'native-parity.json').read_text())['status']=='NATIVE_GAIN'
+assert json.loads((E/'full-regression-selected.json').read_text())['success']
+assert json.loads((E/'targeted.json').read_text())['successful']
+assert json.loads((E/'freeze-check.json').read_text())['status']=='PASS'
+assert (E/'parent-score-goahead.txt').exists()
+audit=B/'proposal195-table-scene-20261008'
+assert 'Gate PASS for this bounded integration' in (audit/'INDEPENDENT_AUDIT.md').read_text()
+assert json.loads((audit/'independent-audit-results.json').read_text())['teacher_fit']['exact']==[True,True,True]
+(E/'independent-audit-pins.json').write_text(json.dumps({n:sha(audit/n) for n in ['INDEPENDENT_AUDIT.md','independent-audit-results.json']}))
+freeze=json.loads((E/'pre-score-freeze.json').read_text());assert all(sha(R/n)==h for n,h in freeze.items())
+command=[sys.executable,'-B',str(R/'検証/ARC2評価.py'),'--mode','current','--output',str(E/'current-official.json')]
+with(E/'current-command.json').open('x')as f:json.dump({'command':command,'env':{'OPENBLAS_NUM_THREADS':'1'},'cpu':10,'memory_mib':512,'wall_seconds':60},f)
+start=time.monotonic()
+with(E/'current.stdout').open('xb')as out,(E/'current.stderr').open('xb')as err:
+ p=subprocess.Popen(command,cwd=R,env=dict(os.environ,OPENBLAS_NUM_THREADS='1'),stdout=out,stderr=err);rc=p.wait()
+(E/'current-terminal.json').write_text(json.dumps(dict(exit_code=rc,reaped=True,wall_seconds=time.monotonic()-start)));assert rc==0
+assert all(sha(R/n)==h for n,h in freeze.items())
+(E/'post-score-pin-conservation.json').write_text(json.dumps(dict(all_pins_unchanged=len(freeze),baseline_calls=0,candidate_calls=1)))
+p=json.loads((B/'candidate194-production/evidence-20261008/current-official.json').read_text());c=json.loads((E/'current-official.json').read_text())
+pm={x['task_id']:x for x in p['execution']};cm={x['task_id']:x for x in c['execution']};assert pm.keys()==cm.keys()
+old=0;lost=[];changed=[];added=[]
+for tid,pr in pm.items():
+ cr=cm[tid];cr_results=cr.get('results',[{'answer':None}for _ in range(cr['test_count'])]);assert len(pr['results'])==len(cr_results)
+ for i,(a,b)in enumerate(zip(pr['results'],cr_results)):
+  av,bv=a['answer'],b['answer']
+  if av is not None:
+   if bv==av:old+=1
+   elif bv is None:lost.append([tid,i])
+   else:changed.append([tid,i])
+  elif bv is not None:added.append([tid,i])
+keys=['mode','tasks','test_examples','challenge_sha256','solutions_sha256','cpu_seconds_per_task','address_space_mib','wall_seconds_per_task','workers']
+same=all(p['summary'][k]==c['summary'][k]for k in keys);s=c['summary'];wrong=s['test_examples']-s['unanswered']-s['correct_examples'];g=json.loads((E/'full-regression-selected.json').read_text())
+d=dict(previous=[109,154],current=[s['correct_tasks'],s['correct_examples']],delta=[s['correct_tasks']-109,s['correct_examples']-154],old_grids_identical=old,lost=lost,changed=changed,new_emitted_grids=added,wrong_emitted=wrong,resource_failures=s['resource_failures'],pins=len(freeze),same_conditions=same,env={'OPENBLAS_NUM_THREADS':'1'},regression={'scripts':g['files'],'checks':g['tests'],'coverage_is_composed':True},score_sha256=sha(E/'current-official.json'))
+(E/'delta.json').write_text(json.dumps(d,indent=2));print(json.dumps(d),flush=True)

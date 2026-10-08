@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/7408259c1ab2/candidate187-production/evidence-20261008/targeted.py", line 42, in <module>
+    check(name+' rejected view',new.遮蔽モデル is None)
+  File "/workspace/scratch/7408259c1ab2/candidate187-production/evidence-20261008/targeted.py", line 12, in check
+    assert c,n
+           ^
+AssertionError: wrong rejected view

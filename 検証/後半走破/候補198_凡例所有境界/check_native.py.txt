@@ -1,0 +1,16 @@
+from pathlib import Path
+import json
+E=Path(__file__).resolve().parent;B=E.parents[1]
+previous=json.loads((E/'previous-native.stdout').read_text());current=json.loads((E/'native.stdout').read_text());pure=json.loads((B/'proposal198-marker-owner-20261008/pure-evidence.json').read_text())
+print([x.keys()for x in pure])
+print('families identical',current['families']==previous['families']);print('q1 identical',current['results'][1]==previous['results'][1]);print('other diff',[k for k in previous if k!='results' and current[k]!=previous[k]])
+print('answer status',[(x['answer']is not None)for x in previous['results']],[(x['answer']is not None)for x in current['results']])
+
+queries=[x for x in pure if x['kind']=='query']
+assert len(queries)==2
+assert [x['answer']for x in current['results']]==[x['output']for x in queries]
+assert current['families']==previous['families'] and current['results'][1]==previous['results'][1]
+assert all(current[k]==v for k,v in previous.items()if k!='results')
+assert previous['results'][0]['answer'] is None and current['results'][0]['answer'] is not None
+report=dict(status='NATIVE_GAIN',families=len(current['families']),all_existing_families_and_records_identical=True,query1_identical=True,query0_new_output=True,pure_parity=True,scorer_calls=0)
+(E/'native-parity.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps(report))

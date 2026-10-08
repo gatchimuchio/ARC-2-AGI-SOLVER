@@ -1,0 +1,20 @@
+{
+  "status": "NATIVE_GAIN",
+  "parity": true,
+  "pure_frozen_full_tuple_parity": true,
+  "q1_legacy_answer_preserved": true,
+  "existing_other_families_identical": true,
+  "family_count": 95,
+  "previous_emitted": 1,
+  "current_emitted": 2,
+  "scorer_calls": 0,
+  "family": {
+    "境界": "ARC矩形継目",
+    "事前観測数": 0,
+    "現在観測数": 2,
+    "採用可": true,
+    "同値採用": true,
+    "状態": "全教師再現",
+    "隔離数": 0
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "teachers_exact": 3,
+  "teachers_total": 3,
+  "program_count": 8,
+  "retained_programs": [
+    [
+      "color_union",
+      "source_first"
+    ],
+    [
+      "color_union",
+      "small_first"
+    ],
+    [
+      "components8",
+      "source_first"
+    ],
+    [
+      "components8",
+      "small_first"
+    ]
+  ],
+  "exact_fit_and_act_aliases": true,
+  "all_program_output_and_record_parity": true
+}

@@ -1,0 +1,13 @@
+{
+  "renderer_sha256": "70241e17570721987ffa12185e70e6eec7e0629704e4f5fbc84a4decf9965740",
+  "api_sha256": "d4ac36b3f8055cfd6e30c449d5b2c5389023a987ef992bb875f88d241dec01a1",
+  "original_api_sha256": "58e81b907ba58d986281926c7b51dcaf53ea20c9f6a7ef656851a9b79f309fc0",
+  "teachers_sha256": "e912e4d986abc16064727e23b7c89e5e1b9b4082fe90d9fb821f08c5903d8b2d",
+  "ordinary_fixtures_sha256": "d772662c8c94e70fc26688a789aace49b0410d12f9aaea29016f8b3b5fd9e434",
+  "retained_state_sha256": "6cd8f7e5136a51f306c46897ab8455c9cfc13571ab774ab8ced8acaf5141dac2",
+  "existing_controls": 6,
+  "existing_exception_checks": [
+    "MemoryError",
+    "RuntimeError"
+  ]
+}

@@ -1,0 +1,26 @@
+import sys,json,importlib.util,time,resource,numpy as np
+sys.path.insert(0,'candidate192-r2-production/source')
+p='candidate192-r2-production/source/接続/ARC2/直交領域所有核.py'
+spec=importlib.util.spec_from_file_location('candidate',p);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+t=json.load(open('arc2-current99/teachers-only/71e489b6.json'));q=json.load(open('arc2-current99/solver-input-only/71e489b6.json'))
+start=time.process_time();model=m.直交領域所有教材(t['train']);assert model.models==[(0,1,7)];records=[];count=1
+for k,e in enumerate(t['train']+q['test']):
+ before=time.process_time();out,info=model.候補(e['input']);assert out is not None
+ if 'output' in e:assert out==e['output']
+ count+=1;records.append({'case':k,'output':out,'record':info,'cpu_s':time.process_time()-before})
+ for n in range(4):
+  for flip in (False,True):
+   tr=lambda a:np.rot90(np.fliplr(a) if flip else a,n).tolist()
+   other,_=model.候補(tr(e['input']));assert other==tr(out),(k,n,flip);count+=1
+mapping={0:3,1:6,7:8};recolor=lambda g:[[mapping[v] for v in row] for row in g]
+t2=[{'input':recolor(p['input']),'output':recolor(p['output'])} for p in t['train']]
+model2=m.直交領域所有教材(t2);assert model2.models==[(3,6,8)];count+=1
+for i,e in enumerate(q['test']):assert model2.候補(recolor(e['input']))[0]==recolor(records[i+3]['output']);count+=1
+for bad in ([],[[0]],[[0]*3]*2,[[0]*3,[0]*2,[0]*3],[[True]*3]*3,[[4]*3]*3):assert model.候補(bad)[0] is None;count+=1
+original=m.regularize_with_boundary
+m.regularize_with_boundary=lambda *a,**k:(None,{'status':1,'message':'synthetic incomplete'})
+try:model.候補(q['test'][0]['input']);raise AssertionError('incomplete swallowed')
+except m.SearchIncomplete:count+=1
+m.regularize_with_boundary=original
+result={'checks':count,'cpu_total_s':time.process_time()-start,'max_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,'models':model.models,'cases':records,'status':'PASS'}
+json.dump(result,open('candidate192-r2-production/evidence-20261008/pure-results.json','w'),indent=2);print({k:v for k,v in result.items() if k!='cases'},flush=True)

@@ -1,0 +1,11 @@
+{
+  "changed": [
+    "接続/ARC2/連結箱参照核.py"
+  ],
+  "added": [],
+  "deleted": [],
+  "kernel_sha256": "70241e17570721987ffa12185e70e6eec7e0629704e4f5fbc84a4decf9965740",
+  "base": "arc2-current102/source",
+  "core_unchanged": true,
+  "global_gate_unchanged": true
+}

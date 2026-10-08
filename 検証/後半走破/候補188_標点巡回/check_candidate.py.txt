@@ -1,0 +1,33 @@
+"""Teacher-only fitting first, then input-only execution; no solutions/score IO."""
+import sys, importlib.util, json, hashlib
+from pathlib import Path
+from datetime import datetime, timezone
+ROOT = Path(__file__).resolve().parent
+BASE = ROOT.parent/'arc2-current104/source'
+sys.path.insert(0,str(BASE))
+p = ROOT/'接続/ARC2/標点巡回核.py'
+spec = importlib.util.spec_from_file_location('marker_traversal_candidate',p)
+m = importlib.util.module_from_spec(spec);sys.modules[spec.name]=m;spec.loader.exec_module(m)
+def dump(name,data):
+    (ROOT/name).write_text(json.dumps(data,ensure_ascii=False,indent=2,
+        default=lambda x:sorted(x) if isinstance(x,(set,frozenset)) else x)+'\n')
+teachers=json.loads((ROOT.parent/'arc2-current99/teachers-only/5545f144.json').read_text())['train']
+fitted,record=m.fit(teachers)
+assert fitted is not None
+assert fitted.models==tuple(('ascending',r) for r in ('straight_then_turn','nearest_nonbackward','any_nonbackward'))
+assert all(m.predict(p['input'],fitted)[0] == p['output'] for p in teachers)
+dump('teacher-evidence.json',record)
+dump('prequery-freeze.json',{'time':datetime.now(timezone.utc).isoformat(),'base':str(BASE),
+    'kernel_sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'models':fitted.models,
+    'terminal_prior':'consume all markers; equally spaced input snapshots exclude terminal',
+    'occlusion_prior':'same-color union rendering retains logical markers until tip arrival',
+    'query_prediction_executed':False})
+queries=json.loads((ROOT.parent/'arc2-current99/solver-input-only/5545f144.json').read_text())['test']
+rows=[]
+for pair in queries:
+    output,evidence=m.predict(pair['input'],fitted)
+    rows.append({'output':output,'record':evidence})
+dump('input-only-prediction.json',rows)
+print(json.dumps({'teachers':len(teachers),'models':fitted.models,
+                  'queries_completed':sum(r['output'] is not None for r in rows),
+                  'query_count':len(rows)},ensure_ascii=False))

@@ -1,0 +1,23 @@
+{
+  "conclusion": "PASS. Teacher and mock only; query unopened. Additional state is models only; prior old fit diagnostics remain unchanged.",
+  "checks": {
+    "pure_hash_matches": true,
+    "teacher_four_old_and_new": true,
+    "new_state_model_only": true,
+    "fit_same": true,
+    "fit_subset": true,
+    "fit_reordered": true,
+    "fit_extra": true,
+    "incomplete_fit_raises": true,
+    "invalid_new_teacher_no_state": true,
+    "route_new_False": true,
+    "all_old_roles_checked": true,
+    "new_roles_all_or_none": true,
+    "entire_fit_forwarded": true,
+    "route_old_True": true,
+    "route_old_False": true,
+    "old_recognition_exception_propagates": true,
+    "new_prediction_exception_propagates": true
+  },
+  "adapter_sha256": "ca4d5c019098fd87b20f9be70f3646aa5c20fa114878861d71f83dd2b3fd45db"
+}

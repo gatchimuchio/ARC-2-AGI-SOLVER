@@ -1,0 +1,2 @@
+/workspace/scratch/7408259c1ab2/proposal196-defect-ownership-20261008/audit_r2_numeric.py:21: RuntimeWarning: Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim.
+  res=real(cost,**kw)

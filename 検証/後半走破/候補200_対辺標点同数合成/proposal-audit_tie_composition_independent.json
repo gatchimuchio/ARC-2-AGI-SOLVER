@@ -1,0 +1,55 @@
+{
+  "sha256": "441bd607d19ba96d56890397a2cef29ac2502aeaaa49fc744aa8b8b9aa2c3ab5",
+  "teacher_fit": [
+    [
+      "color_union",
+      "source_first"
+    ],
+    [
+      "color_union",
+      "small_first"
+    ],
+    [
+      "components8",
+      "source_first"
+    ],
+    [
+      "components8",
+      "small_first"
+    ]
+  ],
+  "teacher_fit_full_tuple_identical": true,
+  "teacher_roles": [
+    1,
+    1,
+    1
+  ],
+  "teacher_only_note": "Four old programs survive; teachers do not uniquely identify the bbox tie prior. It is an explicit prior only.",
+  "synthetic_counts": {
+    "preserved_outside_domain": 11414,
+    "old_success_preserved": 3600,
+    "changed_pure_tie": 586,
+    "exception_or_tuple_preserved": 64
+  },
+  "failure_domains": {
+    "noninteger_source_center": 3036,
+    "no_placements+noninteger_source_center+shift_outside_frame_interior": 348,
+    "no_placements+shift_outside_frame_interior": 164,
+    "shift_outside_frame_interior": 1500,
+    "equal_priority_color_conflict": 1092,
+    "no_placements+shift_out_of_bounds+shift_outside_frame_interior": 124,
+    "no_placements+noninteger_source_center": 120,
+    "noninteger_source_center+shift_out_of_bounds": 180,
+    "noninteger_source_center+shift_outside_frame_interior": 684,
+    "no_placements+noninteger_source_center+shift_out_of_bounds": 136,
+    "no_placements+noninteger_source_center+shift_out_of_bounds+shift_outside_frame_interior": 100,
+    "equal_priority_color_conflict+noninteger_source_center": 308,
+    "shift_out_of_bounds": 316,
+    "shift_out_of_bounds+shift_outside_frame_interior": 276,
+    "no_placements+shift_out_of_bounds": 4,
+    "equal_priority_color_conflict+shift_outside_frame_interior": 12
+  },
+  "equal_bbox_ambiguity_preserved": true,
+  "all_roles_all_four_models_veto_checks": true,
+  "parse_render_fit_consensus_ast_identical": true
+}

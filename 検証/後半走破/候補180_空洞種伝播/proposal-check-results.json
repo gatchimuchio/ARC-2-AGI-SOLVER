@@ -1,0 +1,10 @@
+{
+  "teacher_exact": [
+    true,
+    true,
+    true,
+    true
+  ],
+  "covariance_checks": 96,
+  "pass": true
+}

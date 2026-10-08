@@ -1,0 +1,12 @@
+from pathlib import Path
+import subprocess,resource,os,json,time,sys
+E=Path(__file__).resolve().parent;B=E.parents[1];A=B/'arc2-current113/source';os.environ['OPENBLAS_NUM_THREADS']='1'
+Q=B/'arc2-current99/solver-input-only/3dc255db.json';p=json.loads(Q.read_bytes());assert all(set(q)=={'input'}for q in p['test'])
+assert (A/'入力/公式サンプル/マニフェスト.json').exists();assert (A/'入力/公式ソース/ARC-AGI-2/data/training').exists()
+def limits():resource.setrlimit(resource.RLIMIT_CPU,(10,11));resource.setrlimit(resource.RLIMIT_AS,(536870912,536870912))
+s=time.monotonic()
+with (E/'previous-native.stdout').open('xb')as out,(E/'previous-native.stderr').open('xb')as err:
+ r=subprocess.run([sys.executable,'-B',str(A/'検証/ARC2評価.py'),'--runtime','current'],cwd=A,input=Q.read_bytes(),stdout=out,stderr=err,preexec_fn=limits,timeout=60)
+(E/'previous-native-terminal.json').write_text(json.dumps(dict(exit_code=r.returncode,wall=time.monotonic()-s)))
+assert r.returncode==0
+x=json.loads((E/'previous-native.stdout').read_text());print(json.dumps(x,ensure_ascii=False))

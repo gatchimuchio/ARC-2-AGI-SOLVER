@@ -1,0 +1,29 @@
+{
+  "decision": "REJECTED",
+  "reason": "wrong1 and correct_tasks/examples delta0",
+  "candidate": "203 owned payload axis projection then dense pack",
+  "previous": [
+    113,
+    158
+  ],
+  "current": [
+    113,
+    158
+  ],
+  "delta": [
+    0,
+    0
+  ],
+  "wrong_emitted": 1,
+  "resource_failures": {},
+  "old_grids_identical": 158,
+  "official_candidate_calls": 1,
+  "runtime_adopted": false,
+  "baseline_unchanged": true,
+  "commit": null,
+  "upload": false,
+  "remote_write": false,
+  "raw_all_fit_hold_preserved": true,
+  "previous185_C4_wrong_rejection_preserved": true,
+  "purpose_instruction_reread_after_result": true
+}

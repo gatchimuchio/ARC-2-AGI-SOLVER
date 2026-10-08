@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/7408259c1ab2/candidate188-production/evidence-20261008/pure-targeted.py", line 73, in <module>
+    check('freeze-hash-unchanged',hashlib.sha256(p.read_bytes()).hexdigest()==json.loads((ROOT/'prequery-freeze.json').read_text())['kernel_sha256'])
+                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/scratch/7408259c1ab2/candidate188-production/prequery-freeze.json'

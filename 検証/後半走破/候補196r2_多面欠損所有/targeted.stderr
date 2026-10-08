@@ -1,0 +1,2 @@
+/workspace/scratch/7408259c1ab2/candidate196-r2-production/source/接続/ARC2/直交領域所有核.py:35: RuntimeWarning: Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim.
+  res=milp(cost,integrality=np.zeros(nv) if relax else np.r_[np.ones(N),np.zeros(nv-N)],bounds=Bounds(lower,upper),constraints=LinearConstraint(mat,lo,hi),options={'time_limit':time_limit,'mip_rel_gap':0,'threads':1})

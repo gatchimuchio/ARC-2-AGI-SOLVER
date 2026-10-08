@@ -1,0 +1,17 @@
+{
+  "base_unchanged": true,
+  "base_files": 2632,
+  "changed": [
+    "接続/ARC2/矩形継目教材.py",
+    "検証/矩形継目回帰.py"
+  ],
+  "added": [
+    "接続/ARC2/矩形継目/physical_rectangle.py",
+    "接続/ARC2/矩形継目/physical_rectangle_view.py",
+    "接続/ARC2/矩形継目/propagated_rectangle.py",
+    "接続/ARC2/矩形継目/touching_rectangle.py"
+  ],
+  "protected_files_unchanged": 21,
+  "core_and_gate_unchanged": true,
+  "scorer_calls": 0
+}

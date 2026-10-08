@@ -1,0 +1,103 @@
+import sys,importlib.util,json,random,itertools,hashlib
+from pathlib import Path
+sys.dont_write_bytecode=True
+root=Path.cwd(); target=root/'proposal187-masked-pattern-20261008/source/接続/ARC2/遮蔽軌道窓.py'
+sys.path.insert(0,str(root/'arc2-current103/source'))
+spec=importlib.util.spec_from_file_location('audit_candidate187',target);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+
+def brute(f):
+ h,w=len(f),len(f[0]); missing=[(r,c) for r in range(h) for c in range(w) if not f[r][c]]
+ a=min(r for r,c in missing);b=max(r for r,c in missing);l=min(c for r,c in missing);u=max(c for r,c in missing)
+ records=set()
+ for t in range(a+1):
+  for d in range(b,h):
+   for x in range(l+1):
+    for y in range(u,w):
+     box=(t,x,d,y)
+     if box==(a,l,b,u):continue
+     for dr in range(-t,h-d):
+      for dc in range(-x,w-y):
+       if all(f[r+dr][c+dc]!=0 and (f[r][c]==0 or f[r][c]==f[r+dr][c+dc]) for r in range(t,d+1) for c in range(x,y+1)):
+        records.add((box,dr,dc,tuple(f[r+dr][c+dc] for r,c in missing)))
+ boxes={z[0] for z in records}
+ maximal={b for b in boxes if not any(a!=b and a[0]<=b[0] and a[1]<=b[1] and a[2]>=b[2] and a[3]>=b[3] for a in boxes)}
+ return records,{z for z in records if z[0] in maximal},missing
+
+def check(f):
+ out,rec=m.local_bind(f); allrec,maxrec,missing=brute(f)
+ expanded=set()
+ for row in rec['all_matching_contexts_compressed']:
+  t,x,d,y=row['bbox'];l,u=row['covered_left_range'][1],row['covered_right_range'][0]
+  for left in range(x,l+1):
+   for right in range(u,y+1):
+    box=(t,left,d,right)
+    if box==tuple(row['exclude_empty_context_bbox']):continue
+    for donor in row['donors']:
+     expanded.add((box,*donor['shift'],tuple(donor['values'])))
+ retained={(tuple(row['bbox']),*donor['shift'],tuple(donor['values'])) for row in rec['contexts'] for donor in row['donors']}
+ assert expanded==allrec,('compression',f,expanded^allrec)
+ assert retained==maxrec,('maxima',f,retained^maxrec)
+ outputs={z[3] for z in maxrec};expected=dict(zip(missing,next(iter(outputs)))) if len(outputs)==1 else None
+ assert out==expected,('decision',f)
+ rendered,evidence=m.render_encoded(f,[2*(len(f)-1),2*(len(f[0])-1)],True)
+ if out is None:
+  assert rendered is None
+ else:
+  assert rendered==[[v or out[(r,c)] for c,v in enumerate(row)] for r,row in enumerate(f)]
+  witnesses={(tuple(x['orbit']),tuple(tuple(z) for z in x['sources'])) for x in evidence['original_witnesses']}
+  assert witnesses=={((r,c),((r,c,v),)) for r,row in enumerate(f) for c,v in enumerate(row) if v}
+ return out
+count=0;success=0;holds=0
+# Exhaust every binary 2x3 fold with each nonempty rectangular missing set.
+for h,w in [(2,3),(3,2)]:
+ for a in range(h):
+  for b in range(a,h):
+   for l in range(w):
+    for u in range(l,w):
+     known=[(r,c) for r in range(h) for c in range(w) if not(a<=r<=b and l<=c<=u)]
+     for vals in itertools.product((1,2),repeat=len(known)):
+      f=[[0]*w for _ in range(h)]
+      for (r,c),v in zip(known,vals):f[r][c]=v
+      out=check(f);count+=1;success+=out is not None;holds+=out is None
+rng=random.Random(187)
+for i in range(250):
+ h,w=rng.randint(2,5),rng.randint(2,5);a,b=sorted(rng.sample(range(h),2));l,u=sorted(rng.sample(range(w),2))
+ if i%2:b=a;u=l
+ f=[[rng.randint(1,3) for _ in range(w)] for _ in range(h)]
+ for r in range(a,b+1):
+  for c in range(l,u+1):f[r][c]=0
+ out=check(f);count+=1;success+=out is not None;holds+=out is None
+train=json.loads((root/'arc2-current99/teachers-only/0934a4d8.json').read_text())['train']
+model,record=m.fit(train);assert model
+assert all(m.predict(p['input'],model)[0]==p['output'] for p in train)
+preserved=0
+for i in range(300):
+ h,w=rng.randint(2,8),rng.randint(2,8);ar,ac=h-1,w-1
+ f=[[0]*w for _ in range(h)];vals={}
+ for r in range(h):
+  for c in range(w):
+   p=(min(r,ar-r),min(c,ac-c));vals.setdefault(p,rng.randint(1,9));f[r][c]=vals[p]
+ f[rng.randrange(h)][rng.randrange(w)]=0
+ old,oldrec=m.guarded_render(f,(ar,ac));out,rec=m.render_encoded(f,(ar,ac),True)
+ if old is not None:
+  assert out==old and rec=={'original':oldrec};preserved+=1
+ assert all(f[r][c]==0 or out is None or out[r][c]==f[r][c] for r in range(h) for c in range(w))
+assert m.local_bind([[0,1],[1,0]])[1]['failure']=='unwitnessed_support_not_rectangular'
+assert m.local_bind([[0,0],[0,0]])[0] is None
+assert m.render_encoded([[0,1],[2,2]],[1,1],True)[0] is None
+assert m.render_encoded([[1,1],[1,1]],[1,1],True)[1]['original']['failure']=='no_zero_mask_cells'
+assert m.render_encoded([[0,0],[1,1]],[0,1],True)[1]['failure']=='fold_has_negative_coordinates'
+assert m.render_encoded([[0,1],[1,1]],[-1,1],True)[1]['original']['failure']=='axis_centres_outside_canvas'
+# Exceptions are not swallowed or replaced with output.
+original=m.local_bind
+class ProbeError(Exception):pass
+def fail(_):raise ProbeError('audit')
+m.local_bind=fail
+try:
+ m.render_encoded([[0,1],[1,1]],[2,2],True)
+except ProbeError:pass
+else:raise AssertionError('exception swallowed')
+m.local_bind=original
+result={'sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'teacher_exact':len(train),'axes':model['axes'],'brute_force_cases':count,'synthetic_bind_successes':success,'synthetic_holds':holds,'old_success_paths_preserved':preserved,'compression_exact':True,'maximal_candidate_and_donor_exact':True,'exception_propagation':True}
+(root/'proposal187-masked-pattern-20261008/audit_independent_results.json').write_text(json.dumps(result,indent=2)+'\n')
+print(json.dumps(result))

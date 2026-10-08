@@ -1,0 +1,7 @@
+{
+  "initial_failure": "copytree target directory already exists; runtime pipeline script had not yet been created",
+  "recovery": "dirs_exist_ok=True with 120 byte-identical official source files checked before native",
+  "pure_targeted_initial_failure": "fixture freeze path pointed at candidate root; corrected only evidence path; checks preserved",
+  "pure_targeted_final_checks": 52,
+  "integration_targeted_checks": 21
+}

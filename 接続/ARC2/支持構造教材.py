@@ -407,13 +407,27 @@ def fit_teachers(teachers):
 
 
 class 支持構造教材:
+    __slots__ = ('_material_candidate', '__dict__')
     def __init__(self, 教師群):
         self.適合, _ = fit_teachers(教師群)
+        from .可視材例外学習 import Candidate
+        self._material_candidate = Candidate(教師群) if self.適合 is True else None
 
     def 候補(self, 格子, _policy):
         if self.適合 is not True:
             return None, {"failure": "全教師を再現する支持構造規約なし"}
-        return render(格子)
+        original = render(格子)
+        rec = original[1]
+        parse = rec.get('parse', {})
+        # Exact prior singleton tuple and all pre-existing failures survive.
+        if (original[0] is not None or rec.get('failure') != 'input_not_interpretable'
+                or parse.get('failure') != 'raw_cue_floor_not_unique' or parse.get('raw_count') != 0):
+            return original
+        from .可視材例外核 import parse_input as extended_parse
+        payload, extended = extended_parse(格子)
+        if payload is None or extended.get('extended_control_count') != 1:
+            return original
+        return self._material_candidate.predict(格子, default_continuation=True)
 
     def 記録(self):
         return {"適合": self.適合 is True}

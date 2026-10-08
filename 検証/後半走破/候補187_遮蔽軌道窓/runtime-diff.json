@@ -1,0 +1,7 @@
+{
+  "base": "arc2-current103/source",
+  "changed": [
+    "接続/ARC2/二軸補完教材.py",
+    "接続/ARC2/遮蔽軌道窓.py"
+  ]
+}

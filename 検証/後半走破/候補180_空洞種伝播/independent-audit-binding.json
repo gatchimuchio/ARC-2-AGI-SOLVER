@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "source_sha256": "e7026a4898004f228e03ac0fcdc0666070db3b0f09a3031662153d52c429e013",
+  "source_audit": "Parent reports independent scoped PASS: all four teachers; JSON/failure/ownership guards.",
+  "crossing_contract": "Point-local pair prior; multiple points may connect different pairs with intentional transitivity. Not uniquely forced by teachers.",
+  "integration_audit": "Parent reviewed import, constructor, family registration, diagnostics only; normal empty-prior HDS gate and unchanged core.",
+  "score_authorization": "One same-condition 120/167 score after full regression and pre-score/core pin verification.",
+  "adoption_authorized": false
+}

@@ -1,0 +1,15 @@
+{
+  "base_unchanged": true,
+  "base_files": 2599,
+  "changed": [
+    "接続/ARC2/HDS接続.py"
+  ],
+  "added": [
+    "接続/ARC2/受動凡例転写教材.py",
+    "接続/ARC2/受動凡例転写核.py"
+  ],
+  "only_four_registration_lines_added": true,
+  "core_and_gate_unchanged": true,
+  "kernel_sha256": "695ebb09aef177d99da2afbf1e6b3ae5bab565466d6ba9148b33b47f1a9dfe2a",
+  "scorer_calls": 0
+}

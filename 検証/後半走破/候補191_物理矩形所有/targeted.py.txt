@@ -1,0 +1,31 @@
+from pathlib import Path
+import sys,json,copy,hashlib
+from unittest.mock import patch
+E=Path(__file__).resolve().parent;B=E.parents[1];R=E.parent/'source';sys.path.insert(0,str(R))
+from 接続.ARC2 import 矩形継目教材 as g
+from 接続.ARC2.矩形継目 import physical_rectangle as m,seam_rectangle as legacy
+checks=[]
+def check(n,c):assert c,n;checks.append(n)
+t=json.loads((B/'arc2-current99/teachers-only/446ef5d2.json').read_text())['train'];before=copy.deepcopy(t);qs=json.loads((B/'arc2-current99/solver-input-only/446ef5d2.json').read_text())['test'];a=g.矩形継目教材(t)
+check('teacher fit',a.fitted is not None);check('state only program identifier',vars(a.fitted)=={'programs':(m.PRIOR,)})
+check('empty prior',a.記録()['事前支持数']==0);json.dumps(a.記録())
+for i,p in enumerate(t):
+ out,rec=a.候補(p['input'],{});check('teacher exact '+str(i),out==p['output']);check('old teacher tuple '+str(i),(out,rec)==legacy.predict(legacy.State(),p['input']))
+check('teachers unchanged',t==before)
+for i,q in enumerate(qs):
+ actual=a.候補(q['input'],{});frozen=json.loads((B/f'proposal191-r3-rectangle-assembly-20261008/q{i}-physical.json').read_text());check('frozen full tuple '+str(i),json.loads(json.dumps(actual))==[frozen['output'],frozen['record']])
+ if i==1:check('query1 old full tuple',actual==legacy.predict(legacy.State(),q['input']))
+for data in ([],[t[0],t[0]]):
+ bad=g.矩形継目教材(data);check('invalid teacher hold '+str(len(data)),bad.fitted is None and bad.候補(qs[0]['input'],{})[0]is None)
+for name,call in [('fit',lambda:g.矩形継目教材(t)),('predict',lambda:a.候補(qs[0]['input'],{}))]:
+ with patch.object(m,name,return_value=(None,{'status':'RESOURCE_INCOMPLETE','complete':False})):
+  try:call()
+  except m.base.BudgetIncomplete:check(name+' resource propagates',True)
+  else:raise AssertionError('resource swallowed')
+ with patch.object(m,name,side_effect=RuntimeError('injected')):
+  try:call()
+  except RuntimeError:check(name+' unknown exception propagates',True)
+  else:raise AssertionError('unknown swallowed')
+for row in json.loads((E/'mechanical-import-adjustments.json').read_text()):
+ check('integrated pin '+row['file'],hashlib.sha256((R/'接続/ARC2/矩形継目'/row['file']).read_bytes()).hexdigest()==row['integrated_sha256'])
+report=dict(successful=True,tests_run=len(checks),checks=checks,scorer_calls=0);(E/'targeted.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps(report))

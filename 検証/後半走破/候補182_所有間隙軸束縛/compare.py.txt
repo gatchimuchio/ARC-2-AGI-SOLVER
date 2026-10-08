@@ -1,0 +1,25 @@
+from pathlib import Path
+import json,hashlib,stat
+E=Path(__file__).resolve().parent;B=E.parents[1];R=E.parent/'source'
+p=json.loads((B/'candidate180-production/evidence-20261008/current-official.json').read_text());c=json.loads((E/'current-official.json').read_text())
+assert json.loads((E/'score-terminal.json').read_text())['exit_code']==0
+pm={x['task_id']:x for x in p['execution']};cm={x['task_id']:x for x in c['execution']};assert pm.keys()==cm.keys()
+old=0;lost=[];changed=[];added=[]
+for tid,pr in pm.items():
+ cr=cm[tid]
+ cr_results=cr.get('results',[{'answer':None} for _ in range(cr['test_count'])])
+ assert len(pr['results'])==len(cr_results)
+ for i,(a,b) in enumerate(zip(pr['results'],cr_results)):
+  av,bv=a['answer'],b['answer']
+  if av is not None:
+   if bv==av:old+=1
+   elif bv is None:lost.append([tid,i])
+   else:changed.append([tid,i])
+  elif bv is not None:added.append([tid,i])
+keys=['mode','tasks','test_examples','challenge_sha256','solutions_sha256','cpu_seconds_per_task','address_space_mib','wall_seconds_per_task','workers']
+same=all(p['summary'][k]==c['summary'][k] for k in keys)
+s=c['summary'];wrong=s['test_examples']-s['unanswered']-s['correct_examples']
+pins=json.loads((E/'pre-score-freeze.json').read_text())['files'];assert all(hashlib.sha256((R/x['path']).read_bytes()).hexdigest()==x['sha256'] and (R/x['path']).stat().st_size==x['bytes'] and oct(stat.S_IMODE((R/x['path']).stat().st_mode))==x['mode'] for x in pins)
+g=json.loads((E/'full-regression-selected.json').read_text())
+d={'previous':[p['summary']['correct_tasks'],p['summary']['correct_examples']],'current':[s['correct_tasks'],s['correct_examples']],'delta':[s['correct_tasks']-p['summary']['correct_tasks'],s['correct_examples']-p['summary']['correct_examples']],'old_grids_identical':old,'lost':lost,'changed':changed,'new_emitted_grids':added,'wrong_emitted':wrong,'resource_failures':s['resource_failures'],'pins':len(pins),'same_conditions':same,'regression':{'scripts':g['files'],'checks':g['tests'],'coverage_is_composed':True},'score_sha256':hashlib.sha256((E/'current-official.json').read_bytes()).hexdigest(),'historical_prior_result_claimed':False}
+(E/'delta.json').write_text(json.dumps(d,indent=2)+'\n');print(json.dumps(d,ensure_ascii=False))

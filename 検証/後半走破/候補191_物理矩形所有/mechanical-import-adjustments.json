@@ -1,0 +1,44 @@
+[
+  {
+    "file": "anchored_rectangle.py",
+    "proposal_sha256": "3b25da045f96cb799a4d84c0c4159fd3b39e34214212f72936ea5b87940e4ad7",
+    "integrated_sha256": "3b25da045f96cb799a4d84c0c4159fd3b39e34214212f72936ea5b87940e4ad7",
+    "reused_existing": true,
+    "diff": ""
+  },
+  {
+    "file": "seam_rectangle.py",
+    "proposal_sha256": "1e7d97da06e3c72808147c0e6e4fedd0956798733dfd3f605954695836f6d0c4",
+    "integrated_sha256": "ab2ef19e09ea5c3c1c279284b54fc2166ebfd5e1e7f66a9bffc57602e0780a65",
+    "reused_existing": true,
+    "diff": "--- \n+++ \n@@ -9,7 +9,7 @@\n \"\"\"\n from dataclasses import dataclass\n from collections import Counter\n-import anchored_rectangle as base\n+from . import anchored_rectangle as base\n \n PRIOR='corner_L_anchor_translation_uniform_perimeter_seam_or_wall'\n \n"
+  },
+  {
+    "file": "touching_rectangle.py",
+    "proposal_sha256": "121d31d0921c9383b769b3b6515aa669259f4aca397c82da70760ba3a6889357",
+    "integrated_sha256": "41716836a26632906fc22d8dba88b8b0509c1b30be27b664e9274a4d162ea8d0",
+    "reused_existing": false,
+    "diff": "--- \n+++ \n@@ -8,8 +8,8 @@\n from dataclasses import dataclass\n from collections import Counter\n from itertools import product\n-import anchored_rectangle as base\n-from seam_rectangle import certify_contacts\n+from . import anchored_rectangle as base\n+from .seam_rectangle import certify_contacts\n \n PRIOR='double_wall_saturation_then_anchored_rectangle_seam_or_wall'\n @dataclass(frozen=True)\n"
+  },
+  {
+    "file": "propagated_rectangle.py",
+    "proposal_sha256": "cf9ca4dc1fe6a4bfb077e09cdf97dc7f5cb27e9f2cf93b2d5363e49b992d72ce",
+    "integrated_sha256": "a0b7b8dd9a6a1b5de6298dbb005ada1114f85c66bf3a054f19ee920fef4b8cf6",
+    "reused_existing": false,
+    "diff": "--- \n+++ \n@@ -6,9 +6,9 @@\n \"\"\"\n from dataclasses import dataclass\n from collections import Counter\n-import anchored_rectangle as base\n-from touching_rectangle import observe\n-from seam_rectangle import certify_contacts\n+from . import anchored_rectangle as base\n+from .touching_rectangle import observe\n+from .seam_rectangle import certify_contacts\n \n PRIOR='double_wall_saturation_then_anchored_rectangle_seam_or_wall'\n @dataclass(frozen=True)\n"
+  },
+  {
+    "file": "physical_rectangle_view.py",
+    "proposal_sha256": "5b8df414047c09c4eeef3be280dc6b80dd87e4ddb1f4ac28714a2a2f605907cd",
+    "integrated_sha256": "e6628fc5ab8ef9176779f9105e7c4c7a715a063e840e8ea286148641429da64b",
+    "reused_existing": false,
+    "diff": "--- \n+++ \n@@ -9,8 +9,8 @@\n from dataclasses import dataclass\n from collections import Counter\n from itertools import product\n-import anchored_rectangle as base\n-from seam_rectangle import certify_contacts\n+from . import anchored_rectangle as base\n+from .seam_rectangle import certify_contacts\n \n PRIOR='rectangular_physical_body_indivisibility'\n @dataclass(frozen=True)\n"
+  },
+  {
+    "file": "physical_rectangle.py",
+    "proposal_sha256": "4262c3d95d5e4efaaf97c1b985ddf31aa4b9d29a4072162cef4973a66eec76d7",
+    "integrated_sha256": "f9665cdeab7d0278eced54e182ea4359f970da95cf7d0402dea5f2487680fe90",
+    "reused_existing": false,
+    "diff": "--- \n+++ \n@@ -1,11 +1,11 @@\n \"\"\"Input-first rigid rectangular ownership extension; frozen old paths preserved.\"\"\"\n from dataclasses import dataclass\n from collections import Counter\n-import anchored_rectangle as base\n-import seam_rectangle as legacy\n-from physical_rectangle_view import observe\n-from propagated_rectangle import seam_assemble\n-from seam_rectangle import certify_contacts\n+from . import anchored_rectangle as base\n+from . import seam_rectangle as legacy\n+from .physical_rectangle_view import observe\n+from .propagated_rectangle import seam_assemble\n+from .seam_rectangle import certify_contacts\n PRIOR='preserve_rectangular_C8_physical_piece_then_double_wall_seam'\n @dataclass(frozen=True)\n class State:\n"
+  }
+]

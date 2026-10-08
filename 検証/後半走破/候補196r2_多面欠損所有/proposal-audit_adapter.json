@@ -1,0 +1,10 @@
+{
+  "adapter": "PASS",
+  "teacher_exact": 2,
+  "state": "fit-produced models only; no teachers/output retained",
+  "version_contract": "fit constructs exact int1; arbitrary externally injected models outside audited contract",
+  "guard": "invalid or duplicate/insufficient teachers produce no models and no fit call",
+  "exceptions": "SearchIncomplete and MemoryError propagated unchanged by construction and candidate",
+  "gate_static": "HDS registration uses empty prior tuple and ordinary adoption/equivalence gate; no exception handler in adapter",
+  "kernel_sha256": "79df6217c61f32536e8a3ef218aad458c5a5ac2ae563b25978070df2f2578b46"
+}

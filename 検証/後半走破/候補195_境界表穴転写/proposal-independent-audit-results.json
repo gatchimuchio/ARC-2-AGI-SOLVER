@@ -1,0 +1,133 @@
+{
+  "teacher_fit": {
+    "model": [
+      [
+        "outer_edge_key_lane",
+        1
+      ]
+    ],
+    "exact": [
+      true,
+      true,
+      true
+    ]
+  },
+  "single": {
+    "failure": null,
+    "roles": 1,
+    "role_failures": [
+      null
+    ]
+  },
+  "foreign_occupant": {
+    "failure": "retained_role_failure",
+    "roles": 1,
+    "role_failures": [
+      "foreign_cavity_occupant"
+    ]
+  },
+  "conflicting_key": {
+    "failure": "retained_role_failure",
+    "roles": 1,
+    "role_failures": [
+      "conflicting_key"
+    ]
+  },
+  "all_tables_agree": {
+    "failure": null,
+    "roles": 2,
+    "role_failures": [
+      null,
+      null
+    ]
+  },
+  "all_tables_disagree": {
+    "failure": "retained_role_disagreement",
+    "roles": 2,
+    "role_failures": [
+      null,
+      null
+    ]
+  },
+  "one_table_failure_not_dropped": {
+    "failure": "retained_role_failure",
+    "roles": 2,
+    "role_failures": [
+      null,
+      "conflicting_key"
+    ]
+  },
+  "equidistant_lanes_disagree": {
+    "failure": "retained_role_disagreement",
+    "roles": 2,
+    "role_failures": [
+      null,
+      null
+    ]
+  },
+  "equidistant_lanes_agree": {
+    "failure": null,
+    "roles": 2,
+    "role_failures": [
+      null,
+      null
+    ]
+  },
+  "C8_wall_C4_cavity": {
+    "failure": null,
+    "roles": 1,
+    "role_failures": [
+      null
+    ]
+  },
+  "open_C4_leak": {
+    "failure": null,
+    "roles": 1,
+    "role_failures": [
+      null
+    ]
+  },
+  "invalid_grid_guards": 8,
+  "teacher_guards": "pass",
+  "model_guards": {
+    "empty": {
+      "failure": "no_fitted_model"
+    },
+    "wrong": {
+      "failure": "no_fitted_model"
+    },
+    "scalar": {
+      "exception": "TypeError",
+      "message": "'int' object is not iterable"
+    },
+    "bad_member": {
+      "exception": "TypeError",
+      "message": "'int' object is not iterable"
+    },
+    "none_member": {
+      "exception": "TypeError",
+      "message": "'NoneType' object is not iterable"
+    }
+  },
+  "simultaneous_chain": "pass",
+  "four_way_2x2_tie": {
+    "failure": null,
+    "roles": 4,
+    "role_failures": [
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "nested_same_color_foreign_owner": {
+    "failure": "retained_role_failure",
+    "roles": 1,
+    "role_failures": [
+      "foreign_cavity_occupant"
+    ]
+  },
+  "dihedral_teacher_exact": 24,
+  "color_permuted_teacher_exact": 3,
+  "random_valid_grid_no_exception": 250
+}

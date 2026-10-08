@@ -1,0 +1,240 @@
+{
+  "state": null,
+  "teachers": [
+    {
+      "fit": true,
+      "detail": {
+        "failure": null,
+        "candidates": [
+          {
+            "chains": [
+              {
+                "rail": 2,
+                "chain": 1,
+                "target": 0,
+                "anchor": [
+                  3,
+                  4
+                ],
+                "source_count": 6,
+                "logical_count": 6,
+                "clipped_count": 2,
+                "points": [
+                  [
+                    3,
+                    4
+                  ],
+                  [
+                    2,
+                    4
+                  ],
+                  [
+                    1,
+                    4
+                  ],
+                  [
+                    0,
+                    5
+                  ],
+                  [
+                    -1,
+                    6
+                  ],
+                  [
+                    -2,
+                    7
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fit": false,
+      "detail": {
+        "failure": "rail_without_chain",
+        "candidates": []
+      }
+    },
+    {
+      "fit": true,
+      "detail": {
+        "failure": null,
+        "candidates": [
+          {
+            "chains": [
+              {
+                "rail": 0,
+                "chain": 1,
+                "target": 2,
+                "anchor": [
+                  6,
+                  7
+                ],
+                "source_count": 9,
+                "logical_count": 9,
+                "clipped_count": 0,
+                "points": [
+                  [
+                    6,
+                    7
+                  ],
+                  [
+                    7,
+                    8
+                  ],
+                  [
+                    8,
+                    9
+                  ],
+                  [
+                    9,
+                    10
+                  ],
+                  [
+                    10,
+                    10
+                  ],
+                  [
+                    11,
+                    10
+                  ],
+                  [
+                    12,
+                    9
+                  ],
+                  [
+                    13,
+                    8
+                  ],
+                  [
+                    14,
+                    7
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fit": true,
+      "detail": {
+        "failure": null,
+        "candidates": [
+          {
+            "chains": [
+              {
+                "rail": 1,
+                "chain": 2,
+                "target": 0,
+                "anchor": [
+                  4,
+                  3
+                ],
+                "source_count": 6,
+                "logical_count": 6,
+                "clipped_count": 1,
+                "points": [
+                  [
+                    4,
+                    3
+                  ],
+                  [
+                    3,
+                    2
+                  ],
+                  [
+                    2,
+                    1
+                  ],
+                  [
+                    1,
+                    2
+                  ],
+                  [
+                    0,
+                    3
+                  ],
+                  [
+                    -1,
+                    4
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fit": true,
+      "detail": {
+        "failure": null,
+        "candidates": [
+          {
+            "chains": [
+              {
+                "rail": 1,
+                "chain": 2,
+                "target": 0,
+                "anchor": [
+                  5,
+                  4
+                ],
+                "source_count": 6,
+                "logical_count": 6,
+                "clipped_count": 0,
+                "points": [
+                  [
+                    5,
+                    4
+                  ],
+                  [
+                    4,
+                    3
+                  ],
+                  [
+                    3,
+                    2
+                  ],
+                  [
+                    2,
+                    2
+                  ],
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    0,
+                    4
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "queries": [
+    {
+      "output": null,
+      "detail": {
+        "failure": "not_fitted"
+      }
+    },
+    {
+      "output": null,
+      "detail": {
+        "failure": "not_fitted"
+      }
+    }
+  ],
+  "cpu": 0.0,
+  "peak_kib": 11008
+}

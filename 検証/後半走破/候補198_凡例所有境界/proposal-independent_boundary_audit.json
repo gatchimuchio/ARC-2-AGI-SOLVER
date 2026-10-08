@@ -1,0 +1,68 @@
+{
+  "sha256": "a6637e397866052318eba6344ab942abbe44701affb9728fe5fdcf5b4ee5b8e1",
+  "checks": {
+    "teacher_file_only_train": true,
+    "all_480_models": true,
+    "all_teacher_calls": true,
+    "four_models_retained": true,
+    "old_prior_also_fits_teachers": true,
+    "teacher_prediction_consensus": true,
+    "teacher_guards": true,
+    "grid_guards": true,
+    "both_orthogonal_flanks_required": true,
+    "flank_owner_membership": true,
+    "full_flank_footprint": true,
+    "intermediate_marker_not_wall_block": true,
+    "intermediate_marker_not_wall_transparent": true,
+    "endpoint_block_contract": true,
+    "endpoint_transparent_contract": true,
+    "open_region_all_directions": true,
+    "owner_failure_hold": true,
+    "all_six_owners_after_failure": true,
+    "owner_disagreement_hold": true,
+    "all_retained_failure_hold": true,
+    "all_retained_disagreement_hold": true,
+    "fit_exception_propagates": true,
+    "predict_exception_propagates": true,
+    "helper_inconsistency_propagates": true,
+    "no_io_or_exception_swallow": true
+  },
+  "teacher_count": 3,
+  "model_count": 480,
+  "call_count": 1440,
+  "retained": [
+    {
+      "background": 0,
+      "tail": 1,
+      "head": 2,
+      "marker": 4,
+      "marker_diagonal": false,
+      "other_markers": "block"
+    },
+    {
+      "background": 0,
+      "tail": 1,
+      "head": 2,
+      "marker": 4,
+      "marker_diagonal": false,
+      "other_markers": "transparent"
+    },
+    {
+      "background": 0,
+      "tail": 1,
+      "head": 2,
+      "marker": 4,
+      "marker_diagonal": true,
+      "other_markers": "block"
+    },
+    {
+      "background": 0,
+      "tail": 1,
+      "head": 2,
+      "marker": 4,
+      "marker_diagonal": true,
+      "other_markers": "transparent"
+    }
+  ],
+  "conclusion": "PASS within teacher/synthetic scope. Explicit additional topology prior, not teacher-unique deduction. No query or official answer inspected; no performance claim."
+}

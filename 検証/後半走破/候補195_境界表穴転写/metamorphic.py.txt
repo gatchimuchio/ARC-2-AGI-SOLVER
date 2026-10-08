@@ -1,0 +1,47 @@
+import os,sys,json,resource
+resource.setrlimit(resource.RLIMIT_CPU,(10,10));resource.setrlimit(resource.RLIMIT_AS,(512*1024**2,512*1024**2))
+sys.path.insert(0,os.path.abspath('arc2-current109/source'))
+import boundary_table as b
+x=json.load(open('arc2-current99/solver-input-only/dbff022c.json')); n=0
+rot=lambda g:[list(row) for row in zip(*g[::-1])]
+def trans(g,k,flip):
+ g=[row[:] for row in g]
+ for _ in range(k):g=rot(g)
+ return [r[::-1] for r in g] if flip else g
+models,_=b.fit(x['train']);y,_=b.predict(x['test'][0]['input'],models)
+for k in range(4):
+ for f in (False,True):
+  ts=[{'input':trans(p['input'],k,f),'output':trans(p['output'],k,f)} for p in x['train']]
+  m,d=b.fit(ts);assert m and all(d['teacher_exact']);n+=1
+  yy,_=b.predict(trans(x['test'][0]['input'],k,f),m);assert yy==trans(y,k,f);n+=1
+for shift in range(1,10):
+ cv=lambda g:[[(v+shift)%10 for v in row] for row in g]
+ ts=[{'input':cv(p['input']),'output':cv(p['output'])} for p in x['train']]
+ m,d=b.fit(ts);assert m and all(d['teacher_exact']);n+=1
+ yy,_=b.predict(cv(x['test'][0]['input']),m);assert yy==cv(y);n+=1
+# Geometric key choice must ignore changes to scene colors.
+q=[r[:] for r in x['test'][0]['input']]
+for r in range(10):
+ for c in range(len(q[0])):
+  if q[r][c]==1:q[r][c]=5
+_,d=b.render(q);assert all(a['side']=='bottom' for a in d['roles']);n+=1
+# Complete nearest-edge tie is retained, not successful-output filtered.
+g=[[0]*11 for _ in range(6)]
+g[2][0:3]=[1,3,4];g[3][0:3]=[2,5,6]
+for r,c in [(r,c) for r in range(3) for c in range(7,10) if r in (0,2) or c in (7,9)]:g[r][c]=1
+out,d=b.render(g);assert out is None and d['failure']=='retained_role_disagreement';n+=1
+# Conflicting key invalidates retained role.
+g=[[0]*8 for _ in range(6)];g[0][:3]=[1,1,3];g[1][:3]=[2,4,5]
+out,d=b.render(g);assert out is None and d['failure']=='retained_role_failure';n+=1
+for ts in (None,[],x['train'][:1],[x['train'][0]]*2,[{'input':[]}]*2):
+ assert b.fit(ts)[0]==();n+=1
+assert b.predict(x['test'][0]['input'],())[0] is None;n+=1
+old=b.mixed_region_dicts_for_grid
+def fail(*args,**kwargs):raise MemoryError('test resource propagation')
+b.mixed_region_dicts_for_grid=fail
+try:b.render(x['test'][0]['input']);assert False
+except MemoryError:pass
+finally:b.mixed_region_dicts_for_grid=old
+n+=1
+json.dump({'passed':n,'resource':{'OPENBLAS_NUM_THREADS':os.environ.get('OPENBLAS_NUM_THREADS'),'CPU':10,'AS_MiB':512,'wall':60}},open('proposal195-table-scene-20261008/metamorphic-evidence.json','w'),indent=2)
+print(n,'PASS')

@@ -1,0 +1,92 @@
+"""Pure family differential check. No native, hidden, or official evaluator."""
+import sys,json,resource,time,types,importlib.util,random,hashlib
+from pathlib import Path
+from unittest.mock import patch
+resource.setrlimit(resource.RLIMIT_CPU,(10,10));resource.setrlimit(resource.RLIMIT_AS,(512*1024**2,)*2)
+source,teacherpath,inputpath=map(Path,sys.argv[1:]);here=Path(__file__).resolve().parent
+sys.path.insert(0,str(source.resolve()))
+from 接続.ARC2 import 対辺標点配置候補 as old
+pkg=types.ModuleType('pure200');pkg.__path__=[str(here)];sys.modules['pure200']=pkg
+spec=importlib.util.spec_from_file_location('pure200.対辺標点配置候補',here/'対辺標点配置候補.py')
+new=importlib.util.module_from_spec(spec);sys.modules[spec.name]=new;spec.loader.exec_module(new)
+teachers=json.loads(teacherpath.read_text())['train'];queries=json.loads(inputpath.read_text())['test']
+assert all(set(q)=={'input'} for q in queries)
+programs,record=old.fit(teachers);programs2,record2=new.fit(teachers)
+assert programs==programs2 and record==record2
+checks=['all_teacher_fit_programs_records_unchanged'];results=[];n=0
+for i,p in enumerate(teachers):
+    assert new.consensus(p['input'],programs)==old.consensus(p['input'],programs)
+    assert new.consensus(p['input'],programs)[0]==p['output']
+for i,p in enumerate(queries):
+    oo,od=old.consensus(p['input'],programs);no,nd=new.consensus(p['input'],programs)
+    if oo is not None:assert (oo,od)==(no,nd)
+    results.append(dict(index=i,old_success=oo is not None,new_success=no is not None,new_output=no,new_record=nd))
+assert results[0]['old_success'] and results[0]['new_success']
+assert not results[1]['old_success'] and results[1]['new_success']
+checks+=['old_query0_full_tuple_unchanged','new_query1_all_four_programs_all_roles_agree']
+# Exhaustive small masks and source ordering on direct geometric roles. Every
+# successful old action tuple must remain exactly unchanged for all programs.
+from itertools import combinations
+points=[(r,c) for r in range(3) for c in range(3)]
+shapes=[]
+for bits in range(1,1<<9):
+    cells=[p for j,p in enumerate(points) if bits>>j&1]
+    if (min(r for r,c in cells)+max(r for r,c in cells))%2==0 and (min(c for r,c in cells)+max(c for r,c in cells))%2==0:
+        shapes.append(cells)
+rng=random.Random(200)
+for k in range(300):
+    a=rng.choice(shapes);b=[(r+5,c) for r,c in rng.choice(shapes)]
+    view=[[0]*15 for _ in range(13)]
+    for color,cells in [(4,a),(6,b)]:
+        for r,c in cells:view[r][c]=color
+    role=dict(view=view,source=[r[:3] for r in view],background=0,orientation=0,
+              separator=3,left=4,masks={4:a,6:b},rows={4:[5],6:[6]},cols={4:[8],6:[9]})
+    for program in old.PROGRAMS:
+        before=old.act(role,program);after=new.act(role,program)
+        if before[0] is not None:assert before==after
+        elif program[1]!='small_first':assert before==after
+        elif any(x!='equal_priority_color_conflict' for x in before[1]['failures']):assert before==after
+        n+=1
+checks.append('synthetic_old_success_all_tuple_and_other_failures_preserved_'+str(n))
+for ori in new.ROTATIONS:
+    tr=lambda g:new.core.transform_grid_by_name(g,ori)
+    assert new.consensus(tr(queries[1]['input']),programs)[0]==tr(results[1]['new_output'])
+checks.append('query1_all_rotations_equivariant')
+for offset in range(1,10):
+    tr=lambda g:[[(c+offset)%10 for c in r] for r in g]
+    pp,_=new.fit([dict(input=tr(t['input']),output=tr(t['output'])) for t in teachers])
+    assert pp==programs and new.consensus(tr(queries[1]['input']),pp)[0]==tr(results[1]['new_output'])
+checks.append('query1_all_cyclic_palette_relabels_equivariant')
+example=teachers[0]['output']
+for bad in range(4):
+    values=[(example,{})]*4;values[bad]=(None,{})
+    with patch.object(new,'render',side_effect=values) as f:
+        assert new.consensus(queries[1]['input'],programs)[0] is None and f.call_count==4
+changed=[r[:] for r in example];changed[0][0]=(changed[0][0]+1)%10
+with patch.object(new,'render',side_effect=[(example,{}),(changed,{}),(example,{}),(example,{})]):
+    assert new.consensus(queries[1]['input'],programs)[1]['failure']=='program_grid_disagreement'
+with patch.object(new,'render',side_effect=RuntimeError('sentinel')):
+    try:new.consensus(queries[1]['input'],programs)
+    except RuntimeError:pass
+    else:raise AssertionError('exception swallowed')
+checks.append('all_candidate_failure_disagreement_and_exception_propagation')
+# Explicit extension-contract boundaries, including mixed errors.
+for failures in (['shift_out_of_bounds'], ['equal_priority_color_conflict','shift_out_of_bounds'], []):
+    original=(None,dict(failures=failures,marker='unchanged'))
+    with patch.object(new.core,'_act',return_value=original) as f:
+        assert new.act({},('color_union','small_first')) is original and f.call_count==1
+original=(None,dict(failures=['equal_priority_color_conflict']))
+for control in ('source_first','source_last','large_first'):
+    with patch.object(new.core,'_act',return_value=original) as f:
+        assert new.act({},('color_union',control)) is original and f.call_count==1
+with patch.object(new.core,'_act',side_effect=[original,(None,dict(failures=['sentinel']))]) as f:
+    assert new.act({},('color_union','small_first'))[0] is None and f.call_count==2
+with patch.object(new.core,'_act',side_effect=[original,RuntimeError('sentinel')]):
+    try:new.act({},('color_union','small_first'))
+    except RuntimeError:pass
+    else:raise AssertionError('exception swallowed in extension')
+checks.append('extension_only_equal_conflict_small_first_other_failures_tuples_and_exceptions_preserved')
+
+report=dict(status='PURE_READY_NOT_ADOPTED',checks=checks,synthetic_action_cases=n,retained_programs=programs,queries=results)
+(here/'candidate-result.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps(dict(status=report['status'],checks=checks),ensure_ascii=False))

@@ -1,0 +1,24 @@
+{
+  "status": "NATIVE_GAIN",
+  "parity": true,
+  "previous_emitted": 2,
+  "current_emitted": 3,
+  "query_statuses": [
+    "OUTPUT",
+    "OUTPUT",
+    "OUTPUT"
+  ],
+  "old_q1_identical": true,
+  "old_q0_identical": true,
+  "q2_new_output": true,
+  "scorer_calls": 0,
+  "family": {
+    "境界": "ARC連結箱参照",
+    "事前観測数": 0,
+    "現在観測数": 3,
+    "採用可": true,
+    "同値採用": true,
+    "状態": "全教師再現",
+    "隔離数": 0
+  }
+}

@@ -1,0 +1,76 @@
+import sys, importlib.util, json, copy, hashlib
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/'source'))
+p=ROOT/'source/接続/ARC2/標点巡回核.py'
+spec=importlib.util.spec_from_file_location('marker_targeted',p);m=importlib.util.module_from_spec(spec);sys.modules[spec.name]=m;spec.loader.exec_module(m)
+checks=[]
+def check(name,condition):
+    assert condition,name
+    checks.append(name)
+t=json.loads((ROOT.parent/'arc2-current99/teachers-only/5545f144.json').read_text())['train']
+f,rec=m.fit(t)
+q=json.loads((ROOT.parent/'arc2-current99/solver-input-only/5545f144.json').read_text())['test'][0]['input']
+out,qr=m.predict(q,f)
+check('teacher-fit-three-retained',len(f.models)==3)
+check('all-six-teacher-models-recorded',len(rec['returns'])==6)
+check('three-descending-failures-retained',sum(not x['all_exact'] for x in rec['returns'])==3)
+for i,pair in enumerate(t):check('teacher-exact-'+str(i),m.predict(pair['input'],f)[0]==pair['output'])
+check('query-full-consensus',out is not None and len(qr['returns'])==3)
+check('query-complete-consumption',all(b['consumed']==12 for r in qr['returns'] for v in r['record']['returns'] for b in v['record']['returns']))
+# Snapshot contact never causes role re-extraction: teacher 2 second panel has a 5-cell C8 aggregate.
+panels=m.panel_views(t[2]['input'])[0]['panels'];components=m.color_components(panels[1],6,True)
+check('teacher-snapshot-c8-contact-observed',max(c['size'] for c in components)==5)
+check('teacher-snapshot-contact-reproduced',m.predict(t[2]['input'],f)[0]==t[2]['output'])
+# The temporarily covered point remains logical and is finally reached, not erased.
+steps=qr['returns'][0]['record']['returns'][0]['record']['returns'][0]['steps']
+check('occluded-marker-retained-until-tip-arrival',steps[-1]['tip']==(6,4) and steps[-1]['remaining_count']==0)
+# D4 equivariance includes reversal of sequence ordering and a vertical separator view.
+def rot(g):return [list(row) for row in zip(*g[::-1])]
+def transform(g,k,flip):
+    g=copy.deepcopy(g)
+    for _ in range(k):g=rot(g)
+    return [row[::-1] for row in g] if flip else g
+for k in range(4):
+ for flip in (False,True):
+    ts=[{key:transform(pair[key],k,flip) for key in ('input','output')} for pair in t]
+    ff,rr=m.fit(ts)
+    check(f'd4-teacher-fit-{k}-{flip}',ff is not None)
+    check(f'd4-query-equivariance-{k}-{flip}',m.predict(transform(q,k,flip),ff)[0]==transform(out,k,flip))
+# Colors are roles, not task constants. Independent bijections leave geometry unchanged.
+for shift in (1,3,7):
+ recolor=lambda g:[[(v+shift)%10 for v in row] for row in g]
+ ff,_=m.fit([{key:recolor(pair[key]) for key in ('input','output')} for pair in t])
+ check(f'palette-fit-{shift}',ff is not None)
+ check(f'palette-query-{shift}',m.predict(recolor(q),ff)[0]==recolor(out))
+for i,g in enumerate(([],[[]],[[0],[1,2]],[[False,1]],[[10]])):
+ check('invalid-grid-hold-'+str(i),m.predict(g,f)[0] is None)
+check('duplicate-teacher-rejected',m.fit([t[0],t[0]])[0] is None)
+bad=copy.deepcopy(t);bad[0]['output'][0][0]=9
+check('teacher-mismatch-rejected',m.fit(bad)[0] is None)
+check('invalid-retained-duplicate',m.predict(q,m.Fitted((f.models[0],f.models[0])))[0] is None)
+check('empty-retained-hold',m.predict(q,m.Fitted(()))[0] is None)
+# Reaching already consumed points is impossible: the finite state loses exactly one point per action.
+check('strict-logical-decrease',all([s['remaining_count'] for s in steps]==list(range(11,-1,-1)) for _ in (0,)))
+g=[[0]*11 for _ in range(11)]
+for r,c in ((5,5),(6,4),(6,6),(3,5),(5,8),(3,8),(7,8)):g[r][c]=1
+check('one-route-success',m.render(g,('ascending','straight_then_turn'))[0] is not None)
+amb,ar=m.render(g,('ascending','any_nonbackward'))
+check('failed-branch-propagates',amb is None)
+branches=ar['returns'][0]['record']['returns']
+check('success-and-failed-branches-both-preserved',any(b['output'] is not None for b in branches) and any(b['output'] is None for b in branches))
+check('retained-model-failure-propagates',m.predict(g,f)[0] is None)
+# Two finite terminal walks with distinct poses cannot be selected by success ranking.
+g2=copy.deepcopy(g);g2[7][8]=0
+amb,ar=m.render(g2,('ascending','any_nonbackward'))
+check('multiple-complete-terminal-disagreement',amb is None and ar['returns'][0]['record']['failure']=='retained_walk_disagreement')
+try:m.predict(q,f,max_nodes=1)
+except m.SearchIncomplete:check('resource-incomplete-propagates',True)
+else:raise AssertionError('resource budget swallowed')
+original=copy.deepcopy(q);m.predict(q,f)
+check('query-input-unmodified',q==original)
+check('fitted-state-teacher-free',set(f.__dict__)=={'models'})
+check('freeze-hash-unchanged',hashlib.sha256(p.read_bytes()).hexdigest()==json.loads((ROOT/'prequery-freeze.json').read_text())['kernel_sha256'])
+report={'passed':len(checks),'checks':checks,'kernel_sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+(ROOT/'targeted-report.json').write_text(json.dumps(report,indent=2)+'\n')
+print(json.dumps({'passed':len(checks)}))

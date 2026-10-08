@@ -1,0 +1,1 @@
+Parent authorization received 2026-10-08 08:53 UTC: independent pure + adapter PASS; parent kernel/adapter/HDS four additions reviewed. On native/targeted/full/pin PASS, run exactly one candidate official evaluation with OPENBLAS_NUM_THREADS=1 CPU10/512MiB/wall60; compare baseline192r2 108/152 and preserve152 old outputs. Adoption/packaging not authorized.

@@ -1,0 +1,28 @@
+{
+  "actual_teacher_fit": {
+    "models": [
+      {
+        "background": 0,
+        "marker": 8,
+        "version": 1
+      }
+    ],
+    "exact": 2
+  },
+  "synthetic_composition": "exact clean restoration, both markers, opposite 8-neighbor outlines, surplus erased; input unchanged",
+  "outline_conflict": "conflicting_outline_ownership",
+  "surplus_conflict": "surplus_outline_ownership_collision",
+  "missing_surface_hole": "missing_surface_hole_witness",
+  "missing_surplus": "both_defects_required",
+  "overlap_hold": "overlapping_surface_ownership",
+  "nonunique_hold": "nonunique_surface",
+  "exception_propagation": "SearchIncomplete and MemoryError identities retained in apply, fit, predict",
+  "retained_model_failure": "both retained models evaluated; HOLD preserved",
+  "retained_model_disagreement": "both retained models evaluated; HOLD preserved",
+  "all_model_consensus": "agreement accepted",
+  "guards": "grid shape/type/palette, role exact ints, model keyset, version mismatch, insufficient/duplicate teachers reject",
+  "version_aliases_accepted": [
+    "True",
+    "1.0"
+  ]
+}

@@ -1,0 +1,1 @@
+Parent 2026-10-08T10:08:28Z: Independent PASS and parent kernel diff checked. After native/q0 preservation/pure parity/targeted/full/pins PASS, authorize one candidate official evaluation with OPENBLAS1 CPU10/512MiB/wall60. No adoption or packaging.

@@ -1,0 +1,14 @@
+from pathlib import Path
+import hashlib,json,ast,difflib
+E=Path(__file__).resolve().parent;B=E.parents[1];A=B/'arc2-current107/source';R=E.parent/'source'
+def pins(root):return {str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest()for p in root.rglob('*')if p.is_file()and '__pycache__'not in p.parts}
+a=json.loads((E/'base-freeze.json').read_text());assert pins(A)==a
+r=pins(R);changed=sorted(n for n in a if r.get(n)!=a[n]);added=sorted(set(r)-set(a));assert changed==['接続/ARC2/HDS接続.py'];assert added==sorted(['RUNTIME.md','requirements-runtime.txt','接続/ARC2/直交領域所有核.py'])
+p=json.loads((E/'kernel-freeze.json').read_text());assert r['接続/ARC2/直交領域所有核.py']==p['sha256']
+assert r==json.loads((E/'pre-regression-freeze.json').read_text())
+protected=['AGENTS.md','制御/現在状態.json','運用/権限順序.md','運用/ARC2_目的再固定_指示書.md','戦略/README.md']+[n for n in a if n.startswith('HDS/')]
+assert all(r[n]==a[n]for n in protected)
+old=(A/'接続/ARC2/HDS接続.py').read_text();new=(R/'接続/ARC2/HDS接続.py').read_text()
+lines=[line for line in new.splitlines(True)if '直交領域所有' not in line];assert ''.join(lines)==old
+report=dict(base_unchanged=True,base_files=len(a),changed=changed,added=added,protected_files_unchanged=len(protected),core_and_gate_unchanged=True,scorer_calls=0)
+(E/'freeze-check.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));(E/'runtime.diff').write_text(''.join(difflib.unified_diff(old.splitlines(True),new.splitlines(True),fromfile='previous/HDS接続.py',tofile='current/HDS接続.py')));print(json.dumps(report))

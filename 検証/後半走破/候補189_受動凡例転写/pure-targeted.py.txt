@@ -1,0 +1,87 @@
+"""Targeted pure checks, using teachers and solver-input-only data only."""
+from pathlib import Path
+import json,random,copy,hashlib
+import sys
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"source"))
+sys.path.insert(0,str(Path(__file__).resolve().parents[2]/"proposal189-keyed-stamp-20261008"))
+from 接続.ARC2 import 受動凡例転写核 as m
+import legacy_probe as legacy
+ROOT=Path(__file__).parent
+BASE=ROOT.parents[1]/'arc2-current99'
+teachers=json.loads((BASE/'teachers-only/abc82100.json').read_text())['train']
+query=json.loads((BASE/'solver-input-only/abc82100.json').read_text())['test'][0]['input']
+checks=[]
+def check(name,condition):
+ checks.append({'name':name,'pass':bool(condition)})
+ if not condition:raise AssertionError(name)
+def rot(g):return [list(row) for row in zip(*g[::-1])]
+def transform(g,i):
+ a=[row[::-1] for row in g] if i>=4 else copy.deepcopy(g)
+ for _ in range(i%4):a=rot(a)
+ return a
+def recolor(g,p):return [[p[v] for v in row] for row in g]
+model,fit=m.fit_teachers(teachers)
+check('all_three_background_models_retained',model['background_rules']==list(m.BACKGROUND_RULES))
+output,diag=m.predict(query,model)
+check('query_all_retained_success_and_agreement',output is not None and diag['all_retained_agree'])
+original=copy.deepcopy(query);m.predict(query,model);check('input_immutable',query==original)
+check('legacy_all_teachers_fit',legacy.fit_teachers(teachers)[0] is True)
+old,record=legacy.render(query);check('legacy_query_hold',old is None and record['parse']['complete_role_count']==0)
+for i,pair in enumerate(teachers):
+ check(f'teacher_{i}',m.predict(pair['input'],model)[0]==pair['output'])
+for i in range(8):
+ for j,pair in enumerate(teachers):
+  check(f'd4_{i}_teacher_{j}',m.predict(transform(pair['input'],i),model)[0]==transform(pair['output'],i))
+ check(f'd4_{i}_query',m.predict(transform(query,i),model)[0]==transform(output,i))
+rng=random.Random(189)
+for i in range(12):
+ perm=list(range(10));rng.shuffle(perm)
+ for j,pair in enumerate(teachers):
+  check(f'colour_{i}_teacher_{j}',m.predict(recolor(pair['input'],perm),model)[0]==recolor(pair['output'],perm))
+ check(f'colour_{i}_query',m.predict(recolor(query,perm),model)[0]==recolor(output,perm))
+for i,g in enumerate([None,[],[[]],[[True]],[[0],[0,1]],[[10]],[[0]*31]]):
+ check(f'invalid_{i}',m.predict(g,model)[0] is None)
+check('single_teacher_rejected',m.fit_teachers(teachers[:1])[0] is None)
+check('duplicate_only_rejected',m.fit_teachers([teachers[0],teachers[0]])[0] is None)
+check('invalid_model_rejected',m.predict(query,{'kind':'bad'})[0] is None)
+role,_=m.parse_input(query,'area_mode')
+check('seven_passive_preserved',len(role['unmatched'])==7 and all(output[r][c]==v for r,c,v in role['unmatched']))
+# Direct renderer ownership witness tests avoid teaching a desired answer.
+synthetic={'shape':(5,5),'background':0,'shape_colour':8,'shape_cell_count':2,'marker_count':1,
+ 'metadata':frozenset({(0,0),(0,1),(0,2),(0,3)}),'templates':[{'raw_id':0,'offsets':((0,0),(0,1)),'markers':((2,2),),'value':2}],
+ 'unmatched':((2,3,6),)}
+check('passive_conflict_hold',m.render_role(synthetic)[0] is None)
+synthetic['unmatched']=((2,3,2),)
+check('same_colour_passive_agreement',m.render_role(synthetic)[0][2][3]==2)
+# Keep erase alternative evidence; it is not disproven by these teachers.
+alternatives=[]
+for rule in m.BACKGROUND_RULES:
+ alt_fits=[m.render_model(t['input'],rule,'erase')[0]==t['output'] for t in teachers]
+ alt,_=m.render_model(query,rule,'erase')
+ differences=[[r,c,output[r][c],alt[r][c]] for r in range(len(output)) for c in range(len(output[0])) if output[r][c]!=alt[r][c]]
+ alternatives.append({'background_rule':rule,'teacher_fit':alt_fits,'query_output':alt,'disagreements':differences,
+ 'status':'HOLD alternative: erase outside instruction ownership is not teacher-refuted; preservation is declared extra prior'})
+ check(f'erase_{rule}_fits_but_differs',all(alt_fits) and len(differences)==7)
+# Incomplete/failed retained models must never be dropped for agreeing survivors.
+old=m.render_model
+try:
+ def failure(g,rule,passive_policy='preserve'):
+  return (None,{'failure':'injected_retained_failure'}) if rule=='border_mode' else old(g,rule,passive_policy)
+ m.render_model=failure
+ check('retained_failure_hold',m.predict(query,model)[0] is None)
+ def disagree(g,rule,passive_policy='preserve'):
+  out,d=old(g,rule,passive_policy)
+  if rule=='border_mode' and out is not None:out[0][0]=(out[0][0]+1)%10
+  return out,d
+ m.render_model=disagree
+ check('retained_disagreement_hold',m.predict(query,model)[0] is None)
+ def exception(g,rule,passive_policy='preserve'):raise RuntimeError('injected')
+ m.render_model=exception
+ raised=False
+ try:m.predict(query,model)
+ except RuntimeError:raised=True
+ check('runtime_exception_propagates',raised)
+finally:m.render_model=old
+json.dump({'status':'PASS','checks':checks,'count':len(checks),'model':model,'kernel_sha256':hashlib.sha256((ROOT.parent/'source/接続/ARC2/受動凡例転写核.py').read_bytes()).hexdigest()},open(ROOT/'pure-targeted-report.json','w'),indent=2)
+json.dump({'alternatives':alternatives},open(ROOT/'alternatives-hold.json','w'),indent=2)
+print('PASS',len(checks))

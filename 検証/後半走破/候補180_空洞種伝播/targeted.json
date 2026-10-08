@@ -1,0 +1,1 @@
+{"successful": true, "checks": ["one_model_empty_prior", "all_teachers_exact", "query_consensus", "empty_teachers_hold", "retained_failure_hold", "exception_propagates", "existing_python_unchanged", "all_other_HDS_bridge_functions_unchanged"]}

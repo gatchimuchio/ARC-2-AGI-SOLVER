@@ -1,0 +1,12 @@
+{
+  "original_script": "/workspace/scratch/7408259c1ab2/candidate186-stage1r2-production/source/検証/連結箱参照回帰.py",
+  "script_sha256": "6edfe7edfab13b677771c1fbb2fa52e79a27d39fd099e47a9ad81f0b758b21f7",
+  "old_renderer_sha256": "22198d1649cbf33488aeccd4a9d0e2a39e6b6a0b9a88327eae7a36ce278dd25b",
+  "new_renderer_sha256": "70241e17570721987ffa12185e70e6eec7e0629704e4f5fbc84a4decf9965740",
+  "reason": "Authorized frozen kernel replacement; bind only expected renderer pin. Original fixtures and behavioral checks unchanged.",
+  "runner_sha256": "aa0f2f91ce1bf07947831417de7117b74cb193553c8ed97f5f52b0695c4f3558",
+  "original_failure_report": "full-regression-current.json",
+  "parent_authorized": true,
+  "exit_code": 0,
+  "elapsed_seconds": 0.09441830800005846
+}

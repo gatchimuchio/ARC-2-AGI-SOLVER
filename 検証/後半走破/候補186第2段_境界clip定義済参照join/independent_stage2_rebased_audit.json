@@ -1,0 +1,176 @@
+{
+  "status": "PASS",
+  "checks": 66,
+  "teachers": [
+    {
+      "program": [
+        "C4",
+        "C4"
+      ],
+      "fits": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "program": [
+        "C4",
+        "C8"
+      ],
+      "fits": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "program": [
+        "C4",
+        "cardinal_side_midpoint"
+      ],
+      "fits": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "program": [
+        "C8",
+        "C4"
+      ],
+      "fits": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "program": [
+        "C8",
+        "C8"
+      ],
+      "fits": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "program": [
+        "C8",
+        "cardinal_side_midpoint"
+      ],
+      "fits": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "program": [
+        "C8_no_corner_shortcut",
+        "C4"
+      ],
+      "fits": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "program": [
+        "C8_no_corner_shortcut",
+        "C8"
+      ],
+      "fits": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "program": [
+        "C8_no_corner_shortcut",
+        "cardinal_side_midpoint"
+      ],
+      "fits": [
+        true,
+        true,
+        true
+      ]
+    }
+  ],
+  "check_names": [
+    "teacher0-('C4', 'C4')-full_tuple_preserved",
+    "teacher1-('C4', 'C4')-full_tuple_preserved",
+    "teacher2-('C4', 'C4')-full_tuple_preserved",
+    "teacher0-('C4', 'C8')-full_tuple_preserved",
+    "teacher1-('C4', 'C8')-full_tuple_preserved",
+    "teacher2-('C4', 'C8')-full_tuple_preserved",
+    "teacher0-('C4', 'cardinal_side_midpoint')-full_tuple_preserved",
+    "teacher1-('C4', 'cardinal_side_midpoint')-full_tuple_preserved",
+    "teacher2-('C4', 'cardinal_side_midpoint')-full_tuple_preserved",
+    "teacher0-('C8', 'C4')-full_tuple_preserved",
+    "teacher1-('C8', 'C4')-full_tuple_preserved",
+    "teacher2-('C8', 'C4')-full_tuple_preserved",
+    "teacher0-('C8', 'C8')-full_tuple_preserved",
+    "teacher1-('C8', 'C8')-full_tuple_preserved",
+    "teacher2-('C8', 'C8')-full_tuple_preserved",
+    "teacher0-('C8', 'cardinal_side_midpoint')-full_tuple_preserved",
+    "teacher1-('C8', 'cardinal_side_midpoint')-full_tuple_preserved",
+    "teacher2-('C8', 'cardinal_side_midpoint')-full_tuple_preserved",
+    "teacher0-('C8_no_corner_shortcut', 'C4')-full_tuple_preserved",
+    "teacher1-('C8_no_corner_shortcut', 'C4')-full_tuple_preserved",
+    "teacher2-('C8_no_corner_shortcut', 'C4')-full_tuple_preserved",
+    "teacher0-('C8_no_corner_shortcut', 'C8')-full_tuple_preserved",
+    "teacher1-('C8_no_corner_shortcut', 'C8')-full_tuple_preserved",
+    "teacher2-('C8_no_corner_shortcut', 'C8')-full_tuple_preserved",
+    "teacher0-('C8_no_corner_shortcut', 'cardinal_side_midpoint')-full_tuple_preserved",
+    "teacher1-('C8_no_corner_shortcut', 'cardinal_side_midpoint')-full_tuple_preserved",
+    "teacher2-('C8_no_corner_shortcut', 'cardinal_side_midpoint')-full_tuple_preserved",
+    "diagonal_same_key_C4_candidate_survives",
+    "diagonal_roles_preserved",
+    "diagonal_full_tuple_('C4', 'C4')",
+    "diagonal_full_tuple_('C4', 'C8')",
+    "diagonal_full_tuple_('C4', 'cardinal_side_midpoint')",
+    "diagonal_full_tuple_('C8', 'C4')",
+    "diagonal_full_tuple_('C8', 'C8')",
+    "diagonal_full_tuple_('C8', 'cardinal_side_midpoint')",
+    "diagonal_full_tuple_('C8_no_corner_shortcut', 'C4')",
+    "diagonal_full_tuple_('C8_no_corner_shortcut', 'C8')",
+    "diagonal_full_tuple_('C8_no_corner_shortcut', 'cardinal_side_midpoint')",
+    "clip_old_impossibility",
+    "clip_roles_added",
+    "clip_observed_center_and_footprint",
+    "clip_positive_render",
+    "no_complete_no_clip",
+    "incomplete_shell_rejected",
+    "old_failure_has_roles",
+    "old_render_failure_preserved_('C4', 'C4')",
+    "old_render_failure_preserved_('C4', 'C8')",
+    "old_render_failure_preserved_('C4', 'cardinal_side_midpoint')",
+    "old_render_failure_preserved_('C8', 'C4')",
+    "old_render_failure_preserved_('C8', 'C8')",
+    "old_render_failure_preserved_('C8', 'cardinal_side_midpoint')",
+    "old_render_failure_preserved_('C8_no_corner_shortcut', 'C4')",
+    "old_render_failure_preserved_('C8_no_corner_shortcut', 'C8')",
+    "old_render_failure_preserved_('C8_no_corner_shortcut', 'cardinal_side_midpoint')",
+    "join_rejects_missing_before_render",
+    "all_missing_HOLD",
+    "all_valid_lookup_bindings_retained_disagreement_HOLD",
+    "all_valid_terminal_bindings_retained",
+    "retained_failure_HOLD",
+    "exceptions_propagate",
+    "ownership_failure_HOLD",
+    "ownership_disagreement_HOLD",
+    "no_exception_handlers",
+    "no_external_IO_calls",
+    "no_unbounded_while_added",
+    "frozen_hash"
+  ],
+  "scope": "teacher-only plus synthetic controls; no query/native/official scoring",
+  "source_sha256": "5bfb14ba308720f9767173feee25ee7a07cf204083e6ee478fd157177953882d",
+  "baseline_sha256": "70241e17570721987ffa12185e70e6eec7e0629704e4f5fbc84a4decf9965740"
+}

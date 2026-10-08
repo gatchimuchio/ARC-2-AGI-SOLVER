@@ -1,0 +1,42 @@
+{
+  "status": "FROZEN_PURE_R2",
+  "base": "arc2-current107/source",
+  "kernel": "source/接続/ARC2/直交領域所有核.py",
+  "sha256": "943acdb273c66b56f2103cb86038b523b32847594c34335f9ed781d0fe8e8a02",
+  "previous_sha256": "ec485333d0aec39536c35ba605e6736fc57bc5108251a3d5711db5a95b542f4d",
+  "previous_proposal": "proposal192-outline-cleanup-20261008",
+  "reason": "Audit fault injection exposed nonintegral status0 MILP rounding acceptance. R2 rejects and propagates SearchIncomplete.",
+  "previous_failure_record": "proposal192-outline-cleanup-20261008/independent-audit/fractional-probe-results.json",
+  "teachers_fit": 3,
+  "query_candidates": 2,
+  "old_all_five_outputs_preserved": true,
+  "pure_checks": 56,
+  "numeric_fault_injections": 15,
+  "exhaustive": {
+    "status": "PASS",
+    "input_masks": 512,
+    "candidate_regions_per_input": 512,
+    "unique": 440,
+    "ties": 72,
+    "cpu_s": 4.434497200999999
+  },
+  "resource": {
+    "status": "PASS",
+    "cpu_s_including_import": 0.746167914,
+    "rss_kib": 72048,
+    "limits": {
+      "cpu_s": 10,
+      "as_bytes": 536870912
+    },
+    "scope": "pure class fit + two input-only queries, not native"
+  },
+  "not_run": [
+    "native",
+    "full",
+    "score",
+    "adoption",
+    "commit",
+    "upload",
+    "remote_write"
+  ]
+}

@@ -1,0 +1,3 @@
+候補194の局所軌条鎖所有を空priorの通常HDS境界へ接続し109/154。旧152格子全保持、誤出力/資源失敗0。既存単色C8成分を局所のrail/chain複合所有と前方障害物profileへ合成し、同じ色の異なる物体役割を分離する。最近傍対象、近側輪郭、単位補間、鎖セル数のclip前保存と終端後対角継続は教師整合の明示priorで、論理的一意性を主張しない。全4保持modelの成功・一致、全所有失敗HOLD、例外伝播、strict teacherlist/min2unique/pairdict/bothvalid guardを保持。旧143/149/152完全source未回収と149timeout・152wrong2/CPU3棄却を保持し復元とは主張しない。旧96 family状態・記録同一を確認し88bcf3b4両queryが増分。独立pure/adapter監査PASS、pure163 metamorphic、統合37、native一致、新規109本7839検査＋依存/AST同一window29。同条件OPENBLAS1/CPU10/512MiB/wall60の公式候補1回。193接触経路はwrong1・増分0棄却として非runtime履歴を同梱。HDS中核・通常gate・依存起動契約不変。現行local採用、Git commit pending、remote writeなし。残11課題。
+
+previous108/152 → current109/154、delta+1/+2。核SHAは試験済み凍結と同一。今回rawは同directory、以前の基底rawは候補192_直交領域所有/current-official.json.gz。Git commit pending。

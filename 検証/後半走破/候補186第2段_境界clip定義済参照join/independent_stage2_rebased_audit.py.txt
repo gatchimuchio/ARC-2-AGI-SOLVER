@@ -1,0 +1,95 @@
+import sys,importlib.util,json,copy,hashlib
+from pathlib import Path
+root=Path('/workspace/scratch/7408259c1ab2');sys.path.insert(0,str(root/'arc2-current102-145/source'))
+def load(n,p):
+ s=importlib.util.spec_from_file_location(n,root/p);m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
+old=load('old','arc2-current102-145/source/接続/ARC2/連結箱参照核.py');new=load('new','proposal186-connected-box-20261008/stage2_rebased_core.py')
+checks=[]
+def check(name,condition):
+ assert condition,name
+ checks.append(name)
+pairs=json.load(open(root/'arc2-current99/teachers-only/d35bdbdc.json'))['train'];fits=[]
+for program in new.PROGRAMS:
+ f=[]
+ for i,p in enumerate(pairs):
+  a=old.render(p['input'],program);b=new.render(p['input'],program)
+  check(f'teacher{i}-{program}-full_tuple_preserved',a==b);f.append(b[0]==p['output'])
+ fits.append({'program':program,'fits':f})
+print('Teachers',len(pairs),'x',len(new.PROGRAMS),'full tuples preserved; fits',fits,flush=True)
+def blank():return [[0]*12 for _ in range(10)]
+def square(g,cr,cc,key,value):
+ for r in range(max(0,cr-1),min(len(g),cr+2)):
+  for c in range(max(0,cc-1),min(len(g[0]),cc+2)):g[r][c]=key
+ g[cr][cc]=value
+# Fully visible legacy C4 squares with same-colored wire diagonal contact.
+g=blank();square(g,3,3,2,3);square(g,7,8,3,2)
+for r,c in [(5,5),(5,6),(5,7),(5,8)]:g[r][c]=2
+check('diagonal_same_key_C4_candidate_survives',any(b['center']==(3,3) for b in old.ownerships(g)[1]['candidate_boxes']))
+check('diagonal_roles_preserved',old.ownerships(g)==new.ownerships(g))
+for p in new.PROGRAMS:check('diagonal_full_tuple_'+str(p),old.render(g,p)==new.render(g,p))
+# Boundary fragment with observed center and a full square defining its size.
+g=blank();square(g,5,3,2,3);square(g,0,8,3,2)
+for r,c in [(5,c)for c in range(5,9)]+[(r,8)for r in range(2,5)]:g[r][c]=4
+roles,record=new.ownerships(g)
+check('clip_old_impossibility',old.ownerships(g)[1]['failure']=='unavoidable_wire_has_multiple_colors')
+check('clip_roles_added',len(roles)>0 and all(r.get('reference_domain_binding') for r in roles))
+check('clip_observed_center_and_footprint',all(b['value']==g[b['center'][0]][b['center'][1]] and all(0<=r<len(g) and 0<=c<len(g[0]) for r,c in b['footprint']) for role in roles for b in role['boxes']))
+a,rec=new.render(g,('C4','C4'));expected=copy.deepcopy(g);expected[5][3]=2;expected[0][8]=3
+check('clip_positive_render',a==expected)
+# Removing complete template must block any unseen-size invention.
+h=copy.deepcopy(g)
+for r in range(4,7):
+ for c in range(2,5):h[r][c]=0
+check('no_complete_no_clip',not any(b.get('clipped') for b in new.ownerships(h)[1].get('candidate_boxes',[])))
+# Disturb observed fragment shape: exact component and shell equality forbid completion.
+h=copy.deepcopy(g);h[1][7]=0
+check('incomplete_shell_rejected',not any(b.get('clipped') and b['center']==(0,8) for b in new.ownerships(h)[1].get('candidate_boxes',[])))
+# Fully visible old ownership is maintained even when render fails.
+h=blank();square(h,3,3,2,7);square(h,7,8,3,7)
+for r,c in [(5,5),(5,6),(5,7),(5,8)]:h[r][c]=4
+check('old_failure_has_roles',bool(old.ownerships(h)[0]))
+for p in new.PROGRAMS:
+ check('old_render_failure_preserved_'+str(p),old.render(h,p)==new.render(h,p) and new.render(h,p)[0] is None)
+# Force the reference-domain branch with old-style direct roles, to isolate join semantics.
+def box(k,v,center):return dict(key=k,value=v,center=center,footprint=[center],bbox=(*center,*center),side=1)
+def role(boxes):return dict(background=0,boxes=boxes,wire=[(1,1),(1,2)],wire_color=4,reference_domain_binding=True)
+orig_attaches=new.attaches
+new.attaches=lambda point,b,attachment: b['center'][0]==point[1]
+h=[[0]*8 for _ in range(8)]
+r=role([box(2,3,(1,0)),box(9,8,(1,1)),box(3,2,(2,0))])
+a,rec=new.execute_role(h,r,('C4','C4'))
+check('join_rejects_missing_before_render',a is not None and len(rec['alternatives'])==1 and rec['reference_domain_bindings'][0]['retained']==[0] and rec['reference_domain_bindings'][0]['rejected'][0]['box']==1)
+r=role([box(2,8,(1,0)),box(3,8,(2,0))]);a,rec=new.execute_role(h,r,('C4','C4'))
+check('all_missing_HOLD',a is None and rec['failure']=='wire_endpoint_reference_domain_empty' and not rec['alternatives'])
+r=role([box(2,3,(1,0)),box(3,2,(2,0)),box(3,7,(4,0))]);a,rec=new.execute_role(h,r,('C4','C4'))
+check('all_valid_lookup_bindings_retained_disagreement_HOLD',a is None and len(rec['alternatives'])==2 and rec['failure']=='retained_terminal_attachments_disagree')
+r=role([box(2,3,(1,0)),box(2,3,(1,1)),box(3,2,(2,0))]);a,rec=new.execute_role(h,r,('C4','C4'))
+check('all_valid_terminal_bindings_retained',len(rec['alternatives'])==4 and rec['reference_domain_bindings'][0]['retained']==[0,1])
+orig_merge=new.merge_proposals
+new.merge_proposals=lambda *a:(None,{'failure':'synthetic_merge_failure'})
+a,rec=new.execute_role(h,r,('C4','C4'))
+check('retained_failure_HOLD',a is None and len(rec['alternatives'])==4 and rec['failure']=='retained_terminal_or_lookup_failed')
+def boom(*a):raise RuntimeError('audit sentinel')
+new.merge_proposals=boom
+try:new.execute_role(h,r,('C4','C4'))
+except RuntimeError as e:check('exceptions_propagate',str(e)=='audit sentinel')
+else:raise AssertionError('exception swallowed')
+new.merge_proposals=orig_merge;new.attaches=orig_attaches
+print(json.dumps({'status':'PASS','checks':len(checks),'teachers':fits,'check_names':checks},ensure_ascii=False,indent=2))
+# Final consensus cannot silently discard a failed or disagreeing ownership.
+orig_ownerships,orig_execute=new.ownerships,new.execute_role
+new.ownerships=lambda grid:([0,1],{})
+for name,results in [('failure',[(h,{}),(None,{})]),('disagreement',[(h,{}),([[1]],{})])]:
+ new.execute_role=lambda grid,role,program:results[role]
+ a,rec=new.render(h,('C4','C4'))
+ check('ownership_'+name+'_HOLD',a is None and len(rec['ownership_alternatives'])==2)
+new.ownerships,new.execute_role=orig_ownerships,orig_execute
+import ast
+newtree=ast.parse((root/'proposal186-connected-box-20261008/stage2_rebased_core.py').read_text())
+check('no_exception_handlers',not any(isinstance(n,ast.ExceptHandler) for n in ast.walk(newtree)))
+check('no_external_IO_calls',not any(isinstance(n,ast.Call) and isinstance(n.func,ast.Name) and n.func.id in {'open','exec','eval','__import__'} for n in ast.walk(newtree)))
+check('no_unbounded_while_added',len([n for n in ast.walk(newtree) if isinstance(n,ast.While)])==1)
+check('frozen_hash',hashlib.sha256((root/'proposal186-connected-box-20261008/stage2_rebased_core.py').read_bytes()).hexdigest()=='5bfb14ba308720f9767173feee25ee7a07cf204083e6ee478fd157177953882d')
+result={'status':'PASS','checks':len(checks),'teachers':fits,'check_names':checks,'scope':'teacher-only plus synthetic controls; no query/native/official scoring','source_sha256':hashlib.sha256((root/'proposal186-connected-box-20261008/stage2_rebased_core.py').read_bytes()).hexdigest(),'baseline_sha256':hashlib.sha256((root/'arc2-current102-145/source/接続/ARC2/連結箱参照核.py').read_bytes()).hexdigest()}
+(root/'proposal186-connected-box-20261008/independent_stage2_rebased_audit.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
+print('FINAL',len(checks),'PASS')

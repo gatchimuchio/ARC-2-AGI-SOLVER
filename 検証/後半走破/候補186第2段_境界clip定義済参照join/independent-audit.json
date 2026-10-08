@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "source": "proposal186-connected-box-20261008/independent_stage2_rebased_audit.json",
+  "report_sha256": "1cabcf5133c88ae4d1f404e0a7c9ba691bf5a22e4810676d4cee66d29d1c0ef5",
+  "checks": 66,
+  "kernel_sha256": "5bfb14ba308720f9767173feee25ee7a07cf204083e6ee478fd157177953882d"
+}

@@ -1,0 +1,36 @@
+{
+  "status": "PRE_SCORE_PASS",
+  "previous": [
+    111,
+    156
+  ],
+  "candidate": "198",
+  "kernel_sha256": "a6637e397866052318eba6344ab942abbe44701affb9728fe5fdcf5b4ee5b8e1",
+  "adapter_sha256": "ca4d5c019098fd87b20f9be70f3646aa5c20fa114878861d71f83dd2b3fd45db",
+  "native_families_identical": 99,
+  "native_query1_complete_tuple_preserved": true,
+  "native_query0_new_output": true,
+  "pure_parity": true,
+  "targeted": 25,
+  "existing093_regression": 16,
+  "regression": {
+    "fresh_scripts": 109,
+    "fresh_checks": 7839,
+    "preserved_window_checks": 29,
+    "composed_scripts": 110,
+    "composed_checks": 7868
+  },
+  "runtime_changed": [
+    "接続/ARC2/標識移動教材.py"
+  ],
+  "runtime_added": [
+    "接続/ARC2/凡例所有境界候補.py"
+  ],
+  "independent_audits": [
+    "proposal198-marker-owner-20261008/independent_boundary_audit.json",
+    "proposal198-marker-owner-20261008/independent_adapter_audit.json"
+  ],
+  "authorization": "one official candidate run after gates; adoption/packaging/commit/upload/remote pending",
+  "frozen_files": 2903,
+  "base_files_unchanged": 2902
+}

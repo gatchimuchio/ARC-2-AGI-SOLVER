@@ -1,0 +1,112 @@
+"""Read-only pure audit of finite paired-border placement ownership contracts.
+
+No solver candidate, task routing, output lookup, or answer selection is added.
+Input paths are supplied by the test caller; data are limited to teacher outputs
+and query inputs. Runtime modules are imported without editing their sources.
+"""
+import sys,json,resource,hashlib,time
+from pathlib import Path
+resource.setrlimit(resource.RLIMIT_CPU,(10,10))
+resource.setrlimit(resource.RLIMIT_AS,(512*1024**2,)*2)
+source, teacher_path, input_path, dest=map(Path,sys.argv[1:])
+sys.path.insert(0,str(source.resolve()))
+from 接続.ARC2 import 対辺標点配置候補 as m
+from unittest.mock import patch
+start=time.process_time()
+teachers=json.loads(teacher_path.read_text())['train']
+queries=json.loads(input_path.read_text())['test']
+assert all(set(q)=={'input'} for q in queries)
+programs,fit=m.fit(teachers)
+
+def parts(points,diag):
+    rest=set(points); result=[]
+    while rest:
+        group={rest.pop()}; todo=list(group)
+        while todo:
+            r,c=todo.pop()
+            near={(r+dr,c+dc) for dr in (-1,0,1) for dc in (-1,0,1)
+                  if (dr or dc) and (diag or not dr or not dc)} & rest
+            rest-=near;group|=near;todo+=list(near)
+        result.append(len(group))
+    return sorted(result)
+
+def inspect(grid):
+    roles,record=m.parse(grid); facts=[]
+    for role in roles:
+        objects=[];claims={}
+        for color,cells in role['masks'].items():
+            top,left=min(r for r,c in cells),min(c for r,c in cells)
+            bottom,right=max(r for r,c in cells),max(c for r,c in cells)
+            center=((top+bottom)//2,(left+right)//2)
+            obj=dict(color=color,cells=sorted(cells),bbox=[top,left,bottom,right],center=center,
+                     components4=parts(cells,False),components8=parts(cells,True),
+                     rows=role['rows'].get(color,[]),cols=role['cols'].get(color,[]))
+            objects.append(obj)
+            for r in obj['rows']:
+                for c in obj['cols']:
+                    shifted=[(a+r-center[0],b+c-center[1]) for a,b in cells]
+                    for p in shifted:
+                        claims.setdefault(p,[]).append((obj,(r,c),shifted))
+        conflicts=[]
+        for point,cc in claims.items():
+            if len({x[0]['color'] for x in cc})<2:continue
+            conflicts.append(dict(point=point,input_color=grid[point[0]][point[1]],owners=[
+                dict(color=o['color'],anchor=a,cells=len(o['cells']),bbox=o['bbox'],
+                     c4_before=parts(s,False),c4_after=parts([p for p in s if p!=point],False),
+                     c8_before=parts(s,True),c8_after=parts([p for p in s if p!=point],True),
+                     point_is_anchor=point==a,
+                     squared_anchor_distance=sum((x-y)**2 for x,y in zip(point,a)))
+                for o,a,s in cc]))
+        facts.append(dict(orientation=role['orientation'],objects=objects,conflicts=conflicts))
+    out,rec=m.consensus(grid,programs)
+    returns=[dict(program=p,success=m.render(grid,p)[0] is not None,
+                  failure=m.render(grid,p)[1].get('failure')) for p in programs]
+    return dict(role_count=len(roles),roles=facts,consensus_success=out is not None,
+                consensus_failure=rec.get('failure'),program_returns=returns),out
+
+observations=[]
+for kind,examples in [('teacher',teachers),('query',queries)]:
+    for i,p in enumerate(examples):
+        obs,out=inspect(p['input']);obs.update(kind=kind,index=i)
+        if kind=='teacher':obs['teacher_exact']=out==p['output']
+        observations.append(obs)
+checks=[]
+assert len(programs)==4 and all(m.consensus(t['input'],programs)[0]==t['output'] for t in teachers)
+checks.append('all_four_retained_programs_reproduce_all_teachers')
+assert m.consensus(queries[0]['input'],programs)[0] is not None
+assert m.consensus(queries[1]['input'],programs)[0] is None
+checks.append('query0_success_and_query1_HOLD_preserved')
+# Exhaustive reductions on retained candidate outcomes, including exceptions.
+example=teachers[0]['output']
+for failure_at in range(len(programs)):
+    values=[(example,{}) for p in programs];values[failure_at]=(None,{})
+    with patch.object(m,'render',side_effect=values) as f:
+        out,rec=m.consensus(queries[1]['input'],programs)
+        assert out is None and f.call_count==len(programs)
+checks.append('failure_at_every_retained_program_position_vetoes_without_drop')
+different=[row[:] for row in example];different[0][0]=(different[0][0]+1)%10
+with patch.object(m,'render',side_effect=[(example,{}),(different,{}),(example,{}),(example,{})]):
+    assert m.consensus(queries[1]['input'],programs)[1]['failure']=='program_grid_disagreement'
+checks.append('retained_disagreement_HOLD')
+with patch.object(m,'render',side_effect=RuntimeError('sentinel')):
+    try:m.consensus(queries[1]['input'],programs)
+    except RuntimeError as e: assert str(e)=='sentinel'
+    else: raise AssertionError('exception swallowed')
+checks.append('unknown_exception_propagated')
+# Rotation/relabeling are input-only metamorphic checks, never answer fitting.
+for orientation in m.ROTATIONS:
+    transformed=m.core.transform_grid_by_name(queries[1]['input'],orientation)
+    assert m.consensus(transformed,programs)[0] is None
+checks.append('query1_HOLD_all_rotations')
+for offset in range(1,10):
+    tr=lambda g:[[(c+offset)%10 for c in row] for row in g]
+    pp,_=m.fit([dict(input=tr(t['input']),output=tr(t['output'])) for t in teachers])
+    assert pp==programs and m.consensus(tr(queries[1]['input']),pp)[0] is None
+checks.append('query1_HOLD_all_cyclic_palette_relabels')
+files={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in [Path(m.__file__),Path(m.core.__file__)]}
+result=dict(status='HOLD_NO_RUNTIME_CHANGE',retained_programs=programs,checks=checks,
+            observations=observations,source_sha256=files,
+            cpu_seconds=time.process_time()-start,max_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+            resource_contract=dict(OPENBLAS_NUM_THREADS=1,cpu_seconds=10,address_space_MiB=512,wall_seconds=60,HiGHS_threads=1))
+dest.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps({k:v for k,v in result.items() if k!='observations'},ensure_ascii=False))

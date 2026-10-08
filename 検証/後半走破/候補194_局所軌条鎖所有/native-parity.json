@@ -1,0 +1,26 @@
+{
+  "status": "NATIVE_GAIN",
+  "previous_families": 96,
+  "existing_families_and_records_identical": true,
+  "previous_admitted_families": 0,
+  "previous_emitted": 0,
+  "current_emitted": 2,
+  "parity": true,
+  "scorer_calls": 0,
+  "family": {
+    "境界": "ARC局所軌条鎖所有",
+    "事前観測数": 0,
+    "現在観測数": 5,
+    "採用可": true,
+    "同値採用": true,
+    "状態": "全教師再現",
+    "隔離数": 0
+  },
+  "frozen_author_pure_evidence_parity": true,
+  "launch": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "cpu_seconds": 10,
+    "address_space_bytes": 536870912,
+    "wall_seconds": 60
+  }
+}

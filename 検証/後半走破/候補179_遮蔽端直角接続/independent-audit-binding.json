@@ -1,0 +1,8 @@
+{
+  "source_sha256": "82a6d8715706245d9eb3a256d812e397b1c1f0e83e46c33bd0c1a8bd15705e2f",
+  "source_audit": "Parent reports independent source/teacher contract PASS; 3 teachers x4 models, forced elbow, >2 residual HOLD, cycle/ownership/failure/conflict guards; no query or target access.",
+  "scope": "Explicit elbow prior is not uniquely forced by teachers.",
+  "integration_audit": "Parent reviewed import, constructor, family registration, diagnostics only; ordinary empty prior gate and unchanged consensus/core.",
+  "score_authorization": "Parent authorized one same-condition score after native gain, targeted/full regression and pins pass.",
+  "adoption_authorized": false
+}

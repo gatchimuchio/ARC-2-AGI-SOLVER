@@ -1,0 +1,5 @@
+--- 検証/対辺標点配置回帰.py (original)
++++ 検証/対辺標点配置回帰.py (proposed current fixture)
+@@
+-EXPECTED_CORE = 'dbc768521416ada613a7a41aeb394a38f3ec63f17b89cd69bd221aaeffb04e55'
++EXPECTED_CORE = '441bd607d19ba96d56890397a2cef29ac2502aeaaa49fc744aa8b8b9aa2c3ab5'

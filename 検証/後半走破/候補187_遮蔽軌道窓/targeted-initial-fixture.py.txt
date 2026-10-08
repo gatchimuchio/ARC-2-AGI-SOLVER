@@ -1,0 +1,47 @@
+from pathlib import Path
+import sys,json,importlib.util,hashlib
+from copy import deepcopy
+from unittest.mock import patch
+E=Path(__file__).resolve().parent;R=E.parent/'source';B=E.parents[1];A=B/'arc2-current103/source'
+sys.path.insert(0,str(R))
+from 接続.ARC2 import 二軸補完教材 as g, 遮蔽軌道窓 as m
+spec=importlib.util.spec_from_file_location('接続.ARC2.previous_twoaxis',A/'接続/ARC2/二軸補完教材.py');old=importlib.util.module_from_spec(spec);spec.loader.exec_module(old)
+spec=importlib.util.spec_from_file_location('fixtures',R/'検証/二軸補完回帰.py');fixtures=importlib.util.module_from_spec(spec);spec.loader.exec_module(fixtures)
+checks=[]
+def check(n,c):
+ assert c,n
+ checks.append(n)
+train=json.loads((B/'arc2-current99/teachers-only/0934a4d8.json').read_text())['train'];task=json.loads((B/'arc2-current99/solver-input-only/0934a4d8.json').read_text());before=deepcopy(train)
+material=g.二軸補完教材(train);check('old teacher fit fails',old.fit_teachers(train)[0] is None);check('masked model fitted',material.遮蔽モデル=={'version':1,'axes':[31,31]})
+for i,p in enumerate(train):check('teacher exact '+str(i),material.候補(p['input'],None)[0]==p['output'])
+frozen=json.loads((B/'proposal187-masked-pattern-20261008/pure-freeze.json').read_text())
+for i,p in enumerate(task['test']):check('frozen pure parity '+str(i),material.候補(p['input'],None)[0]==frozen['query'][i]['output'])
+check('no teacher mutation',train==before)
+train[0]['output'][0][0]=9
+check('model detached',material.候補(task['test'][0]['input'],None)[0]==frozen['query'][0]['output'])
+for axes,h,w in [((8,10),9,12),((7,13),9,12),((4,9),6,8),((6,6),7,7)]:
+ t=[fixtures.example(h,w,axes,s)for s in (2,3,4,5)]
+ with patch.object(m,'fit',side_effect=AssertionError('new fit must never run')):new=g.二軸補完教材(t)
+ prev=old.二軸補完教材(t)
+ check('old vars preserved '+str(axes),vars(new)==vars(prev))
+ check('old record preserved '+str(axes),new.記録()==prev.記録())
+ for j,x in enumerate([fixtures.example(h,w,axes,7)['input'],[[0]],[[1]],[],fixtures.example(h,w,axes,7)['output']]):
+  check('old success HOLD tuple preserved '+str((axes,j)),new.候補(x,None)==prev.候補(x,None))
+ with patch.object(m,'predict',side_effect=AssertionError('new predict must never run')):
+  check('old HOLD owns view '+str(axes),new.候補([[0]],None)==prev.候補([[0]],None))
+with patch.object(m,'fit',side_effect=RuntimeError('fit failure')):
+ try:g.二軸補完教材(before)
+ except RuntimeError:check('fit exception propagates',True)
+ else:raise AssertionError('swallowed')
+with patch.object(m,'predict',side_effect=RuntimeError('predict failure')):
+ try:material.候補(task['test'][0]['input'],None)
+ except RuntimeError:check('predict exception propagates',True)
+ else:raise AssertionError('swallowed')
+for name,t in [('empty',[]),('duplicate',[before[0]]*2),('wrong',train)]:
+ new=g.二軸補完教材(t);prev=old.二軸補完教材(t)
+ check(name+' rejected view',new.遮蔽モデル is None)
+ check(name+' old failure preserved',new.候補([[0]],None)==prev.候補([[0]],None))
+ check(name+' rejection recorded',new.記録()['視点判定']['遮蔽視点']=='不成立')
+check('source kernel frozen',hashlib.sha256((R/'接続/ARC2/遮蔽軌道窓.py').read_bytes()).hexdigest()=='1522b9a4201eea9dcf123352eea49968173b855783d43d5ac6ffa354211079fc')
+record={'checks':checks,'tests_run':len(checks),'successful':True,'old_and_masked_fit_conflict_policy':'old teacher fit blocks masked fit including success, failure, and HOLD; tested with forced masked fit exception','scorer_calls':0}
+(E/'targeted.json').write_text(json.dumps(record,ensure_ascii=False,indent=2));print(json.dumps(record,ensure_ascii=False))

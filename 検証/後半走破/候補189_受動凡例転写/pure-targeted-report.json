@@ -1,0 +1,528 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "all_three_background_models_retained",
+      "pass": true
+    },
+    {
+      "name": "query_all_retained_success_and_agreement",
+      "pass": true
+    },
+    {
+      "name": "input_immutable",
+      "pass": true
+    },
+    {
+      "name": "legacy_all_teachers_fit",
+      "pass": true
+    },
+    {
+      "name": "legacy_query_hold",
+      "pass": true
+    },
+    {
+      "name": "teacher_0",
+      "pass": true
+    },
+    {
+      "name": "teacher_1",
+      "pass": true
+    },
+    {
+      "name": "teacher_2",
+      "pass": true
+    },
+    {
+      "name": "teacher_3",
+      "pass": true
+    },
+    {
+      "name": "d4_0_teacher_0",
+      "pass": true
+    },
+    {
+      "name": "d4_0_teacher_1",
+      "pass": true
+    },
+    {
+      "name": "d4_0_teacher_2",
+      "pass": true
+    },
+    {
+      "name": "d4_0_teacher_3",
+      "pass": true
+    },
+    {
+      "name": "d4_0_query",
+      "pass": true
+    },
+    {
+      "name": "d4_1_teacher_0",
+      "pass": true
+    },
+    {
+      "name": "d4_1_teacher_1",
+      "pass": true
+    },
+    {
+      "name": "d4_1_teacher_2",
+      "pass": true
+    },
+    {
+      "name": "d4_1_teacher_3",
+      "pass": true
+    },
+    {
+      "name": "d4_1_query",
+      "pass": true
+    },
+    {
+      "name": "d4_2_teacher_0",
+      "pass": true
+    },
+    {
+      "name": "d4_2_teacher_1",
+      "pass": true
+    },
+    {
+      "name": "d4_2_teacher_2",
+      "pass": true
+    },
+    {
+      "name": "d4_2_teacher_3",
+      "pass": true
+    },
+    {
+      "name": "d4_2_query",
+      "pass": true
+    },
+    {
+      "name": "d4_3_teacher_0",
+      "pass": true
+    },
+    {
+      "name": "d4_3_teacher_1",
+      "pass": true
+    },
+    {
+      "name": "d4_3_teacher_2",
+      "pass": true
+    },
+    {
+      "name": "d4_3_teacher_3",
+      "pass": true
+    },
+    {
+      "name": "d4_3_query",
+      "pass": true
+    },
+    {
+      "name": "d4_4_teacher_0",
+      "pass": true
+    },
+    {
+      "name": "d4_4_teacher_1",
+      "pass": true
+    },
+    {
+      "name": "d4_4_teacher_2",
+      "pass": true
+    },
+    {
+      "name": "d4_4_teacher_3",
+      "pass": true
+    },
+    {
+      "name": "d4_4_query",
+      "pass": true
+    },
+    {
+      "name": "d4_5_teacher_0",
+      "pass": true
+    },
+    {
+      "name": "d4_5_teacher_1",
+      "pass": true
+    },
+    {
+      "name": "d4_5_teacher_2",
+      "pass": true
+    },
+    {
+      "name": "d4_5_teacher_3",
+      "pass": true
+    },
+    {
+      "name": "d4_5_query",
+      "pass": true
+    },
+    {
+      "name": "d4_6_teacher_0",
+      "pass": true
+    },
+    {
+      "name": "d4_6_teacher_1",
+      "pass": true
+    },
+    {
+      "name": "d4_6_teacher_2",
+      "pass": true
+    },
+    {
+      "name": "d4_6_teacher_3",
+      "pass": true
+    },
+    {
+      "name": "d4_6_query",
+      "pass": true
+    },
+    {
+      "name": "d4_7_teacher_0",
+      "pass": true
+    },
+    {
+      "name": "d4_7_teacher_1",
+      "pass": true
+    },
+    {
+      "name": "d4_7_teacher_2",
+      "pass": true
+    },
+    {
+      "name": "d4_7_teacher_3",
+      "pass": true
+    },
+    {
+      "name": "d4_7_query",
+      "pass": true
+    },
+    {
+      "name": "colour_0_teacher_0",
+      "pass": true
+    },
+    {
+      "name": "colour_0_teacher_1",
+      "pass": true
+    },
+    {
+      "name": "colour_0_teacher_2",
+      "pass": true
+    },
+    {
+      "name": "colour_0_teacher_3",
+      "pass": true
+    },
+    {
+      "name": "colour_0_query",
+      "pass": true
+    },
+    {
+      "name": "colour_1_teacher_0",
+      "pass": true
+    },
+    {
+      "name": "colour_1_teacher_1",
+      "pass": true
+    },
+    {
+      "name": "colour_1_teacher_2",
+      "pass": true
+    },
+    {
+      "name": "colour_1_teacher_3",
+      "pass": true
+    },
+    {
+      "name": "colour_1_query",
+      "pass": true
+    },
+    {
+      "name": "colour_2_teacher_0",
+      "pass": true
+    },
+    {
+      "name": "colour_2_teacher_1",
+      "pass": true
+    },
+    {
+      "name": "colour_2_teacher_2",
+      "pass": true
+    },
+    {
+      "name": "colour_2_teacher_3",
+      "pass": true
+    },
+    {
+      "name": "colour_2_query",
+      "pass": true
+    },
+    {
+      "name": "colour_3_teacher_0",
+      "pass": true
+    },
+    {
+      "name": "colour_3_teacher_1",
+      "pass": true
+    },
+    {
+      "name": "colour_3_teacher_2",
+      "pass": true
+    },
+    {
+      "name": "colour_3_teacher_3",
+      "pass": true
+    },
+    {
+      "name": "colour_3_query",
+      "pass": true
+    },
+    {
+      "name": "colour_4_teacher_0",
+      "pass": true
+    },
+    {
+      "name": "colour_4_teacher_1",
+      "pass": true
+    },
+    {
+      "name": "colour_4_teacher_2",
+      "pass": true
+    },
+    {
+      "name": "colour_4_teacher_3",
+      "pass": true
+    },
+    {
+      "name": "colour_4_query",
+      "pass": true
+    },
+    {
+      "name": "colour_5_teacher_0",
+      "pass": true
+    },
+    {
+      "name": "colour_5_teacher_1",
+      "pass": true
+    },
+    {
+      "name": "colour_5_teacher_2",
+      "pass": true
+    },
+    {
+      "name": "colour_5_teacher_3",
+      "pass": true
+    },
+    {
+      "name": "colour_5_query",
+      "pass": true
+    },
+    {
+      "name": "colour_6_teacher_0",
+      "pass": true
+    },
+    {
+      "name": "colour_6_teacher_1",
+      "pass": true
+    },
+    {
+      "name": "colour_6_teacher_2",
+      "pass": true
+    },
+    {
+      "name": "colour_6_teacher_3",
+      "pass": true
+    },
+    {
+      "name": "colour_6_query",
+      "pass": true
+    },
+    {
+      "name": "colour_7_teacher_0",
+      "pass": true
+    },
+    {
+      "name": "colour_7_teacher_1",
+      "pass": true
+    },
+    {
+      "name": "colour_7_teacher_2",
+      "pass": true
+    },
+    {
+      "name": "colour_7_teacher_3",
+      "pass": true
+    },
+    {
+      "name": "colour_7_query",
+      "pass": true
+    },
+    {
+      "name": "colour_8_teacher_0",
+      "pass": true
+    },
+    {
+      "name": "colour_8_teacher_1",
+      "pass": true
+    },
+    {
+      "name": "colour_8_teacher_2",
+      "pass": true
+    },
+    {
+      "name": "colour_8_teacher_3",
+      "pass": true
+    },
+    {
+      "name": "colour_8_query",
+      "pass": true
+    },
+    {
+      "name": "colour_9_teacher_0",
+      "pass": true
+    },
+    {
+      "name": "colour_9_teacher_1",
+      "pass": true
+    },
+    {
+      "name": "colour_9_teacher_2",
+      "pass": true
+    },
+    {
+      "name": "colour_9_teacher_3",
+      "pass": true
+    },
+    {
+      "name": "colour_9_query",
+      "pass": true
+    },
+    {
+      "name": "colour_10_teacher_0",
+      "pass": true
+    },
+    {
+      "name": "colour_10_teacher_1",
+      "pass": true
+    },
+    {
+      "name": "colour_10_teacher_2",
+      "pass": true
+    },
+    {
+      "name": "colour_10_teacher_3",
+      "pass": true
+    },
+    {
+      "name": "colour_10_query",
+      "pass": true
+    },
+    {
+      "name": "colour_11_teacher_0",
+      "pass": true
+    },
+    {
+      "name": "colour_11_teacher_1",
+      "pass": true
+    },
+    {
+      "name": "colour_11_teacher_2",
+      "pass": true
+    },
+    {
+      "name": "colour_11_teacher_3",
+      "pass": true
+    },
+    {
+      "name": "colour_11_query",
+      "pass": true
+    },
+    {
+      "name": "invalid_0",
+      "pass": true
+    },
+    {
+      "name": "invalid_1",
+      "pass": true
+    },
+    {
+      "name": "invalid_2",
+      "pass": true
+    },
+    {
+      "name": "invalid_3",
+      "pass": true
+    },
+    {
+      "name": "invalid_4",
+      "pass": true
+    },
+    {
+      "name": "invalid_5",
+      "pass": true
+    },
+    {
+      "name": "invalid_6",
+      "pass": true
+    },
+    {
+      "name": "single_teacher_rejected",
+      "pass": true
+    },
+    {
+      "name": "duplicate_only_rejected",
+      "pass": true
+    },
+    {
+      "name": "invalid_model_rejected",
+      "pass": true
+    },
+    {
+      "name": "seven_passive_preserved",
+      "pass": true
+    },
+    {
+      "name": "passive_conflict_hold",
+      "pass": true
+    },
+    {
+      "name": "same_colour_passive_agreement",
+      "pass": true
+    },
+    {
+      "name": "erase_area_mode_fits_but_differs",
+      "pass": true
+    },
+    {
+      "name": "erase_border_mode_fits_but_differs",
+      "pass": true
+    },
+    {
+      "name": "erase_largest_c4_fits_but_differs",
+      "pass": true
+    },
+    {
+      "name": "retained_failure_hold",
+      "pass": true
+    },
+    {
+      "name": "retained_disagreement_hold",
+      "pass": true
+    },
+    {
+      "name": "runtime_exception_propagates",
+      "pass": true
+    }
+  ],
+  "count": 128,
+  "model": {
+    "kind": "passive_keyed_stamp",
+    "version": 1,
+    "background_rules": [
+      "area_mode",
+      "border_mode",
+      "largest_c4"
+    ]
+  },
+  "kernel_sha256": "695ebb09aef177d99da2afbf1e6b3ae5bab565466d6ba9148b33b47f1a9dfe2a"
+}

@@ -1,0 +1,18 @@
+{
+  "status": "FROZEN_PURE_NOT_ADMITTED",
+  "launch": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "cpu_seconds": 10,
+    "address_space_bytes": 536870912,
+    "wall_seconds": 60
+  },
+  "files": {
+    "local_chain.py": "5025b46ef8c0bfc52b0f69a8e760e6551438a948d753b73663a931836297b679",
+    "check.py": "8acea366a8a67606fb96c5ce53b21295226793abd38a632494daf26006a09ea2",
+    "metamorphic.py": "673d848633e2adae8af7a1e5778bd9f43b995a2611dbf267cd1a0e6450c1f626",
+    "pure-evidence.json": "7f6f1b9a54b13135ab600169cbc0216c5bad8a48d737f716b05e1b4ca0909aef",
+    "metamorphic-evidence.json": "1eb446e22e7b3a0c5826029855afbe82323b6072300e2d1c7528482d16af6fda",
+    "initial-border-object-failure.json": "308a909e9d8562bf8128a019c5ccacc8fc56b5b99bbe91b2f47144cb9d17a5d6",
+    "RESULT.md": "8054ad0950cbda37d386e4db89b55e2a5f87af49ede71d4a6cca91b4b11deae7"
+  }
+}

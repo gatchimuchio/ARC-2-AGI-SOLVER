@@ -1,0 +1,19 @@
+{
+  "native_resource": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "CPU_seconds": 10,
+    "AS_bytes": 536870912,
+    "wall_seconds": 60
+  },
+  "official_input_presence": {
+    "samples": true,
+    "training_directory": true
+  },
+  "scorer_calls": 0,
+  "query_source": "arc2-current99/solver-input-only/dbff022c.json",
+  "source_pins": {
+    "接続/ARC2/HDS接続.py": "062c907e5ba9c8145091bd85ac3ed17c7a1693ed4c6ddb3e3276345accfcaa44",
+    "接続/ARC2/境界表穴転写教材.py": "ac6302a04789aecaf72496d2a52b61bbc0813d7beba06385734540780cbc7236",
+    "接続/ARC2/境界表穴転写核.py": "0e1e9de98003f0059036f88e94408c2857d2632203b987dfc83957506815e133"
+  }
+}

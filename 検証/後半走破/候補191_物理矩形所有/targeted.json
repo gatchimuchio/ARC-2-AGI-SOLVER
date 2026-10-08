@@ -1,0 +1,30 @@
+{
+  "successful": true,
+  "tests_run": 23,
+  "checks": [
+    "teacher fit",
+    "state only program identifier",
+    "empty prior",
+    "teacher exact 0",
+    "old teacher tuple 0",
+    "teacher exact 1",
+    "old teacher tuple 1",
+    "teachers unchanged",
+    "frozen full tuple 0",
+    "frozen full tuple 1",
+    "query1 old full tuple",
+    "invalid teacher hold 0",
+    "invalid teacher hold 2",
+    "fit resource propagates",
+    "fit unknown exception propagates",
+    "predict resource propagates",
+    "predict unknown exception propagates",
+    "integrated pin anchored_rectangle.py",
+    "integrated pin seam_rectangle.py",
+    "integrated pin touching_rectangle.py",
+    "integrated pin propagated_rectangle.py",
+    "integrated pin physical_rectangle_view.py",
+    "integrated pin physical_rectangle.py"
+  ],
+  "scorer_calls": 0
+}

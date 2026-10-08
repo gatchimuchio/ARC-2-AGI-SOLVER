@@ -1,0 +1,3 @@
+候補200の小物体優先・元位置順副キー合成で113/158。旧157格子全保持、誤出力/資源失敗0。旧act成功の全tupleと他failureを保持し、small_firstの等セル数異色競合だけ既存source_firstの元bbox辞書順を合成。教師整合の明示追加priorで論理的一意性は主張しない。旧4model全保持、全role/program成功・完全一致と例外伝播を保持。99family/全教師記録同一、q0全返却保持、247ef758 q1だけ新規正答。kernel1file変更、HDS中核・接続・教材・通常gate・HiGHS threads=1不変。旧回帰pin停止と元fixtureを保持し、親承認のEXPECTED_CORE一行だけ同期、assert/output/他pin不変。独立12000 action/旧成功3600保存、pure2400、統合21、旧17/native一致、新規109本7839＋依存/AST同一window29。OPENBLAS1/CPU10/512MiB/wall60で公式候補1回。targeted初回tuple対JSON list比較不備を保存し正規化だけ修正。199HOLDを非runtime履歴に保存。現行local採用、Git commit pending、remote writeなし。残7課題。
+
+previous112/157 → current113/158、delta+1/+1。基底rawは候補198_凡例所有境界/current-official.json.gz。Git commit pending。candidate199-HOLD.tar.gzは非runtime履歴。

@@ -1,0 +1,80 @@
+"""Pure checks only; paths supplied by caller, no scorer or hidden answers."""
+import sys,json,importlib.util,hashlib,random
+from pathlib import Path
+from copy import deepcopy
+root=Path(__file__).resolve().parent
+sys.path.insert(0,str(Path(sys.argv[1]).resolve()))
+spec=importlib.util.spec_from_file_location('candidate',root/'source/接続/ARC2/遮蔽軌道窓.py')
+m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+teachers=json.loads(Path(sys.argv[2]).read_text());task=json.loads(Path(sys.argv[3]).read_text())
+assert not teachers.get('test') and all(set(q)=={'input'} for q in task['test'])
+checks=[]
+def check(name,ok):
+    assert ok,name
+    checks.append(name)
+model,fit=m.fit(teachers['train']);check('all teacher fit',model is not None)
+results=[m.predict(q['input'],model) for q in task['test']]
+check('all input-only candidates',all(out is not None for out,rec in results))
+for i,pair in enumerate(teachers['train']):
+    role,_=m.observe(pair['input']);g=role[0]
+    check('strict teacher unchanged '+str(i),m.render_encoded(g,model['axes'],True)==m.render_encoded(g,model['axes'],False))
+    check('exact teacher '+str(i),m.predict(pair['input'],model)[0]==pair['output'])
+for i,pair in enumerate(task['test']):
+    role,_=m.observe(pair['input']);g=role[0]
+    old,oldrec=m.guarded_render(g,model['axes'])
+    check('original missing orbit '+str(i),old is None and oldrec['failure']=='orbit_without_original_witness')
+    new,rec=m.render_encoded(g,model['axes'],True)
+    check('every original nonzero preserved '+str(i),all(v==0 or new[r][c]==v for r,row in enumerate(g) for c,v in enumerate(row)))
+    ar,ac=model['axes']
+    check('every original witnessed orbit preserved '+str(i),all(new[r][c]==g[rr][cc] for r,row in enumerate(g) for c,v in enumerate(row) for rr,cc in [(r,c),(ar-r,c),(r,ac-c),(ar-r,ac-c)] if 0<=rr<len(g) and 0<=cc<len(g[0]) and g[rr][cc]))
+# Relabel including original black, without changing candidate geometry.
+f=lambda g:[[(x+3)%10 for x in row] for row in g]
+relabel=[{'input':f(q['input']),'output':f(q['output'])} for q in teachers['train']]
+other,_=m.fit(relabel)
+check('palette relabel including zero',all(m.predict(f(q['input']),other)[0]==f(out) for q,(out,rec) in zip(task['test'],results)))
+bad=deepcopy(teachers['train']);bad[0]['output'][0][0]=(bad[0]['output'][0][0]+1)%10
+check('wrong teacher denied',m.fit(bad)[0] is None)
+check('duplicate teachers denied',m.fit([teachers['train'][0]]*2)[0] is None)
+check('nonrectangle mask denied',m.observe([[8,8,1],[8,1,2],[3,2,1]])[0] is None)
+check('nonrectangle unresolved support denied',m.local_bind([[0,0,1],[0,2,1]])[0] is None)
+check('empty reference denied',m.local_bind([[0,0],[0,0]])[0] is None)
+check('conflicting original orbits denied',m.render_encoded([[1,0],[2,1]],(1,1),True)[0] is None)
+# Independent exhaustive rectangle/donor enumerator on small random folds.
+def brute(g):
+ h,w=len(g),len(g[0]);holes=[(r,c) for r in range(h) for c in range(w) if g[r][c]==0]
+ boxes={}
+ for a in range(h):
+  for b in range(a,h):
+   for l in range(w):
+    for u in range(l,w):
+     if not all(a<=r<=b and l<=c<=u for r,c in holes) or (b-a+1)*(u-l+1)==len(holes):continue
+     for x in range(h-(b-a)):
+      for y in range(w-(u-l)):
+       if all(g[x+r-a][y+c-l] and (not g[r][c] or g[r][c]==g[x+r-a][y+c-l]) for r in range(a,b+1) for c in range(l,u+1)):
+        boxes.setdefault((a,l,b,u),set()).add(tuple(g[x+r-a][y+c-l] for r,c in holes))
+ maximal=[b for b in boxes if not any(a!=b and a[0]<=b[0] and a[1]<=b[1] and a[2]>=b[2] and a[3]>=b[3] for a in boxes)]
+ vals={v for b in maximal for v in boxes[b]}
+ return dict(zip(holes,next(iter(vals)))) if len(vals)==1 else None,maximal
+rng=random.Random(197)
+for k in range(60):
+ h=rng.randrange(2,6);w=rng.randrange(2,6);g=[[rng.randrange(1,4) for _ in range(w)] for _ in range(h)]
+ a=rng.randrange(h);b=rng.randrange(a,h);l=rng.randrange(w);u=rng.randrange(l,w)
+ for r in range(a,b+1):
+  for c in range(l,u+1):g[r][c]=0
+ expected,boxes=brute(g);out,rec=m.local_bind(g)
+ check('all rectangles donor parity '+str(k),out==expected and {tuple(x['bbox']) for x in rec['contexts']}==set(boxes))
+# Counterfactual local prior checks on all four folded teacher corners.
+counter=[]
+for i,pair in enumerate(teachers['train']):
+ role,_=m.observe(pair['input']);full,_=m.guarded_render(role[0],model['axes']);ar,ac=model['axes'];fold=[row[:ac//2+1] for row in full[:ar//2+1]];h,w=len(fold),len(fold[0])
+ for a,l in [(0,0),(0,w-2),(h-2,0),(h-2,w-2)]:
+  test=deepcopy(fold)
+  for r in range(a,a+2):
+   for c in range(l,l+2):test[r][c]=0
+  out,rec=m.local_bind(test);exact=None if out is None else all(fold[r][c]==v for (r,c),v in out.items())
+  counter.append({'teacher':i,'bbox':[a,l,a+1,l+1],'status':'HOLD' if out is None else 'exact' if exact else 'mismatch','record':rec})
+check('corner prior no emitted contradiction',all(x['status']!='mismatch' for x in counter))
+source=root/'source/接続/ARC2/遮蔽軌道窓.py'
+result={'stage':'pure candidate, no native integration or scoring','model':model,'fit':fit,'checks':checks,'counterfactual_corners':counter,'query':[{'output':out,'record':rec} for out,rec in results],'sha256':hashlib.sha256(source.read_bytes()).hexdigest()}
+(root/'pure-freeze.json').write_text(json.dumps(result,ensure_ascii=False,indent=2))
+print(json.dumps({'model':model,'checks':len(checks),'counterfactual_corners':[x['status'] for x in counter],'source_sha256':result['sha256']},ensure_ascii=False))

@@ -1,0 +1,106 @@
+{
+  "status": "HOLD_no_new_candidate",
+  "teacher_equal": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "observations": [
+    {
+      "output_exists": true,
+      "failure": null,
+      "parse_failure": null,
+      "source_stable": true
+    },
+    {
+      "output_exists": true,
+      "failure": null,
+      "parse_failure": null,
+      "source_stable": true
+    },
+    {
+      "output_exists": true,
+      "failure": null,
+      "parse_failure": null,
+      "source_stable": true
+    },
+    {
+      "output_exists": true,
+      "failure": null,
+      "parse_failure": null,
+      "source_stable": true
+    },
+    {
+      "output_exists": true,
+      "failure": null,
+      "parse_failure": null,
+      "source_stable": true
+    },
+    {
+      "output_exists": true,
+      "failure": null,
+      "parse_failure": null,
+      "source_stable": true
+    },
+    {
+      "output_exists": false,
+      "failure": "input_not_interpretable",
+      "parse_failure": "raw_cue_floor_not_unique",
+      "source_stable": null
+    }
+  ],
+  "sequential_composition": [
+    {
+      "order": [
+        2,
+        1
+      ],
+      "stages": [
+        {
+          "complete": true,
+          "failure": null
+        },
+        {
+          "complete": true,
+          "failure": null
+        }
+      ],
+      "scene_equals_union": true
+    },
+    {
+      "order": [
+        1,
+        2
+      ],
+      "stages": [
+        {
+          "complete": true,
+          "failure": null
+        },
+        {
+          "complete": true,
+          "failure": null
+        }
+      ],
+      "scene_equals_union": true
+    }
+  ],
+  "union_geometry_failures": [],
+  "union_final_rows": {
+    "B0": 4,
+    "B1": 5,
+    "B2": 8,
+    "P0": 4,
+    "P1": 4,
+    "P2": 5,
+    "P3": 5,
+    "P4": 8,
+    "P5": 8,
+    "P6": 9,
+    "P9": 9
+  },
+  "retained_rejection": "173 pointwise union: official new wrong output 1, not adopted. No official evaluation in this task.",
+  "unverified": "No observed implementation inconsistency distinguishes a justified new prediction from the rejected union. No query answers were read."
+}

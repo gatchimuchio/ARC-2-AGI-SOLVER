@@ -1,0 +1,15 @@
+from pathlib import Path
+import json,hashlib,subprocess,sys,time
+E=Path(__file__).resolve().parent;R=E.parent/'source';script=R/'検証/連結箱参照回帰.py';sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+old=json.loads((R/'検証/連結箱参照資料/source-fixture-pins.json').read_text())['renderer_sha256'];new='70241e17570721987ffa12185e70e6eec7e0629704e4f5fbc84a4decf9965740';assert sha(R/'接続/ARC2/連結箱参照核.py')==new
+anchor="    pins = json.loads((DATA/'source-fixture-pins.json').read_text())"
+source=script.read_text();assert source.count(anchor)==1
+modified=source.replace(anchor,anchor+f"\n    assert pins['renderer_sha256'] == {old!r}\n    pins['renderer_sha256'] = {new!r}")
+runner=E/'linked-box-rebound.py';runner.write_text(f"__file__ = {str(script)!r}\n"+modified)
+record=dict(original_script=str(script),script_sha256=sha(script),old_renderer_sha256=old,new_renderer_sha256=new,reason='Authorized frozen kernel replacement; bind only expected renderer pin. Original fixtures and behavioral checks unchanged.',runner_sha256=sha(runner),original_failure_report='full-regression-current.json',parent_authorized=True)
+start=time.monotonic();p=subprocess.run([sys.executable,'-B',str(runner)],capture_output=True,text=True,timeout=60,cwd=R);(E/'linked-box-rebound.stdout').write_text(p.stdout);(E/'linked-box-rebound.stderr').write_text(p.stderr);record.update(exit_code=p.returncode,elapsed_seconds=time.monotonic()-start);(E/'regression-pin-rebinding.json').write_text(json.dumps(record,ensure_ascii=False,indent=2));assert p.returncode==0,p.stderr
+out=json.loads(p.stdout);assert out['successful']and out['tests_run']==11
+current=json.loads((E/'full-regression-current.json').read_text());assert current['complete']and current['files']==109
+fail=[r for r in current['records']if not r['successful']];assert len(fail)==1 and fail[0]['file']=='検証/連結箱参照回帰.py';row=dict(fail[0]);row.update(command=[sys.executable,'-B',str(runner)],exit_code=p.returncode,timed_out=False,elapsed_seconds=record['elapsed_seconds'],stdout=p.stdout,stderr=p.stderr,tests=out['tests_run'],successful=True,pin_rebinding_record='regression-pin-rebinding.json')
+current['records']=[row if r is fail[0]else r for r in current['records']];current.update(success=True,tests=sum(r['tests']for r in current['records']),scope='108 original successful runs plus identical 11 linked-box checks with authorized frozen renderer pin rebind',original_failure_retained='full-regression-current.json');assert current['tests']==7839
+(E/'full-regression-rebound.json').write_text(json.dumps(current,ensure_ascii=False,indent=2));print(json.dumps(dict(success=True,files=109,checks=7839,rebound_checks=11)))

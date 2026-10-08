@@ -1,0 +1,62 @@
+"""Pure-function proposal checks and input-only freeze; no scoring or HDS task run."""
+import json, sys, hashlib
+from pathlib import Path
+from copy import deepcopy
+from unittest.mock import patch
+E=Path(__file__).resolve().parent
+root=E.parent
+sys.path.insert(0,str(root/'source'))
+from 接続.ARC2 import 対称剪定教材 as module
+from 接続.ARC2.対称剪定教材 import guarded_render, 対称剪定教材, owned_row_gaps, complete_gap_axes
+from 接続.ARC2.既存対称剪定 import same_color_components_8, dominant_color
+from 接続.ARC2.既存格子操作 import transform_grid_by_name
+p=json.loads(Path(sys.argv[1]).read_text()); assert all(set(q)=={'input'} for q in p['test'])
+v=対称剪定教材(p['train']);assert v.全教師再現 and v.所有間隙軸支持
+checks=[]
+def check(name,condition):
+ assert condition,name
+ checks.append(name)
+check('all teachers pure fit',all(v.候補(q['input'],None)[0]==q['output'] for q in p['train']))
+frozen=[]
+for i,q in enumerate(p['test']):
+ old=guarded_render(q['input']);new=v.候補(q['input'],None)
+ frozen.append({'query':i,'previous':old,'candidate':new})
+check('both input-only candidates available',all(x['candidate'][0] is not None for x in frozen))
+check('previous ordinary success byte-equivalent',frozen[1]['previous']==frozen[1]['candidate'])
+check('previous tied query reproduced',frozen[0]['previous'][1]['failure']=='maximum_retention_axis_tie')
+for name in ['flip_h','flip_v','rot180']:
+ for q in p['test']:
+  g=transform_grid_by_name(q['input'],name)
+  # The preserved legacy source may choose a different tie on reflection;
+  # never bypass that refusal to make the transform pass.
+  out,rec=v.候補(g,None)
+  expected=transform_grid_by_name(v.候補(q['input'],None)[0],name)
+  check('transform '+name+str(p['test'].index(q)),out==expected or rec.get('failure')=='source_axis_disagrees')
+change=lambda g:[[ (x+3)%10 for x in row] for row in g]
+vv=対称剪定教材([{'input':change(q['input']),'output':change(q['output'])} for q in p['train']])
+check('color relabeling',all(vv.候補(change(q['input']),None)[0]==change(v.候補(q['input'],None)[0]) for q in p['test']))
+def grid(cells):
+ g=[[0]*12 for _ in range(10)]
+ for r,c in cells:g[r][c]=2
+ return g
+plain=grid({(2,2),(3,2),(3,3)})
+check('gapless tied shape retains HOLD',guarded_render(plain,bind_owned_gaps=True)[0] is None)
+check('flag off exactly old tie',guarded_render(p['test'][0]['input'],bind_owned_gaps=False)==frozen[0]['previous'])
+check('foreign color invalidates gap ownership',owned_row_gaps([[2,3,2]],[(0,0),(0,2)],0) is None)
+check('asymmetric gap has no complete axis',complete_gap_axes({(0,0),(1,0),(1,1)})==[])
+bad=deepcopy(p['train']);bad[0]['output'][0][0]=(bad[0]['output'][0][0]+1)%10
+check('teacher mismatch never admits new view',not 対称剪定教材(bad).所有間隙軸支持)
+check('duplicate teacher still denied',not 対称剪定教材([p['train'][0]]*2).全教師再現)
+with patch.object(module,'apply_vertical_symmetry_pruning',return_value=([[9]],{})):
+ check('source output disagreement remains HOLD',guarded_render(p['test'][0]['input'],bind_owned_gaps=True)[1]['failure']=='source_output_disagrees')
+
+with patch.object(module,'apply_vertical_symmetry_pruning',side_effect=RuntimeError('failure')):
+ try:v.候補(p['test'][0]['input'],None)
+ except RuntimeError:checks.append('exception propagates')
+ else:raise AssertionError('exception hidden')
+B=E.parents[1]/'arc2-current101/source';R=root/'source'
+changed=[str(f.relative_to(B))for f in B.rglob('*')if f.is_file()and '__pycache__'not in f.parts and '.git'not in f.parts and f.read_bytes()!=(R/f.relative_to(B)).read_bytes()]
+check('only frozen file changed',changed==['接続/ARC2/対称剪定教材.py'])
+freeze={str(f.relative_to(R)):hashlib.sha256(f.read_bytes()).hexdigest()for f in R.rglob('*')if f.is_file()and '__pycache__'not in f.parts and '.git'not in f.parts}
+(E/'pre-regression-freeze.json').write_text(json.dumps(freeze,ensure_ascii=False))
+result={'successful':True,'checks':checks};(E/'targeted.json').write_text(json.dumps(result,ensure_ascii=False,indent=2));print(json.dumps(result,ensure_ascii=False))

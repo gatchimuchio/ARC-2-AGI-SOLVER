@@ -1,0 +1,89 @@
+{
+  "status": "PASS within declared prior; generalization/official correctness not established",
+  "kernel_sha256": "695ebb09aef177d99da2afbf1e6b3ae5bab565466d6ba9148b33b47f1a9dfe2a",
+  "teacher_count": 4,
+  "retained_background_rules": [
+    "area_mode",
+    "border_mode",
+    "largest_c4"
+  ],
+  "teacher_summary": [
+    {
+      "teacher": 0,
+      "passive_cells": 0,
+      "raw_roles": 1,
+      "selected_roles": 1
+    },
+    {
+      "teacher": 1,
+      "passive_cells": 0,
+      "raw_roles": 1,
+      "selected_roles": 1
+    },
+    {
+      "teacher": 2,
+      "passive_cells": 0,
+      "raw_roles": 6,
+      "selected_roles": 1
+    },
+    {
+      "teacher": 3,
+      "passive_cells": 0,
+      "raw_roles": 1,
+      "selected_roles": 1
+    }
+  ],
+  "checks": [
+    "all_teachers_old_fit",
+    "teacher_0",
+    "teacher_erase_also_fits_0",
+    "partition_0",
+    "teacher_1",
+    "teacher_erase_also_fits_1",
+    "partition_1",
+    "teacher_2",
+    "teacher_erase_also_fits_2",
+    "partition_2",
+    "teacher_3",
+    "teacher_erase_also_fits_3",
+    "partition_3",
+    "baseline",
+    "baseline_metadata_erased",
+    "passive_preserved",
+    "passive_preserved_metadata_erased",
+    "passive_foreign_overlap",
+    "passive_same_colour_overlap",
+    "passive_same_colour_overlap_metadata_erased",
+    "clipped_corner",
+    "clipped_corner_metadata_erased",
+    "clipping_accounted",
+    "transpose_0",
+    "colour_permutation_0",
+    "transpose_1",
+    "colour_permutation_1",
+    "transpose_2",
+    "colour_permutation_2",
+    "transpose_3",
+    "colour_permutation_3",
+    "no_success_subset_on_failure",
+    "all_retained_disagreement_hold",
+    "exceptions_not_swallowed"
+  ],
+  "check_count": 34,
+  "read_scope": [
+    "specified instructions and AGENTS",
+    "kernel source",
+    "old probe source",
+    "teachers-only train",
+    "self-authored synthetic inputs"
+  ],
+  "unread": [
+    "query",
+    "README",
+    "kernel-report",
+    "alternatives-hold",
+    "predictions",
+    "official answers"
+  ],
+  "prior_limit": "Preserve and erase agree on all teachers because unmatched is empty. Preservation and background heuristics are additional priors, not uniquely teacher-derived."
+}

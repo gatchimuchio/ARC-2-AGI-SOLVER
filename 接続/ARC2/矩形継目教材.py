@@ -1,5 +1,5 @@
 """Frozen rectangle seam composition, ordinary teacher support and empty prior."""
-from .矩形継目 import seam_rectangle as api
+from .矩形継目 import physical_rectangle as api
 
 
 def require_complete(record):

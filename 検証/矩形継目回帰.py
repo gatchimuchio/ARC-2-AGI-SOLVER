@@ -5,6 +5,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from 接続.ARC2.矩形継目 import seam_rectangle as m
 from 接続.ARC2.矩形継目教材 import 矩形継目教材
+from 接続.ARC2 import 矩形継目教材 as adapter
 base=m.base
 checks=[]
 def ck(name,ok,detail=None):
@@ -141,7 +142,7 @@ boundary=矩形継目教材(pairs)
 ck('empty_prior',boundary.記録()['事前支持数']==0 and boundary.記録()['全教師再現'])
 for i,pair in enumerate(pairs):ck('adapter_teacher_'+str(i),boundary.候補(pair['input'],{})[0]==pair['output'])
 for stage in ('fit','predict'):
- with patch.object(m,stage,return_value=(None,{'status':'RESOURCE_INCOMPLETE','complete':False})):
+ with patch.object(adapter.api,stage,return_value=(None,{'status':'RESOURCE_INCOMPLETE','complete':False})):
   try:
    if stage=='fit':矩形継目教材(pairs)
    else:boundary.候補(pairs[0]['input'],{})

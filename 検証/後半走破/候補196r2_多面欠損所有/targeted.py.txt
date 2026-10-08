@@ -1,0 +1,36 @@
+from pathlib import Path
+import sys,json,copy,hashlib
+from unittest.mock import patch
+E=Path(__file__).resolve().parent;R=E.parent/'source';B=E.parents[1];sys.path.insert(0,str(R))
+from 接続.ARC2 import 多面欠損所有教材 as m
+checks=[]
+def check(n,c):
+ assert c,n
+ checks.append(n)
+t=json.loads((B/'arc2-current99/teachers-only/de809cff.json').read_text())['train'];q=json.loads((B/'arc2-current99/solver-input-only/de809cff.json').read_text())['test'];before=copy.deepcopy(t);a=m.多面欠損所有教材(t)
+check('only model state',set(vars(a))=={'model'});check('only fitted model retained',a.model==m.api.fit_teachers(t));json.dumps(a.記録())
+for i,p in enumerate(t):check('teacher '+str(i),a.候補(p['input'])[0]==p['output'])
+check('input unchanged',t==before)
+expected=json.loads((E/'pure.stdout').read_text())
+for i,p in enumerate(q):check('query parity '+str(i),a.候補(p['input'])[0]==expected[i])
+bad_cases=[('None',None),('tuple',tuple(t)),('empty',[]),('one',t[:1]),('duplicate',[t[0],t[0]]),('pair None',[t[0],None]),('missing',[t[0],{}]),('null grids',[{'input':None,'output':None}]*2)]
+for field in ['input','output']:
+ for name,value in [('none',None),('empty',[]),('ragged',[[0],[0,1]]),('bool',[[True]]),('range',[[10]]),('oversize',[[0]*31])]:
+  z=copy.deepcopy(t);z[1][field]=value;bad_cases.append((field+' '+name,z))
+z=copy.deepcopy(t);z[1]['output']=[[0]];bad_cases.append(('shape mismatch',z))
+for name,data in bad_cases:
+ with patch.object(m.api,'fit_teachers',side_effect=AssertionError('fit guard bypassed')):
+  b=m.多面欠損所有教材(data);check(name,b.model == [] and b.候補(q[0]['input'])[0]is None)
+for stage,call in [('fit_teachers',lambda:m.多面欠損所有教材(t)),('predict',lambda:a.候補(q[0]['input']))]:
+ for error in [RuntimeError,MemoryError]:
+  with patch.object(m.api,'apply_model',side_effect=error('injected')):
+   try:call()
+   except error:check(stage+' '+error.__name__+' propagates',True)
+   else:raise AssertionError(stage)
+with patch.object(m.api,'apply_model',return_value=(None,{'failure':'retained_role_failure'})):
+ check('HOLD propagates',a.候補(q[0]['input'])[0]is None)
+z=copy.deepcopy(t)+[copy.deepcopy(t[0])]
+with patch.object(m.api,'fit_teachers',side_effect=AssertionError('duplicate guard bypassed')):
+ check('all inputs unique',m.多面欠損所有教材(z).model==[])
+report=dict(successful=True,tests_run=len(checks),checks=checks,scorer_calls=0)
+(E/'targeted.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps(report))

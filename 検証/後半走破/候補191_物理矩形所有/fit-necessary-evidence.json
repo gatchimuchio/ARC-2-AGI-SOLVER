@@ -1,0 +1,195 @@
+{
+  "teacher_parity": true,
+  "cases": [
+    {
+      "fixture": "形状色回帰.py",
+      "before": {
+        "status": "RESOURCE_INCOMPLETE",
+        "fixed_prior": "preserve_rectangular_C8_physical_piece_then_double_wall_seam",
+        "fitted_parameters": [],
+        "teacher_exact": [
+          false,
+          false
+        ],
+        "all_teacher_returns": [
+          {
+            "status": "RESOURCE_INCOMPLETE",
+            "failure": "budget_incomplete",
+            "complete": false,
+            "work": 99769,
+            "legacy_record": {
+              "status": "HOLD",
+              "failure": "no_structural_role",
+              "observation": {
+                "role_count": 0
+              }
+            }
+          },
+          {
+            "status": "RESOURCE_INCOMPLETE",
+            "failure": "budget_incomplete",
+            "complete": false,
+            "work": 99592,
+            "legacy_record": {
+              "status": "HOLD",
+              "failure": "no_structural_role",
+              "observation": {
+                "role_count": 0
+              }
+            }
+          }
+        ]
+      },
+      "after": {
+        "status": "HOLD",
+        "fixed_prior": "preserve_rectangular_C8_physical_piece_then_double_wall_seam",
+        "fitted_parameters": [],
+        "teacher_exact": [
+          false,
+          false
+        ],
+        "all_teacher_returns": [
+          {
+            "status": "HOLD",
+            "complete": true,
+            "failure": "teacher_render_invariant_impossible",
+            "necessary_certificate": {
+              "same_shape": false,
+              "color_delta": {
+                "0": -779,
+                "2": -4,
+                "3": -4,
+                "4": -4,
+                "5": -2,
+                "6": -2,
+                "7": -3,
+                "8": -3
+              },
+              "qualified": false
+            },
+            "legacy_record": {
+              "status": "HOLD",
+              "failure": "no_structural_role",
+              "observation": {
+                "role_count": 0
+              }
+            }
+          },
+          {
+            "status": "HOLD",
+            "complete": true,
+            "failure": "teacher_render_invariant_impossible",
+            "necessary_certificate": {
+              "same_shape": false,
+              "color_delta": {
+                "0": -735,
+                "2": -4,
+                "3": -4,
+                "4": -4,
+                "5": -2,
+                "6": -2,
+                "7": -3,
+                "8": -3
+              },
+              "qualified": false
+            },
+            "legacy_record": {
+              "status": "HOLD",
+              "failure": "no_structural_role",
+              "observation": {
+                "role_count": 0
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fixture": "物体端投射回帰.py",
+      "before": {
+        "status": "RESOURCE_INCOMPLETE",
+        "fixed_prior": "preserve_rectangular_C8_physical_piece_then_double_wall_seam",
+        "fitted_parameters": [],
+        "teacher_exact": [
+          false,
+          false
+        ],
+        "all_teacher_returns": [
+          {
+            "status": "HOLD",
+            "failure": "no_structural_role",
+            "observation": {
+              "role_count": 0,
+              "probes": []
+            },
+            "legacy_record": {
+              "status": "HOLD",
+              "failure": "no_structural_role",
+              "observation": {
+                "role_count": 0
+              }
+            }
+          },
+          {
+            "status": "RESOURCE_INCOMPLETE",
+            "failure": "budget_incomplete",
+            "complete": false,
+            "work": 99872,
+            "legacy_record": {
+              "status": "HOLD",
+              "failure": "no_structural_role",
+              "observation": {
+                "role_count": 0
+              }
+            }
+          }
+        ]
+      },
+      "after": {
+        "status": "HOLD",
+        "fixed_prior": "preserve_rectangular_C8_physical_piece_then_double_wall_seam",
+        "fitted_parameters": [],
+        "teacher_exact": [
+          false,
+          false
+        ],
+        "all_teacher_returns": [
+          {
+            "status": "HOLD",
+            "complete": true,
+            "failure": "teacher_render_invariant_impossible",
+            "necessary_certificate": {
+              "same_shape": true,
+              "color_delta": {},
+              "qualified": false
+            },
+            "legacy_record": {
+              "status": "HOLD",
+              "failure": "no_structural_role",
+              "observation": {
+                "role_count": 0
+              }
+            }
+          },
+          {
+            "status": "HOLD",
+            "complete": true,
+            "failure": "teacher_render_invariant_impossible",
+            "necessary_certificate": {
+              "same_shape": true,
+              "color_delta": {},
+              "qualified": false
+            },
+            "legacy_record": {
+              "status": "HOLD",
+              "failure": "no_structural_role",
+              "observation": {
+                "role_count": 0
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

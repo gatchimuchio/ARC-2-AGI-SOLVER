@@ -1,0 +1,75 @@
+"""Portable targeted checks over teacher and input-only data, never query answers."""
+import json,sys,hashlib,copy
+from pathlib import Path
+E=Path(__file__).resolve().parent
+ROOT=E.parents[1]
+sys.path.insert(0,str(ROOT/'arc2-current102/source'))
+from 接続.ARC2 import 連結箱参照候補 as api
+from 接続.ARC2 import 連結箱参照核 as original
+import importlib.util
+spec=importlib.util.spec_from_file_location('production_candidate', E.parent/'source/接続/ARC2/連結箱参照核.py')
+candidate=importlib.util.module_from_spec(spec);spec.loader.exec_module(candidate)
+P=ROOT/'proposal186-connected-box-20261008'
+T=json.loads((ROOT/'arc2-current99/teachers-only/d35bdbdc.json').read_text())['train']
+Q=json.loads((ROOT/'arc2-current99/solver-input-only/d35bdbdc.json').read_text())['test']
+F=json.loads((ROOT/'arc2-current102/source/検証/連結箱参照資料/ordinary-fixtures.json').read_text())
+checks=[]
+def check(value,name):
+ assert value,name
+ checks.append(name)
+oldstate,oldfit=api.fit(T)
+oldq=[api.predict(q['input'],oldstate) for q in Q]
+api.render=candidate.render
+state,fit=api.fit(T)
+newq=[api.predict(q['input'],state) for q in Q]
+check(state==oldstate,'same_complete_fit_programs')
+check([[t['exact']for t in p['teacher_returns']]for p in fit['all_program_returns']]==[[t['exact']for t in p['teacher_returns']]for p in oldfit['all_program_returns']],'same_all_27_teacher_verdicts')
+for i,t in enumerate(T):check(api.predict(t['input'],state)[0]==t['output'],f'teacher_{i}')
+check(newq[1][0]==oldq[1][0],'old_query1_same_grid')
+for i,(o,r) in enumerate(newq):
+ check((o is not None and r['status']=='OUTPUT') if i<2 else (o is None and r['status']=='HOLD'),f'query_{i}_complete_input_only_or_retained_hold')
+check(newq[2][1]['all_program_returns'][0]['record']['parse']['failure']==oldq[2][1]['all_program_returns'][0]['record']['parse']['failure'],'query2_same_first_failure')
+for f in F:check(api.predict(f['input'],state)[0]==f['expected'],'ordinary_'+f['name'])
+for i,g in enumerate([t['input'] for t in T]+[q['input'] for q in Q]+[f['input']for f in F]):
+ if original.ownerships(g)[1].get('candidate_boxes'):
+  check(candidate.ownerships(g)==original.ownerships(g),f'old_candidate_domain_identical_ownership_{i}')
+  for j,program in enumerate(candidate.PROGRAMS):
+   check(candidate.render(g,program)==original.render(g,program),f'old_candidate_domain_identical_full_tuple_{i}_{j}')
+def rotate(g):return [list(r) for r in zip(*g[::-1])]
+def transform(g,n):
+ g=copy.deepcopy(g)
+ if n>=4:g=[r[::-1]for r in g]
+ for _ in range(n%4):g=rotate(g)
+ return g
+for i,q in enumerate(Q):
+ for n in range(8):check(api.predict(transform(q['input'],n),state)[0]==(transform(newq[i][0],n) if newq[i][0] is not None else None),f'query_{i}_D4_{n}')
+ perm={i:(i+3)%10 for i in range(10)}
+ recolor=lambda g:[[perm[v]for v in row]for row in g]
+ check(api.predict(recolor(q['input']),state)[0]==(recolor(newq[i][0]) if newq[i][0] is not None else None),f'query_{i}_palette')
+for error in (RuntimeError,MemoryError):
+ merge=candidate.merge_proposals
+ def fail(*a,**kw):raise error('injected')
+ candidate.merge_proposals=fail
+ try:
+  api.predict(T[0]['input'],state)
+  escaped=False
+ except error:escaped=True
+ finally:candidate.merge_proposals=merge
+ check(escaped,error.__name__+'_propagates')
+# Independent audit's diagonal same-color wire/square contact counterexample.
+g=[[0]*19 for _ in range(10)]
+for cr,cc,key,value in ((3,3,2,3),(3,15,3,2),(5,9,1,4)):
+ for r in range(cr-1,cr+2):
+  for c in range(cc-1,cc+2):g[r][c]=key
+ g[cr][cc]=value
+for r,c in ({(3,c) for c in range(5,8)} | {(2,c) for c in range(7,14)} | {(3,13)}):g[r][c]=1
+program=('C8_no_corner_shortcut','cardinal_side_midpoint')
+previous=original.render(g,program)
+check(previous[0] is not None,'audit_counterexample_old_success')
+check(candidate.render(g,program)==previous,'audit_counterexample_same_complete_tuple')
+(E/'audit_counterexample.json').write_text(json.dumps({'input':g,'program':program,'previous':previous,'revision2':candidate.render(g,program)}))
+report=dict(status='PASS',checks=checks,count=len(checks),state=state,
+ source_sha256=hashlib.sha256((E.parent/'source/接続/ARC2/連結箱参照核.py').read_bytes()).hexdigest(),successful=True,
+ queries=newq,fit=fit,official_evaluation='NOT_RUN',native_integration='NOT_RUN')
+(E/'targeted.json').write_text(json.dumps(report))
+print(json.dumps({k:v for k,v in report.items()if k not in ('fit','queries')}))

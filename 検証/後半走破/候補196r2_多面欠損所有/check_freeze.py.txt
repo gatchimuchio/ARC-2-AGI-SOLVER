@@ -1,0 +1,17 @@
+from pathlib import Path
+import json,hashlib,difflib
+E=Path(__file__).resolve().parent;R=E.parent/'source';B=E.parents[1]/'arc2-current110/source'
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+base=json.loads((E/'base-freeze.json').read_text());frozen=json.loads((E/'pre-regression-freeze.json').read_text())
+assert all(sha(B/n)==h for n,h in base.items())
+assert all(sha(R/n)==h for n,h in frozen.items())
+cur={str(p.relative_to(R)):sha(p)for p in R.rglob('*')if p.is_file()and'__pycache__'not in p.parts}
+assert cur==frozen
+changed=[n for n in base if n in cur and base[n]!=cur[n]];added=sorted(set(cur)-set(base));removed=sorted(set(base)-set(cur))
+assert set(changed)=={'RUNTIME.md','接続/ARC2/HDS接続.py','接続/ARC2/直交領域所有核.py'}
+assert added==['接続/ARC2/多面欠損所有教材.py','接続/ARC2/多面欠損所有核.py'] and not removed
+assert sha(R/added[1])=='79df6217c61f32536e8a3ef218aad458c5a5ac2ae563b25978070df2f2578b46'
+for n in ['AGENTS.md','制御/現在状態.json','戦略/README.md','運用/権限順序.md','運用/ARC2_目的再固定_指示書.md']:
+ assert sha(R/n)==sha(B/n)
+report=dict(status='PASS',changed=changed,added=added,removed=removed,base_files_unchanged=len(base),frozen_files_unchanged=len(frozen),source_pins={n:cur[n]for n in changed+added},scorer_calls=0)
+(E/'freeze-check.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));(E/'pre-score-freeze.json').write_text(json.dumps(cur,ensure_ascii=False,indent=2));print(json.dumps(report,ensure_ascii=False))

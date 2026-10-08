@@ -1,0 +1,38 @@
+import sys,json,random,time,resource
+from pathlib import Path
+sys.path.insert(0,str(Path('arc2-current108/source').resolve()))
+import local_chain as k
+from 接続.ARC2.既存格子操作 import transform_grid_by_name as tf
+p=Path(__file__).parent;d=json.load(open('arc2-current99/solver-input-only/88bcf3b4.json'));state=k.fit(d['train']);checks=0;t=time.process_time()
+transforms=['identity','rot90','rot180','rot270','flip_h','flip_v','transpose','anti_transpose']
+for e in d['train']+d['test']:
+ g=e['input'];o,rr=k.predict(g,state);assert o is not None
+ for tr in transforms:
+  pred,_=k.predict(tf(g,tr),state);assert pred==tf(o,tr),(tr,rr);checks+=1
+ for seed in range(12):
+  colors=list(range(10));random.Random(seed).shuffle(colors)
+  perm=lambda a:[[colors[v] for v in row] for row in a]
+  pred,_=k.predict(perm(g),state);assert pred==perm(o);checks+=1
+# Every model must be retained; an injected failed candidate cannot be discarded.
+orig=k.render
+try:
+ k.render=lambda g,m,p:(None,{'failure':'synthetic'}) if m=='chebyshev' else orig(g,m,p)
+ assert k.predict(d['test'][0]['input'],state)[0] is None;checks+=1
+finally:k.render=orig
+try:
+ def fail(*a):raise MemoryError('synthetic resource failure')
+ k.render=fail
+ try:k.predict(d['test'][0]['input'],state)
+ except MemoryError:checks+=1
+ else:raise AssertionError('resource exception swallowed')
+finally:k.render=orig
+assert k.fit([]) is None;checks+=1
+# Evidence of all physical ownership and mass accounting in every successful query.
+for e in d['test']:
+ o,r=k.predict(e['input'],state)
+ for out,m in r['models']:
+  for cand in m['candidates']:
+   for chain in cand['chains']:
+    assert chain['source_count']==chain['logical_count'];checks+=1
+json.dump({'checks':checks,'cpu':time.process_time()-t,'peak_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss},open(p/'metamorphic-evidence.json','w'),indent=2)
+print(checks)

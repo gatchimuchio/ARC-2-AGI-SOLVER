@@ -1,0 +1,1 @@
+Initial pure run failed before fit: mixed_region_dicts cells are list, intersection expected set. TypeError propagated; no partial output. Fixed explicit set conversion.

@@ -1,0 +1,9 @@
+from pathlib import Path
+import hashlib,json
+E=Path(__file__).resolve().parent;R=E.parent/'source';A=E.parents[1]/'arc2-current113/source'
+def snap(root):return {str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest()for p in root.rglob('*')if p.is_file()and'__pycache__'not in p.parts}
+b=json.loads((E/'base-copy-freeze.json').read_text());assert snap(A)==b,'baseline changed'
+p=json.loads((E/'pre-regression-freeze.json').read_text());c=snap(R);assert c==p,{'added':list(c.keys()-p.keys()),'removed':list(p.keys()-c.keys()),'changed':[n for n in c.keys()&p.keys()if c[n]!=p[n]]}
+changed=[n for n in b if c[n]!=b[n]];added=sorted(c.keys()-b.keys());assert changed==['接続/ARC2/HDS接続.py'];assert added==['接続/ARC2/枠軸投影教材.py','接続/ARC2/枠軸投影核.py']
+out=dict(status="PASS",baseline_unchanged=True,frozen_files=len(p),changed=changed,added=added,scorer_calls=int((E/"current-terminal.json").exists()),protected_core_unchanged=True,HiGHS_threads1_unchanged=True)
+(E/'freeze-check.json').write_text(json.dumps(out,ensure_ascii=False,indent=2));print(json.dumps(out,ensure_ascii=False))

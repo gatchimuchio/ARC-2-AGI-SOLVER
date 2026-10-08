@@ -1,0 +1,8 @@
+# 凍結前の追加prior定義
+
+親から2026-10-08に指定された、既存操作の条件付き合成だけを試す。
+small_firstはセル数が最小の物体を優先する。同じ最小セル数の異色物体が競合する場合だけ、既存source_firstと同じ元bbox辞書順を副キーにする。
+
+教師が同数時の優先を一意に決めるという主張ではない。query正解・hidden・solutionsを見ず、入力幾何と既存二操作を合成した追加priorとして検証する。
+
+元actが成功する場合は全返却tupleをそのまま返す。失敗原因がequal_priority_color_conflictのみで、program制御がsmall_firstの場合だけ副キーへ拡張する。他のfailure・例外・候補間不一致はすべて維持する。source_firstを含む旧保持4programは削除しない。各programの完全結果が一致しなければHOLD。

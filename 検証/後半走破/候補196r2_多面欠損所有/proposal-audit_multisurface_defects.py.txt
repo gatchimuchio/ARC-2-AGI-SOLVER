@@ -1,0 +1,89 @@
+"""Independent teacher-only and isolated compositor audit; no query access."""
+import copy, hashlib, importlib, json, pathlib, sys
+from unittest.mock import patch
+ROOT=pathlib.Path(__file__).resolve().parents[1]
+sys.path[:0]=[str(ROOT/'arc2-current110/source'),str(pathlib.Path(__file__).parent)]
+import multisurface_defects as m
+from 接続.ARC2.直交領域所有核 import SearchIncomplete,unique_region
+results={}
+model={'background':0,'marker':8,'version':1}
+source=pathlib.Path(m.__file__)
+assert hashlib.sha256(source.read_bytes()).hexdigest()=='79df6217c61f32536e8a3ef218aad458c5a5ac2ae563b25978070df2f2578b46'
+assert m.unique_region is unique_region
+teachers=json.loads((ROOT/'arc2-current99/teachers-only/de809cff.json').read_text())['train']
+models=m.fit_teachers(teachers)
+assert models==[model]
+assert all(m.predict(t['input'],models)[0]==t['output'] for t in teachers)
+results['actual_teacher_fit']={'models':models,'exact':len(teachers)}
+# Use controlled ownership to independently exercise composition after the unchanged primitive.
+def case(holes=((3,1),(5,7)),surplus=((0,4),),left=2,right=6):
+ clean=[[1 if c<=left else 2 if c>=right else 0 for c in range(9)] for r in range(9)]
+ grid=copy.deepcopy(clean)
+ for r,c in holes:grid[r][c]=0
+ for r,c in surplus:grid[r][c]=1
+ masks=[[[int(v==col) for v in row] for row in clean] for col in (1,2)]
+ return grid,clean,masks
+
+def apply(grid,masks,mod=model):
+ with patch.object(m,'unique_region',side_effect=[(masks[0],{'test':1}),(masks[1],{'test':2})]) as f:
+  out,info=m.apply_model(grid,mod)
+  assert f.call_args_list[0].args[0]==[[int(v==1) for v in row] for row in grid]
+  assert f.call_args_list[1].args[0]==[[int(v==2) for v in row] for row in grid]
+  return out,info
+
+grid,clean,masks=case();saved=copy.deepcopy(grid)
+out,info=apply(grid,masks)
+expected=copy.deepcopy(clean)
+for r,c in ((3,1),(5,7)):
+ owner=clean[r][c]
+ for rr in range(r-1,r+2):
+  for cc in range(c-1,c+2):
+   if (rr,cc)!=(r,c):expected[rr][cc]=3-owner
+ expected[r][c]=8
+assert out==expected and grid==saved and out[0][4]==0
+results['synthetic_composition']='exact clean restoration, both markers, opposite 8-neighbor outlines, surplus erased; input unchanged'
+for name,kwargs,failure in [
+ ('outline_conflict',{'holes':((4,3),(4,5)),'left':3,'right':5},'conflicting_outline_ownership'),
+ ('surplus_conflict',{'surplus':((3,3),)},'surplus_outline_ownership_collision'),
+ ('missing_surface_hole',{'holes':((3,1),)},'missing_surface_hole_witness'),
+ ('missing_surplus',{'surplus':()},'both_defects_required')]:
+ g,c,ms=case(**kwargs)
+ if name=='surplus_conflict':
+  # A surplus adjacent to the left hole is outside its clean ownership.
+  g,c,ms=case(holes=((3,2),(5,7)),surplus=((3,3),))
+ o,i=apply(g,ms);assert o is None and i['failure']==failure,(name,i)
+ results[name]=failure
+ms=copy.deepcopy(masks);ms[1][0][0]=1
+o,i=apply(grid,ms);assert o is None and i['failure']=='overlapping_surface_ownership'
+results['overlap_hold']=i['failure']
+with patch.object(m,'unique_region',side_effect=[(None,{'failure':'ambiguous'}),(masks[1],{})]) as f:
+ o,i=m.apply_model(grid,model)
+ assert o is None and i['failure']=='nonunique_surface' and f.call_count==2
+results['nonunique_hold']=i['failure']
+for exc in (SearchIncomplete('numeric'),MemoryError('resource')):
+ with patch.object(m,'unique_region',side_effect=exc):
+  for fun,args in ((m.apply_model,(grid,model)),(m.predict,(grid,[model])),(m.fit_teachers,(teachers,))):
+   try:fun(*args)
+   except type(exc) as got:assert got is exc
+   else:raise AssertionError('exception swallowed')
+results['exception_propagation']='SearchIncomplete and MemoryError identities retained in apply, fit, predict'
+for outputs,failure in [([(expected,{}),(None,{'failure':'hold'})],'retained_model_failure'),([(expected,{}),(grid,{})],'retained_model_disagreement')]:
+ with patch.object(m,'apply_model',side_effect=outputs) as f:
+  o,i=m.predict(grid,[model,dict(model)]);assert o is None and i['failure']==failure and f.call_count==2
+ results[failure]='both retained models evaluated; HOLD preserved'
+with patch.object(m,'apply_model',return_value=(expected,{})) as f:
+ assert m.predict(grid,[model,dict(model)])[0]==expected and f.call_count==2
+results['all_model_consensus']='agreement accepted'
+for invalid in (None,[],[[True]*3]*3,[[0]*3]*2,[[0]*31]*3,[[0]*3,[0]*4,[0]*3]):
+ assert m.apply_model(invalid,model)[0] is None
+for invalid in ({},dict(model,teacher=[]),dict(model,background=True),dict(model,marker=1.0),dict(model,version=2)):
+ assert m.apply_model(grid,invalid)[0] is None
+for invalid in ([],teachers[:1],teachers+[teachers[0]],None):assert m.fit_teachers(invalid)==[]
+results['guards']='grid shape/type/palette, role exact ints, model keyset, version mismatch, insufficient/duplicate teachers reject'
+# Strictness observation: equality comparison admits Python numeric aliases of version 1.
+results['version_aliases_accepted']=[]
+for version in (True,1.0):
+ o,i=apply(grid,masks,dict(model,version=version))
+ if o is not None:results['version_aliases_accepted'].append(repr(version))
+assert hashlib.sha256(source.read_bytes()).hexdigest()=='79df6217c61f32536e8a3ef218aad458c5a5ac2ae563b25978070df2f2578b46'
+print(json.dumps(results,ensure_ascii=False,indent=2))

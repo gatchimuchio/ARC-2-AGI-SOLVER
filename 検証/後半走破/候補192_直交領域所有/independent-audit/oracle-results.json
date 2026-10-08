@@ -1,0 +1,10 @@
+{
+  "kernel_sha256": "943acdb273c66b56f2103cb86038b523b32847594c34335f9ed781d0fe8e8a02",
+  "oracle_checks": 512,
+  "unique": 440,
+  "ties": 72,
+  "fractional_first_lp": 0,
+  "incomplete": 0,
+  "errors": [],
+  "oracle_seconds": 4.417783498764038
+}

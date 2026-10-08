@@ -1,0 +1,3 @@
+候補192r2の直交領域所有を空priorの通常HDS境界へ接続し108/152。旧150格子全保持、誤出力/資源失敗0。二色主領域を単位編集費と単位直交曲がり費、沿辺3セル多数外挿priorで復元し、所有差分から消去と8近傍輪郭を同時決定する。これらは教師整合の追加priorで論理的一意性は主張しない。全role保持、候補失敗/不一致HOLD、SearchIncomplete伝播を保持。r1の浮動小数MILP整数性gate欠落は監査BLOCKED、r2で整数性/dual/gapを検証し例外伝播。旧068/122未回収履歴を保持し復元とは主張しない。新依存NumPy2.3.5/SciPy1.17.0を宣言。author初回pure測定のOPENBLAS_NUM_THREADS=1未記載が判明し、既定envではoptimize import中CPU10秒失敗を保存。親承認で両baseline/currentに同じOPENBLAS1を明示、CPU10/512MiB/wall60不変の公式比較を各1回実行。基底107/150全旧出力一致を再確認後、71e489b6両queryが増分。以前の無設定実績と同条件だったとは主張しない。独立r2監査、pure56/統合17/native一致、新規109本7839検査＋依存/AST同一window29。HDS中核・通常gate不変。必要起動契約はRUNTIME.md、ユーザー環境動作は未検証。現行local採用、Git commit pending、remote writeなし。残12課題。
+
+旧r1凍結/READMEは当時の誤った数値gateの記録で採用権威ではない。r2だけを採用。元pure測定条件の未記載と既定env失敗を保存。依存や環境の自動install/恒久変更は行っていない。

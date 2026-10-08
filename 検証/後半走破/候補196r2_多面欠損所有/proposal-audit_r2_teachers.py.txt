@@ -1,0 +1,28 @@
+import sys,pathlib,json,time,hashlib,resource,inspect,numpy as np,scipy
+ROOT=pathlib.Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/'candidate196-r2-production/source'))
+from 接続.ARC2 import 直交領域所有核 as old
+from 接続.ARC2.多面欠損所有教材 import 多面欠損所有教材 as New
+from scipy.optimize._highspy._core import HIGHS_VERSION_MAJOR,HIGHS_VERSION_MINOR,HIGHS_VERSION_PATCH
+from scipy.optimize import _milp
+r1=(ROOT/'candidate196-production/source/接続/ARC2/直交領域所有核.py').read_text()
+r2=pathlib.Path(old.__file__).read_text()
+# Removing only the resource option and its explanatory comments must recover exact original text.
+assert "'threads':1" in r2
+code1='\n'.join(x for x in r1.splitlines() if not x.lstrip().startswith('#'))
+code2='\n'.join(x for x in r2.splitlines() if not x.lstrip().startswith('#')).replace(",'threads':1",'').replace(", 'threads':1",'')
+assert code1==code2,'non-resource semantic change'
+checks=[];start=time.process_time()
+for task,cls in [('71e489b6',old.直交領域所有教材),('de809cff',New)]:
+ t=json.loads((ROOT/f'arc2-current99/teachers-only/{task}.json').read_text())['train'];m=cls(t)
+ for i,p in enumerate(t):
+  out,info=m.候補(p['input']);assert out==p['output'];checks.append([task,i])
+  # Transpose checks exercise orientation preservation with no new data.
+  transpose=lambda a:list(map(list,zip(*a)))
+  assert m.候補(transpose(p['input']))[0]==transpose(p['output'])
+status={line.split(':')[0]:line.split(':',1)[1].strip() for line in pathlib.Path('/proc/self/status').read_text().splitlines() if line.startswith(('VmPeak:','VmSize:','VmRSS:','Threads:'))}
+assert status['Threads']=='1',status
+assert hashlib.sha256((ROOT/'candidate196-r2-production/source/接続/ARC2/多面欠損所有核.py').read_bytes()).hexdigest()=='79df6217c61f32536e8a3ef218aad458c5a5ac2ae563b25978070df2f2578b46'
+sc=inspect.getsource(_milp._milp_iv)
+assert 'options_iv.update(options)' in sc and 'passed to HiGHS verbatim' in sc
+print(json.dumps({'status':'PASS','checks':checks,'transpose_checks':len(checks),'cpu_s':time.process_time()-start,'scipy':scipy.__version__,'numpy':np.__version__,'highs':f'{HIGHS_VERSION_MAJOR}.{HIGHS_VERSION_MINOR}.{HIGHS_VERSION_PATCH}','memory_threads':status,'diff':'threads=1 resource option only; objective, constraints, tolerance, gap, dual, integrality, guards unchanged','scipy_option_route':'_milp_iv passes unknown option verbatim; warning retained','pure196':'SHA unchanged'},indent=2))

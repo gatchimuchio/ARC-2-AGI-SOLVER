@@ -1,0 +1,50 @@
+import sys,importlib.util,json,numpy as np
+from types import SimpleNamespace
+sys.path.insert(0,'candidate196-r2-production/source');p='candidate196-r2-production/source/接続/ARC2/直交領域所有核.py';sp=importlib.util.spec_from_file_location('candidate',p);m=importlib.util.module_from_spec(sp);sp.loader.exec_module(m)
+real=m.milp;checks=[]
+def fractional(cost,**kw):
+ x=np.zeros(len(cost));x[12]=.25
+ for r in range(4):
+  for c in range(4):
+   start=25+16*(4*r+c);positions=[5*r+c,5*r+c+1,5*(r+1)+c,5*(r+1)+c+1]
+   if 12 in positions:x[start]=.75;x[start+(1<<positions.index(12))]=.25
+   else:x[start]=1
+ value=float(cost@x)
+ return SimpleNamespace(status=0,x=x,fun=value,mip_gap=0,mip_dual_bound=value,message='injected fractional status0')
+m.milp=fractional
+out,info=m.regularize([[0]*5 for _ in range(5)],fixed_border=True,relax=False)
+assert out is None and info['status']=='nonintegral_milp_result';checks.append('fractional_milp_rejected')
+try:m.unique_region([[0]*3 for _ in range(3)]);raise AssertionError('fractional fallback accepted')
+except m.SearchIncomplete:checks.append('fractional_fallback_raises')
+for mode in ('timeout','nan_x','nan_fun','residual','nan_gap','positive_gap','missing_gap','missing_dual','nan_dual','wrong_dual','wrong_objective'):
+ def fake(cost,**kw):
+  res=real(cost,**kw)
+  if mode=='timeout':res.status=1
+  if mode=='nan_x':res.x[0]=np.nan
+  if mode=='nan_fun':res.fun=np.nan
+  if mode=='residual':res.x[0]=.1
+  if mode=='nan_gap':res.mip_gap=np.nan
+  if mode=='positive_gap':res.mip_gap=.1
+  if mode=='missing_gap':res.mip_gap=None
+  if mode=='missing_dual':res.mip_dual_bound=None
+  if mode=='nan_dual':res.mip_dual_bound=np.nan
+  if mode=='wrong_dual':res.mip_dual_bound-=1
+  if mode=='wrong_objective':res.fun+=1;res.mip_dual_bound+=1
+  return res
+ m.milp=fake
+ out,info=m.regularize([[0]*5 for _ in range(5)],fixed_border=True,relax=False)
+ assert out is None,(mode,info);checks.append(mode)
+m.milp=real;orig=m.regularize_with_boundary
+for stage in ('first_milp','second_milp'):
+ calls=[]
+ def fake_region(*a,**kw):
+  calls.append(kw)
+  if stage=='first_milp':return [[0]*3 for _ in range(3)],{'integral':False,'objective':0}
+  if len(calls)==1:return [[0]*3 for _ in range(3)],{'integral':True,'objective':0}
+  return [[0]*3 for _ in range(3)],{'integral':False,'objective':0 if len(calls)==2 else 1}
+ m.regularize_with_boundary=fake_region
+ try:m.unique_region([[0]*3 for _ in range(3)]);raise AssertionError(stage)
+ except m.SearchIncomplete:checks.append(stage)
+m.regularize_with_boundary=orig
+result={'status':'PASS','checks':len(checks),'cases':checks,'note':'Fault injection, not real-solver reproduction.'}
+json.dump(result,open('proposal196-defect-ownership-20261008/audit_r2_numeric.json','w'),indent=2);print(result)

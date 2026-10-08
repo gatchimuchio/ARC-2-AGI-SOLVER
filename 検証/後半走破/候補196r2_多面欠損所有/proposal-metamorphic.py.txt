@@ -1,0 +1,16 @@
+import sys,json,resource,time
+resource.setrlimit(resource.RLIMIT_CPU,(10,10));resource.setrlimit(resource.RLIMIT_AS,(512*1024**2,512*1024**2))
+sys.path.insert(0,'arc2-current110/source');import multisurface_defects as m
+T=json.load(open('arc2-current99/teachers-only/de809cff.json'))['train'];Q=json.load(open('arc2-current99/solver-input-only/de809cff.json'))['test'];base=json.load(open('proposal196-defect-ownership-20261008/pure-evidence.json'))
+mode=int(sys.argv[1]);t=time.monotonic()
+def transform(g):
+ g=[r[:]for r in g]
+ if mode>=4:g=[r[::-1]for r in g]
+ for _ in range(mode%4):g=[list(r) for r in zip(*g[::-1])]
+ if mode==8:g=[[9-v for v in row]for row in g]
+ return g
+TT=[{k:transform(p[k])for k in ('input','output')}for p in T];models=m.fit_teachers(TT);assert models
+checks=1
+for p in TT:assert m.predict(p['input'],models)[0]==p['output'];checks+=1
+for p,b in zip(Q,base['queries']):assert m.predict(transform(p['input']),models)[0]==transform(b['output']);checks+=1
+print(json.dumps({'transform':mode,'checks':checks,'seconds':time.monotonic()-t}))

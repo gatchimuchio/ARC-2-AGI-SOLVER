@@ -1,0 +1,21 @@
+{
+  "status": "ACCEPTED_LOCAL",
+  "previous": [
+    110,
+    155
+  ],
+  "current": [
+    111,
+    156
+  ],
+  "commit": null,
+  "commit_status": "pending; no remote write",
+  "runtime_exact_tested": true,
+  "score_sha256": "b4e78f9047f632666430aba5a6e9d32ae88da1789d027d087a91a34290bea26a",
+  "baseline_calls": 0,
+  "candidate_calls": 1,
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "shared192_execution": "HiGHS threads=1"
+}

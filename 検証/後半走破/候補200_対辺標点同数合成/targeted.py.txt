@@ -1,0 +1,34 @@
+from pathlib import Path
+import sys,json,hashlib,resource
+from unittest.mock import patch
+resource.setrlimit(resource.RLIMIT_CPU,(10,10));resource.setrlimit(resource.RLIMIT_AS,(512*1024**2,)*2)
+E=Path(__file__).resolve().parent;R=E.parent/'source';B=E.parents[1];sys.path.insert(0,str(R))
+from 接続.ARC2 import 対辺標点配置教材 as a
+from 接続.ARC2 import 対辺標点配置候補 as m
+p=json.loads((B/'arc2-current99/solver-input-only/247ef758.json').read_text());pure=json.loads((E/'pure-repeat/candidate-result.json').read_text());checks=[]
+def check(name,x):
+ assert x,name
+ checks.append(name)
+d={};state=a.対辺標点配置教材(p['train'],d)
+check('four_models',len(state.モデル群)==4)
+check('complete',state.完了)
+check('exact_fit',m.fit(p['train'])==(state.モデル群,d))
+check('slots_only_model_metadata',set(state.__slots__)=={'モデル群','教師数','適合数','完了','不足理由'})
+check('kernel_pin',hashlib.sha256((R/'接続/ARC2/対辺標点配置核.py').read_bytes()).hexdigest()=='441bd607d19ba96d56890397a2cef29ac2502aeaaa49fc744aa8b8b9aa2c3ab5')
+for i,pair in enumerate(p['train']):
+ check('teacher_'+str(i),state.候補(pair['input'],None)[0]==pair['output'])
+for i,pair in enumerate(p['test']):
+ check('query_'+str(i)+'_parity',json.loads(json.dumps(state.候補(pair['input'],None)))==[pure['queries'][i]['new_output'],pure['queries'][i]['new_record']])
+for failure in ['retained_program_failed','program_grid_disagreement']:
+ sentinel=(None,{'failure':failure})
+ with patch.object(m,'consensus',return_value=sentinel) as f:
+  check(failure+'_unchanged',state.候補(p['test'][1]['input'],None) is sentinel)
+  check(failure+'_all_models',f.call_args.args[1] is state.モデル群)
+for exc in [MemoryError,RuntimeError]:
+ with patch.object(m,'consensus',side_effect=exc('sentinel')):
+  try:state.候補(p['test'][1]['input'],None)
+  except exc:check(exc.__name__+'_propagates',True)
+  else:raise AssertionError('swallowed')
+for n in ['接続/ARC2/HDS接続.py','接続/ARC2/対辺標点配置候補.py','接続/ARC2/対辺標点配置教材.py','AGENTS.md','制御/現在状態.json']:
+ check(n+'_unchanged',(R/n).read_bytes()==(B/'arc2-current112/source'/n).read_bytes())
+print(json.dumps(dict(tests_run=len(checks),successful=True,checks=checks),ensure_ascii=False))

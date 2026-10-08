@@ -1,0 +1,29 @@
+{
+  "status": "PRE_SCORE_PASS",
+  "previous": [
+    110,
+    155
+  ],
+  "candidate": "196r2",
+  "pure_kernel_sha256": "79df6217c61f32536e8a3ef218aad458c5a5ac2ae563b25978070df2f2578b46",
+  "shared192_options_only": "threads=1",
+  "native_old_families_preserved": 98,
+  "native_query_output_parity": true,
+  "old192_five_outputs_and_numeric_records_preserved": true,
+  "targeted": 33,
+  "regression": {
+    "fresh_scripts": 109,
+    "fresh_checks": 7839,
+    "preserved_window_checks": 29,
+    "composed_scripts": 110,
+    "composed_checks": 7868
+  },
+  "independent_audit": [
+    "proposal196-defect-ownership-20261008/audit_adapter.json",
+    "proposal196-defect-ownership-20261008/audit_r2_numeric.json",
+    "proposal196-defect-ownership-20261008/audit_r2_teachers.json"
+  ],
+  "r1_failure_evidence": "candidate196-production/evidence-20261008/integration-status.json",
+  "history": "Old138/165 complete source unavailable; 165 wrong1 rejection preserved; not a recovered source or verified novel mechanism versus missing sources. Initial old192 parity comparison was a tuple/list serialization mismatch, corrected by JSON normalization; source/output assertions unchanged.",
+  "authorization": "One candidate official run after all gates; adoption/packaging/commit/upload/remote prohibited pending new parent authorization"
+}

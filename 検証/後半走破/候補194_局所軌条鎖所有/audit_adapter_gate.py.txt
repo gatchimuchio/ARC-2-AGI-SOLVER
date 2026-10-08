@@ -1,0 +1,43 @@
+import sys,json,copy,resource,hashlib
+resource.setrlimit(resource.RLIMIT_CPU,(10,10));resource.setrlimit(resource.RLIMIT_AS,(512*1024**2,512*1024**2))
+sys.path.insert(0,'candidate194-production/source')
+from 接続.ARC2 import 局所軌条鎖所有教材 as a
+m=a.api
+tr=json.load(open('arc2-current99/teachers-only/88bcf3b4.json'))['train']
+checks=[]
+def check(n,v):
+ assert v,n
+ checks.append(n)
+check('frozen_core_sha',hashlib.sha256(open('candidate194-production/source/接続/ARC2/局所軌条鎖所有核.py','rb').read()).hexdigest()=='5025b46ef8c0bfc52b0f69a8e760e6551438a948d753b73663a931836297b679')
+bad=[None,{},tuple(tr),[],tr[:1],[tr[0],tr[0]],[tr[0],None],[tr[0],{}],[tr[0],{'input':[[0]],'output':[[True]]}],[tr[0],{'input':[[0]],'output':[[0,0]]}],[tr[0],{'input':[[0],[0,0]],'output':[[0],[0,0]]}],[tr[0],{'input':tr[0]['input'],'output':tr[1]['output']}]]
+for i,x in enumerate(bad):
+ adapter=a.局所軌条鎖所有教材(x)
+ check('bad_teachers_'+str(i),adapter.model is None and adapter.記録()['全教師再現'] is False and adapter.候補(tr[0]['input'])[0] is None)
+adapter=a.局所軌条鎖所有教材(tr)
+check('valid_teachers_four_models',adapter.model['models']==list(m.MODELS))
+check('empty_prior_support',adapter.記録()['事前支持数']==0)
+for i,e in enumerate(tr):check('teacher_'+str(i),adapter.候補(e['input'])[0]==e['output'])
+for i,x in enumerate([None,[],{},[[True]],[[10]],[[0],[0,0]],tuple(tr[0]['input'])]):check('bad_query_'+str(i),adapter.候補(x)[0] is None)
+old=m.fit
+try:
+ def boom(*args):raise RuntimeError('sentinel')
+ m.fit=boom
+ try:a.局所軌条鎖所有教材(tr)
+ except RuntimeError:check('adapter_exception_propagates',True)
+ else:raise AssertionError('exception swallowed')
+finally:m.fit=old
+# Renderer unit isolation: a chain may write another source only after simultaneous erase.
+old=m.roles
+try:
+ g=[[0]*10 for _ in range(10)]
+ obs=[{'color':2,'cells':{(0,0)}},{'color':4,'cells':{(2,2),(2,3)}},{'color':2,'cells':{(8,0)}},{'color':5,'cells':{(3,2),(3,3)}},{'color':6,'cells':{(2,4)}},{'color':7,'cells':{(5,4)}}]
+ for o in obs:
+  for r,c in o['cells']:g[r][c]=o['color']
+ groups=[[(0,1,(2,1),(0,1),(1,0))],[(2,3,(5,1),(0,1),(1,0))]]
+ m.roles=lambda _:((0,obs,groups),None)
+ o,r=m.render(g,'euclidean_squared','early')
+ check('simultaneous_erase_before_write',o is not None and o[3][2]==4 and o[5][1]==5 and o[6][2]==5)
+ groups[1]=[(2,3,(2,1),(0,1),(1,0))]
+ o,r=m.render(g,'euclidean_squared','early');check('same_destination_owner_collision_holds',o is None and r['candidates'][0]['failure']=='collision')
+finally:m.roles=old
+print(json.dumps({'status':'PASS','checks':checks,'scope':'teacher and synthetic only; HDS registration diff static-only; no query/result reads'},indent=2))

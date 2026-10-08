@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "changed": [
+    "接続/ARC2/標識移動教材.py"
+  ],
+  "added": [
+    "接続/ARC2/凡例所有境界候補.py"
+  ],
+  "removed": [],
+  "base_files_unchanged": 2902,
+  "frozen_files_unchanged": 2903,
+  "source_pins": {
+    "接続/ARC2/標識移動教材.py": "ca4d5c019098fd87b20f9be70f3646aa5c20fa114878861d71f83dd2b3fd45db",
+    "接続/ARC2/凡例所有境界候補.py": "a6637e397866052318eba6344ab942abbe44701affb9728fe5fdcf5b4ee5b8e1"
+  },
+  "scorer_calls": 0
+}

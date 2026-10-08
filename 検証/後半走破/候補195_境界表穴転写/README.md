@@ -1,0 +1,3 @@
+候補195の境界表穴転写を空priorの通常HDS境界へ接続し110/155。旧154格子全保持、誤出力/資源失敗0。既存mixed C8矩形表・単色C8物体・C4補領域穴・同時mergeを合成し、canvas端に近いlaneをkeyとして束縛する。これは教師整合の明示priorで、教師からの論理的一意性を主張しない。全表・最小距離同率laneを保持し、一候補でも失敗/不一致ならHOLD、例外伝播。strict教師list/min2全unique/pairdict/両grid valid/同shape、fit返却modelのみ状態を保持。旧137/161完全source未回収・161wrong1棄却を保持し復元とは主張しない。旧97 family状態・記録同一を確認しdbff022c q0が増分。独立pure/adapter監査PASS、pure44、統合34、native一致、新規109本7839検査＋依存/AST同一window29。同条件OPENBLAS1/CPU10/512MiB/wall60の公式候補1回。HDS中核・通常gate・依存起動契約不変。現行local採用、Git commit pending、remote writeなし。残10課題。
+
+previous109/154 → current110/155、delta+1/+1。核SHAは試験済み凍結と同一。今回rawは同directory、基底rawは候補194_局所軌条鎖所有/current-official.json.gz。Git commit pending。

@@ -3,6 +3,7 @@ from collections import Counter
 from itertools import combinations, product
 
 from 接続.ARC2.凡例旋回教材 import body_components
+from 接続.ARC2.既存物体特徴 import color_components
 from 接続.ARC2.既存成分最短経路 import component_adjacency_8
 from 接続.ARC2.境界点周期候補 import valid_grid, merge_proposals
 
@@ -10,7 +11,52 @@ PROGRAMS = tuple(product(('C4', 'C8', 'C8_no_corner_shortcut'),
                          ('C4', 'C8', 'cardinal_side_midpoint')))
 
 
-def ownerships(grid):
+def physical_objects(grid, bg):
+    """Observed complete symmetric shells bind a common physical mask."""
+    h, w = len(grid), len(grid[0])
+    colors = sorted({v for row in grid for v in row} - {bg})
+    components = [obj for color in colors for obj in color_components(grid, color, True)]
+    templates = set()
+    for obj in components:
+        t, l, b, r = obj['bbox']
+        if b-t != r-l or b-t < 2 or (b-t) % 2:
+            continue
+        cr, cc = (t+b)//2, (l+r)//2
+        shell = {(y-cr, x-cc) for y, x in obj['cells']} - {(0, 0)}
+        if ({(-dc, dr) for dr, dc in shell} != shell
+                or {(dr, -dc) for dr, dc in shell} != shell):
+            continue
+        radius = (b-t)//2
+        if not {(radius, 0), (-radius, 0), (0, radius), (0, -radius)} <= shell:
+            continue
+        templates.add(tuple(sorted(shell | {(0, 0)})))
+    candidates = []
+    for offsets in sorted(templates):
+        radius = max(max(abs(dr), abs(dc)) for dr, dc in offsets)
+        for cr in range(h):
+            for cc in range(w):
+                if not (radius <= cr < h-radius and radius <= cc < w-radius):
+                    continue
+                footprint = {(cr+dr, cc+dc) for dr, dc in offsets
+                             if 0 <= cr+dr < h and 0 <= cc+dc < w}
+                shell = footprint - {(cr, cc)}
+                if len(shell) < 3:
+                    continue
+                keys = {grid[y][x] for y, x in shell}
+                if len(keys) != 1 or bg in keys:
+                    continue
+                key = next(iter(keys))
+                if not any(obj['color'] == key and obj['cells'] - {(cr, cc)} == shell
+                           for obj in components):
+                    continue
+                candidates.append(dict(bbox=(cr-radius, cc-radius, cr+radius, cc+radius),
+                                       center=(cr, cc), side=2*radius+1, key=key,
+                                       value=grid[cr][cc], footprint=sorted(footprint),
+                                       template=offsets))
+    return candidates
+
+
+def _ownerships(grid, clipped=False):
     if not valid_grid(grid):
         return [], {'failure': 'invalid_grid'}
     counts = Counter(v for row in grid for v in row)
@@ -31,6 +77,13 @@ def ownerships(grid):
         candidates.append(dict(bbox=obj['bbox'], center=center, side=side,
                                key=obj['color'], value=grid[center[0]][center[1]],
                                footprint=sorted(footprint)))
+    # Preserve the original C4 recognition domain exactly. Only absence of
+    # every original square candidate opens the distinct complete-shell view.
+    shell_view = not candidates
+    if shell_view:
+        candidates = physical_objects(grid, bg)
+    if clipped:
+        candidates += clipped_square_objects(grid, bg, candidates)
     fg = {(r, c) for r, row in enumerate(grid) for c, v in enumerate(row) if v != bg}
     # Every selected ownership is contained in this over-approximated union.
     # Cells outside it must remain wire for every possible candidate subset.
@@ -51,6 +104,8 @@ def ownerships(grid):
             boxes = [candidates[i] for i in indices]
             if len({x['side'] for x in boxes}) != 1:
                 continue
+            if shell_view and len({x['template'] for x in boxes}) != 1:
+                continue
             owned = set().union(*(set(x['footprint']) for x in boxes))
             if len(owned) != sum(len(x['footprint']) for x in boxes):
                 continue
@@ -61,6 +116,56 @@ def ownerships(grid):
             roles.append(dict(background=bg, boxes=boxes, wire=sorted(wire),
                               wire_color=next(iter(colors))))
     return roles, dict(background=bg, candidate_boxes=candidates, ownership_count=len(roles))
+
+
+def clipped_square_objects(grid, bg, complete):
+    """Input-observed complete C4 squares supply masks for boundary fragments."""
+    h, w = len(grid), len(grid[0])
+    components = body_components(grid, bg)
+    candidates = []
+    for side in sorted({box['side'] for box in complete}):
+        radius = side // 2
+        for cr in range(h):
+            for cc in range(w):
+                t, l, b, r = cr-radius, cc-radius, cr+radius, cc+radius
+                if 0 <= t and 0 <= l and b < h and r < w:
+                    continue
+                footprint = {(y, x) for y in range(max(0, t), min(h, b+1))
+                             for x in range(max(0, l), min(w, r+1))}
+                shell = footprint - {(cr, cc)}
+                if len(shell) < 3:
+                    continue
+                keys = {grid[y][x] for y, x in shell}
+                if len(keys) != 1 or bg in keys:
+                    continue
+                key = next(iter(keys))
+                if not any(obj['color'] == key and obj['cells'] - {(cr, cc)} == shell
+                           for obj in components):
+                    continue
+                candidates.append(dict(bbox=(t, l, b, r), center=(cr, cc), side=side,
+                    key=key, value=grid[cr][cc], footprint=sorted(footprint), clipped=True))
+    return candidates
+
+
+def ownerships(grid):
+    # Domain decision is entirely before graph traversal and rendering.
+    roles, record = _ownerships(grid)
+    if roles or record.get('failure') != 'unavoidable_wire_has_multiple_colors':
+        return roles, record
+    complete = record.get('candidate_boxes', [])
+    if not complete or any('template' in box for box in complete):
+        return roles, record
+    if not clipped_square_objects(grid, record['background'], complete):
+        return roles, record
+    extended, extension = _ownerships(grid, clipped=True)
+    extension['complete_ownership_failure'] = record
+    for role in extended:
+        # No old ownership exists in this domain. Every retained extension
+        # must use a clipped object rather than silently replace old ownership.
+        if not any(box.get('clipped') for box in role['boxes']):
+            raise AssertionError('extension_without_clipped_object')
+        role['reference_domain_binding'] = True
+    return extended, extension
 
 
 def path_graph(wire, connectivity):
@@ -117,6 +222,20 @@ def execute_role(grid, role, program):
     contacts = [[i for i, box in enumerate(boxes) if attaches(p, box, attachment)]
                 for p in ends]
     rec['endpoint_attachments'] = [dict(endpoint=p, boxes=choices) for p, choices in zip(ends, contacts)]
+    if role.get('reference_domain_binding'):
+        # New clipped interpretation requires each endpoint to name a defined
+        # input reference. Retain rejection evidence before any action occurs.
+        keys = {box['key'] for box in boxes}
+        rec['reference_domain_bindings'] = [dict(endpoint=p,
+            retained=[i for i in choices if boxes[i]['value'] in keys],
+            rejected=[dict(box=i, value=boxes[i]['value'], failure='missing_lookup_key')
+                      for i in choices if boxes[i]['value'] not in keys])
+            for p, choices in zip(ends, contacts)]
+        spatial_missing = any(not choices for choices in contacts)
+        contacts = [binding['retained'] for binding in rec['reference_domain_bindings']]
+        if not spatial_missing and any(not choices for choices in contacts):
+            return None, dict(rec, failure='wire_endpoint_reference_domain_empty')
+
     if any(not choices for choices in contacts):
         return None, dict(rec, failure='wire_endpoint_has_no_box')
     alternatives = rec['alternatives']

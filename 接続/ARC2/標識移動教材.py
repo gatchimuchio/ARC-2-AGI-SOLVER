@@ -119,6 +119,8 @@ class 標識移動教材:
 # Extend this family only at its completed zero-fit boundary. The original
 # implementation above remains intact, including ambiguous-fit and guard paths.
 from . import 凡例方向移動候補 as _凡例方向移動
+from . import 凡例所有境界候補 as _凡例所有境界
+from dataclasses import asdict
 
 _既存標識移動教材 = 標識移動教材
 
@@ -141,14 +143,36 @@ class 標識移動教材(_既存標識移動教材):
         super().__init__(教師群)
         self.凡例方向モデル = None
         self.凡例方向fit記録 = None
+        self.凡例所有モデル = None
         if (self.方針 is None and self.適合方針数 == 0
                 and _凡例方向移動の保存条件(教師群)):
             self.凡例方向モデル, self.凡例方向fit記録 = _凡例方向移動.fit_teachers(教師群)
             if self.凡例方向fit記録.get('complete') is not True:
                 raise RuntimeError('legend direction fitting did not complete')
+            if self.凡例方向モデル is not None:
+                model, record = _凡例所有境界.fit_teachers(教師群)
+                if record.get('failure') != 'invalid_teachers' and record.get('complete') is not True:
+                    raise RuntimeError('legend owner fitting did not complete')
+                # Every old retained role must be the same new retained role.
+                # No successful subset or fit diagnostic is retained as state.
+                if (model is not None and
+                        tuple(asdict(m) for m in model.models) ==
+                        tuple(asdict(m) for m in self.凡例方向モデル.models)):
+                    self.凡例所有モデル = model
 
     def 候補(self, 格子, _policy):
         if self.凡例方向モデル is not None:
+            if self.凡例所有モデル is not None:
+                # Any existing structural role protects the entire old outcome,
+                # including failed owners, disagreement, and resource exceptions.
+                old_scenes = [_凡例方向移動.parse(格子,m)[0]
+                              for m in self.凡例方向モデル.models]
+                if all(scene is None for scene in old_scenes):
+                    new_scenes = [_凡例所有境界.parse(格子,m)[0]
+                                  for m in self.凡例所有モデル.models]
+                    if any(scene is not None for scene in new_scenes):
+                        # Recognition opens the view, never filters candidates.
+                        return _凡例所有境界.predict(格子,self.凡例所有モデル)
             return _凡例方向移動.predict(格子,self.凡例方向モデル)
         return super().候補(格子,_policy)
 

@@ -1,0 +1,15 @@
+{
+  "sha256": "1522b9a4201eea9dcf123352eea49968173b855783d43d5ac6ffa354211079fc",
+  "teacher_exact": 4,
+  "axes": [
+    31,
+    31
+  ],
+  "brute_force_cases": 908,
+  "synthetic_bind_successes": 284,
+  "synthetic_holds": 624,
+  "old_success_paths_preserved": 297,
+  "compression_exact": true,
+  "maximal_candidate_and_donor_exact": true,
+  "exception_propagation": true
+}

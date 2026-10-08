@@ -1,0 +1,14 @@
+{
+  "python": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "env": {
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "cpu_seconds": 10,
+  "address_space_bytes": 536870912,
+  "wall_seconds": 60,
+  "original_unset_env_failed": true,
+  "old_and_new_native_same_env": true,
+  "scorer_calls": 0
+}

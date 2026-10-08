@@ -1,0 +1,40 @@
+from pathlib import Path
+import json,sys,hashlib,importlib.util
+from dataclasses import asdict
+from unittest.mock import patch
+E=Path(__file__).resolve().parent;R=E.parent/'source';B=E.parents[1];sys.path.insert(0,str(R))
+from 接続.ARC2 import 標識移動教材 as a
+from 接続.ARC2 import 凡例方向移動候補 as old
+from 接続.ARC2 import 凡例所有境界候補 as new
+p=json.loads((B/'arc2-current99/solver-input-only/88e364bc.json').read_text());t=p['train'];m=a.標識移動教材(t);tests=0
+def check(x):
+ global tests
+ assert x;tests+=1
+check(tuple(map(asdict,m.凡例方向モデル.models))==tuple(map(asdict,m.凡例所有モデル.models)))
+check(set(vars(m))=={'方針','接触消去教師数','適合方針数','凡例方向モデル','凡例方向fit記録','凡例所有モデル'})
+check(hashlib.sha256((R/'接続/ARC2/凡例所有境界候補.py').read_bytes()).hexdigest()=='a6637e397866052318eba6344ab942abbe44701affb9728fe5fdcf5b4ee5b8e1')
+for pair in t:check(m.候補(pair['input'],None)==old.predict(pair['input'],m.凡例方向モデル))
+check(m.候補(p['test'][1]['input'],None)==old.predict(p['test'][1]['input'],m.凡例方向モデル))
+check(m.候補(p['test'][0]['input'],None)==new.predict(p['test'][0]['input'],m.凡例所有モデル))
+q=p['test'][0]['input'];sentinel=(None,{'failure':'old_hold'})
+for scenes in [[({},{}),(None,{}) ,(None,{}),(None,{})], [({}, {})]*4]:
+ with patch.object(old,'parse',side_effect=scenes),patch.object(old,'predict',return_value=sentinel),patch.object(new,'predict',side_effect=AssertionError('bypass')):check(m.候補(q,None)==sentinel)
+with patch.object(old,'parse',return_value=(None,{})),patch.object(new,'parse',return_value=(None,{})),patch.object(old,'predict',return_value=sentinel),patch.object(new,'predict',side_effect=AssertionError('no roles')):check(m.候補(q,None)==sentinel)
+with patch.object(old,'parse',return_value=(None,{})),patch.object(new,'parse',side_effect=[({},{}),(None,{}),(None,{}),(None,{})]),patch.object(new,'predict',return_value=(None,{'failure':'new_model_failed'}))as pred:
+ check(m.候補(q,None)[1]['failure']=='new_model_failed');check(pred.call_args.args[1]is m.凡例所有モデル)
+for mod,fn in [(old,'parse'),(new,'parse'),(new,'predict')]:
+ with patch.object(mod,fn,side_effect=MemoryError('propagate')):
+  try:m.候補(q,None)
+  except MemoryError:check(True)
+  else:raise AssertionError('swallowed')
+for bad in [None,[],{},t[:1],t+t[:1],[{'input':[[0]],'output':[[True]]}]*2]:check(new.fit_teachers(bad)[0]is None)
+with patch.object(new,'fit_teachers',return_value=(new.Fitted(m.凡例所有モデル.models[:1]),{'complete':True})):check(a.標識移動教材(t).凡例所有モデル is None)
+with patch.object(new,'fit_teachers',return_value=(None,{'complete':False})):
+ try:a.標識移動教材(t)
+ except RuntimeError:check(True)
+ else:raise AssertionError('incomplete swallowed')
+with patch.object(new,'fit_teachers',side_effect=MemoryError('propagate')):
+ try:a.標識移動教材(t)
+ except MemoryError:check(True)
+ else:raise AssertionError('resource swallowed')
+print(json.dumps(dict(tests_run=tests,successful=True)))

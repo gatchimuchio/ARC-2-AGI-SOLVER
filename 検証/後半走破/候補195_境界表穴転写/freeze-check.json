@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "changed": [
+    "接続/ARC2/HDS接続.py"
+  ],
+  "added": [
+    "接続/ARC2/境界表穴転写教材.py",
+    "接続/ARC2/境界表穴転写核.py"
+  ],
+  "removed": [],
+  "base_files_unchanged": 2774,
+  "frozen_files_unchanged": 2776,
+  "source_pins": {
+    "接続/ARC2/HDS接続.py": "062c907e5ba9c8145091bd85ac3ed17c7a1693ed4c6ddb3e3276345accfcaa44",
+    "接続/ARC2/境界表穴転写教材.py": "ac6302a04789aecaf72496d2a52b61bbc0813d7beba06385734540780cbc7236",
+    "接続/ARC2/境界表穴転写核.py": "0e1e9de98003f0059036f88e94408c2857d2632203b987dfc83957506815e133"
+  },
+  "scorer_calls": 0
+}

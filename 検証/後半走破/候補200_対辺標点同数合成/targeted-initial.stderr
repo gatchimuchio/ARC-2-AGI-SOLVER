@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/7408259c1ab2/candidate200-production/evidence-20261008/targeted.py", line 21, in <module>
+    check('query_'+str(i)+'_parity',state.候補(pair['input'],None)==(pure['queries'][i]['new_output'],pure['queries'][i]['new_record']))
+  File "/workspace/scratch/7408259c1ab2/candidate200-production/evidence-20261008/targeted.py", line 10, in check
+    assert x,name
+           ^
+AssertionError: query_0_parity

@@ -1,0 +1,75 @@
+"""Independent teacher/synthetic-only audit; no query or answer access."""
+import copy, importlib.util, json, hashlib
+from pathlib import Path
+from unittest.mock import patch
+ROOT=Path(__file__).resolve().parent
+P=ROOT/'keyed_stamp_kernel.py'
+assert hashlib.sha256(P.read_bytes()).hexdigest()=='695ebb09aef177d99da2afbf1e6b3ae5bab565466d6ba9148b33b47f1a9dfe2a'
+def load(name,path):
+ s=importlib.util.spec_from_file_location(name,path);m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
+k=load('audited_kernel',P)
+old=load('old_probe',ROOT.parent/'arc2-restored-592d2c5-audit/keyed_stamp_probe.py')
+teachers=json.loads((ROOT.parent/'arc2-current99/teachers-only/abc82100.json').read_text())['train']
+model,fit=k.fit_teachers(teachers)
+assert model['background_rules']==list(k.BACKGROUND_RULES)
+checks=[]
+def check(name,condition):
+ assert condition,name
+ checks.append(name)
+check('all_teachers_old_fit',old.fit_teachers(teachers)[0] is True)
+summary=[]
+for i,p in enumerate(teachers):
+ out,rec=k.predict(p['input'],model)
+ check('teacher_'+str(i),out==p['output'])
+ payload,parse=k.parse_input(p['input'],'area_mode')
+ check('teacher_erase_also_fits_'+str(i),k.render_model(p['input'],'area_mode','erase')[0]==p['output'])
+ summary.append({'teacher':i,'passive_cells':len(payload['unmatched']),'raw_roles':parse['unfiltered_partial_role_count'],'selected_roles':parse['complete_role_count']})
+ # Foreground partition is total and disjoint, including passive cells.
+ metadata=set(payload['metadata']);markers={pt for d in payload['templates'] for pt in d['markers']};passive={(r,c) for r,c,v in payload['unmatched']}
+ fg={(r,c) for r,row in enumerate(p['input']) for c,v in enumerate(row) if v!=payload['background']}
+ check('partition_'+str(i),metadata|markers|passive==fg and not(metadata&markers or metadata&passive or markers&passive))
+
+def base(marker=(8,8)):
+ g=[[0]*12 for _ in range(12)]
+ for r,c,v in [(3,3,2),(3,4,2),(4,3,2),(2,3,5),(1,3,6),(*marker,6)]:g[r][c]=v
+ return g
+for name,marker,passive,expect_hold in [
+ ('baseline',(8,8),None,False),('passive_preserved',(8,8),(10,2,9),False),
+ ('passive_foreign_overlap',(8,8),(8,9,9),True),('passive_same_colour_overlap',(8,8),(8,9,5),False),
+ ('clipped_corner',(11,11),None,False)]:
+ g=base(marker)
+ if passive:g[passive[0]][passive[1]]=passive[2]
+ out,rec=k.predict(g,model)
+ if expect_hold:
+  check(name,out is None and all(c['record'].get('render',{}).get('failure')=='passive_ownership_conflict' for c in rec['all_candidates']))
+ else:
+  expected=[[0]*12 for _ in range(12)]
+  if passive:expected[passive[0]][passive[1]]=passive[2]
+  for dr,dc in [(0,0),(0,1),(1,0)]:
+   r,c=marker[0]+dr,marker[1]+dc
+   if r<12 and c<12:expected[r][c]=5
+  check(name,out==expected)
+  check(name+'_metadata_erased',all(out[r][c]==0 for r,c in [(3,3),(3,4),(4,3),(2,3),(1,3)]))
+  if name=='clipped_corner':check('clipping_accounted',all(c['record']['render']['clipped_count']==2 for c in rec['all_candidates']))
+# Dihedral/color-equivariance on synthetic nonzero background and on teachers.
+perm={i:(i+4)%10 for i in range(10)}
+for i,p in enumerate(teachers):
+ transformed_in=[list(row) for row in zip(*p['input'])]
+ transformed_out=[list(row) for row in zip(*p['output'])]
+ check('transpose_'+str(i),k.predict(transformed_in,model)[0]==transformed_out)
+ ci=[[perm[x] for x in row] for row in p['input']];co=[[perm[x] for x in row] for row in p['output']]
+ check('colour_permutation_'+str(i),k.predict(ci,model)[0]==co)
+# Explicit branch verification: a failed retained model may not be dropped, nor a disagreeing one.
+with patch.object(k,'render_model',side_effect=[([[0]],{}),(None,{'failure':'synthetic'}),([[0]],{})]) as fn:
+ out,rec=k.predict(base(),model)
+ check('no_success_subset_on_failure',out is None and rec['failure']=='retained_candidate_failed' and fn.call_count==3)
+with patch.object(k,'render_model',side_effect=[([[0]],{}),([[1]],{}),([[0]],{})]) as fn:
+ out,rec=k.predict(base(),model)
+ check('all_retained_disagreement_hold',out is None and rec['failure']=='retained_candidates_disagree' and fn.call_count==3)
+with patch.object(k,'render_model',side_effect=RuntimeError('synthetic exception')):
+ try:k.predict(base(),model)
+ except RuntimeError:checks.append('exceptions_not_swallowed')
+ else:raise AssertionError('exception swallowed')
+report={'status':'PASS within declared prior; generalization/official correctness not established','kernel_sha256':hashlib.sha256(P.read_bytes()).hexdigest(),'teacher_count':len(teachers),'retained_background_rules':model['background_rules'],'teacher_summary':summary,'checks':checks,'check_count':len(checks),'read_scope':['specified instructions and AGENTS','kernel source','old probe source','teachers-only train','self-authored synthetic inputs'],'unread':['query','README','kernel-report','alternatives-hold','predictions','official answers'],'prior_limit':'Preserve and erase agree on all teachers because unmatched is empty. Preservation and background heuristics are additional priors, not uniquely teacher-derived.'}
+(ROOT/'independent-audit.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps(report,ensure_ascii=False,indent=2))

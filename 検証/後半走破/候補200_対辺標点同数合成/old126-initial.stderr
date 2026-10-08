@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/7408259c1ab2/candidate200-production/source/検証/対辺標点配置回帰.py", line 22, in <module>
+    assert sha(Path(m.core.__file__)) == EXPECTED_CORE
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

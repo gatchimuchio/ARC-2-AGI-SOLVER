@@ -1,0 +1,16 @@
+{
+  "status": "ACCEPTED_LOCAL",
+  "previous": [
+    106,
+    149
+  ],
+  "current": [
+    107,
+    150
+  ],
+  "commit": null,
+  "commit_status": "pending; no remote write",
+  "runtime_exact_tested": true,
+  "score_sha256": "1d0aed499a5908d06b036ffb37e38f5692438a692f6d1f6097c6e89dce7a9360",
+  "scorer_calls": 1
+}

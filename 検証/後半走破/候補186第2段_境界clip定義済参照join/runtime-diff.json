@@ -1,0 +1,8 @@
+{
+  "base": "/workspace/scratch/7408259c1ab2/arc2-current102-145/source",
+  "changed": [
+    "接続/ARC2/連結箱参照核.py",
+    "検証/連結箱参照資料/source-fixture-pins.json"
+  ],
+  "kernel_sha256": "5bfb14ba308720f9767173feee25ee7a07cf204083e6ee478fd157177953882d"
+}
