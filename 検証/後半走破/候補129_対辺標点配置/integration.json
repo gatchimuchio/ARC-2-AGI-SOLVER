@@ -1,0 +1,59 @@
+{
+  "base_commit": "a6849619e26a2e97eb764bf4185e316081e1dd39",
+  "root": "/workspace/scratch/7408259c1ab2/candidate129-production-20261007",
+  "files": [
+    {
+      "path": "接続/ARC2/対辺標点配置核.py",
+      "bytes": 8480,
+      "sha256": "dbc768521416ada613a7a41aeb394a38f3ec63f17b89cd69bd221aaeffb04e55"
+    },
+    {
+      "path": "接続/ARC2/対辺標点配置教材.py",
+      "bytes": 1597,
+      "sha256": "84023aebe59e362cc1e863f4a601cd970810c462fcf55259f7563905871c8cb3"
+    },
+    {
+      "path": "接続/ARC2/対辺標点配置候補.py",
+      "bytes": 6179,
+      "sha256": "4e49c84456fcefa9a3fe9beb9d613ea1cf3f4dae5dc01e7549340b3b55ab154f"
+    },
+    {
+      "path": "接続/ARC2/HDS接続.py",
+      "bytes": 25112,
+      "sha256": "d32df25194b41c0390b7d6b39fde12a7d201c552586b88d7097b538b24b11eab"
+    },
+    {
+      "path": "検証/対辺標点配置資料/freeze.json",
+      "bytes": 1621,
+      "sha256": "126d0c19f7d55efe1318b70df77bc3c6006d46afeaec63361ed0007aea31c6da"
+    },
+    {
+      "path": "検証/対辺標点配置資料/frozen126.py",
+      "bytes": 8480,
+      "sha256": "dbc768521416ada613a7a41aeb394a38f3ec63f17b89cd69bd221aaeffb04e55"
+    },
+    {
+      "path": "検証/対辺標点配置資料/paired_border_partial_view.py",
+      "bytes": 6160,
+      "sha256": "1a24d165732ca12aef93742570be927052f1943a01232c5dcdff1cc0576868ba"
+    },
+    {
+      "path": "検証/対辺標点配置資料/teachers-only.json",
+      "bytes": 14645,
+      "sha256": "3c2ce050fcf59ac73342548700499c3ef8dc6e4f06709490bdf1190326336b69"
+    },
+    {
+      "path": "検証/対辺標点配置資料/check_contrasts.py",
+      "bytes": 7563,
+      "sha256": "59b0392ab18a423d3a09d64b41ad7e4c1aafc5ba50b9bd4974109c576e7ecce4"
+    },
+    {
+      "path": "検証/対辺標点配置回帰.py",
+      "bytes": 6931,
+      "sha256": "d83eb773c0cdd110eddd1b79c6960d8a8ab490178ea5119ab566a53b45b57ae0"
+    }
+  ],
+  "new_boundary": "ARC対辺標点配置",
+  "frozen126_fit_action_unchanged": true,
+  "bridge_delta": "four prepared additions; generic gates unchanged"
+}

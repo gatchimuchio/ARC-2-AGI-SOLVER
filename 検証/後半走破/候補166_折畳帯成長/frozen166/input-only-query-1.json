@@ -1,0 +1,418 @@
+{
+  "output": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      2,
+      2,
+      2,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      3,
+      3,
+      3,
+      0,
+      0,
+      0,
+      3,
+      3,
+      3,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      3,
+      0,
+      2,
+      0,
+      0,
+      0,
+      2,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      2,
+      2,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      2,
+      2,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      2,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      3,
+      0,
+      2,
+      0,
+      0
+    ],
+    [
+      3,
+      3,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      3,
+      3,
+      3
+    ],
+    [
+      3,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      3
+    ]
+  ],
+  "record": {
+    "status": "EMIT",
+    "fitted_predictions": 2,
+    "incomplete_models": 0,
+    "distinct_predictions": 1,
+    "views": [
+      {
+        "rotation": 1,
+        "reflection": true,
+        "internal_transpose": false,
+        "family": "axis",
+        "record": {
+          "fitted_models": 0,
+          "incomplete_models": 0,
+          "models": [],
+          "row_symbols": 9,
+          "monochrome": false
+        }
+      },
+      {
+        "rotation": 1,
+        "reflection": true,
+        "internal_transpose": false,
+        "family": "centered_rows",
+        "record": {
+          "failure": "radial_row_symbol_conflict"
+        }
+      },
+      {
+        "rotation": 1,
+        "reflection": true,
+        "internal_transpose": false,
+        "family": "folded_strips",
+        "record": {
+          "fitted_models": 1,
+          "incomplete_models": 0,
+          "models": [
+            {
+              "strip_width": 2,
+              "strip_height": 3,
+              "radial_stride": 2,
+              "radial_origin": 0,
+              "pigment_cycle": [
+                3,
+                2
+              ],
+              "outer_cell_phases": [
+                [
+                  0,
+                  0,
+                  [
+                    0
+                  ]
+                ],
+                [
+                  0,
+                  1,
+                  [
+                    1
+                  ]
+                ],
+                [
+                  1,
+                  0,
+                  [
+                    0
+                  ]
+                ],
+                [
+                  2,
+                  0,
+                  [
+                    0
+                  ]
+                ],
+                [
+                  2,
+                  1,
+                  [
+                    0
+                  ]
+                ]
+              ],
+              "source_replays": 3
+            }
+          ]
+        }
+      },
+      {
+        "rotation": 1,
+        "reflection": true,
+        "internal_transpose": true,
+        "family": "axis",
+        "record": {
+          "failure": "non_affine_row_runs"
+        }
+      },
+      {
+        "rotation": 1,
+        "reflection": true,
+        "internal_transpose": true,
+        "family": "centered_rows",
+        "record": {
+          "failure": "radial_row_symbol_conflict"
+        }
+      },
+      {
+        "rotation": 1,
+        "reflection": true,
+        "internal_transpose": true,
+        "family": "folded_strips",
+        "record": {
+          "failure": "strip_not_reflection_symmetric"
+        }
+      },
+      {
+        "rotation": 1,
+        "reflection": true,
+        "internal_transpose": false,
+        "family": "radial",
+        "record": {
+          "failure": "nonuniform_layers"
+        }
+      },
+      {
+        "rotation": 1,
+        "reflection": true,
+        "internal_transpose": true,
+        "family": "radial",
+        "record": {
+          "failure": "no_integral_center"
+        }
+      },
+      {
+        "rotation": 3,
+        "reflection": false,
+        "internal_transpose": false,
+        "family": "axis",
+        "record": {
+          "fitted_models": 0,
+          "incomplete_models": 0,
+          "models": [],
+          "row_symbols": 9,
+          "monochrome": false
+        }
+      },
+      {
+        "rotation": 3,
+        "reflection": false,
+        "internal_transpose": false,
+        "family": "centered_rows",
+        "record": {
+          "failure": "radial_row_symbol_conflict"
+        }
+      },
+      {
+        "rotation": 3,
+        "reflection": false,
+        "internal_transpose": false,
+        "family": "folded_strips",
+        "record": {
+          "fitted_models": 1,
+          "incomplete_models": 0,
+          "models": [
+            {
+              "strip_width": 2,
+              "strip_height": 3,
+              "radial_stride": 2,
+              "radial_origin": 0,
+              "pigment_cycle": [
+                3,
+                2
+              ],
+              "outer_cell_phases": [
+                [
+                  0,
+                  0,
+                  [
+                    0
+                  ]
+                ],
+                [
+                  0,
+                  1,
+                  [
+                    1
+                  ]
+                ],
+                [
+                  1,
+                  0,
+                  [
+                    0
+                  ]
+                ],
+                [
+                  2,
+                  0,
+                  [
+                    0
+                  ]
+                ],
+                [
+                  2,
+                  1,
+                  [
+                    0
+                  ]
+                ]
+              ],
+              "source_replays": 3
+            }
+          ]
+        }
+      },
+      {
+        "rotation": 3,
+        "reflection": false,
+        "internal_transpose": true,
+        "family": "axis",
+        "record": {
+          "failure": "non_affine_row_runs"
+        }
+      },
+      {
+        "rotation": 3,
+        "reflection": false,
+        "internal_transpose": true,
+        "family": "centered_rows",
+        "record": {
+          "failure": "radial_row_symbol_conflict"
+        }
+      },
+      {
+        "rotation": 3,
+        "reflection": false,
+        "internal_transpose": true,
+        "family": "folded_strips",
+        "record": {
+          "failure": "strip_not_reflection_symmetric"
+        }
+      },
+      {
+        "rotation": 3,
+        "reflection": false,
+        "internal_transpose": false,
+        "family": "radial",
+        "record": {
+          "failure": "nonuniform_layers"
+        }
+      },
+      {
+        "rotation": 3,
+        "reflection": false,
+        "internal_transpose": true,
+        "family": "radial",
+        "record": {
+          "failure": "no_integral_center"
+        }
+      }
+    ]
+  }
+}

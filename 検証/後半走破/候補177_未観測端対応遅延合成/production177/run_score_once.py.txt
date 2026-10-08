@@ -1,0 +1,32 @@
+from pathlib import Path
+import subprocess,json,hashlib,stat,time,datetime
+E=Path(__file__).resolve().parent;B=E.parent;R=B/'candidate177-production-20261008';A=B/'candidate167-production-20261007';PY='/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python'
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+assert json.loads((E/'native-parity.json').read_text())['status']=='NATIVE_GAIN'
+g=json.loads((E/'full-regression-selected.json').read_text());assert g['success']
+assert json.loads((E/'inherited-results.json').read_text())['status']=='PASS_AT_EXPLICIT_PRIOR_SCOPE'
+assert json.loads((E/'lazy-results.json').read_text())['successful']
+I=B/'candidate175-independent-audit-20261008'
+report=(I/'CANDIDATE177-REPORT.md').read_text()
+independent=json.loads((I/'candidate177-results.json').read_text())
+assert independent['status']=='PASS_AT_EXPLICIT_PRIOR_SCOPE' and len(independent['checks'])==124
+for n,h in [('missing_edge_bindings.py','be617111086626e32fd5c910ea771393026067bf678dbc0b3ad70c88d2840935'),('接続/ARC2/未観測端対応合成.py','3517688880a3ded700b34136924ba20d857cc3c0f39ffad7f966e0dd4dca9025'),('peer_edge.py','7606e9e38b8197fcabba819d1b32d63ab98aaffd43596107ec3241e8e32e77dc')]:
+ assert sha(R/n)==h and h in report
+(E/'independent-audit-binding.json').write_text(json.dumps({n:sha(I/n)for n in ['CANDIDATE177-REPORT.md','candidate177-results.json','audit_candidate177.py']},indent=2))
+
+assert subprocess.check_output(['git','-C',str(A),'rev-parse','HEAD'],text=True).strip()=='4b67e4f31ecf4c214408c7f642ccdd3738b30641'
+protected=['AGENTS.md','制御/現在状態.json']+[str(p.relative_to(A))for p in (A/'HDS').rglob('*')if p.is_file()and '__pycache__'not in p.parts]
+for name in protected:assert sha(A/name)==sha(R/name),name
+original=(A/'接続/ARC2/HDS接続.py').read_text();candidate=(R/'接続/ARC2/HDS接続.py').read_text();assert original.replace('from .物体端投射 import 端投射教材','from .未観測端対応合成 import 未観測端対応合成教材 as 端投射教材')==candidate
+(E/'protected-conservation.json').write_text(json.dumps({'files':{n:sha(R/n)for n in protected},'global_gates_unchanged':True},ensure_ascii=False,indent=2))
+pins=[dict(path=str(p.relative_to(R)),bytes=p.stat().st_size,sha256=sha(p),mode=oct(stat.S_IMODE(p.stat().st_mode)))for p in sorted(R.rglob('*'))if p.is_file()and '.git'not in p.parts and '__pycache__'not in p.parts]
+(E/'pre-score-freeze.json').write_text(json.dumps({'base_commit':'4b67e4f31ecf4c214408c7f642ccdd3738b30641','files':pins,'regression_sha256':sha(E/'full-regression-selected.json')},ensure_ascii=False,indent=2))
+command=[PY,'-B',str(R/'検証/ARC2評価.py'),'--mode','current','--output',str(E/'current-official.json')]
+with (E/'score-command.json').open('x')as f:json.dump(command,f,ensure_ascii=False)
+start=time.monotonic()
+with (E/'score.stdout').open('xb')as out,(E/'score.stderr').open('xb')as err:
+ p=subprocess.Popen(command,cwd=R,stdout=out,stderr=err);rc=p.wait()
+terminal={'pid':p.pid,'exit_code':rc,'reaped':True,'wall_seconds':time.monotonic()-start,'completed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat()};(E/'score-terminal.json').write_text(json.dumps(terminal));print(terminal,flush=True)
+assert not rc
+assert all(sha(R/x['path'])==x['sha256']and (R/x['path']).stat().st_size==x['bytes']and oct(stat.S_IMODE((R/x['path']).stat().st_mode))==x['mode']for x in pins)
+(E/'post-score-pin-conservation.json').write_text(json.dumps({'all_pins_unchanged':len(pins),'official_scorer_calls':1}))

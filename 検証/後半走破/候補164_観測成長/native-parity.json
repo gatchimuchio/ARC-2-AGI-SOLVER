@@ -1,0 +1,80 @@
+{
+  "final_output_parity": true,
+  "emitted_outputs": 1,
+  "expected_outputs": 2,
+  "results": [
+    {
+      "answer": [
+        [
+          0,
+          6,
+          6,
+          6,
+          6,
+          0,
+          6,
+          6,
+          6,
+          6,
+          0,
+          6,
+          6,
+          6,
+          6,
+          0,
+          6,
+          6,
+          6,
+          6,
+          0
+        ],
+        [
+          6,
+          6,
+          0,
+          0,
+          6,
+          6,
+          6,
+          0,
+          0,
+          6,
+          6,
+          6,
+          0,
+          0,
+          6,
+          6,
+          6,
+          0,
+          0,
+          6,
+          6
+        ]
+      ],
+      "status": "出力",
+      "reasons": [],
+      "equality_admitted": true,
+      "quarantined": 0,
+      "family": "ARC観測成長",
+      "agreeing_predictions": 1
+    },
+    {
+      "answer": null,
+      "status": "断定保留",
+      "reasons": [
+        "採用済み機構ARC観測成長のtest候補が未確定"
+      ]
+    }
+  ],
+  "family": {
+    "境界": "ARC観測成長",
+    "事前観測数": 0,
+    "現在観測数": 3,
+    "採用可": true,
+    "同値採用": true,
+    "状態": "全教師再現",
+    "隔離数": 0
+  },
+  "scorer_calls": 0
+}

@@ -1,0 +1,78 @@
+{
+  "previous": [
+    98,
+    139
+  ],
+  "current": [
+    92,
+    130
+  ],
+  "delta": [
+    -6,
+    -9
+  ],
+  "old_grids_identical": 129,
+  "lost": [
+    [
+      "4c7dc4dd",
+      0
+    ],
+    [
+      "4c7dc4dd",
+      1
+    ],
+    [
+      "80a900e0",
+      0
+    ],
+    [
+      "981571dc",
+      0
+    ],
+    [
+      "a251c730",
+      0
+    ],
+    [
+      "a32d8b75",
+      0
+    ],
+    [
+      "a32d8b75",
+      1
+    ],
+    [
+      "b99e7126",
+      0
+    ],
+    [
+      "d8e07eb2",
+      0
+    ],
+    [
+      "d8e07eb2",
+      1
+    ]
+  ],
+  "changed": [],
+  "new_emitted_grids": [
+    [
+      "62593bfd",
+      0
+    ]
+  ],
+  "wrong_emitted": 0,
+  "resource_failures": {
+    "memory_limit": 3,
+    "cpu_limit": 5
+  },
+  "pins": 2516,
+  "same_conditions": true,
+  "regression": {
+    "scripts": 110,
+    "checks": 7868,
+    "coverage_is_composed": true
+  },
+  "score_sha256": "46f6e53179ac6911a305571448f111677a4baea63598213dd19fc1b983c704c8",
+  "historical_prior_result_claimed": false
+}

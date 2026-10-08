@@ -1,0 +1,7 @@
+# Center-folded sheared strips: finite grammar declared before fitting
+
+Keep frozen164 unchanged; this revision only adds one source-observed view. Every source must be exactly reflection-symmetric along the row axis with common center parity. Fold onto nonnegative row radius. Enumerate every strip width dividing every source width. Strip foreground bounds must have one fixed height and one exact positive integer affine displacement per strip index, shared by every source.
+
+The first strip is a monochrome seed with invariant binary mask. Its source-index pigment sequence uses the existing minimal-prefix-period primitive. Subsequent strips must share one exactly observed binary template; at least two distinct noninitial strip indices must be observed. For each foreground template cell retain every phase of the seed pigment cycle that reproduces its colors at (source index − strip index + phase). Background stays background. This is a finite source-template and periodic-role grammar, not component identity or a fixed-output map.
+
+All strip widths, consistent phase assignments, internal axes and D4 views remain. Full source grids must reconstruct exactly. Cellwise consensus over the Cartesian phase alternatives is exact because template cells have disjoint ownership. Future dimension, parity, bounds or phase ambiguity causes HOLD for the source-fitted model. No minimum-description winner, source omission, target access, second-query output comparison or broader mechanism.

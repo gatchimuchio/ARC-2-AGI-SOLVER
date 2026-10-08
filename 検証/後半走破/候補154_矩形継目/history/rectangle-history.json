@@ -1,0 +1,200 @@
+[
+  {
+    "candidate": 153,
+    "summary": "Not admitted independently: query0 no structural role; query1 complete six-output geometric disagreement. Geometry is reused unchanged by admitted154.",
+    "runtime_included": true,
+    "independently_admitted": false,
+    "frozen_source_original": "proposal153-existing-composition-20261007/anchored_rectangle.py",
+    "frozen_source_sha256": "3b25da045f96cb799a4d84c0c4159fd3b39e34214212f72936ea5b87940e4ad7",
+    "preserved_source": "anchored_rectangle.py.txt",
+    "input_only_result_sha256": "d898aa497a9cf04b696cd5b0c7d95f7fb67d6e04d1f19e616f38a1d56da8d2c4",
+    "scorer_calls": 0,
+    "source_pins_unchanged": true,
+    "queries": [
+      {
+        "query_index": 0,
+        "emitted": false,
+        "status": "HOLD",
+        "complete": null,
+        "work": null,
+        "failure": "no_structural_role",
+        "role_feasible_counts": [],
+        "role_distinct_outputs": []
+      },
+      {
+        "query_index": 1,
+        "emitted": false,
+        "status": "HOLD",
+        "complete": true,
+        "work": 146,
+        "failure": "retained_role_failed",
+        "role_feasible_counts": [
+          null
+        ],
+        "role_distinct_outputs": [
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "candidate": 154,
+    "summary": "Admitted minimal seam composition: query0 remains structural HOLD; query1 unique output and new exact grid.",
+    "runtime_included": true,
+    "independently_admitted": true,
+    "frozen_source_original": "proposal154-rectangle-seam-composition-20261007/seam_rectangle.py",
+    "frozen_source_sha256": "1e7d97da06e3c72808147c0e6e4fedd0956798733dfd3f605954695836f6d0c4",
+    "preserved_source": "seam_rectangle.py.txt",
+    "input_only_result_sha256": "a8e978a274e7a354eecd58956218bd2252a0312c7a68dd7f4c923acbcaf71fd8",
+    "scorer_calls": 0,
+    "source_pins_unchanged": true,
+    "queries": [
+      {
+        "query_index": 0,
+        "emitted": false,
+        "status": "HOLD",
+        "complete": null,
+        "work": null,
+        "failure": "no_structural_role",
+        "role_feasible_counts": [],
+        "role_distinct_outputs": []
+      },
+      {
+        "query_index": 1,
+        "emitted": true,
+        "status": "CANDIDATE",
+        "complete": true,
+        "work": 1490,
+        "failure": null,
+        "role_feasible_counts": [
+          1
+        ],
+        "role_distinct_outputs": [
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "candidate": 155,
+    "summary": "Not admitted: query0 RESOURCE_INCOMPLETE at100000 work, not semantic HOLD; query1 repeats154 output.",
+    "runtime_included": false,
+    "independently_admitted": false,
+    "frozen_source_original": "proposal155-touching-rectangle-view-20261007/touching_rectangle.py",
+    "frozen_source_sha256": "121d31d0921c9383b769b3b6515aa669259f4aca397c82da70760ba3a6889357",
+    "preserved_source": "touching_rectangle.py.txt",
+    "input_only_result_sha256": "88f6fea34bcbc0523aa008a1683257a40106dc42e1348750945b797574f4f70f",
+    "scorer_calls": 0,
+    "source_pins_unchanged": true,
+    "queries": [
+      {
+        "query_index": 0,
+        "emitted": false,
+        "status": "RESOURCE_INCOMPLETE",
+        "complete": false,
+        "work": 100000,
+        "failure": "budget_incomplete",
+        "role_feasible_counts": [],
+        "role_distinct_outputs": []
+      },
+      {
+        "query_index": 1,
+        "emitted": true,
+        "status": "CANDIDATE",
+        "complete": true,
+        "work": 4178,
+        "failure": null,
+        "role_feasible_counts": [
+          1
+        ],
+        "role_distinct_outputs": [
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "candidate": 158,
+    "summary": "Not admitted: query0 completes within89953 work with five distinct outputs; query1 repeats154 output.",
+    "runtime_included": false,
+    "independently_admitted": false,
+    "frozen_source_original": "proposal158-exact-seam-propagation-20261007/propagated_rectangle.py",
+    "frozen_source_sha256": "cf9ca4dc1fe6a4bfb077e09cdf97dc7f5cb27e9f2cf93b2d5363e49b992d72ce",
+    "preserved_source": "propagated_rectangle.py.txt",
+    "input_only_result_sha256": "df7f06e107aaf70015dfd3a2c5d30148268b146579e09ea614b77c28a37baa20",
+    "scorer_calls": 0,
+    "source_pins_unchanged": true,
+    "queries": [
+      {
+        "query_index": 0,
+        "emitted": false,
+        "status": "HOLD",
+        "complete": true,
+        "work": 89953,
+        "failure": "retained_role_failed",
+        "role_feasible_counts": [
+          5
+        ],
+        "role_distinct_outputs": [
+          5
+        ]
+      },
+      {
+        "query_index": 1,
+        "emitted": true,
+        "status": "CANDIDATE",
+        "complete": true,
+        "work": 3209,
+        "failure": null,
+        "role_feasible_counts": [
+          1
+        ],
+        "role_distinct_outputs": [
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "candidate": 159,
+    "summary": "Not admitted: query0 completes within95753 work with three distinct outputs; query1 repeats154 output.",
+    "runtime_included": false,
+    "independently_admitted": false,
+    "frozen_source_original": "proposal159-global-rectangle-relation-20261007/global_rectangle.py",
+    "frozen_source_sha256": "028f4f509a302b514bc3556ea0aae2c46a747ca4cae71a85bf2a398deafb35fb",
+    "preserved_source": "global_rectangle.py.txt",
+    "input_only_result_sha256": "b15a1c7386a8d628303ce09a5908a9a2230de089879f8351c28e0c4138e6a2fe",
+    "scorer_calls": 0,
+    "source_pins_unchanged": true,
+    "queries": [
+      {
+        "query_index": 0,
+        "emitted": false,
+        "status": "HOLD",
+        "complete": true,
+        "work": 95753,
+        "failure": "retained_role_failed",
+        "role_feasible_counts": [
+          3
+        ],
+        "role_distinct_outputs": [
+          3
+        ]
+      },
+      {
+        "query_index": 1,
+        "emitted": true,
+        "status": "CANDIDATE",
+        "complete": true,
+        "work": 3593,
+        "failure": null,
+        "role_feasible_counts": [
+          1
+        ],
+        "role_distinct_outputs": [
+          1
+        ]
+      }
+    ]
+  }
+]

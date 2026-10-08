@@ -1,0 +1,63 @@
+import sys, json, hashlib, copy, random, itertools, time
+from pathlib import Path
+import region_commands as c
+P=Path('proposal150-existing-composition-20261007')
+OUT=Path('candidate150-independent-audit-20261007/revision-a3568dd')
+checks=[]
+def check(n,b):
+ assert b,n
+ checks.append(n)
+def raises(n,fn):
+ try: fn()
+ except RuntimeError as e: check(n,str(e)=='audit-sentinel')
+ else: raise AssertionError(n)
+teachers=json.loads((P/'teachers-only.json').read_text());before=copy.deepcopy(teachers)
+f,rec=c.fit_teachers(teachers)
+check('frozen_hash',hashlib.sha256((P/'region_commands.py').read_bytes()).hexdigest()=='a3568dd28202b318494f843b5f882cf5a283e3e4f7c3b2e9bc3d87e73f0f4b88')
+check('four_teachers_exact',all(c.predict(p['input'],f)[0]==p['output'] for p in teachers))
+check('input_immutability',teachers==before)
+check('sixteen_complete_models',len(f.models)==16 and {(m.marker,m.turn_color) for m in f.models}=={(1,9)} and {m.turns for m in f.models}=={(1,3,a,b) for a,b in itertools.product(range(4),repeat=2)})
+for axis in ('flip_v','rot180'):
+ o,r=c.predict(c.transform_grid_by_name(teachers[0]['input'],axis),f)
+ check('unseen_corner_hold_'+axis,o is None and r['reason']=='retained_output_disagreement')
+g=[[2,2,2,4,4],[2,1,2,4,4],[2,1,1,4,4],[2,1,2,4,4],[2,2,2,4,4]]
+for turn in c.TURNS:
+ check('direction_'+turn,c.predict(c.transform_grid_by_name(g,turn),f)[0]==[[2]*len(c.transform_grid_by_name(g,turn)[0]) for _ in c.transform_grid_by_name(g,turn)])
+g2=copy.deepcopy(g);g2[2][1]=7
+check('colored_center_payload',c.predict(g2,f)[0]==[[2,2,2,7,7] for _ in range(5)])
+g3=g+[[5]*5,[4]*5]
+check('disconnected_target',c.predict(g3,f)[0]==[[2]*5 for _ in range(5)]+[[5]*5,[4]*5])
+bad=copy.deepcopy(g);bad[0][0]=1
+check('unowned_marker_hold',c.predict(bad,f)[0] is None)
+check('outgoing_ray_hold',c.predict([row[:3] for row in g],f)[0] is None)
+check('no_marker_hold',c.predict([[2]*5 for _ in range(5)],f)[0] is None)
+# Two commands exchange colors simultaneously across a vertical boundary.
+swap=[[2]*4+[4]*4 for _ in range(7)]
+for r,x in [(1,2),(2,2),(2,3),(3,2),(3,5),(4,4),(4,5),(5,5)]:swap[r][x]=1
+check('simultaneous_exchange',c.predict(swap,f)[0]==[[4]*4+[2]*4 for _ in range(7)])
+# Any retained model failure is global HOLD, not survivor selection.
+fm=c.Fitted(f.models+(c.Model(0,None,(0,0,0,0)),))
+o,r=c.predict(g,fm);check('retained_failure_not_dropped',o is None and r['reason']=='retained_model_failure')
+# Inject a dependency exception; no silent decline or catch/drop.
+orig=c.color_components
+def boom(*a,**kw):raise RuntimeError('audit-sentinel')
+c.color_components=boom
+raises('predict_exceptions_propagate',lambda:c.predict(g,f))
+raises('fit_exceptions_propagate',lambda:c.fit_teachers(teachers))
+c.color_components=orig
+# Synthetic resource-incomplete response must abort the whole fit.
+orig=c.parse
+c.parse=lambda g,m,t: ([], 'resource_incomplete') if (m,t)==(0,None) else orig(g,m,t)
+x,r=c.fit_teachers(teachers);check('resource_incomplete_not_pruned',x is None and r['reason']=='resource_incomplete')
+c.parse=orig
+rng=random.Random(150)
+for i in range(4):
+ palette=list(range(10));rng.shuffle(palette)
+ mapped=[{k:[[palette[v] for v in row] for row in p[k]] for k in ('input','output')} for p in teachers]
+ ff,_=c.fit_teachers(mapped)
+ check('palette_refit_'+str(i),ff is not None and len(ff.models)==16 and all(c.predict(p['input'],ff)[0]==p['output'] for p in mapped))
+changed=copy.deepcopy(teachers);changed[0]['output'][0][0]=(changed[0]['output'][0][0]+1)%10
+check('teacher_corruption_no_fit',c.fit_teachers(changed)[0] is None)
+check('duplicate_teachers_no_fit',c.fit_teachers([teachers[0],teachers[0]])[0] is None)
+(OUT/'results.json').write_text(json.dumps({'checks':checks,'count':len(checks),'models':[vars(m) for m in f.models]},indent=2)+'\n')
+print(json.dumps({'count':len(checks),'checks':checks}))

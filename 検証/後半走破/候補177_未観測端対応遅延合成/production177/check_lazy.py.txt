@@ -1,0 +1,64 @@
+from pathlib import Path
+import sys,json,copy,importlib.util,ast,hashlib
+from unittest.mock import patch
+B=Path(__file__).resolve().parent.parent;E=Path(__file__).resolve().parent;R=B/'candidate177-production-20261008';A=B/'candidate175-production-20261008'
+sys.path[:0]=[str(R),str(R/'HDS/学習系統/v0.4.2')]
+import missing_edge_bindings as lazy,peer_edge
+from hds学習系統 import HDS学習実行系
+from 接続.ARC2.HDS接続 import 観測へ
+from 接続.ARC2.未観測端対応合成 import 未観測端対応合成教材
+spec=importlib.util.spec_from_file_location('eager175',A/'missing_edge_bindings.py');eager=importlib.util.module_from_spec(spec);spec.loader.exec_module(eager)
+t=json.loads((B/'proposal175-missing-edge-bindings-revision2-20261008/teachers-only.json').read_text());checks=[]
+def ck(n,c):assert c,n;checks.append(n)
+def trained(klass=lazy.MissingEdgeBindings,teachers=None):
+ a=klass(copy.deepcopy(t)if teachers is None else teachers);a.learn(HDS学習実行系(最小支持数=2),観測へ);return a
+g=[[0]*27 for _ in range(19)]
+for col,row,column,n in [(1,4,2,3),(2,11,9,3),(3,7,19,2)]:
+ for j in range(n):g[row][column+j]=col
+real_fit=lazy.fit
+with patch.object(lazy,'fit',wraps=real_fit)as fitspy,patch.object(peer_edge,'render',wraps=peer_edge.render)as renders:
+ a=trained();ck('construction_and_learning_no_fit',fitspy.call_count==0 and renders.call_count==0)
+ ck('uninitialized_distinct',a.peer_models is None)
+ for row in t:ck('covered_teacher_exact_delegation',a.predict(row['input'])==a.legacy.候補(row['input'],None))
+ ck('complete_coverage_no_fit',fitspy.call_count==0 and renders.call_count==0)
+ for tables in ({},{**a.tables,99:{1:'top'}}):
+  with patch.object(a,'tables',tables),patch.object(a.legacy,'候補',return_value=(None,{'failure':'legacy_sentinel'}))as legacyspy:
+   ck('zero_or_multi_exact_delegation',a.predict(g)==(None,{'failure':'legacy_sentinel'})and legacyspy.call_count==1)
+ ck('zero_or_multi_no_fit',fitspy.call_count==0 and renders.call_count==0)
+ out=a.predict(g);ck('eligible_exhaustive_fit_once',fitspy.call_count==1 and renders.call_count==48*len(t))
+ ck('eligible_emits',out[0]is not None)
+ ck('repeated_prediction_exact',a.predict(g)==out)
+ ck('repeated_prediction_no_new_fit',fitspy.call_count==1 and renders.call_count==48*len(t))
+ ck('teacher_snapshot_released_after_success',a._peer_teachers is None)
+b=trained(eager.MissingEdgeBindings);ck('eager_lazy_models_equal',a.peer_models==b.peer_models);ck('eager_lazy_result_equal',a.predict(g)==b.predict(g))
+# Constructor-time snapshot prevents deferred hypothesis drift.
+mutable=copy.deepcopy(t);a=trained(teachers=mutable);mutable[0]['input'][0][0]=9;mutable[0]['output'][0][0]=8;mutable.clear()
+ck('caller_mutation_preserves_output',a.predict(g)==b.predict(g));ck('caller_mutation_preserves_models',a.peer_models==b.peer_models)
+a=trained()
+with patch.object(lazy,'fit',return_value=((),{'complete':True}))as spy:
+ ck('empty_completed_fit_holds',a.predict(g)[1]['failure']=='no_teacher_fitting_peer_models')
+ ck('empty_completed_cached_distinct',a.peer_models==())
+ ck('empty_cached_repeat_holds',a.predict(g)[0]is None and spy.call_count==1)
+for error in (MemoryError,RuntimeError):
+ a=trained()
+ with patch.object(lazy,'fit',side_effect=error('injected'))as spy:
+  try:a.predict(g)
+  except error:ck(error.__name__+'_propagates',True)
+  else:raise AssertionError('swallowed')
+  ck(error.__name__+'_no_partial_cache',a.peer_models is None and a._peer_teachers==t and spy.call_count==1)
+ # A caller's later call can complete the untouched fit; no internal retry occurred.
+ ck(error.__name__+'_later_recovery_equal',a.predict(g)==b.predict(g))
+a=trained(未観測端対応合成教材)
+with patch.object(lazy,'fit',side_effect=AssertionError('record must be lazy')):
+ ck('record_does_not_force_fit',a.記録()['保持peer候補数']is None and a.記録()['peer学習完了']is False)
+a.predict(g);ck('record_reports_completed_fit',a.記録()['peer学習完了']and a.記録()['保持peer候補数']==len(b.peer_models))
+# AST-level invariant of the complete prediction/failure logic after removal of
+# the single new lazy materialization statement.
+def cls(p):return next(x for x in ast.parse(p.read_text()).body if isinstance(x,ast.ClassDef)and x.name=='MissingEdgeBindings')
+old={x.name:x for x in cls(A/'missing_edge_bindings.py').body if isinstance(x,ast.FunctionDef)};new={x.name:x for x in cls(R/'missing_edge_bindings.py').body if isinstance(x,ast.FunctionDef)}
+for name in ('learn','exact_missing_key'):ck(name+'_ast_unchanged',ast.dump(old[name])==ast.dump(new[name]))
+pred=copy.deepcopy(new['predict']);pred.body=[n for n in pred.body if not(isinstance(n,ast.Expr)and isinstance(n.value,ast.Call)and isinstance(n.value.func,ast.Attribute)and n.value.func.attr=='_fit_peers_once')]
+ck('predict_ast_only_lazy_materialization',ast.dump(pred)==ast.dump(old['predict']))
+ck('exhaustive_peer_source_byte_identical',(R/'peer_edge.py').read_bytes()==(A/'peer_edge.py').read_bytes())
+ck('global_gates_byte_identical',(R/'接続/ARC2/HDS接続.py').read_bytes()==(A/'接続/ARC2/HDS接続.py').read_bytes())
+result={'successful':True,'tests_run':len(checks),'checks':checks,'scorer_calls':0};(E/'lazy-results.json').write_text(json.dumps(result,ensure_ascii=False,indent=2));print(json.dumps(result,ensure_ascii=False))

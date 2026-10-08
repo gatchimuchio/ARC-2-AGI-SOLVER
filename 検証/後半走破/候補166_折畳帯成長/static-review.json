@@ -1,0 +1,33 @@
+{
+  "frozen_source_exact": true,
+  "unchanged_old_model_geometry_functions": [
+    "endpoint_roots",
+    "polynomial",
+    "sequence_laws",
+    "sequence_value",
+    "ceildiv",
+    "intersect_intervals",
+    "nonnegative_intervals",
+    "containing_indices",
+    "observe",
+    "radial_predict",
+    "crop",
+    "rot",
+    "transform",
+    "inverse",
+    "runs",
+    "encode_row",
+    "affine",
+    "axis_models",
+    "centered_row_models"
+  ],
+  "explicit_fit_metadata_version_change": [
+    3,
+    4
+  ],
+  "single_existing_family": true,
+  "hds_bridge_identical": true,
+  "core_identical": true,
+  "runtime_hash": "6b2139090fb1d2f94412bc8b330f33ed4868a03c1736f3a6f8ab3448ee99faaa",
+  "no_target_or_id_routes_added": true
+}

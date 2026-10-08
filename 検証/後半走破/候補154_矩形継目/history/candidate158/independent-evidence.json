@@ -1,0 +1,86 @@
+{
+  "verdict": "PASS",
+  "source_hashes": {
+    "proposal153-existing-composition-20261007/anchored_rectangle.py": "3b25da045f96cb799a4d84c0c4159fd3b39e34214212f72936ea5b87940e4ad7",
+    "proposal154-rectangle-seam-composition-20261007/seam_rectangle.py": "1e7d97da06e3c72808147c0e6e4fedd0956798733dfd3f605954695836f6d0c4",
+    "proposal155-touching-rectangle-view-20261007/touching_rectangle.py": "121d31d0921c9383b769b3b6515aa669259f4aca397c82da70760ba3a6889357",
+    "proposal158-exact-seam-propagation-20261007/propagated_rectangle.py": "cf9ca4dc1fe6a4bfb077e09cdf97dc7f5cb27e9f2cf93b2d5363e49b992d72ce",
+    "proposal158-exact-seam-propagation-20261007/test_parity.py": "fa5baba06adad066b802873b83c0f1f35d845e0b8a321ea56da5872ef6ced404"
+  },
+  "author_parity_fixtures": 22,
+  "author_contact_certificates": 37,
+  "author_evidence_identical": true,
+  "aggregation_and_fit_ast_parity": true,
+  "targeted_contact_probes": [
+    {
+      "name": "reverse_vertical_partial_interval",
+      "contacts": [
+        {
+          "pieces": [
+            0,
+            1
+          ],
+          "axis": 0,
+          "profiles": [
+            [
+              1,
+              1
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "equal": false,
+          "wall": true,
+          "passes": true
+        }
+      ]
+    },
+    {
+      "name": "reverse_horizontal_one_cell",
+      "contacts": [
+        {
+          "pieces": [
+            0,
+            1
+          ],
+          "axis": 1,
+          "profiles": [
+            [
+              3
+            ],
+            [
+              4
+            ]
+          ],
+          "equal": false,
+          "wall": false,
+          "passes": false
+        }
+      ]
+    },
+    {
+      "name": "corner_only_no_contact",
+      "contacts": []
+    }
+  ],
+  "teacher_fit": [
+    true,
+    true
+  ],
+  "near_completion_resource": {
+    "status": "RESOURCE_INCOMPLETE",
+    "failure": "budget_incomplete",
+    "complete": false,
+    "work": 3286
+  },
+  "after_first_model_resource": {
+    "status": "RESOURCE_INCOMPLETE",
+    "failure": "budget_incomplete",
+    "complete": false,
+    "work": 605
+  },
+  "fit_resource_propagation": "RESOURCE_INCOMPLETE",
+  "source_hashes_unchanged": true
+}

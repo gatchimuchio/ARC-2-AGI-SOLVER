@@ -1,0 +1,28 @@
+{
+  "decision": "REJECT",
+  "reason": "One new emitted grid was scored incorrect. Required wrong_emitted=0 fails; exact capability gain is zero.",
+  "baseline_commit": "2e9c91b91217ae68f57e1f8bcdb8bfddbf2d67cb",
+  "previous": [
+    96,
+    136
+  ],
+  "current": [
+    96,
+    136
+  ],
+  "delta": [
+    0,
+    0
+  ],
+  "old_grids_identical": 136,
+  "new_emitted_grids": 1,
+  "wrong_emitted": 1,
+  "resource_failures": {},
+  "full_scorer_calls": 1,
+  "accepted_base_untouched": true,
+  "candidate_committed": false,
+  "pushes": 0,
+  "uploads": 0,
+  "target_guided_tuning": false,
+  "source_sha256": "2423676805832a4430e364735a7e9ed892a5316acd3bbd66036f28a709220f02"
+}

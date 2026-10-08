@@ -98,13 +98,34 @@ def fit_teachers(train):
 
 class 四欄反復教材:
     def __init__(self, 教師群):
-        model, _ = fit_teachers(教師群)
+        model, record = fit_teachers(教師群)
         self.適合 = model is not None
+        # NEW reconstruction only after the unchanged old fitter completed all
+        # teacher comparisons and returned its ordinary teacher_mismatch.
+        rows = record.get('teacher_records', [])
+        if (self.適合 or record.get('failure') != 'teacher_mismatch'
+                or record.get('complete', True) is not True
+                or not isinstance(rows, list) or len(rows) != len(教師群)
+                or any(not isinstance(row, dict) or type(row.get('exact')) is not bool
+                       or not isinstance(row.get('record'), dict)
+                       or row['record'].get('complete', True) is not True for row in rows)
+                or not any(row['exact'] is False for row in rows)):
+            return
+        from .標識二領域再構成 import fit_teachers as fit_regions
+        actions, _ = fit_regions(教師群)
+        if actions:
+            self.領域作用群 = actions
 
     def 候補(self, 格子, _policy):
-        if not self.適合:
-            return None, {"failure": "全教師を再現する四欄反復なし"}
-        return render(格子)
+        if self.適合:
+            return render(格子)
+        if hasattr(self, '領域作用群'):
+            from .標識二領域再構成 import predict
+            return predict(格子, self.領域作用群)
+        return None, {"failure": "全教師を再現する四欄反復なし"}
 
     def 記録(self):
-        return {"全教師の四欄再現": self.適合}
+        record = {"全教師の四欄再現": self.適合}
+        if hasattr(self, '領域作用群'):
+            record['NEW標識二領域作用群'] = [list(action) for action in self.領域作用群]
+        return record

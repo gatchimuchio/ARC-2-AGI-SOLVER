@@ -1,0 +1,52 @@
+"""Teacher replay and owned synthetics only; no evaluator or query access."""
+import json,sys,random
+from pathlib import Path
+sys.dont_write_bytecode=True
+from growth_series import predict,fit,transform
+HERE=Path(__file__).resolve().parent
+teachers=json.loads((HERE.parent/'proposal146-existing-composition-20261007/teachers-only.json').read_text())
+report={'teachers':[],'metamorphic':{},'synthetic_axis':[]}
+for pair in teachers:
+ out,evidence=predict(pair['input'],True)
+ report['teachers'].append({'exact_match':out==pair['output'],'evidence':evidence})
+checks=[]
+for ti,pair in enumerate(teachers):
+ for k in range(4):
+  for flip in (False,True):
+   for seed in range(5):
+    palette=list(range(10));random.Random(seed).shuffle(palette)
+    remap=lambda g:[[palette[v] for v in row] for row in g]
+    inp=transform(remap(pair['input']),k,flip);expected=transform(remap(pair['output']),k,flip)
+    checks.append(predict(inp)==expected)
+report['metamorphic']={'d4_palette_cases':len(checks),'passed':sum(checks)}
+
+def synthetic(pre,unit,suf,skip=0):
+ palette=(1,2,4);nsource=5;target=nsource+skip;w=3
+ shape=lambda n:pre+unit*(n+1)+suf
+ h=len(shape(target));g=[[0]*(1+(target+1)*(w+1)) for _ in range(h+2)]
+ for n in range(nsource):
+  for r,row in enumerate(shape(n)):
+   for c,v in enumerate(row):g[r+1][1+n*(w+1)+c]=palette[n%len(palette)] if v else 0
+ x=1+target*(w+1)
+ for r,c in [(1,x),(1,x+1),(2,x),(h,x+w-1),(h,x+w-2),(h-1,x+w-1)]:g[r][c]=5
+ out=[[palette[target%len(palette)] if v else 0 for v in row] for row in shape(target)]
+ return g,out
+A=(1,1,1);B=(1,0,1);C=(1,0,0)
+for pre,unit,suf in [([], [A,B], [A]),([], [C], [A,C,A]),([A], [B,A], []),([A,C],[A,B,C],[A]),([C,A],[B,A],[C,A])]:
+ for skip in (0,1,3):
+  g,want=synthetic(pre,unit,suf,skip);out,ev=predict(g,True)
+  report['synthetic_axis'].append({'prefix':pre,'unit':unit,'suffix':suf,'skip':skip,'exact_match':out==want,'status':ev['status'],'fitted_predictions':ev['fitted_predictions'],'distinct_predictions':ev['distinct_predictions']})
+report['negative_source_corruptions']=[]
+from geometry import observe
+for pair in teachers:
+ g=json.loads(json.dumps(pair['input']));role=observe(g)[0];a,b,d,e=role['body_bboxes'][1]
+ cells=[(r,c) for r in range(a,d+1) for c in range(b,e+1) if g[r][c]!=role['background']]
+ r,c=cells[len(cells)//2];g[r][c]=6
+ out,ev=predict(g,True)
+ report['negative_source_corruptions'].append({'held':out is None,'status':ev['status'],'distinct_predictions':ev['distinct_predictions']})
+report['fit_all_teachers']=fit(teachers)
+# A modified teacher output must reject fit; outputs never alter prediction.
+bad=json.loads(json.dumps(teachers));bad[0]['output'][0][0]=(bad[0]['output'][0][0]+1)%10
+report['wrong_output_fit_rejected']=fit(bad) is None
+(HERE/'report.json').write_text(json.dumps(report,indent=2))
+print(json.dumps({'teachers':[r['exact_match'] for r in report['teachers']],'metamorphic':report['metamorphic'],'synthetics_passed':sum(r['exact_match'] for r in report['synthetic_axis']),'synthetics_total':len(report['synthetic_axis']),'fit':report['fit_all_teachers'],'wrong_output_fit_rejected':report['wrong_output_fit_rejected']},indent=2))

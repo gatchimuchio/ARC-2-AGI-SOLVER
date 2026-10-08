@@ -1,0 +1,58 @@
+{
+  "base_commit": "8eca96d5ff325bfaef359cf824d8cae50344a499",
+  "root": "/workspace/scratch/7408259c1ab2/candidate134-production-20261007",
+  "files": [
+    {
+      "path": "接続/ARC2/HDS接続.py",
+      "bytes": 25118,
+      "sha256": "091729b11eb6f2331dc497b0c6250298ff67ae7338a7c130cdccb7f0a5d6ed85"
+    },
+    {
+      "path": "接続/ARC2/局所格子側線候補.py",
+      "bytes": 9751,
+      "sha256": "6868795484f9c2cf7bbb082da1c90bf10c8a115937577cd21a785debf1b87ad3"
+    },
+    {
+      "path": "接続/ARC2/格子側線厳密候補.py",
+      "bytes": 7870,
+      "sha256": "58c04406854dd0e915d4201990e52504e27268e4dc3878ffccb7d8a717faf1ab"
+    },
+    {
+      "path": "接続/ARC2/色線反射合成教材.py",
+      "bytes": 5624,
+      "sha256": "44ea52b06b231df66515335245a157fdc14db768620e84accf61e6d8057d0446"
+    },
+    {
+      "path": "検証/局所格子側線回帰.py",
+      "bytes": 1320,
+      "sha256": "d7800b945d4cb7aff6a9c3cbce9e047cde461c84f6e4b8ac4df7d26c98c1ef1e"
+    },
+    {
+      "path": "検証/局所格子側線資料/check_binding.py",
+      "bytes": 4876,
+      "sha256": "abf53de86b044121bf6c965b49fcdf4c5ef4d4811da100c519e0662c28d1cb89"
+    },
+    {
+      "path": "検証/局所格子側線資料/check_contrasts.py",
+      "bytes": 3280,
+      "sha256": "b4bfc9a914cd129867f7d0bcc10a4bb4dd7a9a01658f0f2dce8a8968cd3f9d24"
+    },
+    {
+      "path": "検証/局所格子側線資料/check_local_scenes.py",
+      "bytes": 8938,
+      "sha256": "8ab31a9f140af449481635a4bed5a5b6e45ba439caf0f0029eabeef9b49fded4"
+    },
+    {
+      "path": "検証/局所格子側線資料/check_teachers.py",
+      "bytes": 1795,
+      "sha256": "b82c7ce47e7b738672e70cc4bddafc35e4def0c2e915363b552cbc2d6ff8be0b"
+    },
+    {
+      "path": "検証/局所格子側線資料/teachers-only.json",
+      "bytes": 27906,
+      "sha256": "3be1d88df6cdd9acb4b369e1e71b0f182c14c492064c80b4a29aed82c133c263"
+    }
+  ],
+  "existing_boundary": "ARC色線反射",
+  "bridge_delta": "one existing color-ray class import; generic gates unchanged"
+}

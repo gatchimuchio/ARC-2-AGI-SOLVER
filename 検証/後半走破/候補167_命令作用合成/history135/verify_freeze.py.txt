@@ -1,0 +1,76 @@
+"""Read-only source, API and result audit; never renders a grid."""
+import ast
+import copy
+import hashlib
+import json
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+freeze = json.loads((HERE / 'freeze.json').read_text())
+
+
+def sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def dump(node):
+    return ast.dump(node, include_attributes=False)
+
+
+for relative, digest in freeze['source_sha256'].items():
+    assert sha(HERE / relative) == digest, relative
+for relative, digest in freeze['prior131_files_preserved'].items():
+    assert sha(HERE / 'preserved131' / relative) == digest, relative
+for field, relative in (
+        ('api_sha256', 'api-freeze.json'),
+        ('teacher_result_sha256', 'train-and-contrasts-result.json'),
+        ('teacher_input_sha256', 'teachers-only.json'),
+        ('check_source_sha256', 'check_train_and_contrasts.py')):
+    assert sha(HERE / relative) == freeze[field], relative
+
+api = {}
+changes = []
+for relative in freeze['source_sha256']:
+    old_path = HERE / 'preserved131' / relative
+    path = HERE / relative
+    old_tree = ast.parse(old_path.read_text())
+    current_tree = ast.parse(path.read_text())
+    old_defs = {node.name: node for node in old_tree.body
+                if isinstance(node, (ast.FunctionDef, ast.ClassDef))}
+    for node in current_tree.body:
+        if isinstance(node, ast.FunctionDef):
+            assert dump(node.args) == dump(old_defs[node.name].args)
+            api[path.name + ':' + node.name] = ast.unparse(node.args)
+    if path.read_bytes() == old_path.read_bytes():
+        continue
+    changes.append(path.name)
+    assert path.name == '周期補色局所命令.py'
+    expected_tree = copy.deepcopy(old_tree)
+    replacements = []
+    for node in ast.walk(expected_tree):
+        if (isinstance(node, ast.Call) and isinstance(node.func, ast.Name)
+                and node.func.id == 'periodic_action'):
+            old_arg = node.args[2]
+            assert isinstance(old_arg, ast.Subscript)
+            group = old_arg.value.id
+            assert group in ('demo', 'target')
+            assert isinstance(old_arg.slice, ast.Constant)
+            assert old_arg.slice.value == 'color'
+            node.args[2] = ast.parse(
+                f"{group}.get('outer_color', {group}['color'])", mode='eval').body
+            replacements.append(group)
+    assert sorted(replacements) == ['demo', 'target']
+    assert dump(expected_tree) == dump(current_tree)
+assert changes == ['周期補色局所命令.py']
+assert api == json.loads((HERE / 'api-freeze.json').read_text())
+
+result = json.loads((HERE / 'train-and-contrasts-result.json').read_text())
+prior_result = json.loads(
+    (HERE / 'preserved131/train-and-contrasts-result.json').read_text())
+for key in ('teacher_rows', 'wrapper_fit_record', 'contrasts', 'preservation'):
+    assert result[key] == prior_result[key], key
+assert result['all_pass'] and result['candidate_query_render_count'] == 0
+assert result['synthetic_periodic_pair_local_rim']['exact']
+print(json.dumps({'freeze_verified': True, 'exact_two_argument_delta': True,
+                  'prior_teacher_and_check_records_equal': True,
+                  'query_render_count': 0}))

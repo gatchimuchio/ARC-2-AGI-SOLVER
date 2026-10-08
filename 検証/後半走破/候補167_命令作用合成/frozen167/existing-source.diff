@@ -1,0 +1,90 @@
+--- "proposal135-instruction-tag-binding-20261007/runtime-source/\346\216\245\347\266\232/ARC2/\345\221\250\346\234\237\350\243\234\350\211\262\345\261\200\346\211\200\345\221\275\344\273\244.py"	2026-10-08 05:44:02.102043064 +0900
++++ "proposal167-instruction-action-composition-20261007/runtime-source/\346\216\245\347\266\232/ARC2/\345\221\250\346\234\237\350\243\234\350\211\262\345\261\200\346\211\200\345\221\275\344\273\244.py"	2026-10-08 08:29:57.277921964 +0900
+@@ -16,6 +16,51 @@
+     for transform in old085.TRANSFORMS for dr, dc in PERIODIC_AXES)
+ 
+ 
++# All nine nontrivial D4 subgroups, not a demonstration-selected subset.
++ORBIT_GROUPS = (
++    ('identity', 'rot180'),
++    ('identity', 'flip_h'), ('identity', 'flip_v'),
++    ('identity', 'transpose'), ('identity', 'anti_transpose'),
++    ('identity', 'rot90', 'rot180', 'rot270'),
++    ('identity', 'rot180', 'flip_h', 'flip_v'),
++    ('identity', 'rot180', 'transpose', 'anti_transpose'),
++    old085.TRANSFORMS)
++ORBIT_ACTIONS = tuple(
++    ('orbit_segments', transform, group, geometry, endpoints)
++    for transform in old085.TRANSFORMS for group in ORBIT_GROUPS
++    for geometry in ('axis', 'octilinear')
++    for endpoints in ('all', 'marker_incident'))
++
++
++def orbit_segment_action(grid, blank, ink, model):
++    """Color-consistent nonblank orbit union, then existing straight segments."""
++    if model not in ORBIT_ACTIONS:
++        return None, {'failure': 'outside_finite_action_inventory'}
++    source = transform_grid_by_name(grid, model[1])
++    images = [transform_grid_by_name(source, transform)
++              for transform in model[2]]
++    shape = (len(source), len(source[0]))
++    if any((len(image), len(image[0])) != shape for image in images):
++        return None, {'failure': 'orbit_shape_disagreement'}
++    merged = []
++    for r in range(shape[0]):
++        row = []
++        for c in range(shape[1]):
++            colors = {image[r][c] for image in images} - {blank}
++            if len(colors) > 1:
++                return None, {'failure': 'orbit_color_disagreement',
++                              'cell': (r, c), 'colors': sorted(colors)}
++            row.append(next(iter(colors)) if colors else blank)
++        merged.append(row)
++    segment_model = ('segments', 'identity', model[3], model[4])
++    output = old085.act(merged, blank, ink, segment_model)
++    witness = {'orbit_group': model[2], 'transform': model[1],
++               'segment_model': segment_model, 'orbit_union': merged}
++    if output is None:
++        return None, dict(witness, failure='existing_segment_contract_rejected')
++    return output, witness
++
++
+ def periodic_action(grid, blank, group_color, model):
+     """Complement support, filling only from a fully witnessed binary phase."""
+     if model not in PERIODIC_ACTIONS:
+@@ -66,15 +111,17 @@
+         panels, blank = role['panels'], role['blank']
+         demos = [g for g in role['groups'] if g is not role['target']]
+         alternatives = []
+-        for model in PERIODIC_ACTIONS:
++        for model in PERIODIC_ACTIONS + ORBIT_ACTIONS:
+             directions, demo_witnesses = [], []
+             for demo in demos:
+                 a, b = demo['members']
+                 compatible, witnesses = [], []
+                 for first, second in ((a, b), (b, a)):
+-                    output, witness = periodic_action(
++                    output, witness = (periodic_action(
+                         panels[first]['interior'], blank,
+                         demo.get('outer_color', demo['color']), model)
++                        if model in PERIODIC_ACTIONS else orbit_segment_action(
++                            panels[first]['interior'], blank, demo['color'], model))
+                     if output == panels[second]['interior']:
+                         compatible.append((first, second))
+                         witnesses.append({'direction': (first, second),
+@@ -89,10 +136,12 @@
+         source_id = next(i for i in target['members'] if i != role['blank_id'])
+         outputs, target_witnesses = [], []
+         for alternative in alternatives:
+-            output, witness = periodic_action(
++            model = alternative['model']
++            output, witness = (periodic_action(
+                 panels[source_id]['interior'], blank,
+-                target.get('outer_color', target['color']),
+-                alternative['model'])
++                target.get('outer_color', target['color']), model)
++                if model in PERIODIC_ACTIONS else orbit_segment_action(
++                    panels[source_id]['interior'], blank, target['color'], model))
+             outputs.append(output)
+             target_witnesses.append(witness)
+         records.append({'groups': role['groups'], 'blank': blank,

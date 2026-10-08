@@ -1,0 +1,12 @@
+{
+  "base_commit": "8ed932f805e6e489005da53870448688caff9059",
+  "existing_family_updated": true,
+  "duplicate_family_added": false,
+  "fit_contract_version": [
+    3,
+    4
+  ],
+  "core_changed": false,
+  "global_gates_changed": false,
+  "ignored_sources_copied_before_native": true
+}

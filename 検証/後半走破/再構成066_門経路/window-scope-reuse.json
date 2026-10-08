@@ -1,0 +1,124 @@
+{
+  "script": "検証/全体模様窓回帰.py",
+  "prior_selected_report": "/workspace/scratch/7408259c1ab2/recovered16-evidence-20261007/full-regression-necessity-selected.json",
+  "unchanged_pins": [
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/__init__.py",
+      "sha256": "eaed97760656afc40088ad7e0d85a02fbd59a0d0034054956e9ead63319fba57"
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/台帳.py",
+      "sha256": "a6cab8fca7cb591c42fa7444f9678fe0003da69faafcce852598286dceb522e2"
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/吸気系.py",
+      "sha256": "50c48e5a9a8aa39158d0cdaacc0501608a829486960d41cb2fea6cb02e5660a4"
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/型.py",
+      "sha256": "aa1241708655280b36564f5e3ff6968849b4d09790b8932aabad1570cbca302c"
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/実行系.py",
+      "sha256": "11d253705181873bcc22e312a0d0a2198fe16a82e3d7289ea8746fdc14695429"
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/懐疑.py",
+      "sha256": "bb7e85c2dbafbd430f1b7733bf3a2d307dc24e3227e79994b491cf711322f715"
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/排気系.py",
+      "sha256": "2ba7ceb8d0d6c784d092f91fe484477127f044e50f68c54c977374b17f2f6361"
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/推論.py",
+      "sha256": "315dd0d23a9682cdf14be71346341976cbdbcd2cbd924a250afc4ad53058dba6"
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/検証.py",
+      "sha256": "e23f271d38e1f52d75557dbf3342abf7b59a85fbdc315a06c0040fd7ca204eb3"
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/永続化.py",
+      "sha256": "8aa431b3012424fd8347c5b3d93a5fbf2218d35020836f5d40abb427f9d6da0d"
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/系統.py",
+      "sha256": "f57e34fcab9249ad7fef72d7b9088fbb440c01afcd4313c9447b7a31427bd4a5"
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/適応.py",
+      "sha256": "c74797d49472646010ed0b37bd17dfa602084ba3347ac9386dec265e78a797ac"
+    },
+    {
+      "path": "接続/ARC2/既存倍率置換.py",
+      "sha256": "5729598184dfe54d73c05969b63ae9d64521aa1c5008bd0c719f276a12d4410b"
+    },
+    {
+      "path": "接続/ARC2/既存凡例穴対応.py",
+      "sha256": "3e2471e03faaf58badbbb4d9426308beea41495201cdf9513c0e3993b7e832f2"
+    },
+    {
+      "path": "接続/ARC2/既存凡例経路.py",
+      "sha256": "71ec8be34047c9d3534932f09e1014af904c20a33ae8aa8dc3e52915f6aee77a"
+    },
+    {
+      "path": "接続/ARC2/既存格子操作.py",
+      "sha256": "d03c16e870a245dc18dd24446c09a3fcadbbf7bc9d184510105dc5ae46a32b23"
+    },
+    {
+      "path": "接続/ARC2/既存物体特徴.py",
+      "sha256": "e7a662182961e45cdba38a00bbd267ad03261cb1217dc8d08f2d867d9f4acc60"
+    },
+    {
+      "path": "接続/ARC2/既存穴充填.py",
+      "sha256": "451d07ba636d4e4ce5a2443cfe56745f55fd16cf8845a2f4c9f62abd08d78b53"
+    },
+    {
+      "path": "接続/ARC2/既存領域転写.py",
+      "sha256": "76a73e2228f7546a2ad22c30dfaf6550a494d3ee40cffdb22926afa4d75fe304"
+    },
+    {
+      "path": "検証/全体模様窓回帰.py",
+      "sha256": "8e262411e6dbea4d8373bf4c943be2797d03cf59facbf886a8ef9eae719a4eae"
+    },
+    {
+      "path": "検証/全体模様窓資料/README.md",
+      "sha256": "dc75f50f30133a7b909415b80fdc7feac33d56bdfed8cc8d32524682a4027ef8"
+    },
+    {
+      "path": "検証/全体模様窓資料/baseline-matrix.json.gz",
+      "sha256": "15ba2a93673cee277615f825783f6fe4d53db89c4d69a5f7a9c38b5217b61da1"
+    },
+    {
+      "path": "検証/全体模様窓資料/child_cases.py",
+      "sha256": "b09bb2d578f234e9ab2e4a71a211df68420068f3e9c9850441008202bb34f050"
+    },
+    {
+      "path": "検証/全体模様窓資料/dependency-pins.json.gz",
+      "sha256": "4f31017a6cf9245af2d61ba5ae9e218a056e2ba3a6b36f2fb60ebd2a278e558a"
+    },
+    {
+      "path": "検証/全体模様窓資料/evidence_support.py",
+      "sha256": "488684b2455233e8b1b8d182e48a35954ed8f1b8b92d90448dc5a22520b50ced"
+    },
+    {
+      "path": "検証/全体模様窓資料/focused_suite.py",
+      "sha256": "5693edd07e7c5526a29b5da62853bef40bdbca500d25c5d95b0305a4e11ea578"
+    },
+    {
+      "path": "検証/全体模様窓資料/necessity-fixtures.json.gz",
+      "sha256": "61c77252e46e6ff5e3e93b9d036a5f10c25bcdff916526b11f435271f2b89a82"
+    },
+    {
+      "path": "検証/全体模様窓資料/necessity_controls.py",
+      "sha256": "2e63fe3cd39b65efcac12dde2886b510283c7fd4cf14ff237a2cd1951e63ef77"
+    },
+    {
+      "path": "検証/全体模様窓資料/old-synthetic-fixtures.json.gz",
+      "sha256": "c592f5755c6deb99cfb9352f7b3f94e80b5d55db691769d5d8a3800d41c8035e"
+    }
+  ],
+  "scope_note": "Window-only modules and extracted native helper ASTs; neither changed distance module is imported or executed by this scope",
+  "rerun": false
+}

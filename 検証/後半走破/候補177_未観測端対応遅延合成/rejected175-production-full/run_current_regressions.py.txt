@@ -1,0 +1,138 @@
+"""Current verification, adapted from arc2-ledger-audit/run_regressions.py.
+
+Run only when assigned the serial validation slot. This is new evidence,
+not recovered historical execution evidence.
+"""
+from pathlib import Path
+import argparse
+import hashlib
+import json
+import os
+import platform
+import re
+import signal
+import subprocess
+import sys
+import time
+from concurrent.futures import ThreadPoolExecutor
+
+p = argparse.ArgumentParser()
+p.add_argument('root', type=Path)
+p.add_argument('output', type=Path)
+p.add_argument('--timeout', type=float, default=120)
+args = p.parse_args()
+if platform.python_version() != '3.12.14' or sys.flags.optimize:
+    p.error('Normal, non-optimized Python 3.12.14 is required')
+if not 0 < args.timeout <= 600:
+    p.error('Per-script timeout must be greater than zero and at most 600 seconds')
+root = args.root.resolve()
+output_path = args.output.resolve()
+output_path.parent.mkdir(parents=True, exist_ok=True)
+if output_path.exists():
+    p.error('Choose a new output path; prior evidence is not overwritten')
+public_map = json.loads((root / '検証/復旧現行資料/current-test-map.json').read_text())
+targeted = [root / row['script'] for row in public_map['tests']]
+if len(set(targeted)) != 16:
+    p.error('Expected sixteen distinct recovered-change public scripts')
+for row, file in zip(public_map['tests'], targeted):
+    if hashlib.sha256(file.read_bytes()).hexdigest() != row['sha256']:
+        p.error('Prepared public-script binding changed: ' + row['script'])
+files = targeted + sorted(set((root / '検証').glob('*回帰.py')) - set(targeted))
+# The separately verified unchanged window scope reuses its complete29-case record.
+files = [f for f in files if f.name != '全体模様窓回帰.py']
+if not files:
+    p.error('No regression scripts found')
+rows = []
+start = time.monotonic()
+inventory = [{'file': str(f.relative_to(root)),
+              'sha256': hashlib.sha256(f.read_bytes()).hexdigest()} for f in files]
+report = {'scope': 'Fresh current regression verification of candidate175; not historical92 evidence',
+          'root': str(root), 'python_executable': sys.executable,
+          'python_version': platform.python_version(), 'optimized': False,
+          'per_script_timeout_seconds': args.timeout, 'workers': 3,
+          'ordered_inventory': inventory, 'records': rows}
+
+
+def persist(complete=False):
+    report.update(complete=complete, files=len(rows), expected_files=len(files),
+                  tests=sum(row['tests'] or 0 for row in rows),
+                  success=complete and len(rows) == len(files) and all(row['successful'] for row in rows),
+                  elapsed_seconds=time.monotonic() - start)
+    output_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
+
+
+persist()
+def run_item(item):
+    index, (file, pin) = item
+    command = [sys.executable, '-B', str(file)]
+    started = time.monotonic()
+    process = subprocess.Popen(command, cwd=root, stdout=subprocess.PIPE,
+                               stderr=subprocess.PIPE, start_new_session=True)
+    timed_out = False
+    try:
+        stdout, stderr = process.communicate(timeout=args.timeout)
+    except subprocess.TimeoutExpired:
+        timed_out = True
+        os.killpg(process.pid, signal.SIGKILL)
+        stdout, stderr = process.communicate()
+    row = {'index': index, **pin, 'command': command, 'exit_code': process.returncode,
+           'timed_out': timed_out, 'elapsed_seconds': time.monotonic() - started,
+           'stdout': stdout.decode('utf-8', errors='replace'),
+           'stderr': stderr.decode('utf-8', errors='replace'), 'tests': None,
+           'successful': process.returncode == 0 and not timed_out}
+    try:
+        lines = [line for line in row['stdout'].splitlines() if line.strip()]
+        objects = []
+        try:
+            objects = [json.loads(row['stdout'])]
+        except json.JSONDecodeError:
+            try:
+                objects = [json.loads(line) for line in lines]
+            except json.JSONDecodeError:
+                objects = []
+        final = objects[-1] if objects and all(isinstance(x, dict) for x in objects) else None
+        if final is not None and 'tests_run' in final:
+            count = final['tests_run']
+            if type(count) is not int or count < 0:
+                raise ValueError('Invalid structured tests_run')
+            if len(objects) > 1:
+                if final.get('stage') != 'all' or any(x.get('successful') is not True for x in objects):
+                    raise ValueError('Invalid completed-stage aggregate')
+                if sum(x['tests_run'] for x in objects[:-1]) != count:
+                    raise ValueError('Stage total disagrees')
+            row.update(tests=count, count_format='json-final-aggregate',
+                       successful=row['successful'] and final.get('successful') is True)
+        elif final is not None and final.get('schema') == 'fresh031-production-regression-v1':
+            count = final['behavioral_check_count']
+            if type(count) is not int or count < 0:
+                raise ValueError('Invalid behavioral count')
+            row.update(tests=count, count_format='existing-behavioral-count',
+                       administrative_checks=final['administrative_check_count'],
+                       successful=row['successful'] and final.get('passed') is True)
+        elif final is not None and isinstance(final.get('checks'), list):
+            checks = final['checks']
+            if not all(isinstance(x, str) for x in checks) or len(set(checks)) != len(checks):
+                raise ValueError('Invalid explicit check labels')
+            row.update(tests=len(checks), count_format='existing-check-labels',
+                       successful=row['successful'] and final.get('successful') is True)
+        else:
+            counts = re.findall(r'Ran (\d+) tests?', row['stdout'] + row['stderr'])
+            if not counts:
+                raise ValueError('Unrecognized saved count schema')
+            row.update(tests=sum(map(int, counts)), count_format='unittest')
+    except (ValueError, KeyError, TypeError) as error:
+        row.update(successful=False, count_error=f'{type(error).__name__}: {error}')
+    row['script_unchanged'] = hashlib.sha256(file.read_bytes()).hexdigest() == pin['sha256']
+    row['successful'] = row['successful'] and row['script_unchanged']
+    return row
+
+
+with ThreadPoolExecutor(max_workers=3) as pool:
+    for row in pool.map(run_item, enumerate(zip(files, inventory))):
+        rows.append(row)
+        persist()
+        print(json.dumps({k: row[k] for k in ('index', 'file', 'exit_code', 'tests', 'successful', 'timed_out')},
+                         ensure_ascii=False), flush=True)
+persist(complete=True)
+print(json.dumps({k: report[k] for k in ('complete', 'files', 'expected_files', 'tests', 'success', 'elapsed_seconds')}))
+raise SystemExit(0 if report['success'] else 1)

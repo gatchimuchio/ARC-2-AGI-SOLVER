@@ -1,0 +1,15 @@
+# 候補150 領域指令と隅cue旋回
+
+同条件120課題/167例で94/131→95/133（課題+1、正答格子+2）。131旧格子は全て同一、誤出力0、通常資源失敗0。新2出力は21897d95の両入力で、34例が未回答、残り25課題。wrong_attempted_tasksは部分未回答を含む既存集計であり、誤出力数ではない。
+
+受入基底はfa39a567b17eb94b04312dc3bcddbb263e8b17cb。149/152は基底に混ぜない。既存color_componentsとtransform_grid_by_nameを用い、T標識の全所有cover、元領域からのray到達、全領域の同時転写、任意の隅cueによる四分回転を合成する。4教師からmarker・cue色・隅回転の16モデルだけを保持し、教師や正解格子は状態に保存しない。予測は全保持モデルと全適格解釈の成功、役割一致、完全格子一致を必要とする。失敗や不完全探索から生存者だけを選ばない。
+
+修正版核SHA256 a3568dd28202b318494f843b5f882cf5a283e3e4f7c3b2e9bc3d87e73f0f4b88をそのまま導入した。元150は完了coverの失敗を捨てる反例でBLOCKED。元audit・反例・元sourceをhistoryに保存し、その判定を変更しない。修正はcover失敗を全体HOLDへ伝播するもの。再独立auditは旧26確認と作者26確認、新6確認でPASS。元と改訂の両報告を同梱する。
+
+薄いadapterで空priorのARC領域指令を登録し、bridgeは通常4追加のみ。HDS core・既存family・支持・同値・隔離・最終合意は不変。fitの早期拒否は寸法とpaletteの証明のみ：消去は入力host色、転写は入力payload、全体操作は四分回転なので、出力色は入力色集合の部分集合、寸法は入力と同じか縦横反転でなければならない。heuristicな候補削減はない。
+
+Input-only2出力とnative2出力が一致し、current4/prior0の通常支持を確認した。新42確認は教師再現、palette再fit、四方向転写、未観測隅HOLD、失敗cover伝播、衝突HOLD、例外伝播、adapter/API一致と必要条件を含む。全回帰106script/4699reported checksは105個の今回成功recordと不変window scope29-caseの再使用recordで構成する。2111ファイルをscore前に固定し、score後とGit metadata復元後に全て同一を確認した。採用後の現在状態・戦略追記だけは管理更新として区別する。
+
+作業treeはgit archiveで基底を展開し、公式sourceのignored依存を復元した。最初のnativeは依存不足で失敗し、scorer未実行のまま保存した。その後の正式native・回帰・scoreは成功。Git metadataは基底の既存.gitをcopyし、既存履歴を連続させた。履歴の新規初期化・rewriteは行わない。
+
+149は105回帰中104成功、重畳組立回帰が120秒でtimeoutして非採用（その記録ではpublic score未実行）。152は同条件score91/128、誤出力2、CPU制限3で旧3格子を失い非採用。簡潔な記録をhistoryに保持し、両候補のruntimeは導入しない。元92commit/rawが未復旧という既存の区別も保持する。

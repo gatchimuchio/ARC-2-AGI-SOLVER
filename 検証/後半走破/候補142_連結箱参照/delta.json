@@ -1,0 +1,34 @@
+{
+  "previous": [
+    94,
+    130
+  ],
+  "current": [
+    94,
+    131
+  ],
+  "delta": [
+    0,
+    1
+  ],
+  "old_grids_identical": 130,
+  "lost": [],
+  "changed": [],
+  "new_emitted_grids": [
+    [
+      "d35bdbdc",
+      1
+    ]
+  ],
+  "wrong_emitted": 0,
+  "resource_failures": {},
+  "pins": 2089,
+  "same_conditions": true,
+  "regression": {
+    "scripts": 105,
+    "checks": 4657,
+    "coverage_is_composed": true
+  },
+  "score_sha256": "94042d70b12d11933ddd692568936cdbde186a8120d566fba93e12e58e31d7d9",
+  "historical_prior_result_claimed": false
+}

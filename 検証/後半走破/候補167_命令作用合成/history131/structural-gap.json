@@ -1,0 +1,103 @@
+{
+  "source_boundary": "/workspace/scratch/7408259c1ab2/candidate131-existing-input-boundary-20261007/structural-metadata.json",
+  "query_index": 1,
+  "strict_parse": {
+    "raw_frames": 241,
+    "leaf_frames": 2,
+    "roles": 0,
+    "cover_nodes": 0
+  },
+  "complete_six_by_six_frames": [
+    {
+      "bbox": [
+        4,
+        5,
+        11,
+        12
+      ],
+      "color": 3,
+      "leaf": false,
+      "interior_shape": [
+        6,
+        6
+      ],
+      "interior_palette": [
+        0,
+        3,
+        8
+      ]
+    },
+    {
+      "bbox": [
+        4,
+        19,
+        11,
+        26
+      ],
+      "color": 3,
+      "leaf": false,
+      "interior_shape": [
+        6,
+        6
+      ],
+      "interior_palette": [
+        0,
+        3,
+        8
+      ]
+    },
+    {
+      "bbox": [
+        17,
+        16,
+        24,
+        23
+      ],
+      "color": 6,
+      "leaf": false,
+      "interior_shape": [
+        6,
+        6
+      ],
+      "interior_palette": [
+        0,
+        6,
+        8
+      ]
+    },
+    {
+      "bbox": [
+        18,
+        3,
+        25,
+        10
+      ],
+      "color": 6,
+      "leaf": true,
+      "interior_shape": [
+        6,
+        6
+      ],
+      "interior_palette": [
+        0
+      ]
+    }
+  ],
+  "same_color_four_panels": false,
+  "panel_colors_by_outer_group": {
+    "1": [
+      3,
+      3
+    ],
+    "4": [
+      6,
+      6
+    ]
+  },
+  "first_failure": "leaf predicate removes three nonblank panels because each uses its own frame color",
+  "additional_existing_contract_gaps": [
+    "global panel frame_color differs across the two enclosing groups",
+    "outer group colors 1 and 4 are absent from panel interior palettes; strict act expects group color as ink"
+  ],
+  "candidate_query_rendered": false
+}

@@ -1,0 +1,22 @@
+--- preserved131/runtime-source/接続/ARC2/周期補色局所命令.py
++++ runtime-source/接続/ARC2/周期補色局所命令.py
+@@ -73,7 +73,8 @@
+                 compatible, witnesses = [], []
+                 for first, second in ((a, b), (b, a)):
+                     output, witness = periodic_action(
+-                        panels[first]['interior'], blank, demo['color'], model)
++                        panels[first]['interior'], blank,
++                        demo.get('outer_color', demo['color']), model)
+                     if output == panels[second]['interior']:
+                         compatible.append((first, second))
+                         witnesses.append({'direction': (first, second),
+@@ -89,7 +90,8 @@
+         outputs, target_witnesses = [], []
+         for alternative in alternatives:
+             output, witness = periodic_action(
+-                panels[source_id]['interior'], blank, target['color'],
++                panels[source_id]['interior'], blank,
++                target.get('outer_color', target['color']),
+                 alternative['model'])
+             outputs.append(output)
+             target_witnesses.append(witness)

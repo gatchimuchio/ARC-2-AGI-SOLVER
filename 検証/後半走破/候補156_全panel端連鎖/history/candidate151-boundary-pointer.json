@@ -1,0 +1,8 @@
+{
+  "status": "not_admitted",
+  "native_result": "candidate151-production-evidence-20261007/native.stdout",
+  "exact_boundary_failure": "Old admitted ARC物体端投射 returned None on query0; unchanged HDS all-admitted-family consensus preserves HOLD. Candidate151 produced no new final outputs.",
+  "evidence": "history/candidate151-native-no-gain.json",
+  "runtime_included": false,
+  "public_score_invocations": 0
+}

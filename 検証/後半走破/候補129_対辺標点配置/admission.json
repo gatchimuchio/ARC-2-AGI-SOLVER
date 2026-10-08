@@ -1,0 +1,18 @@
+{
+  "decision": "ADMIT_LOCAL",
+  "previous": [
+    93,
+    128
+  ],
+  "current": [
+    93,
+    129
+  ],
+  "delta": [
+    0,
+    1
+  ],
+  "parent_commit": "a6849619e26a2e97eb764bf4185e316081e1dd39",
+  "basis": "independent PASS; all128 old grids exact, wrong/resource0, qualified103/4605",
+  "partial_task_gain": true
+}

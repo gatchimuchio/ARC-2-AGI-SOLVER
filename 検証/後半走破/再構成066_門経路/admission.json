@@ -1,0 +1,12 @@
+{
+  "decision": "ADMIT_LOCAL",
+  "parent_received_utc": "2026-10-07T17:25:36Z",
+  "base_commit": "ece0dc7a886476e8402e50421b1efce1a635e8f9",
+  "current": [
+    90,
+    125
+  ],
+  "new_reconstruction": true,
+  "historical066_recovered": false,
+  "external_publication": false
+}

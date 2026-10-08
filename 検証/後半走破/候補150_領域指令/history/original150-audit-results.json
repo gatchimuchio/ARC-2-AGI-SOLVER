@@ -1,0 +1,193 @@
+{
+  "checks": [
+    "frozen_hash",
+    "four_teachers_exact",
+    "input_immutability",
+    "sixteen_complete_models",
+    "unseen_corner_hold_flip_v",
+    "unseen_corner_hold_rot180",
+    "direction_identity",
+    "direction_rot90",
+    "direction_rot180",
+    "direction_rot270",
+    "colored_center_payload",
+    "disconnected_target",
+    "unowned_marker_hold",
+    "outgoing_ray_hold",
+    "no_marker_hold",
+    "simultaneous_exchange",
+    "retained_failure_not_dropped",
+    "predict_exceptions_propagate",
+    "fit_exceptions_propagate",
+    "resource_incomplete_not_pruned",
+    "palette_refit_0",
+    "palette_refit_1",
+    "palette_refit_2",
+    "palette_refit_3",
+    "teacher_corruption_no_fit",
+    "duplicate_teachers_no_fit"
+  ],
+  "count": 26,
+  "models": [
+    {
+      "marker": 1,
+      "turn_color": 9,
+      "turns": [
+        1,
+        3,
+        0,
+        0
+      ]
+    },
+    {
+      "marker": 1,
+      "turn_color": 9,
+      "turns": [
+        1,
+        3,
+        0,
+        1
+      ]
+    },
+    {
+      "marker": 1,
+      "turn_color": 9,
+      "turns": [
+        1,
+        3,
+        0,
+        2
+      ]
+    },
+    {
+      "marker": 1,
+      "turn_color": 9,
+      "turns": [
+        1,
+        3,
+        0,
+        3
+      ]
+    },
+    {
+      "marker": 1,
+      "turn_color": 9,
+      "turns": [
+        1,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "marker": 1,
+      "turn_color": 9,
+      "turns": [
+        1,
+        3,
+        1,
+        1
+      ]
+    },
+    {
+      "marker": 1,
+      "turn_color": 9,
+      "turns": [
+        1,
+        3,
+        1,
+        2
+      ]
+    },
+    {
+      "marker": 1,
+      "turn_color": 9,
+      "turns": [
+        1,
+        3,
+        1,
+        3
+      ]
+    },
+    {
+      "marker": 1,
+      "turn_color": 9,
+      "turns": [
+        1,
+        3,
+        2,
+        0
+      ]
+    },
+    {
+      "marker": 1,
+      "turn_color": 9,
+      "turns": [
+        1,
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "marker": 1,
+      "turn_color": 9,
+      "turns": [
+        1,
+        3,
+        2,
+        2
+      ]
+    },
+    {
+      "marker": 1,
+      "turn_color": 9,
+      "turns": [
+        1,
+        3,
+        2,
+        3
+      ]
+    },
+    {
+      "marker": 1,
+      "turn_color": 9,
+      "turns": [
+        1,
+        3,
+        3,
+        0
+      ]
+    },
+    {
+      "marker": 1,
+      "turn_color": 9,
+      "turns": [
+        1,
+        3,
+        3,
+        1
+      ]
+    },
+    {
+      "marker": 1,
+      "turn_color": 9,
+      "turns": [
+        1,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "marker": 1,
+      "turn_color": 9,
+      "turns": [
+        1,
+        3,
+        3,
+        3
+      ]
+    }
+  ]
+}

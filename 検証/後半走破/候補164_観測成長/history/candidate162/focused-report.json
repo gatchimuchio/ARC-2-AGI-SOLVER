@@ -1,0 +1,35 @@
+{
+  "index30": {
+    "input_shape": [
+      65,
+      125
+    ],
+    "exact": true,
+    "status": "EMIT",
+    "scope": "Outside ARC 30x30 size, inside original unrestricted API; not an official-score failure."
+  },
+  "tied_mode_d4_holds": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "integer_root_checks": {
+    "total": 2401,
+    "passed": 2401
+  },
+  "unfamiliar_fitted_failure_holds": true,
+  "multiple_roles_radial": {
+    "exact": true,
+    "calls": 8
+  },
+  "absolute_file_import": {
+    "passed": true,
+    "stdout": "ok\n",
+    "stderr": ""
+  }
+}

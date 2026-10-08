@@ -1,0 +1,10 @@
+{
+  "base_commit": "fe705e1eacbacf99087f9e0e152167fe8fba2288",
+  "pure_sha256": "091f639523ddedc4bd11b222e7e931a1defb19e38ebd6173b5abf6b37fd1cdbb",
+  "boundary": "ordinary empty prior",
+  "core_changed": false,
+  "old_gates_changed": false,
+  "hds_insertions": 4,
+  "all_helpers_verified": true,
+  "ignored_sources_copied_before_native": true
+}

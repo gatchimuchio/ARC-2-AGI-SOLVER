@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/7408259c1ab2/candidate156-input-only-20261007/caller.py", line 8, in <module>
+    programs,fit=fit_programs(payload['train']);(E/'fit.json').write_text(json.dumps(fit,ensure_ascii=False,indent=2)+'\n')
+    ^^^^^^^^^^^^
+TypeError: cannot unpack non-iterable Fit object

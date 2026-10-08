@@ -1,0 +1,13 @@
+{
+  "successful": true,
+  "tests_run": 7,
+  "checks": [
+    "learning_api_exact",
+    "candidate_policy_forwarded",
+    "complete_coverage_exact_original",
+    "legacy_record_preserved",
+    "connection_only_import_changed",
+    "original_legacy_byte_identical",
+    "original_family_one_entry"
+  ]
+}

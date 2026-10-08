@@ -1,0 +1,227 @@
+{
+  "task_id": "a32d8b75",
+  "official_error": "cpu_limit",
+  "exit_code": 0,
+  "timeout": false,
+  "wall_seconds": 6.177977807004936,
+  "events": [
+    {
+      "event": "fit_entry",
+      "cpu": 0.15711799999999998,
+      "rss": 70528,
+      "legacy_feature_count": 0,
+      "legacy_features": [],
+      "teachers": 3,
+      "expected_render_calls": 144
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 0.15734199999999998,
+      "rss": 70528,
+      "calls": 1,
+      "model": [
+        4,
+        "identity",
+        false,
+        "vertical",
+        "top"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 0.196321,
+      "rss": 70528,
+      "calls": 10,
+      "model": [
+        4,
+        "identity",
+        false,
+        "horizontal",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 0.23704899999999998,
+      "rss": 70528,
+      "calls": 20,
+      "model": [
+        4,
+        "identity",
+        true,
+        "horizontal",
+        "top"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 0.324308,
+      "rss": 70528,
+      "calls": 30,
+      "model": [
+        4,
+        "rotations",
+        false,
+        "vertical",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 0.459248,
+      "rss": 70528,
+      "calls": 40,
+      "model": [
+        4,
+        "rotations",
+        true,
+        "vertical",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 0.619301,
+      "rss": 70528,
+      "calls": 50,
+      "model": [
+        4,
+        "d4",
+        false,
+        "vertical",
+        "top"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 0.917218,
+      "rss": 70528,
+      "calls": 60,
+      "model": [
+        4,
+        "d4",
+        false,
+        "horizontal",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 1.182922,
+      "rss": 70528,
+      "calls": 70,
+      "model": [
+        4,
+        "d4",
+        true,
+        "horizontal",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 1.300177,
+      "rss": 70528,
+      "calls": 80,
+      "model": [
+        8,
+        "identity",
+        false,
+        "horizontal",
+        "top"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 1.331306,
+      "rss": 70528,
+      "calls": 90,
+      "model": [
+        8,
+        "identity",
+        true,
+        "vertical",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 1.391147,
+      "rss": 70528,
+      "calls": 100,
+      "model": [
+        8,
+        "rotations",
+        false,
+        "vertical",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 1.514084,
+      "rss": 70528,
+      "calls": 110,
+      "model": [
+        8,
+        "rotations",
+        true,
+        "vertical",
+        "top"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 1.628958,
+      "rss": 70528,
+      "calls": 120,
+      "model": [
+        8,
+        "rotations",
+        true,
+        "horizontal",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 1.869033,
+      "rss": 70528,
+      "calls": 130,
+      "model": [
+        8,
+        "d4",
+        false,
+        "horizontal",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 2.10662,
+      "rss": 70528,
+      "calls": 140,
+      "model": [
+        8,
+        "d4",
+        true,
+        "horizontal",
+        "top"
+      ]
+    },
+    {
+      "event": "fit_return",
+      "cpu": 2.217602,
+      "rss": 70528,
+      "render_calls": 144,
+      "retained": 0
+    },
+    {
+      "event": "runtime_return",
+      "cpu": 6.004881,
+      "rss": 100680,
+      "render_calls": 144
+    }
+  ],
+  "scorer_calls": 0
+}

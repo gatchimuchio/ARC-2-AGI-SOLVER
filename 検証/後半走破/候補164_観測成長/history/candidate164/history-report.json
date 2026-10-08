@@ -1,0 +1,22 @@
+{
+  "candidate": 164,
+  "status": "Locally admitted: first query correct emission, second HOLD",
+  "runtime_included": true,
+  "sources": [
+    {
+      "original": "proposal164-witnessed-growth-composition-20261007/check.py",
+      "sha256": "3b7eaf41635637e2c5cada8af8bc71491254b9acb4856774519d4b329800df31",
+      "preserved": "check.py.txt"
+    },
+    {
+      "original": "proposal164-witnessed-growth-composition-20261007/focused.py",
+      "sha256": "9927df2f03094c8e45c4856d7437229e3c0c9e3d3a577080199abd7c94645a46",
+      "preserved": "focused.py.txt"
+    },
+    {
+      "original": "proposal164-witnessed-growth-composition-20261007/growth_series.py",
+      "sha256": "0fa5db217748108630fa0295887961fe6f1feeb63a2e8a57939b3f98f4d904f8",
+      "preserved": "growth_series.py.txt"
+    }
+  ]
+}

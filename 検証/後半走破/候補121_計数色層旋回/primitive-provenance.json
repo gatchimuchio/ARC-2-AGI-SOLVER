@@ -1,0 +1,90 @@
+{
+  "accepted_base": "9c1075ba",
+  "reuse": "exact accepted-runtime source copies; not historical recovery",
+  "functions_and_constants": [
+    {
+      "source": "/workspace/scratch/7408259c1ab2/reconstruction075-production-20261007/\u63a5\u7d9a/ARC2/\u65e2\u5b58\u9818\u57df\u8ee2\u5199.py",
+      "name": "grid_key",
+      "line": 15,
+      "end_line": 16,
+      "sha256": "72972f508f8432fb0e1672528ad5eb01d42afa05e8b91276be233ce5eb9e1a46"
+    },
+    {
+      "source": "/workspace/scratch/7408259c1ab2/reconstruction075-production-20261007/\u63a5\u7d9a/ARC2/\u65e2\u5b58\u9818\u57df\u8ee2\u5199.py",
+      "name": "_bbox_for_cells",
+      "line": 42,
+      "end_line": 45,
+      "sha256": "ef25d9535c3d0348ca1e23349f922a0dc011a32c25b81395ad17af873790124c"
+    },
+    {
+      "source": "/workspace/scratch/7408259c1ab2/reconstruction075-production-20261007/\u63a5\u7d9a/ARC2/\u65e2\u5b58\u9818\u57df\u8ee2\u5199.py",
+      "name": "ORTHOGONAL_DIRECTIONS",
+      "line": 33,
+      "end_line": 33,
+      "sha256": "146773b29e98429f087193beef63fd55c565378dabe4363be0c81011fb0cbf27"
+    },
+    {
+      "source": "/workspace/scratch/7408259c1ab2/reconstruction075-production-20261007/\u63a5\u7d9a/ARC2/\u65e2\u5b58\u9818\u57df\u8ee2\u5199.py",
+      "name": "DIAGONAL_DIRECTIONS",
+      "line": 35,
+      "end_line": 40,
+      "sha256": "3071163f3c6e3096e072086375a8065faa44add31969343959e36f6d8b48b4f2"
+    },
+    {
+      "source": "/workspace/scratch/7408259c1ab2/reconstruction075-production-20261007/\u63a5\u7d9a/ARC2/\u65e2\u5b58\u51e1\u4f8b\u7a74\u5bfe\u5fdc.py",
+      "name": "clone_grid",
+      "line": 21,
+      "end_line": 22,
+      "sha256": "9e1f80ba297806128773d42d588c71b585f1c46f740f4c7c0921ced321833ef5"
+    },
+    {
+      "source": "/workspace/scratch/7408259c1ab2/reconstruction075-production-20261007/\u63a5\u7d9a/ARC2/\u65e2\u5b58\u7269\u4f53\u7279\u5fb4.py",
+      "name": "_record",
+      "line": 18,
+      "end_line": 20,
+      "sha256": "4ab998f1a5dab812e4266747e4f2f0170d742b4847bf1f581003645504941560"
+    },
+    {
+      "source": "/workspace/scratch/7408259c1ab2/reconstruction075-production-20261007/\u63a5\u7d9a/ARC2/\u65e2\u5b58\u7269\u4f53\u7279\u5fb4.py",
+      "name": "_same_color_component_records",
+      "line": 22,
+      "end_line": 56,
+      "sha256": "e7dbc7f1c8bb176c67492d446cc4eaec3a7ffd4a1e98a35a3b037c8078e1c05c"
+    },
+    {
+      "source": "/workspace/scratch/7408259c1ab2/reconstruction075-production-20261007/\u63a5\u7d9a/ARC2/\u65e2\u5b58\u7269\u4f53\u7279\u5fb4.py",
+      "name": "color_component_dicts_for_grid",
+      "line": 58,
+      "end_line": 75,
+      "sha256": "599e5805cfe2b64faace2ff9b1c63740ffdc37d23c2a3e607fc998f41f1b241c"
+    },
+    {
+      "source": "/workspace/scratch/7408259c1ab2/reconstruction075-production-20261007/\u63a5\u7d9a/ARC2/\u65e2\u5b58\u7269\u4f53\u7279\u5fb4.py",
+      "name": "color_components",
+      "line": 98,
+      "end_line": 99,
+      "sha256": "d32862fef4f4d0573b3ac3becc85d56b970319c0a0c58030b452368f58307398"
+    },
+    {
+      "source": "/workspace/scratch/7408259c1ab2/reconstruction075-production-20261007/\u63a5\u7d9a/ARC2/\u65e2\u5b58\u914d\u7f6e\u5c55\u958b.py",
+      "name": "crop_bbox",
+      "line": 21,
+      "end_line": 23,
+      "sha256": "7722c437fd4116bca4833adccacadb48f3d52d1160a320133ec7d6a27aef9e91"
+    },
+    {
+      "source": "/workspace/scratch/7408259c1ab2/reconstruction075-production-20261007/\u63a5\u7d9a/ARC2/\u65e2\u5b58\u683c\u5b50\u64cd\u4f5c.py",
+      "name": "lattice_tile_mask",
+      "line": 64,
+      "end_line": 71,
+      "sha256": "dcbbae0ba995e0394b4024b58581ce14507f508ec9f64761dedd7400a3ba342a"
+    },
+    {
+      "source": "/workspace/scratch/7408259c1ab2/reconstruction075-production-20261007/\u63a5\u7d9a/ARC2/\u65e2\u5b58\u683c\u5b50\u64cd\u4f5c.py",
+      "name": "transform_grid_by_name",
+      "line": 74,
+      "end_line": 91,
+      "sha256": "bd983d890495135579a36f1c880e3b23b7c9d43de8f06a52a2c84bc23e5b1792"
+    }
+  ]
+}

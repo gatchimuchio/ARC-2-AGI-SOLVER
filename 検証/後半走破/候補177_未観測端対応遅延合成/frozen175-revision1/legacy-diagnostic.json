@@ -1,0 +1,465 @@
+{
+  "legacy_features": [
+    2
+  ],
+  "tables": {
+    "2": {
+      "5.0": "bottom",
+      "11.0": "bottom",
+      "7.0": "top",
+      "9.0": "top",
+      "4.0": "bottom",
+      "3.0": "top"
+    }
+  },
+  "queries": [
+    {
+      "legacy_output_present": false,
+      "legacy_record": {
+        "failure": "物体方向がHDSで未確定"
+      },
+      "objects": [
+        {
+          "bbox": [
+            2,
+            3,
+            4,
+            7
+          ],
+          "color": 2,
+          "features": [
+            3.0,
+            5.0,
+            7.0,
+            3.0,
+            3.0,
+            1.0,
+            1.0,
+            1.0,
+            2.0
+          ],
+          "keys": [
+            {
+              "feature": 2,
+              "key": 7.0,
+              "known": true,
+              "side": "top"
+            }
+          ],
+          "hds_status": "出力",
+          "hds_sides": [
+            "top"
+          ],
+          "peer_sides": [
+            "top",
+            "top"
+          ]
+        },
+        {
+          "bbox": [
+            3,
+            19,
+            7,
+            23
+          ],
+          "color": 5,
+          "features": [
+            5.0,
+            5.0,
+            11.0,
+            1.0,
+            2.0,
+            2.0,
+            1.0,
+            2.1818181818181817,
+            1.8181818181818181
+          ],
+          "keys": [
+            {
+              "feature": 2,
+              "key": 11.0,
+              "known": true,
+              "side": "bottom"
+            }
+          ],
+          "hds_status": "出力",
+          "hds_sides": [
+            "bottom"
+          ],
+          "peer_sides": [
+            "bottom",
+            "bottom"
+          ]
+        },
+        {
+          "bbox": [
+            11,
+            4,
+            15,
+            8
+          ],
+          "color": 3,
+          "features": [
+            5.0,
+            5.0,
+            12.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "keys": [
+            {
+              "feature": 2,
+              "key": 12.0,
+              "known": false,
+              "side": null
+            }
+          ],
+          "hds_status": "断定保留",
+          "hds_sides": [],
+          "peer_sides": [
+            "bottom",
+            "bottom"
+          ]
+        },
+        {
+          "bbox": [
+            11,
+            18,
+            15,
+            20
+          ],
+          "color": 3,
+          "features": [
+            5.0,
+            3.0,
+            7.0,
+            1.0,
+            1.0,
+            3.0,
+            3.0,
+            2.0,
+            1.0
+          ],
+          "keys": [
+            {
+              "feature": 2,
+              "key": 7.0,
+              "known": true,
+              "side": "top"
+            }
+          ],
+          "hds_status": "出力",
+          "hds_sides": [
+            "top"
+          ],
+          "peer_sides": [
+            "top",
+            "top"
+          ]
+        },
+        {
+          "bbox": [
+            19,
+            12,
+            21,
+            15
+          ],
+          "color": 4,
+          "features": [
+            3.0,
+            4.0,
+            6.0,
+            1.0,
+            1.0,
+            2.0,
+            1.0,
+            1.0,
+            1.1666666666666667
+          ],
+          "keys": [
+            {
+              "feature": 2,
+              "key": 6.0,
+              "known": false,
+              "side": null
+            }
+          ],
+          "hds_status": "断定保留",
+          "hds_sides": [],
+          "peer_sides": [
+            "bottom",
+            "bottom"
+          ]
+        }
+      ],
+      "peer_failures": [
+        null,
+        null
+      ],
+      "peer_models": [
+        [
+          8,
+          "rotations",
+          false,
+          "vertical",
+          "top"
+        ],
+        [
+          8,
+          "d4",
+          false,
+          "vertical",
+          "top"
+        ]
+      ]
+    },
+    {
+      "legacy_output_present": true,
+      "legacy_record": {
+        "failure": null
+      },
+      "objects": [
+        {
+          "bbox": [
+            2,
+            22,
+            4,
+            24
+          ],
+          "color": 3,
+          "features": [
+            3.0,
+            3.0,
+            4.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "keys": [
+            {
+              "feature": 2,
+              "key": 4.0,
+              "known": true,
+              "side": "bottom"
+            }
+          ],
+          "hds_status": "出力",
+          "hds_sides": [
+            "bottom"
+          ],
+          "peer_sides": [
+            "bottom",
+            "bottom"
+          ]
+        },
+        {
+          "bbox": [
+            4,
+            15,
+            6,
+            17
+          ],
+          "color": 4,
+          "features": [
+            3.0,
+            3.0,
+            5.0,
+            3.0,
+            1.0,
+            1.0,
+            1.0,
+            0.6,
+            1.0
+          ],
+          "keys": [
+            {
+              "feature": 2,
+              "key": 5.0,
+              "known": true,
+              "side": "bottom"
+            }
+          ],
+          "hds_status": "出力",
+          "hds_sides": [
+            "bottom"
+          ],
+          "peer_sides": [
+            "bottom",
+            "bottom"
+          ]
+        },
+        {
+          "bbox": [
+            5,
+            4,
+            8,
+            7
+          ],
+          "color": 1,
+          "features": [
+            4.0,
+            4.0,
+            7.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.2857142857142858,
+            1.7142857142857142
+          ],
+          "keys": [
+            {
+              "feature": 2,
+              "key": 7.0,
+              "known": true,
+              "side": "top"
+            }
+          ],
+          "hds_status": "出力",
+          "hds_sides": [
+            "top"
+          ],
+          "peer_sides": [
+            "top",
+            "top"
+          ]
+        },
+        {
+          "bbox": [
+            7,
+            11,
+            8,
+            12
+          ],
+          "color": 7,
+          "features": [
+            2.0,
+            2.0,
+            3.0,
+            2.0,
+            1.0,
+            2.0,
+            1.0,
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "keys": [
+            {
+              "feature": 2,
+              "key": 3.0,
+              "known": true,
+              "side": "top"
+            }
+          ],
+          "hds_status": "出力",
+          "hds_sides": [
+            "top"
+          ],
+          "peer_sides": [
+            "top",
+            "top"
+          ]
+        },
+        {
+          "bbox": [
+            11,
+            21,
+            14,
+            24
+          ],
+          "color": 6,
+          "features": [
+            4.0,
+            4.0,
+            7.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.7142857142857142,
+            1.2857142857142858
+          ],
+          "keys": [
+            {
+              "feature": 2,
+              "key": 7.0,
+              "known": true,
+              "side": "top"
+            }
+          ],
+          "hds_status": "出力",
+          "hds_sides": [
+            "top"
+          ],
+          "peer_sides": [
+            "top",
+            "top"
+          ]
+        },
+        {
+          "bbox": [
+            15,
+            1,
+            16,
+            2
+          ],
+          "color": 8,
+          "features": [
+            2.0,
+            2.0,
+            3.0,
+            1.0,
+            2.0,
+            1.0,
+            2.0,
+            0.6666666666666666,
+            0.6666666666666666
+          ],
+          "keys": [
+            {
+              "feature": 2,
+              "key": 3.0,
+              "known": true,
+              "side": "top"
+            }
+          ],
+          "hds_status": "出力",
+          "hds_sides": [
+            "top"
+          ],
+          "peer_sides": [
+            "top",
+            "top"
+          ]
+        }
+      ],
+      "peer_failures": [
+        null,
+        null
+      ],
+      "peer_models": [
+        [
+          8,
+          "rotations",
+          false,
+          "vertical",
+          "top"
+        ],
+        [
+          8,
+          "d4",
+          false,
+          "vertical",
+          "top"
+        ]
+      ]
+    }
+  ]
+}

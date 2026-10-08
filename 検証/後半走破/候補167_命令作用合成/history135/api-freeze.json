@@ -1,0 +1,14 @@
+{
+  "厳密枠局所命令.py:valid_grid": "grid",
+  "厳密枠局所命令.py:frames": "grid",
+  "厳密枠局所命令.py:parse": "grid",
+  "厳密枠局所命令.py:act": "grid, blank, ink, model",
+  "厳密枠局所命令.py:render": "grid, *, parser=None",
+  "厳密枠局所命令.py:fit": "teachers",
+  "周期補色局所命令.py:periodic_action": "grid, blank, group_color, model",
+  "周期補色局所命令.py:render": "grid, *, parser=None",
+  "周期補色局所命令.py:fit": "teachers",
+  "対内枠色命令視野.py:parse": "grid",
+  "対内枠色命令視野.py:render": "grid",
+  "枠局所命令接続.py:fit_after_complete_instruction_no_fit": "teachers, old_models, old_record"
+}

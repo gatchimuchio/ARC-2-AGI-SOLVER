@@ -1,0 +1,37 @@
+{
+  "status": "REVISION2_FROZEN_AWAITING_INDEPENDENT_REVIEW",
+  "base_commit": "4b67e4f31ecf4c214408c7f642ccdd3738b30641",
+  "revision1_frozen_files_unchanged": true,
+  "checks": 52,
+  "target_reads": 0,
+  "scorer_calls": 0,
+  "native_integration_runs": 0,
+  "files": {
+    "proposal175-missing-edge-bindings-revision2-20261008/peer_edge.py": "7606e9e38b8197fcabba819d1b32d63ab98aaffd43596107ec3241e8e32e77dc",
+    "proposal175-missing-edge-bindings-revision2-20261008/checks.json": "adc378bbe35445129e949f86bceb37fa075574198c69d59103e87bea3c45e33e",
+    "proposal175-missing-edge-bindings-revision2-20261008/check.py": "1b195368d144539740865defa2491e5b51e75bb74e18312fa33c10bde0fecbe7",
+    "proposal175-missing-edge-bindings-revision2-20261008/teachers-only.json": "c598b204d841577e22da6b0ed9b65440f5ddcc3710964778015aa80745d2083d",
+    "proposal175-missing-edge-bindings-revision2-20261008/revision1-blocked-evidence.json": "9c9d307b5bb10d9a4081afda14dd966baf097c609803e2d0d99e408d324898d5",
+    "proposal175-missing-edge-bindings-revision2-20261008/missing_edge_bindings.py": "bf9009247d97c93836f6dff12699fc73d4c90f6e1983db8bb8d14db53ae3ed37",
+    "proposal175-missing-edge-bindings-revision2-20261008/README.md": "130ff780c8e0f5f2430ddd777952d1240dc0a7035ed2d8aee06f5f567650066d"
+  },
+  "accepted_source_pins": {
+    "candidate167-production-20261007/HDS/学習系統/v0.4.2/hds学習系統/排気系.py": "2ba7ceb8d0d6c784d092f91fe484477127f044e50f68c54c977374b17f2f6361",
+    "candidate167-production-20261007/HDS/学習系統/v0.4.2/hds学習系統/永続化.py": "8aa431b3012424fd8347c5b3d93a5fbf2218d35020836f5d40abb427f9d6da0d",
+    "candidate167-production-20261007/HDS/学習系統/v0.4.2/hds学習系統/懐疑.py": "bb7e85c2dbafbd430f1b7733bf3a2d307dc24e3227e79994b491cf711322f715",
+    "candidate167-production-20261007/HDS/学習系統/v0.4.2/hds学習系統/__init__.py": "eaed97760656afc40088ad7e0d85a02fbd59a0d0034054956e9ead63319fba57",
+    "candidate167-production-20261007/HDS/学習系統/v0.4.2/hds学習系統/実行系.py": "11d253705181873bcc22e312a0d0a2198fe16a82e3d7289ea8746fdc14695429",
+    "candidate167-production-20261007/HDS/学習系統/v0.4.2/hds学習系統/吸気系.py": "50c48e5a9a8aa39158d0cdaacc0501608a829486960d41cb2fea6cb02e5660a4",
+    "candidate167-production-20261007/HDS/学習系統/v0.4.2/hds学習系統/推論.py": "315dd0d23a9682cdf14be71346341976cbdbcd2cbd924a250afc4ad53058dba6",
+    "candidate167-production-20261007/HDS/学習系統/v0.4.2/hds学習系統/適応.py": "c74797d49472646010ed0b37bd17dfa602084ba3347ac9386dec265e78a797ac",
+    "candidate167-production-20261007/HDS/学習系統/v0.4.2/hds学習系統/台帳.py": "a6cab8fca7cb591c42fa7444f9678fe0003da69faafcce852598286dceb522e2",
+    "candidate167-production-20261007/HDS/学習系統/v0.4.2/hds学習系統/系統.py": "f57e34fcab9249ad7fef72d7b9088fbb440c01afcd4313c9447b7a31427bd4a5",
+    "candidate167-production-20261007/HDS/学習系統/v0.4.2/hds学習系統/検証.py": "e23f271d38e1f52d75557dbf3342abf7b59a85fbdc315a06c0040fd7ca204eb3",
+    "candidate167-production-20261007/HDS/学習系統/v0.4.2/hds学習系統/型.py": "aa1241708655280b36564f5e3ff6968849b4d09790b8932aabad1570cbca302c",
+    "candidate167-production-20261007/接続/ARC2/物体端投射.py": "7539bfb42258fed95e6cd54b025ab3d6be9edb6f7391415d310262ce414e4778",
+    "candidate167-production-20261007/接続/ARC2/既存物体特徴.py": "e7a662182961e45cdba38a00bbd267ad03261cb1217dc8d08f2d867d9f4acc60",
+    "candidate167-production-20261007/接続/ARC2/既存正方形座標.py": "8ec3246e2f2ada0d9505e26cd2355dd791fd0b2f8281795b22adaff37d642d36",
+    "candidate167-production-20261007/接続/ARC2/既存領域転写.py": "76a73e2228f7546a2ad22c30dfaf6550a494d3ee40cffdb22926afa4d75fe304",
+    "candidate167-production-20261007/接続/ARC2/HDS接続.py": "4325716c20630d1491a1b9c974c8736d5f42012ff3c83a1dabd8eb7f0e5cb830"
+  }
+}

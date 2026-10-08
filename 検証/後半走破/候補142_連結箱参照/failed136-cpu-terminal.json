@@ -1,0 +1,8 @@
+{
+  "pid": 4,
+  "exit_code": -24,
+  "reaped": true,
+  "timeout": false,
+  "wall_seconds": 10.489745616912842,
+  "cpu_seconds": 10.516947
+}

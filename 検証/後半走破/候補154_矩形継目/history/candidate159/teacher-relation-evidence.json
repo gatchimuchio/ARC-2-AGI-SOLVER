@@ -1,0 +1,85 @@
+[
+  {
+    "teacher": 0,
+    "roles": {
+      "background": 8,
+      "marker": 4,
+      "border": 7,
+      "anchor": [
+        9,
+        17
+      ],
+      "signs": [
+        -1,
+        -1
+      ],
+      "host": 3
+    },
+    "payload_colors": [
+      {
+        "color": 0,
+        "input_c4_count": 2,
+        "input_sizes": [
+          8,
+          7
+        ],
+        "output_c4_count": 1,
+        "output_sizes": [
+          15
+        ],
+        "input_pixels": 15,
+        "output_pixels": 15
+      },
+      {
+        "color": 2,
+        "input_c4_count": 3,
+        "input_sizes": [
+          3,
+          3,
+          6
+        ],
+        "output_c4_count": 1,
+        "output_sizes": [
+          12
+        ],
+        "input_pixels": 12,
+        "output_pixels": 12
+      }
+    ]
+  },
+  {
+    "teacher": 1,
+    "roles": {
+      "background": 8,
+      "marker": 4,
+      "border": 3,
+      "anchor": [
+        2,
+        2
+      ],
+      "signs": [
+        1,
+        1
+      ],
+      "host": 1
+    },
+    "payload_colors": [
+      {
+        "color": 9,
+        "input_c4_count": 4,
+        "input_sizes": [
+          2,
+          4,
+          3,
+          4
+        ],
+        "output_c4_count": 1,
+        "output_sizes": [
+          13
+        ],
+        "input_pixels": 13,
+        "output_pixels": 13
+      }
+    ]
+  }
+]

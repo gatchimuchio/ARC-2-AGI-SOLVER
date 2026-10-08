@@ -1,0 +1,15 @@
+{
+  "status": "frozen_before_parent_prediction",
+  "query_render_count": 0,
+  "files": {
+    "check_composition.py": "7c7c84266f7a74ee3b43a1744bbd8e76b627b17db50db2733320d8a1f850744b",
+    "check_inherited.py": "d997aa68ce7cb305977e3600620adbc93bff84ef2d95994725cd74832806559b",
+    "composition-result.json": "870271af4b7506e1cfcc651a8c364712bba981a2114caadcc395129fe07e6b3a",
+    "runtime-source/接続/ARC2/厳密枠局所命令.py": "921026d88a2c739c15840f34280fadf9ed959cab827d17ff8b0ec56192f80b36",
+    "runtime-source/接続/ARC2/周期補色局所命令.py": "2549295bf02989c15b86f7154e1993ad8985ef3f8fb1498f429762786b9c7d24",
+    "runtime-source/接続/ARC2/対内枠色命令視野.py": "7c22fed6f79ddc4337ed3efcd27005f9059e372079a680b6fdfdc27978433823",
+    "runtime-source/接続/ARC2/枠局所命令接続.py": "75ca3feb0f274ac3f0db8ca2ffd7f38171b7198fee9a1d11599ffcaccd3d7544",
+    "teachers-only.json": "0fd210b38f0c28d9bbee7d47693bd76c28e21f32f597737e50d7a0b23842b46a",
+    "train-and-contrasts-result.json": "11776d8baec93f940d0aa2dc2205a07043d953d41de6f7b5d34b64f3a87ae078"
+  }
+}

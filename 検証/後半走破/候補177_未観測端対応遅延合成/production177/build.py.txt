@@ -1,0 +1,27 @@
+from pathlib import Path
+import shutil,json,hashlib,difflib
+E=Path(__file__).resolve().parent;B=E.parent;A=B/'candidate175-production-20261008';R=B/'candidate177-production-20261008'
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+assert sha(A/'missing_edge_bindings.py')=='bf9009247d97c93836f6dff12699fc73d4c90f6e1983db8bb8d14db53ae3ed37'
+shutil.copytree(A,R,ignore=shutil.ignore_patterns('.git','__pycache__'))
+p=R/'missing_edge_bindings.py';s=p.read_text();s=s.replace('from peer_edge import fit, render','from copy import deepcopy\nfrom peer_edge import fit, render')
+s=s.replace('        self.peer_models, _ = fit(teachers)','        self._peer_teachers = deepcopy(teachers)\n        self.peer_models = None  # None is uninitialized; () is a completed empty fit.')
+needle='    def learn(self, machine, observe):'
+assert s.count(needle)==1
+s=s.replace(needle,'''    def _fit_peers_once(self):
+        if self.peer_models is None:
+            models, _ = fit(self._peer_teachers)
+            # Publish only a completed exhaustive fit. Exceptions propagate and
+            # never install a partial model set or an empty success sentinel.
+            self.peer_models = models
+            self._peer_teachers = None
+
+'''+needle)
+needle="        if not self.peer_models:\n            return hold('no_teacher_fitting_peer_models')"
+assert s.count(needle)==1
+s=s.replace(needle,"        self._fit_peers_once()\n"+needle);p.write_text(s)
+p=R/'接続/ARC2/未観測端対応合成.py';s=p.read_text();s=s.replace('"保持peer候補数": len(self.peer_models),','"保持peer候補数": None if self.peer_models is None else len(self.peer_models),\n                "peer学習完了": self.peer_models is not None,');p.write_text(s)
+changed=[str(p.relative_to(R))for p in R.rglob('*')if p.is_file()and sha(p)!=sha(A/p.relative_to(R))];assert set(changed)=={'missing_edge_bindings.py','接続/ARC2/未観測端対応合成.py'}
+patch=''.join(''.join(difflib.unified_diff((A/n).read_text().splitlines(True),(R/n).read_text().splitlines(True),fromfile='candidate175/'+n,tofile='candidate177/'+n))for n in changed);(E/'lazy-fit.patch').write_text(patch)
+freeze={'base':'rejected175 unchanged revision2 semantics except lazy evaluation','accepted_base_commit':'4b67e4f31ecf4c214408c7f642ccdd3738b30641','changed_from175':changed,'files':{str(p.relative_to(R)):sha(p)for p in R.rglob('*')if p.is_file()},'official_scorer_calls':0}
+(E/'pre-targeted-freeze.json').write_text(json.dumps(freeze,ensure_ascii=False,indent=2));print(json.dumps({n:sha(R/n)for n in changed},ensure_ascii=False))

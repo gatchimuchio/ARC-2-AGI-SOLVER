@@ -1,0 +1,65 @@
+from pathlib import Path
+import json,hashlib,subprocess,gzip,shutil,stat,zipfile
+E=Path(__file__).resolve().parent;B=E.parent;R=B/'candidate167-production-20261007';A=B/'accepted97-138-from96-137-increment-restore-final-20261007';base='3838872c3cdb7cad741819b59b4e70f7a0494071'
+h=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+def dump(p,obj):p.write_text(json.dumps(obj,ensure_ascii=False,indent=2)+'\n')
+def git(repo,*args):return subprocess.check_output(['git','-c','gc.auto=0','-c','maintenance.auto=false','-C',str(repo),*args])
+assert (A/'.git').is_dir() and git(A,'rev-parse','HEAD').decode().strip()==base
+assert not git(A,'status','--porcelain');git(A,'fsck','--full','--strict')
+assert not (R/'.git').exists();shutil.copytree(A/'.git',R/'.git')
+assert h(A/'.git/shallow')==h(R/'.git/shallow');git(R,'fsck','--full','--strict')
+pins=json.loads((E/'pre-score-freeze.json').read_text())['files'];assert all(h(R/x['path'])==x['sha256'] and (R/x['path']).stat().st_size==x['bytes'] and oct(stat.S_IMODE((R/x['path']).stat().st_mode))==x['mode'] for x in pins)
+assert git(R,'rev-parse','HEAD').decode().strip()==base
+D=R/'検証/後半走破/候補167_命令作用合成';D.mkdir(parents=True)
+dump(D/'pre-admission-pin-conservation.json',{'all_pins_unchanged':len(pins),'bytes_modes_hashes_verified':True,'verified_before_admission_document_changes':True})
+def preserve(src,dst):
+ dst.parent.mkdir(parents=True,exist_ok=True)
+ if src.suffix=='.py':dst=dst.with_name(dst.name+'.txt')
+ if src.stat().st_size>10000 or src.suffix in ('.stdout','.stderr'):
+  dst=dst.with_name(dst.name+'.gz');dst.write_bytes(gzip.compress(src.read_bytes(),mtime=0))
+ else:shutil.copy2(src,dst)
+for p in E.rglob('*'):
+ if p.is_file():preserve(p,D/'production-evidence'/p.relative_to(E))
+for dirname,label in [('proposal167-instruction-action-composition-20261007','frozen167'),('candidate167-independent-audit-20261007','independent167'),('candidate167-input-only-20261007','input-only167'),('proposal131-existing-instruction-view-20261007','history131'),('proposal135-instruction-tag-binding-20261007','history135')]:
+ source=B/dirname
+ for p in source.rglob('*'):
+  if not p.is_file() or '__pycache__' in p.parts or p.name=='payload.json' or (label=='input-only167' and 'source' in p.relative_to(source).parts):continue
+  preserve(p,D/label/p.relative_to(source))
+J=B/'candidate165-production-evidence-20261007'
+for name in ('REVIEW.md','delta.json','score-terminal.json','post-score-pin-conservation.json'):
+ preserve(J/name,D/'rejected165'/name)
+dump(D/'rejected165/decision.json',{'decision':'REJECT','reason':'wrong_emitted=1','not_used_as_base':True,'accepted_parent':base})
+dump(D/'admission.json',{'decision':'ADMIT_LOCAL','previous':[97,138],'current':[98,139],'delta':[1,1],'parent_commit':base,'basis':'Explicit root admission after independent result, pin and protected-file verification','public_score_runs':1,'coverage':'109 fresh scripts plus unchanged pinned29-case window scope;110 scripts/7868 checks','remote_push':False,'upload':False})
+p=R/'制御/現在状態.json';s=json.loads(p.read_text());s['現在作業']='検証済み98/139から、残る22課題を既存能力の適用・合成優先で攻略する';s['現在検証済み'].update({'課題':98,'正答格子':139,'未完了課題':22});s['証拠']=str(D.relative_to(R));dump(p,s)
+p=R/'戦略/README.md';p.write_text(p.read_text()+'\n最新採用:候補167の既存記号命令列内の有限作用合成で98/139。課題+1、正答格子+1、138旧格子全保持、誤出力/通常資源失敗0。凍結167の全4moduleを採用基底166へ統合し、131/135由来の所有視野とtag binding連鎖を含む。D4全9非自明subgroup・全288作用を列挙し、retained失敗・不一致を保存。HDS接続、core、全体gateは不変。独立監査、native両出力一致、109本の新規実行と保存window29、同一条件120/167の公開評価1回で検証。棄却165は誤出力1で不採用、基底に不使用。関連131/135履歴を非runtime証拠として保存。残り22課題。\n')
+changed=[x['path'] for x in pins if h(R/x['path'])!=x['sha256']];assert sorted(changed)==sorted(['制御/現在状態.json','戦略/README.md'])
+dump(D/'post-admission-pin-conservation.json',{'pre_score_pins':len(pins),'unchanged_pins':len(pins)-len(changed),'authorized_document_only_changes':changed,'runtime_and_test_pins_unchanged':True})
+paths=['接続/ARC2/'+n+'.py' for n in ('厳密枠局所命令','周期補色局所命令','対内枠色命令視野','枠局所命令接続')]+[str(D.relative_to(R)),'制御/現在状態.json','戦略/README.md']
+git(R,'add','--',*paths);git(R,'-c','user.name=ARC2 local validation','-c','user.email=arc2-local@localhost','commit','-m','ARC2: compose finite instruction orbit actions (98/139)')
+head=git(R,'rev-parse','HEAD').decode().strip();tree=git(R,'rev-parse','HEAD^{tree}').decode().strip();assert git(R,'rev-parse','HEAD^').decode().strip()==base;assert not git(R,'diff','HEAD','--stat')
+P=B/'accepted98-139-from97-138-increment-export-20261007';P.mkdir();git(R,'bundle','create',str(P/'checkpoint.bundle'),'HEAD','^'+base)
+blobs=[];links=[]
+for row in git(R,'ls-tree','-rz','HEAD').split(b'\0'):
+ if not row:continue
+ hdr,path=row.split(b'\t',1);mode,kind,oid=hdr.decode().split();path=path.decode()
+ if kind=='blob':raw=(R/path).read_bytes();blobs.append({'path':path,'mode':mode,'git_blob':oid,'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest()})
+ else:links.append({'path':path,'mode':mode,'commit':oid})
+dump(P/'git-tree-manifest.json',{'head':head,'parent':base,'base_commit':base,'base_tree':git(R,'rev-parse',base+'^{tree}').decode().strip(),'tree':tree,'commits':[head],'blobs':blobs,'gitlinks':links})
+(P/'accepted-commit.raw').write_bytes(git(R,'cat-file','commit',head));dump(P/'local-commit.json',{'head':head,'tree':tree,'base':base,'normal_parent_history':True})
+shutil.copy2(D/'post-admission-pin-conservation.json',P/'post-admission-pin-conservation.json');shutil.copy2(E/'delta.json',P/'delta.json')
+s=(B/'accepted97-138-from96-137-increment-export-20261007/restore_verify.py').read_text().replace('exact97/138','exact98/139');(P/'restore_verify.py').write_text(s)
+(P/'README.txt').write_text(f'''ARC2 accepted98/139 increment from97/138\nHead {head}\nParent/base {base}\nTree {tree}\nRequires ARC2-accepted97-138-from96-137-recovery-20261007.zip\n1383235 bytes, SHA256 654664851b9764cc36406efa0b022c308f13465ad6313ff913b11ff2e3bc1e24\nRestore its documented prerequisites first.\npython restore_verify.py --base /path/to/restored97-138 --destination /new/restored98-139\nUses verified standalone base with original shallow metadata. No history rewrite. No network, solver, tests or scorer during restore. Verifies every tracked blob, mode, commit, parent, tree, clean worktree, and strict full fsck. Official dependency gitlink remains; evaluation requires verified source materialized separately.\nMeasured97/138 ->98/139, all138 old outputs exact, wrong/resources0.110 regression scripts/7868 checks (109 fresh plus conserved window29). One public score;2400 frozen pins stable before admission, only state/strategy documents changed afterward. Initial namespace-import harness error retained; corrected targeted checks pass. Related131/135 view/binding history and compact rejected165 wrong1 evidence preserved. No push/upload.\n''')
+restore=B/'accepted98-139-from97-138-increment-restore-test-20261007'
+p=subprocess.run(['python',str(P/'restore_verify.py'),'--base',str(A),'--destination',str(restore)],capture_output=True);(P/'restore-test.stdout').write_bytes(p.stdout);(P/'restore-test.stderr').write_bytes(p.stderr);assert p.returncode==0,p.stderr.decode();dump(P/'restore-test-verification.json',json.loads(p.stdout))
+files=[{'path':f.name,'bytes':f.stat().st_size,'sha256':h(f)} for f in sorted(P.iterdir()) if f.is_file()];dump(P/'PACKAGE-MANIFEST.json',{'checkpoint':[98,139],'head':head,'requires_base':base,'files':files,'restore_verified':True})
+(P/'SHA256SUMS.txt').write_text(''.join(h(f)+'  '+f.name+'\n' for f in sorted(P.iterdir()) if f.is_file()))
+Z=B/'ARC2-accepted98-139-from97-138-recovery-20261007.zip'
+with zipfile.ZipFile(Z,'x',compression=zipfile.ZIP_DEFLATED,compresslevel=9) as z:
+ for f in sorted(P.iterdir()):z.write(f,f.relative_to(P))
+with zipfile.ZipFile(Z) as z:assert z.testzip() is None
+X=B/'accepted98-139-from97-138-extracted-20261007';X.mkdir()
+with zipfile.ZipFile(Z) as z:z.extractall(X)
+final=B/'accepted98-139-from97-138-increment-restore-final-20261007'
+p=subprocess.run(['python',str(X/'restore_verify.py'),'--base',str(A),'--destination',str(final)],capture_output=True);(E/'archive-restore.stdout').write_bytes(p.stdout);(E/'archive-restore.stderr').write_bytes(p.stderr);assert p.returncode==0,p.stderr.decode();proof=json.loads(p.stdout);dump(E/'final-archive-verification.json',proof)
+receipt={'path':str(Z),'bytes':Z.stat().st_size,'sha256':h(Z),'head':head,'base':base,'tree':tree,'restore_verified_blobs':len(blobs),'restore_verified_path':str(final),'extracted_archive_verified':True,'restored_clean':True,'git_fsck_full_strict_exit':0,'uploaded':False,'pushed':False}
+dump(B/'accepted98-139-from97-138-increment-export-receipt-20261007.json',receipt);print(json.dumps(receipt,indent=2))

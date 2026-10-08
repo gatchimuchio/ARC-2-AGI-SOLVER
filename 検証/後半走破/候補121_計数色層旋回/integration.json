@@ -1,0 +1,33 @@
+{
+  "base_commit": "9c1075bae28da663a10e72943d32d289a14b8dd2",
+  "root": "/workspace/scratch/7408259c1ab2/candidate121-production-20261007",
+  "new_boundary": "ARC計数色層旋回",
+  "files": [
+    {
+      "path": "接続/ARC2/計数色層旋回候補.py",
+      "bytes": 10828,
+      "sha256": "3d98bbaae5bdb1c71408733c0c57a2916c25eb7e5371138deedc1c5b47bc33ab"
+    },
+    {
+      "path": "接続/ARC2/計数色層旋回教材.py",
+      "bytes": 435,
+      "sha256": "7253b2983a85e5c9f733c8743e4586715817a34baf2c7ac115f2ae1850f8482b"
+    },
+    {
+      "path": "接続/ARC2/HDS接続.py",
+      "bytes": 24848,
+      "sha256": "bf383826b9e26dc2b5e1ca310939c93f181318a0aee1dda57c42a91929caac5c"
+    },
+    {
+      "path": "検証/計数色層旋回回帰.py",
+      "bytes": 5373,
+      "sha256": "e3809eaf5e1d56592c0a106dd7179a91fee7294d19f6eea2ea77829443509a8e"
+    },
+    {
+      "path": "検証/計数色層旋回資料/teachers-only.json",
+      "bytes": 22466,
+      "sha256": "f265631909f5fd7fc7da11d4f3af1e7ea5d05791df516636327afc1e4ad5f4ae"
+    }
+  ],
+  "bridge_delta": "four prepared import/constructor/registration/diagnostic additions; generic learning/final consensus unchanged"
+}

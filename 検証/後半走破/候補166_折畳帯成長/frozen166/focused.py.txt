@@ -1,0 +1,65 @@
+"""Owned synthetic validation; no sanitized test inputs or target comparisons."""
+import sys,json,random,subprocess
+from pathlib import Path
+sys.dont_write_bytecode=True
+HERE=Path(__file__).resolve().parent;ROOT=HERE.parent
+sys.path.insert(0,str(ROOT/'candidate156-production-20261007'))
+import growth_series as s
+report={};passed=total=0
+for a in range(-5,6):
+ for b in range(-5,6):
+  for c in range(-5,6):
+   for lo in range(4):
+    intervals=s.nonnegative_intervals(a,b,c,lo)
+    ok=all(any(x<=q and (y is None or q<=y) for x,y in intervals)==(a*q*q+b*q+c>=0) for q in range(lo,101))
+    total+=1;passed+=ok
+report['exact_inequality_cases']={'passed':passed,'total':total}
+# Independent centered-row composition: different unit and geometry from supplied inputs.
+def centered(target=5,interior=True,patterns=((1,1,1),(1,0,1),(1,0,0))):
+ palette=(2,4);center=25
+ radius=lambda n:4+3*(n//2)+(2 if n%2 else 0)
+ patch=lambda n:[[palette[n%2] if v else 0 for v in patterns[abs(r-(radius(n)-1))%3]] for r in range(2*radius(n)-1)]
+ full=patch(target);x=1+4*target;top=center-(radius(target)-1);bottom=center+(radius(target)-1)
+ g=[[0]*(x+5) for _ in range(max(52,bottom+2))]
+ for n in range(5):
+  p=patch(n);t=center-(radius(n)-1)
+  for r,row in enumerate(p):g[t+r][1+4*n:4+4*n]=row
+ win=[top+2,x+1,bottom-1,x+2] if interior else [top,x,bottom,x+2]
+ a,b,d,e=win
+ for r,c in [(a,b),(a,b+1),(a+1,b),(d,e),(d,e-1),(d-1,e)]:g[r][c]=5
+ expected=[row[b-x:e-x+1] for row in full[a-top:d-top+1]]
+ return g,expected
+checks=[]
+for target in (5,6,8):
+ for interior in (False,True):
+  g,expected=centered(target,interior)
+  for k in range(4):
+   for f in (False,True):checks.append(s.predict(s.transform(g,k,f))==s.transform(expected,k,f))
+for target in (5,6,8):
+ g,expected=centered(target,True,((1,0,0),(1,1,0),(1,1,1)))
+ for k in range(4):
+  for f in (False,True):checks.append(s.predict(s.transform(g,k,f))==s.transform(expected,k,f))
+report['centered_periodic_growth_d4']={'passed':sum(checks),'total':len(checks)}
+# Explicit unbounded index sets may never be silently truncated.
+laws=(('quadratic',0,0,0),('quadratic',0,0,0),('quadratic',10,0,0),('quadratic',10,0,0))
+indices,unbounded=s.containing_indices(laws,[2,2,5,5],3)
+report['unbounded_geometry_detected']=unbounded and not indices
+# Exact containment has two finite alternatives here; both must be retained.
+laws=(('quadratic',0,0,0),('quadratic',0,3,-2),('quadratic',10,0,0),('quadratic',1,3,-2))
+indices,unbounded=s.containing_indices(laws,[2,3,5,4],0)
+report['multiple_indices']={'indices':indices,'unbounded':unbounded,'exact':indices==[1,3]}
+# Test unfamiliar source-fitted future failures in consensus.
+g,expected=centered();old=s.radial_predict
+s.radial_predict=lambda grid,role,transpose=False:(None,{'source_fitted':True,'failure':'unfamiliar_future_failure'})
+report['failed_retained_prediction_holds']=s.predict(g) is None;s.radial_predict=old
+# Modal tie witness from independent160 audit.
+g=[[0]*15 for _ in range(10)]
+for n in range(3):
+ for r in range(6+2*n):
+  for c in range(4*n,4*n+3):g[r][c]=1
+for r,c in [(0,12),(0,13),(1,12),(9,14),(9,13),(8,14)]:g[r][c]=5
+report['tied_mode_d4_holds']=all(s.predict(s.transform(g,k,f)) is None for k in range(4) for f in (False,True))
+code="import sys,importlib.util;sys.dont_write_bytecode=True;sys.path.insert(0,"+repr(str(ROOT/'candidate156-production-20261007'))+");z=importlib.util.spec_from_file_location('portable',"+repr(str(HERE/'growth_series.py'))+");m=importlib.util.module_from_spec(z);z.loader.exec_module(m);assert m.predict([]) is None"
+p=subprocess.run([sys.executable,'-c',code],cwd='/tmp',capture_output=True,text=True)
+report['portable_import']=p.returncode==0
+(HERE/'focused-report.json').write_text(json.dumps(report,indent=2));print(json.dumps(report,indent=2))

@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "independent_oracle_grid_cases": 39,
+  "teacher_cases": 3,
+  "resource_propagation_paths": 3,
+  "injected_role_aggregation_cases": 5,
+  "source_sha256": "091f639523ddedc4bd11b222e7e931a1defb19e38ebd6173b5abf6b37fd1cdbb"
+}

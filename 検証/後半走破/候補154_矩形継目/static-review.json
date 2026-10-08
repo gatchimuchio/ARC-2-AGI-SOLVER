@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "changed_existing_files": [
+    "接続/ARC2/HDS接続.py"
+  ],
+  "bridge_exact_four_additions": true,
+  "core_and_old_gates_unchanged": true,
+  "new_priors": "frozen154 seam-or-whole-wall over frozen153 rectangular assembly only",
+  "excluded_candidates": [
+    155,
+    157,
+    158,
+    159
+  ],
+  "no_additional_pruning": true,
+  "pure_code_imports": [
+    "from dataclasses import dataclass",
+    "from collections import Counter",
+    "from . import anchored_rectangle as base",
+    "from dataclasses import dataclass",
+    "from collections import Counter",
+    "from 接続.ARC2.標点組立教材 import mixed_c8, valid_grid, WorkBudget, BudgetIncomplete",
+    "from .矩形継目 import seam_rectangle as api"
+  ],
+  "resource_records_raise": "BudgetIncomplete -> nonzero runtime -> resource_failures.runtime_exit",
+  "helpers_verified": 206,
+  "input_only_native_parity": true,
+  "score_calls_before_full": 0
+}

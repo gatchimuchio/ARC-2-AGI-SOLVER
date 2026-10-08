@@ -1,0 +1,4 @@
+{
+  "exit_code": 1,
+  "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"<frozen importlib._bootstrap_external>\", line 999, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/workspace/scratch/7408259c1ab2/proposal160-growth-series-composition-20261007/growth_series.py\", line 15, in <module>\n    from geometry import observe\nModuleNotFoundError: No module named 'geometry'\n"
+}

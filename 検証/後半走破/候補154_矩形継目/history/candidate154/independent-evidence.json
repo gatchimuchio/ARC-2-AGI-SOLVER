@@ -1,0 +1,3362 @@
+{
+  "all_passed": true,
+  "total": 669,
+  "stats": {
+    "cases": 360,
+    "geometry": 527,
+    "seam_valid": 472,
+    "seam_invalid": 55,
+    "ambiguous": 8
+  },
+  "hashes": {
+    "proposal154-rectangle-seam-composition-20261007/seam_rectangle.py": "1e7d97da06e3c72808147c0e6e4fedd0956798733dfd3f605954695836f6d0c4",
+    "proposal153-existing-composition-20261007/anchored_rectangle.py": "3b25da045f96cb799a4d84c0c4159fd3b39e34214212f72936ea5b87940e4ad7"
+  },
+  "checks": [
+    {
+      "name": "initial_hash_proposal154-rectangle-seam-composition-20261007/seam_rectangle.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "initial_hash_proposal153-existing-composition-20261007/anchored_rectangle.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teachers_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_d4_0_0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_d4_0_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_d4_0_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_d4_0_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_d4_1_0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_d4_1_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_d4_1_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_d4_1_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_11",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_12",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_13",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_14",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_15",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_16",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_17",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_18",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_19",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_20",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_21",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_22",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_23",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_24",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_25",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_26",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_27",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_28",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_29",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_30",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_31",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_32",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_33",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_34",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_35",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_36",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_37",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_38",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_39",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_40",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_41",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_42",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_43",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_44",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_45",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_46",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_47",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_48",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_49",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_50",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_51",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_52",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_53",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_54",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_55",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_56",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_57",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_58",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_59",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_60",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_61",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_62",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_63",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_64",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_65",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_66",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_67",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_68",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_69",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_70",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_71",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_72",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_73",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_74",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_75",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_76",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_77",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_78",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_79",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_80",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_81",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_82",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_83",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_84",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_85",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_86",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_87",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_88",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_89",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_90",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_91",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_92",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_93",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_94",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_95",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_96",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_97",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_98",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_99",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_100",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_101",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_102",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_103",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_104",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_105",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_106",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_107",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_108",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_109",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_110",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_111",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_112",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_113",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_114",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_115",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_116",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_117",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_118",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_119",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_120",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_121",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_122",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_123",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_124",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_125",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_126",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_127",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_128",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_129",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_130",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_131",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_132",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_133",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_134",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_135",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_136",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_137",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_138",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_139",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_140",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_141",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_142",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_143",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_144",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_145",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_146",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_147",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_148",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_149",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_150",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_151",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_152",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_153",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_154",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_155",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_156",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_157",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_158",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_159",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_160",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_161",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_162",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_163",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_164",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_165",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_166",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_167",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_168",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_169",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_170",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_171",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_172",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_173",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_174",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_175",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_176",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_177",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_178",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_exact_budget",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_d4_0_0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_d4_0_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_d4_0_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_d4_0_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_d4_1_0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_d4_1_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_d4_1_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_d4_1_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_11",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_12",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_13",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_14",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_15",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_16",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_17",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_18",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_19",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_20",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_21",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_22",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_23",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_24",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_25",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_26",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_27",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_28",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_29",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_30",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_31",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_32",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_33",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_34",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_35",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_36",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_37",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_38",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_39",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_40",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_41",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_42",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_43",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_44",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_45",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_46",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_47",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_48",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_49",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_50",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_51",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_52",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_53",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_54",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_55",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_56",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_57",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_58",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_59",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_60",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_61",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_62",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_63",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_64",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_65",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_66",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_67",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_68",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_69",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_70",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_71",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_72",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_73",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_74",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_75",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_76",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_77",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_78",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_79",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_80",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_81",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_82",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_83",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_84",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_85",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_86",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_87",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_88",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_89",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_90",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_91",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_92",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_exact_budget",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "equal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "wall_a",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "wall_b",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "alternating_walls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "partial_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_11",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_12",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_13",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_14",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_15",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_16",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_17",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_18",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_19",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_20",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_21",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_22",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_23",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_24",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_25",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_26",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_27",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_28",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_29",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_30",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_31",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_32",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_33",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_34",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_35",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_36",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_37",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_38",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_39",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_40",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_41",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_42",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_43",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_44",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_45",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_46",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_47",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_48",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_49",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_50",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_51",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_52",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_53",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_54",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_55",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_56",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_57",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_58",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_59",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_60",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_61",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_62",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_63",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_64",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_65",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_66",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_67",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_68",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_69",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_70",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_71",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_72",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_73",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_74",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_75",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_76",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_77",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_78",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_79",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_80",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_81",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_82",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_83",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_84",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_85",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_86",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_87",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_88",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_89",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_90",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_91",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_92",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_93",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_94",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_95",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_96",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_97",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_98",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_99",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_100",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_101",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_102",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_103",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_104",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_105",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_106",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_107",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_108",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_109",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_110",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_111",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_112",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_113",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_114",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_115",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_116",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_117",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_118",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_119",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_120",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_121",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_122",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_123",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_124",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_125",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_126",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_127",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_128",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_129",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_130",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_131",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_132",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_133",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_134",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_135",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_136",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_137",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_138",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_139",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_140",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_141",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_142",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_143",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_144",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_145",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_146",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_147",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_148",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_149",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_150",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_151",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_152",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_153",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_154",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_155",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_156",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_157",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_158",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_159",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_160",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_161",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_162",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_163",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_164",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_165",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_166",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_167",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_168",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_169",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_170",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_171",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_172",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_173",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_174",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_175",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_176",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_177",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_178",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_179",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_180",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_181",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_182",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_183",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_184",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_185",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_186",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_187",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_188",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_189",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_190",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_191",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_192",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_193",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_194",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_195",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_196",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_197",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_198",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_199",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_201",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_202",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_203",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_204",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_205",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_206",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_207",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_208",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_209",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_210",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_211",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_212",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_213",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_214",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_215",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_216",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_217",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_218",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_219",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_220",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_221",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_222",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_223",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_224",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_225",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_226",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_227",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_228",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_229",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_230",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_231",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_232",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_233",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_234",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_235",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_236",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_237",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_238",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_239",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_240",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_241",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_242",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_243",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_244",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_245",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_246",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_247",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_248",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_249",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_250",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_251",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_252",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_253",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_254",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_255",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_257",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_258",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_259",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_260",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_261",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_262",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_263",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_264",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_265",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_266",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_267",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_268",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_269",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_270",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_271",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_272",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_273",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_274",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_275",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_276",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_277",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_278",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_279",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_280",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_281",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_282",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_283",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_284",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_285",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_286",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_287",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_288",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_289",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_290",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_291",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_292",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_293",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_294",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_295",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_296",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_297",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_298",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_299",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_300",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_301",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_302",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_303",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_304",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_305",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_306",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_307",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_308",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_309",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_310",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_311",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_312",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_313",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_314",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_315",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_316",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_317",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_318",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_319",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_320",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_321",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_322",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_323",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_324",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_325",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_326",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_327",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_328",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_329",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_330",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_331",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_332",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_333",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_334",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_335",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_336",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_337",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_338",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_339",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_340",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_341",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_342",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_343",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_344",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_345",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_346",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_347",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_348",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_349",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_350",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_351",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_352",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_353",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_354",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_355",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_356",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_357",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_358",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_359",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unchanged_no_role_None",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unchanged_no_role_[]",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unchanged_no_role_[[True]]",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unchanged_no_role_[[0], [0, 1]]",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unchanged_no_role_[[10]]",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unchanged_no_role_[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "real_default_exhaustion",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fit_exhaustion_propagates",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "retained_role_failed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "retained_role_agree",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "later_exhaustion",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "final_hash_proposal154-rectangle-seam-composition-20261007/seam_rectangle.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "final_hash_proposal153-existing-composition-20261007/anchored_rectangle.py",
+      "passed": true,
+      "detail": null
+    }
+  ]
+}

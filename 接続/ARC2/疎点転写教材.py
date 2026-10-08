@@ -5,6 +5,7 @@ from itertools import product
 from .既存疎点転写 import (sparse_point_color_points,sparse_point_base_shape,sparse_point_incident_shape,
     shifted_sparse_point_mask,sparse_point_rule_key,sparse_point_copy_defaults,
     infer_sparse_octilinear_point_graph_policy,render_sparse_octilinear_point_graph_completion)
+from .平行線基準長候補 import fit_length_reference, render_length_reference
 TABLE_BUDGET=4096
 
 def valid_grid(grid):
@@ -136,12 +137,24 @@ def guarded_render(grid,fitted):
 
 class 疎点転写教材:
     def __init__(self, 教師群):
-        self.モデル, _ = fit_teachers(教師群)
+        self.モデル, original_record = fit_teachers(教師群)
+        self.長さ参照モデル = None
+        # NEW reconstruction. Only this completed original no-fit opens fallback.
+        if (self.モデル is None
+                and original_record.get('failure') == 'original_policy_unresolved'
+                and original_record.get('policy_record', {}).get('failure')
+                    == 'sparse_point_train_not_expansive'):
+            self.長さ参照モデル, _ = fit_length_reference(教師群, valid_grid)
 
     def 候補(self, 格子, _policy):
-        if self.モデル is None:
-            return None, {"failure": "全教師を再現する疎点転写規則なし"}
-        return guarded_render(格子, self.モデル)
+        if self.モデル is not None:
+            return guarded_render(格子, self.モデル)
+        if self.長さ参照モデル is not None:
+            return render_length_reference(格子, self.長さ参照モデル, valid_grid)
+        return None, {"failure": "全教師を再現する疎点転写規則なし"}
 
     def 記録(self):
+        if self.長さ参照モデル is not None:
+            return {"全教師共通規則表": self.モデル,
+                    "新規再構成_平行線基準長": self.長さ参照モデル}
         return {"全教師共通規則表": self.モデル}

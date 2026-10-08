@@ -1,0 +1,4391 @@
+{
+  "checks": [
+    {
+      "name": "frozen_hash",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_fit",
+      "pass": true,
+      "detail": {
+        "status": "FIT",
+        "fixed_prior": "corner_L_anchor_translation_uniform_perimeter",
+        "fitted_parameters": [],
+        "teacher_exact": [
+          true,
+          true
+        ],
+        "all_teacher_returns": [
+          {
+            "status": "CANDIDATE",
+            "complete": true,
+            "observation": {
+              "role_count": 1
+            },
+            "work": 25,
+            "all_role_returns": [
+              {
+                "role": {
+                  "background": 8,
+                  "marker": 4,
+                  "border": 7,
+                  "anchor": [
+                    9,
+                    17
+                  ],
+                  "signs": [
+                    -1,
+                    -1
+                  ],
+                  "host": 3
+                },
+                "piece_count": 4,
+                "candidate_shapes": [
+                  [
+                    7,
+                    11
+                  ]
+                ],
+                "feasible_arrangements": 1,
+                "distinct_outputs": 1,
+                "placements": [
+                  [
+                    [
+                      3,
+                      3,
+                      8
+                    ],
+                    [
+                      2,
+                      0,
+                      0
+                    ],
+                    [
+                      1,
+                      0,
+                      5
+                    ],
+                    [
+                      0,
+                      3,
+                      5
+                    ]
+                  ]
+                ]
+              }
+            ]
+          },
+          {
+            "status": "CANDIDATE",
+            "complete": true,
+            "observation": {
+              "role_count": 1
+            },
+            "work": 21,
+            "all_role_returns": [
+              {
+                "role": {
+                  "background": 8,
+                  "marker": 4,
+                  "border": 3,
+                  "anchor": [
+                    2,
+                    2
+                  ],
+                  "signs": [
+                    1,
+                    1
+                  ],
+                  "host": 1
+                },
+                "piece_count": 4,
+                "candidate_shapes": [
+                  [
+                    6,
+                    6
+                  ]
+                ],
+                "feasible_arrangements": 1,
+                "distinct_outputs": 1,
+                "placements": [
+                  [
+                    [
+                      1,
+                      0,
+                      0
+                    ],
+                    [
+                      2,
+                      0,
+                      3
+                    ],
+                    [
+                      3,
+                      3,
+                      0
+                    ],
+                    [
+                      0,
+                      3,
+                      3
+                    ]
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "teacher_0_d4_0_0",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_d4_0_1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_d4_0_2",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_d4_0_3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_d4_1_0",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_d4_1_1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_d4_1_2",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_d4_1_3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_2",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_5",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_6",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_7",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_8",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_9",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_10",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_11",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_12",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_13",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_14",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_15",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_17",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_18",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_19",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_20",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_21",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_22",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_23",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_budget_24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_0_exact_budget",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_d4_0_0",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_d4_0_1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_d4_0_2",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_d4_0_3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_d4_1_0",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_d4_1_1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_d4_1_2",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_d4_1_3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_2",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_5",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_6",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_7",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_8",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_9",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_10",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_11",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_12",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_13",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_14",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_15",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_17",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_18",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_19",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_budget_20",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "teacher_1_exact_budget",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle_0",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_1",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_2",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_3",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_4",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_5",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_6",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_7",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_8",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_9",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_10",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_11",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_12",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_13",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_14",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_15",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_16",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_17",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_18",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_19",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_20",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_21",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_22",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_23",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "oracle_24",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_25",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_26",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_27",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_28",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_29",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_30",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_31",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_32",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_33",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_34",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_35",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_36",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_37",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_38",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_39",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_40",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_41",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_42",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_43",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_44",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_45",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_46",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_47",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_48",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_49",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_50",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_51",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_52",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_53",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_54",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_55",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_56",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_57",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_58",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_59",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_60",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_61",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_62",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_63",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_64",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_65",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "oracle_66",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_67",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_68",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_69",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_70",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_71",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_72",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_73",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_74",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_75",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_76",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_77",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_78",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_79",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_80",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_81",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_82",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_83",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_84",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_85",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_86",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_87",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_88",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_89",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_90",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_91",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "oracle_92",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_93",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_94",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_95",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_96",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_97",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_98",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_99",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_100",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_101",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_102",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_103",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_104",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_105",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_106",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_107",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_108",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_109",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_110",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_111",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_112",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_113",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_114",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_115",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_116",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_117",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_118",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_119",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_120",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_121",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_122",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_123",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_124",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_125",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_126",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_127",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_128",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_129",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_130",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_131",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_132",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_133",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_134",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_135",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_136",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_137",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_138",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_139",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_140",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_141",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_142",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_143",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_144",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_145",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_146",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_147",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_148",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_149",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_150",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_151",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_152",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_153",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_154",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_155",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_156",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_157",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "oracle_158",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_159",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_160",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_161",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_162",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_163",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_164",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_165",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_166",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_167",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_168",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_169",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_170",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_171",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_172",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_173",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_174",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_175",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_176",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_177",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_178",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_179",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_180",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_181",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_182",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_183",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_184",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_185",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_186",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_187",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_188",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_189",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_190",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_191",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_192",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_193",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_194",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_195",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_196",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_197",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_198",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_199",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_200",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_201",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_202",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_203",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_204",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_205",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "oracle_206",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_207",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_208",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_209",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_210",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_211",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_212",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_213",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_214",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_215",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_216",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_217",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_218",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_219",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_220",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_221",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_222",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_223",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_224",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_225",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_226",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_227",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_228",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_229",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_230",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_231",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_232",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_233",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_234",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "oracle_235",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_236",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_237",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_238",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_239",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_240",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_241",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_242",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_243",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_244",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_245",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_246",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_247",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_248",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_249",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_250",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_251",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_252",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_253",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_254",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_255",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_256",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_257",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_258",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_259",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_260",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_261",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_262",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_263",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_264",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_265",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_266",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_267",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_268",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_269",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_270",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_271",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_272",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_273",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_274",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_275",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_276",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_277",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_278",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_279",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_280",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_281",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_282",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_283",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_284",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_285",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_286",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_287",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_288",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_289",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_290",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_291",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_292",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_293",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_294",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_295",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_296",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_297",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_298",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_299",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_300",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_301",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_302",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_303",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_304",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_305",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_306",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_307",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_308",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_309",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_310",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_311",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_312",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_313",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_314",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_315",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_316",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_317",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_318",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "oracle_319",
+      "pass": true,
+      "detail": {
+        "arrangements": 0,
+        "outputs": 0
+      }
+    },
+    {
+      "name": "partition_oracle_0",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_1",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_2",
+      "pass": true,
+      "detail": {
+        "arrangements": 8,
+        "outputs": 2
+      }
+    },
+    {
+      "name": "partition_oracle_3",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_4",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_5",
+      "pass": true,
+      "detail": {
+        "arrangements": 4,
+        "outputs": 2
+      }
+    },
+    {
+      "name": "partition_oracle_6",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_7",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_8",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_9",
+      "pass": true,
+      "detail": {
+        "arrangements": 30,
+        "outputs": 2
+      }
+    },
+    {
+      "name": "partition_oracle_10",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_11",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 2
+      }
+    },
+    {
+      "name": "partition_oracle_12",
+      "pass": true,
+      "detail": {
+        "arrangements": 30,
+        "outputs": 2
+      }
+    },
+    {
+      "name": "partition_oracle_13",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 2
+      }
+    },
+    {
+      "name": "partition_oracle_14",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_15",
+      "pass": true,
+      "detail": {
+        "arrangements": 6,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_16",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_17",
+      "pass": true,
+      "detail": {
+        "arrangements": 12,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_18",
+      "pass": true,
+      "detail": {
+        "arrangements": 8,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_19",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_20",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_21",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_22",
+      "pass": true,
+      "detail": {
+        "arrangements": 6,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_23",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_24",
+      "pass": true,
+      "detail": {
+        "arrangements": 12,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_25",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_26",
+      "pass": true,
+      "detail": {
+        "arrangements": 4,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_27",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_28",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_29",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_30",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_31",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_32",
+      "pass": true,
+      "detail": {
+        "arrangements": 5,
+        "outputs": 2
+      }
+    },
+    {
+      "name": "partition_oracle_33",
+      "pass": true,
+      "detail": {
+        "arrangements": 24,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_34",
+      "pass": true,
+      "detail": {
+        "arrangements": 6,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_35",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_36",
+      "pass": true,
+      "detail": {
+        "arrangements": 13,
+        "outputs": 2
+      }
+    },
+    {
+      "name": "partition_oracle_37",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_38",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_39",
+      "pass": true,
+      "detail": {
+        "arrangements": 30,
+        "outputs": 2
+      }
+    },
+    {
+      "name": "partition_oracle_40",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_41",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_42",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_43",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_44",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_45",
+      "pass": true,
+      "detail": {
+        "arrangements": 6,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_46",
+      "pass": true,
+      "detail": {
+        "arrangements": 48,
+        "outputs": 2
+      }
+    },
+    {
+      "name": "partition_oracle_47",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_48",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_49",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_50",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_51",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_52",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_53",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_54",
+      "pass": true,
+      "detail": {
+        "arrangements": 18,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_55",
+      "pass": true,
+      "detail": {
+        "arrangements": 14,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_56",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_57",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_58",
+      "pass": true,
+      "detail": {
+        "arrangements": 4,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_59",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_60",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_61",
+      "pass": true,
+      "detail": {
+        "arrangements": 6,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_62",
+      "pass": true,
+      "detail": {
+        "arrangements": 12,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_63",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_64",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_65",
+      "pass": true,
+      "detail": {
+        "arrangements": 6,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_66",
+      "pass": true,
+      "detail": {
+        "arrangements": 4,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_67",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_68",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_69",
+      "pass": true,
+      "detail": {
+        "arrangements": 6,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_70",
+      "pass": true,
+      "detail": {
+        "arrangements": 12,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_71",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_72",
+      "pass": true,
+      "detail": {
+        "arrangements": 24,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_73",
+      "pass": true,
+      "detail": {
+        "arrangements": 6,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_74",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_75",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 2
+      }
+    },
+    {
+      "name": "partition_oracle_76",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_77",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_78",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_79",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_80",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_81",
+      "pass": true,
+      "detail": {
+        "arrangements": 6,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_82",
+      "pass": true,
+      "detail": {
+        "arrangements": 4,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_83",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_84",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_85",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_86",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_87",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_88",
+      "pass": true,
+      "detail": {
+        "arrangements": 6,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_89",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 2
+      }
+    },
+    {
+      "name": "partition_oracle_90",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_91",
+      "pass": true,
+      "detail": {
+        "arrangements": 4,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_92",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_93",
+      "pass": true,
+      "detail": {
+        "arrangements": 48,
+        "outputs": 2
+      }
+    },
+    {
+      "name": "partition_oracle_94",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_95",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_96",
+      "pass": true,
+      "detail": {
+        "arrangements": 4,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_97",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_98",
+      "pass": true,
+      "detail": {
+        "arrangements": 4,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_99",
+      "pass": true,
+      "detail": {
+        "arrangements": 4,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_100",
+      "pass": true,
+      "detail": {
+        "arrangements": 6,
+        "outputs": 2
+      }
+    },
+    {
+      "name": "partition_oracle_101",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_102",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_103",
+      "pass": true,
+      "detail": {
+        "arrangements": 6,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_104",
+      "pass": true,
+      "detail": {
+        "arrangements": 6,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_105",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_106",
+      "pass": true,
+      "detail": {
+        "arrangements": 6,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_107",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_108",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_109",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_110",
+      "pass": true,
+      "detail": {
+        "arrangements": 12,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_111",
+      "pass": true,
+      "detail": {
+        "arrangements": 3,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_112",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_113",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_114",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_115",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_116",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_117",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_118",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_119",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_120",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_121",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_122",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_123",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_124",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_125",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_126",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_127",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_128",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_129",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_130",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_131",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_132",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_133",
+      "pass": true,
+      "detail": {
+        "arrangements": 12,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_134",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_135",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_136",
+      "pass": true,
+      "detail": {
+        "arrangements": 8,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_137",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_138",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_139",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_140",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_141",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_142",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_143",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_144",
+      "pass": true,
+      "detail": {
+        "arrangements": 30,
+        "outputs": 2
+      }
+    },
+    {
+      "name": "partition_oracle_145",
+      "pass": true,
+      "detail": {
+        "arrangements": 4,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_146",
+      "pass": true,
+      "detail": {
+        "arrangements": 14,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_147",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_148",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_149",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_150",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_151",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_152",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_153",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_154",
+      "pass": true,
+      "detail": {
+        "arrangements": 6,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_155",
+      "pass": true,
+      "detail": {
+        "arrangements": 8,
+        "outputs": 2
+      }
+    },
+    {
+      "name": "partition_oracle_156",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_157",
+      "pass": true,
+      "detail": {
+        "arrangements": 2,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_158",
+      "pass": true,
+      "detail": {
+        "arrangements": 4,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "partition_oracle_159",
+      "pass": true,
+      "detail": {
+        "arrangements": 1,
+        "outputs": 1
+      }
+    },
+    {
+      "name": "real_default_exhaustion",
+      "pass": true,
+      "detail": {
+        "status": "RESOURCE_INCOMPLETE",
+        "failure": "budget_incomplete",
+        "complete": false,
+        "work": 100000
+      }
+    },
+    {
+      "name": "fit_propagates_real_exhaustion",
+      "pass": true,
+      "detail": {
+        "status": "RESOURCE_INCOMPLETE",
+        "fixed_prior": "corner_L_anchor_translation_uniform_perimeter",
+        "fitted_parameters": [],
+        "teacher_exact": [
+          false,
+          false
+        ],
+        "all_teacher_returns": [
+          {
+            "status": "RESOURCE_INCOMPLETE",
+            "failure": "budget_incomplete",
+            "complete": false,
+            "work": 100000
+          },
+          {
+            "status": "RESOURCE_INCOMPLETE",
+            "failure": "budget_incomplete",
+            "complete": false,
+            "work": 100000
+          }
+        ]
+      }
+    },
+    {
+      "name": "retained_role_failed",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "retained_role_disagree",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "retained_role_agree",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "later_role_exhaustion_overrides_earlier_success",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "invalid_grid_None",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "invalid_grid_[]",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "invalid_grid_[[True]]",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "invalid_grid_[[0], [0, 1]]",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "invalid_grid_[[10]]",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "duplicate_teachers",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "contradictory_teacher",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "hash_unchanged",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "total": 558,
+  "all_passed": true
+}

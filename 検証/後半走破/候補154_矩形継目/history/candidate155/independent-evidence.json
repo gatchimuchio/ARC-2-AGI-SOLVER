@@ -1,0 +1,14 @@
+{
+  "all_passed": true,
+  "assertions": 18438,
+  "stats": {
+    "partition_cases": 1240,
+    "partition_outputs": 6577,
+    "multivalued": 475
+  },
+  "hashes": {
+    "proposal155-touching-rectangle-view-20261007/touching_rectangle.py": "121d31d0921c9383b769b3b6515aa669259f4aca397c82da70760ba3a6889357",
+    "proposal154-rectangle-seam-composition-20261007/seam_rectangle.py": "1e7d97da06e3c72808147c0e6e4fedd0956798733dfd3f605954695836f6d0c4",
+    "proposal153-existing-composition-20261007/anchored_rectangle.py": "3b25da045f96cb799a4d84c0c4159fd3b39e34214212f72936ea5b87940e4ad7"
+  }
+}

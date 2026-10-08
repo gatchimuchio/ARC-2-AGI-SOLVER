@@ -1,0 +1,28 @@
+{
+  "status": "native_no_gain_not_admitted",
+  "previous_accepted": [
+    95,
+    133
+  ],
+  "old_query_grids_identical": true,
+  "query_count": 2,
+  "new_emitted_grids": 0,
+  "scorer_invocations": 0,
+  "cause": "Old admitted ARC物体端投射 returns None on query0; unchanged final consensus requires all admitted families to succeed.",
+  "source_pointer": "接続/ARC2/HDS接続.py:403-414",
+  "candidate_family_parity_queries": 2,
+  "targeted_checks": 122,
+  "core_sha256": "7606e9e38b8197fcabba819d1b32d63ab98aaffd43596107ec3241e8e32e77dc",
+  "accepted_base_unchanged": true,
+  "commits": 0,
+  "uploads": 0,
+  "regression": {
+    "fresh_scripts": 106,
+    "fresh_checks": 4792,
+    "composed_scripts": 107,
+    "composed_checks": 4821,
+    "unchanged_pinned_window_cases": 29,
+    "success": true
+  },
+  "scoring_cancelled_before_subprocess_launch": true
+}

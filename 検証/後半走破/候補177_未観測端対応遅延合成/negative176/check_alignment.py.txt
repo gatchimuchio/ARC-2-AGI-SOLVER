@@ -1,0 +1,21 @@
+"""Independent assertions against saved teacher-only geometry evidence."""
+import json
+from pathlib import Path
+p=Path(__file__).parent
+e=json.loads((p/'alignment-evidence.json').read_text())
+assert len(e['records'])==3
+for diagonal in (0,1):
+ assert [t['connectivities'][diagonal]['prior_exact'] for t in e['records']]==[True,False,True]
+ for t in e['records']:
+  assert all(len(m['target_matches'])==1 for m in t['connectivities'][diagonal]['correspondences'])
+ changed=[]
+ for t in e['records']:
+  for a in t['connectivities'][diagonal]['alternatives']:
+   if a['observed_delta'][1-a['axis']]:changed.append((t['teacher'],a))
+ assert len(changed)==1
+ i,a=changed[0]
+ assert i==1 and a['source_bbox']==[2,9,4,11] and a['observed_delta']==[1,-1]
+ assert [q['delta'] for q in a['trials'] if not q['failures']]==[[1,-1],[1,0],[1,1]]
+ # Minimum Euclidean / Manhattan displacement does not explain observed side shift.
+ assert sum(x*x for x in [1,0])<sum(x*x for x in a['observed_delta'])
+print('PASS: C4/C8 unique teacher correspondences, exactness 2/3, three strictly separated positions; no model.')

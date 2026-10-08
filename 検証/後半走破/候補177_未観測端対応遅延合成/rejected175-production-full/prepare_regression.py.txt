@@ -1,0 +1,7 @@
+from pathlib import Path
+B=Path(__file__).resolve().parent.parent;E=Path(__file__).resolve().parent;R=B/'candidate175-production-20261008'
+s=(B/'candidate175-independent-audit-20261008/audit_revision2.py').read_text().replace("P=B/'proposal175-missing-edge-bindings-revision2-20261008'; R=B/'candidate167-production-20261007'","P=B/'candidate175-production-20261008'; R=P")
+s=s.replace("(Path(__file__).parent/'revision2-results.json')","(Path(__file__).parent/'production-independent-results.json')")
+(E/'run_independent.py').write_text(s)
+s=(B/'candidate167-production-evidence-20261007/run_current_regressions.py').read_text().replace('candidate167','candidate175')
+(E/'run_current_regressions.py').write_text(s)

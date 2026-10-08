@@ -1,0 +1,93 @@
+from pathlib import Path
+import sys,json,copy,hashlib
+from unittest.mock import patch
+E=Path(__file__).resolve().parent;B=E.parent;R=B/'candidate167-production-20261007'
+sys.path[:0]=[str(E),str(R),str(R/'HDS/学習系統/v0.4.2'),str(B/'proposal151-partial-task-composition-20261007/worker')]
+import missing_edge_bindings as c
+from hds学習系統 import HDS学習実行系
+from hds学習系統.型 import 学習入力,観測事実
+
+def obs(d,b):
+ return 学習入力(原入力=copy.deepcopy(d),対象系境界=b,観測群=tuple(観測事実((k,),v,'列') for k,v in d.items()))
+t=json.loads((B/'proposal151-partial-task-composition-20261007/teachers-only.json').read_text())
+p=json.loads((B/'candidate151-input-only-20261007/payload.json').read_text())
+assert p['train']==t and all(set(q)=={'input'} for q in p['test'])
+a=c.MissingEdgeBindings(t);a.learn(HDS学習実行系(最小支持数=2),obs)
+checks=[]
+def check(name,cond):
+ assert cond,name
+ checks.append(name)
+original_tables=copy.deepcopy(a.tables);original_models=a.peer_models
+for j,q in enumerate(p['test']):
+ g=copy.deepcopy(q['input']);out,rec=a.predict(g)
+ check(f'query_{j}_emitted',out is not None)
+ check(f'query_{j}_input_immutable',g==q['input'])
+ if j==0:check('q0_missing_bindings_only',rec['added_bindings']=={12.0:'bottom',6.0:'bottom'})
+ else:check('q1_exact_delegation',(out,rec)==a.legacy.候補(g,None))
+
+def scene(items):
+ g=[[0]*25 for _ in range(20)]
+ for color,row,col,shape in items:
+  for r,k in shape:g[row+r][col+k]=color
+ return g
+line3=[(0,j) for j in range(3)];L4=[(0,0),(1,0),(2,0),(2,1)]
+g=scene([(1,4,1,line3),(2,10,7,line3),(3,7,12,L4),(4,5,20,[(0,0)])])
+out,rec=a.predict(g)
+check('independent_missing_one_success',out is not None and rec['added_bindings']=={1.0:'bottom'})
+# Recoloring preserves ownership and relation under every retained color-agnostic model.
+colors={0:0,1:6,2:8,3:7,4:9}
+recolored=[[colors[v] for v in row] for row in g]
+check('independent_recolor_equivariance',a.predict(recolored)[0]==[[colors[v] for v in row] for row in out])
+# Fully covered collision must delegate its original failure without calling peers.
+covered_collision=scene([(1,3,2,L4),(2,11,2,L4)])
+with patch.object(c,'render',side_effect=AssertionError('must not consult peer')):
+ check('complete_coverage_collision_delegates',a.predict(covered_collision)==a.legacy.候補(covered_collision,None) and a.predict(covered_collision)[0] is None)
+line5=[(0,j) for j in range(5)]
+conflict=scene([(1,3,1,line5),(2,7,9,line5),(3,4,20,[(0,0)])])
+check('known_key_contradiction_holds',a.predict(conflict)[1]['failure']=='known_or_shared_key_contradiction')
+shared=scene([(1,3,1,[(0,0),(0,1)]),(2,8,6,[(0,0),(0,1)]),(3,4,12,[(0,0),(1,1)])])
+check('shared_unknown_key_contradiction_holds',a.predict(shared)[1]['failure']=='known_or_shared_key_contradiction')
+real_render=c.render
+calls=[]
+def one_fails(grid,model):
+ calls.append(model);o,r=real_render(grid,model)
+ if model==a.peer_models[-1]:o=None;r['failure']='synthetic_action_failure'
+ return o,r
+with patch.object(c,'render',side_effect=one_fails):
+ check('any_peer_action_failure_holds',a.predict(g)[1]['failure']=='peer_action_failed')
+check('all_peer_alternatives_executed',calls==list(a.peer_models))
+def mismatch(grid,model):
+ o,r=real_render(grid,model);r['objects'][0]['color']=9;return o,r
+with patch.object(c,'render',side_effect=mismatch):
+ check('ownership_mismatch_holds',a.predict(g)[1]['failure']=='ownership_mismatch')
+def disagree(grid,model):
+ o,r=real_render(grid,model)
+ if model==a.peer_models[-1]:r['sides'][-1]='bottom' if r['sides'][-1]=='top' else 'top'
+ return o,r
+with patch.object(c,'render',side_effect=disagree):
+ check('peer_binding_disagreement_holds',a.predict(g)[1]['failure']=='peer_binding_disagreement')
+with patch.object(c,'配置する',return_value=None):
+ check('original_action_failure_holds',a.predict(g)[1]['failure']=='original_action_failed')
+from types import SimpleNamespace
+real_exhaust=c.最小排気系
+class HeldExhaust:
+ def 排出する(self,r):return SimpleNamespace(状態='断定保留')
+with patch.object(c,'最小排気系',return_value=HeldExhaust()):
+ check('known_key_hds_hold_preserved',a.predict(g)[1]['failure']=='known_key_hds_failure')
+real_query=a.legacy.機械.照会
+def predicted_unknown(observation):
+ if observation.原入力.get('特徴2')==1.0:
+  return SimpleNamespace(予測群=[SimpleNamespace(結果経路=('向き',),予測値='bottom')])
+ return real_query(observation)
+with patch.object(a.legacy.機械,'照会',side_effect=predicted_unknown):
+ check('unknown_existing_hds_result_not_overridden',a.predict(g)[1]['failure']=='unknown_key_has_hds_prediction')
+with patch.object(a.legacy.機械,'照会',wraps=a.legacy.機械.照会) as spy:
+ a.predict(g);check('all_original_hds_object_queries_preserved',spy.call_count==4)
+check('known_tables_immutable',a.tables==original_tables)
+check('peer_models_immutable',a.peer_models==original_models)
+# A broader original model set is never narrowed by this proposal.
+a.tables[0]={1:'top',2:'bottom'}
+with patch.object(a.legacy,'候補',return_value=(None,{'failure':'sentinel'})) as spy:
+ check('multiple_original_models_delegated',a.predict(g)==(None,{'failure':'sentinel'}) and spy.call_count==1)
+(E/'checks.json').write_text(json.dumps({'status':'PASS','count':len(checks),'checks':checks,'targets_read':0,'scorer_calls':0,'native_integration_runs':0},indent=2)+'\n')
+print(json.dumps({'status':'PASS','checks':len(checks)}))

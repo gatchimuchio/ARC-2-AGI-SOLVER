@@ -1,0 +1,69 @@
+{
+  "source_sha256": "6e52282205b901ea947cb82ae763e9aaaa9ad3f3905f05d2f7a24e80797dca54",
+  "teachers": [
+    true,
+    true,
+    true
+  ],
+  "fit": {
+    "kind": "observed_series_composition",
+    "version": 2
+  },
+  "index30": {
+    "exact": true,
+    "fitted": 4,
+    "incomplete": 0
+  },
+  "tie_d4_hold": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "synthetics": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "root_cases": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "portable_import": {
+    "passed": true,
+    "stdout": "ok\n",
+    "stderr": ""
+  },
+  "multirole_unknown_failure": {
+    "held": true,
+    "calls": 32,
+    "all_eligible_called": true,
+    "incomplete": 16
+  },
+  "irrelevant_role_does_not_suppress_radial": true,
+  "original160_unchanged": true
+}

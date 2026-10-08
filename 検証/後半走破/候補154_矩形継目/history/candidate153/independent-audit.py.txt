@@ -1,0 +1,120 @@
+import sys,json,random,hashlib,copy
+from pathlib import Path
+from unittest.mock import patch
+ROOT=Path.cwd(); AUD=ROOT/'candidate153-independent-audit-20261007'
+sys.path[:0]=[str(ROOT/'proposal153-existing-composition-20261007'),str(ROOT/'candidate142-production-20261007')]
+import anchored_rectangle as m
+from 接続.ARC2.標点組立教材 import WorkBudget
+checks=[]
+def ck(name,test,detail=None):
+ assert test,(name,detail)
+ checks.append({'name':name,'pass':True,'detail':detail})
+source=ROOT/'proposal153-existing-composition-20261007/anchored_rectangle.py'
+ck('frozen_hash',hashlib.sha256(source.read_bytes()).hexdigest()=='3b25da045f96cb799a4d84c0c4159fd3b39e34214212f72936ea5b87940e4ad7')
+pairs=json.loads((ROOT/'proposal153-existing-composition-20261007/teachers-only.json').read_text())
+state,rec=m.fit(pairs);ck('teacher_fit',state is not None and rec['status']=='FIT',rec)
+for idx,p in enumerate(pairs):
+ a,b=copy.deepcopy(p['input']),copy.deepcopy(p['output'])
+ for flip in range(2):
+  for rot in range(4):
+   out,r=m.predict(state,a);ck(f'teacher_{idx}_d4_{flip}_{rot}',out==b)
+   a=[list(x) for x in zip(*a[::-1])];b=[list(x) for x in zip(*b[::-1])]
+  a=[row[::-1] for row in a];b=[row[::-1] for row in b]
+ # Every insufficient search budget must be incomplete, including near completion.
+ out,r=m.predict(state,p['input']);work=r['work']
+ for budget in range(1,work):
+  o,q=m.predict(state,p['input'],budget=budget)
+  ck(f'teacher_{idx}_budget_{budget}',o is None and q['status']=='RESOURCE_INCOMPLETE' and not q['complete'])
+ o,q=m.predict(state,p['input'],budget=work);ck(f'teacher_{idx}_exact_budget',o==p['output'])
+# Independent exhaustive oracle: fix piece order; try EVERY available top-left,
+# rather than the candidate's first-empty-cell rule. Count physical assignments.
+def oracle(grid,role):
+ gh,gw=len(grid),len(grid[0]); pieces=role['pieces']; host=role['host'];sr,sc=role['signs'];ar,ac=role['anchor'];border=role['border'];area=sum(p['area'] for p in pieces)
+ norm=[]
+ for p in pieces:
+  r,c,R,C=p['bbox'];norm.append((R-r+1,C-c+1,[(rr-r,cc-c,v) for rr,cc,v in p['cells']]))
+ found=set();outs=set()
+ for h in range(1,gh+1):
+  for w in range(1,gw+1):
+   if h*w!=area:continue
+   top=ar if sr==1 else ar-h+1;left=ac if sc==1 else ac-w+1
+   if not(0<=top<=gh-h and 0<=left<=gw-w):continue
+   order=[host]+[i for i in range(len(pieces)) if i!=host]
+   def visit(k,paint,pos):
+    if k==len(order):
+     if len(paint)!=area:return
+     found.add((h,w,tuple(sorted(pos))))
+     g=[[role['background']]*gw for _ in range(gh)]
+     for (r,c),v in paint.items():g[top+r][left+c]=v
+     outs.add(tuple(map(tuple,g)));return
+    i=order[k];ph,pw,cells=norm[i]
+    coords=[(0 if sr==1 else h-ph,0 if sc==1 else w-pw)] if k==0 else [(r,c) for r in range(h-ph+1) for c in range(w-pw+1)]
+    for r,c in coords:
+     if r<0 or c<0 or r+ph>h or c+pw>w:continue
+     moved={(r+dr,c+dc):v for dr,dc,v in cells}
+     if set(moved)&set(paint):continue
+     if any(v!=border for (rr,cc),v in moved.items() if rr==0 or rr==h-1 or cc==0 or cc==w-1):continue
+     visit(k+1,{**paint,**moved},pos+[(i,r,c)])
+   visit(0,{},[])
+ return found,outs
+rng=random.Random(153)
+for case in range(320):
+ gh,gw=rng.randint(2,6),rng.randint(2,6);n=rng.randint(2,5);pieces=[]
+ for i in range(n):
+  ph,pw=rng.randint(1,3),rng.randint(1,3)
+  cells=[[r,c,1 if rng.random()<.85 else 2] for r in range(ph) for c in range(pw)]
+  pieces.append(dict(component_index=i,area=ph*pw,bbox=[0,0,ph-1,pw-1],cells=cells))
+ role=dict(background=0,marker=9,border=1,anchor=(rng.randrange(gh),rng.randrange(gw)),signs=(rng.choice([-1,1]),rng.choice([-1,1])),host=rng.randrange(n),pieces=pieces)
+ grid=[[0]*gw for _ in range(gh)]
+ models,outs=oracle(grid,role);out,r=m.assemble(grid,role,WorkBudget(100000))
+ actual={(tuple(sorted(tuple(x) for x in p))) for p in r['placements']}
+ expected={p for h,w,p in models}
+ ck(f'oracle_{case}',r['feasible_arrangements']==len(models) and actual==expected and r['distinct_outputs']==len(outs) and ((out in outs and len(outs)==1) if out is not None else len(outs)!=1),{'arrangements':len(models),'outputs':len(outs)})
+# Guaranteed feasible guillotine partitions stress every anchor orientation,
+# unequal rectangles, alternate factor canvases, and physical assignments.
+for case in range(160):
+ h,w=rng.randint(2,5),rng.randint(2,5);rects=[(0,0,h,w)]
+ for _ in range(rng.randint(1,4)):
+  choices=[i for i,(r,c,ph,pw) in enumerate(rects) if ph>1 or pw>1]
+  if not choices:break
+  i=rng.choice(choices);r,c,ph,pw=rects.pop(i)
+  if ph>1 and (pw==1 or rng.randrange(2)):
+   k=rng.randint(1,ph-1);rects.extend([(r,c,k,pw),(r+k,c,ph-k,pw)])
+  else:
+   k=rng.randint(1,pw-1);rects.extend([(r,c,ph,k),(r,c+k,ph,pw-k)])
+ sr,sc=rng.choice([-1,1]),rng.choice([-1,1]);cr=0 if sr==1 else h-1;cc=0 if sc==1 else w-1
+ host=next(i for i,(r,c,ph,pw) in enumerate(rects) if r<=cr<r+ph and c<=cc<c+pw)
+ pieces=[]
+ for i,(r,c,ph,pw) in enumerate(rects):
+  cells=[[dr,dc,1 if (r+dr in (0,h-1) or c+dc in (0,w-1) or case%2==0) else 2+i] for dr in range(ph) for dc in range(pw)]
+  pieces.append(dict(component_index=i,area=ph*pw,bbox=[0,0,ph-1,pw-1],cells=cells))
+ role=dict(background=0,marker=9,border=1,anchor=(cr+1,cc+1),signs=(sr,sc),host=host,pieces=pieces)
+ grid=[[0]*(w+2) for _ in range(h+2)]
+ models,outs=oracle(grid,role);out,r=m.assemble(grid,role,WorkBudget(100000))
+ actual={tuple(sorted(tuple(x) for x in p)) for p in r['placements']}
+ ck(f'partition_oracle_{case}',len(models)>0 and r['feasible_arrangements']==len(models) and actual=={p for h,w,p in models} and r['distinct_outputs']==len(outs) and ((out in outs and len(outs)==1) if out is not None else len(outs)!=1),{'arrangements':len(models),'outputs':len(outs)})
+
+# A ten-piece single-color puzzle can discover solutions but exhaust before
+# certifying all 9! equivalent assignments. Neither predict nor fit may publish it.
+g=[[0]*30 for _ in range(10)]
+for i in range(10):
+ r,c=2,2+2*i;g[r][c]=1
+for r,c in [(1,1),(1,2),(2,1)]:g[r][c]=9
+out,r=m.predict(state,g);ck('real_default_exhaustion',out is None and r['status']=='RESOURCE_INCOMPLETE',r)
+g2=[row[:] for row in g];g2.append([0]*30)
+fs,fr=m.fit([{'input':g,'output':g},{'input':g2,'output':g2}]);ck('fit_propagates_real_exhaustion',fs is None and fr['status']=='RESOURCE_INCOMPLETE',fr)
+# Force controlled retained-role returns to check universal aggregation.
+base=pairs[0]['input']; a=tuple(map(tuple,pairs[0]['output'])); b=tuple(map(tuple,base))
+for label,returns,want in [('failed',[(a,{}),(None,{'failure':'impossible'})],'HOLD'),('disagree',[(a,{}),(b,{})],'HOLD'),('agree',[(a,{}),(a,{})],'CANDIDATE')]:
+ with patch.object(m,'observe',return_value=(({},{}),{'role_count':2})),patch.object(m,'assemble',side_effect=returns):
+  out,r=m.predict(state,base);ck('retained_role_'+label,r['status']==want and len(r['all_role_returns'])==2)
+with patch.object(m,'observe',return_value=(({},{}),{'role_count':2})),patch.object(m,'assemble',side_effect=[(a,{}),m.BudgetIncomplete()]):
+ out,r=m.predict(state,base);ck('later_role_exhaustion_overrides_earlier_success',out is None and r['status']=='RESOURCE_INCOMPLETE')
+for inp in [None,[],[[True]],[[0],[0,1]],[[10]]]:
+ out,r=m.predict(state,inp);ck('invalid_grid_'+repr(inp),out is None and r['status']=='HOLD')
+ck('duplicate_teachers',m.fit([pairs[0],pairs[0]])[0] is None)
+bad=copy.deepcopy(pairs);bad[0]['output'][0][0]=0
+ck('contradictory_teacher',m.fit(bad)[0] is None)
+ck('hash_unchanged',hashlib.sha256(source.read_bytes()).hexdigest()=='3b25da045f96cb799a4d84c0c4159fd3b39e34214212f72936ea5b87940e4ad7')
+(AUD/'evidence.json').write_text(json.dumps({'checks':checks,'total':len(checks),'all_passed':True},indent=2))
+print(json.dumps({'total':len(checks),'all_passed':True,'oracle_feasible_cases':sum(bool(c['detail']['arrangements']) for c in checks if c['name'].startswith('oracle_'))}))

@@ -1,0 +1,12 @@
+[
+  {
+    "path": "検証/対辺標点配置資料/portable-contrast-result.json",
+    "fresh_sha256": "91c215a3e6d3849fa54198496961237a8e819520330ff1cd1ca9b7be5d86b678",
+    "frozen_sha256": "dc363ea46bd8d513f7dce49f3eff2f26d5286a9bc8a13b94bea56da0cd14c8ec"
+  },
+  {
+    "path": "検証/計数色層旋回資料/validation.json",
+    "fresh_sha256": "52c9837035a8f698334aae6ca85ef7186ce6750273abd5477d503d5c8d017c11",
+    "frozen_sha256": "77a0b74e0ed72ff0293a0e7036be5614c27e52ae4f58bb0c95faa71851441fc9"
+  }
+]

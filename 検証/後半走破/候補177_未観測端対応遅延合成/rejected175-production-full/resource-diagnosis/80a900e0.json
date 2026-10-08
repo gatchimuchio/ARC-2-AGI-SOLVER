@@ -1,0 +1,45 @@
+{
+  "task_id": "80a900e0",
+  "official_error": "memory_limit",
+  "exit_code": -24,
+  "timeout": false,
+  "wall_seconds": 10.33973180600151,
+  "events": [
+    {
+      "event": "fit_entry",
+      "cpu": 0.151325,
+      "rss": 70528,
+      "legacy_feature_count": 0,
+      "legacy_features": [],
+      "teachers": 2,
+      "expected_render_calls": 96
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 0.15148699999999998,
+      "rss": 70528,
+      "calls": 1,
+      "model": [
+        4,
+        "identity",
+        false,
+        "vertical",
+        "top"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 1.38611,
+      "rss": 325884,
+      "calls": 10,
+      "model": [
+        4,
+        "identity",
+        true,
+        "vertical",
+        "top"
+      ]
+    }
+  ],
+  "scorer_calls": 0
+}

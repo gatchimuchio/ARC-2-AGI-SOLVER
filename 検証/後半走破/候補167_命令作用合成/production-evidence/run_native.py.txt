@@ -1,0 +1,17 @@
+from pathlib import Path
+import subprocess,resource,json,time,hashlib
+E=Path(__file__).parent;B=E.parent;R=B/'candidate167-production-20261007';Q=B/'candidate167-input-only-20261007'
+PY='/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python'
+def limits():
+ resource.setrlimit(resource.RLIMIT_CPU,(10,11));resource.setrlimit(resource.RLIMIT_AS,(536870912,536870912))
+start=time.time()
+with (E/'native.stdout').open('xb') as out,(E/'native.stderr').open('xb') as err:
+ p=subprocess.Popen([PY,'-B',str(R/'検証/ARC2評価.py'),'--runtime','current'],cwd=R,stdin=subprocess.PIPE,stdout=out,stderr=err,preexec_fn=limits)
+ try:p.communicate((Q/'payload.json').read_bytes(),timeout=60);timed=False
+ except subprocess.TimeoutExpired:p.kill();p.wait();timed=True
+record={'pid':p.pid,'exit_code':p.returncode,'reaped':True,'timeout':timed,'wall_seconds':time.time()-start}
+(E/'native-terminal.json').write_text(json.dumps(record)+'\n');print(record,flush=True)
+if p.returncode or timed:raise SystemExit(1)
+native=json.loads((E/'native.stdout').read_text());direct=json.loads((Q/'result.json').read_text());expected=[r['output'] for r in direct['queries']];actual=[r['answer'] for r in native['results']]
+result={'final_output_parity':actual==expected,'emitted_outputs':sum(x is not None for x in actual),'expected_outputs':len(expected),'results':native['results'],'family':next(f for f in native['families'] if f['境界']=='ARC記号命令列'),'scorer_calls':0}
+(E/'native-parity.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');print(json.dumps(result,ensure_ascii=False))

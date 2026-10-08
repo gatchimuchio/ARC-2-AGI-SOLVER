@@ -1,0 +1,32 @@
+{
+  "task_id": "0934a4d8",
+  "official_error": "memory_limit",
+  "exit_code": -24,
+  "timeout": false,
+  "wall_seconds": 10.341091461006727,
+  "events": [
+    {
+      "event": "fit_entry",
+      "cpu": 0.167511,
+      "rss": 70528,
+      "legacy_feature_count": 0,
+      "legacy_features": [],
+      "teachers": 4,
+      "expected_render_calls": 192
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 0.16781,
+      "rss": 70528,
+      "calls": 1,
+      "model": [
+        4,
+        "identity",
+        false,
+        "vertical",
+        "top"
+      ]
+    }
+  ],
+  "scorer_calls": 0
+}

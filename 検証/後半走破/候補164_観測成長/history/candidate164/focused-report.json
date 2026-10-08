@@ -1,0 +1,22 @@
+{
+  "exact_inequality_cases": {
+    "passed": 5324,
+    "total": 5324
+  },
+  "centered_periodic_growth_d4": {
+    "passed": 72,
+    "total": 72
+  },
+  "unbounded_geometry_detected": true,
+  "multiple_indices": {
+    "indices": [
+      1,
+      3
+    ],
+    "unbounded": false,
+    "exact": true
+  },
+  "failed_retained_prediction_holds": true,
+  "tied_mode_d4_holds": true,
+  "portable_import": true
+}

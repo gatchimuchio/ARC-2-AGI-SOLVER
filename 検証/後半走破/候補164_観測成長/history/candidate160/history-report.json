@@ -1,0 +1,27 @@
+{
+  "candidate": 160,
+  "status": "BLOCKED original: modal tie, future index cap, radial role enumeration and portability",
+  "runtime_included": false,
+  "sources": [
+    {
+      "original": "candidate160-independent-audit-20261007/original/geometry.py",
+      "sha256": "03af7c2eef8bdd8a057ac5ca4cdf72c70b311d0126d313c281f03dd5f4e3e28b",
+      "preserved": "geometry.py.txt"
+    },
+    {
+      "original": "candidate160-independent-audit-20261007/original/radial.py",
+      "sha256": "78af261e1051cb2d2e485f9d6c007ec06e80d488a5f09467e36cf0d29a3dfae5",
+      "preserved": "radial.py.txt"
+    },
+    {
+      "original": "candidate160-independent-audit-20261007/original/check.py",
+      "sha256": "2431a841e95c86fa1633090cea89942b70c517cfca9c83097bd47ec07cad3419",
+      "preserved": "check.py.txt"
+    },
+    {
+      "original": "candidate160-independent-audit-20261007/original/growth_series.py",
+      "sha256": "5d6d9e41b9900c335b8cd55fa930398032cc57188050b965d442253c8e671c19",
+      "preserved": "growth_series.py.txt"
+    }
+  ]
+}

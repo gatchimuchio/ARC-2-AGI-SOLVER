@@ -1,0 +1,10 @@
+{
+  "exit_code": 1,
+  "stage": "finalize_regression.py pre-native conservation",
+  "score_launched": false,
+  "cause": "Two existing regression report writers updated only time/RSS fields. All implementation files unchanged.",
+  "changed": [
+    "検証/対辺標点配置資料/portable-contrast-result.json",
+    "検証/計数色層旋回資料/validation.json"
+  ]
+}

@@ -1,0 +1,114 @@
+import sys,json,random,hashlib,copy,ast
+from pathlib import Path
+from unittest.mock import patch
+ROOT=Path.cwd();AUD=ROOT/'candidate154-independent-audit-20261007'
+sys.path[:0]=[str(ROOT/'proposal154-rectangle-seam-composition-20261007'),str(ROOT/'proposal153-existing-composition-20261007'),str(ROOT/'candidate142-production-20261007')]
+import seam_rectangle as m
+base=m.base
+checks=[]
+def ck(name,ok,detail=None):
+ assert ok,(name,detail)
+ checks.append(dict(name=name,passed=True,detail=detail))
+hashes={'proposal154-rectangle-seam-composition-20261007/seam_rectangle.py':'1e7d97da06e3c72808147c0e6e4fedd0956798733dfd3f605954695836f6d0c4','proposal153-existing-composition-20261007/anchored_rectangle.py':'3b25da045f96cb799a4d84c0c4159fd3b39e34214212f72936ea5b87940e4ad7'}
+for p,h in hashes.items():ck('initial_hash_'+p,hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h)
+# Reuse ONLY the prior audit's independent geometric oracle function, without
+# executing that audit or touching its evidence. Fixed piece order, all positions.
+tree=ast.parse((ROOT/'candidate153-independent-audit-20261007/audit.py').read_text())
+fn=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='oracle')
+exec(compile(ast.Module(body=[fn],type_ignores=[]),'prior_independent_oracle','exec'))
+def seam_oracle(role,positions):
+ rects=[]
+ for i,r,c in positions:
+  p=role['pieces'][i];r0,c0,r1,c1=p['bbox'];vals={(rr-r0+r,cc-c0+c):v for rr,cc,v in p['cells']}
+  rects.append((r,c,r+r1-r0+1,c+c1-c0+1,vals))
+ # Compute the full shared interval analytically per pair of rectangles.
+ for i,(r,c,R,C,vals) in enumerate(rects):
+  for s,t,S,T,other in rects[i+1:]:
+   profiles=None
+   if R==s or S==r:
+    lo,hi=max(c,t),min(C,T)
+    if lo<hi:
+     ra,rb=(R-1,s) if R==s else (r,S-1)
+     profiles=([vals[ra,x] for x in range(lo,hi)],[other[rb,x] for x in range(lo,hi)])
+   if C==t or T==c:
+    lo,hi=max(r,s),min(R,S)
+    if lo<hi:
+     ca,cb=(C-1,t) if C==t else (c,T-1)
+     profiles=([vals[x,ca] for x in range(lo,hi)],[other[x,cb] for x in range(lo,hi)])
+   if profiles:
+    a,b=profiles
+    if a!=b and set(a)!={role['border']} and set(b)!={role['border']}:return False
+ return True
+pairs=json.loads((ROOT/'proposal153-existing-composition-20261007/teachers-only.json').read_text())
+state,rec=m.fit(pairs);ck('teachers_exact',state is not None and rec['status']=='FIT')
+for idx,p in enumerate(pairs):
+ a,b=copy.deepcopy(p['input']),copy.deepcopy(p['output'])
+ for flip in range(2):
+  for rot in range(4):
+   out,r=m.predict(state,a);ck(f'teacher_{idx}_d4_{flip}_{rot}',out==b)
+   a=[list(x) for x in zip(*a[::-1])];b=[list(x) for x in zip(*b[::-1])]
+  a=[row[::-1] for row in a];b=[row[::-1] for row in b]
+ out,r=m.predict(state,p['input']);work=r['work']
+ for budget in range(1,work):
+  o,q=m.predict(state,p['input'],budget=budget)
+  ck(f'teacher_{idx}_budget_{budget}',o is None and q['status']=='RESOURCE_INCOMPLETE' and not q['complete'])
+ ck(f'teacher_{idx}_exact_budget',m.predict(state,p['input'],budget=work)[0]==p['output'])
+# Deliberately alternating wall pixels is not a whole-wall interval.
+for name,a,b,want in [('equal',[2,3,2],[2,3,2],True),('wall_a',[1,1,1],[2,3,4],True),('wall_b',[2,3,4],[1,1,1],True),('alternating_walls',[1,2,1],[2,1,2],False),('partial_match',[2,3,2],[2,4,2],False)]:
+ role={'border':1,'pieces':[{'bbox':[0,0,2,0],'cells':[[r,0,v] for r,v in enumerate(a)]},{'bbox':[5,7,7,7],'cells':[[r+5,7,v] for r,v in enumerate(b)]}]}
+ ok,records,_=m.certify_contacts(role,[(0,0,0),(1,0,1)],base.WorkBudget(base.LIMIT));ck(name,ok==want and len(records)==1)
+rng=random.Random(154);stats={'cases':0,'geometry':0,'seam_valid':0,'seam_invalid':0,'ambiguous':0}
+for case in range(360):
+ gh,gw=rng.randint(2,6),rng.randint(2,6);pieces=[]
+ if case<180:
+  for i in range(rng.randint(2,5)):
+   ph,pw=rng.randint(1,3),rng.randint(1,3)
+   pieces.append(dict(component_index=i,area=ph*pw,bbox=[0,0,ph-1,pw-1],cells=[[r,c,1 if rng.random()<.8 else rng.choice([2,3])] for r in range(ph) for c in range(pw)]))
+  sr,sc=rng.choice([-1,1]),rng.choice([-1,1]);anchor=(rng.randrange(gh),rng.randrange(gw));host=rng.randrange(len(pieces))
+ else:
+  gh,gw=rng.randint(3,5),rng.randint(3,5);rects=[(0,0,gh,gw)]
+  for _ in range(rng.randint(1,4)):
+   choices=[i for i,(r,c,h,w) in enumerate(rects) if h>1 or w>1]
+   if not choices:break
+   r,c,h,w=rects.pop(rng.choice(choices))
+   if h>1 and (w==1 or rng.randrange(2)):
+    k=rng.randrange(1,h);rects.extend([(r,c,k,w),(r+k,c,h-k,w)])
+   else:
+    k=rng.randrange(1,w);rects.extend([(r,c,h,k),(r,c+k,h,w-k)])
+  sr,sc=rng.choice([-1,1]),rng.choice([-1,1]);anchor=(0 if sr==1 else gh-1,0 if sc==1 else gw-1)
+  host=next(i for i,(r,c,h,w) in enumerate(rects) if r<=anchor[0]<r+h and c<=anchor[1]<c+w)
+  for i,(r,c,h,w) in enumerate(rects):
+   pieces.append(dict(component_index=i,area=h*w,bbox=[0,0,h-1,w-1],cells=[[dr,dc,1 if r+dr in (0,gh-1) or c+dc in (0,gw-1) or case%3==0 else rng.choice([1,2,3])] for dr in range(h) for dc in range(w)]))
+ role=dict(background=0,marker=9,border=1,anchor=anchor,signs=(sr,sc),host=host,pieces=pieces);g=[[0]*gw for _ in range(gh)]
+ models,_=oracle(g,role);expected={p for h,w,p in models if seam_oracle(role,p)};outputs=set()
+ for h,w,positions in models:
+  if positions not in expected:continue
+  top=anchor[0] if sr==1 else anchor[0]-h+1;left=anchor[1] if sc==1 else anchor[1]-w+1;out=[[0]*gw for _ in range(gh)]
+  for i,r,c in positions:
+   p=pieces[i];r0,c0,_,_=p['bbox']
+   for rr,cc,v in p['cells']:out[top+r+rr-r0][left+c+cc-c0]=v
+  outputs.add(tuple(map(tuple,out)))
+ with patch.object(base,'observe',return_value=((role,),{'role_count':1})):
+  out,rec=m.predict(state,g)
+ rr=rec['all_role_returns'][0];actual={tuple(sorted(tuple(p) for p in x['placements'])) for x in rr['all_proposals'] if x['seam_qualified']}
+ ck(f'oracle_{case}',len(rr['all_proposals'])==len(models) and actual==expected and rr['feasible_count']==len(expected) and rr['distinct_outputs']==len(outputs) and (out is not None)==(len(outputs)==1) and (out is None or tuple(map(tuple,out)) in outputs))
+ stats['cases']+=1;stats['geometry']+=len(models);stats['seam_valid']+=len(expected);stats['seam_invalid']+=len(models)-len(expected);stats['ambiguous']+=len(outputs)>1
+# Public parser remains a direct use of unchanged base observe.
+for g in [None,[],[[True]],[[0],[0,1]],[[10]],[[0]*4 for _ in range(4)]]:
+ ck('unchanged_no_role_'+repr(g),not base.observe(g)[0] and m.predict(state,g)[1]['failure']=='no_structural_role')
+# Real exhaustive arrangement blowup must never leak a partial result.
+g=[[0]*30 for _ in range(10)]
+for i in range(10):g[2][2+2*i]=1
+for r,c in [(1,1),(1,2),(2,1)]:g[r][c]=9
+out,r=m.predict(state,g);ck('real_default_exhaustion',out is None and r['status']=='RESOURCE_INCOMPLETE' and not r['complete'])
+g2=g+[[0]*30];s,r=m.fit([{'input':g,'output':g},{'input':g2,'output':g2}]);ck('fit_exhaustion_propagates',s is None and r['status']=='RESOURCE_INCOMPLETE')
+# Later-role failure and later exhaustion override earlier success.
+role=base.observe(pairs[0]['input'])[0][0];geom=base.assemble(pairs[0]['input'],role,base.WorkBudget(base.LIMIT))[1]
+for label,second,want in [('failed',{'placements':[]},'HOLD'),('agree',geom,'CANDIDATE')]:
+ with patch.object(base,'observe',return_value=((role,role),{})),patch.object(base,'assemble',side_effect=[(None,geom),(None,second)]):
+  o,r=m.predict(state,pairs[0]['input']);ck('retained_role_'+label,r['status']==want and len(r['all_role_returns'])==2)
+with patch.object(base,'observe',return_value=((role,role),{})),patch.object(base,'assemble',side_effect=[(None,geom),base.BudgetIncomplete()]):
+ o,r=m.predict(state,pairs[0]['input']);ck('later_exhaustion',o is None and r['status']=='RESOURCE_INCOMPLETE')
+for p,h in hashes.items():ck('final_hash_'+p,hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h)
+(AUD/'evidence.json').write_text(json.dumps(dict(all_passed=True,total=len(checks),stats=stats,hashes=hashes,checks=checks),indent=2))
+print(json.dumps(dict(all_passed=True,total=len(checks),stats=stats)))

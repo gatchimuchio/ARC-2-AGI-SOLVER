@@ -1,0 +1,49 @@
+--- candidate175/missing_edge_bindings.py
++++ candidate177/missing_edge_bindings.py
+@@ -6,6 +6,7 @@
+     dominant_background_for_grid, edge_pack_components, edge_pack_component_feature,
+ )
+ from hds学習系統 import 最小排気系
++from copy import deepcopy
+ from peer_edge import fit, render
+ from hds学習系統.型 import 学習成立状態, 原理状態, 採用状態
+ from hds学習系統.推論 import 値キー
+@@ -18,10 +19,19 @@
+ class MissingEdgeBindings:
+     def __init__(self, teachers):
+         self.legacy = 端投射教材(teachers)
+-        self.peer_models, _ = fit(teachers)
++        self._peer_teachers = deepcopy(teachers)
++        self.peer_models = None  # None is uninitialized; () is a completed empty fit.
+         self.confirmed_principles = set()
+         self.tables = {i: {f[i]: side for f, side in self.legacy.観測群}
+                        for i in self.legacy.特徴番号群}
++
++    def _fit_peers_once(self):
++        if self.peer_models is None:
++            models, _ = fit(self._peer_teachers)
++            # Publish only a completed exhaustive fit. Exceptions propagate and
++            # never install a partial model set or an empty success sentinel.
++            self.peer_models = models
++            self._peer_teachers = None
+ 
+     def learn(self, machine, observe):
+         confirmed = set()
+@@ -77,6 +87,7 @@
+             return legacy.候補(grid, policy)
+         def hold(reason):
+             return None, {'failure': reason, 'composition': 'missing-edge-binding'}
++        self._fit_peers_once()
+         if not self.peer_models:
+             return hold('no_teacher_fitting_peer_models')
+         # Evaluate every retained alternative. Never retain only successful outputs.
+--- candidate175/接続/ARC2/未観測端対応合成.py
++++ candidate177/接続/ARC2/未観測端対応合成.py
+@@ -11,5 +11,6 @@
+     def 記録(self):
+         return {**self.legacy.記録(),
+                 "合成事前仮説": "単一特徴の未観測キーだけを教師整合合同peer関係で束縛",
+-                "保持peer候補数": len(self.peer_models),
++                "保持peer候補数": None if self.peer_models is None else len(self.peer_models),
++                "peer学習完了": self.peer_models is not None,
+                 "確認済み原理数": len(self.confirmed_principles)}

@@ -1,0 +1,16 @@
+{
+  "changed": [
+    "接続/ARC2/HDS接続.py",
+    "検証/対辺標点配置資料/portable-contrast-result.json",
+    "検証/計数色層旋回資料/validation.json"
+  ],
+  "new": [
+    "検証/領域指令回帰.py",
+    "接続/ARC2/領域指令核.py",
+    "接続/ARC2/領域指令教材.py",
+    "検証/領域指令資料/ordinary_checks.py",
+    "検証/領域指令資料/synthetic-cover-regression.json",
+    "検証/領域指令資料/teachers-only.json"
+  ],
+  "missing": []
+}

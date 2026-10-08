@@ -1,0 +1,9 @@
+{
+  "scored_pin_count": 2111,
+  "unchanged_scored_files": 2109,
+  "only_authorized_administrative_updates": [
+    "制御/現在状態.json",
+    "戦略/README.md"
+  ],
+  "all_runtime_regression_and_fixture_pins_unchanged": true
+}

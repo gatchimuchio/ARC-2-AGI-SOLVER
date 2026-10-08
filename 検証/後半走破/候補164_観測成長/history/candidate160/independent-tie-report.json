@@ -1,0 +1,255 @@
+{
+  "counts": {
+    "1": 72,
+    "0": 72,
+    "5": 6
+  },
+  "status": "EMIT",
+  "output": [
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1
+    ]
+  ],
+  "incomplete": 0,
+  "fitted": 30,
+  "background_by_view": [
+    {
+      "k": 0,
+      "flip": false,
+      "selected": 1,
+      "roles": []
+    },
+    {
+      "k": 0,
+      "flip": true,
+      "selected": 0,
+      "roles": [
+        {
+          "background": 0,
+          "marker_color": 5,
+          "marker_window": [
+            0,
+            0,
+            9,
+            2
+          ],
+          "body_bboxes": [
+            [
+              0,
+              4,
+              9,
+              6
+            ],
+            [
+              0,
+              8,
+              7,
+              10
+            ],
+            [
+              0,
+              12,
+              5,
+              14
+            ]
+          ],
+          "body_palettes": [
+            [
+              1
+            ],
+            [
+              1
+            ],
+            [
+              1
+            ]
+          ],
+          "future_geometric_roles": []
+        }
+      ]
+    },
+    {
+      "k": 1,
+      "flip": false,
+      "selected": 0,
+      "roles": []
+    },
+    {
+      "k": 1,
+      "flip": true,
+      "selected": 1,
+      "roles": []
+    },
+    {
+      "k": 2,
+      "flip": false,
+      "selected": 0,
+      "roles": [
+        {
+          "background": 0,
+          "marker_color": 5,
+          "marker_window": [
+            0,
+            0,
+            9,
+            2
+          ],
+          "body_bboxes": [
+            [
+              0,
+              4,
+              9,
+              6
+            ],
+            [
+              2,
+              8,
+              9,
+              10
+            ],
+            [
+              4,
+              12,
+              9,
+              14
+            ]
+          ],
+          "body_palettes": [
+            [
+              1
+            ],
+            [
+              1
+            ],
+            [
+              1
+            ]
+          ],
+          "future_geometric_roles": []
+        }
+      ]
+    },
+    {
+      "k": 2,
+      "flip": true,
+      "selected": 0,
+      "roles": [
+        {
+          "background": 0,
+          "marker_color": 5,
+          "marker_window": [
+            0,
+            12,
+            9,
+            14
+          ],
+          "body_bboxes": [
+            [
+              4,
+              0,
+              9,
+              2
+            ],
+            [
+              2,
+              4,
+              9,
+              6
+            ],
+            [
+              0,
+              8,
+              9,
+              10
+            ]
+          ],
+          "body_palettes": [
+            [
+              1
+            ],
+            [
+              1
+            ],
+            [
+              1
+            ]
+          ],
+          "future_geometric_roles": [
+            {
+              "series_index_1based": 4,
+              "predicted_bbox": [
+                -2,
+                12,
+                9,
+                14
+              ],
+              "window_shape": [
+                10,
+                3
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "k": 3,
+      "flip": false,
+      "selected": 0,
+      "roles": []
+    },
+    {
+      "k": 3,
+      "flip": true,
+      "selected": 0,
+      "roles": []
+    }
+  ]
+}

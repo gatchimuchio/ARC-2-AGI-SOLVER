@@ -1,0 +1,45 @@
+{
+  "source_sha256": "6b2139090fb1d2f94412bc8b330f33ed4868a03c1736f3a6f8ab3448ee99faaa",
+  "unchanged_functions": [
+    "endpoint_roots",
+    "polynomial",
+    "sequence_laws",
+    "sequence_value",
+    "ceildiv",
+    "intersect_intervals",
+    "nonnegative_intervals",
+    "containing_indices",
+    "observe",
+    "radial_predict",
+    "crop",
+    "rot",
+    "transform",
+    "inverse",
+    "runs",
+    "encode_row",
+    "affine",
+    "axis_models",
+    "centered_row_models"
+  ],
+  "fit_metadata_exception": "version 3 to 4",
+  "independent_strip_cropped_transpose_cases": 16,
+  "all_fitting_widths": [
+    1,
+    2,
+    3,
+    6
+  ],
+  "retained_future_failures": {
+    "parity": true,
+    "width": true,
+    "radial_extent": true
+  },
+  "source_corruptions_rejected": [
+    "reflection",
+    "seed",
+    "outer"
+  ],
+  "teacher_D4": "24/24",
+  "aggregate_failure_and_disagreement_hold": true,
+  "status": "PASS"
+}

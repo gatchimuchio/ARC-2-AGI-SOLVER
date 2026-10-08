@@ -1,0 +1,19 @@
+{
+  "base_commit": "401de20869be3a5705bf7375f697fd2ba49ee619",
+  "root": "/workspace/scratch/7408259c1ab2/reconstruction072-production-20261007",
+  "new_reconstruction": true,
+  "files": [
+    {
+      "path": "接続/ARC2/疎点転写教材.py",
+      "sha256": "2a0e1e0f77e05b9298cc35a4b6dbb5109362ba06b5f179c1866447b539b1200d"
+    },
+    {
+      "path": "接続/ARC2/平行線基準長候補.py",
+      "sha256": "0a0cce6f5daf5de2b1d4e22821fb0143d90c2afb1a198981cac8b8f2532755a5"
+    },
+    {
+      "path": "検証/平行線基準長回帰.py",
+      "sha256": "0b6ddf0ba9e80245cfd0e976357453cf72a108b6eaccf4264f06160174ba44e2"
+    }
+  ]
+}

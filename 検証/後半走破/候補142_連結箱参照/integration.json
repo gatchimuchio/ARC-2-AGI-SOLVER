@@ -1,0 +1,55 @@
+{
+  "base_commit": "b30d12eae5f65c58e30323a678dc9a2b5fae8c6c",
+  "root": "/workspace/scratch/7408259c1ab2/candidate142-production-20261007",
+  "files": [
+    {
+      "path": "接続/ARC2/連結箱参照候補.py",
+      "sha256": "d4ac36b3f8055cfd6e30c449d5b2c5389023a987ef992bb875f88d241dec01a1",
+      "bytes": 4800
+    },
+    {
+      "path": "接続/ARC2/連結箱参照教材.py",
+      "sha256": "11a98bdc51a3cfa7f20293f965c64d57ba3a6a77ba626b33bbd74b89e4fc88b2",
+      "bytes": 4383
+    },
+    {
+      "path": "接続/ARC2/連結箱参照核.py",
+      "sha256": "22198d1649cbf33488aeccd4a9d0e2a39e6b6a0b9a88327eae7a36ce278dd25b",
+      "bytes": 7628
+    },
+    {
+      "path": "検証/連結箱参照回帰.py",
+      "sha256": "6edfe7edfab13b677771c1fbb2fa52e79a27d39fd099e47a9ad81f0b758b21f7",
+      "bytes": 3728
+    },
+    {
+      "path": "検証/連結箱参照資料/ordinary-fixtures.json",
+      "sha256": "d772662c8c94e70fc26688a789aace49b0410d12f9aaea29016f8b3b5fd9e434",
+      "bytes": 20041
+    },
+    {
+      "path": "検証/連結箱参照資料/retained-state.json",
+      "sha256": "6cd8f7e5136a51f306c46897ab8455c9cfc13571ab774ab8ced8acaf5141dac2",
+      "bytes": 134
+    },
+    {
+      "path": "検証/連結箱参照資料/source-fixture-pins.json",
+      "sha256": "9df6170a272a7a1dae612211ee27dbf3c4a35f7af7a6fc81ce666f7665b44e77",
+      "bytes": 653
+    },
+    {
+      "path": "検証/連結箱参照資料/teachers-only.json",
+      "sha256": "e912e4d986abc16064727e23b7c89e5e1b9b4082fe90d9fb821f08c5903d8b2d",
+      "bytes": 9209
+    },
+    {
+      "path": "接続/ARC2/HDS接続.py",
+      "sha256": "07f7ca5b6e530af94a2d316d061cab506a1a6a5004c21acb92ac580a0d82c1ad",
+      "bytes": 25355
+    }
+  ],
+  "new_boundary": "ARC連結箱参照",
+  "bridge_delta": "four standard additions; empty prior and generic gates unchanged",
+  "preserved_attempt136": "/workspace/scratch/7408259c1ab2/candidate136-production-evidence-20261007",
+  "change_from136": "necessary ownership-prefix rejection and core SHA metadata only"
+}

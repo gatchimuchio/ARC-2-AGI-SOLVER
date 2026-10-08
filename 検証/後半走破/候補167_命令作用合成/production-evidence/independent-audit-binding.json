@@ -1,0 +1,26 @@
+{
+  "files": [
+    {
+      "path": "candidate167-independent-audit-20261007/README.md",
+      "sha256": "77de897690f48e937ae804fb7f79f9129cef2ec1abc1704f244e849de9cbfcd2"
+    },
+    {
+      "path": "candidate167-independent-audit-20261007/check_independent.py",
+      "sha256": "2e805a8822612119dcd728499209ed627b3276c2c3e29bb37249364b5e7e8cff"
+    },
+    {
+      "path": "candidate167-independent-audit-20261007/independent-result.json",
+      "sha256": "f25c7b0f74390b9c7ed3c5c47056b15e253288c00834a9c08c3e424c2841b831"
+    },
+    {
+      "path": "candidate167-independent-audit-20261007/inherited-result.json",
+      "sha256": "11776d8baec93f940d0aa2dc2205a07043d953d41de6f7b5d34b64f3a87ae078"
+    },
+    {
+      "path": "candidate167-independent-audit-20261007/run_inherited.py",
+      "sha256": "13b9630ca9e56740c653c014a9c50153cfbda9b5a21c2ecaced7eab9624ea847"
+    }
+  ],
+  "source_freeze_sha256": "16a5b74cb15bce88b96bfa1ebef85eff73a18ab50454647120331342cb75256f",
+  "source_freeze_unchanged": true
+}

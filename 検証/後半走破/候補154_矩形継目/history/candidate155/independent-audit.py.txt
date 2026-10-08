@@ -1,0 +1,111 @@
+import sys,json,hashlib,itertools,copy
+from pathlib import Path
+from unittest.mock import patch
+R=Path.cwd();A=R/'candidate155-independent-audit-20261007'
+sys.path[:0]=[str(R/p) for p in ['proposal155-touching-rectangle-view-20261007','proposal154-rectangle-seam-composition-20261007','proposal153-existing-composition-20261007','candidate142-production-20261007']]
+import touching_rectangle as m
+b=m.base
+checks=[]
+def ck(n,v):
+ assert v,n
+ checks.append(n)
+hashes={'proposal155-touching-rectangle-view-20261007/touching_rectangle.py':'121d31d0921c9383b769b3b6515aa669259f4aca397c82da70760ba3a6889357','proposal154-rectangle-seam-composition-20261007/seam_rectangle.py':'1e7d97da06e3c72808147c0e6e4fedd0956798733dfd3f605954695836f6d0c4','proposal153-existing-composition-20261007/anchored_rectangle.py':'3b25da045f96cb799a4d84c0c4159fd3b39e34214212f72936ea5b87940e4ad7'}
+for p,h in hashes.items():ck('initial '+p,hashlib.sha256((R/p).read_bytes()).hexdigest()==h)
+# Independent oracle: state graph of partitions, splitting ONE leaf per step.
+# Terminal states are precisely saturated refinements. No Cartesian recursion.
+def children(body):
+ out=[]
+ for axis in [0,1]:
+  for k in range(min(p[axis] for p in body),max(p[axis] for p in body)):
+   x=tuple(p for p in body if p[axis]<=k); y=tuple(p for p in body if p[axis]>k)
+   walls=[p for p in body if p[axis] in [k,k+1]]
+   face0={p[1-axis] for p in walls if p[axis]==k};face1={p[1-axis] for p in walls if p[axis]==k+1}
+   if face0&face1 and all(p[2]==1 for p in walls) and any(p[2]!=1 for p in x) and any(p[2]!=1 for p in y):out.append((x,y))
+ return out
+def oracle(body):
+ start=(tuple(sorted(body)),);seen={start};todo=[start];terminal=set()
+ while todo:
+  state=todo.pop();successors=[]
+  for i,leaf in enumerate(state):
+   successors += [tuple(sorted(state[:i]+state[i+1:]+parts)) for parts in children(leaf)]
+  if not successors:terminal.add(state)
+  for s in successors:
+   if s not in seen:seen.add(s);todo.append(s)
+ return terminal
+stats={'partition_cases':0,'partition_outputs':0,'multivalued':0}
+def testbody(body,label):
+ got,cuts=m.partitions(body,1,b.WorkBudget(b.LIMIT));expected=oracle(body)
+ ck(label+' exact',set(got)==expected)
+ for pp in got:
+  flat=[p for leaf in pp for p in leaf]
+  ck(label+' conservation',len(flat)==len(body) and set(flat)==set(body))
+  ck(label+' saturation',all(not children(leaf) for leaf in pp))
+ stats['partition_cases']+=1;stats['partition_outputs']+=len(got);stats['multivalued']+=len(got)>1
+# All nonempty occupancy/color patterns on 2x3: absent, wall, payload.
+for i,vals in enumerate(itertools.product([0,1,2],repeat=6)):
+ body=[(j//3,j%3,v) for j,v in enumerate(vals) if v]
+ if body:testbody(body,'irregular '+str(i))
+# All payload subsets on nine sites of a 7x7 solid body. Multiple double-wall
+# rows/columns and cut-order interactions; empty payload included deliberately.
+sites=[(r,c) for r in [0,3,6] for c in [0,3,6]]
+for mask in range(512):
+ payload={p for i,p in enumerate(sites) if mask>>i&1}
+ body=[(r,c,2 if (r,c) in payload else 1) for r in range(7) for c in range(7)]
+ testbody(body,'solid '+str(mask))
+pairs=json.loads((R/'proposal153-existing-composition-20261007/teachers-only.json').read_text())
+s,rec=m.fit(pairs);ck('teachers',s is not None and rec['teacher_exact']==[True,True] and rec['fitted_parameters']==[])
+for i,p in enumerate(pairs):
+ a,z=copy.deepcopy(p['input']),copy.deepcopy(p['output'])
+ for flip in range(2):
+  for rot in range(4):
+   ck(f'D4 {i} {flip} {rot}',m.predict(s,a)[0]==z)
+   a=[list(x) for x in zip(*a[::-1])];z=[list(x) for x in zip(*z[::-1])]
+  a=[x[::-1] for x in a];z=[x[::-1] for x in z]
+ out,r=m.predict(s,p['input']);work=r['work']
+ for budget in range(1,work):
+  o,q=m.predict(s,p['input'],budget=budget)
+  ck(f'budget {i} {budget}',o is None and q['status']=='RESOURCE_INCOMPLETE' and q['complete']==False)
+ ck('exact budget '+str(i),m.predict(s,p['input'],budget=work)[0]==p['output'])
+# Real alternative ownership example; all retained roles must be processed.
+g=[[0]*16 for _ in range(16)]
+for r in range(6):
+ for c in range(6):g[r+2][c+2]=2 if (r,c) in [(1,1),(1,4),(4,1)] else 1
+for r,c in [(1,1),(1,2),(2,1)]:g[r][c]=9
+roles,obs=m.observe(g,b.WorkBudget(b.LIMIT));ck('two real ownerships',len(roles)==2)
+for role in roles:
+ owned=[(r,c,v) for p in role['pieces'] for r,c,v in p['cells']]
+ ck('observed ownership conservation',len(owned)==36 and len(set(owned))==36 and all(g[r][c]==v for r,c,v in owned))
+o,rec=m.predict(s,g);ck('real all roles',o is None and rec['status']=='HOLD' and len(rec['all_role_returns'])==2)
+# Direct aggregation tests are explicitly mocked, not claimed parser witnesses.
+role=m.observe(pairs[0]['input'],b.WorkBudget(b.LIMIT))[0][0]
+geom=b.assemble(pairs[0]['input'],role,b.WorkBudget(b.LIMIT))[1]
+for label,second,want in [('failed',{'placements':[]},'HOLD'),('agree',geom,'CANDIDATE')]:
+ with patch.object(m,'observe',return_value=((role,role),{})),patch.object(b,'assemble',side_effect=[(None,geom),(None,second)]):
+  o,r=m.predict(s,pairs[0]['input']);ck('later role '+label,r['status']==want and len(r['all_role_returns'])==2)
+with patch.object(m,'observe',return_value=((role,role),{})),patch.object(b,'assemble',side_effect=[(None,geom),b.BudgetIncomplete()]):
+ o,r=m.predict(s,pairs[0]['input']);ck('later resource',o is None and r['status']=='RESOURCE_INCOMPLETE')
+# Every physical arrangement retained, including output disagreement.
+amb=[[0]*9 for _ in range(9)]
+for i,(top,left) in enumerate([(1,1),(1,5),(5,1),(5,5)]):
+ for rr in range(top,top+3):
+  for cc in range(left,left+3):amb[rr][cc]=1
+ amb[top+1][left+1]=2+i
+for rr,cc in [(0,0),(0,1),(1,0)]:amb[rr][cc]=9
+o,r=m.predict(s,amb)
+ck('all six arrangements retained',o is None and r['all_role_returns'][0]['feasible_count']==6 and r['all_role_returns'][0]['distinct_outputs']==6)
+same=[[1 if v in [2,3,4,5] else v for v in row] for row in amb]
+o,r=m.predict(s,same);ck('six equivalent arrangements retained',o is not None and r['all_role_returns'][0]['feasible_count']==6)
+# Controlled cross-role disagreement: seam painting differs on later role.
+accepted,contacts,painted=m.certify_contacts(role,geom['placements'][0],b.WorkBudget(b.LIMIT))
+other=dict(painted);q=next(iter(other));other[q]=8
+with patch.object(m,'observe',return_value=((role,role),{})),patch.object(b,'assemble',return_value=(None,{'placements':[geom['placements'][0]]})),patch.object(m,'certify_contacts',side_effect=[(True,contacts,painted),(True,contacts,other)]):
+ o,r=m.predict(s,pairs[0]['input']);ck('cross role disagreement',o is None and r['failure']=='retained_role_disagreement')
+# Real combinatorial assembly exhaustion, and fit propagation.
+g=[[0]*30 for _ in range(10)]
+for i in range(10):g[2][2+2*i]=1
+for r,c in [(1,1),(1,2),(2,1)]:g[r][c]=9
+out,r=m.predict(s,g);ck('real default exhaustion',out is None and r['status']=='RESOURCE_INCOMPLETE')
+st,r=m.fit([{'input':g,'output':g},{'input':g+[[0]*30],'output':g+[[0]*30]}]);ck('fit resource',st is None and r['status']=='RESOURCE_INCOMPLETE')
+for p,h in hashes.items():ck('final '+p,hashlib.sha256((R/p).read_bytes()).hexdigest()==h)
+(A/'evidence.json').write_text(json.dumps({'all_passed':True,'assertions':len(checks),'stats':stats,'hashes':hashes},indent=2))
+print(json.dumps({'all_passed':True,'assertions':len(checks),'stats':stats}))

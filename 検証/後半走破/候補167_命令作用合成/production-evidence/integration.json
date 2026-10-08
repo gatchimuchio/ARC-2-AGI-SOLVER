@@ -1,0 +1,33 @@
+{
+  "base_commit": "3838872c3cdb7cad741819b59b4e70f7a0494071",
+  "files": [
+    {
+      "path": "接続/ARC2/厳密枠局所命令.py",
+      "base_sha256": "450e4862ec937a2402f3b30962870aa5b9874daa4ab43c2e4043a416193d8860",
+      "frozen_sha256": "921026d88a2c739c15840f34280fadf9ed959cab827d17ff8b0ec56192f80b36",
+      "changed": true
+    },
+    {
+      "path": "接続/ARC2/周期補色局所命令.py",
+      "base_sha256": "1c4978e3b4f0c908cd776828d406bdd76f362dc943d3ead080e4040900f71bcb",
+      "frozen_sha256": "2549295bf02989c15b86f7154e1993ad8985ef3f8fb1498f429762786b9c7d24",
+      "changed": true
+    },
+    {
+      "path": "接続/ARC2/対内枠色命令視野.py",
+      "base_sha256": null,
+      "frozen_sha256": "7c22fed6f79ddc4337ed3efcd27005f9059e372079a680b6fdfdc27978433823",
+      "changed": true
+    },
+    {
+      "path": "接続/ARC2/枠局所命令接続.py",
+      "base_sha256": "656336c088db6462af096b9be041c6d5adb87123eb9d067a6c590c90fb78dd4a",
+      "frozen_sha256": "75ca3feb0f274ac3f0db8ca2ffd7f38171b7198fee9a1d11599ffcaccd3d7544",
+      "changed": true
+    }
+  ],
+  "existing_family_updated": true,
+  "core_changed": false,
+  "global_gates_changed": false,
+  "ignored_sources_copied_before_native": true
+}

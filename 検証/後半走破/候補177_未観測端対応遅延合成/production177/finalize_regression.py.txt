@@ -1,0 +1,29 @@
+from pathlib import Path
+import json,hashlib,gzip,ast,shutil
+E=Path(__file__).resolve().parent;B=E.parent;R=B/'candidate177-production-20261008';A=B/'candidate167-production-20261007';PE=B/'candidate167-production-evidence-20261007';F=B/'candidate175-production-20261008'
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+current=json.loads((E/'full-regression-current.json').read_text());assert current['success']
+# Public regression scripts rewrite their own generated time/RSS reports.
+# Preserve fresh reports, verify all semantic content, and restore frozen bytes.
+restored=[]
+for n,keys in [('検証/対辺標点配置資料/portable-contrast-result.json',{'cpu_seconds','max_rss_kib'}),('検証/計数色層旋回資料/validation.json',{'wall_seconds','max_rss_kib'})]:
+ a=json.loads((F/n).read_text());b=json.loads((R/n).read_text());assert {k:v for k,v in a.items()if k not in keys}=={k:v for k,v in b.items()if k not in keys}
+ if sha(F/n)!=sha(R/n):
+  p=E/'fresh-generated-reports'/n;p.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(R/n,p);restored.append({'path':n,'fresh_sha256':sha(p),'frozen_sha256':sha(F/n)});shutil.copyfile(F/n,R/n)
+(E/'generated-report-preservation.json').write_text(json.dumps(restored,ensure_ascii=False,indent=2))
+D=json.loads(gzip.decompress((R/'検証/全体模様窓資料/dependency-pins.json.gz').read_bytes()))
+window=set(D['payload_pins'])|set(D['base_source_pins'])
+window|={str(p.relative_to(R))for p in (R/'検証/全体模様窓資料').rglob('*')if p.is_file()and '__pycache__'not in p.parts}
+for name in D['native_bridge_ast']:
+ def body(root):return ast.dump(next(n for n in ast.parse((root/'接続/ARC2/HDS接続.py').read_text()).body if isinstance(n,ast.FunctionDef)and n.name==name))
+ assert body(R)==body(A),name
+for name in window:assert (R/name).read_bytes()==(A/name).read_bytes(),name
+(E/'window29-conservation.json').write_text(json.dumps({'files':len(window),'ast':D['native_bridge_ast'],'unchanged':True},ensure_ascii=False,indent=2))
+prior=json.loads((PE/'full-regression-selected.json').read_text());old=next(r for r in prior['records']if r['file']=='検証/全体模様窓回帰.py');assert old['successful']and old['tests']==29 and old['sha256']==sha(R/old['file'])
+selected=dict(current);selected['records']=current['records']+[old];selected.update(scope='Candidate177 fresh regressions plus unchanged prior window29-case scope',files=len(selected['records']),expected_files=len(selected['records']),tests=sum(r['tests']for r in selected['records']),coverage_is_composed=True,prior_report_sha256=sha(PE/'full-regression-selected.json'))
+(E/'full-regression-selected.json').write_text(json.dumps(selected,ensure_ascii=False,indent=2))
+f=json.loads((E/'pre-targeted-freeze.json').read_text());changed=[n for n,h in f['files'].items()if sha(R/n)!=h];assert not changed,changed
+protected=['AGENTS.md','制御/現在状態.json']+[str(p.relative_to(A))for p in (A/'HDS').rglob('*')if p.is_file()and '__pycache__'not in p.parts]
+for n in protected:assert sha(A/n)==sha(R/n),n
+(E/'post-regression-source-conservation.json').write_text(json.dumps({'all_frozen_files_unchanged':len(f['files']),'protected_core_files_unchanged':len(protected),'scorer_calls':0}))
+print(json.dumps({'files':selected['files'],'checks':selected['tests'],'success':selected['success'],'scorer_calls':0}))

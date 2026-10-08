@@ -1,0 +1,44 @@
+--- accepted/厳密枠局所命令.py
++++ candidate/厳密枠局所命令.py
+@@ -158,8 +158,8 @@
+     return out
+ 
+ 
+-def render(grid):
+-    roles, parse_record = parse(grid)
++def render(grid, *, parser=None):
++    roles, parse_record = (parse if parser is None else parser)(grid)
+     returns = []
+     role_records = []
+     failed_roles = []
+--- accepted/周期補色局所命令.py
++++ candidate/周期補色局所命令.py
+@@ -51,14 +51,14 @@
+                     'period': 2, 'axis': (dr, dc), 'transform': model[1]}
+ 
+ 
+-def render(grid):
+-    original = old085.render(grid)
++def render(grid, *, parser=None):
++    original = old085.render(grid, parser=parser)
+     old_output, old_record = original
+     # Preserve old success, ambiguity, and action-bearing failed-role aggregates.
+     if old_output is not None or not old_record.get('roles') or any(
+             role['alternatives'] for role in old_record['roles']):
+         return original
+-    roles, parse_record = old085.parse(grid)
++    roles, parse_record = (old085.parse if parser is None else parser)(grid)
+     if not roles:
+         raise AssertionError('old_parse_not_repeatable')
+     returns, records, failed_roles = [], [], []
+--- accepted/枠局所命令接続.py
++++ candidate/枠局所命令接続.py
+@@ -1,6 +1,7 @@
+ """Same-family binding after a complete instruction-parser contract rejection."""
+ from .厳密枠局所命令 import valid_grid
+-from .周期補色局所命令 import fit as fit_embedded, render as render_embedded
++from .周期補色局所命令 import fit as fit_embedded
++from .対内枠色命令視野 import render as render_embedded
+ 
+ 
+ STRUCTURAL_FAILURES = frozenset((

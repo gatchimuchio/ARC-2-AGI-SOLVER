@@ -1,0 +1,19 @@
+{
+  "native_session": 50167,
+  "native_terminal_chunk": "605a72",
+  "native_exit_code": 0,
+  "native_direct_grids_equal": true,
+  "family": {
+    "境界": "ARC距離順位回収",
+    "事前観測数": 0,
+    "現在観測数": 2,
+    "採用可": true,
+    "同値採用": true,
+    "状態": "全教師再現",
+    "隔離数": 0
+  },
+  "targeted_session": 71200,
+  "targeted_terminal_chunk": "51f438",
+  "targeted_exit_code": 0,
+  "targeted_checks": 22
+}

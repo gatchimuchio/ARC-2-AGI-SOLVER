@@ -1,0 +1,22 @@
+{
+  "candidate": 162,
+  "status": "Independent audit PASS; both input-only queries HOLD; not production admitted",
+  "runtime_included": false,
+  "sources": [
+    {
+      "original": "proposal162-growth-series-complete-20261007/check.py",
+      "sha256": "3b7eaf41635637e2c5cada8af8bc71491254b9acb4856774519d4b329800df31",
+      "preserved": "check.py.txt"
+    },
+    {
+      "original": "proposal162-growth-series-complete-20261007/focused.py",
+      "sha256": "1fa38cb73960782c6efd34318750e323b863820b7671d836f709efddefc21a8d",
+      "preserved": "focused.py.txt"
+    },
+    {
+      "original": "proposal162-growth-series-complete-20261007/growth_series.py",
+      "sha256": "6e52282205b901ea947cb82ae763e9aaaa9ad3f3905f05d2f7a24e80797dca54",
+      "preserved": "growth_series.py.txt"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "decision": "ADMIT_LOCAL",
+  "parent_commit": "4b67e4f31ecf4c214408c7f642ccdd3738b30641",
+  "previous": [
+    98,
+    139
+  ],
+  "current": [
+    99,
+    140
+  ],
+  "delta": [
+    1,
+    1
+  ],
+  "old139_exact": true,
+  "wrong_emitted": 0,
+  "resource_failures": {},
+  "official_score_runs177": 1,
+  "rejected175": {
+    "score": [
+      92,
+      130
+    ],
+    "delta": [
+      -6,
+      -9
+    ],
+    "old_grids_preserved": 129,
+    "old_grids_lost": 10,
+    "wrong_emitted": 0,
+    "resource_failures": {
+      "memory_limit": 3,
+      "cpu_limit": 5
+    },
+    "official_score_runs": 1,
+    "adopted": false
+  },
+  "independent_checks177": 124,
+  "regression": {
+    "fresh_scripts": 109,
+    "fresh_checks": 7839,
+    "conserved_window_checks": 29,
+    "composed_scripts": 110,
+    "composed_checks": 7868
+  },
+  "basis": "Parent authorized local adoption after independently verifying frozen pins and result",
+  "push": false,
+  "upload": false
+}

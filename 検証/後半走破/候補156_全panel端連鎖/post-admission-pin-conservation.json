@@ -1,0 +1,9 @@
+{
+  "pre_score_pins": 2152,
+  "unchanged_pins": 2150,
+  "authorized_document_only_changes": [
+    "制御/現在状態.json",
+    "戦略/README.md"
+  ],
+  "runtime_and_test_pins_unchanged": true
+}

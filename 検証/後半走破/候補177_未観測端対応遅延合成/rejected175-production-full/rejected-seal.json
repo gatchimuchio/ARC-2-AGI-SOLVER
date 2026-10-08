@@ -1,0 +1,10 @@
+{
+  "frozen_files_still_identical": 2516,
+  "official_scorer_calls": 1,
+  "diagnostic_runtime_calls": 8,
+  "source_changes_after_score": 0,
+  "adoption": false,
+  "commits": 0,
+  "uploads": 0,
+  "diagnostic_scope": "Input-only runtimes; stage and call-count instrumentation outside frozen source; no score comparisons or target-based model changes."
+}

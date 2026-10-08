@@ -1,0 +1,10 @@
+{
+  "axis_success_plus_incomplete_holds": true,
+  "axis_success_plus_radial_future_center_not_integral_holds": true,
+  "axis_success_plus_radial_future_extent_not_layer_aligned_holds": true,
+  "axis_success_plus_radial_out_of_bounds_holds": true,
+  "axis_success_plus_radial_ink_conflict_holds": true,
+  "axis_radial_disagreement_holds": true,
+  "axis_radial_agreement_emits": true,
+  "ambiguous_geometry_plus_radial_success_holds": true
+}

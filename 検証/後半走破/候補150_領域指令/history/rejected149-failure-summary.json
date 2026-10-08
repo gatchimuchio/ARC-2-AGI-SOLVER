@@ -1,0 +1,18 @@
+{
+  "status": "NOT_ADMITTED",
+  "native_pass": true,
+  "targeted_checks": 14,
+  "regression_current_scripts": 105,
+  "regression_passed": 104,
+  "failed": [
+    {
+      "file": "検証/重畳組立回帰.py",
+      "exit_code": -9,
+      "timed_out": true,
+      "elapsed_seconds": 120.14890861700042,
+      "stderr": ".."
+    }
+  ],
+  "public_score_runs": 0,
+  "source_unchanged": true
+}

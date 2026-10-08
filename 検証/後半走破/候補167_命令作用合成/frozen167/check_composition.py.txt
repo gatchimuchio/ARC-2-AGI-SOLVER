@@ -1,0 +1,57 @@
+"""Constructed checks and observed-input demonstrations only; no query rendering."""
+import hashlib,importlib.util,json,sys
+from pathlib import Path
+H=Path(__file__).resolve().parent; B=H.parent
+sys.path.insert(0,str(B/'candidate129-production-20261007'))
+import 接続.ARC2
+接続.ARC2.__path__ = [str(H/'runtime-source/接続/ARC2'), *接続.ARC2.__path__]
+from 接続.ARC2 import 周期補色局所命令 as m
+from 接続.ARC2 import 対内枠色命令視野 as v
+from 接続.ARC2 import 厳密枠局所命令 as s
+# Verify exhaustive subgroup inventory independently.
+import itertools
+probe=[[0,1,2],[3,4,5],[6,7,8]];T=s.TRANSFORMS
+images=[s.transform_grid_by_name(probe,t) for t in T]
+mul={(a,b):T[images.index(s.transform_grid_by_name(images[T.index(b)],a))] for a in T for b in T}
+all_groups={frozenset(g) for n in range(2,9) for g in itertools.combinations(T,n) if 'identity' in g and all(mul[a,b] in g for a in g for b in g)}
+assert all_groups=={frozenset(g) for g in m.ORBIT_GROUPS}
+# Full evidence on actual observed demonstration pairs, including every failed action.
+payload=json.loads((B/'candidate135-input-only-20261007/payload.json').read_text())
+assert all(set(x)=={'input'} for x in payload['test'])
+role=v.parse(payload['test'][1]['input'])[0][0]
+trials=[]
+for demo in role['groups']:
+ if demo is role['target']:continue
+ a,b=demo['members']
+ for model in m.ORBIT_ACTIONS:
+  for first,second in ((a,b),(b,a)):
+   out,w=m.orbit_segment_action(role['panels'][first]['interior'],role['blank'],demo['color'],model)
+   trials.append({'model':model,'direction':[first,second],'exact':out==role['panels'][second]['interior'],'witness':w})
+assert sum(t['exact'] for t in trials)==48
+# A different-size ordinary seed; renderer must keep every compatible model.
+seed=[[0]*5 for _ in range(5)];seed[0][1]=8;seed[1][0]=8;seed[1][1]=3
+expected=[[0,8,3,8,0],[8,3,3,3,8],[3,3,3,3,3],[8,3,3,3,8],[0,8,3,8,0]]
+def run(target):
+ panels=[{'interior':g,'bbox':(i*10,0,i*10+6,6)} for i,g in enumerate((seed,expected,target,[[0]*len(target[0]) for _ in target]))]
+ demo={'color':3,'outer_color':1,'members':(0,1),'bbox':(0,0,19,9)}
+ tgt={'color':6,'outer_color':4,'members':(2,3),'bbox':(20,0,39,9)}
+ role={'panels':panels,'blank':0,'blank_id':3,'frame_color':(3,6),'groups':[demo,tgt],'target':tgt}
+ return m.render([[0]],parser=lambda grid:([role],{'roles':1,'constructed':True}))
+target=[[6 if x==3 else x for x in row] for row in seed]
+result,record=run(target)
+assert result==[[6 if x==3 else x for x in row] for row in expected]
+positive=record
+# Conflicting color images must be retained, not skipped at target application.
+conflict=[r[:] for r in target];conflict[0][-2]=6
+result,record=run(conflict)
+assert result is None and record['failure']=='structural_role_or_retained_action_failed'
+assert len(record['roles'][0]['alternatives'])==len(positive['roles'][0]['alternatives'])
+assert any(x is None for x in record['roles'][0]['outputs'])
+# A rectangular target rejects shape-changing orbit groups; those remain retained.
+rectangle=[[0]*6 for _ in range(5)];rectangle[0][1]=8;rectangle[1][0]=8;rectangle[1][1]=6
+result,rect_record=run(rectangle)
+assert result is None and rect_record['failure']=='structural_role_or_retained_action_failed'
+assert len(rect_record['roles'][0]['alternatives'])==len(positive['roles'][0]['alternatives'])
+results={'all_pass':True,'query_render_count':0,'observed_demo_trials':trials,'constructed_positive':positive,'retained_color_failure':record,'retained_shape_failure':rect_record}
+(H/'composition-result.json').write_text(json.dumps(results,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps({'all_pass':True,'observed_demo_trials':len(trials),'demo_compatible_actions':sum(x['exact'] for x in trials),'constructed_compatible':len(positive['roles'][0]['alternatives']),'query_render_count':0}))

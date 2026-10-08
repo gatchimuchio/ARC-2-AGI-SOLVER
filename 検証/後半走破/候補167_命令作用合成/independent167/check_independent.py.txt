@@ -1,0 +1,100 @@
+import sys,json,itertools,random,copy,hashlib
+from pathlib import Path
+from unittest.mock import patch
+A=Path(__file__).resolve().parent; B=A.parent; H=B/'proposal167-instruction-action-composition-20261007'
+sys.path.insert(0,str(B/'candidate129-production-20261007'))
+import 接続.ARC2
+接続.ARC2.__path__=[str(H/'runtime-source/接続/ARC2'),*接続.ARC2.__path__]
+from 接続.ARC2 import 周期補色局所命令 as m, 厳密枠局所命令 as s, 対内枠色命令視野 as v, 枠局所命令接続 as binding
+# Exact inherited evidence equality, disregarding only source hashes.
+old=json.loads((B/'proposal135-instruction-tag-binding-20261007/train-and-contrasts-result.json').read_text())
+new=json.loads((A/'inherited-result.json').read_text())
+old.pop('source_sha256');new.pop('source_sha256');assert old==new
+# Exhaustive algebra, including trivial subgroup for independent total count.
+p=[[0,1,2],[3,4,5],[6,7,8]]; T=s.TRANSFORMS
+images={t:s.transform_grid_by_name(p,t) for t in T}
+mult={(a,b):next(t for t in T if images[t]==s.transform_grid_by_name(images[b],a)) for a in T for b in T}
+groups=[frozenset(g) for n in range(1,9) for g in itertools.combinations(T,n) if 'identity' in g and all(mult[a,b] in g for a in g for b in g)]
+assert len(groups)==10 and set(groups)-{frozenset(['identity'])}==set(map(frozenset,m.ORBIT_GROUPS))
+assert len(m.ORBIT_ACTIONS)==len(set(m.ORBIT_ACTIONS))==288
+# Independent union and segment calculation, no production segment helper.
+def reference(g,model):
+ g=s.transform_grid_by_name(g,model[1]); h,w=len(g),len(g[0]); union=[[0]*w for _ in range(h)]
+ for t in model[2]:
+  img=s.transform_grid_by_name(g,t)
+  if len(img)!=h or len(img[0])!=w:return None
+  for r in range(h):
+   for c in range(w):
+    if img[r][c] and union[r][c] not in (0,img[r][c]):return None
+    if img[r][c]:union[r][c]=img[r][c]
+ palette={x for row in union for x in row}
+ if palette!={0,3,8}:return None
+ points=[(r,c) for r in range(h) for c in range(w) if union[r][c]]; fill=set()
+ for (r,c),(rr,cc) in itertools.combinations(points,2):
+  if model[4]=='marker_incident' and union[r][c]!=8 and union[rr][cc]!=8:continue
+  dr,dc=rr-r,cc-c
+  if model[3]=='axis' and dr and dc:continue
+  if dr and dc and abs(dr)!=abs(dc):continue
+  n=max(abs(dr),abs(dc)); sr=(dr>0)-(dr<0);sc=(dc>0)-(dc<0)
+  for k in range(n+1):
+   point=(r+k*sr,c+k*sc)
+   if union[point[0]][point[1]]==0:fill.add(point)
+ if not fill:return None
+ for r,c in fill:union[r][c]=3
+ return union
+rng=random.Random(167); trials=0
+for shape in [(3,3),(4,4),(3,4),(5,5)]:
+ for repeat in range(4):
+  grid=[[rng.choices([0,3,8],[8,1,1])[0] for c in range(shape[1])] for r in range(shape[0])]
+  for model in m.ORBIT_ACTIONS:
+   assert m.orbit_segment_action(grid,0,3,model)[0]==reference(grid,model)
+   trials+=1
+# Ordinary constructed panel role; no original query read.
+seed=[[0]*5 for _ in range(5)];seed[0][1]=8;seed[1][0]=8;seed[1][1]=3
+expected=[[0,8,3,8,0],[8,3,3,3,8],[3,3,3,3,3],[8,3,3,3,8],[0,8,3,8,0]]
+def role(target):
+ panels=[{'interior':g,'bbox':(i*10,0,i*10+6,6)} for i,g in enumerate((seed,expected,target,[[0]*len(target[0]) for _ in target]))]
+ demo={'color':3,'outer_color':1,'members':(0,1),'bbox':(0,0,19,9)}
+ tgt={'color':6,'outer_color':4,'members':(2,3),'bbox':(20,0,39,9)}
+ return {'panels':panels,'blank':0,'blank_id':3,'frame_color':(3,6),'groups':[demo,tgt],'target':tgt}
+def render(target):return m.render([[0]],parser=lambda _ :([role(target)],{'constructed':True}))
+target=[[6 if x==3 else x for x in row] for row in seed]
+out,positive=render(target);assert out==[[6 if x==3 else x for x in row] for row in expected]
+alts=positive['roles'][0]['alternatives'];assert len(alts)==24
+conflict=copy.deepcopy(target);conflict[0][-2]=6
+rectangle=[[0]*6 for _ in range(5)];rectangle[0][1]=8;rectangle[1][0]=8;rectangle[1][1]=6
+for g in [conflict,rectangle]:
+ out,rec=render(g);assert out is None and rec['failure']=='structural_role_or_retained_action_failed'
+ assert rec['roles'][0]['alternatives']==alts and len(rec['roles'][0]['outputs'])==24
+# All-success competing orbit outputs must HOLD, never select one.
+disagreement=None
+for k in range(1000):
+ g=[[0]*5 for _ in range(5)]
+ pts=rng.sample(list(itertools.product(range(5),repeat=2)),3)
+ for i,(r,c) in enumerate(pts):g[r][c]=6 if i==0 else 8
+ outputs=[m.orbit_segment_action(g,0,6,x['model'])[0] for x in alts]
+ if all(x is not None for x in outputs) and any(x!=outputs[0] for x in outputs):
+  out,rec=render(g); assert out is None and rec['failure']=='complete_grid_disagreement'
+  assert rec['roles'][0]['alternatives']==alts;disagreement={'target':g,'record':rec};break
+assert disagreement is not None
+# Strong fallback guards, including action-bearing failure mixed with actionless role.
+protected=[([[1]],{'status':'PASS'}),(None,{'failure':'complete_grid_disagreement','roles':[{'alternatives':[1]}]}),(None,{'failure':'structural_role_or_retained_action_failed','roles':[{'alternatives':[]},{'alternatives':[1]}]})]
+for answer in protected:
+ with patch.object(s,'render',return_value=answer),patch.object(s,'parse',side_effect=AssertionError('forbidden fallback')):
+  assert m.render([[0]]) is answer
+for answer in protected+[(None,{'failure':'structural_role_or_retained_action_failed','roles':[{'alternatives':[]} ]})]:
+ with patch.object(m,'render',return_value=answer) as call:
+  assert v.render([[0]]) is answer; assert call.call_count==1
+# Resource exhaustion cannot turn into a fallback or completed no-fit.
+def exhausted(_):raise s.ResourceLimit('frame_group_cover_limit')
+for fn in [lambda:m.render([[0]],parser=exhausted),lambda:v.render([[0]])]:
+ with patch.object(s,'parse',side_effect=exhausted):
+  try:fn()
+  except s.ResourceLimit:pass
+  else:raise AssertionError('resource failure swallowed')
+for record in [{'complete':False,'failure':'teacher_input_contract','teacher_parse_records':[{'failure':'separator_not_unique'}]*2},{'complete':True,'failure':'search_budget_incomplete','teacher_parse_records':[{}]*2},{'complete':True,'failure':'teacher_input_contract','teacher_parse_records':[{'failure':'invalid_grid'}]*2}]:
+ with patch.object(binding,'fit_embedded',side_effect=AssertionError('forbidden fit')):
+  assert binding.fit_after_complete_instruction_no_fit([{},{}],None,record)[0] is None
+result={'status':'PASS','subgroups':len(groups),'new_actions':288,'reference_action_checks':trials,'inherited_record_identical_except_source_hash':True,'constructed_retained_actions':24,'constructed_disagreement':disagreement,'fallback_guard_cases':7,'resource_propagation_checks':2,'binding_guard_checks':3,'query_payload_reads':0,'query_renders':0}
+(A/'independent-result.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps({k:v for k,v in result.items() if k!='constructed_disagreement'}))

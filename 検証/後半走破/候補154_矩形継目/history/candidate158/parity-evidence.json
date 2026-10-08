@@ -1,0 +1,304 @@
+{
+  "fixtures": 22,
+  "all_passed": true,
+  "full_proposal_contact_parity_checks": 37,
+  "resource_incomplete_control": {
+    "status": "RESOURCE_INCOMPLETE",
+    "failure": "budget_incomplete",
+    "complete": false,
+    "work": 1
+  },
+  "checks": [
+    {
+      "name": "teacher_0_d4_False_0",
+      "status": "CANDIDATE",
+      "exhaustive_work": 3234,
+      "propagated_work": 3287,
+      "roles": [
+        {
+          "feasible_count": 1,
+          "distinct_outputs": 1,
+          "pruned_prefixes": 1
+        }
+      ]
+    },
+    {
+      "name": "teacher_0_d4_False_1",
+      "status": "CANDIDATE",
+      "exhaustive_work": 3240,
+      "propagated_work": 3281,
+      "roles": [
+        {
+          "feasible_count": 1,
+          "distinct_outputs": 1,
+          "pruned_prefixes": 0
+        }
+      ]
+    },
+    {
+      "name": "teacher_0_d4_False_2",
+      "status": "CANDIDATE",
+      "exhaustive_work": 3235,
+      "propagated_work": 3285,
+      "roles": [
+        {
+          "feasible_count": 1,
+          "distinct_outputs": 1,
+          "pruned_prefixes": 0
+        }
+      ]
+    },
+    {
+      "name": "teacher_0_d4_False_3",
+      "status": "CANDIDATE",
+      "exhaustive_work": 3240,
+      "propagated_work": 3281,
+      "roles": [
+        {
+          "feasible_count": 1,
+          "distinct_outputs": 1,
+          "pruned_prefixes": 0
+        }
+      ]
+    },
+    {
+      "name": "teacher_0_d4_True_0",
+      "status": "CANDIDATE",
+      "exhaustive_work": 3234,
+      "propagated_work": 3282,
+      "roles": [
+        {
+          "feasible_count": 1,
+          "distinct_outputs": 1,
+          "pruned_prefixes": 1
+        }
+      ]
+    },
+    {
+      "name": "teacher_0_d4_True_1",
+      "status": "CANDIDATE",
+      "exhaustive_work": 3240,
+      "propagated_work": 3281,
+      "roles": [
+        {
+          "feasible_count": 1,
+          "distinct_outputs": 1,
+          "pruned_prefixes": 0
+        }
+      ]
+    },
+    {
+      "name": "teacher_0_d4_True_2",
+      "status": "CANDIDATE",
+      "exhaustive_work": 3232,
+      "propagated_work": 3273,
+      "roles": [
+        {
+          "feasible_count": 1,
+          "distinct_outputs": 1,
+          "pruned_prefixes": 0
+        }
+      ]
+    },
+    {
+      "name": "teacher_0_d4_True_3",
+      "status": "CANDIDATE",
+      "exhaustive_work": 3242,
+      "propagated_work": 3295,
+      "roles": [
+        {
+          "feasible_count": 1,
+          "distinct_outputs": 1,
+          "pruned_prefixes": 1
+        }
+      ]
+    },
+    {
+      "name": "teacher_1_d4_False_0",
+      "status": "CANDIDATE",
+      "exhaustive_work": 775,
+      "propagated_work": 805,
+      "roles": [
+        {
+          "feasible_count": 1,
+          "distinct_outputs": 1,
+          "pruned_prefixes": 0
+        }
+      ]
+    },
+    {
+      "name": "teacher_1_d4_False_1",
+      "status": "CANDIDATE",
+      "exhaustive_work": 775,
+      "propagated_work": 806,
+      "roles": [
+        {
+          "feasible_count": 1,
+          "distinct_outputs": 1,
+          "pruned_prefixes": 0
+        }
+      ]
+    },
+    {
+      "name": "teacher_1_d4_False_2",
+      "status": "CANDIDATE",
+      "exhaustive_work": 775,
+      "propagated_work": 807,
+      "roles": [
+        {
+          "feasible_count": 1,
+          "distinct_outputs": 1,
+          "pruned_prefixes": 0
+        }
+      ]
+    },
+    {
+      "name": "teacher_1_d4_False_3",
+      "status": "CANDIDATE",
+      "exhaustive_work": 775,
+      "propagated_work": 806,
+      "roles": [
+        {
+          "feasible_count": 1,
+          "distinct_outputs": 1,
+          "pruned_prefixes": 0
+        }
+      ]
+    },
+    {
+      "name": "teacher_1_d4_True_0",
+      "status": "CANDIDATE",
+      "exhaustive_work": 775,
+      "propagated_work": 806,
+      "roles": [
+        {
+          "feasible_count": 1,
+          "distinct_outputs": 1,
+          "pruned_prefixes": 0
+        }
+      ]
+    },
+    {
+      "name": "teacher_1_d4_True_1",
+      "status": "CANDIDATE",
+      "exhaustive_work": 775,
+      "propagated_work": 807,
+      "roles": [
+        {
+          "feasible_count": 1,
+          "distinct_outputs": 1,
+          "pruned_prefixes": 0
+        }
+      ]
+    },
+    {
+      "name": "teacher_1_d4_True_2",
+      "status": "CANDIDATE",
+      "exhaustive_work": 775,
+      "propagated_work": 806,
+      "roles": [
+        {
+          "feasible_count": 1,
+          "distinct_outputs": 1,
+          "pruned_prefixes": 0
+        }
+      ]
+    },
+    {
+      "name": "teacher_1_d4_True_3",
+      "status": "CANDIDATE",
+      "exhaustive_work": 775,
+      "propagated_work": 805,
+      "roles": [
+        {
+          "feasible_count": 1,
+          "distinct_outputs": 1,
+          "pruned_prefixes": 0
+        }
+      ]
+    },
+    {
+      "name": "outer_valid_seam_invalid",
+      "status": "HOLD",
+      "exhaustive_work": 1029,
+      "propagated_work": 999,
+      "roles": [
+        {
+          "feasible_count": 0,
+          "distinct_outputs": 0,
+          "pruned_prefixes": 1
+        }
+      ]
+    },
+    {
+      "name": "matching_seam",
+      "status": "CANDIDATE",
+      "exhaustive_work": 575,
+      "propagated_work": 582,
+      "roles": [
+        {
+          "feasible_count": 1,
+          "distinct_outputs": 1,
+          "pruned_prefixes": 0
+        }
+      ]
+    },
+    {
+      "name": "wall_seam",
+      "status": "CANDIDATE",
+      "exhaustive_work": 1037,
+      "propagated_work": 1044,
+      "roles": [
+        {
+          "feasible_count": 1,
+          "distinct_outputs": 1,
+          "pruned_prefixes": 0
+        }
+      ]
+    },
+    {
+      "name": "six_disagreements",
+      "status": "HOLD",
+      "exhaustive_work": 2454,
+      "propagated_work": 2613,
+      "roles": [
+        {
+          "feasible_count": 6,
+          "distinct_outputs": 6,
+          "pruned_prefixes": 0
+        }
+      ]
+    },
+    {
+      "name": "six_equivalent",
+      "status": "CANDIDATE",
+      "exhaustive_work": 806,
+      "propagated_work": 965,
+      "roles": [
+        {
+          "feasible_count": 6,
+          "distinct_outputs": 1,
+          "pruned_prefixes": 0
+        }
+      ]
+    },
+    {
+      "name": "multiple_ownership_conflict",
+      "status": "HOLD",
+      "exhaustive_work": 2961,
+      "propagated_work": 3106,
+      "roles": [
+        {
+          "feasible_count": 3,
+          "distinct_outputs": 3,
+          "pruned_prefixes": 0
+        },
+        {
+          "feasible_count": 3,
+          "distinct_outputs": 3,
+          "pruned_prefixes": 0
+        }
+      ]
+    }
+  ]
+}

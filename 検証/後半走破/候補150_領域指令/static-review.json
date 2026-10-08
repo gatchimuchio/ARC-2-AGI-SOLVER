@@ -1,0 +1,36 @@
+{
+  "base_commit": "fa39a567b17eb94b04312dc3bcddbb263e8b17cb",
+  "bridge_exactly_four_standard_additions": true,
+  "all_other_existing_python_sources_unchanged": true,
+  "existing_python_changed": [
+    "接続/ARC2/HDS接続.py"
+  ],
+  "new_python_sources": [
+    "検証/領域指令回帰.py",
+    "接続/ARC2/領域指令核.py",
+    "接続/ARC2/領域指令教材.py",
+    "検証/領域指令資料/ordinary_checks.py"
+  ],
+  "frozen_corrected_core_sha256": "a3568dd28202b318494f843b5f882cf5a283e3e4f7c3b2e9bc3d87e73f0f4b88",
+  "runtime_imports": [
+    {
+      "file": "接続/ARC2/領域指令核.py",
+      "imports": [
+        "from dataclasses import dataclass, asdict",
+        "from itertools import product",
+        "from 接続.ARC2.既存物体特徴 import color_components",
+        "from 接続.ARC2.既存格子操作 import transform_grid_by_name"
+      ]
+    },
+    {
+      "file": "接続/ARC2/領域指令教材.py",
+      "imports": [
+        "from copy import deepcopy",
+        "from dataclasses import asdict",
+        "from . import 領域指令核 as api"
+      ]
+    }
+  ],
+  "guard_proof": "Every erasure uses an input host color; each transfer payload is from the input; the only whole-grid operations are four quarter turns. Hence outputs must use a subset of the input palette and dimensions must equal the input dimensions or their reversal.",
+  "no_targets_or_ids_in_runtime": true
+}

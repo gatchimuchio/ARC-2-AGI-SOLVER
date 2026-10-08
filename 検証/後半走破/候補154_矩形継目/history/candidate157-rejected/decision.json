@@ -1,0 +1,23 @@
+{
+  "decision": "REJECT",
+  "reason": "One new emitted grid is incorrect; no measured gain",
+  "previous": [
+    96,
+    135
+  ],
+  "current": [
+    96,
+    135
+  ],
+  "wrong_emitted": 1,
+  "resource_failures": 0,
+  "old_grids_identical": 135,
+  "accepted_edits": false,
+  "commit": false,
+  "push": false,
+  "upload": false,
+  "source_changes_after_score": false,
+  "public_score_runs": 1,
+  "failure_preserved": "attempt1-missing-official-source",
+  "evidence": "delta.json"
+}

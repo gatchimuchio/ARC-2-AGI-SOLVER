@@ -1,0 +1,10 @@
+{
+  "base_commit": "fe705e1",
+  "status": "teacher_complete_not_integrated",
+  "files": {
+    "panel_port_chain.py": "091f639523ddedc4bd11b222e7e931a1defb19e38ebd6173b5abf6b37fd1cdbb",
+    "test_panel_port_chain.py": "d1502401cfbe57c277becd1616ebf2b284b7b69aa774dd12a92c19edf18e9cae",
+    "README.md": "b87c3d95d33ebab0a0a592421579575375d8fef098af62e16baa89781f5c0509",
+    "teacher-evidence.json": "aa0877a8f30d5afc620dca5b3b3b9ca43a40b367461fc66e03f3d884902f4ef6"
+  }
+}

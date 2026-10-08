@@ -1,0 +1,114 @@
+{
+  "records": [
+    {
+      "teacher": 0,
+      "separator_lattice": {
+        "separator_color": 6,
+        "background_color": 7,
+        "row_segments": [
+          [
+            0,
+            4
+          ],
+          [
+            6,
+            10
+          ]
+        ],
+        "col_segments": [
+          [
+            0,
+            4
+          ],
+          [
+            6,
+            10
+          ]
+        ],
+        "separator_rows": [
+          5
+        ],
+        "separator_cols": [
+          5
+        ]
+      },
+      "existing_component_serialization_exact": false,
+      "existing_framed_inventory": {
+        "failure": "framed_tile_inventory_no_tiles"
+      },
+      "new_composition_exact": true,
+      "certificate": {
+        "status": "OK",
+        "roles": [
+          {
+            "separator": 6,
+            "background": 7,
+            "axis": 0,
+            "gap": 1,
+            "panel_count": 4,
+            "complete_paths": 1
+          }
+        ],
+        "search_nodes": 5
+      }
+    },
+    {
+      "teacher": 1,
+      "separator_lattice": null,
+      "existing_component_serialization_exact": false,
+      "existing_framed_inventory": {
+        "failure": "framed_tile_inventory_no_tiles"
+      },
+      "new_composition_exact": true,
+      "certificate": {
+        "status": "OK",
+        "roles": [
+          {
+            "separator": 6,
+            "background": 7,
+            "axis": 1,
+            "gap": 1,
+            "panel_count": 3,
+            "complete_paths": 1
+          }
+        ],
+        "search_nodes": 4
+      }
+    },
+    {
+      "teacher": 2,
+      "separator_lattice": null,
+      "existing_component_serialization_exact": false,
+      "existing_framed_inventory": {
+        "failure": "framed_tile_inventory_no_tiles"
+      },
+      "new_composition_exact": true,
+      "certificate": {
+        "status": "OK",
+        "roles": [
+          {
+            "separator": 6,
+            "background": 7,
+            "axis": 0,
+            "gap": 1,
+            "panel_count": 3,
+            "complete_paths": 1
+          }
+        ],
+        "search_nodes": 5
+      }
+    }
+  ],
+  "existing_separator_projection_fit": {
+    "failure": "shape_mismatch",
+    "train_index": 0,
+    "input_shape": [
+      11,
+      11
+    ],
+    "output_shape": [
+      23,
+      5
+    ]
+  }
+}

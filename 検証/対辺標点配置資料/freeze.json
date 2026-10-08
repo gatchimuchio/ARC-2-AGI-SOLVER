@@ -1,0 +1,47 @@
+{
+  "candidate": "NEW129",
+  "accepted_head": "a6849619",
+  "accepted_result": "93/128",
+  "status": "frozen_teacher_complete_before_contrasts",
+  "frozen_at_utc": "2026-10-07T19:30:27.011534+00:00",
+  "source_sha256": "1a24d165732ca12aef93742570be927052f1943a01232c5dcdff1cc0576868ba",
+  "frozen126_sha256": "dbc768521416ada613a7a41aeb394a38f3ec63f17b89cd69bd221aaeffb04e55",
+  "files": {
+    "frozen126.py": "dbc768521416ada613a7a41aeb394a38f3ec63f17b89cd69bd221aaeffb04e55",
+    "paired_border_partial_view.py": "1a24d165732ca12aef93742570be927052f1943a01232c5dcdff1cc0576868ba",
+    "teachers-only.json": "3c2ce050fcf59ac73342548700499c3ef8dc6e4f06709490bdf1190326336b69",
+    "check_contrasts.py": "59b0392ab18a423d3a09d64b41ad7e4c1aafc5ba50b9bd4974109c576e7ecce4"
+  },
+  "api": {
+    "fit": "(teachers)",
+    "act": "(role, program)",
+    "parse": "(grid)",
+    "render": "(grid, program)",
+    "consensus": "(grid, programs)"
+  },
+  "retained_programs": [
+    [
+      "color_union",
+      "source_first"
+    ],
+    [
+      "color_union",
+      "small_first"
+    ],
+    [
+      "components8",
+      "source_first"
+    ],
+    [
+      "components8",
+      "small_first"
+    ]
+  ],
+  "official_query_read": false,
+  "official_solutions_read": false,
+  "scoring_run": false,
+  "exposure": [
+    "Parent-reported frozen126 input-only HOLD reasons: unpaired_or_blank_perimeter and no_corner_frame_or_blank_interior.",
+    "Parent-reported input-only observation: unrelated colors absent from source masks break opposite-edge equality; an unrelated corner decoration breaks corner uniformity. No targets or scores."
+  ]
+}

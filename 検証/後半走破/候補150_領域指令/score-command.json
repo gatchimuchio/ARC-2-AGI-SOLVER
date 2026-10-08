@@ -1,0 +1,1 @@
+["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python", "-B", "/workspace/scratch/7408259c1ab2/candidate150-production-20261007/検証/ARC2評価.py", "--mode", "current", "--output", "/workspace/scratch/7408259c1ab2/candidate150-production-evidence-20261007/current-official.json"]

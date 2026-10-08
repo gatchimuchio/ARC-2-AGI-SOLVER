@@ -1,0 +1,21 @@
+{
+  "decision": "ADMIT_LOCAL",
+  "previous": [
+    96,
+    137
+  ],
+  "current": [
+    97,
+    138
+  ],
+  "delta": [
+    1,
+    1
+  ],
+  "parent_commit": "8ed932f805e6e489005da53870448688caff9059",
+  "basis": "Explicit root admission after independent result, pin and protected-file verification",
+  "public_score_runs": 1,
+  "coverage": "109 fresh scripts plus unchanged pinned29-case window scope;110 scripts/7868 checks",
+  "remote_push": false,
+  "upload": false
+}

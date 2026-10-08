@@ -1,0 +1,36 @@
+"""Input-only geometry evidence; this is not a candidate predictor."""
+import sys,json
+from pathlib import Path
+from collections import Counter
+sys.dont_write_bytecode=True
+ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/'candidate156-production-20261007'))
+from 接続.ARC2.既存領域転写 import mixed_region_dicts_for_grid
+
+def polynomial(values,n):
+ differences=[b-a for a,b in zip(values,values[1:])]
+ second=[b-a for a,b in zip(differences,differences[1:])]
+ if len(values)<3 or len(set(second))!=1:return None
+ return values[0]+n*differences[0]+n*(n-1)//2*second[0]
+
+def observe(g):
+ bg=Counter(v for row in g for v in row).most_common(1)[0][0]
+ comps=mixed_region_dicts_for_grid(g,bg,False);roles=[]
+ for color in sorted({v for row in g for v in row}-{bg}):
+  markers=[c for c in comps if c['colors']==[color]]
+  if len(markers)!=2 or any(c['size']!=3 or (c['bbox'][2]-c['bbox'][0]+1,c['bbox'][3]-c['bbox'][1]+1)!=(2,2)for c in markers):continue
+  body=[c for c in comps if c not in markers]
+  if any(color in c['colors'] for c in body):continue
+  body=sorted(body,key=lambda c:c['bbox'][1]);boxes=[list(c['bbox']) for c in body]
+  if len(body)<3 or any(a['bbox'][3]>=b['bbox'][1] for a,b in zip(body,body[1:])):continue
+  cells=[p for c in markers for p in c['cells']]
+  window=[min(r for r,c in cells),min(c for r,c in cells),max(r for r,c in cells),max(c for r,c in cells)]
+  future=[]
+  for n in range(len(body),30):
+   predicted=[polynomial([b[i] for b in boxes],n)for i in range(4)]
+   if None in predicted:continue
+   r,c,y,x=predicted
+   if (c,x)==(window[1],window[3]) and r<=window[0]<=window[2]<=y:
+    future.append({'series_index_1based':n+1,'predicted_bbox':predicted,'window_shape':[window[2]-window[0]+1,window[3]-window[1]+1]})
+  roles.append({'background':bg,'marker_color':color,'marker_window':window,'body_bboxes':boxes,'body_palettes':[list(c['colors'])for c in body],'future_geometric_roles':future})
+ return roles

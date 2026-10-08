@@ -1,0 +1,38 @@
+{
+  "candidate": 154,
+  "summary": "Admitted minimal seam composition: query0 remains structural HOLD; query1 unique output and new exact grid.",
+  "runtime_included": true,
+  "independently_admitted": true,
+  "frozen_source_original": "proposal154-rectangle-seam-composition-20261007/seam_rectangle.py",
+  "frozen_source_sha256": "1e7d97da06e3c72808147c0e6e4fedd0956798733dfd3f605954695836f6d0c4",
+  "preserved_source": "seam_rectangle.py.txt",
+  "input_only_result_sha256": "a8e978a274e7a354eecd58956218bd2252a0312c7a68dd7f4c923acbcaf71fd8",
+  "scorer_calls": 0,
+  "source_pins_unchanged": true,
+  "queries": [
+    {
+      "query_index": 0,
+      "emitted": false,
+      "status": "HOLD",
+      "complete": null,
+      "work": null,
+      "failure": "no_structural_role",
+      "role_feasible_counts": [],
+      "role_distinct_outputs": []
+    },
+    {
+      "query_index": 1,
+      "emitted": true,
+      "status": "CANDIDATE",
+      "complete": true,
+      "work": 1490,
+      "failure": null,
+      "role_feasible_counts": [
+        1
+      ],
+      "role_distinct_outputs": [
+        1
+      ]
+    }
+  ]
+}

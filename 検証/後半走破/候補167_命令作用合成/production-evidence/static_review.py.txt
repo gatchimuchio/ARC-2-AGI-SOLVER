@@ -1,0 +1,23 @@
+from pathlib import Path
+import json,hashlib,subprocess,gzip,ast
+E=Path(__file__).resolve().parent; B=E.parent;R=B/'candidate167-production-20261007';A=B/'candidate166-production-20261007';P=B/'proposal167-instruction-action-composition-20261007';h=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+tracked=subprocess.check_output(['git','-C',str(A),'ls-tree','-rz','--name-only','HEAD']).decode().split('\0');tracked=[p for p in tracked if p and (A/p).is_file()]
+changed=[p for p in tracked if h(A/p)!=h(R/p)]
+new=[str(p.relative_to(R)) for p in R.rglob('*') if p.is_file() and str(p.relative_to(R)) not in tracked and not str(p.relative_to(R)).startswith('入力/公式ソース/') and '__pycache__' not in p.parts]
+f=json.loads((P/'freeze.json').read_text());names=[n.removeprefix('runtime-source/') for n in f['files'] if n.startswith('runtime-source/')]
+generated=[p for p in new if p in ('検証/対辺標点配置資料/portable-teacher-result.json','検証/対辺標点配置資料/portable-contrast-result.json','検証/計数色層旋回資料/validation.json')]
+new=[p for p in new if p not in generated]
+assert set(changed)|set(new)==set(names),(changed,new)
+assert all(h(R/n)==f['files']['runtime-source/'+n] for n in names)
+assert h(R/'接続/ARC2/HDS接続.py')==h(A/'接続/ARC2/HDS接続.py')
+core=[str(p.relative_to(A)) for p in (A/'HDS').rglob('*.py')];assert all(h(R/p)==h(A/p) for p in core)
+(E/'static-review.json').write_text(json.dumps({'frozen_source_exact':True,'changed_tracked':changed,'new_files':new,'unchanged_tracked_count':len(tracked)-len(changed),'hds_bridge_identical':True,'core_identical':True,'core_file_count':len(core),'generated_test_artifacts':generated,'existing_family':'ARC記号命令列','no_competing_family_added':True,'no_global_gate_changes':True},ensure_ascii=False,indent=2))
+D=json.loads(gzip.decompress((R/'検証/全体模様窓資料/dependency-pins.json.gz').read_bytes())); paths=set(D['payload_pins'])|set(D['base_source_pins'])|{str(p.relative_to(R)) for p in (R/'検証/全体模様窓資料').rglob('*') if p.is_file() and '__pycache__' not in p.parts}
+assert all(h(R/p)==h(A/p) for p in paths)
+funcs={}
+for name in D['native_bridge_ast']:
+ def body(root):return ast.dump(next(n for n in ast.parse((root/'接続/ARC2/HDS接続.py').read_text()).body if isinstance(n,ast.FunctionDef) and n.name==name))
+ assert body(R)==body(A);funcs[name]=hashlib.sha256(body(R).encode()).hexdigest()
+prior=B/'candidate166-production-evidence-20261007/full-regression-selected.json';old=next(r for r in json.loads(prior.read_text())['records'] if r['file']=='検証/全体模様窓回帰.py');assert old['successful'] and old['tests']==29 and h(R/old['file'])==old['sha256']
+(E/'window29-conservation.json').write_text(json.dumps({'exact':True,'files':[{'path':p,'sha256':h(R/p)} for p in sorted(paths)],'bridge_ast_sha256':funcs,'prior_report_sha256':h(prior),'retained_record':old},ensure_ascii=False,indent=2))
+print('Static diff, core/bridge, frozen four modules, and window29 conservation PASS')

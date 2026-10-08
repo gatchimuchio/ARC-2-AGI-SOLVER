@@ -1,0 +1,53 @@
+"""99/140差分を新しい作業コピーへ適用し、全追跡内容を検証する。"""
+from pathlib import Path
+import argparse,subprocess,json,hashlib
+HERE=Path(__file__).resolve().parent;M=json.loads((HERE/'git-tree-manifest.json').read_text())
+p=argparse.ArgumentParser();p.add_argument('--base',type=Path);p.add_argument('--destination',type=Path);p.add_argument('--verify-only',type=Path);a=p.parse_args()
+def git(repo,*args):
+ r=subprocess.run(['git','-c','gc.auto=0','-c','maintenance.auto=false','-C',str(repo),*args],capture_output=True)
+ if r.returncode:raise RuntimeError(r.stderr.decode(errors='replace'))
+ return r.stdout
+if a.verify_only:
+ if a.base or a.destination:p.error('verify-only must be used alone')
+ R=a.verify_only.resolve()
+else:
+ if not a.base or not a.destination:p.error('base and new destination required')
+ A=a.base.resolve();R=a.destination.resolve()
+ if R.exists():raise RuntimeError('destination already exists; use a new path')
+ assert git(A,'rev-parse','HEAD').decode().strip()==M['base_commit'],'base HEAD differs'
+ assert git(A,'rev-parse','HEAD^{tree}').decode().strip()==M['base_tree'],'base tree differs'
+ assert not git(A,'status','--porcelain'),'base tracked/untracked worktree changes exist'
+ assert not (A/'.git/objects/info/alternates').exists(),'base must be standalone'
+ assert hashlib.sha256((A/'.git/shallow').read_bytes()).hexdigest()==M['shallow_sha256']
+ git(A,'fsck','--full','--strict')
+ r=subprocess.run(['git','-c','gc.auto=0','clone','--no-hardlinks',str(A),str(R)],capture_output=True)
+ if r.returncode:raise RuntimeError(r.stderr.decode(errors='replace'))
+ current=git(R,'symbolic-ref','--short','HEAD').decode().strip()
+ if current!='main':git(R,'branch','-m','main')
+ git(R,'remote','remove','origin')
+ git(R,'bundle','verify',str(HERE/'checkpoint.bundle'))
+ git(R,'fetch','--no-tags',str(HERE/'checkpoint.bundle'),'HEAD')
+ git(R,'merge','--ff-only','FETCH_HEAD')
+assert git(R,'rev-parse','HEAD').decode().strip()==M['head']
+assert git(R,'rev-parse','HEAD^').decode().strip()==M['parent']==M['base_commit']
+assert git(R,'rev-parse','HEAD^{tree}').decode().strip()==M['tree']
+assert git(R,'symbolic-ref','--short','HEAD').decode().strip()=='main'
+assert git(R,'for-each-ref','--format=%(refname)','refs/heads').decode().splitlines()==['refs/heads/main']
+assert git(R,'cat-file','commit',M['head'])==(HERE/'accepted-commit.raw').read_bytes()
+assert not(R/'.git/objects/info/alternates').exists()
+assert hashlib.sha256((R/'.git/shallow').read_bytes()).hexdigest()==M['shallow_sha256']
+entries={}
+for row in git(R,'ls-tree','-rz','HEAD').split(b'\0'):
+ if row:
+  hdr,path=row.split(b'\t',1);entries[path.decode()]=hdr.decode().split()
+assert len(entries)==len(M['blobs'])+len(M['gitlinks'])
+for row in M['blobs']:
+ assert entries[row['path']]==[row['mode'],'blob',row['git_blob']]
+ raw=(R/row['path']).read_bytes()
+ assert len(raw)==row['bytes']and hashlib.sha256(raw).hexdigest()==row['sha256']
+ assert hashlib.sha1(f'blob {len(raw)}\0'.encode()+raw).hexdigest()==row['git_blob']
+ assert bool((R/row['path']).stat().st_mode&0o111)==(row['mode']=='100755')
+for row in M['gitlinks']:assert entries[row['path']]==[row['mode'],'commit',row['commit']]
+assert git(R,'rev-list','--reverse',M['base_commit']+'..HEAD').decode().splitlines()==M['commits']
+git(R,'fsck','--full','--strict');assert not git(R,'status','--porcelain')
+print(json.dumps({'status':'PASS','head':M['head'],'parent':M['parent'],'tree':M['tree'],'verified_blobs':len(M['blobs']),'gitlinks':M['gitlinks'],'working_tree_clean':True,'git_fsck_full_strict_exit':0,'branch':'main','only_local_branch':'main','standalone_no_alternates':True,'original_shallow_preserved':True,'exact_raw_commit':True,'solver_or_test_execution':False},ensure_ascii=False,indent=2))

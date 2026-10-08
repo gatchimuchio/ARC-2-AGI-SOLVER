@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/7408259c1ab2/candidate150-production-20261007/検証/ARC2評価.py", line 116, in <module>
+    主処理()
+  File "/workspace/scratch/7408259c1ab2/candidate150-production-20261007/検証/ARC2評価.py", line 48, in 主処理
+    runtime(args.runtime)
+  File "/workspace/scratch/7408259c1ab2/candidate150-production-20261007/検証/ARC2評価.py", line 30, in runtime
+    結果 = 課題を解く(課題, 事前教材を読む())
+                            ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7408259c1ab2/candidate150-production-20261007/接続/ARC2/HDS接続.py", line 110, in 事前教材を読む
+    / f"{出典['課題ID']}.json").read_text())
+                                ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/scratch/7408259c1ab2/candidate150-production-20261007/入力/公式ソース/ARC-AGI-2/data/training/93b4f4b3.json'

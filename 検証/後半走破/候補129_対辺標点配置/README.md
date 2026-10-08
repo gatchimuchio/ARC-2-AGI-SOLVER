@@ -1,0 +1,11 @@
+# 候補129 対辺標点配置の部分key入力view
+
+同条件120課題/167例で93/128→93/129。課題数の増加は0、正答格子は+1。247ef758 query0を追加し、query1は保持program間の未解消条件によりHOLDを維持する。128旧格子は全て同一、誤出力0、通常資源失敗0。
+
+既存separator・色mask・C8成分・D4・有界並進を合成した126のfit/actをそのまま用いる。全8programを全教師で評価し、color_union/components8とsource_first/small_firstの4programを保持する。元の完全ゼロ構造roleだけに新viewを適用し、source keyに対応する対辺標点を厳密に対合する。無関係な非背景の周辺装飾は静的に所有・保存し、適用keyの片側不一致やcorner所有曖昧性を棄却する。全frame候補・role・programの失敗と全格子不一致はHOLDとなり、成功programだけを選ばない。
+
+新viewは126のinput-only構造棄却と、無関係色の周辺装飾という観測後に設計したprospective prior。正解やscoreは設計時に参照していない。旧fit/actionの同一性と全旧teacher/program記録の同一性を確認した。元126のHOLDを残す。
+
+適合3教師、17普通の確認群、input-only、HDS current3/prior0を検証。対応する既存family契約を調べたうえで、ARC対辺標点配置を空priorの薄い境界として接続した。HDS core・学習・支持・同値・隔離・最終合意は不変。
+
+全回帰103script/4605reported checksは、102個の今回成功recordと変更を使用しない同一window scopeの保存済み29-case成功recordで構成する。以前の失敗recordをPASSに書き換えていない。基底a6849619e26a2e97eb764bf4185e316081e1dd39。失われた旧92commit/rawの復旧を主張しない。

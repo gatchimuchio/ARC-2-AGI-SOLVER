@@ -1,0 +1,32 @@
+import json,sys,hashlib
+from pathlib import Path
+import region_commands as c
+root=Path('candidate150-independent-audit-20261007');out=root/'revision-a3568dd';checks=[]
+def check(n,b):
+ assert b,n
+ checks.append(n)
+g=json.loads((root/'failure-drop-reproduction.json').read_text())['grid']
+f,_=c.fit_teachers(json.loads((out/'teachers-only.json').read_text()))
+scenes,reason=c.parse(g,1,9)
+check('original_counterexample_parse_hold',not scenes and reason=='eligible_cover_ray_out_of_bounds')
+o,r=c.predict(g,f)
+check('original_counterexample_all_models_hold',o is None and r['reason']=='retained_model_failure' and len(r['returns'])==16 and all(x is None and rr['reason']=='eligible_cover_ray_out_of_bounds' for x,rr in r['returns']))
+# Reorder geometric enumeration so successful cover is evaluated first.
+old=c.DIRS;c.DIRS=((0,-1),(0,1),(-1,0),(1,0));cap={}
+def trace(frame,event,arg):
+ if frame.f_code is c.parse.__code__ and event=='return':cap['scenes_before_failure']=len(frame.f_locals.get('scenes',[]))
+ return trace
+sys.settrace(trace)
+try:scenes,reason=c.parse(g,1,9)
+finally:sys.settrace(None);c.DIRS=old
+check('later_failure_discards_prior_success',cap.get('scenes_before_failure')==1 and not scenes and reason=='eligible_cover_ray_out_of_bounds')
+# Two commands with distinct payloads target the same connected center region.
+conflict=[[2]*4+[6]*3+[4]*4 for _ in range(7)]
+for r,x in [(1,2),(2,3),(3,2),(3,8),(4,7),(5,8)]:conflict[r][x]=1
+conflict[2][2]=7;conflict[4][8]=8
+scenes,reason=c.parse(conflict,1,9)
+check('conflicting_assignments_hold',not scenes and reason=='eligible_cover_assignment_conflict')
+check('conflicting_assignments_predict_hold',c.predict(conflict,f)[0] is None)
+check('original_archive_matches_original_pin',hashlib.sha256(Path('proposal150-existing-composition-20261007/revision-archive/original150/region_commands.py').read_bytes()).hexdigest()=='f2759c8e92f0ce5de61ff957cf6dc22cada4bee8dc073074c0d227fdaa83960e')
+result={'count':len(checks),'checks':checks,'prior_success_then_failure':cap,'conflict_grid':conflict}
+(out/'revision-results.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))

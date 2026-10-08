@@ -1,0 +1,20 @@
+{
+  "base_commit": "235608c69f69a7a0e240d966f48aa0b390d9f4ff",
+  "root": "/workspace/scratch/7408259c1ab2/reconstruction075-production-20261007",
+  "new_reconstruction": true,
+  "old_twelve_action_grammar_not_claimed": true,
+  "files": [
+    {
+      "path": "接続/ARC2/四欄反復教材.py",
+      "sha256": "7d3b69cf6bca665c1a75a159adab26a19e8237138fed59e3c6b0a4da05d72327"
+    },
+    {
+      "path": "接続/ARC2/標識二領域再構成.py",
+      "sha256": "ad21fa7897b3faf71ba499b425b90f176a81f9b800d0003c14cf098451a0441b"
+    },
+    {
+      "path": "検証/標識二領域回帰.py",
+      "sha256": "f3cca894f47c934b092046dc25b55b4ee131f8fbe7f80b76091b569cb67b8a81"
+    }
+  ]
+}

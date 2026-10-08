@@ -1,0 +1,102 @@
+{
+  "teachers": [
+    {
+      "exact": true
+    },
+    {
+      "exact": true
+    },
+    {
+      "exact": true
+    }
+  ],
+  "fit": {
+    "kind": "observed_series_composition",
+    "version": 1
+  },
+  "index30": {
+    "shape": [
+      65,
+      125
+    ],
+    "status": "HOLD",
+    "roles": [
+      {
+        "background": 0,
+        "marker_color": 5,
+        "marker_window": [
+          1,
+          121,
+          63,
+          123
+        ],
+        "body_bboxes": [
+          [
+            1,
+            1,
+            3,
+            3
+          ],
+          [
+            1,
+            5,
+            5,
+            7
+          ],
+          [
+            1,
+            9,
+            7,
+            11
+          ],
+          [
+            1,
+            13,
+            9,
+            15
+          ],
+          [
+            1,
+            17,
+            11,
+            19
+          ]
+        ],
+        "body_palettes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            4
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "future_geometric_roles": []
+      }
+    ],
+    "expected_shape": [
+      63,
+      3
+    ]
+  },
+  "index30_with_audit_extended_geometry": {
+    "status": "EMIT",
+    "exact": true,
+    "fitted": 4,
+    "incomplete": 0
+  },
+  "source_hashes": {
+    "geometry.py": "03af7c2eef8bdd8a057ac5ca4cdf72c70b311d0126d313c281f03dd5f4e3e28b",
+    "radial.py": "78af261e1051cb2d2e485f9d6c007ec06e80d488a5f09467e36cf0d29a3dfae5",
+    "check.py": "2431a841e95c86fa1633090cea89942b70c517cfca9c83097bd47ec07cad3419",
+    "growth_series.py": "5d6d9e41b9900c335b8cd55fa930398032cc57188050b965d442253c8e671c19"
+  }
+}

@@ -1,0 +1,74 @@
+"""Teacher-only correspondence diagnostic. No predictor or task routing."""
+import json,sys,hashlib
+from pathlib import Path
+from collections import Counter
+ROOT=Path(__file__).resolve().parent.parent
+sys.dont_write_bytecode=True
+sys.path[:0]=[str(ROOT/'candidate167-production-20261007'),str(ROOT/'proposal132-existing-composition-20261007')]
+from 接続.ARC2.既存領域転写 import mixed_region_dicts_for_grid
+from 接続.ARC2.既存疎点転写 import shifted_sparse_point_mask
+import boundary_marker_alignment as prior
+
+def shape(g,obj):
+ r0=min(r for r,c in obj['cells']);c0=min(c for r,c in obj['cells'])
+ return sorted((r-r0,c-c0,g[r][c]) for r,c in obj['cells'])
+
+def run(teachers):
+ records=[]
+ for idx,pair in enumerate(teachers):
+  g,y=pair['input'],pair['output'];h,w=len(g),len(g[0]);bg=Counter(v for row in g for v in row).most_common(1)[0][0]
+  rec={'teacher':idx,'connectivities':[]}
+  for diagonal in (False,True):
+   src=mixed_region_dicts_for_grid(g,bg,diagonal)
+   cues=[o for o in src if o['size']==1];objects=[o for o in src if o['size']>1];matches=[]
+   # Known input cue roles are checked unchanged, then removed only from the diagnostic target view.
+   target_view=[row[:] for row in y]
+   for cue in cues:
+    r,c=cue['cells'][0];assert g[r][c]==y[r][c];target_view[r][c]=bg
+   dst=mixed_region_dicts_for_grid(target_view,bg,diagonal)
+   for o in objects:
+    candidates=[]
+    for t in dst:
+     if shape(g,o)==shape(y,t):
+      delta=[min(r for r,c in t['cells'])-min(r for r,c in o['cells']),min(c for r,c in t['cells'])-min(c for r,c in o['cells'])]
+      candidates.append({'bbox':t['bbox'],'delta':delta,'cells':t['cells']})
+    matches.append({'source_bbox':o['bbox'],'target_matches':candidates})
+   pred,info=prior.render(g,diagonal)
+   one={'diagonal':diagonal,'cues':cues,'correspondences':matches,'prior_exact':pred==y,'prior_failure':info.get('failure'), 'alternatives':[]}
+   # This is a conditional teacher-level necessity check, not a query prediction.
+   # Other object destinations are fixed to their independently unique teacher correspondences.
+   if all(len(m['target_matches'])==1 for m in matches):
+    for oi,(o,m) in enumerate(zip(objects,matches)):
+     obs=m['target_matches'][0]['delta']; other=set(tuple(p) for j,otherm in enumerate(matches) if j!=oi for p in otherm['target_matches'][0]['cells'])|set(tuple(a['cells'][0]) for a in cues)
+     for cue in cues:
+      p=cue['cells'][0];markers=[(r,c) for r,c in o['cells'] if g[r][c]==cue['colors'][0]]
+      axes=([0] if p[1] in (0,w-1) else [])+([1] if p[0] in (0,h-1) else [])
+      if len(markers)!=1:continue
+      for axis in axes:
+       normal=p[axis]-markers[0][axis]; trials=[]
+       for tangent in range(-(w if axis==0 else h),w if axis==0 else h):
+        delta=[0,0];delta[axis]=normal;delta[1-axis]=tangent
+        shifted=shifted_sparse_point_mask(set(map(tuple,o['cells'])),*delta,h,w)
+        fail=[]
+        if shifted is None:fail=['out_of_bounds']
+        else:
+         if shifted&other:fail.append('overlap')
+         if any((r+dr,c+dc) in other for r,c in shifted for dr,dc in ((1,0),(-1,0),(0,1),(0,-1))):fail.append('C4_contact')
+         if any((r+dr,c+dc) in other for r,c in shifted for dr in (-1,0,1) for dc in (-1,0,1) if (dr,dc)!=(0,0)):fail.append('C8_contact')
+        trials.append({'delta':delta,'failures':fail,'equals_observed':delta==obs})
+       one['alternatives'].append({'source_bbox':o['bbox'],'axis':axis,'observed_delta':obs,'trials':trials})
+   rec['connectivities'].append(one)
+  records.append(rec)
+ return records
+
+if __name__=='__main__':
+ # Explicit teacher-only packet chosen by orchestration, not a runtime identity branch.
+ path=ROOT/'proposal132-existing-composition-20261007/teachers-only.json'
+ teachers=json.loads(path.read_text());teachers=teachers['train'] if isinstance(teachers,dict) else teachers;result=run(teachers)
+ out={'status':'DIAGNOSTIC_ONLY_NO_MODEL','teacher_source':str(path.relative_to(ROOT)),'teacher_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'records':result}
+ (Path(__file__).parent/'alignment-evidence.json').write_text(json.dumps(out,indent=2))
+ for t in result:
+  a=t['connectivities'][0];print('teacher',t['teacher'],'oldexact',a['prior_exact'])
+  for x in a['alternatives']:
+   obs=x['observed_delta'];axis=x['axis']
+   if obs[1-axis]:print('nonzero tangent',x['source_bbox'],'observed',obs,'legal strict separation',[(q['delta'],q['equals_observed']) for q in x['trials'] if not q['failures']])

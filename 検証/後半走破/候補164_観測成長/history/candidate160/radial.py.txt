@@ -1,0 +1,77 @@
+"""Input-derived radial component-series composition, teacher-only diagnostic.
+Existing C4 extraction, normalization and minimal-prefix-period are reused.
+"""
+import sys,json
+from pathlib import Path
+from collections import defaultdict
+sys.dont_write_bytecode=True
+ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'candidate156-production-20261007'))
+from 接続.ARC2.既存物体特徴 import color_component_dicts_for_grid
+from 接続.ARC2.既存側周期 import minimal_period
+from geometry import observe
+
+def render(g,transpose=False):
+ roles=observe(g)
+ if len(roles)!=1 or len(roles[0]['future_geometric_roles'])!=1:return None,{'failure':'geometry_not_unique'}
+ role=roles[0];bg=role['background'];marker=role['marker_color'];by_radius=defaultdict(set);steps=set();observed=[]
+ for box in role['body_bboxes']:
+  r,c,y,x=box;patch=[row[c:x+1]for row in g[r:y+1]]
+  if transpose:patch=[list(row) for row in zip(*patch)]
+  ph,pw=len(patch),len(patch[0]);center=(ph-1)//2
+  if ph%2!=1:return None,{'failure':'no_integral_center'}
+  palette=set(v for row in patch for v in row)-{bg};parts=[]
+  for color in sorted(palette):
+   for comp in color_component_dicts_for_grid(patch,color,False):
+    a,b,d,e=comp['bbox'];mid=(a+d)//2
+    if (d-a)%2:return None,{'failure':'component_center_not_integral'}
+    descriptor=(color,tuple(sorted((rr-mid,cc)for rr,cc in comp['cells'])))
+    parts.append((mid-center,descriptor))
+  if len(parts)<1:return None,{'failure':'no_components'}
+  positions=sorted(pos for pos,desc in parts)
+  if len(set(positions))!=len(positions):return None,{'failure':'multiple_components_per_layer'}
+  if len(positions)>1:
+   gaps={b-a for a,b in zip(positions,positions[1:])}
+   if len(gaps)!=1:return None,{'failure':'nonuniform_layers'}
+   steps.update(gaps)
+  if positions!=sorted(-p for p in positions):return None,{'failure':'asymmetric_layer_inventory'}
+  for pos,desc in parts:by_radius[abs(pos)].add(desc)
+  observed.append({'box':box,'positions':positions})
+ if len(steps)!=1:return None,{'failure':'no_unique_observed_layer_step'}
+ step=next(iter(steps));radii=sorted(by_radius)
+ if radii!=list(range(0,max(radii)+1,step))or any(len(v)!=1 for v in by_radius.values()):return None,{'failure':'radial_roles_conflict'}
+ descriptors=[next(iter(by_radius[k])) for k in radii]
+ # Component geometry and pigment are independent observable periodic channels.
+ colors=minimal_period([(d[0],)for d in descriptors]);masks=minimal_period([d[1]for d in descriptors])
+ # Replay the factorized program over every complete observed source, including
+ # background cells, before allowing any extrapolation.
+ for box in role['body_bboxes']:
+  a,b,d,e=box;source=[row[b:e+1] for row in g[a:d+1]]
+  if transpose:source=[list(row) for row in zip(*source)]
+  sh,sw=len(source),len(source[0]);sc=(sh-1)//2
+  extent=max(abs(dr) for desc in descriptors for dr,dc in desc[1]);radius=sc-extent
+  if radius<0 or radius%step:return None,{'failure':'source_layer_extent_mismatch'}
+  replay=[[bg]*sw for _ in range(sh)]
+  for pos in range(-radius,radius+1,step):
+   k=abs(pos)//step;color=colors[k%len(colors)][0];mask=masks[k%len(masks)]
+   for dr,dc in mask:
+    rr=sc+pos+dr
+    if not(0<=rr<sh and 0<=dc<sw):return None,{'failure':'source_replay_bounds'}
+    if replay[rr][dc] not in (bg,color):return None,{'failure':'source_replay_conflict'}
+    replay[rr][dc]=color
+  if replay!=source:return None,{'failure':'source_replay_mismatch'}
+ future=role['future_geometric_roles'][0];r,c,y,x=future['predicted_bbox'];h,w=y-r+1,x-c+1
+ if transpose:h,w=w,h
+ if h%2!=1:return None,{'failure':'future_center_not_integral'}
+ center=(h-1)//2;extent=max(abs(dr)for d in descriptors for dr,dc in d[1]);radius=center-extent
+ if radius<0 or radius%step:return None,{'failure':'future_extent_not_layer_aligned'}
+ out=[[bg]*w for _ in range(h)];occupied={}
+ for pos in range(-radius,radius+1,step):
+  k=abs(pos)//step;color=colors[k%len(colors)][0];mask=masks[k%len(masks)]
+  for dr,dc in mask:
+   rr=center+pos+dr
+   if not(0<=rr<h and 0<=dc<w):return None,{'failure':'out_of_bounds'}
+   if (rr,dc)in occupied and occupied[rr,dc]!=color:return None,{'failure':'ink_conflict'}
+   occupied[rr,dc]=color;out[rr][dc]=color
+ if transpose:out=[list(row) for row in zip(*out)]
+ a,b,d,e=role['marker_window'];out=[row[b-c:e-c+1]for row in out[a-r:d-r+1]]
+ return out,{'layer_step':step,'color_period':colors,'mask_period':masks,'source_layer_counts':[len(o['positions'])for o in observed],'future_layer_count':2*(radius//step)+1,'future_bbox':future['predicted_bbox'],'complete_source_ownership':True,'source_replays':len(role['body_bboxes'])}

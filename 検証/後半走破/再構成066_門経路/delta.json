@@ -1,0 +1,37 @@
+{
+  "previous": [
+    89,
+    124
+  ],
+  "current": [
+    90,
+    125
+  ],
+  "delta": [
+    1,
+    1
+  ],
+  "all_old_grids_identical": 124,
+  "added_correct_grids": [
+    [
+      "2b83f449",
+      0
+    ]
+  ],
+  "wrong_emitted": 0,
+  "resource_failures": 0,
+  "same_conditions": true,
+  "verified_pins": 1993,
+  "regression": {
+    "scripts": 99,
+    "checks": 4564,
+    "current_script_records": 98,
+    "unchanged_window_cases_reused": 29
+  },
+  "new_reconstruction": true,
+  "old066_historical_byte_recovery": false,
+  "source_base_commit": "ece0dc7a886476e8402e50421b1efce1a635e8f9",
+  "score_sha256": "b0134c8615dcd162191a6d58eba73d8a602597f40e5be0fb181c615a4050727c",
+  "previous_score_sha256": "7e483f17914a29c51d21a0ca750cf8791209dcaf2c1c377db1c16112cffd6d63",
+  "parent_admission_pending": true
+}

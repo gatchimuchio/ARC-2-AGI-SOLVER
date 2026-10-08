@@ -1,0 +1,33 @@
+{
+  "previous": [
+    91,
+    126
+  ],
+  "current": [
+    92,
+    127
+  ],
+  "delta": [
+    1,
+    1
+  ],
+  "old_grids_identical": 126,
+  "new_correct_grids": [
+    [
+      "7491f3cf",
+      0
+    ]
+  ],
+  "wrong_emitted": 0,
+  "resources": 0,
+  "pins": 2019,
+  "same_conditions": true,
+  "regression": {
+    "scripts": 101,
+    "checks": 4582,
+    "coverage_is_composed": true
+  },
+  "new_four_action_reconstruction": true,
+  "historical_twelve_action_source_restored": false,
+  "score_sha256": "05d2729f9eb8c644a700a60649b62ab7673d404cda3103c3da71a21c7c006588"
+}

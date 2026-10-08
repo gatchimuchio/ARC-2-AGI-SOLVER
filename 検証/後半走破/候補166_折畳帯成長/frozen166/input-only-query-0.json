@@ -1,0 +1,228 @@
+{
+  "output": [
+    [
+      0,
+      6,
+      6,
+      6,
+      6,
+      0,
+      6,
+      6,
+      6,
+      6,
+      0,
+      6,
+      6,
+      6,
+      6,
+      0,
+      6,
+      6,
+      6,
+      6,
+      0
+    ],
+    [
+      6,
+      6,
+      0,
+      0,
+      6,
+      6,
+      6,
+      0,
+      0,
+      6,
+      6,
+      6,
+      0,
+      0,
+      6,
+      6,
+      6,
+      0,
+      0,
+      6,
+      6
+    ]
+  ],
+  "record": {
+    "status": "EMIT",
+    "fitted_predictions": 2,
+    "incomplete_models": 0,
+    "distinct_predictions": 1,
+    "views": [
+      {
+        "rotation": 1,
+        "reflection": false,
+        "internal_transpose": false,
+        "family": "axis",
+        "record": {
+          "fitted_models": 0,
+          "incomplete_models": 0,
+          "models": [],
+          "row_symbols": 3,
+          "monochrome": true
+        }
+      },
+      {
+        "rotation": 1,
+        "reflection": false,
+        "internal_transpose": false,
+        "family": "centered_rows",
+        "record": {
+          "fitted_models": 1,
+          "incomplete_models": 0,
+          "periods": [
+            5
+          ],
+          "source_radius_symbols": 10,
+          "center_parity": 1,
+          "source_replays": 4
+        }
+      },
+      {
+        "rotation": 1,
+        "reflection": false,
+        "internal_transpose": false,
+        "family": "folded_strips",
+        "record": {
+          "fitted_models": 0,
+          "incomplete_models": 0,
+          "models": []
+        }
+      },
+      {
+        "rotation": 1,
+        "reflection": false,
+        "internal_transpose": true,
+        "family": "axis",
+        "record": {
+          "failure": "non_affine_row_runs"
+        }
+      },
+      {
+        "rotation": 1,
+        "reflection": false,
+        "internal_transpose": true,
+        "family": "centered_rows",
+        "record": {
+          "failure": "radial_row_symbol_conflict"
+        }
+      },
+      {
+        "rotation": 1,
+        "reflection": false,
+        "internal_transpose": true,
+        "family": "folded_strips",
+        "record": {
+          "failure": "strip_not_reflection_symmetric"
+        }
+      },
+      {
+        "rotation": 1,
+        "reflection": false,
+        "internal_transpose": false,
+        "family": "radial",
+        "record": {
+          "failure": "no_integral_center"
+        }
+      },
+      {
+        "rotation": 1,
+        "reflection": false,
+        "internal_transpose": true,
+        "family": "radial",
+        "record": {
+          "failure": "no_unique_observed_layer_step"
+        }
+      },
+      {
+        "rotation": 3,
+        "reflection": true,
+        "internal_transpose": false,
+        "family": "axis",
+        "record": {
+          "fitted_models": 0,
+          "incomplete_models": 0,
+          "models": [],
+          "row_symbols": 3,
+          "monochrome": true
+        }
+      },
+      {
+        "rotation": 3,
+        "reflection": true,
+        "internal_transpose": false,
+        "family": "centered_rows",
+        "record": {
+          "fitted_models": 1,
+          "incomplete_models": 0,
+          "periods": [
+            5
+          ],
+          "source_radius_symbols": 10,
+          "center_parity": 1,
+          "source_replays": 4
+        }
+      },
+      {
+        "rotation": 3,
+        "reflection": true,
+        "internal_transpose": false,
+        "family": "folded_strips",
+        "record": {
+          "fitted_models": 0,
+          "incomplete_models": 0,
+          "models": []
+        }
+      },
+      {
+        "rotation": 3,
+        "reflection": true,
+        "internal_transpose": true,
+        "family": "axis",
+        "record": {
+          "failure": "non_affine_row_runs"
+        }
+      },
+      {
+        "rotation": 3,
+        "reflection": true,
+        "internal_transpose": true,
+        "family": "centered_rows",
+        "record": {
+          "failure": "radial_row_symbol_conflict"
+        }
+      },
+      {
+        "rotation": 3,
+        "reflection": true,
+        "internal_transpose": true,
+        "family": "folded_strips",
+        "record": {
+          "failure": "strip_not_reflection_symmetric"
+        }
+      },
+      {
+        "rotation": 3,
+        "reflection": true,
+        "internal_transpose": false,
+        "family": "radial",
+        "record": {
+          "failure": "no_integral_center"
+        }
+      },
+      {
+        "rotation": 3,
+        "reflection": true,
+        "internal_transpose": true,
+        "family": "radial",
+        "record": {
+          "failure": "no_unique_observed_layer_step"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "base_commit": "668cbb24d52702be30ce4526ff09639f4884f307",
+  "boundary": "ordinary empty prior",
+  "core_changed": false,
+  "old_gates_changed": false,
+  "hds_insertions": 4,
+  "algorithm_change": "only package-relative import",
+  "all_helpers_verified": true,
+  "ignored_sources_copied_before_native": true
+}

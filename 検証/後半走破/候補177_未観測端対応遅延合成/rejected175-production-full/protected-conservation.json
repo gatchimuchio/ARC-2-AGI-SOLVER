@@ -1,0 +1,22 @@
+{
+  "files": {
+    "AGENTS.md": "315998bc0549de61f70fda28a9c9923bea8a61ba6d9b79019283165e5438109b",
+    "制御/現在状態.json": "4d0c5acf5e833262dfe6cab6c6cd838aed63e20df6d6bcf63763f16d98ad065e",
+    "HDS/README.md": "11c35fe3e51087bf3d6b573451a03092d986dd7e1fcd9ef6f2425e58e30cc955",
+    "HDS/学習系統/v0.4.2/pyproject.toml": "c0d318c4a533f7ad7a2fe6f141cc44480a718def8c9794caf4a866e89b63961e",
+    "HDS/学習系統/v0.4.2/README.md": "87d576f513ac660fc21f97e2cfcb702388eadc1c93613c4609b59ace5c2e11b9",
+    "HDS/学習系統/v0.4.2/hds学習系統/排気系.py": "2ba7ceb8d0d6c784d092f91fe484477127f044e50f68c54c977374b17f2f6361",
+    "HDS/学習系統/v0.4.2/hds学習系統/永続化.py": "8aa431b3012424fd8347c5b3d93a5fbf2218d35020836f5d40abb427f9d6da0d",
+    "HDS/学習系統/v0.4.2/hds学習系統/懐疑.py": "bb7e85c2dbafbd430f1b7733bf3a2d307dc24e3227e79994b491cf711322f715",
+    "HDS/学習系統/v0.4.2/hds学習系統/__init__.py": "eaed97760656afc40088ad7e0d85a02fbd59a0d0034054956e9ead63319fba57",
+    "HDS/学習系統/v0.4.2/hds学習系統/実行系.py": "11d253705181873bcc22e312a0d0a2198fe16a82e3d7289ea8746fdc14695429",
+    "HDS/学習系統/v0.4.2/hds学習系統/吸気系.py": "50c48e5a9a8aa39158d0cdaacc0501608a829486960d41cb2fea6cb02e5660a4",
+    "HDS/学習系統/v0.4.2/hds学習系統/推論.py": "315dd0d23a9682cdf14be71346341976cbdbcd2cbd924a250afc4ad53058dba6",
+    "HDS/学習系統/v0.4.2/hds学習系統/適応.py": "c74797d49472646010ed0b37bd17dfa602084ba3347ac9386dec265e78a797ac",
+    "HDS/学習系統/v0.4.2/hds学習系統/台帳.py": "a6cab8fca7cb591c42fa7444f9678fe0003da69faafcce852598286dceb522e2",
+    "HDS/学習系統/v0.4.2/hds学習系統/系統.py": "f57e34fcab9249ad7fef72d7b9088fbb440c01afcd4313c9447b7a31427bd4a5",
+    "HDS/学習系統/v0.4.2/hds学習系統/検証.py": "e23f271d38e1f52d75557dbf3342abf7b59a85fbdc315a06c0040fd7ca204eb3",
+    "HDS/学習系統/v0.4.2/hds学習系統/型.py": "aa1241708655280b36564f5e3ff6968849b4d09790b8932aabad1570cbca302c"
+  },
+  "global_gates_unchanged": true
+}

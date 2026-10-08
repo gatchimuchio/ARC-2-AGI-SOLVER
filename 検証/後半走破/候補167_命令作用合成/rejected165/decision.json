@@ -1,0 +1,6 @@
+{
+  "decision": "REJECT",
+  "reason": "wrong_emitted=1",
+  "not_used_as_base": true,
+  "accepted_parent": "3838872c3cdb7cad741819b59b4e70f7a0494071"
+}

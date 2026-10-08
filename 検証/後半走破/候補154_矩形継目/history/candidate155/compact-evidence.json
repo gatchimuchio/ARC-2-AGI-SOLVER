@@ -1,0 +1,5212 @@
+{
+  "check_count": 35,
+  "checks": [
+    {
+      "name": "teacher_0_D4_False_0",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "teacher_0_D4_False_1",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "teacher_0_D4_False_2",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "teacher_0_D4_False_3",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "teacher_0_D4_True_0",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "teacher_0_D4_True_1",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "teacher_0_D4_True_2",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "teacher_0_D4_True_3",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "teacher_0_palette",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "teacher_1_D4_False_0",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "teacher_1_D4_False_1",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "teacher_1_D4_False_2",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "teacher_1_D4_False_3",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "teacher_1_D4_True_0",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "teacher_1_D4_True_1",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "teacher_1_D4_True_2",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "teacher_1_D4_True_3",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "teacher_1_palette",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "outer_perimeter_valid_seam_invalid",
+      "passed": true,
+      "record": {
+        "status": "HOLD",
+        "complete": true,
+        "work": 1029,
+        "observation": {
+          "role_count": 1,
+          "probes": [
+            {
+              "background": 0,
+              "marker": 9,
+              "physical_components": 2,
+              "cuts": [],
+              "ownerships": [
+                {
+                  "piece_count": 2,
+                  "nonrectangular_leaves": [],
+                  "host_count": 1
+                }
+              ]
+            },
+            {
+              "background": 2,
+              "marker": 9,
+              "physical_components": 1,
+              "cuts": [],
+              "ownerships": [
+                {
+                  "piece_count": 1,
+                  "nonrectangular_leaves": [
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "background": 3,
+              "marker": 9,
+              "physical_components": 1,
+              "cuts": [],
+              "ownerships": [
+                {
+                  "piece_count": 1,
+                  "nonrectangular_leaves": [
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "all_role_returns": [
+          {
+            "geometry": {
+              "role": {
+                "background": 0,
+                "marker": 9,
+                "border": 1,
+                "anchor": [
+                  1,
+                  1
+                ],
+                "signs": [
+                  1,
+                  1
+                ],
+                "host": 0
+              },
+              "piece_count": 2,
+              "candidate_shapes": [
+                [
+                  3,
+                  6
+                ],
+                [
+                  6,
+                  3
+                ]
+              ],
+              "feasible_arrangements": 1,
+              "distinct_outputs": 1,
+              "placements": [
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ]
+                ]
+              ]
+            },
+            "all_proposals": [
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      1
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        2,
+                        1
+                      ],
+                      [
+                        1,
+                        3,
+                        1
+                      ]
+                    ],
+                    "equal": false,
+                    "wall": false,
+                    "passes": false
+                  }
+                ],
+                "seam_qualified": false
+              }
+            ],
+            "feasible_count": 0,
+            "distinct_outputs": 0,
+            "failure": "no_seam_qualified_assembly"
+          }
+        ],
+        "failure": "retained_role_failed"
+      }
+    },
+    {
+      "name": "independent_matching_seam_valid",
+      "passed": true,
+      "record": {
+        "status": "CANDIDATE",
+        "complete": true,
+        "work": 575,
+        "observation": {
+          "role_count": 1,
+          "probes": [
+            {
+              "background": 0,
+              "marker": 9,
+              "physical_components": 2,
+              "cuts": [],
+              "ownerships": [
+                {
+                  "piece_count": 2,
+                  "nonrectangular_leaves": [],
+                  "host_count": 1
+                }
+              ]
+            },
+            {
+              "background": 2,
+              "marker": 9,
+              "physical_components": 1,
+              "cuts": [],
+              "ownerships": [
+                {
+                  "piece_count": 1,
+                  "nonrectangular_leaves": [
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "all_role_returns": [
+          {
+            "geometry": {
+              "role": {
+                "background": 0,
+                "marker": 9,
+                "border": 1,
+                "anchor": [
+                  1,
+                  1
+                ],
+                "signs": [
+                  1,
+                  1
+                ],
+                "host": 0
+              },
+              "piece_count": 2,
+              "candidate_shapes": [
+                [
+                  3,
+                  6
+                ],
+                [
+                  6,
+                  3
+                ]
+              ],
+              "feasible_arrangements": 1,
+              "distinct_outputs": 1,
+              "placements": [
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ]
+                ]
+              ]
+            },
+            "all_proposals": [
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      1
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        2,
+                        1
+                      ],
+                      [
+                        1,
+                        2,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": false,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true
+              }
+            ],
+            "feasible_count": 1,
+            "distinct_outputs": 1,
+            "failure": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "independent_whole_wall_valid",
+      "passed": true,
+      "record": {
+        "status": "CANDIDATE",
+        "complete": true,
+        "work": 1037,
+        "observation": {
+          "role_count": 1,
+          "probes": [
+            {
+              "background": 0,
+              "marker": 9,
+              "physical_components": 2,
+              "cuts": [],
+              "ownerships": [
+                {
+                  "piece_count": 2,
+                  "nonrectangular_leaves": [],
+                  "host_count": 1
+                }
+              ]
+            },
+            {
+              "background": 2,
+              "marker": 9,
+              "physical_components": 1,
+              "cuts": [],
+              "ownerships": [
+                {
+                  "piece_count": 1,
+                  "nonrectangular_leaves": [
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "background": 3,
+              "marker": 9,
+              "physical_components": 1,
+              "cuts": [],
+              "ownerships": [
+                {
+                  "piece_count": 1,
+                  "nonrectangular_leaves": [
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "all_role_returns": [
+          {
+            "geometry": {
+              "role": {
+                "background": 0,
+                "marker": 9,
+                "border": 1,
+                "anchor": [
+                  1,
+                  1
+                ],
+                "signs": [
+                  1,
+                  1
+                ],
+                "host": 0
+              },
+              "piece_count": 2,
+              "candidate_shapes": [
+                [
+                  3,
+                  6
+                ],
+                [
+                  6,
+                  3
+                ]
+              ],
+              "feasible_arrangements": 1,
+              "distinct_outputs": 1,
+              "placements": [
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ]
+                ]
+              ]
+            },
+            "all_proposals": [
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      1
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        3,
+                        1
+                      ]
+                    ],
+                    "equal": false,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true
+              }
+            ],
+            "feasible_count": 1,
+            "distinct_outputs": 1,
+            "failure": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "all_six_seam_valid_disagreements_retained",
+      "passed": true,
+      "record": {
+        "status": "HOLD",
+        "complete": true,
+        "work": 2454,
+        "observation": {
+          "role_count": 1,
+          "probes": [
+            {
+              "background": 0,
+              "marker": 9,
+              "physical_components": 4,
+              "cuts": [],
+              "ownerships": [
+                {
+                  "piece_count": 4,
+                  "nonrectangular_leaves": [],
+                  "host_count": 1
+                }
+              ]
+            },
+            {
+              "background": 2,
+              "marker": 9,
+              "physical_components": 1,
+              "cuts": [],
+              "ownerships": [
+                {
+                  "piece_count": 1,
+                  "nonrectangular_leaves": [
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "background": 3,
+              "marker": 9,
+              "physical_components": 1,
+              "cuts": [],
+              "ownerships": [
+                {
+                  "piece_count": 1,
+                  "nonrectangular_leaves": [
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "background": 4,
+              "marker": 9,
+              "physical_components": 1,
+              "cuts": [],
+              "ownerships": [
+                {
+                  "piece_count": 1,
+                  "nonrectangular_leaves": [
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "background": 5,
+              "marker": 9,
+              "physical_components": 1,
+              "cuts": [],
+              "ownerships": [
+                {
+                  "piece_count": 1,
+                  "nonrectangular_leaves": [
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "all_role_returns": [
+          {
+            "geometry": {
+              "role": {
+                "background": 0,
+                "marker": 9,
+                "border": 1,
+                "anchor": [
+                  1,
+                  1
+                ],
+                "signs": [
+                  1,
+                  1
+                ],
+                "host": 0
+              },
+              "piece_count": 4,
+              "candidate_shapes": [
+                [
+                  6,
+                  6
+                ]
+              ],
+              "feasible_arrangements": 6,
+              "distinct_outputs": 6,
+              "placements": [
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ],
+                  [
+                    2,
+                    3,
+                    0
+                  ],
+                  [
+                    3,
+                    3,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ],
+                  [
+                    3,
+                    3,
+                    0
+                  ],
+                  [
+                    2,
+                    3,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    0,
+                    3
+                  ],
+                  [
+                    1,
+                    3,
+                    0
+                  ],
+                  [
+                    3,
+                    3,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    0,
+                    3
+                  ],
+                  [
+                    3,
+                    3,
+                    0
+                  ],
+                  [
+                    1,
+                    3,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    0,
+                    3
+                  ],
+                  [
+                    1,
+                    3,
+                    0
+                  ],
+                  [
+                    2,
+                    3,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    0,
+                    3
+                  ],
+                  [
+                    2,
+                    3,
+                    0
+                  ],
+                  [
+                    1,
+                    3,
+                    3
+                  ]
+                ]
+              ],
+              "failure": "assembly_disagreement"
+            },
+            "all_proposals": [
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ],
+                  [
+                    2,
+                    3,
+                    0
+                  ],
+                  [
+                    3,
+                    3,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      1
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      2
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      1,
+                      3
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      2,
+                      3
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true
+              },
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ],
+                  [
+                    3,
+                    3,
+                    0
+                  ],
+                  [
+                    2,
+                    3,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      1
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      3
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      1,
+                      2
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      3,
+                      2
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true
+              },
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    0,
+                    3
+                  ],
+                  [
+                    1,
+                    3,
+                    0
+                  ],
+                  [
+                    3,
+                    3,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      1
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      2
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      1,
+                      3
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      2,
+                      3
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true
+              },
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    0,
+                    3
+                  ],
+                  [
+                    3,
+                    3,
+                    0
+                  ],
+                  [
+                    1,
+                    3,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      2
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      3
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      2,
+                      1
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      3,
+                      1
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true
+              },
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    0,
+                    3
+                  ],
+                  [
+                    1,
+                    3,
+                    0
+                  ],
+                  [
+                    2,
+                    3,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      1
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      3
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      1,
+                      2
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      3,
+                      2
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true
+              },
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    0,
+                    3
+                  ],
+                  [
+                    2,
+                    3,
+                    0
+                  ],
+                  [
+                    1,
+                    3,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      2
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      3
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      2,
+                      1
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      3,
+                      1
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true
+              }
+            ],
+            "feasible_count": 6,
+            "distinct_outputs": 6,
+            "failure": "seam_qualified_outputs_disagree"
+          }
+        ],
+        "failure": "retained_role_failed"
+      }
+    },
+    {
+      "name": "all_six_equivalent_seam_valid_models_retained",
+      "passed": true,
+      "record": {
+        "status": "CANDIDATE",
+        "complete": true,
+        "work": 806,
+        "observation": {
+          "role_count": 1,
+          "probes": [
+            {
+              "background": 0,
+              "marker": 9,
+              "physical_components": 4,
+              "cuts": [],
+              "ownerships": [
+                {
+                  "piece_count": 4,
+                  "nonrectangular_leaves": [],
+                  "host_count": 1
+                }
+              ]
+            }
+          ]
+        },
+        "all_role_returns": [
+          {
+            "geometry": {
+              "role": {
+                "background": 0,
+                "marker": 9,
+                "border": 1,
+                "anchor": [
+                  1,
+                  1
+                ],
+                "signs": [
+                  1,
+                  1
+                ],
+                "host": 0
+              },
+              "piece_count": 4,
+              "candidate_shapes": [
+                [
+                  6,
+                  6
+                ]
+              ],
+              "feasible_arrangements": 6,
+              "distinct_outputs": 1,
+              "placements": [
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ],
+                  [
+                    2,
+                    3,
+                    0
+                  ],
+                  [
+                    3,
+                    3,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ],
+                  [
+                    3,
+                    3,
+                    0
+                  ],
+                  [
+                    2,
+                    3,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    0,
+                    3
+                  ],
+                  [
+                    1,
+                    3,
+                    0
+                  ],
+                  [
+                    3,
+                    3,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    0,
+                    3
+                  ],
+                  [
+                    3,
+                    3,
+                    0
+                  ],
+                  [
+                    1,
+                    3,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    0,
+                    3
+                  ],
+                  [
+                    1,
+                    3,
+                    0
+                  ],
+                  [
+                    2,
+                    3,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    0,
+                    3
+                  ],
+                  [
+                    2,
+                    3,
+                    0
+                  ],
+                  [
+                    1,
+                    3,
+                    3
+                  ]
+                ]
+              ]
+            },
+            "all_proposals": [
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ],
+                  [
+                    2,
+                    3,
+                    0
+                  ],
+                  [
+                    3,
+                    3,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      1
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      2
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      1,
+                      3
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      2,
+                      3
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true
+              },
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ],
+                  [
+                    3,
+                    3,
+                    0
+                  ],
+                  [
+                    2,
+                    3,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      1
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      3
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      1,
+                      2
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      3,
+                      2
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true
+              },
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    0,
+                    3
+                  ],
+                  [
+                    1,
+                    3,
+                    0
+                  ],
+                  [
+                    3,
+                    3,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      1
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      2
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      1,
+                      3
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      2,
+                      3
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true
+              },
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    0,
+                    3
+                  ],
+                  [
+                    3,
+                    3,
+                    0
+                  ],
+                  [
+                    1,
+                    3,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      2
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      3
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      2,
+                      1
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      3,
+                      1
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true
+              },
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    0,
+                    3
+                  ],
+                  [
+                    1,
+                    3,
+                    0
+                  ],
+                  [
+                    2,
+                    3,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      1
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      3
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      1,
+                      2
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      3,
+                      2
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true
+              },
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    0,
+                    3
+                  ],
+                  [
+                    2,
+                    3,
+                    0
+                  ],
+                  [
+                    1,
+                    3,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      2
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      3
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      2,
+                      1
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      3,
+                      1
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true
+              }
+            ],
+            "feasible_count": 6,
+            "distinct_outputs": 1,
+            "failure": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "resource_incomplete_propagates",
+      "passed": true,
+      "record": {
+        "status": "RESOURCE_INCOMPLETE",
+        "failure": "budget_incomplete",
+        "complete": false,
+        "work": 1
+      }
+    },
+    {
+      "name": "unchanged_no_role_parser",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "teacher_0_ownership_unchanged",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "teacher_1_ownership_unchanged",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "two_alternate_saturated_partitions_retained",
+      "passed": true,
+      "record": {
+        "partitions": [
+          [
+            [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                0,
+                2,
+                1
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                2
+              ],
+              [
+                1,
+                2,
+                1
+              ],
+              [
+                2,
+                0,
+                1
+              ],
+              [
+                2,
+                1,
+                1
+              ],
+              [
+                2,
+                2,
+                1
+              ]
+            ],
+            [
+              [
+                0,
+                3,
+                1
+              ],
+              [
+                0,
+                4,
+                1
+              ],
+              [
+                0,
+                5,
+                1
+              ],
+              [
+                1,
+                3,
+                1
+              ],
+              [
+                1,
+                4,
+                2
+              ],
+              [
+                1,
+                5,
+                1
+              ],
+              [
+                2,
+                3,
+                1
+              ],
+              [
+                2,
+                4,
+                1
+              ],
+              [
+                2,
+                5,
+                1
+              ]
+            ],
+            [
+              [
+                3,
+                0,
+                1
+              ],
+              [
+                3,
+                1,
+                1
+              ],
+              [
+                3,
+                2,
+                1
+              ],
+              [
+                3,
+                3,
+                1
+              ],
+              [
+                3,
+                4,
+                1
+              ],
+              [
+                3,
+                5,
+                1
+              ],
+              [
+                4,
+                0,
+                1
+              ],
+              [
+                4,
+                1,
+                2
+              ],
+              [
+                4,
+                2,
+                1
+              ],
+              [
+                4,
+                3,
+                1
+              ],
+              [
+                4,
+                4,
+                1
+              ],
+              [
+                4,
+                5,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                2,
+                1
+              ],
+              [
+                5,
+                3,
+                1
+              ],
+              [
+                5,
+                4,
+                1
+              ],
+              [
+                5,
+                5,
+                1
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                0,
+                2,
+                1
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                2
+              ],
+              [
+                1,
+                2,
+                1
+              ],
+              [
+                2,
+                0,
+                1
+              ],
+              [
+                2,
+                1,
+                1
+              ],
+              [
+                2,
+                2,
+                1
+              ]
+            ],
+            [
+              [
+                0,
+                3,
+                1
+              ],
+              [
+                0,
+                4,
+                1
+              ],
+              [
+                0,
+                5,
+                1
+              ],
+              [
+                1,
+                3,
+                1
+              ],
+              [
+                1,
+                4,
+                2
+              ],
+              [
+                1,
+                5,
+                1
+              ],
+              [
+                2,
+                3,
+                1
+              ],
+              [
+                2,
+                4,
+                1
+              ],
+              [
+                2,
+                5,
+                1
+              ],
+              [
+                3,
+                3,
+                1
+              ],
+              [
+                3,
+                4,
+                1
+              ],
+              [
+                3,
+                5,
+                1
+              ],
+              [
+                4,
+                3,
+                1
+              ],
+              [
+                4,
+                4,
+                1
+              ],
+              [
+                4,
+                5,
+                1
+              ],
+              [
+                5,
+                3,
+                1
+              ],
+              [
+                5,
+                4,
+                1
+              ],
+              [
+                5,
+                5,
+                1
+              ]
+            ],
+            [
+              [
+                3,
+                0,
+                1
+              ],
+              [
+                3,
+                1,
+                1
+              ],
+              [
+                3,
+                2,
+                1
+              ],
+              [
+                4,
+                0,
+                1
+              ],
+              [
+                4,
+                1,
+                2
+              ],
+              [
+                4,
+                2,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                2,
+                1
+              ]
+            ]
+          ]
+        ],
+        "cuts": [
+          {
+            "body": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                0,
+                2,
+                1
+              ],
+              [
+                0,
+                3,
+                1
+              ],
+              [
+                0,
+                4,
+                1
+              ],
+              [
+                0,
+                5,
+                1
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                2
+              ],
+              [
+                1,
+                2,
+                1
+              ],
+              [
+                1,
+                3,
+                1
+              ],
+              [
+                1,
+                4,
+                2
+              ],
+              [
+                1,
+                5,
+                1
+              ],
+              [
+                2,
+                0,
+                1
+              ],
+              [
+                2,
+                1,
+                1
+              ],
+              [
+                2,
+                2,
+                1
+              ],
+              [
+                2,
+                3,
+                1
+              ],
+              [
+                2,
+                4,
+                1
+              ],
+              [
+                2,
+                5,
+                1
+              ],
+              [
+                3,
+                0,
+                1
+              ],
+              [
+                3,
+                1,
+                1
+              ],
+              [
+                3,
+                2,
+                1
+              ],
+              [
+                3,
+                3,
+                1
+              ],
+              [
+                3,
+                4,
+                1
+              ],
+              [
+                3,
+                5,
+                1
+              ],
+              [
+                4,
+                0,
+                1
+              ],
+              [
+                4,
+                1,
+                2
+              ],
+              [
+                4,
+                2,
+                1
+              ],
+              [
+                4,
+                3,
+                1
+              ],
+              [
+                4,
+                4,
+                1
+              ],
+              [
+                4,
+                5,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                2,
+                1
+              ],
+              [
+                5,
+                3,
+                1
+              ],
+              [
+                5,
+                4,
+                1
+              ],
+              [
+                5,
+                5,
+                1
+              ]
+            ],
+            "axis": 0,
+            "cut": 2
+          },
+          {
+            "body": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                0,
+                2,
+                1
+              ],
+              [
+                0,
+                3,
+                1
+              ],
+              [
+                0,
+                4,
+                1
+              ],
+              [
+                0,
+                5,
+                1
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                2
+              ],
+              [
+                1,
+                2,
+                1
+              ],
+              [
+                1,
+                3,
+                1
+              ],
+              [
+                1,
+                4,
+                2
+              ],
+              [
+                1,
+                5,
+                1
+              ],
+              [
+                2,
+                0,
+                1
+              ],
+              [
+                2,
+                1,
+                1
+              ],
+              [
+                2,
+                2,
+                1
+              ],
+              [
+                2,
+                3,
+                1
+              ],
+              [
+                2,
+                4,
+                1
+              ],
+              [
+                2,
+                5,
+                1
+              ]
+            ],
+            "axis": 1,
+            "cut": 2
+          },
+          {
+            "body": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                0,
+                2,
+                1
+              ],
+              [
+                0,
+                3,
+                1
+              ],
+              [
+                0,
+                4,
+                1
+              ],
+              [
+                0,
+                5,
+                1
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                2
+              ],
+              [
+                1,
+                2,
+                1
+              ],
+              [
+                1,
+                3,
+                1
+              ],
+              [
+                1,
+                4,
+                2
+              ],
+              [
+                1,
+                5,
+                1
+              ],
+              [
+                2,
+                0,
+                1
+              ],
+              [
+                2,
+                1,
+                1
+              ],
+              [
+                2,
+                2,
+                1
+              ],
+              [
+                2,
+                3,
+                1
+              ],
+              [
+                2,
+                4,
+                1
+              ],
+              [
+                2,
+                5,
+                1
+              ],
+              [
+                3,
+                0,
+                1
+              ],
+              [
+                3,
+                1,
+                1
+              ],
+              [
+                3,
+                2,
+                1
+              ],
+              [
+                3,
+                3,
+                1
+              ],
+              [
+                3,
+                4,
+                1
+              ],
+              [
+                3,
+                5,
+                1
+              ],
+              [
+                4,
+                0,
+                1
+              ],
+              [
+                4,
+                1,
+                2
+              ],
+              [
+                4,
+                2,
+                1
+              ],
+              [
+                4,
+                3,
+                1
+              ],
+              [
+                4,
+                4,
+                1
+              ],
+              [
+                4,
+                5,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                2,
+                1
+              ],
+              [
+                5,
+                3,
+                1
+              ],
+              [
+                5,
+                4,
+                1
+              ],
+              [
+                5,
+                5,
+                1
+              ]
+            ],
+            "axis": 1,
+            "cut": 2
+          },
+          {
+            "body": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                0,
+                2,
+                1
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                2
+              ],
+              [
+                1,
+                2,
+                1
+              ],
+              [
+                2,
+                0,
+                1
+              ],
+              [
+                2,
+                1,
+                1
+              ],
+              [
+                2,
+                2,
+                1
+              ],
+              [
+                3,
+                0,
+                1
+              ],
+              [
+                3,
+                1,
+                1
+              ],
+              [
+                3,
+                2,
+                1
+              ],
+              [
+                4,
+                0,
+                1
+              ],
+              [
+                4,
+                1,
+                2
+              ],
+              [
+                4,
+                2,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                2,
+                1
+              ]
+            ],
+            "axis": 0,
+            "cut": 2
+          }
+        ]
+      }
+    },
+    {
+      "name": "partition_0_exact_pixel_ownership",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "partition_0_rectangular_leaves",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "partition_1_exact_pixel_ownership",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "partition_1_rectangular_leaves",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "all_cut_boundary_pixels_are_frame",
+      "passed": true,
+      "record": null
+    },
+    {
+      "name": "both_input_ownership_roles_retained",
+      "passed": true,
+      "record": {
+        "role_count": 2,
+        "probes": [
+          {
+            "background": 0,
+            "marker": 9,
+            "physical_components": 1,
+            "cuts": [
+              {
+                "body": [
+                  [
+                    2,
+                    2,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    1
+                  ],
+                  [
+                    2,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    5,
+                    1
+                  ],
+                  [
+                    2,
+                    6,
+                    1
+                  ],
+                  [
+                    2,
+                    7,
+                    1
+                  ],
+                  [
+                    3,
+                    2,
+                    1
+                  ],
+                  [
+                    3,
+                    3,
+                    2
+                  ],
+                  [
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    3,
+                    5,
+                    1
+                  ],
+                  [
+                    3,
+                    6,
+                    2
+                  ],
+                  [
+                    3,
+                    7,
+                    1
+                  ],
+                  [
+                    4,
+                    2,
+                    1
+                  ],
+                  [
+                    4,
+                    3,
+                    1
+                  ],
+                  [
+                    4,
+                    4,
+                    1
+                  ],
+                  [
+                    4,
+                    5,
+                    1
+                  ],
+                  [
+                    4,
+                    6,
+                    1
+                  ],
+                  [
+                    4,
+                    7,
+                    1
+                  ],
+                  [
+                    5,
+                    2,
+                    1
+                  ],
+                  [
+                    5,
+                    3,
+                    1
+                  ],
+                  [
+                    5,
+                    4,
+                    1
+                  ],
+                  [
+                    5,
+                    5,
+                    1
+                  ],
+                  [
+                    5,
+                    6,
+                    1
+                  ],
+                  [
+                    5,
+                    7,
+                    1
+                  ],
+                  [
+                    6,
+                    2,
+                    1
+                  ],
+                  [
+                    6,
+                    3,
+                    2
+                  ],
+                  [
+                    6,
+                    4,
+                    1
+                  ],
+                  [
+                    6,
+                    5,
+                    1
+                  ],
+                  [
+                    6,
+                    6,
+                    1
+                  ],
+                  [
+                    6,
+                    7,
+                    1
+                  ],
+                  [
+                    7,
+                    2,
+                    1
+                  ],
+                  [
+                    7,
+                    3,
+                    1
+                  ],
+                  [
+                    7,
+                    4,
+                    1
+                  ],
+                  [
+                    7,
+                    5,
+                    1
+                  ],
+                  [
+                    7,
+                    6,
+                    1
+                  ],
+                  [
+                    7,
+                    7,
+                    1
+                  ]
+                ],
+                "axis": 0,
+                "cut": 4
+              },
+              {
+                "body": [
+                  [
+                    2,
+                    2,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    1
+                  ],
+                  [
+                    2,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    5,
+                    1
+                  ],
+                  [
+                    2,
+                    6,
+                    1
+                  ],
+                  [
+                    2,
+                    7,
+                    1
+                  ],
+                  [
+                    3,
+                    2,
+                    1
+                  ],
+                  [
+                    3,
+                    3,
+                    2
+                  ],
+                  [
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    3,
+                    5,
+                    1
+                  ],
+                  [
+                    3,
+                    6,
+                    2
+                  ],
+                  [
+                    3,
+                    7,
+                    1
+                  ],
+                  [
+                    4,
+                    2,
+                    1
+                  ],
+                  [
+                    4,
+                    3,
+                    1
+                  ],
+                  [
+                    4,
+                    4,
+                    1
+                  ],
+                  [
+                    4,
+                    5,
+                    1
+                  ],
+                  [
+                    4,
+                    6,
+                    1
+                  ],
+                  [
+                    4,
+                    7,
+                    1
+                  ]
+                ],
+                "axis": 1,
+                "cut": 4
+              },
+              {
+                "body": [
+                  [
+                    2,
+                    2,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    1
+                  ],
+                  [
+                    2,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    5,
+                    1
+                  ],
+                  [
+                    2,
+                    6,
+                    1
+                  ],
+                  [
+                    2,
+                    7,
+                    1
+                  ],
+                  [
+                    3,
+                    2,
+                    1
+                  ],
+                  [
+                    3,
+                    3,
+                    2
+                  ],
+                  [
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    3,
+                    5,
+                    1
+                  ],
+                  [
+                    3,
+                    6,
+                    2
+                  ],
+                  [
+                    3,
+                    7,
+                    1
+                  ],
+                  [
+                    4,
+                    2,
+                    1
+                  ],
+                  [
+                    4,
+                    3,
+                    1
+                  ],
+                  [
+                    4,
+                    4,
+                    1
+                  ],
+                  [
+                    4,
+                    5,
+                    1
+                  ],
+                  [
+                    4,
+                    6,
+                    1
+                  ],
+                  [
+                    4,
+                    7,
+                    1
+                  ],
+                  [
+                    5,
+                    2,
+                    1
+                  ],
+                  [
+                    5,
+                    3,
+                    1
+                  ],
+                  [
+                    5,
+                    4,
+                    1
+                  ],
+                  [
+                    5,
+                    5,
+                    1
+                  ],
+                  [
+                    5,
+                    6,
+                    1
+                  ],
+                  [
+                    5,
+                    7,
+                    1
+                  ],
+                  [
+                    6,
+                    2,
+                    1
+                  ],
+                  [
+                    6,
+                    3,
+                    2
+                  ],
+                  [
+                    6,
+                    4,
+                    1
+                  ],
+                  [
+                    6,
+                    5,
+                    1
+                  ],
+                  [
+                    6,
+                    6,
+                    1
+                  ],
+                  [
+                    6,
+                    7,
+                    1
+                  ],
+                  [
+                    7,
+                    2,
+                    1
+                  ],
+                  [
+                    7,
+                    3,
+                    1
+                  ],
+                  [
+                    7,
+                    4,
+                    1
+                  ],
+                  [
+                    7,
+                    5,
+                    1
+                  ],
+                  [
+                    7,
+                    6,
+                    1
+                  ],
+                  [
+                    7,
+                    7,
+                    1
+                  ]
+                ],
+                "axis": 1,
+                "cut": 4
+              },
+              {
+                "body": [
+                  [
+                    2,
+                    2,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    1
+                  ],
+                  [
+                    2,
+                    4,
+                    1
+                  ],
+                  [
+                    3,
+                    2,
+                    1
+                  ],
+                  [
+                    3,
+                    3,
+                    2
+                  ],
+                  [
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    4,
+                    2,
+                    1
+                  ],
+                  [
+                    4,
+                    3,
+                    1
+                  ],
+                  [
+                    4,
+                    4,
+                    1
+                  ],
+                  [
+                    5,
+                    2,
+                    1
+                  ],
+                  [
+                    5,
+                    3,
+                    1
+                  ],
+                  [
+                    5,
+                    4,
+                    1
+                  ],
+                  [
+                    6,
+                    2,
+                    1
+                  ],
+                  [
+                    6,
+                    3,
+                    2
+                  ],
+                  [
+                    6,
+                    4,
+                    1
+                  ],
+                  [
+                    7,
+                    2,
+                    1
+                  ],
+                  [
+                    7,
+                    3,
+                    1
+                  ],
+                  [
+                    7,
+                    4,
+                    1
+                  ]
+                ],
+                "axis": 0,
+                "cut": 4
+              }
+            ],
+            "ownerships": [
+              {
+                "piece_count": 3,
+                "nonrectangular_leaves": [],
+                "host_count": 1
+              },
+              {
+                "piece_count": 3,
+                "nonrectangular_leaves": [],
+                "host_count": 1
+              }
+            ]
+          },
+          {
+            "background": 2,
+            "marker": 9,
+            "physical_components": 1,
+            "cuts": [],
+            "ownerships": [
+              {
+                "piece_count": 1,
+                "nonrectangular_leaves": [
+                  0
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "alternative_partition_conflicts_hold",
+      "passed": true,
+      "record": {
+        "status": "HOLD",
+        "complete": true,
+        "work": 2961,
+        "observation": {
+          "role_count": 2,
+          "probes": [
+            {
+              "background": 0,
+              "marker": 9,
+              "physical_components": 1,
+              "cuts": [
+                {
+                  "body": [
+                    [
+                      2,
+                      2,
+                      1
+                    ],
+                    [
+                      2,
+                      3,
+                      1
+                    ],
+                    [
+                      2,
+                      4,
+                      1
+                    ],
+                    [
+                      2,
+                      5,
+                      1
+                    ],
+                    [
+                      2,
+                      6,
+                      1
+                    ],
+                    [
+                      2,
+                      7,
+                      1
+                    ],
+                    [
+                      3,
+                      2,
+                      1
+                    ],
+                    [
+                      3,
+                      3,
+                      2
+                    ],
+                    [
+                      3,
+                      4,
+                      1
+                    ],
+                    [
+                      3,
+                      5,
+                      1
+                    ],
+                    [
+                      3,
+                      6,
+                      2
+                    ],
+                    [
+                      3,
+                      7,
+                      1
+                    ],
+                    [
+                      4,
+                      2,
+                      1
+                    ],
+                    [
+                      4,
+                      3,
+                      1
+                    ],
+                    [
+                      4,
+                      4,
+                      1
+                    ],
+                    [
+                      4,
+                      5,
+                      1
+                    ],
+                    [
+                      4,
+                      6,
+                      1
+                    ],
+                    [
+                      4,
+                      7,
+                      1
+                    ],
+                    [
+                      5,
+                      2,
+                      1
+                    ],
+                    [
+                      5,
+                      3,
+                      1
+                    ],
+                    [
+                      5,
+                      4,
+                      1
+                    ],
+                    [
+                      5,
+                      5,
+                      1
+                    ],
+                    [
+                      5,
+                      6,
+                      1
+                    ],
+                    [
+                      5,
+                      7,
+                      1
+                    ],
+                    [
+                      6,
+                      2,
+                      1
+                    ],
+                    [
+                      6,
+                      3,
+                      2
+                    ],
+                    [
+                      6,
+                      4,
+                      1
+                    ],
+                    [
+                      6,
+                      5,
+                      1
+                    ],
+                    [
+                      6,
+                      6,
+                      1
+                    ],
+                    [
+                      6,
+                      7,
+                      1
+                    ],
+                    [
+                      7,
+                      2,
+                      1
+                    ],
+                    [
+                      7,
+                      3,
+                      1
+                    ],
+                    [
+                      7,
+                      4,
+                      1
+                    ],
+                    [
+                      7,
+                      5,
+                      1
+                    ],
+                    [
+                      7,
+                      6,
+                      1
+                    ],
+                    [
+                      7,
+                      7,
+                      1
+                    ]
+                  ],
+                  "axis": 0,
+                  "cut": 4
+                },
+                {
+                  "body": [
+                    [
+                      2,
+                      2,
+                      1
+                    ],
+                    [
+                      2,
+                      3,
+                      1
+                    ],
+                    [
+                      2,
+                      4,
+                      1
+                    ],
+                    [
+                      2,
+                      5,
+                      1
+                    ],
+                    [
+                      2,
+                      6,
+                      1
+                    ],
+                    [
+                      2,
+                      7,
+                      1
+                    ],
+                    [
+                      3,
+                      2,
+                      1
+                    ],
+                    [
+                      3,
+                      3,
+                      2
+                    ],
+                    [
+                      3,
+                      4,
+                      1
+                    ],
+                    [
+                      3,
+                      5,
+                      1
+                    ],
+                    [
+                      3,
+                      6,
+                      2
+                    ],
+                    [
+                      3,
+                      7,
+                      1
+                    ],
+                    [
+                      4,
+                      2,
+                      1
+                    ],
+                    [
+                      4,
+                      3,
+                      1
+                    ],
+                    [
+                      4,
+                      4,
+                      1
+                    ],
+                    [
+                      4,
+                      5,
+                      1
+                    ],
+                    [
+                      4,
+                      6,
+                      1
+                    ],
+                    [
+                      4,
+                      7,
+                      1
+                    ]
+                  ],
+                  "axis": 1,
+                  "cut": 4
+                },
+                {
+                  "body": [
+                    [
+                      2,
+                      2,
+                      1
+                    ],
+                    [
+                      2,
+                      3,
+                      1
+                    ],
+                    [
+                      2,
+                      4,
+                      1
+                    ],
+                    [
+                      2,
+                      5,
+                      1
+                    ],
+                    [
+                      2,
+                      6,
+                      1
+                    ],
+                    [
+                      2,
+                      7,
+                      1
+                    ],
+                    [
+                      3,
+                      2,
+                      1
+                    ],
+                    [
+                      3,
+                      3,
+                      2
+                    ],
+                    [
+                      3,
+                      4,
+                      1
+                    ],
+                    [
+                      3,
+                      5,
+                      1
+                    ],
+                    [
+                      3,
+                      6,
+                      2
+                    ],
+                    [
+                      3,
+                      7,
+                      1
+                    ],
+                    [
+                      4,
+                      2,
+                      1
+                    ],
+                    [
+                      4,
+                      3,
+                      1
+                    ],
+                    [
+                      4,
+                      4,
+                      1
+                    ],
+                    [
+                      4,
+                      5,
+                      1
+                    ],
+                    [
+                      4,
+                      6,
+                      1
+                    ],
+                    [
+                      4,
+                      7,
+                      1
+                    ],
+                    [
+                      5,
+                      2,
+                      1
+                    ],
+                    [
+                      5,
+                      3,
+                      1
+                    ],
+                    [
+                      5,
+                      4,
+                      1
+                    ],
+                    [
+                      5,
+                      5,
+                      1
+                    ],
+                    [
+                      5,
+                      6,
+                      1
+                    ],
+                    [
+                      5,
+                      7,
+                      1
+                    ],
+                    [
+                      6,
+                      2,
+                      1
+                    ],
+                    [
+                      6,
+                      3,
+                      2
+                    ],
+                    [
+                      6,
+                      4,
+                      1
+                    ],
+                    [
+                      6,
+                      5,
+                      1
+                    ],
+                    [
+                      6,
+                      6,
+                      1
+                    ],
+                    [
+                      6,
+                      7,
+                      1
+                    ],
+                    [
+                      7,
+                      2,
+                      1
+                    ],
+                    [
+                      7,
+                      3,
+                      1
+                    ],
+                    [
+                      7,
+                      4,
+                      1
+                    ],
+                    [
+                      7,
+                      5,
+                      1
+                    ],
+                    [
+                      7,
+                      6,
+                      1
+                    ],
+                    [
+                      7,
+                      7,
+                      1
+                    ]
+                  ],
+                  "axis": 1,
+                  "cut": 4
+                },
+                {
+                  "body": [
+                    [
+                      2,
+                      2,
+                      1
+                    ],
+                    [
+                      2,
+                      3,
+                      1
+                    ],
+                    [
+                      2,
+                      4,
+                      1
+                    ],
+                    [
+                      3,
+                      2,
+                      1
+                    ],
+                    [
+                      3,
+                      3,
+                      2
+                    ],
+                    [
+                      3,
+                      4,
+                      1
+                    ],
+                    [
+                      4,
+                      2,
+                      1
+                    ],
+                    [
+                      4,
+                      3,
+                      1
+                    ],
+                    [
+                      4,
+                      4,
+                      1
+                    ],
+                    [
+                      5,
+                      2,
+                      1
+                    ],
+                    [
+                      5,
+                      3,
+                      1
+                    ],
+                    [
+                      5,
+                      4,
+                      1
+                    ],
+                    [
+                      6,
+                      2,
+                      1
+                    ],
+                    [
+                      6,
+                      3,
+                      2
+                    ],
+                    [
+                      6,
+                      4,
+                      1
+                    ],
+                    [
+                      7,
+                      2,
+                      1
+                    ],
+                    [
+                      7,
+                      3,
+                      1
+                    ],
+                    [
+                      7,
+                      4,
+                      1
+                    ]
+                  ],
+                  "axis": 0,
+                  "cut": 4
+                }
+              ],
+              "ownerships": [
+                {
+                  "piece_count": 3,
+                  "nonrectangular_leaves": [],
+                  "host_count": 1
+                },
+                {
+                  "piece_count": 3,
+                  "nonrectangular_leaves": [],
+                  "host_count": 1
+                }
+              ]
+            },
+            {
+              "background": 2,
+              "marker": 9,
+              "physical_components": 1,
+              "cuts": [],
+              "ownerships": [
+                {
+                  "piece_count": 1,
+                  "nonrectangular_leaves": [
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "all_role_returns": [
+          {
+            "geometry": {
+              "role": {
+                "background": 0,
+                "marker": 9,
+                "border": 1,
+                "anchor": [
+                  2,
+                  2
+                ],
+                "signs": [
+                  1,
+                  1
+                ],
+                "host": 0
+              },
+              "piece_count": 3,
+              "candidate_shapes": [
+                [
+                  3,
+                  12
+                ],
+                [
+                  4,
+                  9
+                ],
+                [
+                  6,
+                  6
+                ],
+                [
+                  9,
+                  4
+                ],
+                [
+                  12,
+                  3
+                ]
+              ],
+              "feasible_arrangements": 3,
+              "distinct_outputs": 3,
+              "placements": [
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ],
+                  [
+                    2,
+                    0,
+                    6
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    0,
+                    3
+                  ],
+                  [
+                    1,
+                    0,
+                    9
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ],
+                  [
+                    2,
+                    3,
+                    0
+                  ]
+                ]
+              ],
+              "failure": "assembly_disagreement"
+            },
+            "all_proposals": [
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ],
+                  [
+                    2,
+                    0,
+                    6
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      1
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      1,
+                      2
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true
+              },
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    0,
+                    3
+                  ],
+                  [
+                    1,
+                    0,
+                    9
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      2
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      2,
+                      1
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true
+              },
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ],
+                  [
+                    2,
+                    3,
+                    0
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      1
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      2
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      1,
+                      2
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true
+              }
+            ],
+            "feasible_count": 3,
+            "distinct_outputs": 3,
+            "failure": "seam_qualified_outputs_disagree"
+          },
+          {
+            "geometry": {
+              "role": {
+                "background": 0,
+                "marker": 9,
+                "border": 1,
+                "anchor": [
+                  2,
+                  2
+                ],
+                "signs": [
+                  1,
+                  1
+                ],
+                "host": 0
+              },
+              "piece_count": 3,
+              "candidate_shapes": [
+                [
+                  3,
+                  12
+                ],
+                [
+                  4,
+                  9
+                ],
+                [
+                  6,
+                  6
+                ],
+                [
+                  9,
+                  4
+                ],
+                [
+                  12,
+                  3
+                ]
+              ],
+              "feasible_arrangements": 3,
+              "distinct_outputs": 3,
+              "placements": [
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ],
+                  [
+                    2,
+                    3,
+                    0
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    3,
+                    0
+                  ],
+                  [
+                    2,
+                    9,
+                    0
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    3,
+                    0
+                  ],
+                  [
+                    1,
+                    6,
+                    0
+                  ]
+                ]
+              ],
+              "failure": "assembly_disagreement"
+            },
+            "all_proposals": [
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ],
+                  [
+                    2,
+                    3,
+                    0
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      1
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      2
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      2,
+                      1
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true
+              },
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    3,
+                    0
+                  ],
+                  [
+                    2,
+                    9,
+                    0
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      1
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      1,
+                      2
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true
+              },
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    3,
+                    0
+                  ],
+                  [
+                    1,
+                    6,
+                    0
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      2
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      2,
+                      1
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true
+              }
+            ],
+            "feasible_count": 3,
+            "distinct_outputs": 3,
+            "failure": "seam_qualified_outputs_disagree"
+          }
+        ],
+        "failure": "retained_role_failed"
+      }
+    }
+  ]
+}

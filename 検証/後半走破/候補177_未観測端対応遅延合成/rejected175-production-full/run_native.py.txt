@@ -1,0 +1,29 @@
+from pathlib import Path
+import json,subprocess,resource,time
+E=Path(__file__).resolve().parent;B=E.parent;R=B/'candidate175-production-20261008';A=B/'candidate167-production-20261007';P=B/'proposal175-missing-edge-bindings-revision2-20261008';Q=B/'candidate151-input-only-20261007/payload.json';PY='/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python'
+def limits():
+ resource.setrlimit(resource.RLIMIT_CPU,(10,11));resource.setrlimit(resource.RLIMIT_AS,(536870912,536870912))
+def run(name,command,root,data):
+ start=time.monotonic()
+ with (E/(name+'.stdout')).open('xb') as out,(E/(name+'.stderr')).open('xb') as err:
+  p=subprocess.Popen(command,cwd=root,stdin=subprocess.PIPE,stdout=out,stderr=err,preexec_fn=limits)
+  try:p.communicate(data,timeout=60);timed=False
+  except subprocess.TimeoutExpired:p.kill();p.wait();timed=True
+ record=dict(exit_code=p.returncode,reaped=True,timeout=timed,wall_seconds=time.monotonic()-start)
+ (E/(name+'-terminal.json')).write_text(json.dumps(record));assert not p.returncode and not timed,record
+ return json.loads((E/(name+'.stdout')).read_text())
+data=Q.read_bytes();payload=json.loads(data);assert all(set(q)=={'input'}for q in payload['test'])
+pure_code=f'''import sys,json
+sys.path[:0]=[{str(P)!r},{str(A)!r},{str(A/'HDS/学習系統/v0.4.2')!r}]
+from missing_edge_bindings import MissingEdgeBindings
+from 接続.ARC2.HDS接続 import 観測へ
+from hds学習系統 import HDS学習実行系
+p=json.load(sys.stdin);a=MissingEdgeBindings(p['train']);a.learn(HDS学習実行系(最小支持数=2),観測へ)
+print(json.dumps([a.predict(q['input'])[0] for q in p['test']]))
+'''
+pure=run('pure',[PY,'-B','-c',pure_code],P,data)
+previous=run('previous-native',[PY,'-B',str(A/'検証/ARC2評価.py'),'--runtime','current'],A,data)
+current=run('native',[PY,'-B',str(R/'検証/ARC2評価.py'),'--runtime','current'],R,data)
+a=[q['answer']for q in current['results']];old=[q['answer']for q in previous['results']]
+report=dict(status='NATIVE_GAIN' if a==pure and a[0] is not None and old[0] is None and a[1]==old[1] else 'STOP',parity=a==pure,previous_emitted=sum(x is not None for x in old),current_emitted=sum(x is not None for x in a),old_q1_unchanged=a[1]==old[1],scorer_calls=0,family_inventory_unchanged=[x['境界']for x in previous['families']]==[x['境界']for x in current['families']],family=next(x for x in current['families']if x['境界']=='ARC物体端投射'))
+(E/'native-parity.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps(report,ensure_ascii=False))

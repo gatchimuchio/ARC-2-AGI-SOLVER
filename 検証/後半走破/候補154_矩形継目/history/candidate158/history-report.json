@@ -1,0 +1,42 @@
+{
+  "candidate": 158,
+  "summary": "Not admitted: query0 completes within89953 work with five distinct outputs; query1 repeats154 output.",
+  "runtime_included": false,
+  "independently_admitted": false,
+  "frozen_source_original": "proposal158-exact-seam-propagation-20261007/propagated_rectangle.py",
+  "frozen_source_sha256": "cf9ca4dc1fe6a4bfb077e09cdf97dc7f5cb27e9f2cf93b2d5363e49b992d72ce",
+  "preserved_source": "propagated_rectangle.py.txt",
+  "input_only_result_sha256": "df7f06e107aaf70015dfd3a2c5d30148268b146579e09ea614b77c28a37baa20",
+  "scorer_calls": 0,
+  "source_pins_unchanged": true,
+  "queries": [
+    {
+      "query_index": 0,
+      "emitted": false,
+      "status": "HOLD",
+      "complete": true,
+      "work": 89953,
+      "failure": "retained_role_failed",
+      "role_feasible_counts": [
+        5
+      ],
+      "role_distinct_outputs": [
+        5
+      ]
+    },
+    {
+      "query_index": 1,
+      "emitted": true,
+      "status": "CANDIDATE",
+      "complete": true,
+      "work": 3209,
+      "failure": null,
+      "role_feasible_counts": [
+        1
+      ],
+      "role_distinct_outputs": [
+        1
+      ]
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+import ast, hashlib, json, pathlib, sys
+ROOT=pathlib.Path(__file__).resolve().parent
+WORK=ROOT.parent
+for p in ['candidate142-production-20261007','proposal153-existing-composition-20261007','proposal154-rectangle-seam-composition-20261007','proposal155-touching-rectangle-view-20261007','proposal158-exact-seam-propagation-20261007']:
+ sys.path.insert(0,str(WORK/p))
+import anchored_rectangle as base
+import seam_rectangle as seam
+import touching_rectangle as old
+import propagated_rectangle as new
+sources=[WORK/'proposal153-existing-composition-20261007/anchored_rectangle.py',WORK/'proposal154-rectangle-seam-composition-20261007/seam_rectangle.py',WORK/'proposal155-touching-rectangle-view-20261007/touching_rectangle.py',WORK/'proposal158-exact-seam-propagation-20261007/propagated_rectangle.py',WORK/'proposal158-exact-seam-propagation-20261007/test_parity.py']
+hashes=lambda:{str(p.relative_to(WORK)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sources}
+before=hashes()
+assert before[str(sources[3].relative_to(WORK))]=='cf9ca4dc1fe6a4bfb077e09cdf97dc7f5cb27e9f2cf93b2d5363e49b992d72ce'
+# Author harness is executed verbatim except its output destination; no original file is edited.
+code=sources[4].read_text().replace("ROOT='proposal158-exact-seam-propagation-20261007/'",f'ROOT={str(ROOT)+"/"!r}')
+ns={};exec(compile(code,str(sources[4]),'exec'),ns)
+parity=json.loads((ROOT/'parity-evidence.json').read_text())
+assert parity['fixtures']==22 and parity['full_proposal_contact_parity_checks']==37
+assert parity==json.loads((WORK/'proposal158-exact-seam-propagation-20261007/parity-evidence.json').read_text())
+# Apart from the State class identity and assembler call, aggregation/fit remain identical AST.
+def func(path,name):
+ return next(x for x in ast.parse(path.read_text()).body if isinstance(x,ast.FunctionDef) and x.name==name)
+a=func(sources[2],'predict');b=func(sources[3],'predict')
+class Normalize(ast.NodeTransformer):
+ def visit_Call(self,node):
+  self.generic_visit(node)
+  if isinstance(node.func,ast.Attribute) and isinstance(node.func.value,ast.Name) and node.func.value.id=='base' and node.func.attr=='assemble':node.func=ast.Name(id='seam_assemble',ctx=ast.Load())
+  return node
+assert ast.dump(Normalize().visit(a))==ast.dump(b)
+assert ast.dump(func(sources[2],'fit'))==ast.dump(func(sources[3],'fit'))
+assert new.observe is old.observe and new.certify_contacts is seam.certify_contacts
+# Three focused geometry counterexample probes. Partial common intervals, orientation
+# reversal, per-contact wall semantics, one-cell interval and corner-only exclusion.
+def probe(name,grids,placements):
+ pieces=[];normalized=[]
+ for grid in grids:
+  h=len(grid);w=len(grid[0]);cells=tuple((r,c,v) for r,row in enumerate(grid) for c,v in enumerate(row))
+  pieces.append(dict(bbox=(0,0,h-1,w-1),area=h*w,cells=cells))
+  normalized.append((h,w,cells,{(r,c):v for r,c,v in cells}))
+ role=dict(pieces=pieces,border=1)
+ _,expected,_=seam.certify_contacts(role,placements,base.WorkBudget(base.LIMIT))
+ actual=[]
+ for i,a in enumerate(placements):
+  for b in placements[i+1:]:
+   v=new.fixed_contact(role,a,b,normalized,base.WorkBudget(base.LIMIT))
+   if v is not None:actual.append(v)
+ key=lambda x:(x['pieces'],x['axis'])
+ assert sorted(actual,key=key)==sorted(expected,key=key),name
+ return dict(name=name,contacts=actual)
+probes=[probe('reverse_vertical_partial_interval',[[[2,1,1,3]],[[4,5]]],((1,1,1),(0,0,0))),probe('reverse_horizontal_one_cell',[[[1],[2],[3]],[[4,5]]],((1,2,1),(0,0,0))),probe('corner_only_no_contact',[[[2,3]],[[4]]],((0,0,0),(1,1,2)))]
+assert probes[0]['contacts'][0]['wall'] and not probes[0]['contacts'][0]['equal']
+assert not probes[1]['contacts'][0]['passes'] and not probes[2]['contacts']
+pairs=ns['pairs'];state,fit=new.fit(pairs)
+assert state is not None and fit['status']=='FIT' and fit['teacher_exact']==[True,True]
+# Near-completion real budget and injected post-model interruption establish atomic return.
+out,rec=new.predict(new.State(),pairs[0]['input'])
+limited,lr=new.predict(new.State(),pairs[0]['input'],budget=rec['work']-1)
+assert limited is None and lr['status']=='RESOURCE_INCOMPLETE' and lr['complete'] is False
+assert 'all_role_returns' not in lr
+original=new.certify_contacts
+calls=[]
+def interrupted(*args):
+ calls.append(1)
+ if len(calls)==2:raise base.BudgetIncomplete()
+ return original(*args)
+new.certify_contacts=interrupted
+try:
+ equivalent=next(g for n,g in ns['fixtures'] if n=='six_equivalent')
+ limited,late=new.predict(new.State(),equivalent)
+ assert len(calls)==2 and limited is None and late['status']=='RESOURCE_INCOMPLETE' and 'all_role_returns' not in late
+finally:new.certify_contacts=original
+# fit propagates shortage; its unchanged AST guarantees the same aggregation rule.
+original_predict=new.predict
+new.predict=lambda *a,**kw:(None,dict(status='RESOURCE_INCOMPLETE',complete=False))
+try:
+ state,fr=new.fit(pairs)
+ assert state is None and fr['status']=='RESOURCE_INCOMPLETE'
+finally:new.predict=original_predict
+assert hashes()==before
+report=dict(verdict='PASS',source_hashes=before,author_parity_fixtures=22,author_contact_certificates=37,author_evidence_identical=True,aggregation_and_fit_ast_parity=True,targeted_contact_probes=probes,teacher_fit=fit['teacher_exact'],near_completion_resource=lr,after_first_model_resource=late,fit_resource_propagation=fr['status'],source_hashes_unchanged=True)
+(ROOT/'evidence.json').write_text(json.dumps(report,indent=2)+'\n')
+print(json.dumps(dict(verdict='PASS',fixtures=22,certificates=37,targeted_contact_probes=3,resource_checks=4)))

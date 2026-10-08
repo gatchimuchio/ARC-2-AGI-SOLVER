@@ -1,0 +1,3 @@
+{"event": "constructor_start", "cpu": 0.038169077}
+{"event": "start", "name": "render", "call": 1, "cpu": 0.038169077}
+{"event": "start", "name": "ownerships", "call": 1, "cpu": 0.038169077}

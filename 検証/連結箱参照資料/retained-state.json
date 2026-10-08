@@ -1,0 +1,9 @@
+{
+  "schema": "linked_box_lookup.v1",
+  "programs": [
+    [
+      "C8_no_corner_shortcut",
+      "cardinal_side_midpoint"
+    ]
+  ]
+}

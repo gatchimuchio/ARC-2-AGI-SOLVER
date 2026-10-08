@@ -1,0 +1,12 @@
+{
+  "tracked_base_files_verified": 1018,
+  "only_tracked_change": [
+    "接続/ARC2/HDS接続.py"
+  ],
+  "four_insertions_only": true,
+  "core_and_old_gates_unchanged": true,
+  "pure_sha256": "091f639523ddedc4bd11b222e7e931a1defb19e38ebd6173b5abf6b37fd1cdbb",
+  "runtime_io_or_exception_conversion": false,
+  "accepted_base_commit": "fe705e1eacbacf99087f9e0e152167fe8fba2288",
+  "accepted_base_status": ""
+}

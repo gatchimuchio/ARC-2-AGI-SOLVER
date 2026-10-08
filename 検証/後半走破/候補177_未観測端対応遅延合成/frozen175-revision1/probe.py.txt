@@ -1,0 +1,29 @@
+from pathlib import Path
+import sys,json,hashlib,copy
+E=Path(__file__).resolve().parent; B=E.parent; R=B/'candidate167-production-20261007'
+sys.path[:0]=[str(R),str(R/'HDS/学習系統/v0.4.2'),str(B/'proposal151-partial-task-composition-20261007/worker')]
+from 接続.ARC2.物体端投射 import 端投射教材,方向境界,配置する
+from 接続.ARC2.既存物体特徴 import edge_pack_components,dominant_background_for_grid,edge_pack_component_feature
+from hds学習系統 import HDS学習実行系,最小排気系
+from hds学習系統.型 import 学習入力,観測事実
+from peer_edge import fit,render
+
+def obs(d,b):
+ return 学習入力(原入力=copy.deepcopy(d),対象系境界=b,観測群=tuple(観測事実((k,),v,'列') for k,v in d.items()))
+t=json.loads((B/'proposal151-partial-task-composition-20261007/teachers-only.json').read_text())
+p=json.loads((B/'candidate151-input-only-20261007/payload.json').read_text())
+assert t==p['train'] and all(set(q)=={'input'} for q in p['test'])
+l=端投射教材(t); m=HDS学習実行系(最小支持数=2);l.学習する(m,obs)
+models,_=fit(t)
+tables={i:{f[i]:s for f,s in l.観測群} for i in l.特徴番号群}
+rows=[]
+for q in p['test']:
+ g=q['input'];objects=edge_pack_components(g,dominant_background_for_grid(g));details=[]
+ peers=[render(g,x)[1] for x in models]
+ for j,o in enumerate(objects):
+  f=edge_pack_component_feature(o);r=m.照会(obs(l.特徴観測(f),方向境界))
+  details.append({'bbox':o['bbox'],'color':o['color'],'features':f,'keys':[{'feature':i,'key':f[i],'known':f[i] in tab,'side':tab.get(f[i])} for i,tab in tables.items()],'hds_status':最小排気系().排出する(r).状態,'hds_sides':[x.予測値 for x in r.予測群 if x.結果経路==('向き',)],'peer_sides':[x.get('sides',[None]*len(objects))[j] for x in peers]})
+ out,rec=l.候補(g,None)
+ rows.append({'legacy_output_present':out is not None,'legacy_record':rec,'objects':details,'peer_failures':[x['failure'] for x in peers],'peer_models':models})
+result={'legacy_features':l.特徴番号群,'tables':tables,'queries':rows}
+(E/'legacy-diagnostic.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');print(json.dumps(result,ensure_ascii=False,indent=2))

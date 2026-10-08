@@ -1,0 +1,44 @@
+from pathlib import Path
+import subprocess,json,time
+from concurrent.futures import ThreadPoolExecutor
+E=Path(__file__).resolve().parent;B=E.parent;R=B/'candidate175-production-20261008';PY='/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python'
+D=E/'resource-diagnosis';D.mkdir()
+rows=[x for x in json.loads((E/'current-official.json').read_text())['execution']if x.get('error')]
+code='''import sys,json,runpy,resource
+from pathlib import Path
+R=Path(sys.argv[1]);sys.path[:0]=[str(R),str(R/'HDS/学習系統/v0.4.2')]
+import missing_edge_bindings as m,peer_edge
+count=0
+real_fit=m.fit;real_render=peer_edge.render
+def log(event,**kw):print(json.dumps(dict(event=event,cpu=resource.getrusage(resource.RUSAGE_SELF).ru_utime,rss=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,**kw)),file=sys.stderr,flush=True)
+def render(g,model):
+ global count
+ count+=1
+ if count==1 or count%10==0:log('peer_render_entry',calls=count,model=model)
+ return real_render(g,model)
+def fit(teachers):
+ a=sys._getframe(1).f_locals['self'];log('fit_entry',legacy_feature_count=len(a.legacy.特徴番号群),legacy_features=a.legacy.特徴番号群,teachers=len(teachers),expected_render_calls=48*len(teachers))
+ try:
+  result=real_fit(teachers);log('fit_return',render_calls=count,retained=len(result[0]));return result
+ except MemoryError:log('fit_memory_error',render_calls=count);raise
+m.fit=fit;peer_edge.render=render
+sys.argv=[str(R/'検証/ARC2評価.py'),'--runtime','current']
+runpy.run_path(sys.argv[0],run_name='__main__')
+log('runtime_return',render_calls=count)
+'''
+(D/'instrumentation.py').write_text(code)
+def run(row):
+ tid=row['task_id'];source=json.loads((R/'入力/公式ソース/ARC-AGI-2/data/evaluation'/f'{tid}.json').read_text())
+ payload={'train':source['train'],'test':[{'input':q['input']}for q in source['test']]};del source
+ start=time.monotonic()
+ with(D/(tid+'.stderr')).open('xb')as err:
+  p=subprocess.Popen([PY,'-B',str(D/'instrumentation.py'),str(R)],stdin=subprocess.PIPE,stdout=subprocess.DEVNULL,stderr=err,cwd=R)
+  try:p.communicate(json.dumps(payload).encode(),timeout=60);timed=False
+  except subprocess.TimeoutExpired:p.kill();p.wait();timed=True
+ events=[]
+ for line in (D/(tid+'.stderr')).read_text().splitlines():
+  try:events.append(json.loads(line))
+  except json.JSONDecodeError:pass
+ result={'task_id':tid,'official_error':row['error'],'exit_code':p.returncode,'timeout':timed,'wall_seconds':time.monotonic()-start,'events':events,'scorer_calls':0};(D/(tid+'.json')).write_text(json.dumps(result,indent=2));print(json.dumps(result),flush=True);return result
+with ThreadPoolExecutor(max_workers=3)as pool:results=list(pool.map(run,rows))
+(D/'summary.json').write_text(json.dumps(results,indent=2))

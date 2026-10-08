@@ -1,0 +1,51 @@
+"""Independent owned strip-series synthetics; no query access."""
+import sys,json
+from pathlib import Path
+sys.dont_write_bytecode=True
+HERE=Path(__file__).resolve().parent;ROOT=HERE.parent
+sys.path.insert(0,str(ROOT/'candidate156-production-20261007'))
+import growth_series as s
+
+def synthetic(width=2,height=4,parity=0,target=5):
+ cycle=(1,4,8);stride=height-1
+ def patch(n):
+  radius=stride*n+height;half=[[0]*(width*(n+1)) for _ in range(radius)]
+  for j in range(n+1):
+   for r in range(height):
+    for c in range(width):
+     if c==0 or r==height-1:value=cycle[(n-j)%len(cycle)]
+     elif j>0 and r==0:value=cycle[(n-j+1)%len(cycle)]
+     else:value=0
+     half[stride*j+r][width*j+c]=value
+  return half[::-1]+half[1:] if parity==0 else half[::-1]+half
+ final=patch(target);center=len(final)+1
+ def x(n):return 1+width*n*(n+1)//2+n
+ top=center-(len(final)-1)//2;bottom=top+len(final)-1;left=x(target);right=left+len(final[0])-1
+ g=[[0]*(right+2) for _ in range(bottom+2)]
+ for n in range(5):
+  p=patch(n);t=center-(len(p)-1)//2
+  for r,row in enumerate(p):g[t+r][x(n):x(n)+len(row)]=row
+ for r,c in [(top,left),(top,left+1),(top+1,left),(bottom,right),(bottom,right-1),(bottom-1,right)]:g[r][c]=5
+ return g,final
+checks=[];detail=[]
+for width,height in ((2,4),(3,3)):
+ for parity in (0,1):
+  for target in (5,7):
+   g,expected=synthetic(width,height,parity,target)
+   for k in range(4):
+    for f in (False,True):
+     out,ev=s.predict(s.transform(g,k,f),True);ok=out==s.transform(expected,k,f);checks.append(ok)
+     if not ok:detail.append({'width':width,'height':height,'parity':parity,'target':target,'rotation':k,'flip':f,'status':ev['status'],'distinct':ev['distinct_predictions'],'incomplete':ev['incomplete_models']})
+report={'passed':sum(checks),'total':len(checks),'failures':detail}
+(HERE/'strip-report.json').write_text(json.dumps(report,indent=2));print(json.dumps(report,indent=2))
+# Retained source-fitted stripe programs must report future dimensional failure.
+g,expected=synthetic();role=next(r for r in s.observe(g) if len(r['future_geometric_roles'])==1)
+import copy
+bad=copy.deepcopy(role);bad['future_geometric_roles'][0]['predicted_bbox'][3]+=1
+out,record=s.folded_strip_models(g,bad)
+report['future_dimension_failure_retained']=not out and record.get('incomplete_models',0)>0
+# A novel source pigment breaks shared phase ownership and must not be ignored.
+g,expected=synthetic();role=next(r for r in s.observe(g) if len(r['future_geometric_roles'])==1)
+a,b,d,e=role['body_bboxes'][2];g[a][e]=9
+report['source_corruption_holds']=s.predict(g) is None
+(HERE/'strip-report.json').write_text(json.dumps(report,indent=2));print(json.dumps({k:v for k,v in report.items() if k!='failures'},indent=2))

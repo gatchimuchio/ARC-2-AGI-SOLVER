@@ -1,0 +1,46 @@
+{
+  "teacher_D4": {
+    "passed": 24,
+    "total": 24
+  },
+  "inequality_point_checks": 2336,
+  "LCM6_containment": {
+    "indices": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "oracle": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ]
+  },
+  "billionth_index_exact": true,
+  "multiple_finite_indices_retained": true,
+  "all_witnessed_laws": true,
+  "centered_controls": {
+    "odd_even_parity": true,
+    "width_failure_retained": true,
+    "asymmetry_rejected": true,
+    "all_periods": [
+      1,
+      2,
+      3
+    ],
+    "literal_distinct_rows": true
+  },
+  "global_HOLD_controls": [
+    "unfamiliar_source_fitted_failure",
+    "unbounded_with_finite_record",
+    "multiple_indices"
+  ],
+  "source_sha256": "0fa5db217748108630fa0295887961fe6f1feeb63a2e8a57939b3f98f4d904f8",
+  "status": "PASS"
+}

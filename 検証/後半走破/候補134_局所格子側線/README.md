@@ -1,0 +1,9 @@
+# 候補134 局所格子側線の入力view合成
+
+同条件120課題/167例で93/129→94/130。80a900e0 query0を追加し、129旧格子は全て同一。誤出力0、通常資源失敗0。
+
+既存の色ray graphをそのまま用い、完成した旧familyの全8program・全教師no_sources棄却だけを新しい格子viewへ接続する。各教師で共通色が完全parityを占有する必要条件を確認し、該当しなければ新renderer未実行の論理no-fitとする。該当時はstrict133の全教師fitをそのまま呼ぶ。予測だけを複数の局所枠と側棒へ広げ、全active cellの一意な完全所有、全保持モデルの全格子一致を要求する。canvas外のsourceは非入域の幾何証明がある場合だけ未実行の義務として区別する。
+
+旧133のinput-only unowned_active_cellsと複数の局所枠・切れた側棒の観測後に設計したprospective入力viewであり、正解やscoreは設計に参照していない。元133のHOLDは保存する。旧fitの成功出力・record、元のgraph/helper、HDS family登録・支持・同値・隔離・最終合意を維持する。新モデルのない場合のcompact記録は旧prior説明を残し、完全fit記録が新view試行を区別する。
+
+2教師の完全再現、41普通の確認、input-only、HDS ARC色線反射 current2/prior0を確認した。全回帰104script/4646reported checksは103個の今回成功recordと、変更を使用しない同一window scopeの保存済み29-case成功recordで構成する。以前の失敗recordは失敗のまま。基底8eca96d5ff325bfaef359cf824d8cae50344a499。失われた旧92commit/rawの復元は主張しない。

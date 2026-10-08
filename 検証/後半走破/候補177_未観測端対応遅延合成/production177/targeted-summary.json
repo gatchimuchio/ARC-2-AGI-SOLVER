@@ -1,0 +1,9 @@
+{
+  "status": "READY_FOR_INDEPENDENT_REVIEW",
+  "lazy_checks": 33,
+  "inherited_failure_boundary_checks": 98,
+  "legacy_tests": 7,
+  "all_frozen177_files_unchanged": 2516,
+  "all_frozen175_files_unchanged": 2516,
+  "official_scores": 0
+}

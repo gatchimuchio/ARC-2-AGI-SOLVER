@@ -1,0 +1,14 @@
+{
+  "decision": "ADMIT_LOCAL",
+  "previous": [
+    92,
+    127
+  ],
+  "current": [
+    93,
+    128
+  ],
+  "basis": "independent final PASS, same normal120 conditions, old127 exact, wrong/resource0, qualified102/4588",
+  "parent_commit": "9c1075bae28da663a10e72943d32d289a14b8dd2",
+  "new_scene_adapter": true
+}

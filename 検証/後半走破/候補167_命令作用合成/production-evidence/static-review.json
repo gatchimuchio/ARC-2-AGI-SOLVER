@@ -1,0 +1,23 @@
+{
+  "frozen_source_exact": true,
+  "changed_tracked": [
+    "接続/ARC2/厳密枠局所命令.py",
+    "接続/ARC2/周期補色局所命令.py",
+    "接続/ARC2/枠局所命令接続.py"
+  ],
+  "new_files": [
+    "接続/ARC2/対内枠色命令視野.py"
+  ],
+  "unchanged_tracked_count": 1268,
+  "hds_bridge_identical": true,
+  "core_identical": true,
+  "core_file_count": 12,
+  "generated_test_artifacts": [
+    "検証/対辺標点配置資料/portable-teacher-result.json",
+    "検証/対辺標点配置資料/portable-contrast-result.json",
+    "検証/計数色層旋回資料/validation.json"
+  ],
+  "existing_family": "ARC記号命令列",
+  "no_competing_family_added": true,
+  "no_global_gate_changes": true
+}

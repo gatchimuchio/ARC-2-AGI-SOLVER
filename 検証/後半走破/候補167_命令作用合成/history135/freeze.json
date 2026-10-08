@@ -1,0 +1,71 @@
+{
+  "proposal": "NEW135",
+  "frozen_at_utc": "2026-10-07T20:45:13.965130+00:00",
+  "base_root": "/workspace/scratch/7408259c1ab2/candidate129-production-20261007",
+  "base_accepted_commit": "8eca96d5ff325bfaef359cf824d8cae50344a499",
+  "base_clean": true,
+  "base_accepted_result": "93/129 (parent supplied; not rescored)",
+  "source_predecessor": "/workspace/scratch/7408259c1ab2/proposal131-existing-instruction-view-20261007",
+  "source_sha256": {
+    "runtime-source/接続/ARC2/厳密枠局所命令.py": "921026d88a2c739c15840f34280fadf9ed959cab827d17ff8b0ec56192f80b36",
+    "runtime-source/接続/ARC2/周期補色局所命令.py": "7748eb22e4faa6a2c19e3c39607f97f33d5becc2e81f999452f5c8b3f52d3a15",
+    "runtime-source/接続/ARC2/対内枠色命令視野.py": "7c22fed6f79ddc4337ed3efcd27005f9059e372079a680b6fdfdc27978433823",
+    "runtime-source/接続/ARC2/枠局所命令接続.py": "75ca3feb0f274ac3f0db8ca2ffd7f38171b7198fee9a1d11599ffcaccd3d7544"
+  },
+  "api_freeze": "api-freeze.json",
+  "api_sha256": "ff07761be7b1b66c4c36049c1104113d09f01b500b7938880576e556edd5e0ad",
+  "only_runtime_change": "periodic render demo and target pass explicit outer_color when present, otherwise old color",
+  "ast_verified_exact_two_argument_replacement": true,
+  "preserved_definition_ast": {
+    "strict_entire_file": true,
+    "view_entire_file": true,
+    "binding_entire_file": true,
+    "periodic_action": true,
+    "periodic_fit": true,
+    "periodic_action_inventory": true,
+    "periodic_render_other_than_two_arguments": true
+  },
+  "default_parser_group_has_no_outer_color": true,
+  "default_fit_semantics_unchanged": true,
+  "all_functions_api_unchanged": true,
+  "teacher_result": "train-and-contrasts-result.json",
+  "teacher_result_sha256": "f88f61ad6e388da654976dd94e8395112b0616e9975af2b5d3c1e576b27f3ddd",
+  "teacher_input_sha256": "0fd210b38f0c28d9bbee7d47693bd76c28e21f32f597737e50d7a0b23842b46a",
+  "check_source_sha256": "b733a2b0bda3cbc8fa2cde7d7ea88335b17b390873d23e90bb469a1bfe931dd1",
+  "teacher_count": 2,
+  "ordinary_contrast_count": 5,
+  "old_outcome_preservation_count": 3,
+  "added_synthetic_periodic_count": 1,
+  "actual_teacher_result_and_fit_exactly_equal_prior131": true,
+  "existing_contrasts_and_preservation_exactly_equal_prior131": true,
+  "all_checks_pass": true,
+  "candidate_query_render_count": 0,
+  "official_targets_solutions_scores_read": false,
+  "query_role_or_operator_chosen_by_target_success": false,
+  "native_full_public_runs": false,
+  "accepted_root_or_hds_edits": false,
+  "runtime_ids_introduced": false,
+  "prior131_files_preserved": {
+    "check_train_and_contrasts.py": "a5b06303d14f34281c5afad9e1a1aa535a26cda1d842d92ce0a7cb75d4dc53bc",
+    "existing-source.diff": "2401fd98f10fd84cac5dc81d0d6e983927aeda8ed41f85f55118be118981cb20",
+    "freeze.json": "113a6690b779b45dd688d0afa18f0f7e75511c235aecb7b66ff303852c99463f",
+    "runtime-source/接続/ARC2/厳密枠局所命令.py": "921026d88a2c739c15840f34280fadf9ed959cab827d17ff8b0ec56192f80b36",
+    "runtime-source/接続/ARC2/周期補色局所命令.py": "32f69c839482a6597930e722eda0d0086cd74f4eda7ae92119ebbe6ce7b30477",
+    "runtime-source/接続/ARC2/対内枠色命令視野.py": "7c22fed6f79ddc4337ed3efcd27005f9059e372079a680b6fdfdc27978433823",
+    "runtime-source/接続/ARC2/枠局所命令接続.py": "75ca3feb0f274ac3f0db8ca2ffd7f38171b7198fee9a1d11599ffcaccd3d7544",
+    "structural-gap.json": "e65915b98464a46def17a022de664b1fdb4a598ef7eea20d9cac14066441301c",
+    "teachers-only.json": "0fd210b38f0c28d9bbee7d47693bd76c28e21f32f597737e50d7a0b23842b46a",
+    "train-and-contrasts-result.json": "faee26ebee8a8697f05d7f0ac4a6e75c43c9be787b283fd59b6601da284359c6"
+  },
+  "exposure_disclosure": "Inherited131 structural metadata includes the actual second-query panel and group role labels, colors, shapes and positions. This is not a clean label-blind derivation. No official target or score was supplied or read. The binding correction is justified by source semantics; the new positive is constructed.",
+  "prior131_failed_actual_attempt": {
+    "preserved_external_directory": "/workspace/scratch/7408259c1ab2/candidate131-view-input-only-20261007",
+    "existing_receipts": [
+      "result.json",
+      "query-1.json",
+      "terminal.json"
+    ],
+    "handling": "Parent confirmed preserved in place. Referenced only, not duplicated or read by this worker.",
+    "parent_reported_result": "q0 and fit preserved; q1 one complete cohort/cover with zero compatible actions; no official target or score read."
+  }
+}

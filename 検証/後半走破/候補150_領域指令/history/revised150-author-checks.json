@@ -1,0 +1,47 @@
+{
+  "checks": [
+    "all_four_teacher_outputs",
+    "all_sixteen_models_retained",
+    "arrow_pulse_existing_view_incompatible",
+    "legend_turn_existing_view_incompatible",
+    "palette_refit_0",
+    "palette_refit_1",
+    "palette_refit_2",
+    "palette_refit_3",
+    "palette_refit_4",
+    "palette_refit_5",
+    "palette_refit_6",
+    "palette_refit_7",
+    "palette_refit_8",
+    "palette_refit_9",
+    "synthetic_right_transfer",
+    "synthetic_direction_identity",
+    "synthetic_direction_rot90",
+    "synthetic_direction_rot180",
+    "synthetic_direction_rot270",
+    "unowned_marker_holds",
+    "out_of_bounds_ray_holds",
+    "disconnected_same_color_target_preserved",
+    "unseen_turn_corner_holds",
+    "corrupt_teacher_no_fit",
+    "failed_cover_not_dropped",
+    "failed_cover_prediction_holds"
+  ],
+  "count": 26,
+  "teacher_exact": 4,
+  "retained_models": 16,
+  "existing_view_failures": {
+    "arrow_pulses": [
+      "non_arrow_component",
+      "non_arrow_component",
+      "non_arrow_component",
+      "non_arrow_component"
+    ],
+    "legend_turn": [
+      "dictionary_border_disagrees",
+      "fixed_dictionary_shape_required",
+      "fixed_dictionary_shape_required",
+      "fixed_dictionary_shape_required"
+    ]
+  }
+}

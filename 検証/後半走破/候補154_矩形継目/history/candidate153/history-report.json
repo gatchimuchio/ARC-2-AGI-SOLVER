@@ -1,0 +1,38 @@
+{
+  "candidate": 153,
+  "summary": "Not admitted independently: query0 no structural role; query1 complete six-output geometric disagreement. Geometry is reused unchanged by admitted154.",
+  "runtime_included": true,
+  "independently_admitted": false,
+  "frozen_source_original": "proposal153-existing-composition-20261007/anchored_rectangle.py",
+  "frozen_source_sha256": "3b25da045f96cb799a4d84c0c4159fd3b39e34214212f72936ea5b87940e4ad7",
+  "preserved_source": "anchored_rectangle.py.txt",
+  "input_only_result_sha256": "d898aa497a9cf04b696cd5b0c7d95f7fb67d6e04d1f19e616f38a1d56da8d2c4",
+  "scorer_calls": 0,
+  "source_pins_unchanged": true,
+  "queries": [
+    {
+      "query_index": 0,
+      "emitted": false,
+      "status": "HOLD",
+      "complete": null,
+      "work": null,
+      "failure": "no_structural_role",
+      "role_feasible_counts": [],
+      "role_distinct_outputs": []
+    },
+    {
+      "query_index": 1,
+      "emitted": false,
+      "status": "HOLD",
+      "complete": true,
+      "work": 146,
+      "failure": "retained_role_failed",
+      "role_feasible_counts": [
+        null
+      ],
+      "role_distinct_outputs": [
+        6
+      ]
+    }
+  ]
+}

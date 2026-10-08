@@ -1,0 +1,11 @@
+{
+  "decision": "ADMIT_LOCAL",
+  "base_commit": "401de20869be3a5705bf7375f697fd2ba49ee619",
+  "current": [
+    91,
+    126
+  ],
+  "parent_received_utc": "2026-10-07T17:49:12Z",
+  "new_reconstruction": true,
+  "historical_source_restored": false
+}

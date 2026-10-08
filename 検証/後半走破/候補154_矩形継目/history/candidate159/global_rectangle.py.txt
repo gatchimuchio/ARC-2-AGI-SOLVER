@@ -1,0 +1,98 @@
+"""Frozen158 assembly plus an explicit global C4 payload-continuity prior.
+
+Every payload color must form one C4 object; all source pixel counts are
+preserved. This new declared prior is teacher-compatible, not uniquely inferred.
+Every complete seam-qualified arrangement is checked; no query choice/ranking.
+"""
+from dataclasses import dataclass
+from collections import Counter
+import anchored_rectangle as base
+from touching_rectangle import observe
+from propagated_rectangle import seam_assemble
+from seam_rectangle import certify_contacts
+from 接続.ARC2.既存標識組立 import same_color_components
+
+PRIOR='double_wall_anchored_seam_assembly_each_payload_color_C4_connected'
+@dataclass(frozen=True)
+class State:
+    programs: tuple=(PRIOR,)
+
+
+def global_certificate(role,painted,meter):
+    """Use the accepted C4 primitive on the exact assembled rectangular crop."""
+    source=Counter(v for p in role['pieces'] for r,c,v in p['cells'])
+    meter.charge(len(painted),'global_pixel_accounting')
+    actual=Counter(painted.values())
+    top=min(r for r,c in painted);left=min(c for r,c in painted)
+    bottom=max(r for r,c in painted);right=max(c for r,c in painted)
+    if len(painted)!=(bottom-top+1)*(right-left+1):raise ValueError('global_crop_not_full')
+    meter.charge(len(painted),'global_crop')
+    crop=[[painted[(r,c)] for c in range(left,right+1)] for r in range(top,bottom+1)]
+    records=[]
+    for color in sorted(set(source)-{role['border']}):
+        meter.charge(len(painted)+actual[color],'global_C4_scan')
+        components=same_color_components(crop,color)
+        records.append(dict(color=color,source_pixels=source[color],rendered_pixels=actual[color],
+                            C4_component_count=len(components),component_sizes=[p['size'] for p in components],
+                            component_cells=[sorted(p['cells']) for p in components],
+                            qualified=len(components)==1 and source[color]==actual[color]))
+    conserved=source==actual
+    accepted=conserved and all(p['qualified'] for p in records)
+    return accepted,dict(pixel_conservation=conserved,source_counts=dict(source),rendered_counts=dict(actual),
+                         payload_colors=records,globally_qualified=accepted)
+
+
+def predict(state,grid,*,budget=base.LIMIT):
+    if not isinstance(state,State) or state.programs!=(PRIOR,):
+        return None,{'status':'HOLD','failure':'invalid_state'}
+    if type(budget)is not int or not 1<=budget<=base.LIMIT:
+        return None,{'status':'HOLD','failure':'invalid_budget'}
+    meter=base.WorkBudget(budget);role_returns=[]
+    try:
+        roles,observation=observe(grid,meter)
+        if not roles:return None,{'status':'HOLD','failure':'no_structural_role','observation':observation}
+        for role in roles:
+            _,geometry=seam_assemble(grid,role,meter)
+            candidates=[];feasible=[]
+            for placements in geometry['placements']:
+                accepted,contacts,painted=certify_contacts(role,placements,meter)
+                candidates.append(dict(placements=placements,contacts=contacts,seam_qualified=accepted))
+                if not accepted:continue
+                qualified,certificate=global_certificate(role,painted,meter)
+                candidates[-1]['global_certificate']=certificate
+                candidates[-1]['globally_qualified']=qualified
+                if not qualified:continue
+                h=max(r for r,c in painted)+1;w=max(c for r,c in painted)+1
+                sr,sc=role['signs'];ar,ac=role['anchor']
+                top=ar if sr==1 else ar-h+1;left=ac if sc==1 else ac-w+1
+                out=[[role['background']]*len(grid[0]) for _ in grid]
+                for (r,c),v in painted.items():out[top+r][left+c]=v
+                feasible.append(tuple(map(tuple,out)))
+            grids=set(feasible)
+            failure=('no_globally_qualified_assembly' if not feasible else
+                     'globally_qualified_outputs_disagree' if len(grids)!=1 else None)
+            role_returns.append((next(iter(grids)) if len(grids)==1 else None,
+                                 dict(geometry=geometry,all_proposals=candidates,
+                                      feasible_count=len(feasible),distinct_outputs=len(grids),failure=failure)))
+    except base.BudgetIncomplete:
+        return None,{'status':'RESOURCE_INCOMPLETE','failure':'budget_incomplete','complete':False,'work':meter.used}
+    rec=dict(status='HOLD',complete=True,work=meter.used,observation=observation,
+             all_role_returns=[r for out,r in role_returns])
+    if any(out is None for out,r in role_returns):return None,dict(rec,failure='retained_role_failed')
+    grids={out for out,r in role_returns}
+    if len(grids)!=1:return None,dict(rec,failure='retained_role_disagreement')
+    return [list(row) for row in next(iter(grids))],dict(rec,status='CANDIDATE')
+
+
+def fit(teachers):
+    if not isinstance(teachers,(list,tuple)) or len(teachers)<2:
+        return None,{'status':'HOLD','failure':'insufficient_teachers'}
+    if any(not isinstance(p,dict) or not base.valid_grid(p.get('input')) or not base.valid_grid(p.get('output')) for p in teachers):
+        return None,{'status':'HOLD','failure':'invalid_teacher'}
+    if len({tuple(map(tuple,p['input'])) for p in teachers})!=len(teachers):
+        return None,{'status':'HOLD','failure':'duplicate_teacher'}
+    state=State();returns=[predict(state,p['input']) for p in teachers]
+    exact=[out==p['output'] for p,(out,r) in zip(teachers,returns)]
+    status='RESOURCE_INCOMPLETE' if any(r['status']=='RESOURCE_INCOMPLETE' for out,r in returns) else 'FIT' if all(exact) else 'HOLD'
+    return (state if all(exact) else None),dict(status=status,fixed_prior=PRIOR,fitted_parameters=[],
+        teacher_exact=exact,all_teacher_returns=[r for out,r in returns])

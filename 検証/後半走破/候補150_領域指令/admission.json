@@ -1,0 +1,20 @@
+{
+  "decision": "ADMIT_LOCAL",
+  "previous": [
+    94,
+    131
+  ],
+  "current": [
+    95,
+    133
+  ],
+  "delta": [
+    1,
+    2
+  ],
+  "parent_commit": "fa39a567b17eb94b04312dc3bcddbb263e8b17cb",
+  "basis": "Explicit parent admission after same-condition score; all131 old grids exact, wrong/resource0, qualified106/4699; corrected candidate independently audited PASS",
+  "public_score_runs": 1,
+  "coverage": "105 fresh successful scripts /4670 checks plus unchanged pinned29-case window scope",
+  "accepted_base_unchanged_until_admission": true
+}

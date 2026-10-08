@@ -1,0 +1,29 @@
+{
+  "previous": [
+    90,
+    125
+  ],
+  "current": [
+    91,
+    126
+  ],
+  "old_grids_identical": 125,
+  "old_losses": [],
+  "new_grids": [
+    [
+      "e376de54",
+      0
+    ]
+  ],
+  "wrong_emitted": 0,
+  "resources": {},
+  "pins": 2006,
+  "regression": {
+    "scripts": 100,
+    "checks": 4574,
+    "coverage_is_composed": true
+  },
+  "new_reconstruction": true,
+  "score_sha256": "de02244d121799347b7861ddbbf18c23f2ad16d67f6dcddcadca4fa4b8b0c9e0",
+  "same_conditions": true
+}

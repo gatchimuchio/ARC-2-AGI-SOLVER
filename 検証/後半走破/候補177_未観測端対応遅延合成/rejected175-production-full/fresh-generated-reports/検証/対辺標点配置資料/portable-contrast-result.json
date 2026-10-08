@@ -1,0 +1,106 @@
+{
+  "successful": true,
+  "tests_run": 17,
+  "all_passed": true,
+  "checks": [
+    {
+      "name": "teacher_1_all_program_record_parity",
+      "passed": true
+    },
+    {
+      "name": "teacher_2_all_program_record_parity",
+      "passed": true
+    },
+    {
+      "name": "teacher_3_all_program_record_parity",
+      "passed": true
+    },
+    {
+      "name": "unrelated_opposite_decoration_stays_static",
+      "passed": true,
+      "failure": null
+    },
+    {
+      "name": "unrelated_corner_all_frames_identity",
+      "passed": true,
+      "failure": null
+    },
+    {
+      "name": "unrelated_corner_all_frames_rot90",
+      "passed": true,
+      "failure": null
+    },
+    {
+      "name": "unrelated_corner_all_frames_rot180",
+      "passed": true,
+      "failure": null
+    },
+    {
+      "name": "unrelated_corner_all_frames_rot270",
+      "passed": true,
+      "failure": null
+    },
+    {
+      "name": "applicable_key_conflict_left",
+      "passed": true,
+      "failure": "retained_program_failed"
+    },
+    {
+      "name": "applicable_key_conflict_right",
+      "passed": true,
+      "failure": "retained_program_failed"
+    },
+    {
+      "name": "applicable_key_conflict_top",
+      "passed": true,
+      "failure": "retained_program_failed"
+    },
+    {
+      "name": "applicable_key_conflict_bottom",
+      "passed": true,
+      "failure": "retained_program_failed"
+    },
+    {
+      "name": "source_key_corner_holds",
+      "passed": true,
+      "failure": "retained_program_failed"
+    },
+    {
+      "name": "old_action_failure_delegates_unchanged",
+      "passed": true
+    },
+    {
+      "name": "old_program_ambiguity_delegates_unchanged",
+      "passed": true
+    },
+    {
+      "name": "all_frame_actions_reduce_failures_and_disagreement",
+      "passed": true
+    },
+    {
+      "name": "all_retained_programs_finish_after_failure",
+      "passed": true
+    }
+  ],
+  "cpu_seconds": 0.031781624999999994,
+  "max_rss_kib": 20688,
+  "source_still_matches_freeze": true,
+  "retained_programs": [
+    [
+      "color_union",
+      "source_first"
+    ],
+    [
+      "color_union",
+      "small_first"
+    ],
+    [
+      "components8",
+      "source_first"
+    ],
+    [
+      "components8",
+      "small_first"
+    ]
+  ]
+}

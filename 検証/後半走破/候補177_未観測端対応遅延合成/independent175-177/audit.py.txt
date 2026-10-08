@@ -1,0 +1,93 @@
+from pathlib import Path
+import sys,json,copy,time,hashlib
+from unittest.mock import patch
+from dataclasses import replace
+B=Path(__file__).resolve().parent.parent
+P=B/'proposal175-missing-edge-bindings-20261008'; R=B/'candidate167-production-20261007'
+sys.path[:0]=[str(P),str(R),str(R/'HDS/学習系統/v0.4.2')]
+import missing_edge_bindings as c
+import peer_edge
+from hds学習系統 import HDS学習実行系
+from hds学習系統.型 import 学習入力,観測事実,競合記録,識別不能記録,追加観測要求,学習成立状態
+checks=[]; blockers=[]
+def check(n,v):
+ assert v,n
+ checks.append(n)
+def obs(d,b): return 学習入力(原入力=copy.deepcopy(d),対象系境界=b,観測群=tuple(観測事実((k,),v,'列') for k,v in d.items()))
+t=json.loads((B/'proposal151-partial-task-composition-20261007/teachers-only.json').read_text())
+t0=copy.deepcopy(t); start=time.monotonic()
+a=c.MissingEdgeBindings(t); a.learn(HDS学習実行系(最小支持数=2),obs)
+check('teacher_immutability',t==t0)
+check('all_original_features_retained',set(a.tables)==set(a.legacy.特徴番号群))
+check('all_original_bindings_retained',all(a.tables[i]=={f[i]:s for f,s in a.legacy.観測群} for i in a.tables))
+check('all_fitting_peer_models_retained',a.peer_models==peer_edge.fit(t)[0])
+check('teacher_one_model_scope',len(a.tables)==1)
+def scene(items):
+ g=[[0]*27 for _ in range(19)]
+ for col,r,k,shape in items:
+  for dr,dc in shape:g[r+dr][k+dc]=col
+ return g
+line=lambda n:[(0,j) for j in range(n)]
+g=scene([(1,4,2,line(3)),(2,11,9,line(3)),(3,7,19,line(2))])
+g0=copy.deepcopy(g); tables=copy.deepcopy(a.tables); models=a.peer_models
+out,rec=a.predict(g)
+check('independent_missing_two_binding',out is not None and rec['added_bindings']=={2.0:'bottom'})
+check('input_and_tables_immutable',g==g0 and a.tables==tables and a.peer_models==models)
+check('json_output_record',json.loads(json.dumps((out,rec)))[0]==out)
+for p in t:
+ with patch.object(c,'render',side_effect=AssertionError('peer must not execute')):
+  check('covered_teacher_exact_delegation',a.predict(p['input'])==a.legacy.候補(p['input'],None))
+covered=scene([(1,3,2,line(3)),(2,11,2,line(3))])
+with patch.object(c,'render',side_effect=AssertionError('peer must not execute')):
+ check('covered_collision_failure_delegated',a.predict(covered)==a.legacy.候補(covered,None) and a.predict(covered)[0] is None)
+for tables2 in ({},{**tables,99:{1:'top'}}):
+ with patch.object(a,'tables',tables2),patch.object(a.legacy,'候補',return_value=(None,{'failure':'sentinel'})) as spy:
+  check('zero_or_multiple_legacy_models_delegated',a.predict(g)==(None,{'failure':'sentinel'}) and spy.call_count==1)
+real_render=c.render
+for mode,expected in [('fail','peer_action_failed'),('incomplete','peer_action_failed'),('ownership','ownership_mismatch'),('disagree','peer_binding_disagreement'),('output','original_peer_action_disagreement')]:
+ calls=[]
+ def altered(grid,model):
+  calls.append(model);o,r=real_render(grid,model)
+  if model==a.peer_models[-1]:
+   if mode=='fail':o=None;r['failure']='synthetic'
+   if mode=='incomplete':r['complete']=False
+   if mode=='ownership':r['objects'][0]['color']=9
+   if mode=='disagree':r['sides'][-1]='bottom' if r['sides'][-1]=='top' else 'top'
+   if mode=='output':o[0][0]=9
+  return o,r
+ with patch.object(c,'render',side_effect=altered): check(mode+'_retained',a.predict(g)[1]['failure']==expected)
+ check(mode+'_all_peers_executed',calls==list(models))
+with patch.object(a,'peer_models',()):check('empty_peer_holds',a.predict(g)[0] is None)
+horizontal=tuple((*m[:3],'horizontal',m[4]) for m in models)
+with patch.object(a,'peer_models',horizontal):check('horizontal_not_silently_selected',a.predict(g)[0] is None)
+with patch.object(c,'配置する',return_value=None):check('original_action_failure',a.predict(g)[1]['failure']=='original_action_failed')
+conflict=scene([(1,3,1,line(5)),(2,10,10,line(5)),(3,6,20,line(2))])
+check('known_key_contradiction',a.predict(conflict)[1]['failure']=='known_or_shared_key_contradiction')
+shared=scene([(1,3,1,line(2)),(2,10,8,line(2)),(3,6,20,[(0,0),(1,1)])])
+check('shared_unknown_key_consistency',a.predict(shared)[1]['failure']=='known_or_shared_key_contradiction')
+q=a.legacy.機械.照会
+unknown=obs(a.legacy.特徴観測(c.edge_pack_component_feature(next(o for o in c.edge_pack_components(g,0) if len(o['cells'])==2))),c.方向境界)
+r=q(unknown)
+check('real_unknown_has_no_predictions',not r.予測群)
+unknown_summary={'requests':[{'path':x.結果経路,'missing':x.不足経路群,'unknown':x.未知条件値群,'reason':x.理由} for x in r.追加観測要求群],'conflicts':len(r.競合群),'disputed':len(r.係争中原理群),'unidentified':len(r.識別不能群)}
+faults={
+ 'conflict':replace(r,競合群=(競合記録(('向き',),('top','bottom'),('synthetic-a','synthetic-b')),)),
+ 'unidentified':replace(r,識別不能群=(識別不能記録(('向き',),(),(),(),()),)),
+ 'unrelated_missing_observation':replace(r,追加観測要求群=(追加観測要求(('向き',),(('synthetic_required',),),()),)),
+ 'learning_unconfirmed':replace(r,学習過程=replace(r.学習過程,学習成立状態=学習成立状態.未確認)),
+ 'disputed_principle':replace(r,係争中原理群=(r.有効原理群[0],)),
+}
+for name,bad in faults.items():
+ def inject(observation):return bad if observation.原入力.get('特徴2')==2.0 else q(observation)
+ with patch.object(a.legacy.機械,'照会',side_effect=inject):
+  held=c.最小排気系().排出する(bad).状態
+  o,record=a.predict(g)
+  if o is not None and held=='断定保留':blockers.append({'fault':name,'original_hds_state':held,'candidate_emits':True})
+check('faults_reproduce_unfiltered_unknown_hds_failures',len(blockers)==len(faults))
+for colmap in ({0:0,1:9,2:8,3:7},{0:5,1:2,2:4,3:1}):
+ recolor=lambda z:[[colmap[x] for x in row] for row in z]
+ check('recolor_equivariance',a.predict(recolor(g))[0]==recolor(out))
+check('source_hash_frozen',hashlib.sha256((P/'missing_edge_bindings.py').read_bytes()).hexdigest()=='acc1ab476a1cba4071b9e63419955a075578a5f826df85d6a10308834c9031de')
+result={'status':'BLOCKED','checks':checks,'blockers':blockers,'unknown_key_result':unknown_summary,'seconds':round(time.monotonic()-start,3),'sources':'Frozen source, accepted167 implementation, teachers-only.json; synthetic inputs only. README was inadvertently read and contained query descriptions; excluded from evidence. check.py inspected but not executed.','targets_read':0,'query_payloads_read':0,'production_tests':0,'scorer_calls':0}
+(Path(__file__).parent/'results.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps(result,ensure_ascii=False))

@@ -1,0 +1,8 @@
+{
+  "method": "Copied exact accepted142 .git directory into git-archive materialization; retained existing index, refs and normal history",
+  "base_commit": "fa39a567b17eb94b04312dc3bcddbb263e8b17cb",
+  "base_tree": "e960a74bb8d26eb479da9e4b450086867378b5a4",
+  "scored_files_unchanged": 2111,
+  "history_reinitialized": false,
+  "network_used": false
+}

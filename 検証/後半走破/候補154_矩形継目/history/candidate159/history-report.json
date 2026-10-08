@@ -1,0 +1,42 @@
+{
+  "candidate": 159,
+  "summary": "Not admitted: query0 completes within95753 work with three distinct outputs; query1 repeats154 output.",
+  "runtime_included": false,
+  "independently_admitted": false,
+  "frozen_source_original": "proposal159-global-rectangle-relation-20261007/global_rectangle.py",
+  "frozen_source_sha256": "028f4f509a302b514bc3556ea0aae2c46a747ca4cae71a85bf2a398deafb35fb",
+  "preserved_source": "global_rectangle.py.txt",
+  "input_only_result_sha256": "b15a1c7386a8d628303ce09a5908a9a2230de089879f8351c28e0c4138e6a2fe",
+  "scorer_calls": 0,
+  "source_pins_unchanged": true,
+  "queries": [
+    {
+      "query_index": 0,
+      "emitted": false,
+      "status": "HOLD",
+      "complete": true,
+      "work": 95753,
+      "failure": "retained_role_failed",
+      "role_feasible_counts": [
+        3
+      ],
+      "role_distinct_outputs": [
+        3
+      ]
+    },
+    {
+      "query_index": 1,
+      "emitted": true,
+      "status": "CANDIDATE",
+      "complete": true,
+      "work": 3593,
+      "failure": null,
+      "role_feasible_counts": [
+        1
+      ],
+      "role_distinct_outputs": [
+        1
+      ]
+    }
+  ]
+}

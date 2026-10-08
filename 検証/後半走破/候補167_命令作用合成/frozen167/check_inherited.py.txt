@@ -1,0 +1,165 @@
+"""Teacher-only and ordinary constructed cases; never loads query payloads."""
+import copy
+import hashlib
+import importlib.util
+import json
+import sys
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+BASE = HERE.parent / 'candidate129-production-20261007'
+sys.path.insert(0, str(BASE))
+import 接続.ARC2
+接続.ARC2.__path__ = [str(HERE / 'runtime-source/接続/ARC2'),
+                     *接続.ARC2.__path__]
+from 接続.ARC2 import 記号命令教材 as wrapper
+from 接続.ARC2 import 厳密枠局所命令 as strict
+from 接続.ARC2 import 周期補色局所命令 as accepted
+from 接続.ARC2 import 対内枠色命令視野 as view
+
+
+def framed_case(source, demonstration, target):
+    grid = [[9 if (r+c) % 2 else 5 for c in range(17)] for r in range(19)]
+    def frame(box, color):
+        for r, c in strict.perimeter_cells(box):
+            grid[r][c] = color
+    for box, color in (((0, 0, 8, 16), 1), ((10, 0, 18, 16), 4)):
+        frame(box, color)
+    for top, left, color, interior in (
+            (2, 2, 3, source), (2, 10, 3, demonstration),
+            (12, 2, 6, target), (12, 10, 6, [[0]*3 for _ in range(3)])):
+        frame((top, left, top+4, left+4), color)
+        for r, row in enumerate(interior):
+            grid[top+1+r][left+1:left+4] = row
+    return grid
+
+
+def invert(grid, color):
+    return [[0 if v == color else color for v in row] for row in grid]
+
+
+teachers = json.loads((HERE / 'teachers-only.json').read_text())['train']
+machine = wrapper.記号命令教材(teachers)
+teacher_rows = []
+for index, pair in enumerate(teachers):
+    before = accepted.render(pair['input'])
+    after = view.render(pair['input'])
+    bound = machine.候補(pair['input'], None)
+    teacher_rows.append({'index': index, 'old_exact': before[0] == pair['output'],
+                         'current_exact': after[0] == pair['output'],
+                         'bound_exact': bound[0] == pair['output'],
+                         'old_return_unchanged': before == after,
+                         'record': after[1]})
+assert all(row['old_exact'] and row['current_exact'] and row['bound_exact']
+           and row['old_return_unchanged'] for row in teacher_rows)
+
+source = [[3,0,0],[3,0,3],[0,3,0]]
+target = [[6,0,6],[0,0,0],[0,6,0]]
+binary = framed_case(source, invert(source, 3), target)
+segment_source = [[8,0,3],[0,0,0],[3,0,0]]
+segment_demo = [[8,3,3],[3,0,0],[3,0,0]]
+segment_target = [[0,0,6],[0,0,0],[6,0,8]]
+segment_expected = [[0,0,6],[0,0,6],[6,6,8]]
+segments = framed_case(segment_source, segment_demo, segment_target)
+broken = copy.deepcopy(binary)
+broken[0][8] = 5
+mismatched = copy.deepcopy(binary)
+for r, c in strict.perimeter_cells((2, 10, 6, 14)):
+    mismatched[r][c] = 7
+two_blank = copy.deepcopy(binary)
+for r in range(13, 16):
+    two_blank[r][3:6] = [0,0,0]
+contrasts = []
+for name, grid, expected in (
+        ('binary_pair_local_ink', binary, invert(target, 6)),
+        ('segments_pair_local_ink', segments, segment_expected),
+        ('missing_outer_cover', broken, None),
+        ('pair_rim_color_mismatch', mismatched, None),
+        ('nonunique_blank_panel', two_blank, None)):
+    before, old_record = accepted.render(grid)
+    after, record = view.render(grid)
+    row = {'name': name, 'old_failure': old_record.get('failure'),
+           'expected_hold': expected is None, 'exact': after == expected,
+           'output': after, 'record': record}
+    contrasts.append(row)
+    assert before is None, name
+    assert after == expected, name
+
+
+def accepted_layout(grid, demo_color=3, target_color=6):
+    grid = copy.deepcopy(grid)
+    for box, color in (((0,0,8,16), demo_color),
+                       ((10,0,18,16), target_color)):
+        for r, c in strict.perimeter_cells(box):
+            grid[r][c] = color
+    for top, left in ((2,2), (2,10), (12,2), (12,10)):
+        for r, c in strict.perimeter_cells((top,left,top+4,left+4)):
+            grid[r][c] = 8
+    return grid
+
+
+symmetric = [[0,0,0],[0,3,0],[0,0,0]]
+ambiguous = accepted_layout(framed_case(
+    symmetric, invert(symmetric,3), target))
+failed_target = copy.deepcopy(target)
+failed_target[0][0] = 7
+action_failure = accepted_layout(framed_case(
+    source, invert(source,3), failed_target))
+periodic_source = [[2,2,0],[3,3,0],[2,2,0]]
+periodic_demo = [[0,0,2],[0,0,3],[0,0,2]]
+periodic = accepted_layout(framed_case(
+    periodic_source, periodic_demo, periodic_source), 1, 4)
+preservation = []
+for name, grid, failure, expected in (
+        ('accepted_ambiguity', ambiguous, 'complete_grid_disagreement', None),
+        ('accepted_action_bearing_failure', action_failure,
+         'structural_role_or_retained_action_failed', None),
+        ('accepted_periodic_success', periodic, None, periodic_demo)):
+    before = accepted.render(grid)
+    after = view.render(grid)
+    assert before[0] == expected and before[1].get('failure') == failure, name
+    assert before == after, name
+    preservation.append({'name': name, 'old_return_unchanged': True,
+                         'failure': failure, 'record': after[1]})
+
+prior_spec = importlib.util.spec_from_file_location(
+    '接続.ARC2._preserved131_periodic',
+    HERE.parent / 'proposal135-instruction-tag-binding-20261007/preserved131/runtime-source/接続/ARC2/周期補色局所命令.py')
+prior_periodic = importlib.util.module_from_spec(prior_spec)
+prior_spec.loader.exec_module(prior_periodic)
+pair_local_periodic = framed_case(
+    periodic_source, periodic_demo, [[2,2,0],[6,6,0],[2,2,0]])
+pair_local_expected = [[0,0,2],[0,0,6],[0,0,2]]
+before, before_record = prior_periodic.render(pair_local_periodic, parser=view.parse)
+after, after_record = view.render(pair_local_periodic)
+assert before is None
+assert before_record.get('failure') == 'structural_role_or_retained_action_failed'
+assert len(before_record['roles']) == 1
+assert all(not role['alternatives'] for role in before_record['roles'])
+assert after == pair_local_expected
+assert len(after_record['roles']) == 1
+assert all(role['alternatives'] for role in after_record['roles'])
+assert all(witness['group_color'] == 4
+           for role in after_record['roles']
+           for witness in role['target_witnesses'])
+synthetic_periodic = {
+    'name': 'periodic_pair_local_rim_enclosing_tag',
+    'prior131_output': before, 'prior131_record': before_record,
+    'expected': pair_local_expected, 'output': after,
+    'exact': after == pair_local_expected, 'record': after_record}
+
+result = {'teacher_count': len(teacher_rows), 'teacher_rows': teacher_rows,
+          'contrasts': contrasts, 'preservation': preservation, 'all_pass': True,
+          'synthetic_periodic_pair_local_rim': synthetic_periodic,
+          'candidate_query_render_count': 0,
+          'wrapper_fit_record': machine.記録(),
+          'source_sha256': {str(p.relative_to(HERE)): hashlib.sha256(
+              p.read_bytes()).hexdigest() for p in
+              sorted((HERE / 'runtime-source').rglob('*.py'))}}
+(HERE / 'train-and-contrasts-result.json').write_text(
+    json.dumps(result, ensure_ascii=False, indent=2) + '\n')
+print(json.dumps({'all_pass': True, 'teachers': len(teacher_rows),
+                  'contrasts': len(contrasts),
+                  'preservation': len(preservation),
+                  'synthetic_periodic': synthetic_periodic['exact']},
+                 ensure_ascii=False))

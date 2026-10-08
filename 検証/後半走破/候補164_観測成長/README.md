@@ -1,0 +1,3 @@
+# Candidate164 locally admitted
+
+Measured 96/136 → 96/137 under identical 120/167 conditions. All136 old grids identical; wrong emitted0; resources0. First query emits exact2×21, second HOLD. Source byte-identical SHA2560fa5db217748108630fa0295887961fe6f1feeb63a2e8a57939b3f98f4d904f8. Only four HDS registrations and an ordinary empty-prior boundary; no core/old-gate changes. Independent audit PASS. Regression108 fresh scripts/7790 conservatively counted checks plus conserved window29=109/7819. One public score; all2271 pins unchanged before admission. Only authorized state/strategy documents change after score. Original160 blocked source and evidence,162 HOLD source and evidence, and compact161 rejected wrong1 record are preserved outside runtime. No push or upload.

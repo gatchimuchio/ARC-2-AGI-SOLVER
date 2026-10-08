@@ -158,8 +158,8 @@ def act(grid, blank, ink, model):
     return out
 
 
-def render(grid):
-    roles, parse_record = parse(grid)
+def render(grid, *, parser=None):
+    roles, parse_record = (parse if parser is None else parser)(grid)
     returns = []
     role_records = []
     failed_roles = []

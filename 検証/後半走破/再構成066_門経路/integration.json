@@ -1,0 +1,18 @@
+{
+  "base_commit": "ece0dc7a886476e8402e50421b1efce1a635e8f9",
+  "root": "/workspace/scratch/7408259c1ab2/reconstruction066-production-20261007",
+  "runtime": [
+    {
+      "path": "接続/ARC2/門経路再構成候補.py",
+      "sha256": "8c8a8e51723a3850779a4291e250ea5e68b6646c27130603d724ab8d6525c052"
+    },
+    {
+      "path": "接続/ARC2/距離回収教材.py",
+      "sha256": "ca92dbac60e2923c6e603c9603c9fc63164b29843cbd0a8ae192e91b244596d3"
+    }
+  ],
+  "new_reconstruction": true,
+  "old066_recovered": false,
+  "public_check_sha256": "be0a6efffcb1b3a7c33259ef71f05ad835545b5736bed5da87ec236fa4e01609",
+  "teacher_sha256": "e1ab9dfba16668d47a356c84bd37f51e0e876fec8146e282ae94e72f7a207011"
+}

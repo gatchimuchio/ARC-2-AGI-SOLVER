@@ -1,0 +1,38 @@
+import json,sys,itertools
+from pathlib import Path
+B=Path(__file__).resolve().parent.parent
+sys.path.insert(0,str(B/'candidate135-input-only-20261007/source'))
+from 接続.ARC2 import 厳密枠局所命令 as s
+from 接続.ARC2.対内枠色命令視野 import parse
+p=json.loads((B/'candidate135-input-only-20261007/payload.json').read_text())
+role=parse(p['test'][1]['input'])[0][0]
+demo=next(g for g in role['groups'] if g is not role['target'])
+a,b=(role['panels'][i]['interior'] for i in demo['members'])
+# D4 subgroup inventory derived solely by composition on an asymmetric labeled square.
+T=s.TRANSFORMS; grid=[[0,1,2],[3,4,5],[6,7,8]]
+images=[s.transform_grid_by_name(grid,t) for t in T]
+mul={(i,j):images.index(s.transform_grid_by_name(images[j],T[i])) for i in range(8) for j in range(8)}
+groups=[g for n in range(2,9) for g in itertools.combinations(range(8),n) if 0 in g and all(mul[i,j] in g for i in g for j in g)]
+def orbit(grid,blank,group):
+ imgs=[s.transform_grid_by_name(grid,T[i]) for i in group]
+ if any((len(x),len(x[0]))!=(len(grid),len(grid[0])) for x in imgs):return None
+ out=[]
+ for r in range(len(grid)):
+  row=[]
+  for c in range(len(grid[0])):
+   colors={x[r][c] for x in imgs}-{blank}
+   if len(colors)>1:return None
+   row.append(next(iter(colors)) if colors else blank)
+  out.append(row)
+ return out
+rows=[]
+for direction,(src,dst) in enumerate(((a,b),(b,a))):
+ for group in groups:
+  merged=orbit(src,0,group)
+  if merged is None:continue
+  for geo in ('axis','octilinear'):
+   for ends in ('all','marker_incident'):
+    out=s.act(merged,0,3,('segments','identity',geo,ends))
+    rows.append({'direction':direction,'group':[T[i] for i in group],'geometry':geo,'endpoints':ends,'exact':out==dst})
+print(json.dumps({'groups':[[T[i] for i in g] for g in groups],'trials':len(rows),'matches':[r for r in rows if r['exact']]},indent=2))
+(Path(__file__).parent/'demo-probe.json').write_text(json.dumps({'scope':'Observed demonstration interiors only; target not rendered','groups':[[T[i] for i in g] for g in groups],'trials':rows},indent=2)+'\n')

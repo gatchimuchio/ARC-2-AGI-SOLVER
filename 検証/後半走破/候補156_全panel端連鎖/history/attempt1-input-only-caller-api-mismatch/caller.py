@@ -1,0 +1,14 @@
+from pathlib import Path
+import json,hashlib,sys,copy
+E=Path(__file__).parent;B=E.parent;P=E/'source';R=B/'candidate150-production-20261007'
+sys.path[:0]=[str(P),str(R),str(R/'HDS/学習系統/v0.4.2')]
+pins=json.loads((E/'source-pins.json').read_text());assert all(hashlib.sha256(Path(p).read_bytes()).hexdigest()==s for p,s in pins.items())
+payload=json.loads((E/'payload.json').read_text());original=copy.deepcopy(payload)
+from panel_port_chain import fit as fit_programs, predict
+programs,fit=fit_programs(payload['train']);(E/'fit.json').write_text(json.dumps(fit,ensure_ascii=False,indent=2)+'\n')
+rows=[]
+for i,t in enumerate(payload['test']):
+ output,record=predict(programs,t['input']);row={'output':output,'record':record};rows.append(row);(E/f'query-{i}.json').write_text(json.dumps(row,ensure_ascii=False,indent=2)+'\n')
+assert payload==original;assert all(hashlib.sha256(Path(p).read_bytes()).hexdigest()==s for p,s in pins.items())
+result={'fit':fit,'queries':rows,'fit_calls':1,'query_calls':len(rows),'scorer_calls':0,'input_immutable':True,'source_pins_unchanged':True};(E/'result.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps({'outputs':[None if x['output'] is None else [len(x['output']),len(x['output'][0])] for x in rows]}))

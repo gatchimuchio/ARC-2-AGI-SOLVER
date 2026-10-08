@@ -1,0 +1,43 @@
+{
+  "status": "VERIFIED_GAIN_AWAITING_PARENT_ADOPTION_DECISION",
+  "official_scorer_calls": 1,
+  "accepted_commit_unchanged": "4b67e4f31ecf4c214408c7f642ccdd3738b30641",
+  "rejected175_all_frozen_files_unchanged": 2516,
+  "adopted": false,
+  "commits": 0,
+  "uploads": 0,
+  "delta": {
+    "previous": [
+      98,
+      139
+    ],
+    "current": [
+      99,
+      140
+    ],
+    "delta": [
+      1,
+      1
+    ],
+    "old_grids_identical": 139,
+    "lost": [],
+    "changed": [],
+    "new_emitted_grids": [
+      [
+        "62593bfd",
+        0
+      ]
+    ],
+    "wrong_emitted": 0,
+    "resource_failures": {},
+    "pins": 2516,
+    "same_conditions": true,
+    "regression": {
+      "scripts": 110,
+      "checks": 7868,
+      "coverage_is_composed": true
+    },
+    "score_sha256": "6882add8565e73136e93b6b1834d6eab33df7814072a6b624e70740fc2f0b854",
+    "historical_prior_result_claimed": false
+  }
+}

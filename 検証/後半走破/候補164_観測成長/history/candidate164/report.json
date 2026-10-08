@@ -1,0 +1,1861 @@
+{
+  "teachers": [
+    {
+      "exact_match": true,
+      "evidence": {
+        "status": "EMIT",
+        "fitted_predictions": 12,
+        "incomplete_models": 0,
+        "distinct_predictions": 1,
+        "views": [
+          {
+            "rotation": 0,
+            "reflection": false,
+            "internal_transpose": false,
+            "family": "axis",
+            "record": {
+              "fitted_models": 3,
+              "incomplete_models": 0,
+              "models": [
+                {
+                  "prefix_rows": 0,
+                  "period_rows": 1,
+                  "suffix_rows": 3,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "future_repeat_count": 5
+                },
+                {
+                  "prefix_rows": 0,
+                  "period_rows": 1,
+                  "suffix_rows": 3,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "future_repeat_count": 5
+                },
+                {
+                  "prefix_rows": 0,
+                  "period_rows": 1,
+                  "suffix_rows": 3,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "future_repeat_count": 5
+                }
+              ],
+              "row_symbols": 2,
+              "monochrome": true
+            }
+          },
+          {
+            "rotation": 0,
+            "reflection": false,
+            "internal_transpose": false,
+            "family": "centered_rows",
+            "record": {
+              "failure": "center_parity_changes"
+            }
+          },
+          {
+            "rotation": 0,
+            "reflection": false,
+            "internal_transpose": true,
+            "family": "axis",
+            "record": {
+              "fitted_models": 3,
+              "incomplete_models": 0,
+              "models": [
+                {
+                  "prefix_rows": 1,
+                  "period_rows": 1,
+                  "suffix_rows": 0,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "future_repeat_count": 5
+                },
+                {
+                  "prefix_rows": 1,
+                  "period_rows": 1,
+                  "suffix_rows": 0,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "future_repeat_count": 5
+                },
+                {
+                  "prefix_rows": 1,
+                  "period_rows": 1,
+                  "suffix_rows": 0,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "future_repeat_count": 5
+                }
+              ],
+              "row_symbols": 2,
+              "monochrome": true
+            }
+          },
+          {
+            "rotation": 0,
+            "reflection": false,
+            "internal_transpose": true,
+            "family": "centered_rows",
+            "record": {
+              "failure": "center_parity_changes"
+            }
+          },
+          {
+            "rotation": 0,
+            "reflection": false,
+            "internal_transpose": false,
+            "family": "radial",
+            "record": {
+              "failure": "no_integral_center"
+            }
+          },
+          {
+            "rotation": 0,
+            "reflection": false,
+            "internal_transpose": true,
+            "family": "radial",
+            "record": {
+              "failure": "no_integral_center"
+            }
+          },
+          {
+            "rotation": 2,
+            "reflection": true,
+            "internal_transpose": false,
+            "family": "axis",
+            "record": {
+              "fitted_models": 3,
+              "incomplete_models": 0,
+              "models": [
+                {
+                  "prefix_rows": 3,
+                  "period_rows": 1,
+                  "suffix_rows": 0,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "future_repeat_count": 5
+                },
+                {
+                  "prefix_rows": 3,
+                  "period_rows": 1,
+                  "suffix_rows": 0,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "future_repeat_count": 5
+                },
+                {
+                  "prefix_rows": 3,
+                  "period_rows": 1,
+                  "suffix_rows": 0,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "future_repeat_count": 5
+                }
+              ],
+              "row_symbols": 2,
+              "monochrome": true
+            }
+          },
+          {
+            "rotation": 2,
+            "reflection": true,
+            "internal_transpose": false,
+            "family": "centered_rows",
+            "record": {
+              "failure": "center_parity_changes"
+            }
+          },
+          {
+            "rotation": 2,
+            "reflection": true,
+            "internal_transpose": true,
+            "family": "axis",
+            "record": {
+              "fitted_models": 3,
+              "incomplete_models": 0,
+              "models": [
+                {
+                  "prefix_rows": 1,
+                  "period_rows": 1,
+                  "suffix_rows": 0,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "future_repeat_count": 5
+                },
+                {
+                  "prefix_rows": 1,
+                  "period_rows": 1,
+                  "suffix_rows": 0,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "future_repeat_count": 5
+                },
+                {
+                  "prefix_rows": 1,
+                  "period_rows": 1,
+                  "suffix_rows": 0,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "future_repeat_count": 5
+                }
+              ],
+              "row_symbols": 2,
+              "monochrome": true
+            }
+          },
+          {
+            "rotation": 2,
+            "reflection": true,
+            "internal_transpose": true,
+            "family": "centered_rows",
+            "record": {
+              "failure": "center_parity_changes"
+            }
+          },
+          {
+            "rotation": 2,
+            "reflection": true,
+            "internal_transpose": false,
+            "family": "radial",
+            "record": {
+              "failure": "no_integral_center"
+            }
+          },
+          {
+            "rotation": 2,
+            "reflection": true,
+            "internal_transpose": true,
+            "family": "radial",
+            "record": {
+              "failure": "no_integral_center"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "exact_match": true,
+      "evidence": {
+        "status": "EMIT",
+        "fitted_predictions": 2,
+        "incomplete_models": 0,
+        "distinct_predictions": 1,
+        "views": [
+          {
+            "rotation": 0,
+            "reflection": false,
+            "internal_transpose": false,
+            "family": "axis",
+            "record": {
+              "fitted_models": 0,
+              "incomplete_models": 0,
+              "models": [],
+              "row_symbols": 14,
+              "monochrome": false
+            }
+          },
+          {
+            "rotation": 0,
+            "reflection": false,
+            "internal_transpose": false,
+            "family": "centered_rows",
+            "record": {
+              "failure": "radial_row_symbol_conflict"
+            }
+          },
+          {
+            "rotation": 0,
+            "reflection": false,
+            "internal_transpose": true,
+            "family": "axis",
+            "record": {
+              "fitted_models": 0,
+              "incomplete_models": 0,
+              "models": [],
+              "row_symbols": 12,
+              "monochrome": false
+            }
+          },
+          {
+            "rotation": 0,
+            "reflection": false,
+            "internal_transpose": true,
+            "family": "centered_rows",
+            "record": {
+              "failure": "radial_row_symbol_conflict"
+            }
+          },
+          {
+            "rotation": 0,
+            "reflection": false,
+            "internal_transpose": false,
+            "family": "radial",
+            "record": {
+              "source_fitted": true,
+              "layer_step": 2,
+              "color_period": [
+                [
+                  9
+                ],
+                [
+                  8
+                ],
+                [
+                  4
+                ]
+              ],
+              "mask_period": [
+                [
+                  [
+                    -1,
+                    1
+                  ],
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    1,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    -1,
+                    0
+                  ],
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    1,
+                    0
+                  ]
+                ]
+              ],
+              "source_layer_counts": [
+                1,
+                3,
+                5,
+                7,
+                9,
+                11
+              ],
+              "future_layer_count": 13,
+              "future_bbox": [
+                1,
+                19,
+                27,
+                20
+              ],
+              "complete_source_ownership": true,
+              "source_replays": 6
+            }
+          },
+          {
+            "rotation": 0,
+            "reflection": false,
+            "internal_transpose": true,
+            "family": "radial",
+            "record": {
+              "failure": "no_integral_center"
+            }
+          },
+          {
+            "rotation": 2,
+            "reflection": true,
+            "internal_transpose": false,
+            "family": "axis",
+            "record": {
+              "fitted_models": 0,
+              "incomplete_models": 0,
+              "models": [],
+              "row_symbols": 14,
+              "monochrome": false
+            }
+          },
+          {
+            "rotation": 2,
+            "reflection": true,
+            "internal_transpose": false,
+            "family": "centered_rows",
+            "record": {
+              "failure": "radial_row_symbol_conflict"
+            }
+          },
+          {
+            "rotation": 2,
+            "reflection": true,
+            "internal_transpose": true,
+            "family": "axis",
+            "record": {
+              "fitted_models": 0,
+              "incomplete_models": 0,
+              "models": [],
+              "row_symbols": 12,
+              "monochrome": false
+            }
+          },
+          {
+            "rotation": 2,
+            "reflection": true,
+            "internal_transpose": true,
+            "family": "centered_rows",
+            "record": {
+              "failure": "radial_row_symbol_conflict"
+            }
+          },
+          {
+            "rotation": 2,
+            "reflection": true,
+            "internal_transpose": false,
+            "family": "radial",
+            "record": {
+              "source_fitted": true,
+              "layer_step": 2,
+              "color_period": [
+                [
+                  9
+                ],
+                [
+                  8
+                ],
+                [
+                  4
+                ]
+              ],
+              "mask_period": [
+                [
+                  [
+                    -1,
+                    1
+                  ],
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    1,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    -1,
+                    0
+                  ],
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    1,
+                    0
+                  ]
+                ]
+              ],
+              "source_layer_counts": [
+                1,
+                3,
+                5,
+                7,
+                9,
+                11
+              ],
+              "future_layer_count": 13,
+              "future_bbox": [
+                1,
+                19,
+                27,
+                20
+              ],
+              "complete_source_ownership": true,
+              "source_replays": 6
+            }
+          },
+          {
+            "rotation": 2,
+            "reflection": true,
+            "internal_transpose": true,
+            "family": "radial",
+            "record": {
+              "failure": "no_integral_center"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "exact_match": true,
+      "evidence": {
+        "status": "EMIT",
+        "fitted_predictions": 48,
+        "incomplete_models": 0,
+        "distinct_predictions": 1,
+        "views": [
+          {
+            "rotation": 0,
+            "reflection": false,
+            "internal_transpose": false,
+            "family": "axis",
+            "record": {
+              "fitted_models": 24,
+              "incomplete_models": 0,
+              "models": [
+                {
+                  "prefix_rows": 0,
+                  "period_rows": 2,
+                  "suffix_rows": 1,
+                  "source_repeat_counts": [
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                  ],
+                  "future_repeat_count": 8
+                },
+                {
+                  "prefix_rows": 0,
+                  "period_rows": 2,
+                  "suffix_rows": 1,
+                  "source_repeat_counts": [
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                  ],
+                  "future_repeat_count": 8
+                },
+                {
+                  "prefix_rows": 0,
+                  "period_rows": 2,
+                  "suffix_rows": 1,
+                  "source_repeat_counts": [
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                  ],
+                  "future_repeat_count": 8
+                },
+                {
+                  "prefix_rows": 0,
+                  "period_rows": 2,
+                  "suffix_rows": 1,
+                  "source_repeat_counts": [
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                  ],
+                  "future_repeat_count": 8
+                },
+                {
+                  "prefix_rows": 0,
+                  "period_rows": 2,
+                  "suffix_rows": 3,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 0,
+                  "period_rows": 2,
+                  "suffix_rows": 3,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 0,
+                  "period_rows": 2,
+                  "suffix_rows": 3,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 0,
+                  "period_rows": 2,
+                  "suffix_rows": 3,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 1,
+                  "period_rows": 2,
+                  "suffix_rows": 0,
+                  "source_repeat_counts": [
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                  ],
+                  "future_repeat_count": 8
+                },
+                {
+                  "prefix_rows": 1,
+                  "period_rows": 2,
+                  "suffix_rows": 0,
+                  "source_repeat_counts": [
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                  ],
+                  "future_repeat_count": 8
+                },
+                {
+                  "prefix_rows": 1,
+                  "period_rows": 2,
+                  "suffix_rows": 0,
+                  "source_repeat_counts": [
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                  ],
+                  "future_repeat_count": 8
+                },
+                {
+                  "prefix_rows": 1,
+                  "period_rows": 2,
+                  "suffix_rows": 0,
+                  "source_repeat_counts": [
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                  ],
+                  "future_repeat_count": 8
+                },
+                {
+                  "prefix_rows": 1,
+                  "period_rows": 2,
+                  "suffix_rows": 2,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 1,
+                  "period_rows": 2,
+                  "suffix_rows": 2,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 1,
+                  "period_rows": 2,
+                  "suffix_rows": 2,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 1,
+                  "period_rows": 2,
+                  "suffix_rows": 2,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 2,
+                  "period_rows": 2,
+                  "suffix_rows": 1,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 2,
+                  "period_rows": 2,
+                  "suffix_rows": 1,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 2,
+                  "period_rows": 2,
+                  "suffix_rows": 1,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 2,
+                  "period_rows": 2,
+                  "suffix_rows": 1,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 3,
+                  "period_rows": 2,
+                  "suffix_rows": 0,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 3,
+                  "period_rows": 2,
+                  "suffix_rows": 0,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 3,
+                  "period_rows": 2,
+                  "suffix_rows": 0,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 3,
+                  "period_rows": 2,
+                  "suffix_rows": 0,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                }
+              ],
+              "row_symbols": 2,
+              "monochrome": true
+            }
+          },
+          {
+            "rotation": 0,
+            "reflection": false,
+            "internal_transpose": false,
+            "family": "centered_rows",
+            "record": {
+              "failure": "radial_row_symbol_conflict"
+            }
+          },
+          {
+            "rotation": 0,
+            "reflection": false,
+            "internal_transpose": true,
+            "family": "axis",
+            "record": {
+              "fitted_models": 0,
+              "incomplete_models": 0,
+              "models": [],
+              "row_symbols": 6,
+              "monochrome": true
+            }
+          },
+          {
+            "rotation": 0,
+            "reflection": false,
+            "internal_transpose": true,
+            "family": "centered_rows",
+            "record": {
+              "failure": "radial_row_symbol_conflict"
+            }
+          },
+          {
+            "rotation": 0,
+            "reflection": false,
+            "internal_transpose": false,
+            "family": "radial",
+            "record": {
+              "failure": "no_unique_observed_layer_step"
+            }
+          },
+          {
+            "rotation": 0,
+            "reflection": false,
+            "internal_transpose": true,
+            "family": "radial",
+            "record": {
+              "failure": "no_unique_observed_layer_step"
+            }
+          },
+          {
+            "rotation": 2,
+            "reflection": true,
+            "internal_transpose": false,
+            "family": "axis",
+            "record": {
+              "fitted_models": 24,
+              "incomplete_models": 0,
+              "models": [
+                {
+                  "prefix_rows": 0,
+                  "period_rows": 2,
+                  "suffix_rows": 1,
+                  "source_repeat_counts": [
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                  ],
+                  "future_repeat_count": 8
+                },
+                {
+                  "prefix_rows": 0,
+                  "period_rows": 2,
+                  "suffix_rows": 1,
+                  "source_repeat_counts": [
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                  ],
+                  "future_repeat_count": 8
+                },
+                {
+                  "prefix_rows": 0,
+                  "period_rows": 2,
+                  "suffix_rows": 1,
+                  "source_repeat_counts": [
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                  ],
+                  "future_repeat_count": 8
+                },
+                {
+                  "prefix_rows": 0,
+                  "period_rows": 2,
+                  "suffix_rows": 1,
+                  "source_repeat_counts": [
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                  ],
+                  "future_repeat_count": 8
+                },
+                {
+                  "prefix_rows": 0,
+                  "period_rows": 2,
+                  "suffix_rows": 3,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 0,
+                  "period_rows": 2,
+                  "suffix_rows": 3,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 0,
+                  "period_rows": 2,
+                  "suffix_rows": 3,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 0,
+                  "period_rows": 2,
+                  "suffix_rows": 3,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 1,
+                  "period_rows": 2,
+                  "suffix_rows": 0,
+                  "source_repeat_counts": [
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                  ],
+                  "future_repeat_count": 8
+                },
+                {
+                  "prefix_rows": 1,
+                  "period_rows": 2,
+                  "suffix_rows": 0,
+                  "source_repeat_counts": [
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                  ],
+                  "future_repeat_count": 8
+                },
+                {
+                  "prefix_rows": 1,
+                  "period_rows": 2,
+                  "suffix_rows": 0,
+                  "source_repeat_counts": [
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                  ],
+                  "future_repeat_count": 8
+                },
+                {
+                  "prefix_rows": 1,
+                  "period_rows": 2,
+                  "suffix_rows": 0,
+                  "source_repeat_counts": [
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                  ],
+                  "future_repeat_count": 8
+                },
+                {
+                  "prefix_rows": 1,
+                  "period_rows": 2,
+                  "suffix_rows": 2,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 1,
+                  "period_rows": 2,
+                  "suffix_rows": 2,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 1,
+                  "period_rows": 2,
+                  "suffix_rows": 2,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 1,
+                  "period_rows": 2,
+                  "suffix_rows": 2,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 2,
+                  "period_rows": 2,
+                  "suffix_rows": 1,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 2,
+                  "period_rows": 2,
+                  "suffix_rows": 1,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 2,
+                  "period_rows": 2,
+                  "suffix_rows": 1,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 2,
+                  "period_rows": 2,
+                  "suffix_rows": 1,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 3,
+                  "period_rows": 2,
+                  "suffix_rows": 0,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 3,
+                  "period_rows": 2,
+                  "suffix_rows": 0,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 3,
+                  "period_rows": 2,
+                  "suffix_rows": 0,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                },
+                {
+                  "prefix_rows": 3,
+                  "period_rows": 2,
+                  "suffix_rows": 0,
+                  "source_repeat_counts": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "future_repeat_count": 7
+                }
+              ],
+              "row_symbols": 2,
+              "monochrome": true
+            }
+          },
+          {
+            "rotation": 2,
+            "reflection": true,
+            "internal_transpose": false,
+            "family": "centered_rows",
+            "record": {
+              "failure": "radial_row_symbol_conflict"
+            }
+          },
+          {
+            "rotation": 2,
+            "reflection": true,
+            "internal_transpose": true,
+            "family": "axis",
+            "record": {
+              "fitted_models": 0,
+              "incomplete_models": 0,
+              "models": [],
+              "row_symbols": 6,
+              "monochrome": true
+            }
+          },
+          {
+            "rotation": 2,
+            "reflection": true,
+            "internal_transpose": true,
+            "family": "centered_rows",
+            "record": {
+              "failure": "radial_row_symbol_conflict"
+            }
+          },
+          {
+            "rotation": 2,
+            "reflection": true,
+            "internal_transpose": false,
+            "family": "radial",
+            "record": {
+              "failure": "no_unique_observed_layer_step"
+            }
+          },
+          {
+            "rotation": 2,
+            "reflection": true,
+            "internal_transpose": true,
+            "family": "radial",
+            "record": {
+              "failure": "no_unique_observed_layer_step"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "metamorphic": {
+    "d4_palette_cases": 120,
+    "passed": 120
+  },
+  "synthetic_axis": [
+    {
+      "prefix": [],
+      "unit": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "suffix": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "skip": 0,
+      "exact_match": true,
+      "status": "EMIT",
+      "fitted_predictions": 16,
+      "distinct_predictions": 1
+    },
+    {
+      "prefix": [],
+      "unit": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "suffix": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "skip": 1,
+      "exact_match": true,
+      "status": "EMIT",
+      "fitted_predictions": 16,
+      "distinct_predictions": 1
+    },
+    {
+      "prefix": [],
+      "unit": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "suffix": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "skip": 3,
+      "exact_match": true,
+      "status": "EMIT",
+      "fitted_predictions": 16,
+      "distinct_predictions": 1
+    },
+    {
+      "prefix": [],
+      "unit": [
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "suffix": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "skip": 0,
+      "exact_match": true,
+      "status": "EMIT",
+      "fitted_predictions": 8,
+      "distinct_predictions": 1
+    },
+    {
+      "prefix": [],
+      "unit": [
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "suffix": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "skip": 1,
+      "exact_match": true,
+      "status": "EMIT",
+      "fitted_predictions": 8,
+      "distinct_predictions": 1
+    },
+    {
+      "prefix": [],
+      "unit": [
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "suffix": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "skip": 3,
+      "exact_match": true,
+      "status": "EMIT",
+      "fitted_predictions": 8,
+      "distinct_predictions": 1
+    },
+    {
+      "prefix": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "unit": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "suffix": [],
+      "skip": 0,
+      "exact_match": true,
+      "status": "EMIT",
+      "fitted_predictions": 16,
+      "distinct_predictions": 1
+    },
+    {
+      "prefix": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "unit": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "suffix": [],
+      "skip": 1,
+      "exact_match": true,
+      "status": "EMIT",
+      "fitted_predictions": 16,
+      "distinct_predictions": 1
+    },
+    {
+      "prefix": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "unit": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "suffix": [],
+      "skip": 3,
+      "exact_match": true,
+      "status": "EMIT",
+      "fitted_predictions": 16,
+      "distinct_predictions": 1
+    },
+    {
+      "prefix": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "unit": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "suffix": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "skip": 0,
+      "exact_match": true,
+      "status": "EMIT",
+      "fitted_predictions": 24,
+      "distinct_predictions": 1
+    },
+    {
+      "prefix": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "unit": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "suffix": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "skip": 1,
+      "exact_match": true,
+      "status": "EMIT",
+      "fitted_predictions": 24,
+      "distinct_predictions": 1
+    },
+    {
+      "prefix": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "unit": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "suffix": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "skip": 3,
+      "exact_match": true,
+      "status": "EMIT",
+      "fitted_predictions": 24,
+      "distinct_predictions": 1
+    },
+    {
+      "prefix": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "unit": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "suffix": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "skip": 0,
+      "exact_match": true,
+      "status": "EMIT",
+      "fitted_predictions": 16,
+      "distinct_predictions": 1
+    },
+    {
+      "prefix": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "unit": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "suffix": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "skip": 1,
+      "exact_match": true,
+      "status": "EMIT",
+      "fitted_predictions": 16,
+      "distinct_predictions": 1
+    },
+    {
+      "prefix": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "unit": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "suffix": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "skip": 3,
+      "exact_match": true,
+      "status": "EMIT",
+      "fitted_predictions": 16,
+      "distinct_predictions": 1
+    }
+  ],
+  "negative_source_corruptions": [
+    {
+      "held": true,
+      "status": "HOLD",
+      "distinct_predictions": 0
+    },
+    {
+      "held": true,
+      "status": "HOLD",
+      "distinct_predictions": 0
+    },
+    {
+      "held": true,
+      "status": "HOLD",
+      "distinct_predictions": 0
+    }
+  ],
+  "fit_all_teachers": {
+    "kind": "observed_series_composition",
+    "version": 3
+  },
+  "wrong_output_fit_rejected": true
+}

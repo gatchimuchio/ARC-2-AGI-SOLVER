@@ -1,0 +1,20 @@
+{
+  "base_commit": "4b67e4f31ecf4c214408c7f642ccdd3738b30641",
+  "changed_files": [
+    "peer_edge.py",
+    "missing_edge_bindings.py",
+    "接続/ARC2/未観測端対応合成.py",
+    "接続/ARC2/HDS接続.py"
+  ],
+  "frozen_core_sha256": "bf9009247d97c93836f6dff12699fc73d4c90f6e1983db8bb8d14db53ae3ed37",
+  "frozen_peer_sha256": "7606e9e38b8197fcabba819d1b32d63ab98aaffd43596107ec3241e8e32e77dc",
+  "legacy_unchanged": true,
+  "protected_unchanged": true,
+  "hds_unchanged": true,
+  "global_gates_unchanged": true,
+  "same_original_family": true,
+  "task_id_hash_answer_routing_added": false,
+  "successful_subset_filtering_added": false,
+  "prior_scope": "Single original feature and exact missing-known-table-key HDS request only; complete coverage and zero/multi-feature delegation unchanged.",
+  "source_import_note": "Frozen modules remain byte-identical at repository root; ordinary Python runtime inserts repository root before import. No proposal or workspace path in runtime code."
+}

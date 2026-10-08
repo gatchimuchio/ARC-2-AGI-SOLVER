@@ -1,0 +1,149 @@
+{
+  "task_id": "a251c730",
+  "official_error": "cpu_limit",
+  "exit_code": -24,
+  "timeout": false,
+  "wall_seconds": 10.49799998999515,
+  "events": [
+    {
+      "event": "fit_entry",
+      "cpu": 0.147448,
+      "rss": 70528,
+      "legacy_feature_count": 0,
+      "legacy_features": [],
+      "teachers": 2,
+      "expected_render_calls": 96
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 0.147613,
+      "rss": 70528,
+      "calls": 1,
+      "model": [
+        4,
+        "identity",
+        false,
+        "vertical",
+        "top"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 0.398273,
+      "rss": 70528,
+      "calls": 10,
+      "model": [
+        4,
+        "identity",
+        true,
+        "vertical",
+        "top"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 0.9012009999999999,
+      "rss": 70528,
+      "calls": 20,
+      "model": [
+        4,
+        "rotations",
+        false,
+        "vertical",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 1.966825,
+      "rss": 113160,
+      "calls": 30,
+      "model": [
+        4,
+        "rotations",
+        true,
+        "horizontal",
+        "top"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 3.736871,
+      "rss": 178440,
+      "calls": 40,
+      "model": [
+        4,
+        "d4",
+        false,
+        "horizontal",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 5.757633,
+      "rss": 250632,
+      "calls": 50,
+      "model": [
+        8,
+        "identity",
+        false,
+        "vertical",
+        "top"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 6.118018,
+      "rss": 268040,
+      "calls": 60,
+      "model": [
+        8,
+        "identity",
+        true,
+        "vertical",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 6.803119,
+      "rss": 294664,
+      "calls": 70,
+      "model": [
+        8,
+        "rotations",
+        false,
+        "horizontal",
+        "top"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 7.734739,
+      "rss": 331656,
+      "calls": 80,
+      "model": [
+        8,
+        "rotations",
+        true,
+        "horizontal",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 9.635075,
+      "rss": 392968,
+      "calls": 90,
+      "model": [
+        8,
+        "d4",
+        true,
+        "vertical",
+        "top"
+      ]
+    }
+  ],
+  "scorer_calls": 0
+}

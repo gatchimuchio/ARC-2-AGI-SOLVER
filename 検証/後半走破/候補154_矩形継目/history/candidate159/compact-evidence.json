@@ -1,0 +1,2745 @@
+{
+  "teacher_exact": [
+    true,
+    true
+  ],
+  "checks": [
+    {
+      "name": "all_six_disconnected_color_rejections_certified",
+      "passed": true,
+      "record": {
+        "status": "HOLD",
+        "complete": true,
+        "work": 1923,
+        "observation": {
+          "role_count": 1,
+          "probes": [
+            {
+              "background": 0,
+              "marker": 9,
+              "physical_components": 4,
+              "cuts": [],
+              "ownerships": [
+                {
+                  "piece_count": 4,
+                  "nonrectangular_leaves": [],
+                  "host_count": 1
+                }
+              ]
+            },
+            {
+              "background": 2,
+              "marker": 9,
+              "physical_components": 1,
+              "cuts": [],
+              "ownerships": [
+                {
+                  "piece_count": 1,
+                  "nonrectangular_leaves": [
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "all_role_returns": [
+          {
+            "geometry": {
+              "role": {
+                "background": 0,
+                "marker": 9,
+                "border": 1,
+                "anchor": [
+                  1,
+                  1
+                ],
+                "signs": [
+                  1,
+                  1
+                ],
+                "host": 0
+              },
+              "piece_count": 4,
+              "candidate_shapes": [
+                [
+                  6,
+                  6
+                ]
+              ],
+              "feasible_arrangements": 6,
+              "distinct_outputs": 1,
+              "placements": [
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ],
+                  [
+                    2,
+                    3,
+                    0
+                  ],
+                  [
+                    3,
+                    3,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ],
+                  [
+                    3,
+                    3,
+                    0
+                  ],
+                  [
+                    2,
+                    3,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    0,
+                    3
+                  ],
+                  [
+                    1,
+                    3,
+                    0
+                  ],
+                  [
+                    3,
+                    3,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    0,
+                    3
+                  ],
+                  [
+                    3,
+                    3,
+                    0
+                  ],
+                  [
+                    1,
+                    3,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    0,
+                    3
+                  ],
+                  [
+                    1,
+                    3,
+                    0
+                  ],
+                  [
+                    2,
+                    3,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    0,
+                    3
+                  ],
+                  [
+                    2,
+                    3,
+                    0
+                  ],
+                  [
+                    1,
+                    3,
+                    3
+                  ]
+                ]
+              ],
+              "irreversible_rejections": []
+            },
+            "all_proposals": [
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ],
+                  [
+                    2,
+                    3,
+                    0
+                  ],
+                  [
+                    3,
+                    3,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      1
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      2
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      1,
+                      3
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      2,
+                      3
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true,
+                "global_certificate": {
+                  "pixel_conservation": true,
+                  "source_counts": {
+                    "1": 32,
+                    "2": 4
+                  },
+                  "rendered_counts": {
+                    "1": 32,
+                    "2": 4
+                  },
+                  "payload_colors": [
+                    {
+                      "color": 2,
+                      "source_pixels": 4,
+                      "rendered_pixels": 4,
+                      "C4_component_count": 4,
+                      "component_sizes": [
+                        1,
+                        1,
+                        1,
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            1,
+                            1
+                          ]
+                        ],
+                        [
+                          [
+                            1,
+                            4
+                          ]
+                        ],
+                        [
+                          [
+                            4,
+                            1
+                          ]
+                        ],
+                        [
+                          [
+                            4,
+                            4
+                          ]
+                        ]
+                      ],
+                      "qualified": false
+                    }
+                  ],
+                  "globally_qualified": false
+                },
+                "globally_qualified": false
+              },
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ],
+                  [
+                    3,
+                    3,
+                    0
+                  ],
+                  [
+                    2,
+                    3,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      1
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      3
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      1,
+                      2
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      3,
+                      2
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true,
+                "global_certificate": {
+                  "pixel_conservation": true,
+                  "source_counts": {
+                    "1": 32,
+                    "2": 4
+                  },
+                  "rendered_counts": {
+                    "1": 32,
+                    "2": 4
+                  },
+                  "payload_colors": [
+                    {
+                      "color": 2,
+                      "source_pixels": 4,
+                      "rendered_pixels": 4,
+                      "C4_component_count": 4,
+                      "component_sizes": [
+                        1,
+                        1,
+                        1,
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            1,
+                            1
+                          ]
+                        ],
+                        [
+                          [
+                            1,
+                            4
+                          ]
+                        ],
+                        [
+                          [
+                            4,
+                            1
+                          ]
+                        ],
+                        [
+                          [
+                            4,
+                            4
+                          ]
+                        ]
+                      ],
+                      "qualified": false
+                    }
+                  ],
+                  "globally_qualified": false
+                },
+                "globally_qualified": false
+              },
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    0,
+                    3
+                  ],
+                  [
+                    1,
+                    3,
+                    0
+                  ],
+                  [
+                    3,
+                    3,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      1
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      2
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      1,
+                      3
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      2,
+                      3
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true,
+                "global_certificate": {
+                  "pixel_conservation": true,
+                  "source_counts": {
+                    "1": 32,
+                    "2": 4
+                  },
+                  "rendered_counts": {
+                    "1": 32,
+                    "2": 4
+                  },
+                  "payload_colors": [
+                    {
+                      "color": 2,
+                      "source_pixels": 4,
+                      "rendered_pixels": 4,
+                      "C4_component_count": 4,
+                      "component_sizes": [
+                        1,
+                        1,
+                        1,
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            1,
+                            1
+                          ]
+                        ],
+                        [
+                          [
+                            1,
+                            4
+                          ]
+                        ],
+                        [
+                          [
+                            4,
+                            1
+                          ]
+                        ],
+                        [
+                          [
+                            4,
+                            4
+                          ]
+                        ]
+                      ],
+                      "qualified": false
+                    }
+                  ],
+                  "globally_qualified": false
+                },
+                "globally_qualified": false
+              },
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    0,
+                    3
+                  ],
+                  [
+                    3,
+                    3,
+                    0
+                  ],
+                  [
+                    1,
+                    3,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      2
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      3
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      2,
+                      1
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      3,
+                      1
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true,
+                "global_certificate": {
+                  "pixel_conservation": true,
+                  "source_counts": {
+                    "1": 32,
+                    "2": 4
+                  },
+                  "rendered_counts": {
+                    "1": 32,
+                    "2": 4
+                  },
+                  "payload_colors": [
+                    {
+                      "color": 2,
+                      "source_pixels": 4,
+                      "rendered_pixels": 4,
+                      "C4_component_count": 4,
+                      "component_sizes": [
+                        1,
+                        1,
+                        1,
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            1,
+                            1
+                          ]
+                        ],
+                        [
+                          [
+                            1,
+                            4
+                          ]
+                        ],
+                        [
+                          [
+                            4,
+                            1
+                          ]
+                        ],
+                        [
+                          [
+                            4,
+                            4
+                          ]
+                        ]
+                      ],
+                      "qualified": false
+                    }
+                  ],
+                  "globally_qualified": false
+                },
+                "globally_qualified": false
+              },
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    0,
+                    3
+                  ],
+                  [
+                    1,
+                    3,
+                    0
+                  ],
+                  [
+                    2,
+                    3,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      1
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      3
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      1,
+                      2
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      3,
+                      2
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true,
+                "global_certificate": {
+                  "pixel_conservation": true,
+                  "source_counts": {
+                    "1": 32,
+                    "2": 4
+                  },
+                  "rendered_counts": {
+                    "1": 32,
+                    "2": 4
+                  },
+                  "payload_colors": [
+                    {
+                      "color": 2,
+                      "source_pixels": 4,
+                      "rendered_pixels": 4,
+                      "C4_component_count": 4,
+                      "component_sizes": [
+                        1,
+                        1,
+                        1,
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            1,
+                            1
+                          ]
+                        ],
+                        [
+                          [
+                            1,
+                            4
+                          ]
+                        ],
+                        [
+                          [
+                            4,
+                            1
+                          ]
+                        ],
+                        [
+                          [
+                            4,
+                            4
+                          ]
+                        ]
+                      ],
+                      "qualified": false
+                    }
+                  ],
+                  "globally_qualified": false
+                },
+                "globally_qualified": false
+              },
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    0,
+                    3
+                  ],
+                  [
+                    2,
+                    3,
+                    0
+                  ],
+                  [
+                    1,
+                    3,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      2
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      3
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      2,
+                      1
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      3,
+                      1
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true,
+                "global_certificate": {
+                  "pixel_conservation": true,
+                  "source_counts": {
+                    "1": 32,
+                    "2": 4
+                  },
+                  "rendered_counts": {
+                    "1": 32,
+                    "2": 4
+                  },
+                  "payload_colors": [
+                    {
+                      "color": 2,
+                      "source_pixels": 4,
+                      "rendered_pixels": 4,
+                      "C4_component_count": 4,
+                      "component_sizes": [
+                        1,
+                        1,
+                        1,
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            1,
+                            1
+                          ]
+                        ],
+                        [
+                          [
+                            1,
+                            4
+                          ]
+                        ],
+                        [
+                          [
+                            4,
+                            1
+                          ]
+                        ],
+                        [
+                          [
+                            4,
+                            4
+                          ]
+                        ]
+                      ],
+                      "qualified": false
+                    }
+                  ],
+                  "globally_qualified": false
+                },
+                "globally_qualified": false
+              }
+            ],
+            "feasible_count": 0,
+            "distinct_outputs": 0,
+            "failure": "no_globally_qualified_assembly"
+          }
+        ],
+        "failure": "retained_role_failed"
+      }
+    },
+    {
+      "name": "all_six_global_qualified_disagreements_retained",
+      "passed": true,
+      "record": {
+        "status": "HOLD",
+        "complete": true,
+        "work": 3933,
+        "observation": {
+          "role_count": 1,
+          "probes": [
+            {
+              "background": 0,
+              "marker": 9,
+              "physical_components": 4,
+              "cuts": [],
+              "ownerships": [
+                {
+                  "piece_count": 4,
+                  "nonrectangular_leaves": [],
+                  "host_count": 1
+                }
+              ]
+            },
+            {
+              "background": 2,
+              "marker": 9,
+              "physical_components": 1,
+              "cuts": [],
+              "ownerships": [
+                {
+                  "piece_count": 1,
+                  "nonrectangular_leaves": [
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "background": 3,
+              "marker": 9,
+              "physical_components": 1,
+              "cuts": [],
+              "ownerships": [
+                {
+                  "piece_count": 1,
+                  "nonrectangular_leaves": [
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "background": 4,
+              "marker": 9,
+              "physical_components": 1,
+              "cuts": [],
+              "ownerships": [
+                {
+                  "piece_count": 1,
+                  "nonrectangular_leaves": [
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "background": 5,
+              "marker": 9,
+              "physical_components": 1,
+              "cuts": [],
+              "ownerships": [
+                {
+                  "piece_count": 1,
+                  "nonrectangular_leaves": [
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "all_role_returns": [
+          {
+            "geometry": {
+              "role": {
+                "background": 0,
+                "marker": 9,
+                "border": 1,
+                "anchor": [
+                  1,
+                  1
+                ],
+                "signs": [
+                  1,
+                  1
+                ],
+                "host": 0
+              },
+              "piece_count": 4,
+              "candidate_shapes": [
+                [
+                  6,
+                  6
+                ]
+              ],
+              "feasible_arrangements": 6,
+              "distinct_outputs": 6,
+              "placements": [
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ],
+                  [
+                    2,
+                    3,
+                    0
+                  ],
+                  [
+                    3,
+                    3,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ],
+                  [
+                    3,
+                    3,
+                    0
+                  ],
+                  [
+                    2,
+                    3,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    0,
+                    3
+                  ],
+                  [
+                    1,
+                    3,
+                    0
+                  ],
+                  [
+                    3,
+                    3,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    0,
+                    3
+                  ],
+                  [
+                    3,
+                    3,
+                    0
+                  ],
+                  [
+                    1,
+                    3,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    0,
+                    3
+                  ],
+                  [
+                    1,
+                    3,
+                    0
+                  ],
+                  [
+                    2,
+                    3,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    0,
+                    3
+                  ],
+                  [
+                    2,
+                    3,
+                    0
+                  ],
+                  [
+                    1,
+                    3,
+                    3
+                  ]
+                ]
+              ],
+              "irreversible_rejections": [],
+              "failure": "assembly_disagreement"
+            },
+            "all_proposals": [
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ],
+                  [
+                    2,
+                    3,
+                    0
+                  ],
+                  [
+                    3,
+                    3,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      1
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      2
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      1,
+                      3
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      2,
+                      3
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true,
+                "global_certificate": {
+                  "pixel_conservation": true,
+                  "source_counts": {
+                    "1": 32,
+                    "2": 1,
+                    "3": 1,
+                    "4": 1,
+                    "5": 1
+                  },
+                  "rendered_counts": {
+                    "1": 32,
+                    "2": 1,
+                    "3": 1,
+                    "4": 1,
+                    "5": 1
+                  },
+                  "payload_colors": [
+                    {
+                      "color": 2,
+                      "source_pixels": 1,
+                      "rendered_pixels": 1,
+                      "C4_component_count": 1,
+                      "component_sizes": [
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            1,
+                            1
+                          ]
+                        ]
+                      ],
+                      "qualified": true
+                    },
+                    {
+                      "color": 3,
+                      "source_pixels": 1,
+                      "rendered_pixels": 1,
+                      "C4_component_count": 1,
+                      "component_sizes": [
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            1,
+                            4
+                          ]
+                        ]
+                      ],
+                      "qualified": true
+                    },
+                    {
+                      "color": 4,
+                      "source_pixels": 1,
+                      "rendered_pixels": 1,
+                      "C4_component_count": 1,
+                      "component_sizes": [
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            4,
+                            1
+                          ]
+                        ]
+                      ],
+                      "qualified": true
+                    },
+                    {
+                      "color": 5,
+                      "source_pixels": 1,
+                      "rendered_pixels": 1,
+                      "C4_component_count": 1,
+                      "component_sizes": [
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            4,
+                            4
+                          ]
+                        ]
+                      ],
+                      "qualified": true
+                    }
+                  ],
+                  "globally_qualified": true
+                },
+                "globally_qualified": true
+              },
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    3
+                  ],
+                  [
+                    3,
+                    3,
+                    0
+                  ],
+                  [
+                    2,
+                    3,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      1
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      3
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      1,
+                      2
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      3,
+                      2
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true,
+                "global_certificate": {
+                  "pixel_conservation": true,
+                  "source_counts": {
+                    "1": 32,
+                    "2": 1,
+                    "3": 1,
+                    "4": 1,
+                    "5": 1
+                  },
+                  "rendered_counts": {
+                    "1": 32,
+                    "2": 1,
+                    "3": 1,
+                    "5": 1,
+                    "4": 1
+                  },
+                  "payload_colors": [
+                    {
+                      "color": 2,
+                      "source_pixels": 1,
+                      "rendered_pixels": 1,
+                      "C4_component_count": 1,
+                      "component_sizes": [
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            1,
+                            1
+                          ]
+                        ]
+                      ],
+                      "qualified": true
+                    },
+                    {
+                      "color": 3,
+                      "source_pixels": 1,
+                      "rendered_pixels": 1,
+                      "C4_component_count": 1,
+                      "component_sizes": [
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            1,
+                            4
+                          ]
+                        ]
+                      ],
+                      "qualified": true
+                    },
+                    {
+                      "color": 4,
+                      "source_pixels": 1,
+                      "rendered_pixels": 1,
+                      "C4_component_count": 1,
+                      "component_sizes": [
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            4,
+                            4
+                          ]
+                        ]
+                      ],
+                      "qualified": true
+                    },
+                    {
+                      "color": 5,
+                      "source_pixels": 1,
+                      "rendered_pixels": 1,
+                      "C4_component_count": 1,
+                      "component_sizes": [
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            4,
+                            1
+                          ]
+                        ]
+                      ],
+                      "qualified": true
+                    }
+                  ],
+                  "globally_qualified": true
+                },
+                "globally_qualified": true
+              },
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    0,
+                    3
+                  ],
+                  [
+                    1,
+                    3,
+                    0
+                  ],
+                  [
+                    3,
+                    3,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      1
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      2
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      1,
+                      3
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      2,
+                      3
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true,
+                "global_certificate": {
+                  "pixel_conservation": true,
+                  "source_counts": {
+                    "1": 32,
+                    "2": 1,
+                    "3": 1,
+                    "4": 1,
+                    "5": 1
+                  },
+                  "rendered_counts": {
+                    "1": 32,
+                    "2": 1,
+                    "4": 1,
+                    "3": 1,
+                    "5": 1
+                  },
+                  "payload_colors": [
+                    {
+                      "color": 2,
+                      "source_pixels": 1,
+                      "rendered_pixels": 1,
+                      "C4_component_count": 1,
+                      "component_sizes": [
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            1,
+                            1
+                          ]
+                        ]
+                      ],
+                      "qualified": true
+                    },
+                    {
+                      "color": 3,
+                      "source_pixels": 1,
+                      "rendered_pixels": 1,
+                      "C4_component_count": 1,
+                      "component_sizes": [
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            4,
+                            1
+                          ]
+                        ]
+                      ],
+                      "qualified": true
+                    },
+                    {
+                      "color": 4,
+                      "source_pixels": 1,
+                      "rendered_pixels": 1,
+                      "C4_component_count": 1,
+                      "component_sizes": [
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            1,
+                            4
+                          ]
+                        ]
+                      ],
+                      "qualified": true
+                    },
+                    {
+                      "color": 5,
+                      "source_pixels": 1,
+                      "rendered_pixels": 1,
+                      "C4_component_count": 1,
+                      "component_sizes": [
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            4,
+                            4
+                          ]
+                        ]
+                      ],
+                      "qualified": true
+                    }
+                  ],
+                  "globally_qualified": true
+                },
+                "globally_qualified": true
+              },
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    0,
+                    3
+                  ],
+                  [
+                    3,
+                    3,
+                    0
+                  ],
+                  [
+                    1,
+                    3,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      2
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      3
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      2,
+                      1
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      3,
+                      1
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true,
+                "global_certificate": {
+                  "pixel_conservation": true,
+                  "source_counts": {
+                    "1": 32,
+                    "2": 1,
+                    "3": 1,
+                    "4": 1,
+                    "5": 1
+                  },
+                  "rendered_counts": {
+                    "1": 32,
+                    "2": 1,
+                    "4": 1,
+                    "5": 1,
+                    "3": 1
+                  },
+                  "payload_colors": [
+                    {
+                      "color": 2,
+                      "source_pixels": 1,
+                      "rendered_pixels": 1,
+                      "C4_component_count": 1,
+                      "component_sizes": [
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            1,
+                            1
+                          ]
+                        ]
+                      ],
+                      "qualified": true
+                    },
+                    {
+                      "color": 3,
+                      "source_pixels": 1,
+                      "rendered_pixels": 1,
+                      "C4_component_count": 1,
+                      "component_sizes": [
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            4,
+                            4
+                          ]
+                        ]
+                      ],
+                      "qualified": true
+                    },
+                    {
+                      "color": 4,
+                      "source_pixels": 1,
+                      "rendered_pixels": 1,
+                      "C4_component_count": 1,
+                      "component_sizes": [
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            1,
+                            4
+                          ]
+                        ]
+                      ],
+                      "qualified": true
+                    },
+                    {
+                      "color": 5,
+                      "source_pixels": 1,
+                      "rendered_pixels": 1,
+                      "C4_component_count": 1,
+                      "component_sizes": [
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            4,
+                            1
+                          ]
+                        ]
+                      ],
+                      "qualified": true
+                    }
+                  ],
+                  "globally_qualified": true
+                },
+                "globally_qualified": true
+              },
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    0,
+                    3
+                  ],
+                  [
+                    1,
+                    3,
+                    0
+                  ],
+                  [
+                    2,
+                    3,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      1
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      3
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      1,
+                      2
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      3,
+                      2
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true,
+                "global_certificate": {
+                  "pixel_conservation": true,
+                  "source_counts": {
+                    "1": 32,
+                    "2": 1,
+                    "3": 1,
+                    "4": 1,
+                    "5": 1
+                  },
+                  "rendered_counts": {
+                    "1": 32,
+                    "2": 1,
+                    "5": 1,
+                    "3": 1,
+                    "4": 1
+                  },
+                  "payload_colors": [
+                    {
+                      "color": 2,
+                      "source_pixels": 1,
+                      "rendered_pixels": 1,
+                      "C4_component_count": 1,
+                      "component_sizes": [
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            1,
+                            1
+                          ]
+                        ]
+                      ],
+                      "qualified": true
+                    },
+                    {
+                      "color": 3,
+                      "source_pixels": 1,
+                      "rendered_pixels": 1,
+                      "C4_component_count": 1,
+                      "component_sizes": [
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            4,
+                            1
+                          ]
+                        ]
+                      ],
+                      "qualified": true
+                    },
+                    {
+                      "color": 4,
+                      "source_pixels": 1,
+                      "rendered_pixels": 1,
+                      "C4_component_count": 1,
+                      "component_sizes": [
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            4,
+                            4
+                          ]
+                        ]
+                      ],
+                      "qualified": true
+                    },
+                    {
+                      "color": 5,
+                      "source_pixels": 1,
+                      "rendered_pixels": 1,
+                      "C4_component_count": 1,
+                      "component_sizes": [
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            1,
+                            4
+                          ]
+                        ]
+                      ],
+                      "qualified": true
+                    }
+                  ],
+                  "globally_qualified": true
+                },
+                "globally_qualified": true
+              },
+              {
+                "placements": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    3,
+                    0,
+                    3
+                  ],
+                  [
+                    2,
+                    3,
+                    0
+                  ],
+                  [
+                    1,
+                    3,
+                    3
+                  ]
+                ],
+                "contacts": [
+                  {
+                    "pieces": [
+                      0,
+                      2
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      0,
+                      3
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      2,
+                      1
+                    ],
+                    "axis": 1,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  },
+                  {
+                    "pieces": [
+                      3,
+                      1
+                    ],
+                    "axis": 0,
+                    "profiles": [
+                      [
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        1,
+                        1,
+                        1
+                      ]
+                    ],
+                    "equal": true,
+                    "wall": true,
+                    "passes": true
+                  }
+                ],
+                "seam_qualified": true,
+                "global_certificate": {
+                  "pixel_conservation": true,
+                  "source_counts": {
+                    "1": 32,
+                    "2": 1,
+                    "3": 1,
+                    "4": 1,
+                    "5": 1
+                  },
+                  "rendered_counts": {
+                    "1": 32,
+                    "2": 1,
+                    "5": 1,
+                    "4": 1,
+                    "3": 1
+                  },
+                  "payload_colors": [
+                    {
+                      "color": 2,
+                      "source_pixels": 1,
+                      "rendered_pixels": 1,
+                      "C4_component_count": 1,
+                      "component_sizes": [
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            1,
+                            1
+                          ]
+                        ]
+                      ],
+                      "qualified": true
+                    },
+                    {
+                      "color": 3,
+                      "source_pixels": 1,
+                      "rendered_pixels": 1,
+                      "C4_component_count": 1,
+                      "component_sizes": [
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            4,
+                            4
+                          ]
+                        ]
+                      ],
+                      "qualified": true
+                    },
+                    {
+                      "color": 4,
+                      "source_pixels": 1,
+                      "rendered_pixels": 1,
+                      "C4_component_count": 1,
+                      "component_sizes": [
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            4,
+                            1
+                          ]
+                        ]
+                      ],
+                      "qualified": true
+                    },
+                    {
+                      "color": 5,
+                      "source_pixels": 1,
+                      "rendered_pixels": 1,
+                      "C4_component_count": 1,
+                      "component_sizes": [
+                        1
+                      ],
+                      "component_cells": [
+                        [
+                          [
+                            1,
+                            4
+                          ]
+                        ]
+                      ],
+                      "qualified": true
+                    }
+                  ],
+                  "globally_qualified": true
+                },
+                "globally_qualified": true
+              }
+            ],
+            "feasible_count": 6,
+            "distinct_outputs": 6,
+            "failure": "globally_qualified_outputs_disagree"
+          }
+        ],
+        "failure": "retained_role_failed"
+      }
+    },
+    {
+      "name": "resource_incomplete_control",
+      "passed": true,
+      "record": {
+        "status": "RESOURCE_INCOMPLETE",
+        "failure": "budget_incomplete",
+        "complete": false,
+        "work": 1
+      }
+    }
+  ]
+}

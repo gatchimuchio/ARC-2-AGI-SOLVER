@@ -1,0 +1,21 @@
+import sys,json,runpy,resource
+from pathlib import Path
+R=Path(sys.argv[1]);sys.path[:0]=[str(R),str(R/'HDS/学習系統/v0.4.2')]
+import missing_edge_bindings as m,peer_edge
+count=0
+real_fit=m.fit;real_render=peer_edge.render
+def log(event,**kw):print(json.dumps(dict(event=event,cpu=resource.getrusage(resource.RUSAGE_SELF).ru_utime,rss=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,**kw)),file=sys.stderr,flush=True)
+def render(g,model):
+ global count
+ count+=1
+ if count==1 or count%10==0:log('peer_render_entry',calls=count,model=model)
+ return real_render(g,model)
+def fit(teachers):
+ a=sys._getframe(1).f_locals['self'];log('fit_entry',legacy_feature_count=len(a.legacy.特徴番号群),legacy_features=a.legacy.特徴番号群,teachers=len(teachers),expected_render_calls=48*len(teachers))
+ try:
+  result=real_fit(teachers);log('fit_return',render_calls=count,retained=len(result[0]));return result
+ except MemoryError:log('fit_memory_error',render_calls=count);raise
+m.fit=fit;peer_edge.render=render
+sys.argv=[str(R/'検証/ARC2評価.py'),'--runtime','current']
+runpy.run_path(sys.argv[0],run_name='__main__')
+log('runtime_return',render_calls=count)

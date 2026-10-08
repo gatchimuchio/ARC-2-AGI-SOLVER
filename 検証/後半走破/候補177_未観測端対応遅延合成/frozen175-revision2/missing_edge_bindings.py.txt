@@ -1,0 +1,122 @@
+"""明示的ARC合成事前仮説: 単一特徴の未観測キーだけを合同peer関係で束縛。
+HDS中核・既知対応・元モデルは変更しない。独立候補、未統合。
+"""
+from 接続.ARC2.物体端投射 import 端投射教材, 方向境界, 配置する
+from 接続.ARC2.既存物体特徴 import (
+    dominant_background_for_grid, edge_pack_components, edge_pack_component_feature,
+)
+from hds学習系統 import 最小排気系
+from peer_edge import fit, render
+from hds学習系統.型 import 学習成立状態, 原理状態, 採用状態
+from hds学習系統.推論 import 値キー
+
+
+def ownership(o):
+    return o['color'], tuple(o['bbox']), tuple(sorted(map(tuple, o['cells'])))
+
+
+class MissingEdgeBindings:
+    def __init__(self, teachers):
+        self.legacy = 端投射教材(teachers)
+        self.peer_models, _ = fit(teachers)
+        self.confirmed_principles = set()
+        self.tables = {i: {f[i]: side for f, side in self.legacy.観測群}
+                       for i in self.legacy.特徴番号群}
+
+    def learn(self, machine, observe):
+        confirmed = set()
+        class LearningWitness:
+            def 実行(self, observation):
+                result = machine.実行(observation)
+                if result.学習過程.学習成立状態 == 学習成立状態.成立確認:
+                    confirmed.update(result.学習過程.採用原理参照群)
+                return result
+        self.legacy.学習する(LearningWitness(), observe)
+        self.legacy.機械 = machine
+        self.confirmed_principles = confirmed
+
+    def exact_missing_key(self, result, feature, key, table):
+        # 照会 is a non-learning operation. Require its exact status, not a broad
+        # non-error whitelist. Separately witness the original principle's learning.
+        if (result.学習過程.学習成立状態 != 学習成立状態.適用外
+                or result.学習過程.対象系境界 != 方向境界
+                or result.予測群 or result.競合群 or result.係争中原理群
+                or result.識別不能群
+                or result.断定保留理由群 != ('現行暫定原理の適用に必要な観測が不足している',)
+                or len(result.追加観測要求群) != 1):
+            return False
+        request = result.追加観測要求群[0]
+        if (request.結果経路 != ('向き',) or request.不足経路群
+                or request.未知条件値群 != (key,)
+                or request.理由 != '条件経路は観測済みだが、この条件値は暫定原理の確認範囲外。結果観測が必要'
+                or len(request.原理参照群) != 1):
+            return False
+        reference = request.原理参照群[0]
+        principles = [p for p in result.有効原理群 if p.原理識別子 == reference]
+        if len(principles) != 1 or reference not in self.confirmed_principles:
+            return False
+        principle = principles[0]
+        return (principle.対象系境界 == 方向境界
+                and principle.状態 == 原理状態.適用範囲付き暫定原理
+                and principle.採用状態 == 採用状態.有効
+                and principle.関係型 == '決定的対応関係'
+                and principle.条件経路群 == ((f'特徴{feature}',),)
+                and principle.結果経路 == ('向き',)
+                and dict(principle.対応値表) == {(値キー(k),):v for k,v in table.items()}
+                and (値キー(key),) not in dict(principle.対応値表))
+
+    def predict(self, grid, policy=None):
+        legacy = self.legacy
+        # This prior has one original feature model only; broader cases stay legacy.
+        if len(self.tables) != 1:
+            return legacy.候補(grid, policy)
+        i, table = next(iter(self.tables.items()))
+        objects = edge_pack_components(grid, dominant_background_for_grid(grid))
+        keys = [edge_pack_component_feature(o)[i] for o in objects]
+        if all(key in table for key in keys):
+            return legacy.候補(grid, policy)
+        def hold(reason):
+            return None, {'failure': reason, 'composition': 'missing-edge-binding'}
+        if not self.peer_models:
+            return hold('no_teacher_fitting_peer_models')
+        # Evaluate every retained alternative. Never retain only successful outputs.
+        peer_rows = [render(grid, model) for model in self.peer_models]
+        if any(out is None or not rec.get('complete') or rec.get('failure')
+               for out, rec in peer_rows):
+            return hold('peer_action_failed')
+        owned = [ownership(o) for o in objects]
+        for model, (_, rec) in zip(self.peer_models, peer_rows):
+            if model[3] != 'vertical' or [ownership(o) for o in rec['objects']] != owned:
+                return hold('ownership_mismatch')
+            if len(rec['sides']) != len(objects):
+                return hold('ownership_mismatch')
+        bindings = dict(table)
+        sides = []
+        for j, (o, key) in enumerate(zip(objects, keys)):
+            choices = {rec['sides'][j] for _, rec in peer_rows}
+            if len(choices) != 1 or not choices <= {'top', 'bottom'}:
+                return hold('peer_binding_disagreement')
+            side = next(iter(choices))
+            if key in bindings and bindings[key] != side:
+                return hold('known_or_shared_key_contradiction')
+            r = legacy.機械.照会(legacy.観測へ(
+                legacy.特徴観測(edge_pack_component_feature(o)), 方向境界))
+            predictions = [p.予測値 for p in r.予測群 if p.結果経路 == ('向き',)]
+            if key in table:
+                if (最小排気系().排出する(r).状態 != '出力' or not predictions
+                        or any(p != table[key] for p in predictions)):
+                    return hold('known_key_hds_failure')
+            elif predictions:
+                # Missing table coverage cannot authorize overriding another HDS result.
+                return hold('unknown_key_has_hds_prediction')
+            elif not self.exact_missing_key(r, i, key, table):
+                return hold('unknown_key_noncoverage_hds_failure')
+            bindings[key] = side
+            sides.append(side)
+        output = 配置する(grid, objects, sides)
+        if output is None:
+            return hold('original_action_failed')
+        if any(output != out for out, _ in peer_rows):
+            return hold('original_peer_action_disagreement')
+        return output, {'failure': None, 'composition': 'missing-edge-binding',
+                        'added_bindings': {k:v for k,v in bindings.items() if k not in table}}

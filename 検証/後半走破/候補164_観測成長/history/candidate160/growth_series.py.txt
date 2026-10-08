@@ -1,0 +1,134 @@
+"""Teacher-only generic series composition. No target access in predict.
+
+Axis model: rows are run-signature symbols; run lengths are affine in width.
+Every prefix/period/suffix factorization that reproduces every source is kept.
+Radial model: independent periodic pigment and shape channels on radial layers.
+Both structural models and all D4 views are considered; disagreements cause HOLD.
+"""
+import sys
+from pathlib import Path
+from fractions import Fraction
+from itertools import groupby
+sys.dont_write_bytecode=True
+ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/'candidate156-production-20261007'))
+from geometry import observe
+from radial import render as radial_predict
+from 接続.ARC2.既存側周期 import minimal_period
+
+def crop(g,b):
+ r,c,y,x=b
+ return [row[c:x+1] for row in g[r:y+1]]
+def rot(g):return [list(row) for row in zip(*g[::-1])]
+def transform(g,k,flip):
+ for _ in range(k):g=rot(g)
+ return [row[::-1] for row in g] if flip else g
+
+def inverse(g,k,flip):
+ if flip:g=[row[::-1] for row in g]
+ for _ in range((-k)%4):g=rot(g)
+ return g
+
+def runs(row):
+ r=[(c,len(list(v))) for c,v in groupby(row)]
+ return tuple(c for c,n in r),tuple(n for c,n in r)
+
+def affine(points):
+ """Unique observed affine function; a constant domain permits only constant extension."""
+ table={}
+ for x,y in points:
+  if x in table and table[x]!=y:return None
+  table[x]=y
+ xs=sorted(table)
+ a=Fraction(table[xs[-1]]-table[xs[0]],xs[-1]-xs[0]) if len(xs)>1 else Fraction(0)
+ b=table[xs[0]]-a*xs[0]
+ return (a,b) if all(a*x+b==y for x,y in table.items()) else None
+
+def axis_models(g,role,transpose=False):
+ future=role['future_geometric_roles']
+ if len(future)!=1:return [],{'failure':'future_role_not_unique'}
+ bg=role['background'];patches=[crop(g,b) for b in role['body_bboxes']]
+ if transpose:patches=[[list(row) for row in zip(*p)] for p in patches]
+ palettes=[set(v for row in p for v in row)-{bg} for p in patches]
+ mono=all(len(p)==1 for p in palettes)
+ period=minimal_period([(next(iter(p)),) for p in palettes]) if mono else None
+ words=[];observations={}
+ for patch in patches:
+  word=[];w=len(patch[0])
+  for row in patch:
+   sig,lens=runs([int(v!=bg) for v in row] if mono else row)
+   word.append(sig)
+   observations.setdefault(sig,[]).append((w,lens))
+  words.append(word)
+ rules={}
+ for sig,samples in observations.items():
+  rules[sig]=[affine([(w,lens[j]) for w,lens in samples]) for j in range(len(sig))]
+  if None in rules[sig]:return [],{'failure':'non_affine_row_runs'}
+ # Exhaustive within the source-witnessed grammar: a nonempty repeat core in
+ # every source, at least two copies in one source, positive affine growth.
+ first=words[0];models=[]
+ for a in range(len(first)):
+  for b in range(len(first)-a):
+   for p in range(1,len(first)-a-b+1):
+    prefix=first[:a];suffix=first[len(first)-b:] if b else [];unit=first[a:a+p]
+    counts=[]
+    for word in words:
+     middle=len(word)-a-b
+     if middle<=0 or middle%p:break
+     k=middle//p
+     if word!=prefix+unit*k+suffix:break
+     counts.append(k)
+    if len(counts)!=len(words) or max(counts)<2:continue
+    growth=affine(list(enumerate(counts)))
+    if growth is None or growth[0]<=0:continue
+    models.append((prefix,unit,suffix,growth))
+ outputs=[];incomplete=0;records=[]
+ box=future[0]['predicted_bbox'];n=future[0]['series_index_1based']-1
+ h,w=box[2]-box[0]+1,box[3]-box[1]+1
+ if transpose:h,w=w,h
+ unresolved_width=any(len({v[0] for v in samples})==1 and samples[0][0]!=w for samples in observations.values())
+ for pre,unit,suf,(slope,intercept) in models:
+  count=slope*n+intercept
+  if unresolved_width:incomplete+=1;continue
+  if count.denominator!=1 or count<1:incomplete+=1;continue
+  word=pre+unit*int(count)+suf;patch=[];valid=len(word)==h
+  for sig in word:
+   lens=[a*w+b for a,b in rules[sig]]
+   if any(v.denominator!=1 or v<1 for v in lens) or sum(lens)!=w:valid=False;break
+   row=[c for c,v in zip(sig,lens) for _ in range(int(v))]
+   if mono:row=[period[n%len(period)][0] if c else bg for c in row]
+   patch.append(row)
+  if not valid:incomplete+=1;continue
+  if transpose:patch=[list(row) for row in zip(*patch)]
+  a,b,d,e=role['marker_window'];out=crop(patch,[a-box[0],b-box[1],d-box[0],e-box[1]])
+  outputs.append(out)
+  records.append({'prefix_rows':len(pre),'period_rows':len(unit),'suffix_rows':len(suf),'source_repeat_counts':[int(slope*i+intercept) for i in range(len(words))],'future_repeat_count':int(count)})
+ return outputs,{'fitted_models':len(models),'incomplete_models':incomplete,'models':records,'row_symbols':len(rules),'monochrome':mono}
+
+def predict(g,with_evidence=False):
+ outputs=[];evidence=[];incomplete=0
+ for k in range(4):
+  for flip in (False,True):
+   view=transform(g,k,flip);roles=observe(view)
+   for role in roles:
+    if len(role['future_geometric_roles'])!=1:
+     incomplete+=int(len(role['future_geometric_roles'])>1);continue
+    for transpose in (False,True):
+     axis,record=axis_models(view,role,transpose)
+     incomplete+=record.get('incomplete_models',0)
+     outputs.extend(inverse(out,k,flip) for out in axis)
+     evidence.append({'rotation':k,'reflection':flip,'internal_transpose':transpose,'family':'axis','record':record})
+   for transpose in (False,True):
+    radial,record=radial_predict(view,transpose)
+    if radial is not None:outputs.append(inverse(radial,k,flip))
+    elif record.get('failure') in ('future_center_not_integral','future_extent_not_layer_aligned','out_of_bounds','ink_conflict'):incomplete+=1
+    evidence.append({'rotation':k,'reflection':flip,'internal_transpose':transpose,'family':'radial','record':record})
+ distinct={tuple(map(tuple,out)) for out in outputs}
+ out=[list(row) for row in next(iter(distinct))] if len(distinct)==1 and not incomplete else None
+ report={'status':'EMIT' if out is not None else 'HOLD','fitted_predictions':len(outputs),'incomplete_models':incomplete,'distinct_predictions':len(distinct),'views':evidence}
+ return (out,report) if with_evidence else out
+
+def fit(teachers):
+ """Fit only an all-teacher contract; never select a model by teacher success."""
+ if not teachers or any(predict(p['input'])!=p['output'] for p in teachers):return None
+ return {'kind':'observed_series_composition','version':1}

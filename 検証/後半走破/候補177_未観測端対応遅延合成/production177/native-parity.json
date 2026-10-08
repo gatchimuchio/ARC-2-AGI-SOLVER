@@ -1,0 +1,18 @@
+{
+  "status": "NATIVE_GAIN",
+  "parity": true,
+  "previous_emitted": 1,
+  "current_emitted": 2,
+  "old_q1_unchanged": true,
+  "scorer_calls": 0,
+  "family_inventory_unchanged": true,
+  "family": {
+    "境界": "ARC物体端投射",
+    "事前観測数": 0,
+    "現在観測数": 2,
+    "採用可": true,
+    "同値採用": true,
+    "状態": "全教師再現",
+    "隔離数": 0
+  }
+}

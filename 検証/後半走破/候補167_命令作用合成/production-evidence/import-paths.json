@@ -1,0 +1,27 @@
+[
+  {
+    "module": "記号命令教材",
+    "path": "/workspace/scratch/7408259c1ab2/candidate167-production-20261007/接続/ARC2/記号命令教材.py",
+    "sha256": "d98a4a38ae10fda6f530ae35b5682aa88d50292156396bf7b8bbd610db470d48"
+  },
+  {
+    "module": "厳密枠局所命令",
+    "path": "/workspace/scratch/7408259c1ab2/candidate167-production-20261007/接続/ARC2/厳密枠局所命令.py",
+    "sha256": "921026d88a2c739c15840f34280fadf9ed959cab827d17ff8b0ec56192f80b36"
+  },
+  {
+    "module": "周期補色局所命令",
+    "path": "/workspace/scratch/7408259c1ab2/candidate167-production-20261007/接続/ARC2/周期補色局所命令.py",
+    "sha256": "2549295bf02989c15b86f7154e1993ad8985ef3f8fb1498f429762786b9c7d24"
+  },
+  {
+    "module": "対内枠色命令視野",
+    "path": "/workspace/scratch/7408259c1ab2/candidate167-production-20261007/接続/ARC2/対内枠色命令視野.py",
+    "sha256": "7c22fed6f79ddc4337ed3efcd27005f9059e372079a680b6fdfdc27978433823"
+  },
+  {
+    "module": "枠局所命令接続",
+    "path": "/workspace/scratch/7408259c1ab2/candidate167-production-20261007/接続/ARC2/枠局所命令接続.py",
+    "sha256": "75ca3feb0f274ac3f0db8ca2ffd7f38171b7198fee9a1d11599ffcaccd3d7544"
+  }
+]

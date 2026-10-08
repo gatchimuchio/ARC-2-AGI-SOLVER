@@ -1,0 +1,357 @@
+{
+  "task_id": "d8e07eb2",
+  "official_error": "cpu_limit",
+  "exit_code": 0,
+  "timeout": false,
+  "wall_seconds": 9.339545100003306,
+  "events": [
+    {
+      "event": "fit_entry",
+      "cpu": 0.178782,
+      "rss": 70528,
+      "legacy_feature_count": 0,
+      "legacy_features": [],
+      "teachers": 5,
+      "expected_render_calls": 240
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 0.179223,
+      "rss": 70528,
+      "calls": 1,
+      "model": [
+        4,
+        "identity",
+        false,
+        "vertical",
+        "top"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 0.21906299999999998,
+      "rss": 70528,
+      "calls": 10,
+      "model": [
+        4,
+        "identity",
+        false,
+        "vertical",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 0.263555,
+      "rss": 70528,
+      "calls": 20,
+      "model": [
+        4,
+        "identity",
+        false,
+        "horizontal",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 0.319107,
+      "rss": 70528,
+      "calls": 30,
+      "model": [
+        4,
+        "identity",
+        true,
+        "vertical",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 0.361185,
+      "rss": 70528,
+      "calls": 40,
+      "model": [
+        4,
+        "identity",
+        true,
+        "horizontal",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 0.49084799999999995,
+      "rss": 70528,
+      "calls": 50,
+      "model": [
+        4,
+        "rotations",
+        false,
+        "vertical",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 0.644299,
+      "rss": 70528,
+      "calls": 60,
+      "model": [
+        4,
+        "rotations",
+        false,
+        "horizontal",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 0.785179,
+      "rss": 71412,
+      "calls": 70,
+      "model": [
+        4,
+        "rotations",
+        true,
+        "vertical",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 0.9484809999999999,
+      "rss": 80756,
+      "calls": 80,
+      "model": [
+        4,
+        "rotations",
+        true,
+        "horizontal",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 1.207497,
+      "rss": 96372,
+      "calls": 90,
+      "model": [
+        4,
+        "d4",
+        false,
+        "vertical",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 1.515004,
+      "rss": 112628,
+      "calls": 100,
+      "model": [
+        4,
+        "d4",
+        false,
+        "horizontal",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 1.797787,
+      "rss": 128884,
+      "calls": 110,
+      "model": [
+        4,
+        "d4",
+        true,
+        "vertical",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 2.124376,
+      "rss": 145268,
+      "calls": 120,
+      "model": [
+        4,
+        "d4",
+        true,
+        "horizontal",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 2.182967,
+      "rss": 149364,
+      "calls": 130,
+      "model": [
+        8,
+        "identity",
+        false,
+        "vertical",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 2.215775,
+      "rss": 151924,
+      "calls": 140,
+      "model": [
+        8,
+        "identity",
+        false,
+        "horizontal",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 2.24799,
+      "rss": 154228,
+      "calls": 150,
+      "model": [
+        8,
+        "identity",
+        true,
+        "vertical",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 2.278636,
+      "rss": 156404,
+      "calls": 160,
+      "model": [
+        8,
+        "identity",
+        true,
+        "horizontal",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 2.36105,
+      "rss": 161012,
+      "calls": 170,
+      "model": [
+        8,
+        "rotations",
+        false,
+        "vertical",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 2.519497,
+      "rss": 165876,
+      "calls": 180,
+      "model": [
+        8,
+        "rotations",
+        false,
+        "horizontal",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 2.620533,
+      "rss": 170740,
+      "calls": 190,
+      "model": [
+        8,
+        "rotations",
+        true,
+        "vertical",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 2.718601,
+      "rss": 175476,
+      "calls": 200,
+      "model": [
+        8,
+        "rotations",
+        true,
+        "horizontal",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 2.901345,
+      "rss": 183668,
+      "calls": 210,
+      "model": [
+        8,
+        "d4",
+        false,
+        "vertical",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 3.097946,
+      "rss": 191988,
+      "calls": 220,
+      "model": [
+        8,
+        "d4",
+        false,
+        "horizontal",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 3.296769,
+      "rss": 200436,
+      "calls": 230,
+      "model": [
+        8,
+        "d4",
+        true,
+        "vertical",
+        "bottom"
+      ]
+    },
+    {
+      "event": "peer_render_entry",
+      "cpu": 3.487069,
+      "rss": 208756,
+      "calls": 240,
+      "model": [
+        8,
+        "d4",
+        true,
+        "horizontal",
+        "bottom"
+      ]
+    },
+    {
+      "event": "fit_return",
+      "cpu": 3.506324,
+      "rss": 209524,
+      "render_calls": 240,
+      "retained": 0
+    },
+    {
+      "event": "runtime_return",
+      "cpu": 9.198891,
+      "rss": 209524,
+      "render_calls": 240
+    }
+  ],
+  "scorer_calls": 0
+}

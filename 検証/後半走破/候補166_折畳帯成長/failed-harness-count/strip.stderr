@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/7408259c1ab2/candidate166-production-20261007/検証/折畳帯成長回帰.py", line 80, in <module>
+    report.update(status='PASS',successful=True,tests_run=len(checks)+4+len(failures)+len(corruptions)+24+2);print(json.dumps(report))
+                                                          ^^^^^^^^^^^
+TypeError: object of type 'int' has no len()

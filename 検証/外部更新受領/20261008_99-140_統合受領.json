@@ -1,0 +1,38 @@
+{
+  "schema": "arc2-zip-source-integration-receipt-v1",
+  "date": "2026-10-08",
+  "repo": "gatchimuchio/ARC-2-AGI-SOLVER",
+  "received_zip": "ARC2-update-99-140-onefile-20261008.zip",
+  "zip_sha256": "4303854af1c8b1d11c1439bac86917dc3be28b4dd667b284be11c7c271a90aa4",
+  "source_commit_provenance": "a1b746c32dd3479c27c2871b70e1506fac1c6a69",
+  "source_tree_provenance": "347d161aafd2109aec1f568c3fb539e55304065a",
+  "base_main_commit": "dc7eee26ee3ed699c10fd2fc4769e53f351417da",
+  "base_main_tree": "851c901ab7069a0ebd49a9621907fe2b4dac83f9",
+  "imported_source_files": 1246,
+  "unchanged_source_files": 737,
+  "replaced_tracked_files": 9,
+  "added_source_files": 500,
+  "deleted_existing_files": 0,
+  "source_git_blob_sha_and_mode_mismatches": 0,
+  "old_gzip_evidence_blob_preserved": true,
+  "all_source_syntax_compile": "PASS",
+  "reported_score": {
+    "candidate": 177,
+    "task_success": 99,
+    "total_tasks": 120,
+    "grid_success": 140,
+    "total_grids": 167,
+    "previous_tasks": 98,
+    "previous_grids": 139,
+    "wrong_outputs": 0,
+    "resource_failures": 0
+  },
+  "score_regression_rerun_in_this_operation": false,
+  "out_of_repo_package_sections_not_imported": [
+    "logical-evidence",
+    "evidence",
+    "official-input",
+    "provenance"
+  ],
+  "note": "The accepted original commit and tree are provenance, not restored Git ancestry. Full package remains external; only source/ is integrated."
+}

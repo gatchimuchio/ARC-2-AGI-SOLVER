@@ -1,0 +1,35 @@
+{
+  "base_commit": "fa39a567b17eb94b04312dc3bcddbb263e8b17cb",
+  "files": [
+    {
+      "path": "検証/領域指令回帰.py",
+      "sha256": "909d35e8a3bd681d2da250ef7c395eeeef6e5cae85c0db0f0a52b449b8b8b61e"
+    },
+    {
+      "path": "接続/ARC2/領域指令核.py",
+      "sha256": "a3568dd28202b318494f843b5f882cf5a283e3e4f7c3b2e9bc3d87e73f0f4b88"
+    },
+    {
+      "path": "接続/ARC2/領域指令教材.py",
+      "sha256": "86a7a7205756d2faf0ea9134bcbff79d36f922e30c6ec47237ad708b678d82a2"
+    },
+    {
+      "path": "検証/領域指令資料/ordinary_checks.py",
+      "sha256": "185273b85f680db17b31ab2637b786ce3007e8b9a28509678ebed9b9f641c680"
+    },
+    {
+      "path": "検証/領域指令資料/synthetic-cover-regression.json",
+      "sha256": "93908c12af0a9d3c7af77a3219d95a2d1cb0fa1fa6199cbca4e8bef3b6b1440c"
+    },
+    {
+      "path": "検証/領域指令資料/teachers-only.json",
+      "sha256": "cd952afef3e1234be12823cc50d7399543c6bd96f5ee4ec8e0da728c82500d80"
+    },
+    {
+      "path": "接続/ARC2/HDS接続.py",
+      "sha256": "febe84bb4b77aea33c09f406e43c82feef681812ba552b04c69f127ed49c5ca4"
+    }
+  ],
+  "boundary": "ARC領域指令",
+  "empty_prior": true
+}

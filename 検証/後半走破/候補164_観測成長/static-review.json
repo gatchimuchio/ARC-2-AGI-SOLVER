@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "base_commit": "2e9c91b91217ae68f57e1f8bcdb8bfddbf2d67cb",
+  "changed_tracked_files": [
+    "\u63a5\u7d9a/ARC2/HDS\u63a5\u7d9a.py"
+  ],
+  "HDS_only_four_registrations": true,
+  "core_and_old_gates_unchanged": true,
+  "frozen_algorithm_sha256": "0fa5db217748108630fa0295887961fe6f1feeb63a2e8a57939b3f98f4d904f8",
+  "algorithm_byte_identical": true,
+  "fit_state_only_kind_version_and_teacher_count": true,
+  "prediction_gated_on_valid_fitted_kind_version": true,
+  "predict_api_input_only": true,
+  "exceptions_not_caught": true,
+  "prior_support": 0,
+  "query_diagnostics_not_retained": true,
+  "source_fixture_train_only": true,
+  "no_source_changes_after_score": true
+}

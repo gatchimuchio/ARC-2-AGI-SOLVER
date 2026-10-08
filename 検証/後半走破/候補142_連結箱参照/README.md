@@ -1,0 +1,11 @@
+# 候補142 連結箱参照と所有不可能条件
+
+同条件120課題/167例で94/130→94/131。課題数+0、正答格子+1。d35bdbdc query1を追加し、残り2入力はHOLD。130旧格子は全て同一、誤出力0、通常資源失敗0。
+
+既存成分・C8隣接graph・書込み合流を用い、同寸の全箱所有、線の両端接触、外色keyと元中心valueの同時lookupを合成する。全9programを全教師で評価し、C8_no_corner_shortcut/cardinal_side_midpointの1programを保持。新しいgraph/contact priorを明示し、全role・接触・lookupの失敗と全格子不一致を保持する。対応する既存family契約を調べ、ARC連結箱参照を空priorの薄い境界として標準HDSへ接続した。
+
+元136では新1盤面が正答だったが、旧b99e7126[0]がCPU制限で失われ、採用を拒否した。別の同条件診断は最初の所有列挙内で10.49秒で停止し、renderer完了も保存処理も未到達だった。46箱から約70兆部分集合を列挙していたが、全箱候補のfootprint和集合の外に残るforegroundが2色のため、どの部分集合も単色wire条件を満たせない。142はこの必要条件だけを列挙前に証明する。成立可能な部分集合の定義・順序、候補・動作・fit・consensusは不変。未列挙を実行済みと数えない。
+
+修正後は旧失敗課題の完全HDS呼出しが2.17秒で従来盤面を返した。これは異なる呼出し範囲の観測なので正確な速度比とはしない。元136のresource失敗をPASSに変更しない。score・delta・terminalと最初の診断を保存する。
+
+3教師の完全再現、11既存普通の確認、2つの小さい全列挙同値比較、input-onlyとHDS current3/prior0を確認した。全回帰105script/4657reported checksは104個の今回成功recordと同一不変window scopeの29-case成功recordで構成する。HDS core・支持・同値・隔離・最終合意は不変。基底b30d12ea。旧92commit/rawの復元を主張しない。

@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "count": 22,
+  "checks": [
+    "query_0_emitted",
+    "query_0_input_immutable",
+    "q0_missing_bindings_only",
+    "query_1_emitted",
+    "query_1_input_immutable",
+    "q1_exact_delegation",
+    "independent_missing_one_success",
+    "independent_recolor_equivariance",
+    "complete_coverage_collision_delegates",
+    "known_key_contradiction_holds",
+    "shared_unknown_key_contradiction_holds",
+    "any_peer_action_failure_holds",
+    "all_peer_alternatives_executed",
+    "ownership_mismatch_holds",
+    "peer_binding_disagreement_holds",
+    "original_action_failure_holds",
+    "known_key_hds_hold_preserved",
+    "unknown_existing_hds_result_not_overridden",
+    "all_original_hds_object_queries_preserved",
+    "known_tables_immutable",
+    "peer_models_immutable",
+    "multiple_original_models_delegated"
+  ],
+  "targets_read": 0,
+  "scorer_calls": 0,
+  "native_integration_runs": 0
+}

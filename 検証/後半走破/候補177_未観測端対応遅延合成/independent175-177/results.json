@@ -1,0 +1,88 @@
+{
+  "status": "BLOCKED",
+  "checks": [
+    "teacher_immutability",
+    "all_original_features_retained",
+    "all_original_bindings_retained",
+    "all_fitting_peer_models_retained",
+    "teacher_one_model_scope",
+    "independent_missing_two_binding",
+    "input_and_tables_immutable",
+    "json_output_record",
+    "covered_teacher_exact_delegation",
+    "covered_teacher_exact_delegation",
+    "covered_collision_failure_delegated",
+    "zero_or_multiple_legacy_models_delegated",
+    "zero_or_multiple_legacy_models_delegated",
+    "fail_retained",
+    "fail_all_peers_executed",
+    "incomplete_retained",
+    "incomplete_all_peers_executed",
+    "ownership_retained",
+    "ownership_all_peers_executed",
+    "disagree_retained",
+    "disagree_all_peers_executed",
+    "output_retained",
+    "output_all_peers_executed",
+    "empty_peer_holds",
+    "horizontal_not_silently_selected",
+    "original_action_failure",
+    "known_key_contradiction",
+    "shared_unknown_key_consistency",
+    "real_unknown_has_no_predictions",
+    "faults_reproduce_unfiltered_unknown_hds_failures",
+    "recolor_equivariance",
+    "recolor_equivariance",
+    "source_hash_frozen"
+  ],
+  "blockers": [
+    {
+      "fault": "conflict",
+      "original_hds_state": "断定保留",
+      "candidate_emits": true
+    },
+    {
+      "fault": "unidentified",
+      "original_hds_state": "断定保留",
+      "candidate_emits": true
+    },
+    {
+      "fault": "unrelated_missing_observation",
+      "original_hds_state": "断定保留",
+      "candidate_emits": true
+    },
+    {
+      "fault": "learning_unconfirmed",
+      "original_hds_state": "断定保留",
+      "candidate_emits": true
+    },
+    {
+      "fault": "disputed_principle",
+      "original_hds_state": "断定保留",
+      "candidate_emits": true
+    }
+  ],
+  "unknown_key_result": {
+    "requests": [
+      {
+        "path": [
+          "向き"
+        ],
+        "missing": [],
+        "unknown": [
+          2.0
+        ],
+        "reason": "条件経路は観測済みだが、この条件値は暫定原理の確認範囲外。結果観測が必要"
+      }
+    ],
+    "conflicts": 0,
+    "disputed": 0,
+    "unidentified": 0
+  },
+  "seconds": 0.215,
+  "sources": "Frozen source, accepted167 implementation, teachers-only.json; synthetic inputs only. README was inadvertently read and contained query descriptions; excluded from evidence. check.py inspected but not executed.",
+  "targets_read": 0,
+  "query_payloads_read": 0,
+  "production_tests": 0,
+  "scorer_calls": 0
+}
