@@ -66,6 +66,13 @@ python -m uv run --locked python -m 接続.Kaggle操作 出力 --record $runReco
 Notebookは必要なコードと公開training教材を内包し、実行時の通信・依存取得なしで
 `/kaggle/working/submission.json`を生成する。
 
+### 提出対象challengeデータ
+
+提出runnerは`arc-agi_test_challenges.json`からtask/test集合を動的に読み取る。
+同じcompetition sourceに`arc-agi_evaluation_challenges.json`があっても、これは提出対象全体ではないため選択しない。
+M2では`sample_submission.json`と提出JSONのtask ID集合・順序・各taskのtest数を照合する。
+件数をコードへ固定せず、`arc-agi_evaluation_solutions.json`は提出生成に読まない。
+
 ARC2提出bundleは次のように生成・分離する。公式送信前のbuildはclean commitから行う。
 `--allow-dirty`はローカル検査専用とする。
 
@@ -131,3 +138,5 @@ SDKの`version_label="1"`も今回の実APIでは404となったため、版番�
 
 採点対象を確定するまでは、同じNotebookに別の版を送信しない運用を基本とする。
 過去版の出力取得と、現行版に限る状態・提出前検査を区別する。
+ただし、公式提出が形式不正で失敗した場合はM2へ戻り、修正版を別versionとして実行してよい。
+履歴の`status=COMPLETE`だけで成功とせず、`error_description`と`public_score`も確認する。

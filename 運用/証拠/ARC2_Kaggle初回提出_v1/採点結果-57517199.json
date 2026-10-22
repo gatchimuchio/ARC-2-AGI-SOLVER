@@ -1,0 +1,14 @@
+{
+  "schema": "arc2-kaggle-submission-result-v1",
+  "submission_ref": 57517199,
+  "notebook_kernel": "tecchannn/arc2-codex-main-baseline-v1",
+  "notebook_version": 1,
+  "submitted_at_utc": "2026-10-22T08:35:19.380000+00:00",
+  "status": "COMPLETE",
+  "public_score": null,
+  "error_description": "Your notebook generated a submission file with incorrect format. Some examples causing this are: wrong number of rows or columns, empty values, an incorrect data type for a value, or invalid submission values from what is expected.",
+  "cause_confirmed": "v1 used arc-agi_evaluation_challenges.json (120 tasks / 172 tests), while official sample_submission.json aligns with arc-agi_test_challenges.json (240 tasks / 259 tests).",
+  "v1_submission_sha256": "a3497542af5b2c809686ea8fa49f2eeb241c6a4ef0a3fae673282226166ef08c",
+  "test_challenges_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "sample_submission_sha256": "6b372dce41ad86a941ccdcbebb2b1926fd4f011d77c824ff421d77730f169a9a"
+}
