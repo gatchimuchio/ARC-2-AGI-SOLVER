@@ -10,6 +10,7 @@ import json
 from pathlib import Path, PurePosixPath
 import subprocess
 import zipfile
+import zlib
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -194,8 +195,8 @@ def _render_launcher(payload: bytes, source_commit: str) -> bytes:
 def _render_notebook(launcher: bytes, payload_sha256: str) -> bytes:
     """大会条件に合わせ、runnerを内包する実行可能なNotebookを作る。"""
     runner_sha256 = hashlib.sha256(launcher).hexdigest()
-    encoded = base64.b64encode(launcher).decode("ascii")
-    chunks = [f'        "{encoded[offset:offset + 100]}"' for offset in range(0, len(encoded), 100)]
+    encoded = base64.b64encode(zlib.compress(launcher, level=9)).decode("ascii")
+    chunks = [f'        "{encoded[offset:offset + 1000]}"' for offset in range(0, len(encoded), 1000)]
     source = "\n".join(
         [
             "import base64",
@@ -205,13 +206,14 @@ def _render_notebook(launcher: bytes, payload_sha256: str) -> bytes:
             "import subprocess",
             "import sys",
             "import tempfile",
+            "import zlib",
             "",
             f"RUNNER_SHA256 = {runner_sha256!r}",
             f"PAYLOAD_SHA256 = {payload_sha256!r}",
             "RUNNER_B64 = (",
             *chunks,
             ")",
-            "runner = base64.b64decode(RUNNER_B64, validate=True)",
+            "runner = zlib.decompress(base64.b64decode(RUNNER_B64, validate=True))",
             "if hashlib.sha256(runner).hexdigest() != RUNNER_SHA256:",
             '    raise RuntimeError("Notebook runner checksum mismatch")',
             "temp_root = Path(tempfile.gettempdir())",
