@@ -1,0 +1,50 @@
+{
+  "schema": "arc2-kaggle-m4-evidence-summary-v1",
+  "instruction_id": "ARC2-FIRST-OFFICIAL-SUBMISSION-20261022",
+  "source_commit": "880b840f005b985877f28e622534d6aba3a8350b",
+  "notebook": {
+    "kernel": "tecchannn/arc2-codex-main-baseline-v1",
+    "version": 1,
+    "sha256": "729649edd074c374656ceed6596982e4769d97e10425c4f007aa96b8a6d798f8",
+    "metadata_sha256": "d7de070ae4379246d8e26eece0ffe656ad44ba30fdc853bdc0af0957bc8a3a04",
+    "type": "notebook",
+    "private": true,
+    "internet_enabled": false,
+    "gpu_enabled": false
+  },
+  "kaggle_runtime": {
+    "status": "COMPLETE",
+    "python_major_minor_observed": "3.13",
+    "python_library_path": "/usr/local/lib/python3.13/",
+    "seconds": 236.166
+  },
+  "input": {
+    "file": "arc-agi_evaluation_challenges.json",
+    "sha256": "e7c62a4bd211867c6b538f66b8013b81f299663c82ca062f49a52bf439d6e4e8",
+    "tasks": 120,
+    "test_examples": 172
+  },
+  "output": {
+    "file": "submission.json",
+    "sha256": "a3497542af5b2c809686ea8fa49f2eeb241c6a4ef0a3fae673282226166ef08c",
+    "bytes": 2030733,
+    "attempts_per_test": 2,
+    "fallback_count": 5
+  },
+  "official_submission": {
+    "ref": 57517199,
+    "created_at": "2026-10-22T08:35:20.522960+00:00",
+    "status": "PENDING",
+    "public_score": null
+  },
+  "nonfatal_warnings": [
+    "Notebook cells lack nbformat cell IDs; Kaggle nbformat emitted MissingIDFieldWarning for future compatibility.",
+    "Kaggle runtime emitted debugger frozen-module warnings and third-party SyntaxWarnings; execution completed without traceback."
+  ],
+  "evidence_sha256": {
+    "run_record": "f6fa4f5ffccd935f6e80c9713bcb1dea2dfaf9edbbdeb488319930a92adf8031",
+    "submit_record": "88da3d90bb07fa0f85942be4d0ce0e1c4b8b622e08433af45bd8c73fdc56ea41",
+    "raw_audit": "a10ef1fca5510185f1a63bc38eaa2826d7d5f83cad3a62b969ffa86bda796dc4",
+    "submission_json": "a3497542af5b2c809686ea8fa49f2eeb241c6a4ef0a3fae673282226166ef08c"
+  }
+}
