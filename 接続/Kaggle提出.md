@@ -61,16 +61,28 @@ python -m uv run --locked python -m 接続.Kaggle操作 出力 --record $runReco
 
 ## 本番の準備
 
-ソルバーを実装したら、送信用フォルダへ自己完結した`.py`または`.ipynb`と
-`kernel-metadata.json`を置く。例:
+この大会は提出をNotebook経由に限定しているため、`script`型Kernelは使用しない。
+送信用フォルダの`code_file`は`.ipynb`、`kernel_type`は`notebook`にする。
+Notebookは必要なコードと公開training教材を内包し、実行時の通信・依存取得なしで
+`/kaggle/working/submission.json`を生成する。
+
+ARC2提出bundleは次のように生成・分離する。公式送信前のbuildはclean commitから行う。
+`--allow-dirty`はローカル検査専用とする。
+
+```powershell
+python -m uv run --locked python 道具/ARC2Kaggle提出bundle.py --output 出力/Kaggle/arc2-codex-main-baseline-v1
+python -m uv run --locked python 道具/ARC2Kaggle提出bundle.py --stage-upload 出力/Kaggle/arc2-codex-main-baseline-v1 --output 出力/Kaggle/arc2-codex-main-baseline-v1-upload
+```
+
+送信対象はNotebookとmetadataだけの`-upload`フォルダである。例:
 
 ```json
 {
   "id": "tecchannn/arc2-codex-solver",
   "title": "ARC2 Codex Solver",
-  "code_file": "solve.py",
+  "code_file": "main.ipynb",
   "language": "python",
-  "kernel_type": "script",
+  "kernel_type": "notebook",
   "is_private": true,
   "enable_gpu": false,
   "enable_tpu": false,
@@ -82,16 +94,12 @@ python -m uv run --locked python -m 接続.Kaggle操作 出力 --record $runReco
 }
 ```
 
-Notebook形式の場合は`code_file`を`.ipynb`、`kernel_type`を`notebook`にする。
-CLIは`code_file`本体を送信するため、同じローカルフォルダに置いた補助moduleやmodelが
-自動でKaggleへ同梱されると仮定しない。依存資産はコードへ組み込むか、必要なKaggle Data/Modelを明示接続する。
-インターネットなしで起動し、未知のtest入力すべてに対して
-`/kaggle/working/submission.json`を生成できることが必要。
-GPUを使う場合は実装に応じたmetadata/acceleratorと利用枠を別途確認する。
+CLIは`code_file`本体を送信するため、補助moduleやmodelが自動同梱されると仮定しない。
+ARC2 bundleは実行runnerと依存コードをNotebookへ内包する。
 
 ```powershell
-# 完成したソルバーを置いたフォルダを指定
-python -m uv run --locked python -m 接続.Kaggle操作 送信 --folder 出力/提出候補 --timeout 43200
+# 完成したNotebookを送信してKaggle上で実行
+python -m uv run --locked python -m 接続.Kaggle操作 送信 --folder 出力/Kaggle/arc2-codex-main-baseline-v1-upload --timeout 43200
 
 # 送信結果の記録へ変更する
 $runRecord = "出力/Kaggle/arc2-codex-solver/v1/実行記録.json"

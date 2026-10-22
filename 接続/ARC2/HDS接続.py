@@ -118,13 +118,17 @@ from .有限例外光線教材 import 有限例外光線教材
 def 事前教材を読む():
     """固定したtraining教材の参照。現在課題の識別子は受け取らない。"""
     ルート = Path(__file__).resolve().parents[2]
-    参照 = json.loads(Path(__file__).with_name("テンプレート充填教材.json").read_text())
+    参照 = json.loads(
+        Path(__file__).with_name("テンプレート充填教材.json").read_text(encoding="utf-8")
+    )
     if 参照["分割"] != "training":
         raise ValueError("事前教材はtraining分割に限定する")
     教材, 既出 = [], set()
     for 出典 in 参照["教材"]:
-        原本 = json.loads((ルート / "入力/公式ソース/ARC-AGI-2/data/training"
-                         / f"{出典['課題ID']}.json").read_text())
+        原本 = json.loads(
+            (ルート / "入力/公式ソース/ARC-AGI-2/data/training" / f"{出典['課題ID']}.json")
+            .read_text(encoding="utf-8")
+        )
         for 位置 in 出典["訓練例位置"]:
             鍵 = (出典["課題ID"], 位置)
             if 鍵 in 既出:

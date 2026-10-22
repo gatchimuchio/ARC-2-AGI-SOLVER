@@ -34,6 +34,8 @@ line-length = 100
 include = [
     "道具/リポジトリ環境監査.py",
     "道具/開発環境確認.py",
+    "道具/ARC2Kaggle提出bundle.py",
+    "接続/ARC2/Kaggle提出.py",
     "接続/Kaggle操作.py",
     "接続/Kaggle動作確認/*.py",
     "検証/test_*.py",
