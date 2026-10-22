@@ -205,10 +205,11 @@ def _atomic_new(path: Path, value: dict[str, Any]) -> bytes:
     return content
 
 
-def _discover_challenges() -> Path:
-    候補 = list(Path("/kaggle/input").rglob("arc-agi_evaluation_challenges.json"))
+def _discover_challenges(input_root: Path = Path("/kaggle/input")) -> Path:
+    """公式sample_submissionと対応するtest challengeを一意に選ぶ。"""
+    候補 = list(input_root.rglob("arc-agi_test_challenges.json"))
     if len(候補) != 1:
-        raise RuntimeError(f"大会evaluation challengeを一意に特定できない: 候補数={len(候補)}")
+        raise RuntimeError(f"大会test challengeを一意に特定できない: 候補数={len(候補)}")
     return 候補[0]
 
 

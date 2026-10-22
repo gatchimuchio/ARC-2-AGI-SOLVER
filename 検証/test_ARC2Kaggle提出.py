@@ -30,6 +30,18 @@ def test_入力検査は動的な課題数とtest数を保つ():
     assert [len(課題群[key]["test"]) for key in 課題群] == [2, 1]
 
 
+def test_challenge選択はevaluationでなくsubmission用testを読む(tmp_path):
+    入力根 = tmp_path / "input"
+    大会根 = 入力根 / "arc-prize-2026-arc-agi-2"
+    大会根.mkdir(parents=True)
+    evaluation = 大会根 / "arc-agi_evaluation_challenges.json"
+    submission = 大会根 / "arc-agi_test_challenges.json"
+    evaluation.write_text("{}", encoding="utf-8")
+    submission.write_text("{}", encoding="utf-8")
+
+    assert 提出._discover_challenges(入力根) == submission
+
+
 def test_test正解が含まれる入力は拒否する():
     原本 = _課題()
     原本["task-a"]["test"][0]["output"] = [[8]]
