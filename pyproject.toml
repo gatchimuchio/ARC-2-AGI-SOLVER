@@ -1,0 +1,48 @@
+[project]
+name = "arc-2-agi-solver"
+version = "0.0.0"
+description = "ARC-AGI-2の学習機械・ローカル開発・Kaggle接続環境"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "numpy==2.3.5",
+    "scipy==1.17.0",
+]
+
+[dependency-groups]
+dev = [
+    "hds-learning-system",
+    "ipykernel",
+    "jupyterlab",
+    "kaggle==2.2.4",
+    "kagglesdk==0.1.37",
+    "matplotlib",
+    "pytest",
+    "ruff",
+]
+
+[tool.uv]
+package = false
+link-mode = "copy"
+
+[tool.uv.sources]
+hds-learning-system = { path = "HDS/学習系統/v0.4.2", editable = true }
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+# hashを固定した過去の検証資料を整形せず、開発・接続工具を検査する。
+include = [
+    "道具/リポジトリ環境監査.py",
+    "道具/開発環境確認.py",
+    "接続/Kaggle操作.py",
+    "接続/Kaggle動作確認/*.py",
+    "検証/test_*.py",
+]
+extend-exclude = ["入力/公式ソース", "入力/Kaggle", "出力", "一時"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+
+[tool.pytest.ini_options]
+testpaths = ["検証"]
+pythonpath = ["."]

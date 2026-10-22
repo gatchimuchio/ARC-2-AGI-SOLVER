@@ -10,8 +10,17 @@ build/
 dist/
 *.egg-info/
 .env
+.env.*
+!.env.example
 .DS_Store
 Thumbs.db
+.ipynb_checkpoints/
+kaggle.json
+access_token
+.kaggle/
+
+# 認証後に取得する大会配布データ
+入力/Kaggle/
 
 # 実行時生成物
 出力/

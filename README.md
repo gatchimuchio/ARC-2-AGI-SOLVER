@@ -29,3 +29,12 @@ HDS/                      学習機械基底
 ```bash
 python3 道具/リポジトリ環境監査.py
 ```
+
+## ローカル開発環境
+
+Python 3.12とuvを使用する。Windows PowerShellを含む構築・実行手順は
+[`接続/開発環境.md`](接続/開発環境.md)を参照。
+依存関係は`pyproject.toml`、解決済みバージョンは`uv.lock`で管理する。
+
+CodexからのKaggle接続・Notebook実行・版を指定した大会提出は
+[`接続/Kaggle提出.md`](接続/Kaggle提出.md)を参照。
