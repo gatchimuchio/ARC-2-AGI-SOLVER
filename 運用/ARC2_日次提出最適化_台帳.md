@@ -14,7 +14,7 @@
 | M2 Kaggle結合 | PASS（v2） | Kaggle Notebook `tecchannn/arc2-codex-main-baseline-v1` v2 は現行版、状態COMPLETE。Internet OFF/CPU、実行283.265秒。提出出力240課題・259 test、2候補/test、SHA-256 `a0eeaaa6203d4fdd049f8aa705a8ac7832cb98240759703eb0288ad3d62b4927`。 |
 | M3 公式提出 | PASS / 受理・採点完了 | Notebook v2の提出ref `57560705`。Kaggle履歴でstatus `COMPLETE`、public_score `0.00`、失敗詳細なしを確認。 |
 | M4 score・経路固定 | PASS | Notebook v2 → `submission.json`（SHA `a0ee…4927`）→ ref `57560705` → 公式public score `0.00`。版、出力、受理、採点状態を証跡に固定。 |
-| M5 日次反復 | 実行中 | 2026-10-23 UTCの公式枠はref `57560705` で消費済み。palette拡張はLOO・ローカル全件runner・clean Kaggle Notebook v4の出力一致までPASS。parse cacheは全件A/Bで遅延し不採用。HDS第二候補は限定23-fold/5-task LOOで増分0、全体には一般化しない。公式採点は未実施。 |
+| M5 日次反復 | 実行中 | Kaggle履歴上、最新ref `57560705` は0.00、過去最高ref `55046979` は0.83（2026-07-28）。旧Kernel v4出力はローカル完全再現したがtraining task ID分岐があり、現行AGENTSにより再利用不可。適格なpalette版Notebook v4出力（SHA `78e596…3cd5b026`）を次回候補として復元・再検査済み。2026-10-23 UTCの公式枠はref `57560705` で消費済み。 |
 | M6 最終凍結 | 未開始 | 大会受付終了の公式確認後に実施する。 |
 
 ### 提出候補の固定
@@ -38,7 +38,8 @@
 | Kaggle基準日 | サイクル | 変更・検査 | 公式提出 | score/状態 | 次の作業 |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-22 | D0 初回試行 | v1はevaluation challenges 120課題/172 testを選んだため、公式sampleに必要な240課題/259 testと不一致 | ref `57517199`、COMPLETE後にformat error、scoreなし | 失敗。証跡は `運用/証拠/ARC2_Kaggle初回提出_v1/` | M2是正後、v2を別versionで再実行済み |
-| 2026-10-23 | D0 初回形式修正提出 | v2の実行・形式・出力SHAを再確認済み | ref `57560705`、2026-10-23 12:25:05 UTCに受理。Notebook v2 | `COMPLETE`、public score `0.00`、失敗詳細なし（履歴確認12:42 UTC） | M4をPASS固定。今日の枠は消費済み。fallback/HOLDを原因別に分析し、次回候補を同条件で評価 |
+| 2026-10-23 | D0 初回形式修正提出 | v2の実行・形式・出力SHAを再確認済み | ref `57560705`、2026-10-23 12:25:05 UTCに受理。Notebook v2 | `COMPLETE`、public score `0.00`、失敗詳細なし（最新履歴15:41 UTC） | M4をPASS固定。歴史上の最高0.83（ref `55046979`）を確認。旧Kernel v4はtraining ID分岐のため不採用。palette v4を次回候補に固定 |
+| 2026-10-23 | M5 過去最高・候補再監査 | 旧Kernel v4の出力SHAは取得物・隔離ローカル再実行で一致。公開training ID分岐を検出し、現行AGENTSに従い旧パッケージを再利用対象外とした。現行palette v4出力をKaggleから復元し、公式sample構造とSHAを再検査 | 公式提出なし。日次枠はref `57560705` が使用済み | 旧0.83は履歴値として保持するが、source/scoreの厳密な版対応は未証明。次回UTC日付に履歴・ruleを確認しpalette v4を提出候補にする |
 
 ## M5 着手時の原因分析
 
