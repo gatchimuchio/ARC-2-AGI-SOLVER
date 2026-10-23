@@ -1,0 +1,38 @@
+{
+  "schema": "arc2-hds-second-attempt-probe-v1",
+  "generated_at_utc": "2026-10-23T14:09:15+00:00",
+  "hypothesis": "Keep attempt_1 unchanged and select a distinct prediction from an individually teacher-validated HDS family for attempt_2 when the aggregate solver holds due to disagreement.",
+  "scope": "Exploratory runtime probe only; no LOO accuracy result was obtained.",
+  "probes": [
+    {
+      "mode": "single public-training LOO fold with no prior examples",
+      "completed": true,
+      "support_examples": 4,
+      "elapsed_seconds": 0.39,
+      "mechanism_records": 106,
+      "fully_admitted_families": 0,
+      "solver_answer_present": false,
+      "interpretation": "One fold is not representative and no alternate-prediction scoring was performed."
+    },
+    {
+      "mode": "up to first 10 public-training LOO folds with the existing prior examples, excluding the fold task from its own prior",
+      "completed": false,
+      "elapsed_seconds_before_interrupt": "about 60",
+      "process_observation": "CPU-bound Python process remained active; the script emitted no aggregate output before interruption.",
+      "completed_fold_count": "unknown; the script buffered results until all 10 folds finished",
+      "interpretation": "This did not establish that prior examples caused the delay or measure candidate accuracy."
+    }
+  ],
+  "controls": {
+    "analysis_hook": "temporary optional diagnostic parameter was reverted",
+    "product_code_changed": false,
+    "kaggle_upload_or_submission": false,
+    "hidden_or_evaluation_solutions_read": false,
+    "official_daily_quota_2026_10_23": "already used by ref 57560705"
+  },
+  "decision": {
+    "result": "defer_no_conclusion",
+    "reason": "The full-HDS candidate alternative LOO evaluation needs per-fold timeouts and progress output before it can be run safely and interpreted.",
+    "next_step": "Add an isolated analysis runner with incremental per-fold timing and hard timeouts; first profile the slow mechanism path, then evaluate a bounded representative set before considering full LOO."
+  }
+}
