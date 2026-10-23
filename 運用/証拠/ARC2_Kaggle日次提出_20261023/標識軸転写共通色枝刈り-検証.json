@@ -110,6 +110,7 @@
     "public_score": "0.00",
     "quota_for_utc_date": "used",
     "competition_submission_created_today": false,
-    "notebook_execution_version5": "pending"
+    "notebook_execution_version5": "COMPLETE; output byte-equal to local candidate",
+    "version5_submission_sha256": "78e59642d9a84457c1ad9a16b1b98c12de717a34d562438ae830a8903cd5b026"
   }
 }
