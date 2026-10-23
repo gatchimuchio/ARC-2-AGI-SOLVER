@@ -1,0 +1,81 @@
+{
+  "schema": "arc2-d4-support2-ablation-v1",
+  "observed_at_utc": "2026-10-23T16:15:38Z",
+  "candidate": {
+    "source": "接続/ARC2/格子D4教材.py",
+    "source_sha256": "a5d6a2eedb063a876b47cd5d2fdf28cec13af535d89b9fef65df41b81c5ccf18",
+    "current_support_minimum": 3,
+    "isolated_probe": "In-memory source copy changed only the minimum support constant from 3 to 2. No repository source was modified."
+  },
+  "data": {
+    "path": "入力/Kaggle/arc-agi_training_challenges.json",
+    "sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+    "tasks": 1000,
+    "support_2_distinct_input_loo_folds": 1725,
+    "support_3_or_more_loo_folds": 1191,
+    "eligibility": "The support-2 branch requires exactly two remaining teacher pairs with different input grids, matching the HDS adapter's two-example condition. Held-out output was used only for scoring."
+  },
+  "public_training_loo": {
+    "support_2": {
+      "current_gate_fit": 0,
+      "probe_fit": 19,
+      "emitted_predictions": 19,
+      "exact": 18,
+      "incorrect": 1,
+      "exceptions": 0
+    },
+    "support_3_or_more": {
+      "folds": 1191,
+      "current_fit": 16,
+      "probe_fit": 16,
+      "emitted_predictions": 13,
+      "exact": 13,
+      "incorrect": 0,
+      "current_probe_output_agreement": 1191,
+      "exceptions": 0
+    }
+  },
+  "current_hds_integration_probe": {
+    "method": "Temporarily patched the imported D4 class in memory to use support 2, then ran current 課題を解く with no prior-memory examples on the 19 candidate-positive folds.",
+    "existing_support_3_behavior": {"holds": 19, "answers": 0},
+    "support_2_d4_family_fit": 19,
+    "support_2_d4_family_equivalent": 19,
+    "answers_exact": 18,
+    "answers_incorrect": 1,
+    "holds": 0,
+    "exceptions": 0
+  },
+  "official_challenge_input_only": {
+    "evaluation": {
+      "tasks": 120,
+      "tests": 172,
+      "tasks_with_two_distinct_train_inputs": 34,
+      "current_fit_tasks": 0,
+      "probe_fit_tasks": 0,
+      "new_predictions": 0
+    },
+    "test": {
+      "tasks": 240,
+      "tests": 259,
+      "tasks_with_two_distinct_train_inputs": 45,
+      "current_fit_tasks": 0,
+      "probe_fit_tasks": 0,
+      "current_predictions": 2,
+      "probe_predictions": 2,
+      "new_predictions": 0,
+      "output_disagreements": 0
+    },
+    "solutions_read": false,
+    "correctness": "unknown"
+  },
+  "decision": {
+    "lower_support_in_production": false,
+    "production_source_changed": false,
+    "reason": "The support-2 D4 ablation had one incorrect answer in 19 LOO predictions, and the current HDS gate accepted that same incorrect case when patched. It produced no additional candidate on any official evaluation or test challenge input, so it has no measured submission gain."
+  },
+  "limits": [
+    "The 19 positive support-2 folds are a small subset and do not establish general accuracy for all two-example tasks.",
+    "The HDS integration check was targeted to those positive folds, not a complete LOO run of the solver.",
+    "No evaluation or official test solutions were read; official candidate correctness remains unknown."
+  ]
+}

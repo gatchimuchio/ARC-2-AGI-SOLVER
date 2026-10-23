@@ -1,0 +1,78 @@
+{
+  "schema": "arc2-safe-legacy-component-loo-support2-v1",
+  "observed_at_utc": "2026-10-23T16:11:18Z",
+  "supersedes_and_clarifies": {
+    "prior_evidence": "安全旧コンポーネントLOO-不採用.json",
+    "clarification": "The prior 1,191-fold result remains valid for support-3-or-more folds. This supplement adds the distinct-two-input support-2 folds permitted by the current HDS adapter; it does not change the palette candidate's support-3 evaluation denominator."
+  },
+  "data": {
+    "path": "入力/Kaggle/arc-agi_training_challenges.json",
+    "sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+    "task_count": 1000,
+    "eligible_folds": {
+      "support_2_distinct_inputs": 1725,
+      "support_3_or_more": 1191
+    },
+    "support_2_rule": "After holding out one pair, exactly two teacher pairs remained and their input grids differed, matching the current HDS adapter's two-example support branch."
+  },
+  "candidate_source": {
+    "path": "出力/Kaggle/arc2-perfect-solver-d594d535-recovered-20261023/output/arc2_embedded_solver/arc_agi_2_solver",
+    "factory": "arc2_l0_agent_compiler_v31_local_motif_reintegration.py",
+    "static_screen": "The three exposed modules contain no TARGET_TASK_ID symbol, public training task ID literal, long hex literal, or hash API mention.",
+    "components": {
+      "diagonal_implied_boundary_region_fill": {
+        "module": "arc2_l0_agent_compiler_v29_diagonal_region.py",
+        "sha256": "4ce08413627147e5374c28ac7cd4f87f4e5fd131d7980e70ae08873c8ac7a4ef"
+      },
+      "topology_aware_corridor_router": {
+        "module": "arc2_l0_agent_compiler_v30_corridor_router.py",
+        "sha256": "ab49dd2f7cb25fff51b89446550511ceb546bb924d533f606ac0f77eb09bfcae"
+      },
+      "local_motif_recolor_plus5": {
+        "module": "arc2_l0_agent_compiler_v31_local_motif_reintegration.py",
+        "sha256": "a4bf5186819c59b59ba82012c660814ded0bd226779b33c2c5418dc20f96ca98"
+      }
+    }
+  },
+  "loo_results": {
+    "diagonal_implied_boundary_region_fill": {
+      "support_2": {"folds": 1725, "fit_success": 0, "nonempty_predictions": 0, "exact": 0, "wrong_nonidentity": 0, "exceptions": 0},
+      "support_3_or_more": {"folds": 1191, "fit_success": 0, "nonempty_predictions": 0, "exact": 0, "wrong_nonidentity": 0, "exceptions": 0}
+    },
+    "topology_aware_corridor_router": {
+      "support_2": {"folds": 1725, "fit_success": 0, "nonempty_predictions": 0, "exact": 0, "wrong_nonidentity": 0, "exceptions": 0},
+      "support_3_or_more": {"folds": 1191, "fit_success": 0, "nonempty_predictions": 0, "exact": 0, "wrong_nonidentity": 0, "exceptions": 0}
+    },
+    "local_motif_recolor_plus5": {
+      "support_2": {"folds": 1725, "fit_success": 3, "nonempty_predictions": 3, "exact": 3, "wrong_nonidentity": 0, "exceptions": 0},
+      "support_3_or_more": {"folds": 1191, "fit_success": 0, "nonempty_predictions": 0, "exact": 0, "wrong_nonidentity": 0, "exceptions": 0}
+    }
+  },
+  "existing_hds_comparison": {
+    "path": "接続/ARC2/HDS接続.py::課題を解く with no prior-memory examples",
+    "selected_folds": "Only the three public-training LOO folds where the historical local motif component fit; selection used the generic component fit predicate, not task IDs.",
+    "minimum_support": 2,
+    "existing_family": "ARC十字形態着色",
+    "exact": 3,
+    "wrong": 0,
+    "hold": 0,
+    "exceptions": 0,
+    "interpretation": "The current HDS route already returns the exact output on all three folds where the recovered component applies; the historical component adds no measured LOO answer."
+  },
+  "official_challenge_input_only": {
+    "evaluation": {"tasks": 120, "tests": 172, "fitted_tasks": 1, "nonempty_candidates": 1},
+    "test": {"tasks": 240, "tests": 259, "fitted_tasks": 0, "nonempty_candidates": 0},
+    "solutions_read": false,
+    "correctness": "unknown"
+  },
+  "decision": {
+    "integrate_historical_component": false,
+    "production_code_changed": false,
+    "reason": "The only support-2 LOO coverage came from the plus-motif recolor family already implemented and accepted by current HDS. No incremental public-training answer or official test-challenge candidate was measured."
+  },
+  "limits": [
+    "Current HDS was compared only on the three folds selected by the historical component fit predicate, not across every eligible fold.",
+    "This does not measure the current HDS solver's full LOO accuracy or the hidden test score.",
+    "No evaluation or official test solutions were read."
+  ]
+}
