@@ -1,0 +1,118 @@
+{
+  "schema": "arc2-d4-palette-expansion-evidence-v1",
+  "generated_at_utc": "2026-10-23T13:48:00.043420+00:00",
+  "correction": {
+    "supersedes_metric_in": "D4-LOO比較.json",
+    "old_eligible_leave_one_out_examples": 2916,
+    "corrected_eligible_leave_one_out_examples": 1191,
+    "reason": "The prior denominator counted train examples from tasks with at least three examples; after holding one out, those tasks provide only two support examples. This candidate requires at least three remaining support examples, so only tasks with at least four train examples contribute.",
+    "current_measurement_task_id_conditioning": false,
+    "answer_lookup_or_solution_file_read": false,
+    "current_measurement_seeded_task_exclusions": 0,
+    "current_loo_uses_solver_prior_memory": false
+  },
+  "source_files": {
+    "training_challenges": {
+      "path": "入力/Kaggle/arc-agi_training_challenges.json",
+      "sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+      "tasks": 1000,
+      "train_examples": 3232
+    },
+    "evaluation_challenges": {
+      "path": "入力/Kaggle/arc-agi_evaluation_challenges.json",
+      "sha256": "e7c62a4bd211867c6b538f66b8013b81f299663c82ca062f49a52bf439d6e4e8",
+      "tasks": 120,
+      "tests": 172
+    },
+    "test_challenges": {
+      "path": "入力/Kaggle/arc-agi_test_challenges.json",
+      "sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+      "tasks": 240,
+      "tests": 259
+    },
+    "prior_evidence_sha256": "da207f469d07d756acebf598173f88f29e79b7aa81a4043d6241b00f2a71dac3"
+  },
+  "candidate_rule": {
+    "support_minimum": 3,
+    "fitting": "A single D4 transform and one consistent injective source-color to target-color mapping must fit every train pair.",
+    "query_guard": "Every query color must be covered by the fitted mapping and every remaining D4 model must return the same grid; otherwise HOLD.",
+    "task_id_or_hash_answer_branching": false
+  },
+  "same_condition_leave_one_out": {
+    "eligible_examples": 1191,
+    "control_exact_color_d4": {
+      "answered": 12,
+      "exact": 12,
+      "incorrect": 0
+    },
+    "expanded_d4_with_bijective_palette": {
+      "answered": 13,
+      "exact": 13,
+      "incorrect": 0
+    },
+    "paired_control_answers": 12,
+    "paired_outputs_agree": 12,
+    "paired_outputs_disagree": 0,
+    "new_answers": 1,
+    "new_exact": 1,
+    "new_incorrect": 0
+  },
+  "official_input_only_challenges": {
+    "evaluation": {
+      "tasks": 120,
+      "tests": 172,
+      "control_predictions": 0,
+      "expanded_predictions": 0
+    },
+    "test": {
+      "tasks": 240,
+      "tests": 259,
+      "control_predictions": 1,
+      "expanded_predictions": 2,
+      "new_predictions": 1,
+      "conflicts_with_control": 0,
+      "correctness": "unknown; no solution file was read"
+    }
+  },
+  "local_full_runner": {
+    "source_commit": "cf2de3f59b5352c3c5eef7f66572274bc4b9ec78+dirty",
+    "payload_sha256": "fb8049c72f2413bf98b2471dde5e8895ca0932f51dcacbedf477975d152316ac",
+    "notebook_sha256": "138a0e1b65b4743b588f8f45cbf58769a4ddb2ee80f909a3769913f257c08e87",
+    "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "tasks": 240,
+    "tests": 259,
+    "attempts_per_test": 2,
+    "sample_order_match": true,
+    "sample_test_counts_match": true,
+    "attempt_pairs_valid": true,
+    "runtime_seconds": 687.297,
+    "fallback_count": 256,
+    "fallback_reasons": {
+      "solver_hold": 256
+    },
+    "previous_candidate_fallback_count": 257,
+    "changed_test_outputs_vs_previous": 1,
+    "previous_nonfallback_outputs": 2,
+    "current_nonfallback_outputs": 3,
+    "submission_bytes": 1731133,
+    "submission_sha256": "78e59642d9a84457c1ad9a16b1b98c12de717a34d562438ae830a8903cd5b026",
+    "audit_sha256": "f12a8544b49098d7ebf1e2d5bcbcaa0e4382f8958e455de8220aa8a52e6e6951",
+    "upload_performed": false,
+    "competition_submission_performed": false
+  },
+  "verification": {
+    "pytest": "79 passed, 29 subtests passed",
+    "ruff": "passed",
+    "git_diff_check": "passed",
+    "palette_integration_through_hds_equality_gate": "passed",
+    "unseen_query_color": "holds",
+    "non_injective_mapping": "rejected"
+  },
+  "official_competition": {
+    "latest_submission_ref": 57560705,
+    "latest_public_score": "0.00",
+    "2026_10_23_daily_quota": "used",
+    "new_palette_score": "not submitted; unknown"
+  },
+  "status": "local candidate validated; clean Kaggle private Notebook run remains next; no official score claim"
+}

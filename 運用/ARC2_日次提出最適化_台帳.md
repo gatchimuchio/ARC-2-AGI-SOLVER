@@ -14,7 +14,7 @@
 | M2 Kaggle結合 | PASS（v2） | Kaggle Notebook `tecchannn/arc2-codex-main-baseline-v1` v2 は現行版、状態COMPLETE。Internet OFF/CPU、実行283.265秒。提出出力240課題・259 test、2候補/test、SHA-256 `a0eeaaa6203d4fdd049f8aa705a8ac7832cb98240759703eb0288ad3d62b4927`。 |
 | M3 公式提出 | PASS / 受理・採点完了 | Notebook v2の提出ref `57560705`。Kaggle履歴でstatus `COMPLETE`、public_score `0.00`、失敗詳細なしを確認。 |
 | M4 score・経路固定 | PASS | Notebook v2 → `submission.json`（SHA `a0ee…4927`）→ ref `57560705` → 公式public score `0.00`。版、出力、受理、採点状態を証跡に固定。 |
-| M5 日次反復 | 実行中 | 2026-10-23の公式枠は消費済み。基準版のfallback原因を分析し、汎用改善候補を同条件で検査する。 |
+| M5 日次反復 | 実行中 | 2026-10-23の公式枠はref `57560705` で消費済み。v3 private NotebookはCOMPLETEでローカル一致。色写像拡張はLOOとローカル全件runnerまでPASSし、clean commitからKaggle private Notebookで再検証する。 |
 | M6 最終凍結 | 未開始 | 大会受付終了の公式確認後に実施する。 |
 
 ### 提出候補の固定
@@ -25,6 +25,12 @@
 - Metadata SHA-256: `d7de070ae4379246d8e26eece0ffe656ad44ba30fdc853bdc0af0957bc8a3a04`
 - `submission.json`: 1,731,133 bytes、240課題、259 test、SHA-256 `a0eeaaa6203d4fdd049f8aa705a8ac7832cb98240759703eb0288ad3d62b4927`
 - 258 fallback件を含む。fallbackを正答・解決として数えない。
+
+### M5 private Notebook検証
+
+- v3はlocal commit `cf2de3f59b5352c3c5eef7f66572274bc4b9ec78` のclean bundleから作成。Notebook SHA `43b541530a04947618991814cab1c4ac64a03c1ef6f3a2866837757fa1aebde0`、metadata SHA `d7de070ae4379246d8e26eece0ffe656ad44ba30fdc853bdc0af0957bc8a3a04`。
+- Kaggle runはCOMPLETE、392.139秒。240課題/259 test、2候補/test。Kaggle出力はローカル出力と一致し、submission SHAは `fb34dfe3e1d6d982478be564a4aa4a51550335b8fd3ac8c8b4341beb104f1843`。これはNotebook実行であり大会提出ではない。検証記録は[KaggleNotebook-v3検証.json](証拠/ARC2_Kaggle日次提出_20261023/KaggleNotebook-v3検証.json)。
+- 公式履歴の最新大会提出は引き続きref `57560705`、COMPLETE、public score `0.00`。palette版の公式採点はない。今日の新規大会提出は行わない。
 
 ### 日次履歴
 
@@ -38,9 +44,10 @@
 - 公式v2出力監査: 258/259 testがfallback。内訳は `solver_hold` 257件（HDS状態 `断定保留`）と `AssemblyIncomplete` 1件。public score `0.00` はKaggleの表示値で、これから正答件数を推定しない。
 - HDS入力専用の代表hold再実行では `現行暫定原理の適用に必要な観測が不足している`。現時点で公開testに対するHDS確定回答は未成立。
 - `AssemblyIncomplete`は疎標点重畳候補の250,000探索上限超過が、他の独立候補機構までタスク単位で中断していた。候補モジュール内で隔離する修正候補を作成し、対象単体テスト1件PASS。公式test入力で再実行後もそのtestは `断定保留` のため、提出品質の改善はまだ実証されていない。変更は未採用・未push。
-- 公開trainingのleave-one-outで汎用D4候補を測定した。3件以上の異なる教師入力に対し、同じ回転/反射が全教師出力を色変更なしで完全再現し、test上で残る変換が一致する条件に限定。事前教材に含む元課題1件を除外した2,916例中、一意予測12件、完全一致12件、誤予測0件。
-- 同じ12例を既存HDSで比較するとD4候補無効時は0件回答、候補有効時は12件回答・12件完全一致。HDS同値ゲートを通した。公式 `arc-agi_test_challenges.json` の全件runnerは240課題/259 test、686.578秒、fallback 258→257、変更出力1 test。sample形式一致、submission SHA-256 `fb34dfe3e1d6d982478be564a4aa4a51550335b8fd3ac8c8b4341beb104f1843`。このtestの正誤は不明。評価記録は[比較JSON](証拠/ARC2_Kaggle日次提出_20261023/D4-LOO比較.json)。`evaluation_solutions.json` は読んでいない。
-- 実装は公開training leave-one-outで同条件増分を確認した候補としてローカルmainへ保存する。GitHubへはpushせず、Kaggle private Notebookで検証する。公式testの正誤と改善scoreは未確認。2026-10-23の提出枠はref `57560705` で使用済み。次回はclean commitからKaggle Notebookを実行し、日次上限と履歴を再確認してから次の公式提出を行う。
+- 公開trainingのLOO母数を再監査した。最低支持数3に対し、holdout後も3教師が残る適格例は1,191件。従来の2,916はtrain例3件のtaskも含めており、支持数条件を満たさない例まで分母に含めていた。訂正計算は公開trainingだけを使い、task ID条件やHDS事前記憶を予測に使わない。旧JSONは履歴として保持し、訂正証拠は[D4色写像拡張-訂正.json](証拠/ARC2_Kaggle日次提出_20261023/D4色写像拡張-訂正.json)へ記録する。色変更なしD4は12予測中12完全一致、誤り0。部分的一対一色写像を追加した候補は同じ1,191件上で13予測中13完全一致、誤り0。既存12回答は全て同一、新規回答は1件。
+- palette候補は、3教師以上で同じD4操作と一貫した単射色写像が適合し、照会に出る全色が既知写像に含まれ、残るD4出力が全て一致するときだけ回答する。未観測色、写像衝突、候補不一致はHOLD。HDS同値ゲート統合・保持を含むテスト79件と29 subtests、Ruff、`git diff --check`がPASS。
+- 公開evaluation challengeは120課題/172 testで候補なし。公式test challenge入力では旧候補1件からpalette拡張後2件へ増えた。全件runnerは240課題/259 test、687.297秒、v3比で変化test1件、fallback 257→256（全て`solver_hold`）、非fallback 2→3件。sampleのtask順序・test数・2候補が一致。提出JSON SHA-256 `78e59642d9a84457c1ad9a16b1b98c12de717a34d562438ae830a8903cd5b026`、監査SHA-256 `f12a8544b49098d7ebf1e2d5bcbcaa0e4382f8958e455de8220aa8a52e6e6951`。変更したtestの正誤は未知。正解ファイルは読んでいない。
+- palette版はローカル検査までで、Kaggle v4 Notebook検証はこれから。GitHubへはpushしない。公式test正誤・公式scoreは未確認。2026-10-23の大会提出枠はref `57560705` で使用済み。
 
 ## 日次記録の必須項目
 

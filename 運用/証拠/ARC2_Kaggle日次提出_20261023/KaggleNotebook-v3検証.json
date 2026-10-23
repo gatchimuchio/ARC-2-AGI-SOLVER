@@ -1,0 +1,32 @@
+{
+  "schema": "arc2-kaggle-notebook-validation-v1",
+  "observed_at_utc": "2026-10-23T13:49:23.468428+00:00",
+  "kernel": "tecchannn/arc2-codex-main-baseline-v1",
+  "version": 3,
+  "status": "COMPLETE",
+  "error_description_present": false,
+  "source_commit": "cf2de3f59b5352c3c5eef7f66572274bc4b9ec78",
+  "code_sha256": "43b541530a04947618991814cab1c4ac64a03c1ef6f3a2866837757fa1aebde0",
+  "metadata_sha256": "d7de070ae4379246d8e26eece0ffe656ad44ba30fdc853bdc0af0957bc8a3a04",
+  "run_record_sha256": "a69a8ba1c75b008e6950f2271a2bd5456ce4bd01f99dfed396ea274beb3135cb",
+  "created_at": "2026-10-23T13:16:14.166494+00:00",
+  "runtime_seconds": 392.139,
+  "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "tasks": 240,
+  "tests": 259,
+  "attempts_per_test": 2,
+  "fallback_count": 257,
+  "fallback_reasons": {
+    "solver_hold": 257
+  },
+  "submission_sha256": "fb34dfe3e1d6d982478be564a4aa4a51550335b8fd3ac8c8b4341beb104f1843",
+  "audit_sha256": "007ad9e63feaed7f1af6aee0b95eba30b1649992cbb53ff28ebf5137e09899e2",
+  "local_output_byte_equal": true,
+  "competition_submission_created": false,
+  "latest_official_submission": {
+    "ref": 57560705,
+    "status": "COMPLETE",
+    "public_score": "0.00"
+  },
+  "official_daily_quota_2026_10_23": "used"
+}
