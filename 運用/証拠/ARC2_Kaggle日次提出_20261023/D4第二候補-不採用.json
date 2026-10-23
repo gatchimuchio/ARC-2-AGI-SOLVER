@@ -1,0 +1,40 @@
+{
+  "schema": "arc2-d4-second-attempt-hypothesis-v1",
+  "generated_at_utc": "2026-10-23T14:03:34+00:00",
+  "hypothesis": {
+    "proposal": "Keep attempt_1 unchanged and use a distinct prediction from another D4 hypothesis as attempt_2 only when teacher-fitted D4 models disagree on the query.",
+    "scope": "D4 model family only; this does not evaluate alternative outputs from every HDS family.",
+    "baseline": "Current Kaggle adapter duplicates the selected answer or neutral input fallback across both attempts."
+  },
+  "training_leave_one_out": {
+    "source": "public arc-agi_training_challenges.json only",
+    "eligible_folds_with_minimum_support_3": 1191,
+    "d4_fitted_folds": 13,
+    "d4_unique_predictions": 13,
+    "d4_ambiguous_predictions": 0,
+    "d4_uncovered_queries": 0,
+    "unique_predictions_exact": 13,
+    "unique_predictions_incorrect": 0,
+    "distinct_second_candidates": 0,
+    "pair_accuracy_gain_over_duplicate_attempts": 0,
+    "interpretation": "The D4-only candidate generator produced no distinct second prediction in the applicable LOO folds. This is a proxy measurement, not full HDS cross-validation."
+  },
+  "official_test_challenge_input_only": {
+    "source": "arc-agi_test_challenges.json; solutions were not read",
+    "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "tasks": 240,
+    "tests": 259,
+    "queries_with_fitted_d4": 2,
+    "unique_predictions": 2,
+    "ambiguous_predictions": 0,
+    "distinct_alternative_predictions": 0,
+    "correctness": "unknown"
+  },
+  "decision": {
+    "result": "reject_without_implementation",
+    "reason": "No D4 disagreement or distinct alternate was observed in public-training LOO or official test challenge inputs; no measured LOO gain supports this D4-specific change.",
+    "source_changes": false,
+    "official_submission": false,
+    "daily_quota_2026_10_23": "already used by submission ref 57560705"
+  }
+}
