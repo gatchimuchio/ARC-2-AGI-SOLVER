@@ -112,23 +112,24 @@ def _prior_examples() -> tuple[list[dict[str, Any]], set[str]]:
     return examples, task_ids
 
 
-def _worker_line(payload: dict[str, Any], hds: ModuleType) -> dict[str, Any]:
+def _worker_line(payload: dict[str, Any], hds: ModuleType,
+                 include_diagnostics: bool = False) -> dict[str, Any]:
     task = payload["task"]
     expected = payload["expected"]
     query = task["test"][0]["input"]
     started = time.perf_counter()
     noise = io.StringIO()
     with redirect_stdout(noise):
-        result = hds.課題を解く(task, payload["prior"], 代替候補分析=True)
+        result_data = hds.課題を解く(task, payload["prior"], 代替候補分析=True)
     elapsed = time.perf_counter() - started
-    row = result["results"][0]
+    row = result_data["results"][0]
     answer = row.get("answer")
     primary = answer if answer is not None else query
     candidates = row.get("candidate_answers", [])
     if not isinstance(candidates, list):
         candidates = []
     second = next((candidate for candidate in candidates if candidate != primary), primary)
-    return {
+    result = {
         "state": "complete",
         "seconds": round(elapsed, 4),
         "solver_answer_present": answer is not None,
@@ -140,9 +141,15 @@ def _worker_line(payload: dict[str, Any], hds: ModuleType) -> dict[str, Any]:
         "pair_exact": primary == expected or second == expected,
         "status": row.get("status"),
     }
+    if include_diagnostics:
+        result["mechanism"] = result_data.get("mechanism")
+        result["family"] = row.get("family")
+        result["reasons"] = row.get("reasons", [])
+    return result
 
 
-def _worker(trace_path: Path | None, trace_interval: float) -> int:
+def _worker(trace_path: Path | None, trace_interval: float,
+            include_diagnostics: bool) -> int:
     trace_file = trace_path.open("wb") if trace_path is not None else None
     if trace_file is not None:
         faulthandler.dump_traceback_later(trace_interval, repeat=True, file=trace_file)
@@ -160,7 +167,7 @@ def _worker(trace_path: Path | None, trace_interval: float) -> int:
             continue
         try:
             payload = json.loads(line)
-            result = _worker_line(payload, hds)
+            result = _worker_line(payload, hds, include_diagnostics)
         except json.JSONDecodeError as error:
             result = {
                 "state": "worker_input_error",
@@ -178,12 +185,15 @@ def _worker(trace_path: Path | None, trace_interval: float) -> int:
 
 
 async def _run_worker(payload: dict[str, Any], timeout: float,
-                      trace_path: Path | None = None, trace_interval: float = 3.0):
+                      trace_path: Path | None = None, trace_interval: float = 3.0,
+                      include_diagnostics: bool = False):
     """Run a fresh process for each fold so no module state can leak across folds."""
     started = time.perf_counter()
     command = [sys.executable, str(Path(__file__).resolve()), "--worker"]
     if trace_path is not None:
         command.extend(["--trace-path", str(trace_path), "--trace-interval", str(trace_interval)])
+    if include_diagnostics:
+        command.append("--include-diagnostics")
     process = await asyncio.create_subprocess_exec(
         *command,
         cwd=ROOT, stdin=asyncio.subprocess.PIPE, stdout=asyncio.subprocess.PIPE,
@@ -270,6 +280,7 @@ async def _run(args: argparse.Namespace) -> int:
             "timeout_seconds_per_fold": args.timeout_seconds,
             "prior_task_leakage_guard": "omit seeded examples when the fold task is their source task",
             "task_id_available_to_solver": False,
+            "diagnostics_included": args.include_diagnostics,
             "analysis_filter_task_id": args.task_id,
             "analysis_filter_heldout_index": args.heldout_index,
         }
@@ -292,7 +303,7 @@ async def _run(args: argparse.Namespace) -> int:
                 trace_dir.mkdir(parents=True, exist_ok=True)
                 trace_path = trace_dir / f"fold-{fold_index}-{task_id}-{heldout_index}.txt"
             result = await _run_worker(payload, args.timeout_seconds, trace_path,
-                                       args.trace_interval)
+                                       args.trace_interval, args.include_diagnostics)
             if trace_path is not None and result.get("state") == "timeout":
                 result["trace_path"] = str(trace_path)
             state = result.get("state", "unknown")
@@ -332,6 +343,7 @@ async def _run(args: argparse.Namespace) -> int:
         "mean_solver_seconds": round(sum(seconds) / len(seconds), 4) if seconds else None,
         "max_solver_seconds": max(seconds) if seconds else None,
         "hidden_or_evaluation_solutions_read": False,
+        "diagnostics_included": args.include_diagnostics,
         "official_submission": False,
     }
     with summary_path.open("x", encoding="utf-8", newline="\n") as target:
@@ -358,13 +370,15 @@ def main() -> int:
                         help="write periodic Python stack traces for bounded diagnosis")
     parser.add_argument("--trace-interval", type=float, default=3.0,
                         help="seconds between diagnostic stack traces")
+    parser.add_argument("--include-diagnostics", action="store_true",
+                        help="include HDS mechanism/reason fields in each fold record")
     args = parser.parse_args()
     if args.trace_timeouts and os.name == "nt":
         parser.error("--trace-timeouts is disabled on Windows after worker access violations")
     if args.worker:
         if args.trace_interval <= 0:
             parser.error("trace-interval must be positive")
-        return _worker(args.trace_path, args.trace_interval)
+        return _worker(args.trace_path, args.trace_interval, args.include_diagnostics)
     if args.max_folds < 0 or args.timeout_seconds <= 0 or args.trace_interval <= 0:
         parser.error("max-folds must be >= 0; timeout-seconds and trace-interval must be positive")
     if args.heldout_index is not None and args.heldout_index < 0:

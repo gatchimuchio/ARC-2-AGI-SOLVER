@@ -30,7 +30,11 @@
     "incremental_pair_exact": 0,
     "distinct_second_candidate_folds": 0,
     "any_candidate_exact_upper_bound_on_initial_timeouts": 13,
-    "per_fold_timeout_seconds": 20
+    "per_fold_timeout_seconds": 20,
+    "solver_answer_present_folds": 13,
+    "solver_answer_exact": 13,
+    "identity_fallback_matches_counted_by_primary_exact": 8,
+    "candidate_count_total": 13
   },
   "timeout_reconciliation": {
     "retries": 13,
@@ -290,11 +294,282 @@
     "selected_second_exact": 0,
     "pair_exact": 21,
     "incremental_pair_exact": 0,
-    "distinct_second_candidate_folds": 0
+    "distinct_second_candidate_folds": 0,
+    "solver_answer_present_folds": 13,
+    "solver_answer_exact": 13,
+    "identity_fallback_matches_not_solver_success": 8,
+    "pair_exact_identity_fallback_contribution": 8,
+    "actual_solver_answer_exact_fraction": "13/13"
   },
-  "conclusion": "All 1,191 eligible folds are covered after retrying the 13 initial timeouts. No timeout retry produced a solver answer or any candidate. The evaluated second-candidate selector added zero exact answers; no production code change is justified.",
+  "conclusion": "All 1,191 eligible folds are covered after retrying the 13 initial timeouts. The original output-equivalence count of 21 includes 8 identity fallback matches; only 13 folds had actual solver answers, and all 13 were exact D4 predictions. No distinct second candidate or incremental pair exact occurred. No production code change is justified.",
   "limitations": [
     "This public-training LOO result does not establish official test accuracy or competition score.",
     "Candidate selection was evaluated only under the current HDS mechanisms and its individually teacher-validated candidate interface."
-  ]
+  ],
+  "counting_semantics": {
+    "primary_exact": "The runner compares answer when present; on HOLD it uses the query input as an identity fallback placeholder. Therefore primary_exact is output-equivalence, not solver-answer accuracy.",
+    "pair_exact": "The pair metric also includes the same identity fallback placeholder when no solver answer/candidate exists.",
+    "identity_fallback_matches_are_not_solver_success": true
+  },
+  "mechanism_recheck": {
+    "scope": "Re-ran only the 21 rows counted as primary_exact by the original LOO result; fold IDs are provenance selectors and are not passed to solver.",
+    "records_path": "出力/検証/ARC2-HDS-正答21fold-機構内訳-20261023T191457Z.jsonl",
+    "records_sha256": "3ea2ef0eef75b248d365295711df1cfeb9a810af9bb104a52f38ec3f0123a952",
+    "summary_path": "出力/検証/ARC2-HDS-正答21fold-機構内訳-20261023T191457Z.summary.json",
+    "summary_sha256": "96e843483dbc7fa40c8788bf20497f40279b9cf1056a43b90f39bb8168ad1531",
+    "selected_folds": 21,
+    "complete": 21,
+    "timeouts": 0,
+    "solver_answer_exact": 21,
+    "candidate_count_total": 13,
+    "families": {
+      "ARC格子D4変換": 13,
+      "<none>": 8
+    },
+    "actual_answer_family": "ARC格子D4変換",
+    "interpretation": "13 rows are actual exact solver answers from D4. The remaining 8 rows have no solver answer and match only because the diagnostic substitutes the input as an identity fallback.",
+    "per_fold_provenance_and_diagnostics": [
+      {
+        "task_id_provenance_only": "0d3d703e",
+        "heldout_index_provenance_only": 1,
+        "state": "complete",
+        "seconds": 0.2683,
+        "family": "ARC格子D4変換",
+        "candidate_count": 1,
+        "primary_exact": true,
+        "reasons": []
+      },
+      {
+        "task_id_provenance_only": "253bf280",
+        "heldout_index_provenance_only": 1,
+        "state": "complete",
+        "seconds": 1.4726,
+        "family": null,
+        "candidate_count": 0,
+        "primary_exact": true,
+        "reasons": [
+          "現行暫定原理の適用に必要な観測が不足している"
+        ]
+      },
+      {
+        "task_id_provenance_only": "253bf280",
+        "heldout_index_provenance_only": 5,
+        "state": "complete",
+        "seconds": 1.4031,
+        "family": null,
+        "candidate_count": 0,
+        "primary_exact": true,
+        "reasons": [
+          "現行暫定原理の適用に必要な観測が不足している"
+        ]
+      },
+      {
+        "task_id_provenance_only": "3c9b0459",
+        "heldout_index_provenance_only": 0,
+        "state": "complete",
+        "seconds": 0.3654,
+        "family": "ARC格子D4変換",
+        "candidate_count": 1,
+        "primary_exact": true,
+        "reasons": []
+      },
+      {
+        "task_id_provenance_only": "3c9b0459",
+        "heldout_index_provenance_only": 1,
+        "state": "complete",
+        "seconds": 0.3637,
+        "family": "ARC格子D4変換",
+        "candidate_count": 1,
+        "primary_exact": true,
+        "reasons": []
+      },
+      {
+        "task_id_provenance_only": "3c9b0459",
+        "heldout_index_provenance_only": 2,
+        "state": "complete",
+        "seconds": 0.3983,
+        "family": "ARC格子D4変換",
+        "candidate_count": 1,
+        "primary_exact": true,
+        "reasons": []
+      },
+      {
+        "task_id_provenance_only": "3c9b0459",
+        "heldout_index_provenance_only": 3,
+        "state": "complete",
+        "seconds": 0.4944,
+        "family": "ARC格子D4変換",
+        "candidate_count": 1,
+        "primary_exact": true,
+        "reasons": []
+      },
+      {
+        "task_id_provenance_only": "44d8ac46",
+        "heldout_index_provenance_only": 2,
+        "state": "complete",
+        "seconds": 0.8645,
+        "family": null,
+        "candidate_count": 0,
+        "primary_exact": true,
+        "reasons": [
+          "現行暫定原理の適用に必要な観測が不足している"
+        ]
+      },
+      {
+        "task_id_provenance_only": "5ad8a7c0",
+        "heldout_index_provenance_only": 1,
+        "state": "complete",
+        "seconds": 0.5047,
+        "family": null,
+        "candidate_count": 0,
+        "primary_exact": true,
+        "reasons": [
+          "現行暫定原理の適用に必要な観測が不足している"
+        ]
+      },
+      {
+        "task_id_provenance_only": "5ad8a7c0",
+        "heldout_index_provenance_only": 3,
+        "state": "complete",
+        "seconds": 0.5303,
+        "family": null,
+        "candidate_count": 0,
+        "primary_exact": true,
+        "reasons": [
+          "現行暫定原理の適用に必要な観測が不足している"
+        ]
+      },
+      {
+        "task_id_provenance_only": "74dd1130",
+        "heldout_index_provenance_only": 0,
+        "state": "complete",
+        "seconds": 0.3274,
+        "family": "ARC格子D4変換",
+        "candidate_count": 1,
+        "primary_exact": true,
+        "reasons": []
+      },
+      {
+        "task_id_provenance_only": "74dd1130",
+        "heldout_index_provenance_only": 1,
+        "state": "complete",
+        "seconds": 0.3944,
+        "family": "ARC格子D4変換",
+        "candidate_count": 1,
+        "primary_exact": true,
+        "reasons": []
+      },
+      {
+        "task_id_provenance_only": "74dd1130",
+        "heldout_index_provenance_only": 2,
+        "state": "complete",
+        "seconds": 0.3407,
+        "family": "ARC格子D4変換",
+        "candidate_count": 1,
+        "primary_exact": true,
+        "reasons": []
+      },
+      {
+        "task_id_provenance_only": "74dd1130",
+        "heldout_index_provenance_only": 3,
+        "state": "complete",
+        "seconds": 0.3501,
+        "family": "ARC格子D4変換",
+        "candidate_count": 1,
+        "primary_exact": true,
+        "reasons": []
+      },
+      {
+        "task_id_provenance_only": "d4b1c2b1",
+        "heldout_index_provenance_only": 1,
+        "state": "complete",
+        "seconds": 0.2406,
+        "family": null,
+        "candidate_count": 0,
+        "primary_exact": true,
+        "reasons": [
+          "現行暫定原理の適用に必要な観測が不足している"
+        ]
+      },
+      {
+        "task_id_provenance_only": "d4b1c2b1",
+        "heldout_index_provenance_only": 2,
+        "state": "complete",
+        "seconds": 0.2414,
+        "family": null,
+        "candidate_count": 0,
+        "primary_exact": true,
+        "reasons": [
+          "現行暫定原理の適用に必要な観測が不足している"
+        ]
+      },
+      {
+        "task_id_provenance_only": "d931c21c",
+        "heldout_index_provenance_only": 1,
+        "state": "complete",
+        "seconds": 0.7808,
+        "family": null,
+        "candidate_count": 0,
+        "primary_exact": true,
+        "reasons": [
+          "現行暫定原理の適用に必要な観測が不足している"
+        ]
+      },
+      {
+        "task_id_provenance_only": "ed36ccf7",
+        "heldout_index_provenance_only": 0,
+        "state": "complete",
+        "seconds": 1.6458,
+        "family": "ARC格子D4変換",
+        "candidate_count": 1,
+        "primary_exact": true,
+        "reasons": []
+      },
+      {
+        "task_id_provenance_only": "ed36ccf7",
+        "heldout_index_provenance_only": 1,
+        "state": "complete",
+        "seconds": 1.695,
+        "family": "ARC格子D4変換",
+        "candidate_count": 1,
+        "primary_exact": true,
+        "reasons": []
+      },
+      {
+        "task_id_provenance_only": "ed36ccf7",
+        "heldout_index_provenance_only": 2,
+        "state": "complete",
+        "seconds": 1.724,
+        "family": "ARC格子D4変換",
+        "candidate_count": 1,
+        "primary_exact": true,
+        "reasons": []
+      },
+      {
+        "task_id_provenance_only": "ed36ccf7",
+        "heldout_index_provenance_only": 3,
+        "state": "complete",
+        "seconds": 1.623,
+        "family": "ARC格子D4変換",
+        "candidate_count": 1,
+        "primary_exact": true,
+        "reasons": []
+      }
+    ]
+  },
+  "reason_sample": {
+    "scope": "Deterministic prefix sample: heldout index 0 from the first 15 eligible task IDs in sorted public-training order. Nonrepresentative; used only to inspect HOLD categories.",
+    "records_path": "出力/検証/ARC2-HDS-理由標本-15tasks-20261023.jsonl",
+    "records_sha256": "d3d0b7abb9b82faee8990470a7fef5a9b7f736ae640fb3b4e57d40e027325123",
+    "requested_folds": 15,
+    "complete": 13,
+    "timeouts_at_8_seconds": 2,
+    "reason_counts_among_complete": {
+      "現行暫定原理の適用に必要な観測が不足している": 12,
+      "採用済み機構ARC格子D4変換のtest候補が未確定": 1
+    },
+    "hidden_or_evaluation_solutions_read": false,
+    "official_submission": false
+  },
+  "diagnostic_runner_updated_sha256": "a711649278521448017a819c3590449f7ad1c5be2850b6178b893b5afb78926c"
 }
