@@ -22,6 +22,7 @@ from .対角線橋教材 import 対角線橋教材
 from .対角領域教材 import 対角領域教材
 from .軸反射教材 import 軸反射教材
 from .周期組修復教材 import 周期組修復教材
+from .格子D4教材 import 格子D4教材
 from .部分見本教材 import 部分見本教材
 from .穴形拡大教材 import 穴形拡大教材
 from .標識移動教材 import 標識移動教材
@@ -240,6 +241,7 @@ def 課題を解く(課題, 事前教材):
     橋教材 = 対角線橋教材(課題["train"])
     対角教材 = 対角領域教材(課題["train"])
     反射教材 = 軸反射教材(課題["train"])
+    格子D4 = 格子D4教材(課題["train"])
     周期教材 = 周期組修復教材(課題["train"])
     見本教材 = 部分見本教材(課題["train"])
     拡大教材 = 穴形拡大教材(課題["train"])
@@ -349,6 +351,7 @@ def 課題を解く(課題, 事前教材):
         ("ARC対角線橋", 橋教材.候補, ()),
         ("ARC対角領域", 対角教材.候補, ()),
         ("ARC軸反射", 反射教材.候補, ()),
+        ("ARC格子D4変換", 格子D4.候補, ()),
         ("ARC周期組修復", 周期教材.候補, ()),
         ("ARC部分見本転写", 見本教材.候補, ()),
         ("ARC穴形拡大", 拡大教材.候補, ()),
@@ -496,6 +499,7 @@ def 課題を解く(課題, 事前教材):
             "finite_exception_rays": 有限例外光線.記録(),
             "counted_color_layers": 計数色層旋回.記録(),
             "minimum_support": 必要支持数, "families": 記録群,
+            "d4_transform": 格子D4.記録(),
             "quarantined": 隔離数, "object_learning": 端教材.記録(), "legend_learning": 凡例教材.記録(), "grouped_packing": 色群教材.記録(), "group_order": 整列教材.記録(), "lattice_self_mask": 格子教材.記録(), "component_path": 経路教材.記録(), "diagonal_bridge": 橋教材.記録(), "diagonal_region": 対角教材.記録(), "axis_reflection": 反射教材.記録(), "tuple_repair": 周期教材.記録(), "panel_exemplar": 見本教材.記録(), "hole_scale": 拡大教材.記録(), "guided_compaction": 移動教材.記録(), "radial_assembly": 放射教材.記録(), "hole_outline": 輪郭教材.記録(), "template_shape_color": 形状教材.記録(), "legend_gap": 凡例経路.記録(), "separator_run": 行周期.記録(), "overlap_mosaic": 重畳教材.記録(), "farthest_blank": 空白教材.記録(), "header_rank": 順位教材.記録(), "separator_layer": 距離教材.記録(), "vertical_pruning": 剪定教材.記録(), "periodic_panel": 反復教材.記録(), "seeded_boundary": 種境界.記録(), "corridor": 流路.記録(), "panel_path": 直列.記録(), "plus_motif": 十字.記録(), "frame_count": 枠計数.記録(), "marker_count": 標識計数.記録(), "marker_assembly": 標識組立.記録(), "motif_swap": 倍率置換.記録(), "nested_inventory": 包含正規化.記録(), "periodic_band": 周期帯.記録(), "square_palette": 中心配色.記録(), "square_anchor": 正方形格子.記録(), "repeated_side": 側周期.記録(), "separator_projection": 区切投射.記録(), "object_slot": 物体slot.記録(), "sparse_point": 疎点転写.記録(), "stripe_ring": 帯輪郭.記録(), "control_bar": 制御複写.記録(), "layout_macro": 配置展開.記録(), "anchored_motif": 基点複製.記録(), "chiral_payload": 接触配置.記録(), "legend_macro": 凡例展開.記録(), "framed_lanes": 枠列整列.記録(), "legend_turn": 凡例旋回.記録(), "band_glyph": 帯図形.記録(), "binary_completion": 二値原型.記録(), "quadrant_palette": 象限配色.記録(), "palette_subset": 凡例集合.記録(), "zero_reflection": 二軸補完.記録(), "four_field_repeat": 四欄反復.記録(), "edge_axis_projection": 軸投射.記録(), "glyph_instruction": 記号命令.記録(), "comb_pin": 櫛配置.記録(), "open_wall": 開口壁.記録(), "partition_faces": 区画計数.記録(), "bbox_legend": 凡例矩形.記録(), "cross_arm": 十字曲線.記録(), "support_contact": 支持構造.記録(), "marked_piece": 標点組立.記録(), "distance_collection": 距離回収.記録(), "border_stack": 枠端積層.記録(), "labeled_axis_transfer": 標識軸転写.記録(), "example_grid_classification": 見本格子分類.記録(), "colored_ray_reflection": 色線反射.記録(), "boundary_point_period": 境界点周期.記録(), "bounded_glyph_window": 有限字形視野.記録(), "band_profile_stack": 帯profile積層.記録(), "counted_bar_detour": 計数棒迂回.記録(), "boundary_color_path": 境界色経路.記録(), "full_footprint_chart": 全足跡整列.記録(), "arrow_pulses": 矢印到達.記録(), "marker_channel": 標識水路.記録(), "corner_patch_transfer": 隅模様転写.記録(), "congruent_object_ports": 合同物体出口.記録(), "whole_mask_view": 全体模様窓.記録(), "body_port_rays": 全体接触.記録()}
 
 

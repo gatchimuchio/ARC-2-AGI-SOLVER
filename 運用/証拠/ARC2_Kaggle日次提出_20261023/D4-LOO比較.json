@@ -1,0 +1,106 @@
+{
+  "基準日": "2026-10-23",
+  "適用正本": "ARC2-DAILY-OPTIMIZATION-20261023 / v1.1",
+  "公開training": {
+    "source": "入力/Kaggle/arc-agi_training_challenges.json",
+    "sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+    "eligible_leave_one_out_examples": 2916,
+    "excluded_seeded_prior_tasks": 1,
+    "candidate_rule": "3件以上の異なる教師入力に対して同一のD4回転/反射が各出力を色変更なしで完全再現し、残る変換候補が照会格子上で同じ出力を返す",
+    "unique_predictions": 12,
+    "exact": 12,
+    "incorrect": 0
+  },
+  "同条件HDS比較": {
+    "paired_examples": 12,
+    "control": "同一checkout・同一事前教材・同一train/testでD4候補familyのみ無効",
+    "baseline": {
+      "answered": 0,
+      "exact": 0,
+      "incorrect": 0
+    },
+    "current": {
+      "answered": 12,
+      "exact": 12,
+      "incorrect": 0
+    },
+    "delta": {
+      "newly_answered": 12,
+      "new_exact": 12,
+      "new_incorrect": 0
+    }
+  },
+  "公式challenge入力のみ": {
+    "arc-agi_evaluation_challenges.json": {
+      "tasks": 120,
+      "tests": 172,
+      "fit_tasks": 0,
+      "unique_predictions": 0
+    },
+    "arc-agi_test_challenges.json": {
+      "source_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+      "tasks": 240,
+      "tests": 259,
+      "fit_tasks": 1,
+      "unique_predictions": 1,
+      "paired_baseline_answered": 0,
+      "paired_current_answered": 1,
+      "prediction_correctness": "unknown; no solution file was read",
+      "full_runner": {
+        "runtime_seconds": 686.578,
+        "sample_task_order_match": true,
+        "task_test_counts_match": true,
+        "attempts_per_test": 2,
+        "baseline_submission_sha256": "a0eeaaa6203d4fdd049f8aa705a8ac7832cb98240759703eb0288ad3d62b4927",
+        "baseline_fallback_count": 258,
+        "baseline_fallback_reasons": {
+          "solver_hold": 257,
+          "AssemblyIncomplete": 1
+        },
+        "current_fallback_count": 257,
+        "current_fallback_reasons": {
+          "solver_hold": 257
+        },
+        "fallbacks_resolved": 1,
+        "newly_fallback": 0,
+        "changed_test_outputs": 1,
+        "submission_bytes": 1731133,
+        "submission_sha256": "fb34dfe3e1d6d982478be564a4aa4a51550335b8fd3ac8c8b4341beb104f1843",
+        "submission_audit_sha256": "ce0e6bf6c6d81b9b10096309a856606a8d412e4314d37f624628fb50a52b88c9",
+        "local_submission_path": "出力/Kaggle/arc2-d4-candidate-20261023/submission.json",
+        "source_commit": "unknown"
+      }
+    }
+  },
+  "source_sha256": {
+    "接続/ARC2/格子D4教材.py": "ff85639ea8092086687dec59316c20e33a7de14b0d11f3aed671a7def9015285",
+    "接続/ARC2/HDS接続.py": "eb8c98ac8aa759653c7acab1c2439188609d755d1dfee9afee2d16ad1a3fd13e",
+    "接続/ARC2/テンプレート充填教材.json": "8f5f24571f0457c44af68b57b9aebbcf4dabbb9164f24942108e1b98f635f112"
+  },
+  "local_bundle_check": {
+    "source_commit": "6a6bd43cbf4ec80f7b2ffd50e5c0a3a97655d8b6+dirty",
+    "payload_sha256": "eac0ded86223da84369b184a2f81a7de97d7fa225aa26ef785507d43d13ea9e3",
+    "notebook_sha256": "d89f4315b9eb94ff4da0c3e771d0aaf24f6651f1cc574f53be720480f1ab2e93",
+    "d4_module_in_payload": true,
+    "evaluation_and_solution_files_excluded": true,
+    "notebook_json_valid": true,
+    "upload_folder_files": [
+      "main.ipynb",
+      "kernel-metadata.json"
+    ],
+    "bundled_worker_synthetic_rotation": "passed with expected transformed grid",
+    "kaggle_upload": "not performed; dirty build is local inspection only"
+  },
+  "verification": {
+    "pytest": "77 passed, 29 subtests passed",
+    "ruff": "All checks passed",
+    "git_diff_check": "passed"
+  },
+  "official_submission": {
+    "latest_ref": 57560705,
+    "latest_official_score": "0.00",
+    "daily_quota_2026_10_23": "used",
+    "new_candidate_score": "not submitted; unknown"
+  },
+  "status": "local main candidate for private Kaggle validation; not pushed; official test correctness and score are unknown; evaluation solutions and hidden answers were not read"
+}

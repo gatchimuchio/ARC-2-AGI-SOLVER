@@ -45,7 +45,7 @@ def extend_overlap_family(original_type, original_render):
             super().__init__(教師群)
             if self.全教師再現:
                 return
-            from .疎標点重畳候補 import valid_grid, fit_teachers
+            from .疎標点重畳候補 import AssemblyIncomplete, valid_grid, fit_teachers
             if (not isinstance(教師群, (list, tuple)) or not 教師群
                     or any(not isinstance(pair, dict) or not valid_grid(pair.get('input'))
                            or not valid_grid(pair.get('output')) for pair in 教師群)
@@ -59,7 +59,16 @@ def extend_overlap_family(original_type, original_render):
             if not any(output is None and record.get('failure') in _CROP_CONFLICT
                        for output, record in original_returns):
                 return
-            policies, _ = fit_teachers(教師群)
+            try:
+                policies, _ = fit_teachers(教師群)
+            except AssemblyIncomplete:
+                # This bounded candidate search is optional. Preserve the
+                # legacy no-fit result and let independent HDS mechanisms run.
+                self.sparse_marker_overlap_diagnostic = {
+                    'failure': 'assembly_search_incomplete',
+                    'exception_type': 'AssemblyIncomplete',
+                }
+                return
             if policies:
                 self.疎標点規則 = policies
 
@@ -71,6 +80,9 @@ def extend_overlap_family(original_type, original_render):
 
         def 記録(self):
             original = super().記録()
+            if hasattr(self, 'sparse_marker_overlap_diagnostic'):
+                return {**original,
+                        'sparse_marker_overlap': self.sparse_marker_overlap_diagnostic}
             if self.全教師再現 or not hasattr(self, '疎標点規則'):
                 return original
             return {**original, 'sparse_marker_overlap': {'policies': self.疎標点規則}}
