@@ -43,5 +43,19 @@
   "prior_v4_runtime_seconds": 234.124,
   "remote_runtime_delta_seconds": 125.208,
   "remote_runtime_delta_percent": 53.48,
-  "remote_runtime_interpretation": "Single-run wall time was higher than v4; remote runtime improvement is not established. Output parity passed; local same-condition measurements show the optimization."
+  "remote_runtime_interpretation": "Single-run wall time was higher than v4; remote runtime improvement is not established. Output parity passed; local same-condition measurements show the optimization.",
+  "live_recheck_2026_10_23": {
+    "observed_at_utc": "2026-10-23T19:30:25+00:00",
+    "kernel": "tecchannn/arc2-codex-main-baseline-v1",
+    "current_version": 5,
+    "status": "COMPLETE",
+    "error_description_present": false,
+    "downloaded_submission_sha256": "78e59642d9a84457c1ad9a16b1b98c12de717a34d562438ae830a8903cd5b026",
+    "previously_retrieved_sha256": "78e59642d9a84457c1ad9a16b1b98c12de717a34d562438ae830a8903cd5b026",
+    "byte_equal": true,
+    "tasks": 240,
+    "tests": 259,
+    "competition_submission_created": false,
+    "note": "Read-only status/output recheck; the daily competition submission quota remains consumed by ref 57560705 as last observed at 19:19 UTC."
+  }
 }
