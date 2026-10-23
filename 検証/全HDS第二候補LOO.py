@@ -228,12 +228,12 @@ async def _run_worker(payload: dict[str, Any], timeout: float,
 
 
 def _folds(tasks: dict[str, Any], task_id_filter: str | None = None,
-           heldout_filter: int | None = None):
+           heldout_filter: int | None = None, minimum_support: int = 3):
     for task_id in sorted(tasks):
         if task_id_filter is not None and task_id != task_id_filter:
             continue
         train = tasks[task_id].get("train", [])
-        if len(train) < 4:
+        if len(train) < minimum_support + 1:
             continue
         for heldout_index, heldout in enumerate(train):
             if heldout_filter is not None and heldout_index != heldout_filter:
@@ -250,13 +250,13 @@ async def _run(args: argparse.Namespace) -> int:
     prior, prior_task_ids = _prior_examples()
     eligible = sum(
         len(task.get("train", [])) for task_id, task in tasks.items()
-        if len(task.get("train", [])) >= 4
+        if len(task.get("train", [])) >= args.minimum_support + 1
         and (args.task_id is None or task_id == args.task_id)
     )
     if args.heldout_index is not None:
         eligible = sum(
             1 for task_id, task in tasks.items()
-            if len(task.get("train", [])) >= 4
+            if len(task.get("train", [])) >= args.minimum_support + 1
             and args.heldout_index < len(task["train"])
             and (args.task_id is None or task_id == args.task_id)
         )
@@ -276,7 +276,7 @@ async def _run(args: argparse.Namespace) -> int:
             "training_tasks": len(tasks),
             "eligible_folds": eligible,
             "requested_folds": limit,
-            "minimum_support": 3,
+            "minimum_support": args.minimum_support,
             "timeout_seconds_per_fold": args.timeout_seconds,
             "prior_task_leakage_guard": "omit seeded examples when the fold task is their source task",
             "task_id_available_to_solver": False,
@@ -287,7 +287,7 @@ async def _run(args: argparse.Namespace) -> int:
         records.write(json.dumps(header, ensure_ascii=False) + "\n")
         records.flush()
         for task_id, heldout_index, support, heldout in _folds(
-            tasks, args.task_id, args.heldout_index
+            tasks, args.task_id, args.heldout_index, args.minimum_support
         ):
             if fold_index >= limit:
                 break
@@ -335,6 +335,15 @@ async def _run(args: argparse.Namespace) -> int:
         "states": counts,
         "completed_folds": sum(item.get("state") == "complete" for item in complete),
         "primary_exact": sum(bool(item.get("primary_exact")) for item in complete),
+        "solver_answer_folds": sum(bool(item.get("solver_answer_present")) for item in complete),
+        "solver_answer_exact": sum(
+            bool(item.get("solver_answer_present")) and bool(item.get("primary_exact"))
+            for item in complete
+        ),
+        "identity_fallback_matches": sum(
+            not bool(item.get("solver_answer_present")) and bool(item.get("primary_exact"))
+            for item in complete
+        ),
         "selected_second_exact": sum(bool(item.get("second_exact")) and bool(item.get("distinct_second_candidate")) for item in complete),
         "pair_exact": sum(bool(item.get("pair_exact")) for item in complete),
         "incremental_pair_exact": sum(bool(item.get("pair_exact")) and not bool(item.get("primary_exact")) for item in complete),
@@ -359,6 +368,8 @@ def main() -> int:
     parser.add_argument("--trace-path", type=Path, help=argparse.SUPPRESS)
     parser.add_argument("--max-folds", type=int, default=10,
                         help="maximum deterministic folds; 0 processes all eligible folds")
+    parser.add_argument("--minimum-support", type=int, default=3,
+                        help="minimum examples remaining after holdout; default 3")
     parser.add_argument("--timeout-seconds", type=float, default=20.0,
                         help="hard per-fold worker timeout")
     parser.add_argument("--output", type=Path,
@@ -379,8 +390,9 @@ def main() -> int:
         if args.trace_interval <= 0:
             parser.error("trace-interval must be positive")
         return _worker(args.trace_path, args.trace_interval, args.include_diagnostics)
-    if args.max_folds < 0 or args.timeout_seconds <= 0 or args.trace_interval <= 0:
-        parser.error("max-folds must be >= 0; timeout-seconds and trace-interval must be positive")
+    if (args.max_folds < 0 or args.minimum_support < 1 or args.timeout_seconds <= 0
+            or args.trace_interval <= 0):
+        parser.error("max-folds must be >= 0, minimum-support >= 1, and timeouts positive")
     if args.heldout_index is not None and args.heldout_index < 0:
         parser.error("heldout-index must be >= 0")
     return asyncio.run(_run(args))
