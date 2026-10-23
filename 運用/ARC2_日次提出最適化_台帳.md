@@ -14,7 +14,7 @@
 | M2 Kaggle結合 | PASS（v2） | Kaggle Notebook `tecchannn/arc2-codex-main-baseline-v1` v2 は現行版、状態COMPLETE。Internet OFF/CPU、実行283.265秒。提出出力240課題・259 test、2候補/test、SHA-256 `a0eeaaa6203d4fdd049f8aa705a8ac7832cb98240759703eb0288ad3d62b4927`。 |
 | M3 公式提出 | PASS / 受理・採点完了 | Notebook v2の提出ref `57560705`。Kaggle履歴でstatus `COMPLETE`、public_score `0.00`、失敗詳細なしを確認。 |
 | M4 score・経路固定 | PASS | Notebook v2 → `submission.json`（SHA `a0ee…4927`）→ ref `57560705` → 公式public score `0.00`。版、出力、受理、採点状態を証跡に固定。 |
-| M5 日次反復 | 実行中 | 2026-10-23の公式枠はref `57560705` で消費済み。palette拡張はLOO・ローカル全件runner・clean Kaggle Notebook v4の出力一致までPASS。公式採点は未実施。 |
+| M5 日次反復 | 実行中 | 2026-10-23 UTCの公式枠はref `57560705` で消費済み。palette拡張はLOO・ローカル全件runner・clean Kaggle Notebook v4の出力一致までPASS。parse cacheは全件A/Bで遅延し不採用。HDS第二候補は限定23-fold/5-task LOOで増分0、全体には一般化しない。公式採点は未実施。 |
 | M6 最終凍結 | 未開始 | 大会受付終了の公式確認後に実施する。 |
 
 ### 提出候補の固定
@@ -50,7 +50,7 @@
 - 公開evaluation challengeは120課題/172 testで候補なし。公式test challenge入力では旧候補1件からpalette拡張後2件へ増えた。全件runnerは240課題/259 test、687.297秒、v3比で変化test1件、fallback 257→256（全て`solver_hold`）、非fallback 2→3件。sampleのtask順序・test数・2候補が一致。提出JSON SHA-256 `78e59642d9a84457c1ad9a16b1b98c12de717a34d562438ae830a8903cd5b026`、監査SHA-256 `f12a8544b49098d7ebf1e2d5bcbcaa0e4382f8958e455de8220aa8a52e6e6951`。変更したtestの正誤は未知。正解ファイルは読んでいない。
 - palette版はclean Kaggle v4 Notebook検証までCOMPLETEで、ローカル提出JSONと完全一致した。ローカルmainの`e26e9bb`までにコード・回帰・証跡をコミット済み。GitHubへはpushしていない。公式test正誤・palette版の公式scoreは未確認。2026-10-23の大会提出枠はref `57560705` で使用済み。次回は最新正本・公式ルール・履歴と日次枠を再確認してから公式提出する。
 - 第2候補の改善仮説として、attempt_1を維持し、教師適合したD4モデルがtestで不一致の場合にだけ別D4予測をattempt_2へ出す案を測定した。公開training LOOの最低支持数3の適格fold 1,191件中、現行D4モデルが適用できた13件は全て一意・完全一致で、異なる第2候補は0件。公式test challenge入力でもD4候補がある2件は両方一意で、不一致は0件（正解は未観測）。D4限定の案はLOO改善根拠がないため実装しない。全HDS機構の代替候補選択を評価した結果ではない。証跡は[D4第二候補-不採用.json](証拠/ARC2_Kaggle日次提出_20261023/D4第二候補-不採用.json)。
-- 全HDS機構からの第2候補抽出を測る予備試行は、単一fold（事前教材なし）0.39秒・完全採用機構0件まで確認したが、10-fold試行は約60秒CPUを使い続け、集計を返す前に中断した。完了fold数も不明で、原因や精度の結論はない。診断用コードは元に戻した。次はfoldごとの時間・進捗出力とhard timeoutを持つ隔離runnerを用意し、遅い機構経路を特定してから小規模評価する。証跡は[全HDS第二候補-試行中断.json](証拠/ARC2_Kaggle日次提出_20261023/全HDS第二候補-試行中断.json)。
+- 全HDS第2候補の隔離LOO runnerで公開trainingの限定sample 23 fold/5 taskを調べ、solver answer・候補・pair正答はいずれも0だった（全1,191 eligible foldに一般化しない）。task `009d5c81` 5 foldのparse cache比較では平均fit時間21.80902秒から12.66006秒へ41.95%短縮した一方、候補は増えなかった。同一公式test challengeの240課題/259 test全件A/Bはbaseline 730.328秒、cache候補756.703秒（3.61%遅延）で、提出JSON SHAとfallback記録は完全一致。cacheは採用せず、製品wrapperはHEADへ復元した。trace有効試行はWindows worker access violationのため除外し、runnerを修正してtraceなし10 foldが10/10 clean completeすることを確認。詳細hash・文字コード混入runの除外理由は[全HDS第二候補-parse-cache比較.json](証拠/ARC2_Kaggle日次提出_20261023/全HDS第二候補-parse-cache比較.json)。以前の未完了試行は履歴として[全HDS第二候補-試行中断.json](証拠/ARC2_Kaggle日次提出_20261023/全HDS第二候補-試行中断.json)へ残す。
 
 ## 日次記録の必須項目
 

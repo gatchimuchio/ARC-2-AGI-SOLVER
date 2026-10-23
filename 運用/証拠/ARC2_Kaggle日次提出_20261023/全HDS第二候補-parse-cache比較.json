@@ -1,0 +1,101 @@
+{
+  "schema": "arc2-daily-optimization-corner-cache-audit-v1",
+  "kaggle_day_utc": "2026-10-23",
+  "decision": "reject_parse_cache_for_product_runtime",
+  "scope": "全HDS第二候補のLOO診断、および有限字形視野のlabel-corner parse cache候補を公開データで評価。hidden/evaluation解答は読んでいない。Kaggleへのupload・official submissionは行っていない。",
+  "full_test_ab": {
+    "challenge_file": "arc-agi_test_challenges.json",
+    "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "tasks": 240,
+    "test_examples": 259,
+    "attempts_per_test": 2,
+    "baseline": {
+      "source_commit": "d0f89e17c6fe2f2f56b90bca8ef9d87f94d138f0",
+      "wrapper_git_blob": "2e44676275a93455b2717b500f968f900911a666",
+      "audit_path": "出力/検証/Kaggle-baseline-control-20261023T1502/submission_audit.json",
+      "submission_path": "出力/検証/Kaggle-baseline-control-20261023T1502/submission.json",
+      "seconds": 730.328,
+      "fallback_count": 256,
+      "fallback_reason_counts": {"solver_hold": 256},
+      "submission_sha256": "78e59642d9a84457c1ad9a16b1b98c12de717a34d562438ae830a8903cd5b026",
+      "audit_sha256": "0e195ddf58884669fb7dd3e8e2ea29957d0798a66a7b71183cd103513ba36cc3"
+    },
+    "candidate": {
+      "source_commit_label": "d0f89e1+corner-cache-working-tree",
+      "wrapper_sha256": "9e0d0dfdf9b91fa66e491441c07748c80c0c505b8d564ba2b85584647ec155a6",
+      "audit_path": "出力/検証/Kaggle-optimized-20261023T1430/submission_audit.json",
+      "submission_path": "出力/検証/Kaggle-optimized-20261023T1430/submission.json",
+      "seconds": 756.703,
+      "fallback_count": 256,
+      "fallback_reason_counts": {"solver_hold": 256},
+      "submission_sha256": "78e59642d9a84457c1ad9a16b1b98c12de717a34d562438ae830a8903cd5b026",
+      "audit_sha256": "59a3ff56c83ff29755b5ca4f99f69487a03ba961b0eede86544140eae81815c5"
+    },
+    "comparison": {
+      "submission_bytes_equal": true,
+      "fallback_records_equal": true,
+      "seconds_delta_candidate_minus_baseline": 26.375,
+      "relative_runtime_delta_percent": 3.61,
+      "interpretation": "候補は全件で3.61%遅く、予測出力・fallbackは変わらない。製品runtimeへ採用しない。"
+    }
+  },
+  "selected_training_loo": {
+    "training_sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+    "training_tasks": 1000,
+    "analysis_filter_task_id": "009d5c81",
+    "task_id_available_to_solver": false,
+    "folds": 5,
+    "support_examples_per_fold": 4,
+    "baseline_jsonl": "出力/検証/ARC2-HDS第二候補-LOO-20261023T142211Z.jsonl",
+    "baseline_jsonl_sha256": "c12c6b0ae4b48406194cebace8e8d8cd31d5b62b76eacba496827312dd236bd5",
+    "baseline_solver_seconds": [20.4339, 21.2785, 23.2519, 22.0658, 22.015],
+    "baseline_mean_seconds": 21.80902,
+    "candidate_jsonl": "出力/検証/ARC2-HDS第二候補-LOO-20261023T143042Z.jsonl",
+    "candidate_jsonl_sha256": "fdf3ce285adb159a7f272a1d4d711eab7d41791c7cadab743ed69eef67862046",
+    "candidate_solver_seconds": [12.949, 11.5545, 13.212, 13.0103, 12.5745],
+    "candidate_mean_seconds": 12.66006,
+    "mean_delta_seconds": -9.14896,
+    "mean_delta_percent": -41.95,
+    "baseline_and_candidate_results": "全10 foldが完了し、各foldは断定保留、候補数0、solver answerなし。exact/pair一致なし。対象taskでは40%超のfit時間短縮があったが、解答能力の増分はなかった。"
+  },
+  "broader_training_loo_sample": {
+    "training_sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+    "valid_completed_folds": 23,
+    "distinct_training_tasks": ["007bbfb7", "009d5c81", "00d62c1b", "00dbd492", "09629e4f"],
+    "task_id_available_to_solver": false,
+    "solver_answers": 0,
+    "candidate_answers": 0,
+    "distinct_second_candidate_folds": 0,
+    "pair_exact_folds": 0,
+    "records": [
+      {"path": "出力/検証/ARC2-HDS第二候補-LOO-20261023T151700Z.jsonl", "sha256": "cec5c960986d8a51a82bb7f20411e5c8e39245e0ed2a18f2a3fbd31ca4fc7e8d", "summary_sha256": "cfd398b7c83cd2e2ad8b06973825f90c03b7ff0f933245c815a0f46a1be53248", "folds": 10, "distinct_tasks": ["007bbfb7", "009d5c81"]},
+      {"path": "出力/検証/ARC2-HDS第二候補-LOO-20261023T151952Z.jsonl", "sha256": "40cb46230d7a231e407e0ba99d1c5caeec0a9ffaec92229a9a02b46cb219dca1", "summary_sha256": "aaa56b0536d3e1fbaa333849f1491210c8b4f3350a7843c13a945a62bd17c408", "folds": 5, "distinct_tasks": ["00d62c1b"]},
+      {"path": "出力/検証/ARC2-HDS第二候補-LOO-20261023T152025Z.jsonl", "sha256": "d5f924c1262c0f0ff5ae5643db5363ba92d092c508a440c44d33129e7e5eeddb", "summary_sha256": "ff952c23f6d50bb04a904b92ca1daee9ac4fa3f29cc8f0f42aff9a69e3cf4e24", "folds": 4, "distinct_tasks": ["00dbd492"]},
+      {"path": "出力/検証/ARC2-HDS第二候補-LOO-20261023T152053Z.jsonl", "sha256": "d833920710bdf31234d819b9d07a103d450f6ff1085e1e561b63d046456829fb", "summary_sha256": "2f32a7a5cc9b49135f94fb6a520f3c47624a16e4123b6775a43aac3f72e2c239", "folds": 4, "distinct_tasks": ["09629e4f"]}
+    ],
+    "interpretation": "23 fold / 5 taskの限定sampleではHDSの第2候補は観測されなかった。全1,191 eligible foldに一般化しない。"
+  },
+  "diagnostic_runner_reliability": {
+    "trace_enabled_trial": {"path": "出力/検証/ARC2-HDS第二候補-LOO-20261023T151454Z.jsonl", "sha256": "8cf8b503f3f2baa5bee99caf72b41c0f6f6c2e8c2e96021679b578c8e0c13625", "requested_folds": 10, "clean_process_completions": 3, "valid_payload_then_worker_crash": 1, "invalid_worker_output": 6, "worker_exit_count": 7, "worker_exit_code": 3221225477, "use_for_accuracy": false},
+    "trace_disabled_repeat": "同じ最初の10 foldは10/10 clean complete。runnerは今後Windowsで--trace-timeoutsを拒否し、非0終了のworkerをcomplete扱いしない。",
+    "runner_path": "検証/全HDS第二候補LOO.py",
+    "runner_sha256": "7203d4b5f4ba1a7fdf076685c6524fdf1caae4bd16bb6f1eff1b77f28935e89d"
+  },
+  "discarded_encoding_contaminated_run": {
+    "audit_path": "出力/検証/Kaggle-baseline-control-20261023T1445/submission_audit.json",
+    "seconds": 725.5,
+    "fallback_count": 259,
+    "invalid_json_fallbacks": 3,
+    "reason": "補助runnerがPYTHONIOENCODING=utf-8をworkerへ継承させ、WindowsのCP932 decodeと不一致になった。このrunは比較から除外した。"
+  },
+  "verification": {
+    "finite_view_strict_regression": "PASS, 11 cases; frozen strict core hash/AST, 12,100 hypotheses, event stream and resource-exception controls included",
+    "project_pytest_before_reverting_candidate": "PASS, 81 tests and 29 subtests",
+    "cache_targeted_tests_before_reverting_candidate": "PASS, 2 tests; exact models and observer events matched strict reference",
+    "project_pytest_after_reverting_candidate": "PASS, 79 tests and 29 subtests in 8.25s",
+    "ruff_and_py_compile": "PASS for the diagnostic runner and production wrapper",
+    "windows_trace_guard": "PASS; --trace-timeouts exits with argparse error before starting workers",
+    "production_wrapper_after_decision": "restored byte-for-byte to HEAD d0f89e17c6fe2f2f56b90bca8ef9d87f94d138f0; sha256 f7476888d153a94e1305a1b424ad54b02a33da7950d521f28458566605231db5",
+    "official_submission": "not performed; daily quota had already been used by ref 57560705"
+  }
+}
