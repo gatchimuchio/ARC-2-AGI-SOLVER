@@ -40,6 +40,7 @@
 | 2026-10-22 | D0 初回試行 | v1はevaluation challenges 120課題/172 testを選んだため、公式sampleに必要な240課題/259 testと不一致 | ref `57517199`、COMPLETE後にformat error、scoreなし | 失敗。証跡は `運用/証拠/ARC2_Kaggle初回提出_v1/` | M2是正後、v2を別versionで再実行済み |
 | 2026-10-23 | D0 初回形式修正提出 | v2の実行・形式・出力SHAを再確認済み | ref `57560705`、2026-10-23 12:25:05 UTCに受理。Notebook v2 | `COMPLETE`、public score `0.00`、失敗詳細なし（最新履歴15:41 UTC） | M4をPASS固定。歴史上の最高0.83（ref `55046979`）を確認。旧Kernel v4はtraining ID分岐のため不採用。palette v4を次回候補に固定 |
 | 2026-10-23 | M5 過去最高・候補再監査 | 旧Kernel v4の出力SHAは取得物・隔離ローカル再実行で一致。公開training ID分岐を検出し、現行AGENTSに従い旧パッケージを再利用対象外とした。現行palette v4出力をKaggleから復元し、公式sample構造とSHAを再検査 | 公式提出なし。日次枠はref `57560705` が使用済み | 旧0.83は履歴値として保持するが、source/scoreの厳密な版対応は未証明。次回UTC日付に履歴・ruleを確認しpalette v4を提出候補にする |
+| 2026-10-23 | M5 安全な旧汎用部品のLOO監査 | v29/v30/v31のtask-ID分岐なしコンポーネントを、公開trainingのみの適格1,191-foldで厳密なfit/predictゲートに通した。3部品ともfit成功0、予測0、例外0。統合根拠なしとして不採用 | 公式提出なし。ref `57560705` が当日枠を使用済み | palette v4を維持。提出前に毎回公式rule・履歴・UTC枠を再照合する |
 
 ## M5 着手時の原因分析
 
@@ -52,6 +53,7 @@
 - palette版はclean Kaggle v4 Notebook検証までCOMPLETEで、ローカル提出JSONと完全一致した。ローカルmainの`e26e9bb`までにコード・回帰・証跡をコミット済み。GitHubへはpushしていない。公式test正誤・palette版の公式scoreは未確認。2026-10-23の大会提出枠はref `57560705` で使用済み。次回は最新正本・公式ルール・履歴と日次枠を再確認してから公式提出する。
 - 第2候補の改善仮説として、attempt_1を維持し、教師適合したD4モデルがtestで不一致の場合にだけ別D4予測をattempt_2へ出す案を測定した。公開training LOOの最低支持数3の適格fold 1,191件中、現行D4モデルが適用できた13件は全て一意・完全一致で、異なる第2候補は0件。公式test challenge入力でもD4候補がある2件は両方一意で、不一致は0件（正解は未観測）。D4限定の案はLOO改善根拠がないため実装しない。全HDS機構の代替候補選択を評価した結果ではない。証跡は[D4第二候補-不採用.json](証拠/ARC2_Kaggle日次提出_20261023/D4第二候補-不採用.json)。
 - 全HDS第2候補の隔離LOO runnerで公開trainingの限定sample 23 fold/5 taskを調べ、solver answer・候補・pair正答はいずれも0だった（全1,191 eligible foldに一般化しない）。task `009d5c81` 5 foldのparse cache比較では平均fit時間21.80902秒から12.66006秒へ41.95%短縮した一方、候補は増えなかった。同一公式test challengeの240課題/259 test全件A/Bはbaseline 730.328秒、cache候補756.703秒（3.61%遅延）で、提出JSON SHAとfallback記録は完全一致。cacheは採用せず、製品wrapperはHEADへ復元した。trace有効試行はWindows worker access violationのため除外し、runnerを修正してtraceなし10 foldが10/10 clean completeすることを確認。詳細hash・文字コード混入runの除外理由は[全HDS第二候補-parse-cache比較.json](証拠/ARC2_Kaggle日次提出_20261023/全HDS第二候補-parse-cache比較.json)。以前の未完了試行は履歴として[全HDS第二候補-試行中断.json](証拠/ARC2_Kaggle日次提出_20261023/全HDS第二候補-試行中断.json)へ残す。
+- 旧Kernel由来の適格な汎用候補を追加監査した。v31が公開するv29対角領域塗り、v30障害物コリドール、v31プラス字形再着色の各部品に課題ID条件と公開training task ID文字列はなく、厳密LOOを1,191 fold全てで評価した。3部品ともfit成功0・予測0・例外0のため、適用率を上げる改造根拠はなく、現行製品へ統合しない。証跡は[安全旧コンポーネントLOO-不採用.json](証拠/ARC2_Kaggle日次提出_20261023/安全旧コンポーネントLOO-不採用.json)。旧Kernelの他候補は課題ID依存を含むため監査対象から除外した。
 
 ## 日次記録の必須項目
 
