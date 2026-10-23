@@ -114,5 +114,26 @@
     "2026_10_23_daily_quota": "used",
     "new_palette_score": "not submitted; unknown"
   },
-  "status": "local candidate validated; clean Kaggle private Notebook run remains next; no official score claim"
+  "status": "local candidate and clean Kaggle private Notebook v4 validated; official score remains unknown",
+  "implementation": {
+    "source_commit": "e26e9bb82acf8806b9a649fdf7b1cc3cfadf92fe",
+    "source_sha256": "a5d6a2eedb063a876b47cd5d2fdf28cec13af535d89b9fef65df41b81c5ccf18",
+    "test_sha256": "ca3530140bba938b44470d04cda1797ece7969cc07153cd79edec2b39f1573a5"
+  },
+  "clean_kaggle_validation": {
+    "kernel": "tecchannn/arc2-codex-main-baseline-v1",
+    "version": 4,
+    "status": "COMPLETE",
+    "code_sha256": "84a6da8173870e56ca2caf223628db17351da45780f10318d07bfe383a3ff824",
+    "notebook_sha256": "84a6da8173870e56ca2caf223628db17351da45780f10318d07bfe383a3ff824",
+    "payload_sha256": "fb8049c72f2413bf98b2471dde5e8895ca0932f51dcacbedf477975d152316ac",
+    "runtime_seconds": 234.124,
+    "tasks": 240,
+    "tests": 259,
+    "fallback_count": 256,
+    "local_output_byte_equal": true,
+    "submission_sha256": "78e59642d9a84457c1ad9a16b1b98c12de717a34d562438ae830a8903cd5b026",
+    "audit_sha256": "e5c9f2bdb293ae8601973b1c59db8cd89979073f6a233cddf552bd5bf7b0f5a1",
+    "competition_submission_created": false
+  }
 }
