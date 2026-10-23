@@ -1,0 +1,45 @@
+{
+  "schema": "arc2-kaggle-m2-v2-evidence-v1",
+  "source_commit": "3d444f34db32d62bd2edad320648e08e8dae19d6",
+  "kernel": {
+    "id": "tecchannn/arc2-codex-main-baseline-v1",
+    "version": 2,
+    "notebook_sha256": "47fcc2a650fc59d33c2f2182c0670e3d639bac5d92e3f4fca836c0093493a8ef",
+    "metadata_sha256": "d7de070ae4379246d8e26eece0ffe656ad44ba30fdc853bdc0af0957bc8a3a04",
+    "status": "COMPLETE"
+  },
+  "runtime_seconds": 283.265,
+  "input": {
+    "file": "arc-agi_test_challenges.json",
+    "sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "tasks": 240,
+    "tests": 259
+  },
+  "official_sample": {
+    "file": "sample_submission.json",
+    "sha256": "6b372dce41ad86a941ccdcbebb2b1926fd4f011d77c824ff421d77730f169a9a",
+    "tasks": 240,
+    "tests": 259
+  },
+  "output": {
+    "file": "submission.json",
+    "sha256": "a0eeaaa6203d4fdd049f8aa705a8ac7832cb98240759703eb0288ad3d62b4927",
+    "bytes": 1731133,
+    "tasks": 240,
+    "tests": 259,
+    "attempts_per_test": 2,
+    "fallback_count": 258
+  },
+  "local_output_sha256": "a0eeaaa6203d4fdd049f8aa705a8ac7832cb98240759703eb0288ad3d62b4927",
+  "checks": {
+    "task_keys_and_order_match_sample": true,
+    "task_set_matches_challenge": true,
+    "per_task_test_counts_match_challenge_and_sample": true,
+    "all_attempt_keys_and_grids_valid": true,
+    "input_hash_matches_run_audit": true,
+    "output_hash_matches_run_audit": true,
+    "local_and_kaggle_output_match": true
+  },
+  "run_record_sha256": "479d9d8da704d987e000ed223afad2ea49e430414949060b6ba68235a54b4042",
+  "kaggle_audit_sha256": "295e653ccccefe3b111f6d4f85ef5dc43f181b9d228e7f7cffae81a82858ffaa"
+}
