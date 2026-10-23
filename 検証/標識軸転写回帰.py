@@ -275,22 +275,38 @@ def main(directory):
     source_hashes.update({r['path']:r['sha256'] for r in MANIFEST});save(directory,'source-before.json',source_hashes)
     teachers=json.loads((F/'original/teachers.json').read_text())['train'];before=copy.deepcopy(teachers)
     validation_controls(adapter,teachers,directory)
-    journal=Journal(directory/'full-teacher-events.jsonl');expected=iter(rows('fit-720-full-returns.jsonl.gz'));compared=[0]
+    journal=Journal(directory/'full-teacher-events.jsonl')
+    full_search={(row['program_index'],row['teacher_index']):row
+                 for row in rows('fit-720-full-returns.jsonl.gz')}
+    common_palette=adapter.common_input_palette(teachers)
+    searchable={i for i,program in enumerate(adapter.core.programs())
+                if program['body_color'] in common_palette and program['marker_color'] in common_palette}
+    evaluated=set();compared=[0]
     def observer(event):
         journal(event)
         if event['kind']=='model_teacher_return':
-            old=next(expected);current=dict(program_index=event['model_index'],program=event['program'],**event['result'])
+            key=(event['model_index'],event['teacher_index'])
+            old=full_search[key];current=dict(program_index=event['model_index'],program=event['program'],**event['result'])
             assert equal(current,old);compared[0]+=1
+            evaluated.add(key[0])
     audit={}
     try:fitted=adapter.標識軸転写教材(teachers,監査=audit,観測=observer)
     finally:journal.close()
-    check('all720 original full teacher returns exactly preserved',compared[0]==720 and next(expected,None) is None)
+    check('all evaluated returns equal frozen full-search results',
+          compared[0]==audit['complete_program_teacher_evaluations']==audit['program_count']*audit['teacher_count'])
+    check('every pruned program lacks a required color in at least one teacher',
+          all(any(program[key] not in {v for row in teachers[t]['input'] for v in row}
+                  and full_search[(index,t)]['output'] is None
+                  for t in range(len(teachers)) for key in ('body_color','marker_color'))
+              for index,program in enumerate(adapter.core.programs()) if index not in searchable))
+    check('evaluated and pruned program indexes partition the full grammar',
+          evaluated==searchable and len(full_search)==720 and audit['program_space_count']==360)
     check('both original C4 C8 chirality+1 programs retained',len(fitted.モデル群)==2 and equal([m['program'] for m in fitted.展開モデル()],read_fixture('models.json.gz')))
     check('fitted state immutable program tuples and scalar metadata',[f.name for f in dataclasses.fields(fitted)]==['モデル群','教師数','教師fit最小数','適合数','不足理由'] and not hasattr(fitted,'__dict__'))
     check('all models immutable integer tuples',type(fitted.モデル群) is tuple and all(type(m) is tuple and all(type(x) is int for x in m) for m in fitted.モデル群))
     try:fitted.教師数=0;raise AssertionError('mutable adapter')
     except dataclasses.FrozenInstanceError:PASSED.append('frozen adapter assignment rejected')
-    check('count summary contains no grids',set(audit)=={'teacher_fit_minimum','teacher_count','program_count','complete_program_teacher_evaluations','outcomes','retained_count','failure'})
+    check('count summary contains no grids',set(audit)=={'teacher_fit_minimum','teacher_count','program_space_count','program_count','complete_program_teacher_evaluations','outcomes','retained_count','failure'})
     save(directory,'teacher-fit-summary.json',audit);save(directory,'fitted-model-state.json',fitted)
     synthetic=original_synthetic_suite(adapter,directory)
     for index,pair in enumerate(teachers):
@@ -306,7 +322,9 @@ def main(directory):
     check('all frozen sources and fixtures unchanged',all(sha(p)==v for p,v in source_hashes.items()))
     save(directory,'import-source-manifest.json',MANIFEST)
     return {'successful':True,'tests_run':len(PASSED),'passed_cases':PASSED,'artifact_directory':str(directory),
-            'teacher_returns':720,'retained_models':2,'synthetic_controls':synthetic['checks'],'full_D4_covariance':16,
+            'teacher_returns':audit['complete_program_teacher_evaluations'],
+            'program_space':audit['program_space_count'],'programs_evaluated':audit['program_count'],
+            'retained_models':2,'synthetic_controls':synthetic['checks'],'full_D4_covariance':16,
             'native_cycles':cycles,'resource_controls':resources,'partial_inner_controls':partial,'query_calls':0}
 
 

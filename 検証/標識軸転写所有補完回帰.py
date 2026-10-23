@@ -30,7 +30,7 @@ def load(name, roots, strict=False):
                     "                from .標識軸転写所有補完 import complete_failed_render\n"
                     "                output, detail = complete_failed_render(grid, program, output, detail)\n")
         source = source.replace(addition, '', 1)
-        if hashlib.sha256(source.encode()).hexdigest() != 'f86c8faa6dca389e18f92c76bcceee445f867bd26941d47cf5a219b705bc2cdd':
+        if hashlib.sha256(source.encode()).hexdigest() != '6bd69e4b7d24b167dfd4e0eb68da2578da8fae0a0012e77085bfeca277cfde1f':
             raise AssertionError('original strict adapter reference differs')
         module_name = name + '.標識軸転写教材'
         module = types.ModuleType(module_name)
@@ -72,7 +72,10 @@ def main():
           audit_old == audit_new and dataclasses.asdict(old) == dataclasses.asdict(new))
     check('both fitted C4/C8 hypotheses retained',
           len(new.モデル群) == 2 and {m[3] for m in new.モデル群} == {4, 8})
-    check('all 720 teacher evaluations completed', audit_new['complete_program_teacher_evaluations'] == 720)
+    check('all color-pruned teacher evaluations completed',
+          audit_new['program_space_count'] == 360
+          and audit_new['complete_program_teacher_evaluations']
+          == audit_new['program_count'] * audit_new['teacher_count'])
     save('teacher-fit', {'old': audit_old, 'new': audit_new, 'models': new.モデル群})
     for index, teacher in enumerate(teachers):
         raw, current = old.候補(teacher['input'], {}), new.候補(teacher['input'], {})

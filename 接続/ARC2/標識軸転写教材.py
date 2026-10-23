@@ -34,17 +34,31 @@ def expand_model(model):
     return {'program_index': model[0], 'program': dict(zip(FIELDS, model[1:]))}
 
 
+def common_input_palette(teachers):
+    """Return colors that occur in every source teacher input."""
+    common = set(range(10))
+    for teacher in teachers:
+        common.intersection_update(value for row in teacher['input'] for value in row)
+    return common
+
+
 def fit(teachers, observer=None):
     valid, record = validate_teachers(teachers)
     emit(observer, 'teacher_validation', valid=valid, record=record)
     if not valid:
         return (), record
-    all_programs = core.programs()
-    assert len(all_programs) == 360
+    program_space = core.programs()
+    assert len(program_space) == 360
+    common_colors = common_input_palette(teachers)
+    # A retained program must use both role colors in every teacher input:
+    # render cannot extract a body or marker when either color is absent.
+    all_programs = [(i, program) for i, program in enumerate(program_space)
+                    if program['body_color'] in common_colors
+                    and program['marker_color'] in common_colors]
     retained, outcomes = [], Counter()
     completed, model_index, teacher_index = 0, None, None
     try:
-        for model_index, program in enumerate(all_programs):
+        for model_index, program in all_programs:
             exacts = []
             for teacher_index, pair in enumerate(teachers):
                 out, detail = core.render(pair['input'], program)
@@ -68,7 +82,8 @@ def fit(teachers, observer=None):
              completed_returns=completed, planned_returns=len(all_programs)*len(teachers),
              unevaluated_returns=len(all_programs)*len(teachers)-completed, semantic_HOLD=False)
         raise
-    record.update(program_count=len(all_programs), complete_program_teacher_evaluations=completed,
+    record.update(program_space_count=len(program_space), program_count=len(all_programs),
+                  complete_program_teacher_evaluations=completed,
                   outcomes=dict(outcomes), retained_count=len(retained),
                   failure=None if retained else 'no_model_fits_all_teachers')
     return tuple(retained), record

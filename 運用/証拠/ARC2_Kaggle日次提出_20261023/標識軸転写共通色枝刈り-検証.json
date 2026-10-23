@@ -1,0 +1,115 @@
+{
+  "schema": "arc2-daily-optimization-candidate-validation-v1",
+  "kaggle_utc_date": "2026-10-23",
+  "jst_date": "2026-10-24",
+  "instruction_archive": {
+    "path": "C:/Users/ohira/Downloads/ARC2_3%E7%82%B9%E3%82%BB%E3%83%83%E3%83%88_%E6%97%A5%E6%AC%A1%E6%8F%90%E5%87%BA%E6%9C%80%E9%81%A9%E5%8C%96_20261023 (1).zip",
+    "sha256": "8749433461225c3014530502569d262ef3a058015937ceb45782384da8ccf358",
+    "document_content_version": "v1.1; archive filenames retain v1_0 labels",
+    "authority": "the newest owner-provided instruction set; older docs remain reference only"
+  },
+  "repository": {
+    "base_commit": "5415fd83be6747e6282f22515620f4dc1ebb1d2c",
+    "branch": "main",
+    "code_sha256": "7405fcb2453987e477f03ad36c4309e401c83fadf3740c3b132f4106172abc99",
+    "regression_sha256": "03bc183f107ddf35201cc912eec34ae383505db88515f0faf0eac250e8b6fd02",
+    "ownership_regression_sha256": "a8b93f673b3e7a8fab50cc72879979413ebed2762ea0c39eb8475344adf4694b"
+  },
+  "change": {
+    "hypothesis": "A program requiring body_color or marker_color cannot fit every teacher when either color is absent from any teacher input; skip only those impossible programs while retaining original indices/order.",
+    "full_program_space": 360,
+    "targeted_fixture_programs_evaluated": 80,
+    "targeted_fixture_teacher_returns": 160,
+    "retained_models": 2,
+    "no_task_id_or_hash_answer_branching": true,
+    "solution_or_evaluation_answer_files_read": false
+  },
+  "public_training_loo": {
+    "dataset_bundle_sha256": "1424604dfc953742ddce31eab60c5e0de08f4e790e80d45511bbe87a6b4091b8",
+    "files": 1000,
+    "eligible_folds": 2916,
+    "baseline_seconds": 924.088,
+    "candidate_seconds": 119.406,
+    "speedup": 7.739,
+    "elapsed_reduction_percent": 87.08,
+    "rows_equal": true,
+    "counts_equal": true,
+    "baseline_counts": {
+      "eligible": 2916,
+      "exact": 0,
+      "exceptions": 0,
+      "fit_models": 0,
+      "no_model": 2916,
+      "predicted": 0,
+      "wrong": 0
+    },
+    "candidate_counts": {
+      "eligible": 2916,
+      "exact": 0,
+      "exceptions": 0,
+      "fit_models": 0,
+      "no_model": 2916,
+      "predicted": 0,
+      "wrong": 0
+    }
+  },
+  "official_challenge_input_only": {
+    "solutions_read": false,
+    "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "evaluation": {
+      "counts": {
+        "exceptions": 0,
+        "fit_models": 2,
+        "no_prediction": 170,
+        "predicted": 2,
+        "tasks": 120,
+        "tests": 172
+      },
+      "baseline_seconds": 209.31,
+      "candidate_seconds": 26.113,
+      "speedup": 8.0155
+    },
+    "test": {
+      "counts": {
+        "exceptions": 0,
+        "fit_models": 0,
+        "no_prediction": 259,
+        "predicted": 0,
+        "tasks": 240,
+        "tests": 259
+      },
+      "baseline_seconds": 209.31,
+      "candidate_seconds": 26.113
+    }
+  },
+  "full_submission_adapter_local": {
+    "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "tasks": 240,
+    "tests": 259,
+    "baseline_seconds": 687.297,
+    "candidate_seconds": 618.093,
+    "saved_seconds": 69.204,
+    "elapsed_reduction_percent": 10.07,
+    "fallback_count_baseline": 256,
+    "fallback_count_candidate": 256,
+    "submission_sha256_baseline": "78e59642d9a84457c1ad9a16b1b98c12de717a34d562438ae830a8903cd5b026",
+    "submission_sha256_candidate": "78e59642d9a84457c1ad9a16b1b98c12de717a34d562438ae830a8903cd5b026",
+    "byte_identical_submission": true,
+    "baseline_audit_path": "出力/Kaggle/arc2-d4-palette-local-run-20261023/submission_audit.json",
+    "candidate_audit_path": "出力/検証/Kaggle-color-prune-20261023/submission_audit.json"
+  },
+  "regression_and_static_checks": {
+    "candidate_regression": "PASS; 244 checks; all evaluated returns equal frozen prior full search; every pruned program has at least one teacher missing required color and prior output None; evaluated/pruned index partition covers 360 programs",
+    "ownership_completion_regression": "PASS; 25 checks; retained C4/C8 models and full ownership behavior preserved",
+    "ruff": "PASS on candidate source and F checks for both touched regression scripts",
+    "git_diff_check": "PASS"
+  },
+  "daily_submission_state": {
+    "latest_official_submission_ref": 57560705,
+    "status": "COMPLETE",
+    "public_score": "0.00",
+    "quota_for_utc_date": "used",
+    "competition_submission_created_today": false,
+    "notebook_execution_version5": "pending"
+  }
+}
