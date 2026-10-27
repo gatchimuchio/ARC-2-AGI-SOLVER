@@ -1,0 +1,83 @@
+{
+  "schema": "arc2-v61-hold-reason-audit-results-v1",
+  "track": "ARC2",
+  "experiment_id": "ARC2-v61-hds-hold-reason-audit-20261027",
+  "created_at_utc": "2026-10-27T09:50:53.007Z",
+  "status": "COMPLETE_REPRODUCIBLE_REASON_PROFILE",
+  "summary_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-v61-hds-emission-audit-20261027\\summary-hold-reasons.json",
+  "summary_sha256": "2d4173f4c103f80e007c9ef2126c4e68cc85e32e591c6544a162751d2be4f788",
+  "bundle_sha256": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",
+  "challenge_sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+  "solutions_sha256": "9f07a38bd25af5e83aa5bf85c5cb1a1fefdb30f6a755256fa65429e697ca97f9",
+  "scope": {
+    "public_training_tasks": 1000,
+    "eligible_tasks": 999,
+    "test_examples": 1075,
+    "workers": 3,
+    "timeout_seconds_per_task": 90,
+    "runtime_received_test_solutions": false,
+    "solutions_opened_after_prediction_freeze": true
+  },
+  "baseline": {
+    "exact_examples": 61,
+    "example_count": 1075,
+    "exact_tasks": 58,
+    "task_count": 999,
+    "attempt1_exact_examples": 44,
+    "attempt2_only_exact_examples": 17,
+    "solver_hold_examples": 1015
+  },
+  "fallback_diagnostics": {
+    "fallback_examples": 1015,
+    "reason_counts": {
+      "solver_hold": 1008,
+      "task_wall_timeout": 7
+    },
+    "solver_status_counts": {
+      "__missing_status__": 7,
+      "断定保留": 1008
+    },
+    "hds_reason_label_counts": {
+      "原因未確定で隔離中の原理が存在する": 12,
+      "採用済み機構ARC特徴近傍変換選択のtest候補が未確定": 4,
+      "採用済み機構ARC複合前景D4色写像平行移動のtest候補が未確定": 1,
+      "現行暫定原理の適用に必要な観測が不足している": 1003,
+      "現観測だけでは複数の関係候補を識別できない": 1
+    },
+    "reason_status_counts": {
+      "solver_hold | 断定保留": 1008,
+      "task_wall_timeout | __missing_status__": 7
+    },
+    "task_ids_or_raw_grids_persisted": false
+  },
+  "hds_reason_labels_are_nonexclusive": true,
+  "dominant_hold_label": {
+    "label": "現行暫定原理の適用に必要な観測が不足している",
+    "count": 1003,
+    "fraction_of_solver_hold_examples": 0.995,
+    "source": "HDS/学習系統/v0.4.2/hds学習系統/実行系.py:665-668"
+  },
+  "reason_count_interpretation": [
+    "Fallback reason counts are mutually exclusive by output: 1008 solver_hold and 7 task_wall_timeout.",
+    "HDS reason labels can co-occur on one fallback output; label counts must not be summed as distinct examples.",
+    "The full summary also contains six worker-timeout task IDs inherited from the timeout diagnostic; no fallback task IDs or raw prediction grids are persisted."
+  ],
+  "comparison": {
+    "previous_summary_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-v61-hds-emission-audit-20261027\\summary-repeat.json",
+    "baseline_metrics_identical": true,
+    "submission_outputs_byte_identical": true,
+    "submission_sha256": "b8159ef2d67e458fcac637ff090958a78f6e773b5eef863d6b2861ab9c176019",
+    "direct_hds_incremental_pass2_gains": 0
+  },
+  "interpretation": [
+    "The largest measured blocker is HDS HOLD for insufficient observations of current tentative principles, not output format generation.",
+    "This audit identifies the reason label but not which additional observation paths or values are missing; category-level request counts were not persisted.",
+    "Do not weaken acceptance thresholds or add task-ID-specific answers from this aggregate. Next diagnostic should aggregate generic observation-request categories and test one mechanism on public training."
+  ],
+  "run_scope_correction": "The RUNNING ledger description stated that no task IDs would be persisted. The completed summary inherits six worker-timeout task IDs from the base audit. Only those timeout IDs are present; fallback reason evidence is aggregate-only.",
+  "production_source_changed": false,
+  "official_submission_id": "57682971",
+  "official_status": "PENDING",
+  "official_score": null,
+  "submission_or_rerun_performed": false
+}
