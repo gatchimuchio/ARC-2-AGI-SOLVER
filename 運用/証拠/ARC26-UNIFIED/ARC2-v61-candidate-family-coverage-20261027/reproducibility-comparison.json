@@ -1,0 +1,108 @@
+{
+  "schema": "arc2-v61-public-training-candidate-coverage-reproducibility-v1",
+  "track": "ARC2",
+  "status": "COMPLETE",
+  "observed_at_utc": "2026-10-27T05:34:53.521Z",
+  "scope": {
+    "dataset": "public ARC2 training challenges and training solutions",
+    "eligible_tasks": 999,
+    "test_examples": 1075,
+    "runs": 2,
+    "runtime_received_test_outputs": false,
+    "solutions_opened_after_prediction_freeze": true,
+    "hidden_or_evaluation_solutions_read": false,
+    "static_prior_tasks_excluded": 1
+  },
+  "inputs": {
+    "bundle_sha256": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",
+    "challenge_sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+    "solutions_sha256": "9f07a38bd25af5e83aa5bf85c5cb1a1fefdb30f6a755256fa65429e697ca97f9",
+    "probe_script_sha256": "d9472e64e09e2c3c1afb14d926dfe7c46a150001921c40d19eed7b3a337dadc5",
+    "initial_summary_path": "運用/証拠/ARC26-UNIFIED/ARC2-v61-candidate-family-coverage-20261027/summary.json",
+    "initial_summary_sha256": "e7a3c770677db9fc56082b7fc900bb20ac9400ff2372ded12bac12fb27d80df4",
+    "repeat_summary_path": "運用/証拠/ARC26-UNIFIED/ARC2-v61-candidate-family-coverage-20261027/summary-repeat.json",
+    "repeat_summary_sha256": "d337373199ff67a269883344ff4e4978f64fa84cefe73cdead8728e0a1959a57"
+  },
+  "equality_checks": {
+    "status_complete": true,
+    "scope_equal": true,
+    "baseline_equal": true,
+    "candidate_family_metrics_equal": true,
+    "hds_family_fit_aggregate_equal": true,
+    "worker_errors_equal": true,
+    "submission_output_sha_equal": true,
+    "frozen_predictions_sha_equal": true,
+    "bundle_sha_equal": true,
+    "challenge_sha_equal": true,
+    "solutions_sha_equal": true,
+    "probe_script_sha_equal": true
+  },
+  "prediction": {
+    "frozen_predictions_sha256": "86e93965af3740a90354f7281aa88f7f8fcb1e8c06ee7f0c14946c70102ad6fd",
+    "repeat_frozen_predictions_sha256": "86e93965af3740a90354f7281aa88f7f8fcb1e8c06ee7f0c14946c70102ad6fd",
+    "submission_output_sha256": "b8159ef2d67e458fcac637ff090958a78f6e773b5eef863d6b2861ab9c176019",
+    "repeat_submission_output_sha256": "b8159ef2d67e458fcac637ff090958a78f6e773b5eef863d6b2861ab9c176019"
+  },
+  "public_training_posthoc": {
+    "previous": {
+      "exact_examples": 61,
+      "example_count": 1075,
+      "exact_tasks": 58,
+      "task_count": 999,
+      "attempt1_exact_examples": 44,
+      "attempt2_only_exact_examples": 17,
+      "solver_hold_examples": 1015
+    },
+    "current": {
+      "exact_examples": 61,
+      "example_count": 1075,
+      "exact_tasks": 58,
+      "task_count": 999,
+      "attempt1_exact_examples": 44,
+      "attempt2_only_exact_examples": 17,
+      "solver_hold_examples": 1015
+    },
+    "delta_exact_examples": 0,
+    "delta_exact_tasks": 0,
+    "official_score": null
+  },
+  "runtime": {
+    "previous_seconds": 3160.563,
+    "current_seconds": 3788.406,
+    "delta_seconds": 627.843,
+    "delta_percent": 19.865,
+    "previous_worker_errors": {
+      "result_count_mismatch": 6,
+      "task_wall_timeout": 6
+    },
+    "current_worker_errors": {
+      "result_count_mismatch": 6,
+      "task_wall_timeout": 6
+    }
+  },
+  "candidate_coverage": {
+    "family_count": 6,
+    "candidate_examples": 213,
+    "oracle_exact_examples_upper_bound": 17,
+    "exact_on_hds_hold_examples": 16,
+    "deterministic_replacement_rows": 213,
+    "deterministic_gains_vs_attempt2": 0,
+    "deterministic_regressions_vs_attempt2": 0,
+    "adopted": false,
+    "reason": "No deterministic gain was demonstrated; oracle coverage is not an adoption result."
+  },
+  "hds_family_fit": {
+    "family_count": 110,
+    "fit_eligible": 76,
+    "equality_admitted": 233,
+    "jointly_admitted": 76,
+    "candidate_prediction_examples": 0
+  },
+  "official_kaggle": {
+    "submission_id": 57682971,
+    "status": "PENDING",
+    "public_score": null,
+    "submission_or_rerun_performed_by_this_experiment": false
+  },
+  "production_source_changed": false
+}
