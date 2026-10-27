@@ -1,0 +1,144 @@
+{
+  "schema": "arc2-v61-hds-emission-audit-reproducibility-comparison-v1",
+  "track": "ARC2",
+  "experiment_id": "ARC2-v61-hds-candidate-emission-audit-20261027",
+  "created_at_utc": "2026-10-27T07:38:30.377Z",
+  "status": "COMPLETE_REPRODUCIBLE_NO_ADDITIVE_PASS2_GAIN_WITH_TIMEOUT_VARIATION",
+  "purpose": "Measure whether directly emitted HDS candidates add valid and correct Kaggle attempt_2 predictions over the frozen v61 submission policy.",
+  "conditions": {
+    "bundle_sha256": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",
+    "challenge_sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+    "test_examples": 1075,
+    "eligible_tasks": 999,
+    "same_conditions_verified": true
+  },
+  "runs": [
+    {
+      "name": "initial",
+      "summary_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-v61-hds-emission-audit-20261027\\summary.json",
+      "summary_sha256": "4f73141ad30ecea476fd4818e67da844ed92eff81e0ac5117aabf34a8ff1bf74",
+      "started_at_utc": "2026-10-27T05:50:53.236101+00:00",
+      "completed_at_utc": "2026-10-27T06:41:14.392101+00:00",
+      "elapsed_seconds": 3021.265,
+      "baseline": {
+        "exact_examples": 61,
+        "example_count": 1075,
+        "exact_tasks": 58,
+        "task_count": 999,
+        "attempt1_exact_examples": 44,
+        "attempt2_only_exact_examples": 17,
+        "solver_hold_examples": 1015
+      },
+      "worker_errors": {
+        "result_count_mismatch": 4,
+        "task_wall_timeout": 4
+      },
+      "frozen_predictions_sha256_including_worker_errors": "5d159d30622465f9414b883604629737485ca7f206a93c9f25bc01e3690e7801",
+      "submission_sha256": "b8159ef2d67e458fcac637ff090958a78f6e773b5eef863d6b2861ab9c176019",
+      "direct_hds_candidate_metrics": {
+        "valid_candidate_emissions": 74,
+        "invalid_candidate_emissions": 0,
+        "candidate_emissions_equal_primary": 74,
+        "candidate_emissions_distinct_from_primary": 0,
+        "oracle_exact_candidate_emissions": 58,
+        "oracle_exact_test_examples": 58,
+        "oracle_exact_on_hds_hold_examples": 0,
+        "oracle_exact_when_primary_wrong_examples": 0,
+        "incremental_pass2_gains": 0,
+        "counterfactual_attempt2_replacement_regressions": 0
+      }
+    },
+    {
+      "name": "repeat",
+      "summary_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-v61-hds-emission-audit-20261027\\summary-repeat.json",
+      "summary_sha256": "f3a207f722dc90f38caafc45252a54429f881fe2f098ec672e5feb16e6536661",
+      "started_at_utc": "2026-10-27T06:44:45.641088+00:00",
+      "completed_at_utc": "2026-10-27T07:34:23.375088+00:00",
+      "elapsed_seconds": 2977.828,
+      "baseline": {
+        "exact_examples": 61,
+        "example_count": 1075,
+        "exact_tasks": 58,
+        "task_count": 999,
+        "attempt1_exact_examples": 44,
+        "attempt2_only_exact_examples": 17,
+        "solver_hold_examples": 1015
+      },
+      "worker_errors": {
+        "result_count_mismatch": 6,
+        "task_wall_timeout": 6
+      },
+      "frozen_predictions_sha256_including_worker_errors": "86e93965af3740a90354f7281aa88f7f8fcb1e8c06ee7f0c14946c70102ad6fd",
+      "submission_sha256": "b8159ef2d67e458fcac637ff090958a78f6e773b5eef863d6b2861ab9c176019",
+      "direct_hds_candidate_metrics": {
+        "valid_candidate_emissions": 74,
+        "invalid_candidate_emissions": 0,
+        "candidate_emissions_equal_primary": 74,
+        "candidate_emissions_distinct_from_primary": 0,
+        "oracle_exact_candidate_emissions": 58,
+        "oracle_exact_test_examples": 58,
+        "oracle_exact_on_hds_hold_examples": 0,
+        "oracle_exact_when_primary_wrong_examples": 0,
+        "incremental_pass2_gains": 0,
+        "counterfactual_attempt2_replacement_regressions": 1
+      }
+    }
+  ],
+  "comparison": {
+    "baseline_exact_examples": {
+      "initial": 61,
+      "repeat": 61,
+      "total": 1075
+    },
+    "baseline_exact_tasks": {
+      "initial": 58,
+      "repeat": 58,
+      "total": 999
+    },
+    "submission_outputs_byte_identical": true,
+    "direct_hds_candidate_emissions": {
+      "initial": 74,
+      "repeat": 74
+    },
+    "candidates_equal_to_primary": {
+      "initial": 74,
+      "repeat": 74
+    },
+    "candidates_distinct_from_primary": {
+      "initial": 0,
+      "repeat": 0
+    },
+    "incremental_pass2_exact_gains": {
+      "initial": 0,
+      "repeat": 0
+    },
+    "oracle_exact_when_primary_wrong": {
+      "initial": 0,
+      "repeat": 0
+    },
+    "counterfactual_attempt2_replacement_regressions": {
+      "initial": 0,
+      "repeat": 1
+    },
+    "worker_errors_differ": true,
+    "frozen_digest_includes_worker_errors": true,
+    "frozen_digest_difference_explained_by_worker_error_metadata": true
+  },
+  "interpretation": [
+    "The direct HDS audit produced zero incremental pass@2 exact gains in both runs; all 74 valid emissions in each run were equal to attempt_1.",
+    "No emitted HDS candidate was exact on an example where the primary prediction was wrong, so this mechanism has no measured additive benefit and is not adopted.",
+    "The generated submission.json hashes and baseline exact counts match across runs. Worker error counts differ (4 result-count mismatches and 4 timeouts initially; 6 and 6 on repeat), so runtime failure diagnostics are not fully reproducible.",
+    "The frozen digest explicitly includes worker_errors; its difference is therefore not evidence of different submission outputs. The byte-identical submission SHA is the prediction-output reproducibility evidence.",
+    "Counterfactual forced attempt_2 replacement regression varied (0 initially, 1 on repeat); this hypothetical policy is not the deployed behavior and does not change the zero-gain adoption decision."
+  ],
+  "production_source_changed": false,
+  "official_submission_id": "57682971",
+  "official_status": "PENDING",
+  "official_score": null,
+  "official_submission_or_rerun_performed": false,
+  "limitations": [
+    "Public-training posthoc scoring only; not an official Kaggle score.",
+    "Raw candidate grids were not persisted.",
+    "Timeout and result-count mismatch totals vary between runs."
+  ]
+}
