@@ -1,0 +1,23 @@
+{
+  "schema": "arc2-public-evaluation-failed-scorer-contract-v1",
+  "run_id": "ARC2-current-main-object-candidate-full-public-evaluation-20261028-scorer-mismatch-failure",
+  "track": "ARC2",
+  "source_revision": "d10c4d7c1cc728853c713f00019938b63282ef85",
+  "evaluation_script_sha256": "4a188f7a5c8f762f532765df49d07f2f484792708877c118217dffc8c3f0bcf0",
+  "status": "FAILED_SCORER_CONTRACT",
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "public_solution_task_count": 1000,
+  "challenge_task_set_is_subset_of_public_solutions": true,
+  "runtime_outputs_completed": 3,
+  "scoring_started": true,
+  "scoring_error_type": "ValueError",
+  "scoring_error": "prediction and public-solution task sets differ",
+  "score_computed": false,
+  "temporary_predictions_retained": false,
+  "production_source_changed": false,
+  "official_submission_performed": false,
+  "official_score": null,
+  "cause": "The evaluator incorrectly required exact equality; the public-solution file contains 1000 task keys and includes the 240 challenge tasks.",
+  "next_action": "Change the scorer requirement to prediction-task subset inclusion and rerun baseline plus two candidate full wrappers."
+}
