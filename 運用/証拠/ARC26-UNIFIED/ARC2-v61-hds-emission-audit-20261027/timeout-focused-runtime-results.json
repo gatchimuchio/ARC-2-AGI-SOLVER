@@ -1,0 +1,69 @@
+{
+  "schema": "arc2-focused-timeout-runtime-results-v1",
+  "track": "ARC2",
+  "experiment_id": "ARC2-v61-timeout-focused-runtime-audit-20261027",
+  "created_at_utc": "2026-10-27T08:54:11.840Z",
+  "status": "COMPLETE_WITH_THREE_PERSISTENT_TIMEOUTS",
+  "focused_summary_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-v61-hds-emission-audit-20261027\\summary-timeout-focus-180s-rerun.json",
+  "focused_summary_sha256": "755847518092134edcfb6f3ce38ad637758034d4ccc0b1da303e98601be1e330",
+  "focused_script_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-v61-hds-emission-audit-20261027\\audit-timeout-focus-180s-rerun.py",
+  "focused_script_sha256": "4c542cd06b08d1b92d1ddb5b2fbeba78b414b8712c4fbcfd1f509c31f109e1a4",
+  "bundle_sha256": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",
+  "challenge_sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+  "solutions_sha256": "9f07a38bd25af5e83aa5bf85c5cb1a1fefdb30f6a755256fa65429e697ca97f9",
+  "task_timeout_seconds": 180,
+  "workers": 3,
+  "task_ids_used_only_for_diagnostic_scope_filter": true,
+  "runtime_answer_selection_by_task_id": false,
+  "task_results": [
+    {
+      "task_id": "320afe60",
+      "elapsed_seconds": 180.062,
+      "status": "TIMEOUT_180S"
+    },
+    {
+      "task_id": "37d3e8b2",
+      "elapsed_seconds": 89.406,
+      "status": "COMPLETED"
+    },
+    {
+      "task_id": "639f5a19",
+      "elapsed_seconds": 180.094,
+      "status": "TIMEOUT_180S"
+    },
+    {
+      "task_id": "b7f8a4d8",
+      "elapsed_seconds": 180.047,
+      "status": "TIMEOUT_180S"
+    },
+    {
+      "task_id": "c62e2108",
+      "elapsed_seconds": 69.532,
+      "status": "COMPLETED"
+    }
+  ],
+  "timeout_task_ids": [
+    "320afe60",
+    "639f5a19",
+    "b7f8a4d8"
+  ],
+  "same_five_tasks_timed_out_at_90s_in_full_audit": true,
+  "two_sub_90s_completions_are_runtime_variation_evidence": true,
+  "focused_local_metric": {
+    "exact_examples": 0,
+    "example_count": 6,
+    "solver_hold_examples": 6,
+    "interpretation": "selected diagnostic subset only; not a representative capability score and not an official score"
+  },
+  "focused_submission_sha256": "cebde33882eed31ad4c2d04d4d4509ae7a4c1427540a69eca2cc8cb2f1bb641f",
+  "production_source_changed": false,
+  "official_submission_id": "57682971",
+  "official_status": "PENDING",
+  "official_score": null,
+  "submission_or_rerun_performed": false,
+  "limitations": [
+    "The first 180-second attempt completed workers but failed final validation because the full-dataset validator was given a subset; no first-attempt output summary was written.",
+    "The successful retry records end-to-end per-task wall time, not internal stage CPU profiles.",
+    "Timeout IDs were selected only to profile runtime; they were not used to select answers."
+  ]
+}
