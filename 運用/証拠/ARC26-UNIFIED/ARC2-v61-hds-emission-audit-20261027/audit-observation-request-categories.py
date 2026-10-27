@@ -3,9 +3,11 @@ from __future__ import annotations
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path, PurePosixPath
+import argparse
 import hashlib
 import json
 import os
+import re
 import subprocess
 import sys
 import tempfile
@@ -18,6 +20,7 @@ ROOT = HERE.parents[3]
 BUNDLE = ROOT / "出力/Kaggle/arc2-codex-main-baseline-v1/v61-kaggle-staging-20261026/bundle.zip"
 CHALLENGES = ROOT / "入力/Kaggle/arc-agi_training_challenges.json"
 OUTPUT = HERE / "summary-observation-request-categories.json"
+FAILURE_DIR = HERE / "observation-request-category-failures"
 EXPECTED_BUNDLE_SHA256 = "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee"
 EXPECTED_WRAPPER_SHA256 = "c20102c4e9a01e833ca8f9e2778b5306333c50c065d9aebe7cbeaf574e74418d"
 EXPECTED_HDS_SHA256 = "8cc1456edfab1b84478fcc1b8f82973481709d85a45532b5181d0e79655362a3"
@@ -30,8 +33,14 @@ def sha256(data: bytes) -> str:
 
 
 def main() -> int:
-    if OUTPUT.exists():
-        raise FileExistsError(f"refusing to overwrite {OUTPUT}")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--only-batch", type=int)
+    arguments = parser.parse_args()
+    output_path = OUTPUT
+    if arguments.only_batch is not None:
+        output_path = HERE / f"diagnostic-observation-request-category-batch-{arguments.only_batch:03d}.json"
+    if output_path.exists():
+        raise FileExistsError(f"refusing to overwrite {output_path}")
     started = time.monotonic()
     bundle_bytes = BUNDLE.read_bytes()
     challenge_bytes = CHALLENGES.read_bytes()
@@ -110,7 +119,14 @@ def main() -> int:
             task_items[start:start + CHUNK_SIZE]
             for start in range(0, len(task_items), CHUNK_SIZE)
         ]
-        for chunk_number, chunk in enumerate(chunks, start=1):
+        if arguments.only_batch is not None:
+            if not 1 <= arguments.only_batch <= len(chunks):
+                raise ValueError("only-batch is outside the available chunk range")
+            chunk_numbers = [arguments.only_batch]
+        else:
+            chunk_numbers = list(range(1, len(chunks) + 1))
+        for chunk_number in chunk_numbers:
+            chunk = chunks[chunk_number - 1]
             challenge_path = temp_root / f"training-challenges-{chunk_number:03d}.json"
             challenge_path.write_text(
                 json.dumps(dict(chunk), ensure_ascii=False) + "\n",
@@ -132,8 +148,33 @@ def main() -> int:
                 check=False,
             )
             if run.returncode != 0:
+                FAILURE_DIR.mkdir(parents=True, exist_ok=True)
+                last_stderr_line = next(
+                    (line for line in reversed(run.stderr.splitlines()) if line.strip()),
+                    "",
+                )
+                last_stderr_line = re.sub(r"(?i)\b[a-f0-9]{8}\b", "<redacted-task-id>", last_stderr_line)
+                last_stderr_line = last_stderr_line.replace(str(temp_root), "<temporary-root>")
+                last_stderr_line = last_stderr_line.replace(str(ROOT), "<repository-root>")
+                failure = {
+                    "schema": "arc2-v61-observation-request-audit-failure-v1",
+                    "created_at_utc": datetime.now(timezone.utc).isoformat(),
+                    "batch": chunk_number,
+                    "returncode": run.returncode,
+                    "stderr_last_line_sanitized": last_stderr_line[-500:],
+                    "stdout_sha256": sha256(run.stdout.encode("utf-8", errors="replace")),
+                    "stderr_sha256": sha256(run.stderr.encode("utf-8", errors="replace")),
+                    "task_ids_or_raw_grids_persisted": False,
+                }
+                failure_path = FAILURE_DIR / f"batch-{chunk_number:03d}-{int(time.time())}.json"
+                failure_path.write_text(
+                    json.dumps(failure, ensure_ascii=False, indent=2) + "\n",
+                    encoding="utf-8",
+                    newline="\n",
+                )
                 raise RuntimeError(
-                    f"v61 chunk {chunk_number}/{len(chunks)} failed; returncode={run.returncode}"
+                    f"v61 chunk {chunk_number}/{len(chunks)} failed; returncode={run.returncode}; "
+                    f"sanitized stderr tail={last_stderr_line[-300:]!r}"
                 )
             audit_path = output_dir / "submission_audit.json"
             submission_path = output_dir / "submission.json"
@@ -164,7 +205,8 @@ def main() -> int:
                 "batch": chunk_number,
                 "batches": len(chunks),
                 "tasks_completed": completed_tasks,
-                "public_training_tasks": len(task_items),
+            "public_training_tasks": len(task_items),
+            "diagnostic_only_batch": arguments.only_batch,
                 "fallback_examples": fallback_examples,
                 "observation_request_counts": dict(sorted(request_counts.items())),
             }, ensure_ascii=False), flush=True)
@@ -240,11 +282,11 @@ def main() -> int:
         "official_score": None,
     }
     content = (json.dumps(summary, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
-    with OUTPUT.open("xb") as target:
+    with output_path.open("xb") as target:
         target.write(content)
     print(json.dumps({
         "state": "complete",
-        "summary_path": str(OUTPUT.relative_to(ROOT)),
+        "summary_path": str(output_path.relative_to(ROOT)),
         "summary_sha256": sha256(content),
         "observation_request_counts": summary["observation_request_counts"],
         "fallback_examples": fallback_examples,
