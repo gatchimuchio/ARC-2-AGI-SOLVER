@@ -360,6 +360,28 @@ def _repo_venv_cli_prefix(discovery: dict) -> list[str] | None:
         "repo_cli_python_exists", "repo_cli_module_exists", "repo_cli_track_matches",
         "repo_cli_project_matches", "repo_cli_project_pins_match", "repo_cli_lock_versions_match",
     )) and installed_matches:
+        try:
+            runtime_check = subprocess.run(
+                [str(python), "-c", "import kaggle; from certifi import where; where()"],
+                cwd=ROOT,
+                capture_output=True,
+                text=True,
+                encoding="utf-8",
+                errors="replace",
+                timeout=30,
+                creationflags=subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0,
+            )
+        except (OSError, subprocess.TimeoutExpired) as error:
+            discovery["repo_cli_runtime_validation_status"] = type(error).__name__
+            if isinstance(error, OSError):
+                discovery["repo_cli_runtime_validation_errno"] = error.errno
+            return None
+        discovery["repo_cli_runtime_importable"] = runtime_check.returncode == 0
+        discovery["repo_cli_runtime_returncode"] = runtime_check.returncode
+        if runtime_check.returncode != 0:
+            discovery["repo_cli_validation_status"] = "runtime_import_failed"
+            return None
+        discovery["repo_cli_runtime_validation_status"] = "passed"
         return [str(python), "-m", "kaggle"]
     return None
 
@@ -611,6 +633,7 @@ def _record_official_observation(history: list, record: dict) -> dict:
     evidence_path.write_text(
         json.dumps(evidence, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
+        newline="\n",
     )
     evidence_sha = hashlib.sha256(evidence_path.read_bytes()).hexdigest()
     evidence_rel = evidence_path.relative_to(ROOT).as_posix()
