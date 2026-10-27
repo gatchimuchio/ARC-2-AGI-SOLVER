@@ -1,0 +1,76 @@
+{
+  "schema": "arc2-object-candidate-hds-loo-runner-diagnosis-v1",
+  "recorded_at_utc": "2026-10-27T18:38:21.538496Z",
+  "track": "ARC2",
+  "instruction_id": "ARC26-UNIFIED-v6.0",
+  "experiment_id": "ARC2-current-main-object-outlier-palette-candidate-hds-admission-matched-loo-project-venv-20261028",
+  "current_main_revision": "1449f5d03cdf30cadf60b171823cde3d018bf07b",
+  "payload_manifest_sha256": "e0a8ae1a3a45361c5f4119dcb412b7ea7efacce57ee0f4b7a6639526ce964846",
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8",
+  "eligible_folds": 48,
+  "standard_object_family_comparator": {
+    "artifact": "運用/証拠/ARC26-UNIFIED/ARC2_current_main_object_candidate_hds_admission_matched_LOO_20261028.json",
+    "artifact_sha256": "2dfc3737a9e522c7dffa185537e852d7d70d9a27168435553c7ef5b7308cb4a8",
+    "source_revision": "d10c4d7c1cc728853c713f00019938b63282ef85",
+    "paired_folds": 48,
+    "baseline_primary_exact": 13,
+    "candidate_primary_exact": 33,
+    "baseline_pair_exact": 35,
+    "candidate_pair_exact": 36,
+    "pair_gains": 1,
+    "pair_regressions": 0,
+    "worker_errors": {
+      "null": 0
+    }
+  },
+  "extended_outlier_palette_family": {
+    "artifact": "運用/証拠/ARC26-UNIFIED/ARC2_current_main_object_outlier_palette_candidate_hds_admission_matched_LOO_project_venv_20261028.json",
+    "artifact_sha256": "bfcc7c5b2265d6f6826905ad44d7fb08b881a6f3672e2559f7df806aa20934b0",
+    "script": "運用/証拠/ARC26-UNIFIED/ARC2_current_main_object_outlier_palette_candidate_hds_admission_matched_LOO_project_venv_20261028.py",
+    "script_sha256": "84ca8c365823d1a799b799f8f0a1ba545927e54bd24f06cfc9acb2d521641352",
+    "python_executable": "C:\\Users\\ohira\\OneDrive\\ドキュメント\\ChatGPT\\ARC２\\.venv\\Scripts\\python.exe",
+    "runtime_seconds": 608.26,
+    "baseline_primary_exact": 13,
+    "candidate_primary_exact": 32,
+    "baseline_pair_exact": 35,
+    "candidate_pair_exact": 35,
+    "pair_gains": 0,
+    "pair_regressions": 0,
+    "baseline_worker_errors": {
+      "null": 0
+    },
+    "candidate_worker_errors": {
+      "null": 0
+    },
+    "admission_counter_limitation": "Observer matched only the standard family name; family_record_missing is not evidence of rejection. Paired scores are still computed from outputs."
+  },
+  "invalid_system_python_attempt": {
+    "artifact": "運用/証拠/ARC26-UNIFIED/ARC2_current_main_object_outlier_palette_candidate_hds_admission_matched_LOO_20261028.json",
+    "artifact_sha256": "3fc3b4a700e0209a777e8e98890c4434e87e458110bb228a8525b32cf3c72cba",
+    "script": "運用/証拠/ARC26-UNIFIED/ARC2_current_main_object_outlier_palette_candidate_hds_admission_matched_LOO_20261028.py",
+    "script_sha256": "f6fb649e80219a46068ca104ee0d47964cafcedd2d4be2eb6e6d14e967ba158d",
+    "baseline_worker_errors": {
+      "worker_error": 48
+    },
+    "candidate_worker_errors": {
+      "worker_error": 48
+    },
+    "paired_folds_scored": 0,
+    "root_cause": "System Python lacked numpy; single-fold reproduction raised ModuleNotFoundError: No module named 'numpy'. Project .venv had numpy 2.3.5 and one-fold worker returned 0.",
+    "decision": "Invalid environment run; excluded from solver scoring."
+  },
+  "comparison": {
+    "extended_primary_delta_vs_baseline": 19,
+    "extended_pair_delta_vs_baseline": 0,
+    "extended_pair_delta_vs_standard_variant": -1,
+    "extended_primary_delta_vs_standard_variant": -1,
+    "decision": "Do not promote outlier/palette HDS families. Matched LOO found no pass@2 gain over baseline and one fewer pair-exact fold than standard-object-only variant; no full public run or official submission."
+  },
+  "heldout_output_passed_to_solver": false,
+  "heldout_outputs_scored_after_predictions": true,
+  "task_ids_or_raw_grids_persisted": false,
+  "hidden_or_evaluation_solutions_read": false,
+  "production_source_changed": false,
+  "official_submission_performed": false,
+  "official_score": null
+}
