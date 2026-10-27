@@ -1,0 +1,15 @@
+{
+  "id": "tecchannn/arc2-codex-connection-check",
+  "title": "ARC2 Codex Connection Check",
+  "code_file": "環境確認.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": ["arc-prize-2026-arc-agi-2"],
+  "kernel_sources": [],
+  "model_sources": []
+}

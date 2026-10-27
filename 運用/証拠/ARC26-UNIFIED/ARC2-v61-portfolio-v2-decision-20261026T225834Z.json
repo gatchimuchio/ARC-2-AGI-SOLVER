@@ -1,0 +1,62 @@
+{
+  "schema": "arc2-v61-portfolio-v2-adoption-decision-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-26T22:58:34.723023+00:00",
+  "run_id": "ARC2-v61-portfolio-v2-20task-20261026T2251Z",
+  "status": "COMPLETE",
+  "session_id": 11058,
+  "requested_tasks": 20,
+  "requested_grids": 27,
+  "paired_complete_tasks": 20,
+  "scientific_nonfallback_pass2": {
+    "previous": 3,
+    "current": 3,
+    "delta": 0,
+    "denominator": 27
+  },
+  "raw_official_like_pass2": {
+    "previous": 4,
+    "current": 4,
+    "delta": 0,
+    "denominator": 27,
+    "note": "Includes one input-copy coincidence excluded from scientific score."
+  },
+  "all_heldout_correct_nonfallback_tasks": {
+    "previous": 2,
+    "current": 2,
+    "delta": 0,
+    "denominator": 20
+  },
+  "eligible_rows": 2,
+  "materialized_rows": 0,
+  "attempt2_mismatches": 0,
+  "regressions": 0,
+  "new_runtime_failures": 0,
+  "new_attempt1_train_qualification_failures": 0,
+  "hds_state_mismatches": 0,
+  "extra_portfolio_seconds": 0.75,
+  "wall_seconds": {
+    "baseline": 230.590108,
+    "candidate": 214.053844
+  },
+  "timing_claim": "No speed improvement claimed from noisy, nonisolated Windows timing.",
+  "resource_limits": {
+    "cpu_limit": null,
+    "limitation": "Windows CPU/RAM are not isolated; both arms use same host and wall limit",
+    "ram_limit": null,
+    "wall_seconds_per_task_worker": 90.0
+  },
+  "candidate_sha256": "46223ed986bac50a35352c4db99734d1ef892f204e3b2b153e01429ab69aa174",
+  "baseline_sha256": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",
+  "harness_sha256": "04c5b69a40a0da7dc4b1460e6cab781fbb819d16eca4ebe62ba816c8be5f3e38",
+  "cohort_sha256": "deabb338f8f5fea4b581f158f058cdfdf23b40eccba4914b10cb42814e9fc9a4",
+  "summary_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-v61-two-slot-portfolio\\evaluation_results\\v2-20task-20261026T2251Z.summary.json",
+  "summary_sha256": "2dad4816c57ce846afafb748c7a23a683bc47d37400b898f89b88dc313941e5b",
+  "records_sha256": "dc1bb94d48a9b92dc2d297526cde22972b7b08a99bf7d2102d9995bbfb85e485",
+  "adopted": false,
+  "decision": "NO ADOPTION: no prediction/score gain on this deterministic public-training cohort. No repeat or broader regression without a revised hypothesis.",
+  "scope": "Exact frozen v61 vs v2, matched prior injections, input-only heldouts. No official score or current-worktree improvement claimed.",
+  "official_candidate_changed": false,
+  "official_submission_performed": false,
+  "next_action": "Investigate both-copy HOLD path and bounded feature-predicate typed-program learner; preserve official v61v1 for fresh00:15Z gate."
+}

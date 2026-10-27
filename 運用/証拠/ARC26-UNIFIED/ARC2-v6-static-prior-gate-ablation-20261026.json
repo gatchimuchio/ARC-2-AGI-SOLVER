@@ -1,0 +1,53 @@
+{
+  "schema": "arc26-v6-arc2-static-prior-gate-ablation-v1",
+  "run_id": "v6-no-static-prior-ablation-20261026T1710Z",
+  "hypothesis": "Removing two fixed unrelated template examples from per-mechanism candidate training validation would reduce unnecessary HDS holds and improve exact public score.",
+  "runtime_change": "Experiment-only worker wrapper replaces candidate prior examples with an empty list; production source was not modified.",
+  "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "public_training_solutions_sha256": "9f07a38bd25af5e83aa5bf85c5cb1a1fefdb30f6a755256fa65429e697ca97f9",
+  "targets_passed_to_runtime": false,
+  "targets_read_after_output_fixed": true,
+  "baseline_v12": {
+    "runtime_seconds": 320.762,
+    "submission_sha256": "54f6a303c4143f15279e2084d5ad798455e565b4d51cd6a2b226e4d4735af46a",
+    "tasks": 240,
+    "examples": 259,
+    "exact_tasks": 13,
+    "exact_examples_any_attempt": 14,
+    "attempt_1_exact": 9,
+    "attempt_2_exact": 13,
+    "fallbacks": 249,
+    "solver_hold": 247,
+    "task_wall_timeout": 2
+  },
+  "ablation": {
+    "runtime_seconds": 807.547,
+    "submission_sha256": "54f6a303c4143f15279e2084d5ad798455e565b4d51cd6a2b226e4d4735af46a",
+    "audit_sha256": "c518dd39e4c143d9b00684b94bd51dfd57aeac7c16d7ddf7347417069b72f408",
+    "tasks": 240,
+    "examples": 259,
+    "exact_tasks": 13,
+    "exact_examples_any_attempt": 14,
+    "attempt_1_exact": 9,
+    "attempt_2_exact": 13,
+    "fallbacks": 249,
+    "solver_hold": 246,
+    "task_wall_timeout": 3,
+    "nonidentity_candidate_predictions": 72,
+    "examples_with_candidates": 62
+  },
+  "delta": {
+    "exact_examples": 0,
+    "exact_tasks": 0,
+    "fallbacks": 0,
+    "runtime_seconds": 486.785,
+    "runtime_ratio": 2.518,
+    "submission_outputs_identical": true
+  },
+  "decision": "REJECT: no score gain, byte-identical submission, and 2.518x runtime; timeout count increased by one.",
+  "evidence": {
+    "baseline": "運用/証拠/ARC26-UNIFIED/ARC2-v12-kaggle-kernel-public-evaluation-20261026.json",
+    "output_dir": "出力/Kaggle/arc2-codex-main-baseline-v1/v6-no-static-prior-ablation-20261026T1710Z/output",
+    "result_scope": "public training post-run scoring; not official Kaggle score"
+  }
+}

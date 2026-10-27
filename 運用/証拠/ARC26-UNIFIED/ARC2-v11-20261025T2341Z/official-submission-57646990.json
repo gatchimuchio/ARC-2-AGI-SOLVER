@@ -1,0 +1,18 @@
+{
+  "状態": "提出受理・採点結果未確認",
+  "competition": "arc-prize-2026-arc-agi-2",
+  "kernel": "tecchannn/arc2-codex-main-baseline-v1",
+  "version": 11,
+  "submission_ref": 57646990,
+  "created_at": "2026-10-26T00:14:45.885011+00:00",
+  "提出ゲート": {
+    "許可": true,
+    "competition": "arc-prize-2026-arc-agi-2",
+    "utc_day": "2026-10-26",
+    "latest_ref": 57611018,
+    "latest_status": "COMPLETE",
+    "latest_public_score": "0.00",
+    "today_submission_refs": [],
+    "理由": "UTC日次枠があり、前回提出から24時間以上経過し、直近提出は数値採点完了です。"
+  }
+}

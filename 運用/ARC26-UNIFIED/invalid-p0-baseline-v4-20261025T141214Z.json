@@ -1,0 +1,76 @@
+{
+  "schema": "arc26-v4-p0-baseline-v1",
+  "reproduction_id": "ARC26-ARC2-V4-P0-20261025T141214Z",
+  "captured_at_utc": "2026-10-25T14:12:14.113Z",
+  "track": "ARC2",
+  "competition_slug": "arc-prize-2026-arc-agi-2",
+  "repository": "C:\\Users\\ohira\\OneDrive\\ドキュメント\\ChatGPT\\ARC２",
+  "branch": "main",
+  "head_sha": "dae0a5dbe124a0c4a01bd69a26dda0036d0379e0",
+  "origin_ahead_behind": "0\t40",
+  "worktree_status_file": "運用/ARC26-UNIFIED/worktree-status-before-v4-20261025T141214Z.txt",
+  "worktree_status_sha256": "8e0a82ebc9789fb13d445985178bcdd5e84ee25d38ce784dcd87bb90d59e0fe1",
+  "protected_files": {
+    "AGENTS.md": {
+      "working_sha256": "315998bc0549de61f70fda28a9c9923bea8a61ba6d9b79019283165e5438109b",
+      "head_blob_sha": "f00e552e6d14c99d1734f326398624ad700fb6b4",
+      "matches_head": false
+    },
+    "制御\\現在状態.json": {
+      "working_sha256": "773fdfdd37aad115c6bbbcb879304142136654db649eb1954cde0d69eb14aa6d",
+      "head_blob_sha": "HEAD:制御\\現在状態.json",
+      "matches_head": false
+    }
+  },
+  "artifacts": {
+    "HDS\\学習系統\\v0.4.2": {
+      "sha256": "845bfd32a4184aa1afa5711c295f4b7188504d8f2e01caed6ef22d93864c4476",
+      "files": 30,
+      "bytes": 201012
+    },
+    "接続\\ARC2": {
+      "sha256": "1add3135d1a35a833733aa45bfc1c174cd0dc114439b21905607a8307c7b799b",
+      "files": 519,
+      "bytes": 5366147
+    },
+    "記憶\\事前記憶\\v0.4": {
+      "sha256": "521084276da878c0aab8cee84fc030860d71139deb13485cee042a4ecaac26e8",
+      "files": 9,
+      "bytes": 43918
+    },
+    "入力": {
+      "sha256": "0a3d75a4e6d72285ccc9948fa0b4ca5e307750b4cd84338f71b8043bcdfe63f2",
+      "files": 1136,
+      "bytes": 13473281
+    },
+    "道具\\ARC2Kaggle提出bundle.py": {
+      "sha256": "0bd0d1b8fac07585317c369598106b007204095536da3826feb2470c3ff7e5fa",
+      "files": 1,
+      "bytes": 15487
+    },
+    "検証\\ARC2評価.py": {
+      "sha256": "c9c8ce034e03d07393a5e9205b5966d2f5c0590e7ef7827fb35b3463b6abcd39",
+      "files": 1,
+      "bytes": 5571
+    },
+    "検証\\test_ARC2Kaggle提出.py": {
+      "sha256": "563bf557197d95d79306633ddd4082cc48c2674d39a45a05be4827e00d6773e0",
+      "files": 1,
+      "bytes": 8685
+    }
+  },
+  "dependencies": {
+    "pyproject.toml": {
+      "sha256": "f29f94a3d9fd3081fa744f714699e379e51bca15b2cc517ff567ed593e0ec9df",
+      "bytes": 1173
+    },
+    "uv.lock": {
+      "sha256": "c95e73cb6723c9d7b403b4a93079c4e330dbb0499e5c59e2698709ac2e519d38",
+      "bytes": 160501
+    }
+  },
+  "project_kaggle_environment_manifest": "運用/ARC26-UNIFIED/kaggle-cli-environment.json",
+  "project_kaggle_environment_manifest_sha256": "d2d2323dc5c61218d885b6e8d2519e4a35e26e772cf478332c4d23e9395cffc5",
+  "governing_instruction_archive_sha256": "aeba755872429df889c39a09b7c13a923779aa732194aa5fa90514c39d2f31e0",
+  "scope": "pre-adoption source/input/memory/dependency snapshot; preexisting local diffs preserved"
+}

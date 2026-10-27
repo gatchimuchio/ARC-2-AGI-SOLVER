@@ -1,0 +1,24 @@
+{
+  "accuracy_metrics_accepted": false,
+  "contaminated_adapter_sha256": "0258bd53920ee6f7051e359d638c93ee05f44bc697350454c0e74760a7c7e724",
+  "contaminated_adapter_snapshot": "運用/証拠/ARC26-UNIFIED/ARC2-Kaggle提出-adapter-before-legacy-removal-0258bd53.py",
+  "experiment_id": "arc2-v17-hds-legacy-runtime-public-evaluation-20261025T183300Z",
+  "legacy_solver_distinct_8hex_literals": 0,
+  "observed_at_utc": "2026-10-25T18:44:10Z",
+  "partial_output_files_after_stop": [],
+  "process_ids_stopped": [
+    15036,
+    14520,
+    10872,
+    3040,
+    16912,
+    2204
+  ],
+  "reason": "The active adapter imported legacy_v4_candidate and called legacy_candidates/merge_slots. The legacy solver contains task-identifier literals; this runtime violates the repository ban on task-ID-specific branching.",
+  "restored_adapter_sha256": "0258bd53920ee6f7051e359d638c93ee05f44bc697350454c0e74760a7c7e724",
+  "runtime_output_accepted": false,
+  "schema": "arc2-invalid-evaluation-aborted.v1",
+  "source_restoration": "Restored from the exact v10 safe feature-neighbor bundle; all other repo diffs were retained.",
+  "status": "ABORTED_INVALID_RUNTIME",
+  "track": "ARC2"
+}

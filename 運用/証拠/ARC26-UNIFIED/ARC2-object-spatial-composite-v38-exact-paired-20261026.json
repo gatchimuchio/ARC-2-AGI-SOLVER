@@ -1,0 +1,49 @@
+{
+  "schema": "arc2-object-spatial-composite-v38-exact-paired-v1",
+  "loo_eligible_folds": 2916,
+  "loo_candidate_proposal_folds": 3,
+  "loo_exact_v28_bundle_paired": {
+    "v28_exact": 2,
+    "candidate_exact_outputs": 2,
+    "candidate_usable_when_v28_slot_duplicate": 0,
+    "newly_correct": 0,
+    "regressions": 0
+  },
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "challenge_tasks_with_candidates": 1,
+  "challenge_examples_with_candidates": 1,
+  "challenge_candidate_tasks_exact_v28_bundle_paired": {
+    "examples_evaluated_in_candidate_tasks": 1,
+    "baseline_exact_examples": 1,
+    "combined_exact_examples": 1,
+    "candidate_proposals": 1,
+    "candidate_exact_outputs": 1,
+    "candidate_usable_when_v28_slot_duplicate": 0,
+    "newly_correct_examples": 0,
+    "regressed_examples": 0,
+    "baseline_exact_tasks": 1,
+    "combined_exact_tasks": 1,
+    "newly_correct_tasks": 0,
+    "regressed_tasks": 0
+  },
+  "exact_v28_runtime_tasks": 4,
+  "exact_v28_runtime_seconds": 26.034,
+  "exact_v28_fallback_count": 4,
+  "exact_v28_temporary_output_sha256": {
+    "submission": "00663cf2446d239b39b7a005f6a255fde9757dd931af7bb687611a11463b2944",
+    "audit": "09feef5afad9f5dfee21e10da12934a4deb5ee31fc08ae1277de80ddbe41b0a0"
+  },
+  "candidate_runtime_received_heldout_outputs": false,
+  "exact_v28_runtime_received_heldout_or_challenge_targets": false,
+  "all_targets_read_after_both_prediction_sets": true,
+  "per_task_ids_grids_predictions_or_targets_saved": false,
+  "temporary_outputs_and_payload_removed": true,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "b42b171ba169b485b2354c140f2cfabb9ba93cac8771720be57b3b3b8b072e2c",
+    "candidate_probe": "8ed9e653370d785ea62882f94857b58410f844489d7f7ff0a69791071fc450d4",
+    "challenge_inputs": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "v28_build_manifest": "8bafa314ddb1e25831769d38f3e1d779fc3b6c060a002cd91caccf5e37529f17"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "candidate": {
+    "format_validated": true,
+    "kernel_version": 9,
+    "run_completed": true,
+    "submission_sha256": "c34dcdd39e1afacba8c2fe992ffd93378c92bbbde3885a58f43f3fd02253bcb2"
+  },
+  "current_known_latest_submission": {
+    "id": 57576155,
+    "public_score": 0.0,
+    "status": "COMPLETE",
+    "submitted_at_utc": "2026-10-24T00:12:39.127Z"
+  },
+  "current_official_history_evidence": "運用/証拠/ARC26-UNIFIED/official-history-20261024T230057Z.json",
+  "event": "Official rules and timeline recheck before the next permitted submission window",
+  "observed_at_utc": "2026-10-24T23:42:14Z",
+  "official_rules": {
+    "data_access_and_use": "Apache 2.0",
+    "maximum_final_submissions": 2,
+    "maximum_submissions_per_day": 1
+  },
+  "official_timeline": {
+    "final_submission_deadline_utc": "2026-11-02T23:59:00Z",
+    "timeline_subject_to_change": true
+  },
+  "pre_submit_live_recheck_required": true,
+  "sources": [
+    "https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-2/rules",
+    "https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-2/overview/prizes"
+  ],
+  "submission_performed": false,
+  "track": "ARC2"
+}

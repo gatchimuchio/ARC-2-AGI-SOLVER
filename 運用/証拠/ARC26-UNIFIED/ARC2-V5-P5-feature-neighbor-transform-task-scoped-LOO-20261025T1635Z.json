@@ -1,0 +1,58 @@
+{
+  "schema": "arc2-v5-feature-neighbor-transform-loo.v1",
+  "experiment_id": "ARC26-ARC2-V5-P5-FEATURE-NEIGHBOR-TRANSFORM-LOO",
+  "data_source": "public ARC-AGI-2 training split and fixed training-only runtime prior",
+  "feature_based_selection_only": true,
+  "task_identifiers_or_grids_saved": false,
+  "heldout_output_passed_to_solver": false,
+  "evaluation_solutions_read_by_parent_only": true,
+  "fallback_counted_correct": false,
+  "candidate_program_families": [
+    "D4 orientation",
+    "color map",
+    "crop background",
+    "integer scale",
+    "uniform downscale",
+    "tile"
+  ],
+  "selection_features": [
+    "grid dimensions",
+    "aspect ratio",
+    "color-count profile",
+    "foreground occupancy and bounds",
+    "connected-component profile",
+    "row and column transition rates"
+  ],
+  "prior_examples": 2,
+  "prior_context_mode": "task",
+  "prior_source_tasks_excluded": 1,
+  "eligible_tasks": 842,
+  "loo_folds": 2916,
+  "complete": true,
+  "elapsed_seconds": 331.502,
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8",
+  "candidate_folds": 155,
+  "candidate_unique_consensus_exact": 66,
+  "hds_gate_calls": 155,
+  "hds_gate_admitted": 124,
+  "hds_gate_rejected": 31,
+  "hds_gate_states": {
+    "全教師再現": 124,
+    "充足する候補なし": 31
+  },
+  "paired_hds_calls": 124,
+  "paired_first_exact": 15,
+  "paired_first_fallback": 109,
+  "paired_second_exact": 0,
+  "paired_before_exact_union": 17,
+  "paired_after_exact_union": 61,
+  "paired_delta_exact": 44,
+  "paired_gains": 44,
+  "paired_regressions": 0,
+  "source_sha256": {
+    "runner": "26537bbd884146ca4a4f44ca58a2a167552685dfc060622991afc88eec938256",
+    "simple_transform_runner": "a0211675c28b9f80dab7c7a08fc24834eabb64ebffe91f32db4847f45b0be4c7",
+    "hds_connector": "d9b427fe8bd092c89e4c59dbb4de1154b4333a1fd98ba13592950e5b822d7beb",
+    "submission_adapter": "f53358ffe020fe49786b9dee5d586fecd238365f29133a6d5cccbf06fb38863d"
+  }
+}

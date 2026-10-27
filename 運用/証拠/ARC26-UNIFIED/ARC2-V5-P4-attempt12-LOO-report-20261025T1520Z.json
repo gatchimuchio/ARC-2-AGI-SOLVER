@@ -1,0 +1,85 @@
+{
+  "attempt1_exact_regressions": 0,
+  "attempt1_output_differences": 0,
+  "attempt_pair": {
+    "exact": 0,
+    "fallback": 13,
+    "valid": 0,
+    "wrong": 0
+  },
+  "corrected_runner_sha256": "9d4a3e1a233453e6109583d8224f70fde90669cbed2ad1b59314c8d858e0bab3",
+  "dataset": "public ARC-AGI-2 training split only",
+  "evaluation_solutions_read": false,
+  "experiment_id": "ARC26-ARC2-V5-P4-ATTEMPT12-LOO-20261025T1520Z",
+  "fallback_counted_correct": false,
+  "heldout_output_passed_to_solver": false,
+  "loo_folds": 13,
+  "memory_ablation": {
+    "exact_current_with_prior": 0,
+    "exact_current_without_prior": 0,
+    "exact_previous_with_prior": 0,
+    "interpretation": "No measurable prior-example effect in this limited sample.",
+    "prior_examples_available": 2,
+    "prior_examples_loaded_with_prior": 2,
+    "prior_examples_loaded_without_prior": 0,
+    "same_metrics_with_and_without_prior": true
+  },
+  "no_prior_runner_sha256": "a86520ed1a0fa7f32bc99e247fa2f577957806e12940508e0ed3bf1cf57276",
+  "official_submission_or_rerun": false,
+  "preliminary_runner_issue": {
+    "handling": "Both initial files preserved but excluded from primary result; corrected runner excludes Path(filename).stem and asserts no overlap.",
+    "issue": "Initial version compared template task IDs to filenames including .json, so exclusion count was overstated.",
+    "posthoc_selected_source_overlap": 0,
+    "status": "PRELIMINARY_ONLY"
+  },
+  "previous_current_attempt1": {
+    "current": {
+      "exact": 0,
+      "fallback": 13,
+      "valid": 0,
+      "wrong": 0
+    },
+    "delta_exact": 0,
+    "previous": {
+      "exact": 0,
+      "fallback": 13,
+      "valid": 0,
+      "wrong": 0
+    }
+  },
+  "reproducibility": {
+    "run1_seconds": 20.102,
+    "run2_seconds": 19.671,
+    "two_corrected_runs_match": true
+  },
+  "run_evidence": {
+    "no_prior": {
+      "path": "運用/証拠/ARC26-UNIFIED/P4-attempt12-LOO-no-prior-20261025T1505Z-run1.json",
+      "sha256": "3a87373674b7f5f89cc8a7a3ec1539135aa34f685316376ab009be14a24b0c68"
+    },
+    "preliminary1": {
+      "path": "運用/証拠/ARC26-UNIFIED/P4-attempt12-LOO-20261025T1501Z-run1.json",
+      "sha256": "1deab78c59e46c210eae987705045943c7ecc821272e0876840d0e72b38df16b"
+    },
+    "preliminary2": {
+      "path": "運用/証拠/ARC26-UNIFIED/P4-attempt12-LOO-20261025T1501Z-run2.json",
+      "sha256": "01802a97d7c381f167568d575261cf3db1fd2cf3ff24f0c99d705b2c42537278"
+    },
+    "run1": {
+      "path": "運用/証拠/ARC26-UNIFIED/P4-attempt12-LOO-corrected-20261025T1504Z-run1.json",
+      "sha256": "1f0d26cc7dc3aeb8661f145d1fbc8f06ec9d4a75078c466e9cbd3d20f740af97"
+    },
+    "run2": {
+      "path": "運用/証拠/ARC26-UNIFIED/P4-attempt12-LOO-corrected-20261025T1504Z-run2.json",
+      "sha256": "20a04b666569079d38ab7f977e3007ce4c4f366cd811c383ad08b287e8b1cb14"
+    }
+  },
+  "sample_seed": 20261025,
+  "sampled_tasks": 4,
+  "schema": "arc2-v5-attempt12-public-training-loo-report.v1",
+  "status": "NOT_ACCEPTED_NO_ADDITIONAL_PREDICTIONS",
+  "task_identifiers_or_grids_saved_in_report": false,
+  "template_prior_source_tasks_excluded": 1,
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8",
+  "unique_second_selected": 0
+}

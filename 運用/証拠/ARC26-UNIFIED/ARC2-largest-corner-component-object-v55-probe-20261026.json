@@ -1,0 +1,21 @@
+{
+  "schema": "arc2-largest-corner-component-object-v55-probe-v1",
+  "background_policy": "color with the largest 4-connected component containing any grid corner; ties break by total count then lowest color",
+  "candidate_agreement": "at least two of object, outlier, and palette families return the same distinct valid grid",
+  "loo_eligible_folds": 2916,
+  "loo_candidate_proposal_folds": 36,
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "challenge_tasks_with_candidate": 4,
+  "challenge_examples_with_candidate": 4,
+  "heldout_outputs_read": false,
+  "challenge_targets_read": false,
+  "per_task_ids_grids_or_candidates_saved": false,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "addbedbf16d6b8ff45a77a8e7c2374fbfaeb9392bebacc853a3d08520c2117a0",
+    "object_module": "d0bd26fb4e6619ca20bc6dc8b02d2aa569769392825140c77170978adaac2fd5",
+    "challenge_inputs": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "v28_build_manifest": "8bafa314ddb1e25831769d38f3e1d779fc3b6c060a002cd91caccf5e37529f17"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "schema": "arc2-v2-official-test-hold-reasons-v1",
+  "instruction_id": "ARC2-SCORE-GATE-20261024",
+  "source_commit": "3d444f34db32d62bd2edad320648e08e8dae19d6",
+  "source_scope": "git archive of 接続/, HDS/, and two root Python dependencies at exact Notebook v2 source commit",
+  "challenge_file": "arc-agi_test_challenges.json",
+  "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "challenge_test_fields": "input only; no evaluation answers loaded",
+  "challenge_tasks": 240,
+  "challenge_test_examples": 259,
+  "public_training_task_files_copied_for_prior_memory": 1,
+  "solver_rows_returned": 258,
+  "solver_status_counts": {
+    "断定保留": 257,
+    "出力": 1
+  },
+  "solver_hold_reason_counts": {
+    "現行暫定原理の適用に必要な観測が不足している": 257,
+    "原因未確定で隔離中の原理が存在する": 2
+  },
+  "task_exception_counts": {
+    "AssemblyIncomplete": 1
+  },
+  "fallback_test_count": 258,
+  "non_hold_answer_count": 1,
+  "reconciliation": {
+    "official_audit_fallback_count": 258,
+    "official_audit_reason_counts": {
+      "solver_hold": 257,
+      "AssemblyIncomplete": 1
+    },
+    "diagnostic_fallback_test_count": 258,
+    "diagnostic_hds_hold_rows": 257,
+    "diagnostic_exception_test_count": 1,
+    "total_test_count": 259,
+    "all_test_examples_accounted": true,
+    "fallback_count_matches_official_audit": true,
+    "hds_hold_count_matches_official_solver_hold": true,
+    "exception_test_count_matches_official_AssemblyIncomplete": true
+  },
+  "result_state": "COMPLETE",
+  "task_ids_and_grids_saved": false,
+  "runtime_seconds": 704.484,
+  "generated_at_utc": "2026-10-24T00:08:39.671369+00:00"
+}

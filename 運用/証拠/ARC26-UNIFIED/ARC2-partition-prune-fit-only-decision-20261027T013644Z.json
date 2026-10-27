@@ -1,0 +1,36 @@
+{
+  "schema": "arc2-partition-support-prune-fit-only-decision-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-27T01:36:44.738454+00:00",
+  "run_id": "ARC2-partition-prune-fit-six-20261027T0135Z",
+  "status": "COMPLETE",
+  "session_id": 82368,
+  "selected_phases": 6,
+  "same_support_payloads_verified": true,
+  "new_fitted_models": 0,
+  "old_statuses": {
+    "fit_state_budget_exceeded": 6
+  },
+  "new_statuses": {
+    "no_exact_bounded_tree": 1,
+    "fit_state_budget_exceeded": 5
+  },
+  "old_fit_states_total": 1542,
+  "new_fit_states_total": 1474,
+  "old_work_units_total": 341580,
+  "new_work_units_total": 664863,
+  "work_counter_not_latency": true,
+  "bounds": "256 states / 2m work / depth3 / 35 features / 21 typed actions unchanged",
+  "module_sha256": "119f390837e8c5ecf77eff8833ef7371c13bb565aa123f86f13b2076b931e6f0",
+  "diagnostic_sha256": "9c1788a6421774167ea10076355e2ff47ca58fe1d9f2988287d57b46f3db4e7a",
+  "old_records_path": "運用/証拠/ARC26-UNIFIED/ARC2-cell-conditional-tree-rowcol-support-prune/fit_results/pruned-fit-six-phases-20261027T0036Z.jsonl",
+  "old_records_sha256": "edb0b80965127b5a9fd0deb693d7af4dde5b370c255e08d363d48a11d915fe6e",
+  "records_path": "運用/証拠/ARC26-UNIFIED/ARC2-cell-conditional-tree-rowcol-partition-prune/fit_results/partition-fit-six-phases-20261027T0135Z.jsonl",
+  "records_sha256": "f3ee2bb1e381f70e71a61299b4eb1737b72fe43a1c529ba73512f9c18ff8ca1b",
+  "scope": "Current-support-only FIT diagnosis; no heldout queries, HDS or scoring. Includes observed F as an ordinary after teacher.",
+  "decision": "NOT ADOPTED: one phase now proves no exact bounded tree; five remain capped, zero fitted models, more work units. No capacity, score or universal speedup gain.",
+  "next_action": "Diagnose action-specific teacher/cell support necessity on the same six phases without changing solver grammar or caps. Continue isolated whole-run deadline repair and official same-ID score tracking.",
+  "adopted": false,
+  "production_source_changed": false,
+  "official_submission_performed": false
+}

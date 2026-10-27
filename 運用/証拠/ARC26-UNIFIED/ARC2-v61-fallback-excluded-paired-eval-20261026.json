@@ -1,0 +1,57 @@
+{
+  "schema": "arc2-fallback-excluded-paired-public-evaluation-v1",
+  "run_id": "ARC2-V61-FALLBACK-EXCLUDED-PAIRED-20261026T184028Z",
+  "track": "ARC2",
+  "dataset": "Kaggle ARC2 public training solutions, post-hoc scorer only",
+  "challenge_file": "入力/Kaggle/arc-agi_test_challenges.json",
+  "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "target_file": "入力\\Kaggle\\arc-agi_training_solutions.json",
+  "target_sha256": "9f07a38bd25af5e83aa5bf85c5cb1a1fefdb30f6a755256fa65429e697ca97f9",
+  "predictions_fixed_before_targets_loaded": true,
+  "scoring": "An exact grid is counted as solver-correct only when the output audit does not mark that test example as fallback. A task is exact only when all its grids are solver-correct.",
+  "candidates": {
+    "v51": {
+      "kernel": "tecchannn/arc2-v51-local-largest-component-object-candidate",
+      "version": 13,
+      "output_sha256": "8c4a3d09d80e9cef5cf9f3873afa523d2700a52882a5b65ad041d39380327194",
+      "audit_sha256": "12d29a83844bb46ed396e2ddee7dfb1b952c30dd83a870378cd1b1b5250c792f",
+      "fallback_count": 249,
+      "raw_output_exact_examples_including_fallback": 15,
+      "fallback_exact_examples_excluded_from_solver_metric": 6,
+      "solver_exact_examples_excluding_fallback": 9,
+      "raw_output_exact_tasks_including_fallback": 14,
+      "solver_exact_tasks_excluding_fallback": 8,
+      "example_count": 259,
+      "task_count": 240
+    },
+    "v61": {
+      "kernel": "tecchannn/arc2-v61-local-teacher-pair-consensus-candidate",
+      "version": 1,
+      "output_sha256": "827bccfc1cf51e2fc87d687ba51e1375899650a530ec00e7a20eb1f71eb2dd18",
+      "audit_sha256": "4b4474d8e7a956f8e5a2ec6d50e7391af0aeacd2eb08b71052068e34797b3b86",
+      "fallback_count": 249,
+      "raw_output_exact_examples_including_fallback": 16,
+      "fallback_exact_examples_excluded_from_solver_metric": 7,
+      "solver_exact_examples_excluding_fallback": 9,
+      "raw_output_exact_tasks_including_fallback": 14,
+      "solver_exact_tasks_excluding_fallback": 8,
+      "example_count": 259,
+      "task_count": 240
+    }
+  },
+  "paired_delta": {
+    "changed_examples": 2,
+    "changed_examples_marked_fallback": 2,
+    "raw_output_correct_gains_including_fallback": 1,
+    "raw_output_regressions_including_fallback": 0,
+    "solver_correct_gains_excluding_fallback": 0,
+    "solver_regressions_excluding_fallback": 0
+  },
+  "conclusion": "v61 has one additional exact public output only when fallback matches are included. Excluding fallback, v51 and v61 are tied at 9/259 exact grids and 8/240 exact tasks; the teacher-pair change demonstrates no solver-ability gain on this evaluation.",
+  "official_score": null,
+  "limitations": [
+    "This is a local public-data comparison, not an official Kaggle score.",
+    "Fallback matches are excluded from the solver-ability metric.",
+    "No task IDs, target grids, or per-example correctness labels are persisted."
+  ]
+}

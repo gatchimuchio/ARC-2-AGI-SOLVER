@@ -1,0 +1,64 @@
+--- frozen405/cell_conditional_tree.py
++++ leaf-only-ablation/cell_conditional_tree.py
+@@ -17,7 +17,7 @@
+ from 接続.ARC2.受動凡例転写核 import colour_prefix, rectangle_count
+ 
+ 
+-SCHEMA = "arc2-cell-conditional-tree-rowcol-v1"
++SCHEMA = "arc2-cell-conditional-tree-rowcol-leaf-support-ablation-v1"
+ HDS_BOUNDARY = "ARC入力セル条件木_実験v1"
+ NEIGHBORS = (0, 1, 2, 3, 5, 6, 7, 8)
+ ROLES = ("center", *(f"neighbor_{index}" for index in NEIGHBORS), "background", "unique_rarest")
+@@ -57,6 +57,7 @@
+     max_teachers: int = 8
+     max_training_cells: int = 4096
+     minimum_teacher_support: int = 2
++    minimum_leaf_teacher_support: int = 2
+     minimum_cell_support: int = 2
+     max_fit_states: int = 256
+     max_alternatives: int = 32
+@@ -67,6 +68,8 @@
+             raise ValueError("bounds must be positive integers")
+         if self.minimum_teacher_support < 2 or self.minimum_cell_support < 2:
+             raise ValueError("two distinct teacher inputs and two cells are required")
++        if self.minimum_leaf_teacher_support not in (1, 2):
++            raise ValueError("experimental local leaf teacher support must be one or two")
+ 
+ 
+ class _Hold(Exception):
+@@ -240,7 +243,7 @@
+             for action_index in range(len(PROGRAMS)):
+                 spend(1)
+                 if (cell_counts[action_index] >= self.bounds.minimum_cell_support
+-                        and teacher_masks[action_index].bit_count() >= self.bounds.minimum_teacher_support):
++                        and teacher_masks[action_index].bit_count() >= self.bounds.minimum_leaf_teacher_support):
+                     eligible |= 1 << action_index
+             for index in indices:
+                 spend(1)
+@@ -254,7 +257,7 @@
+             spend(len(indices))
+             subset = [records[index] for index in indices]
+             teacher_support = len({record[3] for record in subset})
+-            if teacher_support < self.bounds.minimum_teacher_support or len(subset) < self.bounds.minimum_cell_support:
++            if teacher_support < self.bounds.minimum_leaf_teacher_support or len(subset) < self.bounds.minimum_cell_support:
+                 infeasible_subsets.add(indices)
+                 return None
+             leaf_programs = []
+@@ -322,7 +325,7 @@
+                     spend(len(child_indices))
+                     if (len(child_indices) < self.bounds.minimum_cell_support
+                             or len({records[index][3] for index in child_indices})
+-                            < self.bounds.minimum_teacher_support):
++                            < self.bounds.minimum_leaf_teacher_support):
+                         infeasible_subsets.add(child_indices)
+                         unsupported = True
+                         break
+@@ -419,7 +422,7 @@
+                         raise ValueError("invalid typed leaf")
+                     if any(_program_cost(program) != _program_cost(tree["programs"][0]) for program in tree["programs"]):
+                         raise ValueError("mixed leaf complexities")
+-                    if type(tree["teacher_support"]) is not int or not engine.bounds.minimum_teacher_support <= tree["teacher_support"] <= engine.distinct_training_examples or type(tree["cell_support"]) is not int or not engine.bounds.minimum_cell_support <= tree["cell_support"] <= engine.training_cells:
++                    if type(tree["teacher_support"]) is not int or not engine.bounds.minimum_leaf_teacher_support <= tree["teacher_support"] <= engine.distinct_training_examples or type(tree["cell_support"]) is not int or not engine.bounds.minimum_cell_support <= tree["cell_support"] <= engine.training_cells:
+                         raise ValueError("invalid leaf support")
+                 elif tree.get("kind") == "split":
+                     if set(tree) != {"kind", "feature_index", "branches"} or type(tree["feature_index"]) is not int or tree["feature_index"] not in engine.feature_indices or depth >= engine.bounds.max_depth or not isinstance(tree["branches"], dict) or len(tree["branches"]) < 2 or not set(tree["branches"]) <= _domain(FEATURES[tree["feature_index"]]):

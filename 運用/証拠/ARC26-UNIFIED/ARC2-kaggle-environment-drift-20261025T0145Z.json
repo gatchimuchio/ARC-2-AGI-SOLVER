@@ -1,0 +1,35 @@
+{
+  "schema": "arc26-kaggle-environment-drift-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-25T01:46:45.666714+00:00",
+  "project_environment": ".venv",
+  "installed_versions": {
+    "kaggle": "2.2.4",
+    "kagglesdk": "0.1.37",
+    "certifi": "2026.7.22"
+  },
+  "locked_versions": {
+    "kaggle": "2.2.5",
+    "kagglesdk": "0.1.38",
+    "certifi": "2026.10.23"
+  },
+  "uv_sync_dry_run": "Would update only certifi, kaggle, and kagglesdk; no changes were applied.",
+  "pinned_isolated_cli": "Kaggle CLI 2.2.5 verified through uvx; read-only competition histories succeeded.",
+  "official_history": {
+    "ARC2": {
+      "submission_id": 57611018,
+      "status": "COMPLETE",
+      "public_score": "0.00",
+      "observed_at_utc": "2026-10-25T01:44:52.976347Z"
+    },
+    "ARC3": {
+      "submission_id": 57612586,
+      "status": "PENDING",
+      "public_score": null,
+      "observed_at_utc": "2026-10-25T01:38:20Z"
+    }
+  },
+  "pyproject_sha256": "f29f94a3d9fd3081fa744f714699e379e51bca15b2cc517ff567ed593e0ec9df",
+  "uv_lock_sha256": "c95e73cb6723c9d7b403b4a93079c4e330dbb0499e5c59e2698709ac2e519d38",
+  "repair_action": "uv sync --locked after the active paired LOO process exits; no submission/authentication commands were run."
+}

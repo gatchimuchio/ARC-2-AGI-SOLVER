@@ -1,0 +1,47 @@
+{
+  "schema": "arc2-object-composite-palette-v25-bundle-challenge-v1",
+  "public_challenge_tasks": 240,
+  "public_challenge_examples": 259,
+  "composite_candidate_examples_distinct_from_v19_attempt1": 3,
+  "tasks_with_possible_composite_changes": 3,
+  "examples_run_from_both_exact_bundles": 3,
+  "v24_subset_score": {
+    "exact_tasks": 3,
+    "exact_examples": 3
+  },
+  "v25_subset_score": {
+    "exact_tasks": 3,
+    "exact_examples": 3
+  },
+  "changed_examples": 0,
+  "changed_attempt1_examples": 0,
+  "changed_attempt2_examples": 0,
+  "v24_bundle_fallbacks": 3,
+  "v25_bundle_fallbacks": 3,
+  "projected_full_challenge_v24_baseline": {
+    "exact_tasks": 13,
+    "exact_examples": 14
+  },
+  "projected_full_challenge_v25": {
+    "exact_tasks": 13,
+    "exact_examples": 14
+  },
+  "projected_delta": {
+    "exact_tasks": 0,
+    "exact_examples": 0
+  },
+  "runtime_received_test_targets": false,
+  "targets_read_after_both_exact_bundle_outputs": true,
+  "temporary_subset_outputs_and_payloads_removed": true,
+  "task_predictions_or_targets_saved": false,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "a071e270a202b5d105343537e51547f1701d55545085155e8183d6905e0869ba",
+    "probe": "ba2c6dce2bbd522cd5844c03355a51fa7f7794e04ae99c991fa5ec8e0645f642",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "baseline_v19": "171dbfcafa394f36dfdd79914f3b1c730e293003595a7563c620eb831a127c4f",
+    "v21.1_full_report": "fa4ab7c28e64507f40a92a035a85fe361e6f0d6e6bd4f6e57d6b7da598455ba0",
+    "v24_build_manifest": "6a52003b25dad93b4113c259b2d6e0f9d284161b5b78ecae544997fe11410aa1",
+    "v25_build_manifest": "bc09d3caa1894df9a35ac35fffdd81cd9d4736037fae743571e2a84b54ecd0ec"
+  }
+}

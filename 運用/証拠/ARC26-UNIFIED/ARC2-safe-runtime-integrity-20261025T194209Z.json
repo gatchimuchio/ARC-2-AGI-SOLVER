@@ -1,0 +1,78 @@
+{
+  "schema": "arc26-v5-runtime-integrity-review-v1",
+  "observed_at_utc": "2026-10-25T19:42:09.172Z",
+  "track": "ARC2",
+  "official_history": {
+    "latest_ref": 57611018,
+    "status": "COMPLETE",
+    "public_score": "0.00",
+    "daily_quota_utc_2026_10_25_remaining": 0,
+    "next_24h_gate_utc": "2026-10-26T00:13:10.933Z",
+    "next_check_utc": "2026-10-26T00:20:00Z"
+  },
+  "invalid_private_input_run": {
+    "output_dir": "出力/Kaggle/arc2-v20-safe-private-input-diagnostics-20261025T193000Z",
+    "audit_sha256": "6d64654a90cda8be00e35b76788a167c1e721c860e3c841ab83bb314dd85b3b5",
+    "submission_sha256": "f2866e438f9bba28f27014fcb2669c72ae481467e70cdcf552445046e380cd83",
+    "fallback_count": 65,
+    "test_examples": 259,
+    "candidate_prediction_count": 10,
+    "metrics_accepted": false,
+    "reason": "Local adapter on disk was legacy v4 hash b900..., not the version-10 safe adapter hash f2c985...; local output SHA does not match official version 10. Correctness unknown and results are discarded.",
+    "adapter_sha_observed_after_run": "b900cae71cf72719dd0cdd2e67eaa971a1aaeab3dae552691713cc0f7ef39094",
+    "legacy_snapshot_matches_current_bytes_before_restore": true
+  },
+  "safe_adapter_restore": {
+    "source_bundle": "出力/Kaggle/arc2-codex-main-baseline-v1/v12-safe-feature-neighbor-20261026/bundle.zip",
+    "bundle_payload_sha256": "bd13836d7ff3e14b18a13f159c6c2c62aa262521fc2d12f6daf0e5245dd499c5",
+    "adapter_path": "接続/ARC2/Kaggle提出.py",
+    "previous_sha256": "b900cae71cf72719dd0cdd2e67eaa971a1aaeab3dae552691713cc0f7ef39094",
+    "preserved_snapshot": "運用/証拠/ARC26-UNIFIED/ARC2-Kaggle提出-adapter-b900cae7-before-safe-restore.py",
+    "safe_sha256": "f2c9858c250e612dc17526cffdacdfb3502212a46b5a1fe1c60779fa51ae2b0c",
+    "post_restore_sha256": "f2c9858c250e612dc17526cffdacdfb3502212a46b5a1fe1c60779fa51ae2b0c",
+    "bundle_excludes_legacy_v4_modules": true,
+    "bundle_builder_sha256": "15fe8bfc2b261d5bceba6156f6b5bc5abd576464a06dea5b998b3e11fa9413d5"
+  },
+  "targeted_tests": {
+    "command": "pytest -q 検証/test_ARC2Kaggle提出.py 検証/test_Kaggle提出安全ゲート.py",
+    "result": "20 passed in 1.71s",
+    "test_file_sha256": "e97147029543e1bcc921f6b4843337c009c3b9c626f0a3da78e9f6d54942a2f9"
+  },
+  "current_public_evaluation": {
+    "report": "出力/Kaggle/arc2-v21-hds-current-public-evaluation-20261026T193000Z/scoring-report.json",
+    "report_sha256": "03bed4cc54441e9b191a37995cf30cee8ba96484363a827d4dfd8fb60dbf105d",
+    "mode": "current",
+    "tasks": 120,
+    "test_examples": 167,
+    "correct_tasks": 120,
+    "correct_examples": 167,
+    "official_score": null,
+    "runtime_received_solutions": false
+  },
+  "safe_input_only_diagnostic_rerun": {
+    "output_dir": "出力/Kaggle/arc2-v22-safe-private-input-diagnostics-20261025T194500Z",
+    "status": "RUNNING",
+    "adapter_sha256_at_launch": "f2c9858c250e612dc17526cffdacdfb3502212a46b5a1fe1c60779fa51ae2b0c",
+    "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "labels_available_to_runtime": false,
+    "correctness": "UNKNOWN"
+  },
+  "candidate_v10": {
+    "kernel": "tecchannn/arc2-codex-main-baseline-v1",
+    "version": 10,
+    "status": "COMPLETE",
+    "official_score": "NOT_SUBMITTED",
+    "submission_sha256": "1185244299abe142cfae823ee0b0c811bb03e70a6e2e40cb23cd8c08222bab0a",
+    "public_training_matched_loo": {
+      "previous_exact": 14,
+      "current_exact": 43,
+      "delta_exact": 29,
+      "regressions": 0
+    }
+  },
+  "protected_file_hashes": {
+    "AGENTS.md": "315998bc0549de61f70fda28a9c9923bea8a61ba6d9b79019283165e5438109b",
+    "制御/現在状態.json": "773fdfdd37aad115c6bbbcb879304142136654db649eb1954cde0d69eb14aa6d"
+  },
+  "submission_performed": false
+}

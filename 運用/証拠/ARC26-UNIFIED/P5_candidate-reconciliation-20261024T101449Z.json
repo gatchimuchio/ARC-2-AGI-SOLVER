@@ -1,0 +1,117 @@
+{
+  "schema": "arc2-p5-candidate-reconciliation.v1",
+  "instruction_id": "ARC26-UNIFIED-RUN-003",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-24T10:14:49Z",
+  "official_submission": {
+    "id": "57576155",
+    "status": "COMPLETE",
+    "official_public_score": "0.00",
+    "last_observed_at_utc": "2026-10-24T09:55:28Z",
+    "daily_quota_remaining": 0,
+    "next_due_utc": "2026-10-24T10:33:01.174328Z",
+    "queried_in_this_event": false
+  },
+  "challenge": {
+    "sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "tasks": 240,
+    "test_inputs": 259,
+    "hidden_or_evaluation_solutions_read": false
+  },
+  "fallback_classification": {
+    "hold": 256,
+    "same_reason": "現行暫定原理の適用に必要な観測が不足している",
+    "overlapping_quarantine_labels": 2,
+    "task_exceptions": 0,
+    "non_hold_outputs": 3,
+    "non_hold_correctness": "unknown; solutions were not read",
+    "fallback_counted_correct": false,
+    "source_commit": "2759d393a8d79824d36754785ce16f66d0493ebd",
+    "evidence": "運用/証拠/ARC2_公式スコア起点_20261024/HDS_test_mechanism_diagnostics-v5-57576155.json"
+  },
+  "generic_hds_attribution": {
+    "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8",
+    "loo_folds": 1191,
+    "eligible_tasks": 267,
+    "families": 107,
+    "candidate_module_checks": 127437,
+    "no_candidate": 127417,
+    "teacher_fit_and_equality_admitted": 20,
+    "families_with_any_candidate": {
+      "ARC全前景平行移動": 4,
+      "ARC格子D4変換": 16
+    },
+    "first_answer_exact_previous_current_delta": [
+      16,
+      16,
+      0
+    ],
+    "candidate_union_exact_previous_current_delta": [
+      17,
+      17,
+      0
+    ],
+    "runtime_delta_interpretable": false,
+    "status": "OBSERVATIONAL_ONLY_NO_GAIN",
+    "evidence": "運用/証拠/ARC26-UNIFIED/P5_HDS_candidate_pipeline_attribution_summary_20261024.json"
+  },
+  "translation_candidate": {
+    "standalone_loo_baseline_d4_exact": [
+      13,
+      1191
+    ],
+    "standalone_incremental_exact": [
+      4,
+      1191
+    ],
+    "standalone_wrong": 0,
+    "full_hds_incremental_union_exact": 0,
+    "production_decision": "REJECTED_NO_INCREMENTAL_HDS_GAIN",
+    "runtime": {
+      "sampled_loo_folds": 50,
+      "previous_seconds": 177.841,
+      "current_seconds": 184.241,
+      "delta_seconds": 6.4,
+      "delta_percent": 3.599,
+      "first_answer_changed_folds": 0,
+      "distinct_second_candidates": 0,
+      "scope": "candidate collection plus adapter selector; not an isolated translation-only timing"
+    },
+    "candidate_module_sha256": "5c57ab06054c3ff3e716bbd864b08b56be488a70536152404eae9b27e1846621",
+    "evidence_files": [
+      "運用/証拠/ARC2_公式スコア起点_20261024/P5_global_translation_LOO.json",
+      "運用/証拠/ARC2_公式スコア起点_20261024/P5_global_translation_HDS_integration.json",
+      "運用/証拠/ARC26-UNIFIED/P5_HDS_candidate_pipeline_attribution_summary_20261024.json",
+      "運用/証拠/ARC26-UNIFIED/P5_candidate_collection_runtime.json"
+    ]
+  },
+  "support2_d4_candidate": {
+    "public_training_loo_folds": 2916,
+    "support3_baseline_answers_exact_wrong": [
+      13,
+      13,
+      0
+    ],
+    "support2_candidate_answers_exact_wrong": [
+      22,
+      21,
+      1
+    ],
+    "full_hds_distinct_second_candidate_exact_wrong": [
+      10,
+      9,
+      1
+    ],
+    "official_challenge_candidate_outputs": 1,
+    "full_hds_answers_on_those_outputs": 1,
+    "official_challenge_distinct_second_candidates": 0,
+    "production_decision": "REJECTED_NO_CHALLENGE_COVERAGE_GAIN",
+    "evidence_files": [
+      "運用/証拠/ARC2_公式スコア起点_20261024/P5_D4_support2_exact_only_LOO.json",
+      "運用/証拠/ARC2_公式スコア起点_20261024/P5_D4_support2_exact_HDS_integration.json"
+    ]
+  },
+  "decision": "No solver variant is promoted from this reconciliation. Keep all pre-existing local source changes intact; require a new general HDS hypothesis with same-condition public-training comparison and measured runtime before any promotion.",
+  "runtime_changed_in_this_event": false,
+  "submission_or_rerun_performed": false
+}

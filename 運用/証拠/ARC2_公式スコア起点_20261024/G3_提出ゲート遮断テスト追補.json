@@ -1,0 +1,16 @@
+{
+  "schema": "arc2-v2-submission-gate-test-supplement-v1",
+  "instruction_id": "ARC2-SCORE-GATE-20261024",
+  "generated_at_utc": "2026-10-23T23:53:39.028904+00:00",
+  "test_command": ".venv/Scripts/python.exe -m pytest -q 検証/test_Kaggle提出安全ゲート.py 検証/test_ARC2KaggleScoreMonitor.py",
+  "test_result": "9 passed",
+  "coverage": {
+    "utc_day_duplicate_blocks_actual_submit_wrapper": true,
+    "wrapper_stops_before_competition_submit_code": true,
+    "previous_day_complete_zero_score_allows_gate": true,
+    "pending_and_blank_score_block": true,
+    "no_live_submission_sent": true
+  },
+  "source": "接続/Kaggle操作.py",
+  "test": "検証/test_Kaggle提出安全ゲート.py"
+}

@@ -1,0 +1,14 @@
+{
+  "schema": "arc26-unified-kaggle-cli-observation-v1",
+  "track": "ARC2",
+  "competition_slug": "arc-prize-2026-arc-agi-2",
+  "observed_at_utc": "2026-10-25T15:02:40.500Z",
+  "cli_version": "Kaggle CLI 2.2.5",
+  "submissions_command": "kaggle competitions submissions -c arc-prize-2026-arc-agi-2 --csv",
+  "submissions_exit_code": 0,
+  "submissions_raw": "ref,fileName,date,description,status,publicScore,privateScore\r\n\r\n57611018,submission.json,2026-10-25 00:13:10.933000,ARC26 v3.0 daily candidate v9,SubmissionStatus.COMPLETE,0.00,\r\n\r\n57576155,submission.json,2026-10-24 00:12:39.127000,ARC2 score-feedback candidate v5 2026-10-24,SubmissionStatus.COMPLETE,0.00,\r\n\r\n57560705,submission.json,2026-10-23 12:25:06.577000,ARC2 daily optimization D0 initial format-corrected submission,SubmissionStatus.COMPLETE,0.00,\r\n\r\n57517199,submission.json,2026-10-22 08:35:19.380000,ARC2 main baseline v1,SubmissionStatus.COMPLETE,,\r\n\r\n55046979,submission.json,2026-07-28 06:19:16.917000,ARC2 audited offline solver; notebook v4; official-format and hidden-rerun gates passed,SubmissionStatus.COMPLETE,0.83,\r\n\r\n55038338,submission.json,2026-07-27 21:24:23.967000,ARC2 d594d535 audited offline solver; notebook v3,SubmissionStatus.COMPLETE,,\r\n\r\n54709840,submission.json,2026-07-15 03:02:55.077000,,SubmissionStatus.COMPLETE,,\r\n\r\n53996447,submission.json,2026-06-24 01:46:52.783000,,SubmissionStatus.COMPLETE,0.00,\r\n\r\n53962702,submission.json,2026-06-23 01:18:06.620000,,SubmissionStatus.COMPLETE,0.00,",
+  "submission_limits_command": "kaggle competitions submission-limits arc-prize-2026-arc-agi-2",
+  "submission_limits_exit_code": 0,
+  "submission_limits_raw": "Submissions today: 1\r\nLifetime submissions: 9\r\nRemaining today: 0",
+  "submission_or_rerun_performed": false
+}

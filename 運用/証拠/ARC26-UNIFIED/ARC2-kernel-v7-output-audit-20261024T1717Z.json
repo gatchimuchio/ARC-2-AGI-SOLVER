@@ -1,0 +1,38 @@
+{
+  "track": "ARC2",
+  "experiment_id": "ARC2-C2-045-KERNEL-V7-OUTPUT-PREFLIGHT",
+  "observed_at_utc": "2026-10-24T17:17:17Z",
+  "kernel_slug": "tecchannn/arc2-codex-main-baseline-v1",
+  "kernel_version": 7,
+  "kernel_status": "COMPLETE",
+  "competition_submission_performed": false,
+  "official_score": "not_observed_for_kernel_run",
+  "submission_sha256": "c34dcdd39e1afacba8c2fe992ffd93378c92bbbde3885a58f43f3fd02253bcb2",
+  "audit_sha256": "e585e64b18b6ca136598a4d0877a922b45fda39a630527333f13211d33b8af62",
+  "log_sha256": "a262e34f219a49028ea1c5717150ffc120b6346a12c55294a57631973c8ed3b5",
+  "submission_bytes": 1731133,
+  "audit_bytes": 34580,
+  "log_bytes": 172588,
+  "tasks": 240,
+  "test_rows": 259,
+  "invalid_rows": 0,
+  "attempts_per_test": 2,
+  "distinct_attempt_2_rows": 0,
+  "fallback_count": 254,
+  "fallback_reason_counts": {
+    "solver_hold": 254
+  },
+  "fallback_status_counts": {
+    "断定保留": 254
+  },
+  "solver_seconds": 343.763,
+  "source_commit": "dae0a5dbe124a0c4a01bd69a26dda0036d0379e0+dirty",
+  "traceback_count": 0,
+  "exception_count": 0,
+  "missing_cell_id_warning_count": 1,
+  "format_sha_preflight": "PASS",
+  "accuracy": "UNKNOWN; no official score for kernel output",
+  "hidden_or_evaluation_solutions_read": false,
+  "fallback_counted_correct": false,
+  "interpretation": "v7 kernel output completed and format/hash checks passed. The sole notebook warning concerns the missing nbformat cell id; v7 has no distinct attempt_2 and fallback accuracy is unknown."
+}

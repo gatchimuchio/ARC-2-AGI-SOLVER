@@ -1,0 +1,33 @@
+{
+  "schema": "arc2-official-one-shot-intent-v1",
+  "state": "ATTEMPTING",
+  "track": "ARC2",
+  "created_at_utc": "2026-10-27T00:16:53.627292+00:00",
+  "authority": "Owner explicit latest heartbeat authorizes exact v61 v1 once after all gates; this is an execution record, not a new authority.",
+  "competition": "arc-prize-2026-arc-agi-2",
+  "kernel": "tecchannn/arc2-v61-local-teacher-pair-consensus-candidate",
+  "version": 1,
+  "message": "ARC2-v61-v1-20261027-codex-once",
+  "record_path": "出力\\Kaggle\\arc2-v61-local-teacher-pair-consensus-candidate\\v1\\実行記録.json",
+  "record_sha256": "30efdeb2d792e83309962584d536951ae6667d77e1db5566474d70ec8842ca35",
+  "preflight_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-v61-official-preflight-20261027T001514Z\\preflight.json",
+  "preflight_sha256": "eb004626cb18f6e4274721efda80c4d3e3bf6230ff610f36e1085bfff112dfc7",
+  "preflight_source_sha256": "d9f46c5b54f1e740be16f6e607c14dcfbbbc76d6cac65c664f5f2e32d7493a7e",
+  "before_history_refs": [
+    57646990,
+    57611018,
+    57576155,
+    57560705,
+    57517199,
+    55046979,
+    55038338,
+    54709840,
+    53996447,
+    53962702
+  ],
+  "code_sha256": "9cb8580836257a95423560407351612cb1413c62cbd7b0ac8d62169da16120d4",
+  "payload_sha256": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",
+  "pre_submit_public_output_sha256": "827bccfc1cf51e2fc87d687ba51e1375899650a530ec00e7a20eb1f71eb2dd18",
+  "output_scope": "Exact-version public/placeholder output; hidden rerun bytes are not observed.",
+  "retry_policy": "Invoke existing CLI once. Any ambiguous result requires history reconciliation, never blind resend."
+}

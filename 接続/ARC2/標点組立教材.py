@@ -3,6 +3,7 @@ from collections import Counter
 from math import gcd, isqrt
 
 WORK_LIMIT = 100000
+EXTENDED_WORK_LIMIT = 300000
 ROTATIONS = (0, 1, 2, 3)
 
 def mixed_c8(grid, background):
@@ -138,7 +139,7 @@ def search_assemblies(parsed, aspect, *, budget=WORK_LIMIT):
     record = {'aspect': list(aspect) if isinstance(aspect, (list, tuple)) else aspect,
               'budget': budget, 'work': 0, 'complete': False, 'models': [],
               'models_seen': 0, 'physical_model_count': 0, 'unique_grid_count': 0}
-    if (type(budget) is not int or not 1 <= budget <= WORK_LIMIT
+    if (type(budget) is not int or not 1 <= budget <= EXTENDED_WORK_LIMIT
             or not isinstance(aspect, (list, tuple)) or len(aspect) != 2
             or any(type(v) is not int or v < 1 for v in aspect)
             or gcd(*aspect) != 1):
@@ -404,14 +405,30 @@ class 標点組立教材(既存標点組立教材):
             return super().候補(格子, _policy)
         from .埋込凡例組立候補 import render as render_palette
         output, record = render_palette(格子, self.配色規則)
-        # JSON cannot encode tuple map keys. Preserve every diagnostic entry,
-        # in model order, without changing the frozen candidate or its decision.
         public_record = dict(record)
         for name in ('physical_counts', 'output_counts'):
             if name in public_record:
                 public_record[name] = {'__map_entries__': [
                     [list(model), count] for model, count in sorted(record[name].items())]}
-        return output, public_record
+        record = public_record
+        if output is not None or record.get('failure') not in {
+                'retained_model_has_no_full_grid', 'no_full_grid', 'full_grids_disagree'}:
+            return output, record
+        from .埋込凡例組立候補 import render_square_palette
+        extended, extended_record = render_square_palette(格子, self.配色規則)
+        if extended is not None:
+            return extended, extended_record
+        if extended_record.get('candidate_attempts'):
+            return None, {
+                'failure': extended_record['failure'],
+                'candidate_attempts': extended_record['candidate_attempts'],
+                'extended_assembly': extended_record,
+            }
+        return None, {
+            'failure': extended_record.get('failure', record.get('failure')),
+            'existing_assembly': record,
+            'extended_assembly': extended_record,
+        }
 
     def 記録(self):
         original = super().記録()

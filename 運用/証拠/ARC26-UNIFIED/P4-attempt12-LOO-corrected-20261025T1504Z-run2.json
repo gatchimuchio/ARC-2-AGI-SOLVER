@@ -1,0 +1,56 @@
+{
+  "attempt1_exact_regressions": 0,
+  "attempt1_output_differences_vs_previous": 0,
+  "complete": true,
+  "current_attempt1_with_collection": {
+    "exact": 0,
+    "fallback": 13,
+    "valid": 0,
+    "wrong": 0
+  },
+  "current_attempt_pair": {
+    "exact": 0,
+    "fallback": 13,
+    "valid": 0,
+    "wrong": 0
+  },
+  "current_unique_attempt2_only": {
+    "exact": 0,
+    "valid": 0,
+    "wrong": 0
+  },
+  "data_source": "public ARC-AGI-2 training split only",
+  "delta_attempt1_exact": 0,
+  "delta_pair_exact_vs_previous_attempt1": 0,
+  "eligible_population_after_prior_source_exclusion": 999,
+  "evaluation_solutions_read": false,
+  "experiment_id": "ARC26-ARC2-P4-KAGGLE-ATTEMPT12-LOO",
+  "fallback_counted_correct": false,
+  "heldout_output_passed_to_solver": false,
+  "heldout_output_scored_only_after_solver_return": true,
+  "loo_folds": 13,
+  "official_submission_or_rerun": false,
+  "previous_attempt1": {
+    "exact": 0,
+    "fallback": 13,
+    "valid": 0,
+    "wrong": 0
+  },
+  "prior_examples_loaded": 2,
+  "prior_source_tasks_excluded_from_loo": 1,
+  "production_code_changed_by_runner": false,
+  "runtime_seconds": 19.671,
+  "runtime_source_sha256": "6ea7e6eceffa0c22407c7ea76ac58da99212ae00eb5b5fc90492ed7ece7d0135",
+  "sample_seed": 20261025,
+  "schema": "arc2-p4-attempt12-public-training-loo.v2",
+  "selected_tasks": 4,
+  "stop_reason": "all_selected_folds",
+  "submission_adapter_sha256": "1502f0d27d371654a3a6e508c40317f84541bdc5ab36eae395f8c00773069cdd",
+  "task_identifiers_or_grids_saved": false,
+  "template_prior_source_tasks_present_in_training": 1,
+  "template_prior_source_tasks_total": 1,
+  "template_sha256": "8f5f24571f0457c44af68b57b9aebbcf4dabbb9164f24942108e1b98f635f112",
+  "time_budget_seconds": 300.0,
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8",
+  "unique_second_selected": 0
+}

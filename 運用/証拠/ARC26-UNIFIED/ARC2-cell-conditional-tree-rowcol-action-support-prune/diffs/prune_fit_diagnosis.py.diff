@@ -1,0 +1,11 @@
+--- partition-prune/prune_fit_diagnosis.py
++++ action-support-prune/prune_fit_diagnosis.py
+@@ -30,7 +30,7 @@
+ OLD_ROOT = HERE.with_name("ARC2-cell-conditional-tree-rowcol")
+ HARNESS = OLD_ROOT / "public_harness.py"
+ TRAINING = ROOT / "入力/Kaggle/arc-agi_training_challenges.json"
+-MODULE_SHA256 = "119f390837e8c5ecf77eff8833ef7371c13bb565aa123f86f13b2076b931e6f0"
++MODULE_SHA256 = "405065a7d8260f6b618e3b7cb1a90103f3e610250438eb5db7abf9c3289d366c"
+ OLD_MODULE_SHA256 = "0664c6ef1878f434c963125a767a65a35a4737aff9132a5091c05a5c316a5ac2"
+ HARNESS_SHA256 = "6deb75bc2cc980e1e7b59aa11354bd6b3ff02f01bc36b4fffdc64bf27479232e"
+ STUDY_SHA256 = "9e2dac77349f098f8130d97028ab7fd15a57717dfe5e481a1c652db5ccfbd316"

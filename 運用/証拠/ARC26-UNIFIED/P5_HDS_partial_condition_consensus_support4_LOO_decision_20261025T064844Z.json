@@ -1,0 +1,70 @@
+{
+  "schema": "arc26-p5-hds-support4-loo-decision.v1",
+  "track": "ARC2",
+  "instruction_id": "ARC26-UNIFIED-v3.0",
+  "experiment_id": "P5_HDS_partial_condition_consensus_support4_LOO",
+  "observed_at_utc": "2026-10-25T06:48:44Z",
+  "terminal_at_utc": "2026-10-25T06:44:01.663149Z",
+  "status": "REJECTED_NO_IMPROVEMENT",
+  "adoption": "REJECTED",
+  "data_source": "public ARC-AGI-2 training split only",
+  "complete": true,
+  "eligible_tasks": 267,
+  "paired_loo_folds": 1191,
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8",
+  "effective_candidate_partial_prediction_support_threshold": 4,
+  "task_eligibility_minimum_training_examples": 4,
+  "implementation_note": "The wrapper temporarily changes SUPPORT_MINIMUM to 4 only while 部分条件合意 runs, then restores the base value 3 so the original task-eligibility rule remains unchanged. The result JSON minimum_matching_condition_mappings field is serialized after restoration and therefore reports 3; wrapper source and hash establish the effective prediction threshold.",
+  "previous": {
+    "answer_rows": 17,
+    "exact": 17,
+    "wrong_answers": 0,
+    "fallback_rows": 1174,
+    "runtime_seconds": 1501.715663
+  },
+  "current": {
+    "answer_rows": 17,
+    "exact": 17,
+    "wrong_answers": 0,
+    "fallback_rows": 1174,
+    "runtime_seconds": 1453.978497,
+    "partial_predictions": 0,
+    "rescued_principle_requests": 0
+  },
+  "delta": {
+    "answer_rows": 0,
+    "exact": 0,
+    "wrong_answers": 0,
+    "fallback_rows": 0,
+    "runtime_seconds": -47.737165,
+    "exact_gains": 0,
+    "exact_regressions": 0,
+    "changed_nonfallback_answers": 0
+  },
+  "support3_candidate_reference": {
+    "exact": 17,
+    "wrong_answers": 1,
+    "fallback_rows": 1173,
+    "partial_predictions": 2,
+    "rescued_principle_requests": 2,
+    "interpretation": "The support4 candidate produced no partial predictions; it therefore eliminated the unsafe support3 rescue(s) but also delivered no exact gain."
+  },
+  "runtime_interpretation": "Runtime was recorded, but the candidate never emitted a partial prediction; runtime delta is not evidence of a useful optimization and is not adopted.",
+  "hidden_or_evaluation_solutions_read": false,
+  "task_identifiers_or_grids_saved": false,
+  "fallback_counted_correct": false,
+  "production_hds_changed": false,
+  "evidence_paths": {
+    "support4_result": "運用/証拠/ARC26-UNIFIED/P5_HDS_partial_condition_consensus_support4_LOO_full_20261025T0555Z.json",
+    "support4_wrapper": "運用/証拠/ARC26-UNIFIED/P5_HDS_partial_condition_consensus_support4_LOO.py",
+    "base_runner": "運用/証拠/ARC26-UNIFIED/P5_HDS_partial_condition_consensus_visible_guard_LOO.py",
+    "support3_result": "運用/証拠/ARC26-UNIFIED/P5_HDS_partial_condition_consensus_visible_guard_LOO_full.json"
+  },
+  "evidence_sha256": {
+    "support4_result": "891e5a22f749189dfa32121a71a6904689bc657c970e9f5599d211a2b965566d",
+    "support4_wrapper": "ef23c3778e272cc2b32f965f36c0d19e90900ca8fda48836f4a8970f62b2478d",
+    "base_runner": "397b5457ddbd203b242ab88beaac7865426cfc4a57e9d8b5fdc1c7a9acf3ddc3",
+    "support3_result": "506c0c87de18cc2bf4f51f637e348d3074851a1ee10aa72a13e82628518b9f1a"
+  },
+  "next_action": "Do not adopt. Reconcile prior generic HDS pilots and define a distinct, evidence-backed mechanism before any further matched LOO."
+}

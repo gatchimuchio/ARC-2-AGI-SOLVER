@@ -1,0 +1,24 @@
+{
+  "schema": "arc2-submission-24h-safety-gate-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-24T22:58:34.527000Z",
+  "finding": "The preexisting UTC daily gate allowed a COMPLETE numeric submission after the UTC date changed even when fewer than 24 hours had elapsed.",
+  "change": "The submission preflight now independently rejects any latest completed numeric submission younger than 24 hours and reports next_allowed_at_utc.",
+  "code_file": "接続\\Kaggle操作.py",
+  "code_sha256": "bbfb85b54b3d15d79485bee73c5dd5d3f9af5339cf7c0c1de0512ae87aa1abf5",
+  "test_file": "検証\\test_Kaggle提出安全ゲート.py",
+  "test_sha256": "7f94277eb7dc5488139da7d689735fb9dd89cf08367328dff007027516189267",
+  "documentation_file": "接続\\Kaggle提出.md",
+  "documentation_sha256": "78c3090b65e6c68645273c8f72ba7da2115f51863537ae3ffee55c542909312c",
+  "targeted_regression_command": ".venv/Scripts/python.exe -m pytest -q 検証/test_HDS候補収集.py 検証/test_ARC2Kaggle提出.py 検証/test_Kaggle提出安全ゲート.py",
+  "targeted_regression_result": "20 passed in 7.50s",
+  "boundary_tests": {
+    "one_millisecond_before_24h": "DENY",
+    "exactly_24h": "ALLOW"
+  },
+  "candidate_notebook_v9_unchanged": true,
+  "candidate_notebook_sha256": "6af02e34b8bd71ac06339579266c7928f2dd7cfe465c7891184f941e35d94f45",
+  "official_submission_performed": false,
+  "protected_files_edited": false,
+  "pre_submit_rules_recheck_still_required": true
+}

@@ -1,0 +1,100 @@
+{
+  "agreements_with_existing_answer": 12,
+  "baseline_support3_D4_answers": 13,
+  "baseline_support3_D4_exact": 13,
+  "baseline_support3_D4_wrong": 0,
+  "candidate_result_by_teacher_or_fitted_operation_strata": {
+    "all_teacher_pairs_have_unique_D4_match": {
+      "answers": 19,
+      "exact": 18,
+      "incremental_answers": 10,
+      "incremental_exact": 9,
+      "incremental_wrong": 1,
+      "wrong": 1
+    },
+    "at_least_one_teacher_pair_has_ambiguous_D4_match": {
+      "answers": 3,
+      "exact": 3,
+      "incremental_answers": 0,
+      "incremental_exact": 0,
+      "incremental_wrong": 0,
+      "wrong": 0
+    },
+    "operation_set:no_exact_operation": {
+      "answers": 0,
+      "exact": 0,
+      "incremental_answers": 0,
+      "incremental_exact": 0,
+      "incremental_wrong": 0,
+      "wrong": 0
+    },
+    "operation_set:reflect_rotate_0": {
+      "answers": 3,
+      "exact": 3,
+      "incremental_answers": 3,
+      "incremental_exact": 3,
+      "incremental_wrong": 0,
+      "wrong": 0
+    },
+    "operation_set:reflect_rotate_180": {
+      "answers": 3,
+      "exact": 3,
+      "incremental_answers": 3,
+      "incremental_exact": 3,
+      "incremental_wrong": 0,
+      "wrong": 0
+    },
+    "operation_set:reflect_rotate_270": {
+      "answers": 7,
+      "exact": 7,
+      "incremental_answers": 3,
+      "incremental_exact": 3,
+      "incremental_wrong": 0,
+      "wrong": 0
+    },
+    "operation_set:rotate_180": {
+      "answers": 5,
+      "exact": 4,
+      "incremental_answers": 1,
+      "incremental_exact": 0,
+      "incremental_wrong": 1,
+      "wrong": 1
+    },
+    "operation_set:rotate_270": {
+      "answers": 4,
+      "exact": 4,
+      "incremental_answers": 0,
+      "incremental_exact": 0,
+      "incremental_wrong": 0,
+      "wrong": 0
+    }
+  },
+  "conflicts_with_existing_answer": 0,
+  "data_source": "public ARC-AGI-2 training split only",
+  "decision": "REJECT_OR_REFINE",
+  "elapsed_seconds": 3.199,
+  "eligible_tasks_minimum_teacher_support_2": 842,
+  "evaluation_solutions_read": false,
+  "existing_translation_answers": 4,
+  "existing_translation_exact": 4,
+  "existing_translation_wrong": 0,
+  "incremental_answers_over_D4_and_translation": 10,
+  "incremental_exact": 9,
+  "incremental_wrong": 1,
+  "instruction_id": "ARC2-SCORE-GATE-20261024",
+  "loo_folds": 2916,
+  "loo_folds_with_at_least_2_unique_teacher_inputs": 2916,
+  "public_training_files": 1000,
+  "reference_source_commit": "2759d393a8d79824d36754785ce16f66d0493ebd",
+  "schema": "arc2-p5-d4-support2-operation-strata-loo.v1",
+  "source_sha256": {
+    "2759d393a8d79824d36754785ce16f66d0493ebd:接続/ARC2/格子D4教材.py": "a5d6a2eedb063a876b47cd5d2fdf28cec13af535d89b9fef65df41b81c5ccf18",
+    "P5_D4_support2_operation_strata_LOO.py": "8b558face6b300ac78d14cf7dd134d6490c20a790393f0dce054871a3e5feba1",
+    "接続/ARC2/全前景平行移動教材.py": "5c57ab06054c3ff3e716bbd864b08b56be488a70536152404eae9b27e1846621"
+  },
+  "support2_exact_D4_answers": 22,
+  "support2_exact_D4_exact": 21,
+  "support2_exact_D4_wrong": 1,
+  "task_identifiers_or_grids_saved": false,
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8"
+}

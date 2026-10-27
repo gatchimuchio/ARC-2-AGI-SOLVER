@@ -1,0 +1,13 @@
+# LOCAL_LEAF_MIN1・generator支持数の分離ablation
+
+基底405065a7は保存し、兄弟folderだけで別schema `arc2-cell-conditional-tree-rowcol-leaf-support-ablation-v1` を使う。`minimum_teacher_support=2` は全体の異なるinput教師数に残す。新しい `minimum_leaf_teacher_support` は既定2、実験1だけを許可し、leaf・action-support必要条件・partition必要条件・保存leafの支持数検証へ同じ値を使う。`minimum_cell_support=2`、35特徴、21 action、全最小cost tie、depth/node/state/work等の上限、HDS boundaryと呼出し経路は変えない。
+
+旧schemaと新schemaは相互に読み込まない。保存stateはglobal2とlocal1/2をそれぞれ記録し、globalのdistinct training検証は2のまま、leaf検証だけlocal値を使う。global教師数やHDSを1へ下げた実験とは呼ばない。
+
+leaf1は、一つの教師だけに現れる正分岐を許す。同じ教師の多数セルを複数教師とは数えない。他教師の負例と全train再現はwhole programの整合性であり、各leafの出力が複数の独立教師で支持されたことを意味しない。HDS既定outer/inner3、全current trainのinput-only候補生成、同値必須、反例、隔離、HOLDを維持する。人工smokeで実HDS3の同値admission/queryと反例不採用を確かめるが、HDS中核の汎化能力や公式scoreとは呼ばない。
+
+人工テストは新config leaf2と旧405の96小問題の全forest・全query・fit/work一致、最小木の不一致HOLD、leaf1による訓練fit拡張と明示的な未知過学習反例、動的roleの色違い支持、重複input、cell下限、保存復元を検査する。新しい仮説が増えるため、同じ有限予算でcapへ達しやすくなる可能性も残す。上限を増やして救済しない。
+
+FIT準備では旧ROWCOLの同じ六phaseを使い、比較基底はancestor0664ではなく、保存済み405のterminal FITログ `d327205e...a5ca06` とする。元cohort・training・六phaseの順序を固定する。oldはglobal2/implicit leaf2/cell2、newはglobal2/explicit leaf1/cell2とmetadataへ両方記録する。worker DTOは現在supportと固定ablation boundsだけ。afterのFは観測済み教師、Uはinput/targetとも完全除外する。JSON禁止・正確な不在NumPy metadata例外・source/origin hash・90秒wallを維持し、constructorのtraining replay以外のquery、HDS、採点を呼ばない。
+
+この準備では公開FITやU評価を実行しない。親review後に同じ六phaseのFIT診断を行う。もし進めるなら、以前の全20件を同じA/F/Uとdefault HDS3でdirect/HDS別々に比較し、全件分母・誤答・HOLD・timeout・退行を残す。これは繰り返し利用した開発用holdoutであり、独立確認やfull solver/Kaggle改善とは別である。production adaptive2→3を調べる場合は別stratumとして混ぜない。

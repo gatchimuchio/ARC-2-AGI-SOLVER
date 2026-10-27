@@ -1,0 +1,59 @@
+{
+  "schema": "arc2-candidate-priority-v28-probe-v1",
+  "proposal_folds": 43,
+  "eligible_folds": 2916,
+  "exact_bundle": "v25-composite-palette-second-20261026",
+  "bundle_fallbacks": 28,
+  "scores": {
+    "current_v25": {
+      "exact": 34,
+      "baseline_exact": 34,
+      "delta": 0,
+      "newly_correct": 0,
+      "newly_wrong": 0,
+      "changed_attempt2": 0,
+      "candidate_slots_compared": 0,
+      "changed_candidate_slots": 0
+    },
+    "fixed_object_outlier_palette": {
+      "exact": 34,
+      "baseline_exact": 34,
+      "delta": 0,
+      "newly_correct": 0,
+      "newly_wrong": 0,
+      "changed_attempt2": 0,
+      "candidate_slots_compared": 43,
+      "changed_candidate_slots": 0
+    },
+    "max_absolute_votes": {
+      "exact": 37,
+      "baseline_exact": 34,
+      "delta": 3,
+      "newly_correct": 3,
+      "newly_wrong": 0,
+      "changed_attempt2": 3,
+      "candidate_slots_compared": 43,
+      "changed_candidate_slots": 3
+    },
+    "max_vote_ratio": {
+      "exact": 37,
+      "baseline_exact": 34,
+      "delta": 3,
+      "newly_correct": 3,
+      "newly_wrong": 0,
+      "changed_attempt2": 3,
+      "candidate_slots_compared": 43,
+      "changed_candidate_slots": 3
+    }
+  },
+  "candidate_outputs_use_heldout_outputs": false,
+  "heldout_outputs_read_after_exact_bundle_outputs": true,
+  "fold_ids_predictions_or_targets_saved": false,
+  "temporary_inputs_outputs_and_payloads_removed": true,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "47b4bb538c82cabaf10fcc6b1878eecd19a29b760e2c8260553dacd91edd2cfc",
+    "proposal_probe": "ba2c6dce2bbd522cd5844c03355a51fa7f7794e04ae99c991fa5ec8e0645f642",
+    "v25_build_manifest": "bc09d3caa1894df9a35ac35fffdd81cd9d4736037fae743571e2a84b54ecd0ec"
+  }
+}

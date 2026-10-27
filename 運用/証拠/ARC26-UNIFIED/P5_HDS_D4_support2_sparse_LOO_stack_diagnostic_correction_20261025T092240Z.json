@@ -1,0 +1,13 @@
+{
+  "schema": "arc26-p5-hds-support2-runtime-stack-correction.v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-25T09:22:40.025Z",
+  "supersedes_evidence_file": "運用/証拠/ARC26-UNIFIED/P5_HDS_D4_support2_sparse_LOO_stack_diagnostic_20261025T092121Z.json",
+  "supersedes_evidence_sha256": "58e1ab960dbc9ca5753193b2b114a8b0da9b33ab304d908380132bf8861fb544",
+  "correction": "Prior diagnostic stored line112 and its source text because of a PowerShell line-index offset. py-spy actually captured line113. In the source, line103 is the combinations iterator; line113 evaluates the colors in the wire inside that subset loop. Thus the stack localizes to the body of exhaustive candidate-subset enumeration, without revealing candidate count, task identity, or grids.",
+  "actual_stack_line": 113,
+  "actual_stack_source_text": "colors = {grid[r][c] for r, c in wire}",
+  "combination_loop_line": 103,
+  "task_ids_or_grids_read_or_saved": false,
+  "production_source_changed": false
+}

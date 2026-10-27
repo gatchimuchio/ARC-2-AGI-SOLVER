@@ -1,0 +1,78 @@
+{
+  "schema": "arc2-feature-neighbor-radius-v29-exact-paired-v1",
+  "radius_factor_before": 1.5,
+  "radius_factor_candidate": 2.0,
+  "loo": {
+    "eligible_folds": 2916,
+    "folds_with_candidate_at_1_5x": 132,
+    "folds_with_candidate_at_2x": 139,
+    "newly_eligible_folds_at_2x": 7,
+    "exact_bundle_pair": {
+      "folds": 139,
+      "v28_exact": 59,
+      "v29_exact": 59,
+      "newly_correct": 0,
+      "newly_wrong": 0,
+      "examples_changed": 4,
+      "attempt_1_changed": 4,
+      "attempt_2_changed": 2
+    },
+    "v28_bundle_fallbacks": 32,
+    "v29_bundle_fallbacks": 28
+  },
+  "public_challenge": {
+    "tasks": 240,
+    "examples": 259,
+    "examples_with_candidate_at_1_5x": 5,
+    "examples_with_candidate_at_2x": 5,
+    "newly_eligible_examples_at_2x": 0,
+    "changed_scope_tasks_run_in_both_exact_bundles": 0,
+    "examples_run_in_both_exact_bundles": 0,
+    "v28_subset_score": {
+      "exact_tasks": 0,
+      "exact_examples": 0
+    },
+    "v29_subset_score": {
+      "exact_tasks": 0,
+      "exact_examples": 0
+    },
+    "projected_v28_full_score": {
+      "exact_tasks": 13,
+      "exact_examples": 14
+    },
+    "projected_v29_full_score": {
+      "exact_tasks": 13,
+      "exact_examples": 14
+    },
+    "projected_delta": {
+      "exact_tasks": 0,
+      "exact_examples": 0
+    },
+    "changed_examples": 0,
+    "changed_attempt_1_examples": 0,
+    "changed_attempt_2_examples": 0,
+    "v28_bundle_fallbacks": 0,
+    "v29_bundle_fallbacks": 0
+  },
+  "runtime_received_test_targets": false,
+  "loo_targets_read_after_both_exact_bundle_runs": true,
+  "challenge_targets_read_after_both_exact_bundle_runs": true,
+  "task_predictions_or_targets_saved": false,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "b026115a8fcfc99ddf769f698eeed2754af0338f7ecfa08cd9777723e14101ff",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "v28_bundle_manifest": "8bafa314ddb1e25831769d38f3e1d779fc3b6c060a002cd91caccf5e37529f17",
+    "v29_bundle_manifest": "b251276cc44365b51ec89448f3fdb0c23411f5d19911039a3fd56cc54005d700",
+    "v28_challenge_report": "5c44292f493b345f134e6cba9556e1d09157e63b414842e1333eb7d7ed51bfa6"
+  },
+  "payload_changed_files": [
+    "接続/ARC2/特徴近傍変換選択.py"
+  ],
+  "temporary_subset_outputs_removed": true,
+  "adoption_decision": {
+    "adopted": false,
+    "reason": "Exact v28/v29 LOO produced 0 newly correct and 0 newly wrong answers across 139 candidate folds; the public challenge gained 0 eligible examples and projected delta stayed 0.",
+    "production_radius_factor_restored": 1.5
+  }
+}

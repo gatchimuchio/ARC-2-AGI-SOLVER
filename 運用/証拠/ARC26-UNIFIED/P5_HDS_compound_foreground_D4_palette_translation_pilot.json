@@ -1,0 +1,63 @@
+{
+  "baseline_solver_runtime_seconds": 1.795,
+  "candidate_applicable_folds": 3,
+  "candidate_applicable_tasks": 1,
+  "candidate_prediction_runtime_seconds": 0.0,
+  "combined_wall_seconds": 5.746,
+  "data_source": "public ARC-AGI-2 training split only",
+  "delta_current_minus_previous": {
+    "answer": 1,
+    "exact": 1,
+    "fallback": -1,
+    "union_exact": 1,
+    "wrong": 0
+  },
+  "eligible_fold_population": 1191,
+  "eligible_task_population": 267,
+  "evaluation_solutions_read": false,
+  "experiment_id": "ARC2-C2-066-COMPOUND_FOREGROUND_D4_PALETTE_TRANSLATION",
+  "fallback_counted_correct": false,
+  "heldout_output_passed_to_solver": false,
+  "metrics_previous_current": {
+    "compound_candidate_only": {
+      "answer": 1,
+      "exact": 1,
+      "fallback": 0,
+      "union_exact": 1,
+      "wrong": 0
+    },
+    "current_hds_plus_compound_candidate_union": {
+      "answer": 1,
+      "exact": 1,
+      "fallback": 0,
+      "union_exact": 1,
+      "wrong": 0
+    },
+    "previous_hds_first_answer": {
+      "answer": 0,
+      "exact": 0,
+      "fallback": 1,
+      "union_exact": 0,
+      "wrong": 0
+    }
+  },
+  "official_submission_or_rerun": false,
+  "pilot_seconds": 1.795,
+  "pre_screen_seconds": 3.952,
+  "production_or_submission_changed": false,
+  "public_heldout_output_scored_after_both_generators_return": true,
+  "regressions_previous_exact_to_current_not_exact": 0,
+  "run_type": "hypothesis_targeted_pilot",
+  "sample_seed_from_manifest": true,
+  "sample_tasks_limit": 12,
+  "schema": "arc2-p5-hds-compound-foreground-d4-palette-translation-loo.v1",
+  "selected_folds": 1,
+  "selected_tasks": 1,
+  "solver_exceptions": {
+    "baseline": 0
+  },
+  "task_identifiers_or_grids_saved": false,
+  "teacher_fit_folds": 4,
+  "time_cap_reached": false,
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8"
+}

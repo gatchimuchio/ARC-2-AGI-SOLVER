@@ -1,0 +1,61 @@
+{
+  "experiment_id": "ARC2-V5-unknown-condition-diagnostic-20261025T155602Z",
+  "observed_at_utc": "2026-10-25T16:10:10+00:00",
+  "purpose": "Aggregate-only diagnosis of current ARC2 hidden-test input; no evaluation solutions supplied to runtime.",
+  "source": {
+    "commit": "dae0a5dbe124a0c4a01bd69a26dda0036d0379e0+dirty",
+    "files_sha256": {
+      "C:/Users/ohira/OneDrive/ドキュメント/ChatGPT/ARC２/接続/ARC2/HDS接続.py": "d9b427fe8bd092c89e4c59dbb4de1154b4333a1fd98ba13592950e5b822d7beb",
+      "C:/Users/ohira/OneDrive/ドキュメント/ChatGPT/ARC２/接続/ARC2/Kaggle提出.py": "f53358ffe020fe49786b9dee5d586fecd238365f29133a6d5cccbf06fb38863d"
+    },
+    "hds_prior_examples_loaded": 2
+  },
+  "input": {
+    "split": "Kaggle test challenge inputs",
+    "tasks": 240,
+    "test_examples": 259,
+    "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83"
+  },
+  "result": {
+    "fallback_examples": 254,
+    "fallback_reason_counts": {
+      "原因未確定で隔離中の原理が存在する": 2,
+      "現行暫定原理の適用に必要な観測が不足している": 254
+    },
+    "seconds": 691.719,
+    "attempt1_equals_input": 254,
+    "attempt2_equals_input": 254,
+    "both_attempts_equal_input": 254,
+    "distinct_attempts": 0
+  },
+  "base_hds_observation_requests": {
+    "additional_observation_requests": 259,
+    "conflict_records": 0,
+    "missing_condition_path_requests": 0,
+    "other_additional_observation_requests": 0,
+    "prediction_records": 0,
+    "unidentified_records": 0,
+    "unknown_condition_value_requests": 259
+  },
+  "admitted_candidate_families": {
+    "ARC全前景平行移動": 2,
+    "ARC格子D4変換": 2,
+    "ARC疎点graph転写": 1,
+    "ARC複合前景D4色写像平行移動": 2
+  },
+  "admitted_candidate_predictions": 7,
+  "examples_with_admitted_candidates": 5,
+  "nonidentity_admitted_predictions": 7,
+  "examples_with_nonidentity_admitted_candidates": 5,
+  "prediction_output_sha256": "c34dcdd39e1afacba8c2fe992ffd93378c92bbbde3885a58f43f3fd02253bcb2",
+  "previous_diagnostic_output_sha256": "c34dcdd39e1afacba8c2fe992ffd93378c92bbbde3885a58f43f3fd02253bcb2",
+  "prediction_output_unchanged": true,
+  "official_score_last_observed": {
+    "submission_id": "57611018",
+    "status": "COMPLETE",
+    "public_score": 0.0,
+    "new_submission_performed": false
+  },
+  "interpretation": "All 259 test examples had unseen condition values; no missing condition paths, conflicts, unidentified records, or HDS predictions. Existing admitted candidate families emitted 7 nonidentity candidate predictions across 5 examples; submission bytes remained identical to the prior v9 diagnostic.",
+  "next_action": "Retain the first answer gate while collecting training-exact candidates from non-admitted independent mechanisms; allow a second answer only when two distinct families agree, then compare under the same public evaluation and current hidden-input diagnostic."
+}

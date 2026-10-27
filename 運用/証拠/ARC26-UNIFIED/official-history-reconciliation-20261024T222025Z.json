@@ -1,0 +1,36 @@
+{
+  "schema": "arc2-official-history-reconciliation.v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-24T22:20:25.322040Z",
+  "previous_observation": "運用/証拠/ARC26-UNIFIED/official-history-20261024T211942Z.json",
+  "current_observation": "運用/証拠/ARC26-UNIFIED/official-history-20261024T222025Z.json",
+  "previous_refs": [
+    57576155,
+    57560705,
+    57517199,
+    55046979,
+    55038338,
+    54709840,
+    53996447,
+    53962702
+  ],
+  "current_refs": [
+    57576155,
+    57560705,
+    57517199,
+    55046979,
+    55038338,
+    54709840,
+    53996447,
+    53962702
+  ],
+  "history_unchanged": true,
+  "latest_submission_id": 57576155,
+  "latest_status": "SubmissionStatus.COMPLETE",
+  "previous_public_score": "0.00",
+  "current_public_score": "0.00",
+  "public_score_delta": 0.0,
+  "new_submission_or_rerun_performed": false,
+  "monitor_raw_history_unchanged": null,
+  "reconciliation_note": "The monitor raw field was null because the immediately preceding C2-068 checkpoint omitted score_evidence_path. Direct comparison with the prior official-history evidence confirms identical refs, latest submission, status, and public score. The latest checkpoint now carries the current evidence path for future comparisons."
+}

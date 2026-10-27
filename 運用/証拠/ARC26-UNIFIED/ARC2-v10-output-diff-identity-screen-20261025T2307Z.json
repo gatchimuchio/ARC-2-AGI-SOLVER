@@ -1,0 +1,55 @@
+{
+  "schema": "arc2-v10-output-diff-and-identity-screen-v1",
+  "observed_at_utc": "2026-10-25T23:07:53Z",
+  "track": "ARC2",
+  "official_baseline": {
+    "submission_ref": 57611018,
+    "kernel_version": 9,
+    "status": "COMPLETE",
+    "public_score": "0.00",
+    "history_evidence": "運用/証拠/ARC26-UNIFIED/official-history-20261025T225922Z.json",
+    "history_evidence_sha256": "065df6ec2314580fcf9c300675ab2f5339e079ef311e9576b5f26573d1a1085d"
+  },
+  "candidate_output_comparison": {
+    "v9_submission_sha256": "c34dcdd39e1afacba8c2fe992ffd93378c92bbbde3885a58f43f3fd02253bcb2",
+    "v10_submission_sha256": "1185244299abe142cfae823ee0b0c811bb03e70a6e2e40cb23cd8c08222bab0a",
+    "v10_submission_audit_sha256": "a858a5dc0287d6afd7bb30bedd8ce811b2e9c7fac3745b36a284bae4f79848cd",
+    "tasks": 240,
+    "test_examples": 259,
+    "examples_with_changed_attempt_pair": 2,
+    "attempt1_nonidentity_outputs": 7,
+    "attempt2_nonidentity_outputs": 7,
+    "distinct_attempt_pairs": 0,
+    "evaluation_or_hidden_solutions_read": false
+  },
+  "identity_second_candidate_screen": {
+    "records": "出力/検証/ARC2-identity-second-attempt-screen-20261025T2301Z.jsonl",
+    "records_sha256": "91d41c6a25bc45a83e997033e311cfbd0754921339cd263a991f954119cbeed5",
+    "summary": "出力/検証/ARC2-identity-second-attempt-screen-20261025T2301Z.summary.json",
+    "summary_sha256": "35f0191b7d0fdde8e3e87c3193599e3284350c38287490cacc1f05240ce15d70",
+    "training_sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+    "completed_folds": 40,
+    "previous_pair_exact": 3,
+    "identity_second_pair_exact": 3,
+    "delta_exact": 0,
+    "recoveries": 0,
+    "regressions": 0,
+    "identity_second_distinct_pairs": 7,
+    "evaluation_or_hidden_solutions_read": false,
+    "official_submission": false
+  },
+  "source": {
+    "git_head": "dae0a5dbe124a0c4a01bd69a26dda0036d0379e0",
+    "dirty_workspace_evaluated": true,
+    "loo_script_sha256": "69040f4fe092dc4c114554643a1a7c27bb898dfb08e878362b4aadb4dab184c5",
+    "production_source_changed_for_this_screen": false
+  },
+  "decision": "Do not change the exact v10 artifact for this screen: identity as attempt_2 creates distinct pairs in 7/40 training folds but yields no exact recovery or regression. Keep v10 as the next official measurement candidate based on its separately source-matched paired LOO (+29 exact, 0 regressions). Record the duplicated-attempt limitation; do not count either fallback or identity as solved without exact-match evidence.",
+  "next_gate": {
+    "utc_not_before": "2026-10-26T00:13:10.933Z",
+    "scheduled_recheck_utc": "2026-10-26T00:20:00Z",
+    "candidate_kernel": "tecchannn/arc2-codex-main-baseline-v1",
+    "candidate_version": 10,
+    "candidate_official_score": "UNKNOWN_NOT_SUBMITTED"
+  }
+}

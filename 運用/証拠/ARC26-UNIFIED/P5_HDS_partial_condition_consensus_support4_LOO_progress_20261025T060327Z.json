@@ -1,0 +1,19 @@
+{
+  "schema": "arc26-arc2-support4-loo-progress.v1",
+  "track": "ARC2",
+  "experiment_id": "P5_HDS_partial_condition_consensus_support4_LOO",
+  "observed_at_utc": "2026-10-25T06:03:27Z",
+  "execution_session_id": 23649,
+  "venv_launcher_pid": 5916,
+  "python_worker_pid": 15692,
+  "eligible_tasks_done": 25,
+  "expected_eligible_tasks": 267,
+  "paired_loo_folds_done": 106,
+  "expected_paired_folds": 1191,
+  "elapsed_seconds": 485.0,
+  "worker_cpu_seconds_at_checkpoint": 516.53125,
+  "aggregate_present": false,
+  "partial_metrics_for_adoption": false,
+  "production_hds_changed": false,
+  "next_action": "Continue the same full run; decide only from the terminal aggregate."
+}

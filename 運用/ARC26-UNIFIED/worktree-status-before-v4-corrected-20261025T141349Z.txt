@@ -1,0 +1,37 @@
+## main...origin/main [ahead 40]
+ M pyproject.toml
+ M uv.lock
+ M 接続/ARC2/HDS接続.py
+ M 接続/ARC2/Kaggle提出.py
+ M 接続/ARC2/既存穴充填.py
+ M 接続/ARC2/連結箱参照核.py
+ M 接続/Kaggle提出.md
+ M 接続/Kaggle操作.py
+ M 検証/test_ARC2Kaggle提出.py
+ M 検証/test_Kaggle操作.py
+ M 検証/連結箱参照回帰.py
+ M 検証/連結箱参照資料/source-fixture-pins.json
+ M 運用/ARC2_初回Kaggle提出_現行正本.md
+ M 運用/ARC2_日次提出最適化_台帳.md
+ M 道具/ARC2Kaggle提出bundle.py
+?? .codex-attachments/
+?? .codex-remote-attachments/
+?? 接続/ARC2/C2_066_compound_foreground_D4_palette_translation.py
+?? 接続/ARC2/全前景平行移動教材.py
+?? 検証/test_ARC2KaggleScoreMonitor.py
+?? 検証/test_ARC3ベンチマーク計測監査.py
+?? 検証/test_HDS候補収集.py
+?? 検証/test_Kaggle提出安全ゲート.py
+?? 検証/全前景平行移動教材回帰.py
+?? 検証/既存穴充填回帰.py
+?? 運用/ARC26-UNIFIED/
+?? 運用/ARC2_Codex指示書_v2_公式スコア起点_20261024.md
+?? 運用/ARC2_Kaggleスコア監視.py
+?? 運用/ARC2_Kaggleスコア監視状態.json
+?? 運用/ARC2_仕様書_v2_公式スコア起点_20261024.md
+?? 運用/ARC2_公式スコア運用チェックポイント.jsonl
+?? 運用/ARC2_工程表_v2_公式スコア起点_20261024.md
+?? 運用/証拠/ARC26-UNIFIED/
+?? 運用/証拠/ARC2_公式スコア起点_20261024/
+?? 道具/ARC3ベンチマーク計測監査.py
+?? 道具/benchmark_telemetry_audit.py

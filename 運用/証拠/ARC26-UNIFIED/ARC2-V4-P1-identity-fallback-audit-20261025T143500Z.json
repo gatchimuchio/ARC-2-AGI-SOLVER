@@ -1,0 +1,65 @@
+{
+  "schema": "arc26-v4-arc2-p1-identity-fallback-audit-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-25T14:35:00Z",
+  "historical_score": {
+    "submission_id": "55046979",
+    "status": "COMPLETE",
+    "public_score": 0.83,
+    "description": "ARC2 audited offline solver; notebook v4; official-format and hidden-rerun gates passed",
+    "kernel": "tecchannn/arc2-perfect-solver-d594d535",
+    "kernel_version": 4,
+    "output_report_sha256": "cb07c8bf0e1ee822a2348244e1946a3e66b3962b518a1bff00b22f82d40bb593",
+    "submission_output_sha256": "ba6a5573dedc69af416d77b7d36ea40a737200ffd2862b1be0f10d7664a0ed6e",
+    "local_replay_exact_match": true,
+    "direct_submission_to_kernel_identity_proven": false,
+    "identity_conclusion": "Official score is established. Association to recovered kernel v4 output is suggested by description, matching output SHA and timing, but is not directly proven by the API.",
+    "legacy_package_disposition": "REJECTED_FOR_REUSE_UNDER_AGENTS_NO_TASK_ID_BRANCHING",
+    "task_id_literal_count": 1,
+    "task_id_literal_occurrences": 2,
+    "source_sha256": "112c6d5fff9994ef2c9f732581b9bc8952996949fbaafc27846d6b0b284b5210",
+    "audit_file": "運用/証拠/ARC2_Kaggle日次提出_20261023/過去最高スコア・旧候補監査.json",
+    "audit_sha256": "8d5b51fbdcbd5d8b1d86e237bf20e600cc101277503c4633bdb09721257c8d81"
+  },
+  "v2_fallback": {
+    "official_submission_id": "57560705",
+    "notebook_version": 2,
+    "test_examples": 259,
+    "fallback_count": 258,
+    "hds_hold_rows": 257,
+    "uncaught_assembly_incomplete": 1,
+    "nonfallback_outputs": 1,
+    "assembly_cap": 250000,
+    "dominant_hold_reason": "現行暫定原理の適用に必要な観測が不足している",
+    "overlapping_reason_occurrences": true,
+    "nonfallback_correctness_known": false,
+    "classification_file": "運用/証拠/ARC26-UNIFIED/P5_arc2_initial_258_fallback_classification-20261024T1755Z.json",
+    "classification_sha256": "6ab18b5991ab2551301e88ae1602d7d7237225d67fe0d9043584498e448c51b7"
+  },
+  "latest_v9": {
+    "official_submission_id": "57611018",
+    "notebook_version": 9,
+    "official_status": "COMPLETE",
+    "public_score": 0.0,
+    "test_examples": 259,
+    "fallback_count": 254,
+    "fallback_reason_counts": {
+      "solver_hold": 254
+    },
+    "solver_status_counts": {
+      "断定保留": 254
+    },
+    "detailed_hds_reason_available": false,
+    "correctness_measured": false,
+    "audit_sha256": "e4c430609cf6cfef2b044980d6450bae9743360dfc1d2f3889da049729c9cd48",
+    "reason_observability_file": "運用/証拠/ARC26-UNIFIED/ARC2-v9-fallback-reason-observability-20261025.json",
+    "reason_observability_sha256": "017b1a6ef417e6126b2cb5b6a8ba237b1d9231f25c0d1cfe5ab71eacf291905d",
+    "followup_file": "運用/証拠/ARC26-UNIFIED/P5_ARC2_v9_fallback_followup_20261025T113418Z.json",
+    "followup_sha256": "b2d5eb25b6f988aaab5380b6f5f88be37fb6c56a1d31497e3fecac51144a4c99"
+  },
+  "current_official_history_file": "運用/証拠/ARC26-UNIFIED/official-history-20261025T143414Z.json",
+  "current_official_history_sha256": "a546d913350191364b1bf39f8c1ca7b0863fbecefa06ca8ceacfdef94856d67e",
+  "status": "P1_AUDIT_COMPLETE_IDENTITY_AND_V9_HDS_DETAIL_UNRESOLVED",
+  "capability_improvement_claimed": false,
+  "official_submission_or_rerun_performed": false
+}

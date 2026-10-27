@@ -1,0 +1,183 @@
+{
+  "schema": "arc2-hds-second-attempt-loo-cross-platform-evidence-v1",
+  "run_id": "ARC2-HDS-SECOND-ATTEMPT-LOO-CROSS-PLATFORM-20261026T2115Z",
+  "observed_at_utc": "2026-10-26T21:15:52Z",
+  "track": "ARC2",
+  "dataset": "Public ARC2 training only; deterministic first 20 eligible LOO folds",
+  "training_sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+  "git_head": "dae0a5dbe124a0c4a01bd69a26dda0036d0379e0",
+  "working_tree_status_count_before_append": 62,
+  "solver_code_changed": false,
+  "script": "検証/全HDS第二候補LOO.py",
+  "script_sha256": "69040f4fe092dc4c114554643a1a7c27bb898dfb08e878362b4aadb4dab184c5",
+  "environments": {
+    "windows": {
+      "os": "Windows",
+      "python": "3.12.10",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0"
+    },
+    "wsl": {
+      "os": "Ubuntu 24.04.5 LTS",
+      "python": "3.12.3",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0"
+    }
+  },
+  "timeout20": {
+    "windows": {
+      "completed": 15,
+      "timeouts": 5,
+      "primary_exact_among_completed": 0
+    },
+    "wsl": {
+      "completed": 15,
+      "timeouts": 5,
+      "primary_exact_among_completed": 0
+    },
+    "same_timeout_fold_indexes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  "timeout60": {
+    "windows": {
+      "completed": 20,
+      "timeouts": 0,
+      "primary_exact": 2,
+      "pair_exact": 2,
+      "incremental_pair_exact": 0
+    },
+    "wsl": {
+      "completed": 20,
+      "timeouts": 0,
+      "primary_exact": 2,
+      "pair_exact": 2,
+      "incremental_pair_exact": 0
+    },
+    "fold_metric_parity": "20/20",
+    "primary_exact_fold_indexes": [
+      7,
+      9
+    ],
+    "proposed_nonidentity_pair_exact_fold_indexes": [
+      7,
+      9
+    ],
+    "exact_folds_previously_timed_out": [
+      7,
+      9
+    ]
+  },
+  "fallback_counted_correct": false,
+  "task_id_or_hash_answer_branching": false,
+  "heldout_output_passed_to_solver": false,
+  "heldout_output_compared_after_solver_call": true,
+  "hidden_or_evaluation_solutions_read": false,
+  "learning_effect": "UNPROVEN; this is current-state LOO timing/correctness, not an adaptation-before/after experiment.",
+  "interpretation": "The 20-second cap timed out five folds on both OSes; all completed below 60 seconds. Two exact primary answers occurred among the five. The second-candidate proposal added zero new exact folds. This corrects the evaluation window; solver code did not change.",
+  "slow_fold_seconds_range_across_os": [
+    23.4629,
+    33.858
+  ],
+  "trace_diagnostic": {
+    "wsl_traced_worker_exits": 10,
+    "wsl_traced_return_code": -11,
+    "windows_trace": "blocked by existing Windows guard after worker access violations; guard was not bypassed",
+    "note": "No-trace 60-second replay completed the affected folds."
+  },
+  "official_submission": false,
+  "official_score": null,
+  "runs": {
+    "win20": {
+      "records": "出力/検証/ARC2-HDS-second-attempt-LOO-20261026T193719Z.jsonl",
+      "records_sha256": "852111f72c147411aa7b164d68c1ab574d1fe7654e704841117c858b1b2f880b",
+      "summary": "出力/検証/ARC2-HDS-second-attempt-LOO-20261026T193719Z.summary.json",
+      "summary_sha256": "a712e798332383c8c982be7ac4040c5e619c4b406825073f8118803e59222c9d",
+      "states": {
+        "complete": 15,
+        "timeout": 5
+      },
+      "processed_folds": 20,
+      "primary_exact": 0,
+      "pair_exact": 0,
+      "incremental_pair_exact": 0,
+      "proposed_nonidentity_recoveries": 0,
+      "identity_fallback_matches": 0,
+      "hidden_or_evaluation_solutions_read": false,
+      "official_submission": false
+    },
+    "wsl20": {
+      "records": "出力/検証/ARC2-HDS-second-attempt-LOO-wsl-plain-20261026T204654Z.jsonl",
+      "records_sha256": "4c3244bd5947445a20d15a93057ebab0ed99fd16a88b0295242ddac2398da32d",
+      "summary": "出力/検証/ARC2-HDS-second-attempt-LOO-wsl-plain-20261026T204654Z.summary.json",
+      "summary_sha256": "81a935ca886c29ea27ee849dc56b267e3808a3c845846084cd044a79dc17dfd8",
+      "states": {
+        "complete": 15,
+        "timeout": 5
+      },
+      "processed_folds": 20,
+      "primary_exact": 0,
+      "pair_exact": 0,
+      "incremental_pair_exact": 0,
+      "proposed_nonidentity_recoveries": 0,
+      "identity_fallback_matches": 0,
+      "hidden_or_evaluation_solutions_read": false,
+      "official_submission": false
+    },
+    "wsl60pilot10": {
+      "records": "出力/検証/ARC2-HDS-second-attempt-LOO-wsl-plain-60s-20261026T2055Z.jsonl",
+      "records_sha256": "05e57068e92b6a8e8926fb014d77ab375ff068fac6c197d7b0c97e356dad5b78",
+      "summary": "出力/検証/ARC2-HDS-second-attempt-LOO-wsl-plain-60s-20261026T2055Z.summary.json",
+      "summary_sha256": "541db319849b907da1a4dc44d1c3ac885be6d43d1d158126d46bd5fc4a5d670b",
+      "states": {
+        "complete": 10
+      },
+      "processed_folds": 10,
+      "primary_exact": 2,
+      "pair_exact": 2,
+      "incremental_pair_exact": 0,
+      "proposed_nonidentity_recoveries": 0,
+      "identity_fallback_matches": 0,
+      "hidden_or_evaluation_solutions_read": false,
+      "official_submission": false
+    },
+    "wsl60": {
+      "records": "出力/検証/ARC2-HDS-second-attempt-LOO-wsl-plain-60s-20261026T2100Z.jsonl",
+      "records_sha256": "0bb54dc56f5a245faaa55ddd4034d34eacc779f6d6a289c67867b911d235604d",
+      "summary": "出力/検証/ARC2-HDS-second-attempt-LOO-wsl-plain-60s-20261026T2100Z.summary.json",
+      "summary_sha256": "b8323df79cb85d2cbe9235e0f0425e3d2efbebc57f53165868460e80d751391e",
+      "states": {
+        "complete": 20
+      },
+      "processed_folds": 20,
+      "primary_exact": 2,
+      "pair_exact": 2,
+      "incremental_pair_exact": 0,
+      "proposed_nonidentity_recoveries": 0,
+      "identity_fallback_matches": 0,
+      "hidden_or_evaluation_solutions_read": false,
+      "official_submission": false
+    },
+    "win60": {
+      "records": "出力/検証/ARC2-HDS-second-attempt-LOO-windows-plain-60s-20261026T2115Z.jsonl",
+      "records_sha256": "fad468ea5ceb5aa3670d7ece7c9981a33657f70d519af62ecfe5b445ea3c0e50",
+      "summary": "出力/検証/ARC2-HDS-second-attempt-LOO-windows-plain-60s-20261026T2115Z.summary.json",
+      "summary_sha256": "d593215d682bbde1cad98e230bbaf7f9b3d2506c82b5d7a62e482dba098faddd",
+      "states": {
+        "complete": 20
+      },
+      "processed_folds": 20,
+      "primary_exact": 2,
+      "pair_exact": 2,
+      "incremental_pair_exact": 0,
+      "proposed_nonidentity_recoveries": 0,
+      "identity_fallback_matches": 0,
+      "hidden_or_evaluation_solutions_read": false,
+      "official_submission": false
+    }
+  }
+}

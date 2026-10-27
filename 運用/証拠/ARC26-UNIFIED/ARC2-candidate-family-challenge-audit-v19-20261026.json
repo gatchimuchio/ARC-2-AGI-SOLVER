@@ -1,0 +1,131 @@
+{
+  "schema": "arc2-candidate-family-challenge-audit-v19-v1",
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "candidate_generation_seconds": 347.406,
+  "baseline_v19": {
+    "exact_tasks": 10,
+    "exact_examples": 11
+  },
+  "candidate_families": {
+    "ARC全前景平行移動": {
+      "fitted_examples": 2,
+      "exact_candidate_examples": 2,
+      "distinct_candidate_examples": 0,
+      "combined_exact_examples": 2,
+      "newly_correct_examples": 0,
+      "regressed_examples": 0,
+      "baseline_exact_tasks": 1,
+      "combined_exact_tasks": 1,
+      "newly_correct_tasks": 0,
+      "regressed_tasks": 0
+    },
+    "ARC単純幾何色写像": {
+      "fitted_examples": 3,
+      "exact_candidate_examples": 3,
+      "distinct_candidate_examples": 0,
+      "combined_exact_examples": 3,
+      "newly_correct_examples": 0,
+      "regressed_examples": 0,
+      "baseline_exact_tasks": 3,
+      "combined_exact_tasks": 3,
+      "newly_correct_tasks": 0,
+      "regressed_tasks": 0
+    },
+    "ARC周期タイルD4反復": {
+      "fitted_examples": 3,
+      "exact_candidate_examples": 3,
+      "distinct_candidate_examples": 0,
+      "combined_exact_examples": 3,
+      "newly_correct_examples": 0,
+      "regressed_examples": 0,
+      "baseline_exact_tasks": 3,
+      "combined_exact_tasks": 3,
+      "newly_correct_tasks": 0,
+      "regressed_tasks": 0
+    },
+    "ARC局所近傍セル変換": {
+      "fitted_examples": 50,
+      "exact_candidate_examples": 1,
+      "distinct_candidate_examples": 0,
+      "combined_exact_examples": 2,
+      "newly_correct_examples": 0,
+      "regressed_examples": 0,
+      "baseline_exact_tasks": 2,
+      "combined_exact_tasks": 2,
+      "newly_correct_tasks": 0,
+      "regressed_tasks": 0
+    },
+    "ARC格子D4変換": {
+      "fitted_examples": 2,
+      "exact_candidate_examples": 2,
+      "distinct_candidate_examples": 0,
+      "combined_exact_examples": 2,
+      "newly_correct_examples": 0,
+      "regressed_examples": 0,
+      "baseline_exact_tasks": 2,
+      "combined_exact_tasks": 2,
+      "newly_correct_tasks": 0,
+      "regressed_tasks": 0
+    },
+    "ARC特徴近傍変換選択": {
+      "fitted_examples": 3,
+      "exact_candidate_examples": 2,
+      "distinct_candidate_examples": 0,
+      "combined_exact_examples": 2,
+      "newly_correct_examples": 0,
+      "regressed_examples": 0,
+      "baseline_exact_tasks": 2,
+      "combined_exact_tasks": 2,
+      "newly_correct_tasks": 0,
+      "regressed_tasks": 0
+    },
+    "ARC疎点graph転写": {
+      "fitted_examples": 1,
+      "exact_candidate_examples": 1,
+      "distinct_candidate_examples": 0,
+      "combined_exact_examples": 1,
+      "newly_correct_examples": 0,
+      "regressed_examples": 0,
+      "baseline_exact_tasks": 1,
+      "combined_exact_tasks": 1,
+      "newly_correct_tasks": 0,
+      "regressed_tasks": 0
+    },
+    "ARC背景crop複合幾何変換": {
+      "fitted_examples": 1,
+      "exact_candidate_examples": 1,
+      "distinct_candidate_examples": 0,
+      "combined_exact_examples": 1,
+      "newly_correct_examples": 0,
+      "regressed_examples": 0,
+      "baseline_exact_tasks": 1,
+      "combined_exact_tasks": 1,
+      "newly_correct_tasks": 0,
+      "regressed_tasks": 0
+    },
+    "ARC複合前景D4色写像平行移動": {
+      "fitted_examples": 2,
+      "exact_candidate_examples": 2,
+      "distinct_candidate_examples": 0,
+      "combined_exact_examples": 2,
+      "newly_correct_examples": 0,
+      "regressed_examples": 0,
+      "baseline_exact_tasks": 1,
+      "combined_exact_tasks": 1,
+      "newly_correct_tasks": 0,
+      "regressed_tasks": 0
+    }
+  },
+  "runtime_received_challenge_targets": false,
+  "targets_read_only_after_all_candidate_generation": true,
+  "per_task_predictions_or_targets_saved": false,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "40e848075a6896ade3763d1e925080a1106e753d64179c7cf453891ea3f5e172",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "baseline_v19": "171dbfcafa394f36dfdd79914f3b1c730e293003595a7563c620eb831a127c4f",
+    "hds_connector": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe",
+    "adapter": "58d4e0ccbec13e86222e2de932be8fc5b3d638c2fb8a51576ed50f3511aebd95"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "schema": "arc2-kaggle-operations-repair-evidence-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-26T22:40:48Z",
+  "environment": {
+    "kaggle": "2.2.5",
+    "kagglesdk": "0.1.38",
+    "lock_consistent": true,
+    "stale_metadata_quarantine": "運用/証拠/ARC26-UNIFIED/venv-stale-dist-info-quarantine-20261026T222044Z/quarantine-manifest.json",
+    "quarantine_sha256": "274ad1f0d2ff9fd8c2bf26f18fa96668d1326b09cc71e31af7353b493d51f5c1",
+    "package_code_unchanged": true
+  },
+  "monitor": {
+    "source_sha256": "b6c1df94702aaa005ef0d4c113678366ac085a0d23eb98445c6540f6e84c0dbf",
+    "test_sha256": "1929c56c20d00b8271afade8346c81e3c9284c8daf2de11d94cbce57d162b5e1",
+    "test_command": ".venv\\Scripts\\python.exe -m pytest -q 検証\\test_ARC2KaggleScoreMonitor.py",
+    "test_result": "39 passed in1.56s",
+    "test_tool_chunk": "64d803",
+    "repairs": [
+      "5-second boot-estimate tolerance",
+      "unsigned64-bit GetTickCount64",
+      "safe stage/discovery diagnostics",
+      "strict project-venv fallback after pinned external manifest",
+      "readonly monitoring continues after deadline; future next_due intervals"
+    ],
+    "real_scheduled_observations": [
+      {
+        "at_utc": "2026-10-26T22:24:54.262416Z",
+        "selected_source": "repo_venv",
+        "full_source_link": false
+      },
+      {
+        "at_utc": "2026-10-26T22:32:48.800561+00:00",
+        "selected_source": "repo_venv",
+        "full_source_link": true
+      }
+    ],
+    "real_path_validation_source_sha256": "222b4d581c06b2b8d5e6f3bacdbf85b125eeb087bec1f0716f8c7a4a9d3bc757",
+    "subsequent_source_change": "postdeadline scheduling branch only; exact final source covered by39 mocked/unit checks; next scheduled live observation remains due",
+    "task_context_external_manifest_cli_exists": false,
+    "dedicated_external_path_visibility_root_cause": "not fully explained; strict repo fallback recovered actual Task context"
+  },
+  "source_link": {
+    "submission_id": 57646990,
+    "kernel": "tecchannn/arc2-codex-main-baseline-v1",
+    "version": 11,
+    "source_base": "dae0a5dbe124a0c4a01bd69a26dda0036d0379e0",
+    "source_dirty": true,
+    "source_commit_role": "base_commit_of_dirty_build",
+    "clean_commit_reproduction_claimed": false,
+    "code_sha256": "08734ff784e992f6cf3f4d78610692b34f19b61b9a5b7e6ed2584d50f0806bec",
+    "submission_sha256": "08d0dc111f97c9f3a909955296fc58d46ea0c4514fe66e75169526723359f017",
+    "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "bundle_sha256": "395841edec72509cf8d6c48792391d5f8d61002794001e99fde4aebd6a9067d5",
+    "binder": "運用/証拠/ARC2_公式スコア起点_20261024/公式提出-57646990.json",
+    "binder_sha256": "a4dfa8d8591070f04b6966d45f37cfb7e4f61afef07284ef2258a8514c3c0885",
+    "blockers": []
+  },
+  "official": {
+    "ref": 57646990,
+    "status": "COMPLETE",
+    "score": null,
+    "score_is_zero": false,
+    "history_evidence": "運用/証拠/ARC26-UNIFIED/official-history-20261026T223248Z.json",
+    "history_evidence_sha256": "90df2da1e6084d3d0eb2edca0da5036d84b501574f52e4c95c99eecbbd9c5d45"
+  },
+  "rules_and_entry": {
+    "evidence": "運用/証拠/ARC26-UNIFIED/ARC2-official-entry-pages-20261026T222951Z.json",
+    "sha256": "df463f63add6af9bf6f343e80e3b8d58c5d135e7e98d37ad7e49efef2b33503f",
+    "user_has_entered": true,
+    "current_day_submissions": 1,
+    "allowed_now": 0,
+    "max_per_day": 1,
+    "max_final": 2,
+    "deadline_utc": "2026-11-02T23:59:00Z",
+    "cpu_gpu_max_hours": 12,
+    "internet_enabled": false,
+    "submission_filename": "submission.json",
+    "final_selection_note": "No final-selection action performed; API rules specify up to2, including automatic selection when user does not select."
+  },
+  "submit_gate": {
+    "evidence": "運用/証拠/ARC26-UNIFIED/ARC2-submit-gate-20261026T223831Z.json",
+    "sha256": "2e3ddcb868544dc589e3132da36e406d1a15cdad28aecd38a91102e4c4c40be2",
+    "allowed": false,
+    "scoreless_timeout_retry": true,
+    "next_owner24h_gate": "2026-10-27T00:14:45.885Z",
+    "planned_recheck_after": "2026-10-27T00:15:00Z"
+  },
+  "official_submission_performed": false
+}

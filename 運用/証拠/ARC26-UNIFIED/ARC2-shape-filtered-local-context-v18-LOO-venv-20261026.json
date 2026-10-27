@@ -1,0 +1,57 @@
+{
+  "schema": "arc2-shape-filtered-local-context-v18-loo-v1",
+  "candidate": {
+    "radius": 1,
+    "minimum_context_support": 1,
+    "uses_only_teacher_pairs_matching_query_input_and_output_shape": true,
+    "unknown_or_conflicting_contexts_keep_input_color": true
+  },
+  "source_split": "official ARC-AGI-2 training",
+  "loo_eligible_folds_with_at_least_one_teacher": 3232,
+  "loo_folds_with_compatible_teacher": 1047,
+  "loo_candidate_fit_and_worker_folds": 551,
+  "loo_worker_errors": 0,
+  "loo": {
+    "candidate_fit_folds": 551,
+    "baseline_exact": 13,
+    "combined_exact": 27,
+    "newly_correct": 14,
+    "regressions": 0,
+    "distinct_candidate_folds": 551,
+    "fit_with_one_compatible_teacher": 169,
+    "fit_with_two_or_more_compatible_teachers": 382
+  },
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "challenge_examples_with_compatible_teacher": 92,
+  "challenge_vs_v18": {
+    "baseline_exact_examples": 10,
+    "combined_exact_examples": 11,
+    "newly_correct_examples": 1,
+    "regressed_examples": 0,
+    "fit_examples": 50,
+    "distinct_candidates": 50,
+    "large_fit_examples": 29,
+    "large_distinct_candidates": 29,
+    "fit_with_one_compatible_teacher": 8,
+    "fit_with_two_or_more_compatible_teachers": 42,
+    "baseline_exact_tasks": 9,
+    "combined_exact_tasks": 10,
+    "newly_correct_tasks": 1,
+    "regressed_tasks": 0
+  },
+  "runtime_received_heldout_outputs": false,
+  "heldout_outputs_read_only_after_candidate_predictions": true,
+  "runtime_received_challenge_targets": false,
+  "challenge_targets_read_only_after_candidate_predictions": true,
+  "per_task_predictions_or_targets_saved": false,
+  "data_use": "public labels used only for offline paired evaluation; no task-identifier rules",
+  "elapsed_seconds": 1011.438,
+  "source_sha256": {
+    "runner": "99aa94f853dffa8603cbbacfc6e75d5fc22ad2ad7e3c920314a6a4fd50db6f14",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "baseline_submission": "08d0dc111f97c9f3a909955296fc58d46ea0c4514fe66e75169526723359f017",
+    "adapter": "c5b9c76f68b950b16e0843b57ba9ce2771e958b4e06905427697dd190a55f555",
+    "composite_geometry_module": "b7ee7d9c9ccc3767f47dccdef25b378c961a8e150f145fc1c11860e4e5e4ac39"
+  }
+}

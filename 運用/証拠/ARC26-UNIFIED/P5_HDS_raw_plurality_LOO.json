@@ -1,0 +1,53 @@
+{
+  "baseline_candidate_folds": 1,
+  "baseline_elapsed_seconds": 1600.275,
+  "baseline_first_answer_rows": 16,
+  "baseline_first_exact": 16,
+  "baseline_hds_source_sha256": "d1b31e1c39aac62e99b86a1bbf267725e5306a13f54fced6690e67e133345f55",
+  "baseline_loo_folds": 1191,
+  "baseline_raw_family_votes": 17,
+  "baseline_report": "運用\\証拠\\ARC2_公式スコア起点_20261024\\P5_HDS_raw_candidate_LOO.json",
+  "baseline_union_exact": 17,
+  "candidate_folds": 1,
+  "complete": true,
+  "data_source": "public ARC-AGI-2 training split only",
+  "delta_candidate_folds": 0,
+  "delta_first_answer_rows": 0,
+  "delta_first_exact": 0,
+  "delta_raw_candidate_family_votes": 0,
+  "delta_union_top_vote_exact": 0,
+  "distinct_candidate_count_per_fold_histogram": {
+    "0": 1190,
+    "1": 1
+  },
+  "elapsed_seconds": 1865.054,
+  "eligible_tasks": 267,
+  "evaluation_solutions_read": false,
+  "fallback_as_correct": false,
+  "first_answer_rows": 16,
+  "first_exact": 16,
+  "first_or_top_vote_second_exact": 17,
+  "first_or_unique_pool_second_exact": 17,
+  "fold_limit": null,
+  "hypothesis": "allow a unique valid raw HDS plurality with at least two votes and no equality-admitted principle to enter the attempt-2 candidate pool; keep answer and HOLD gates unchanged",
+  "loo_folds": 1191,
+  "minimum_teacher_support": 3,
+  "prior_examples_used": 0,
+  "production_hds_source_sha256": "d1b31e1c39aac62e99b86a1bbf267725e5306a13f54fced6690e67e133345f55",
+  "raw_candidate_family_votes": 17,
+  "schema": "arc2-p5-hds-raw-plurality-loo.v1",
+  "stop_reason": "all_training_folds",
+  "task_identifiers_or_grids_saved": false,
+  "temporary_variant_sha256": "a6ad0117a6cfa94fff71520ee2e75aca5b433ca469f0cba84a1c0741dfb5901a",
+  "top_vote_second_guess": {
+    "exact": 1,
+    "folds": 1,
+    "wrong": 0
+  },
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8",
+  "unique_pool_second_guess": {
+    "exact": 1,
+    "folds": 1,
+    "wrong": 0
+  }
+}

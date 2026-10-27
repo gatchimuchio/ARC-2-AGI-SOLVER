@@ -1,0 +1,24 @@
+{
+  "schema": "arc26-unified-official-status-observation-v1",
+  "track": "ARC2",
+  "competition_slug": "arc-prize-2026-arc-agi-2",
+  "submission_id": "57576155",
+  "observed_at_utc": "2026-10-24T07:34:20.588984Z",
+  "retrieval_method": "project .venv Kaggle SDK via read-only ARC2_Kaggleスコア監視.py --tick",
+  "official_status": "COMPLETE",
+  "public_score": "0.00",
+  "score_state": "NUMERIC",
+  "error_detail_present": false,
+  "notebook_slug": "tecchannn/arc2-codex-main-baseline-v1",
+  "notebook_version": 5,
+  "source_commit": "2759d393a8d79824d36754785ce16f66d0493ebd",
+  "notebook_sha256": "d04668b0410a028195c1eb3c0c99620c9336d8ff10a41156181faaf73dc7910c",
+  "input_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "output_sha256": "78e59642d9a84457c1ad9a16b1b98c12de717a34d562438ae830a8903cd5b026",
+  "today_submission_refs": [
+    57576155
+  ],
+  "submission_allowed": false,
+  "next_check_at_utc": "2026-10-24T08:34:20.588984Z",
+  "submission_or_rerun_performed": false
+}

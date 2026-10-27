@@ -1,0 +1,30 @@
+{
+  "schema": "arc2-cell-tree-fit-only-interpretation-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-26T23:54:20.282210+00:00",
+  "run_id": "ARC2-cell-tree-fit-only-20261026T2352Z",
+  "status": "COMPLETE",
+  "session_id": 74126,
+  "selected_tasks": 3,
+  "selected_phases": 6,
+  "necessary_condition_disproven_phases": 3,
+  "expanded_fits_executed": 3,
+  "expanded_fit_outcomes": {
+    "no_exact_bounded_tree": 1,
+    "fit_state_budget_exceeded": 2,
+    "skipped_inexpressible_grammar": 3
+  },
+  "fitted_models": 0,
+  "source_pins_unchanged": true,
+  "source_sha256": "d9322bb620d69fcf20b9e7f33c69e35a586e15a509ff0a1a7882289a06ec9518",
+  "script_sha256": "a3c6fbd77ff223b829596bdae63ab7eb5610c05cad5d131cc95fb048d32b2ae5",
+  "records_sha256": "ccdf20ea3210823d2c14ddd9735c3df30e1d132139a737b408ac742ea7984f7f",
+  "summary_sha256": "bdda4484940bb58c3d7aae7e076a6a757d4a2b17d7da48e9431cb2490c4235b2",
+  "summary_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-cell-conditional-tree\\public_results\\fit-only-diagnosis-20261026T2352Z.summary.json",
+  "scope": "FIT-only current support diagnosis. After support includes observed F; U excluded. No heldoutquery, HDSoutput, scorer or numericperformance test.",
+  "interpretation": "Threephase constraints contradict every common typed action in identical33feature groups, impossible in fixedgrammar atanydepth. Oneexpandedfit completedboundedsearch withoutsolution; tworemainedincompleteat1025states. No publicability/learning/score gain inferred.",
+  "adopted": false,
+  "next_action": "Preserve allnegative evidence and frozenv61v1. At00:15Z run fresh exact-version read-only preflight, reviewPASS, create fixedUTCday exclusiveintent and invoke existingCLI once. Immediately reconcilehistory, bindacceptedID/version/dirtybuild, follow numeric score.",
+  "official_submission_performed": false,
+  "production_source_changed": false
+}

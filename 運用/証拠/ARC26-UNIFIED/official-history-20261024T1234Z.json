@@ -1,0 +1,27 @@
+{
+  "cli_warning_present": false,
+  "competition_slug": "arc-prize-2026-arc-agi-2",
+  "latest_submission": {
+    "date": "2026-10-24T00:12:39.127000",
+    "description": "ARC2 score-feedback candidate v5 2026-10-24",
+    "fileName": "submission.json",
+    "privateScore": "",
+    "publicScore": "0.00",
+    "ref": 57576155,
+    "status": "SubmissionStatus.COMPLETE"
+  },
+  "observed_at_utc": "2026-10-24T12:34:25Z",
+  "quota_field_returned": false,
+  "source": "project venv Kaggle CLI read-only",
+  "submission_refs": [
+    57576155,
+    57560705,
+    57517199,
+    55046979,
+    55038338,
+    54709840,
+    53996447,
+    53962702
+  ],
+  "track": "ARC2"
+}

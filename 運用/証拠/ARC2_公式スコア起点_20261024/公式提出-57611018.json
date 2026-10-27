@@ -1,0 +1,40 @@
+{
+  "schema": "arc2-v2-daily-submission-evidence-v1",
+  "instruction_id": "ARC2-SCORE-GATE-20261024",
+  "competition": "arc-prize-2026-arc-agi-2",
+  "submission_ref": 57611018,
+  "submission_accepted_at_utc": "2026-10-25T00:13:11.925142+00:00",
+  "kernel": "tecchannn/arc2-codex-main-baseline-v1",
+  "kernel_version": 9,
+  "kernel_status_at_precheck": "COMPLETE",
+  "official_status_observed_at_utc": "2026-10-25T00:14:31.812157+00:00",
+  "official_status": "PENDING",
+  "official_public_score": null,
+  "next_same_id_check_at_utc": "2026-10-25T00:19:31.812157+00:00",
+  "candidate_evidence": {
+    "source_commit": "dae0a5dbe124a0c4a01bd69a26dda0036d0379e0",
+    "source_commit_qualifier": "build manifest records this base commit with +dirty; payload SHA identifies submitted bundle",
+    "code_sha256": "6af02e34b8bd71ac06339579266c7928f2dd7cfe465c7891184f941e35d94f45",
+    "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "submission_sha256": "c34dcdd39e1afacba8c2fe992ffd93378c92bbbde3885a58f43f3fd02253bcb2",
+    "build_manifest_sha256": "a49a5e3d734143435ac9596ee56739a096dc61a415d6b4fbb5987e3a3d0d4307",
+    "source_payload_sha256": "6456d952d8d3213cfd14e8dc9548af2416268fa48a8dd39a72b9a6aef69736bb",
+    "tasks": 240,
+    "tests": 259,
+    "fallback_count": 254,
+    "format_validation": "FORMAT_VALID",
+    "output_correctness": "not inferred from format validation or fallback output"
+  },
+  "artifacts": {
+    "submission_receipt_path": "出力/Kaggle/arc2-codex-main-baseline-v1/v7/提出記録-57611018.json",
+    "submission_receipt_sha256": "8b4a47abd46747c701f35f42d1fde84c384ce4a541ac7a3e481b9b33158cf6ce",
+    "run_record_path": "出力/Kaggle/arc2-codex-main-baseline-v1/v7/実行記録.json",
+    "run_record_sha256": "2bbcf3666afd61f65fc9599b2fd0c83df1a358cb59572127ce87e6b50d362914",
+    "submission_path": "出力/Kaggle/arc2-codex-main-baseline-v1/v7/remote-output-v9/submission.json",
+    "submission_file_sha256": "c34dcdd39e1afacba8c2fe992ffd93378c92bbbde3885a58f43f3fd02253bcb2"
+  },
+  "daily_quota_used": true,
+  "hidden_or_evaluation_solutions_read": false,
+  "score_improvement_claimed": false,
+  "recorded_at_utc": "2026-10-25T00:17:19Z"
+}

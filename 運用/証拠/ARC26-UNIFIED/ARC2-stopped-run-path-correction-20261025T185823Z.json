@@ -1,0 +1,15 @@
+{
+  "actual_experiment_id": "arc2-v18-hds-legacy-runtime-public-evaluation-20261025T185700Z",
+  "actual_output_directory": "出力/Kaggle/arc2-v18-hds-legacy-runtime-public-evaluation-20261025T185700Z",
+  "actual_output_files": [
+    "run.stderr.log",
+    "run.stdout.log"
+  ],
+  "adapter_restored_sha256": "f2c9858c250e612dc17526cffdacdfb3502212a46b5a1fe1c60779fa51ae2b0c",
+  "correction": "The PowerShell command line revealed the stopped process was v18, while the prior record used the v17 path. The actual v18 output directory is listed below; no output files were produced.",
+  "correction_of": "運用/証拠/ARC26-UNIFIED/ARC2-unsafe-legacy-evaluation-stopped-20261025T185700Z.json",
+  "observed_at_utc": "2026-10-25T18:58:23Z",
+  "previous_recorded_output_files": [],
+  "schema": "arc2-stopped-run-path-correction.v1",
+  "track": "ARC2"
+}

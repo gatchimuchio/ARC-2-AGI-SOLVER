@@ -1,0 +1,106 @@
+{
+  "schema": "arc2-v10-official-output-recheck-v1",
+  "observed_at_utc": "2026-10-25T22:29:10Z",
+  "track": "ARC2",
+  "competition": "arc-prize-2026-arc-agi-2",
+  "official_history": [
+    {
+      "ref": 57611018,
+      "date_utc": "2026-10-25T00:13:10.933Z",
+      "status": "COMPLETE",
+      "public_score": "0.00"
+    },
+    {
+      "ref": 57576155,
+      "date_utc": "2026-10-24T00:12:39.127Z",
+      "status": "COMPLETE",
+      "public_score": "0.00"
+    },
+    {
+      "ref": 57560705,
+      "date_utc": "2026-10-23T12:25:06.577Z",
+      "status": "COMPLETE",
+      "public_score": "0.00"
+    },
+    {
+      "ref": 57517199,
+      "date_utc": "2026-10-22T08:35:19.380Z",
+      "status": "COMPLETE",
+      "public_score": null
+    },
+    {
+      "ref": 55046979,
+      "date_utc": "2026-07-28T06:19:16.917Z",
+      "status": "COMPLETE",
+      "public_score": "0.83"
+    },
+    {
+      "ref": 55038338,
+      "date_utc": "2026-07-27T21:24:23.967Z",
+      "status": "COMPLETE",
+      "public_score": null
+    },
+    {
+      "ref": 54709840,
+      "date_utc": "2026-07-15T03:02:55.077Z",
+      "status": "COMPLETE",
+      "public_score": null
+    },
+    {
+      "ref": 53996447,
+      "date_utc": "2026-06-24T01:46:52.783Z",
+      "status": "COMPLETE",
+      "public_score": "0.00"
+    },
+    {
+      "ref": 53962702,
+      "date_utc": "2026-06-23T01:18:06.620Z",
+      "status": "COMPLETE",
+      "public_score": "0.00"
+    }
+  ],
+  "current_official_state": {
+    "latest_ref": 57611018,
+    "latest_status": "COMPLETE",
+    "latest_public_score": "0.00",
+    "utc_day": "2026-10-25",
+    "today_refs": [
+      57611018
+    ],
+    "daily_quota_remaining": 0,
+    "next_24h_gate_utc": "2026-10-26T00:13:10.933Z",
+    "submission_performed": false
+  },
+  "candidate": {
+    "kernel": "tecchannn/arc2-codex-main-baseline-v1",
+    "version": 10,
+    "status": "COMPLETE",
+    "code_sha256": "ace8ed1973dbeb7249f9510b691b6249783a0256a98a3dc1112e0932b9ca9d4d",
+    "build_manifest": "出力/Kaggle/arc2-codex-main-baseline-v1/v12-safe-feature-neighbor-20261026/build-manifest.json",
+    "build_manifest_sha256": "feab1a435c43f922e44d9ad56d85546fd321807372eefef2b25652bc4f1244c4",
+    "bundle_sha256": "bd13836d7ff3e14b18a13f159c6c2c62aa262521fc2d12f6daf0e5245dd499c5",
+    "local_submission_sha256": "1185244299abe142cfae823ee0b0c811bb03e70a6e2e40cb23cd8c08222bab0a",
+    "exact_version_official_output_sha256": "1185244299abe142cfae823ee0b0c811bb03e70a6e2e40cb23cd8c08222bab0a",
+    "local_remote_output_match": true,
+    "output_examples": 259,
+    "output_tasks": 240,
+    "fallback_examples": 252,
+    "test_correctness": "UNKNOWN",
+    "canonical_prior_memory_in_bundle": false
+  },
+  "paired_public_training_loo": {
+    "evidence": "運用/証拠/ARC26-UNIFIED/ARC2-V5-P5-feature-neighbor-actual-runtime-paired-LOO-20261025T1805Z.json",
+    "evidence_sha256": "aec8c4c269797d6ac153f6d831ad8e2ca92f61858e40cdc30260e2bca02a6211",
+    "previous_exact": 14,
+    "current_exact": 43,
+    "delta_exact": 29,
+    "regressions": 0,
+    "source_concordance_evidence": "運用/証拠/ARC26-UNIFIED/ARC2-v10-candidate-source-concordance-20261025T221326Z.json",
+    "source_concordance_sha256": "0886b85acf23b80460578a1e29945f6a10ec071d808497312534fc006c03d116"
+  },
+  "output_audit": {
+    "evidence": "運用/証拠/ARC26-UNIFIED/ARC2-v10-output-audit-20261025T201654Z.json",
+    "evidence_sha256": "6dbeacfd0237e372b284a33ee8bd6424f560dab8e271a3e5ebbb80e8cb9a7b31"
+  },
+  "interpretation": "This verifies the exact completed Kaggle kernel version 10 output and its SHA against the local submission candidate. It is not a new official score. Submit only after the fresh UTC-day, 24-hour, rules/timeline, daily-quota, kernel-status, format, and SHA gates pass."
+}

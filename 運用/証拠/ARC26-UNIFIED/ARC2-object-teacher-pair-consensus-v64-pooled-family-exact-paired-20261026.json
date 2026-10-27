@@ -1,0 +1,53 @@
+{
+  "schema": "arc2-object-teacher-pair-pooled-family-v64-exact-paired-v1",
+  "policy": "fit object/outlier/palette models independently on each two-teacher subset; pool each family's unique valid output, count each output at most once per subset, and accept only a unique top output supported by at least two subsets (or the single full subset when exactly two teachers are available)",
+  "loo_eligible_folds": 2916,
+  "loo_candidate_proposal_folds_all": 79,
+  "loo_candidate_proposal_folds_sampled": 79,
+  "loo_sample_policy": "evenly spaced deterministic sample from sorted training task/fold proposals",
+  "loo_exact_v51_bundle_paired_sample": {
+    "v51_exact": 47,
+    "candidate_exact_outputs": 50,
+    "candidate_usable_when_v51_slot_duplicate": 15,
+    "newly_correct": 4,
+    "regressions": 0
+  },
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "challenge_tasks_with_candidates": 6,
+  "challenge_examples_with_candidates": 7,
+  "challenge_candidate_tasks_exact_v51_bundle_paired": {
+    "examples_evaluated_in_candidate_tasks": 7,
+    "baseline_exact_examples": 5,
+    "combined_exact_examples": 6,
+    "candidate_proposals": 7,
+    "candidate_exact_outputs": 6,
+    "candidate_usable_when_v51_slot_duplicate": 2,
+    "newly_correct_examples": 1,
+    "regressions": 0,
+    "baseline_exact_tasks": 5,
+    "combined_exact_tasks": 5,
+    "newly_correct_tasks": 0,
+    "regressed_tasks": 0
+  },
+  "exact_v51_runtime_tasks": 85,
+  "exact_v51_runtime_seconds": 202.27,
+  "exact_v51_fallback_count": 70,
+  "exact_v51_temporary_output_sha256": {
+    "submission": "08fb73c17c0211ccde0c2989bb4e96a9d4732364bfc3c03805f042a4167e9e29",
+    "audit": "9338f84fb65361ad224e2381179cdbe72cdca5188609c35a56281d008427b103"
+  },
+  "candidate_runtime_received_heldout_outputs": false,
+  "exact_v51_runtime_received_heldout_or_challenge_targets": false,
+  "all_targets_read_after_both_prediction_sets": true,
+  "per_task_ids_grids_or_targets_saved": false,
+  "temporary_outputs_and_payload_removed": true,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "9e3446c9d7a1f4029ba29c7049cac8929e9d9fe6337c9e1a3491eb148a615542",
+    "v51_background_probe": "26214fbf3e0e2e975571e0e898e61e37e52ff22f5c8b0400ff82053ac1632d95",
+    "challenge_inputs": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "v51_build_manifest": "ebdd96836be417c0257030a115c6a6043a46c9471611af63000f677a75104c85",
+    "object_module": "d0bd26fb4e6619ca20bc6dc8b02d2aa569769392825140c77170978adaac2fd5"
+  }
+}

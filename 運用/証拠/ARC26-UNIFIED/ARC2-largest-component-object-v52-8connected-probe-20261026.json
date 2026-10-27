@@ -1,0 +1,21 @@
+{
+  "schema": "arc2-largest-component-object-v52-8connected-probe-v1",
+  "background_policy": "color with the largest 8-connected component; ties break by total count then lowest color",
+  "candidate_agreement": "at least two of object, outlier, and palette families return the same distinct valid grid",
+  "loo_eligible_folds": 2916,
+  "loo_candidate_proposal_folds": 40,
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "challenge_tasks_with_candidate": 4,
+  "challenge_examples_with_candidate": 4,
+  "heldout_outputs_read": false,
+  "challenge_targets_read": false,
+  "per_task_ids_grids_or_candidates_saved": false,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "4f3407c593d6bd4cf45e0c04857fe30386e3941b1ed66b4cc0fb5bfc014b9fad",
+    "object_module": "d0bd26fb4e6619ca20bc6dc8b02d2aa569769392825140c77170978adaac2fd5",
+    "challenge_inputs": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "v28_build_manifest": "8bafa314ddb1e25831769d38f3e1d779fc3b6c060a002cd91caccf5e37529f17"
+  }
+}

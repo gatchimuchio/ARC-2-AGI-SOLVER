@@ -1,0 +1,56 @@
+{
+  "schema": "arc2-v5-feature-neighbor-transform-loo.v1",
+  "experiment_id": "ARC26-ARC2-V5-P5-FEATURE-NEIGHBOR-TRANSFORM-LOO",
+  "data_source": "public ARC-AGI-2 training split and fixed training-only runtime prior",
+  "feature_based_selection_only": true,
+  "task_identifiers_or_grids_saved": false,
+  "heldout_output_passed_to_solver": false,
+  "evaluation_solutions_read_by_parent_only": true,
+  "fallback_counted_correct": false,
+  "candidate_program_families": [
+    "D4 orientation",
+    "color map",
+    "crop background",
+    "integer scale",
+    "uniform downscale",
+    "tile"
+  ],
+  "selection_features": [
+    "grid dimensions",
+    "aspect ratio",
+    "color-count profile",
+    "foreground occupancy and bounds",
+    "connected-component profile",
+    "row and column transition rates"
+  ],
+  "prior_examples": 2,
+  "prior_source_tasks_excluded": 1,
+  "eligible_tasks": 842,
+  "loo_folds": 2916,
+  "complete": true,
+  "elapsed_seconds": 11.672,
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8",
+  "candidate_folds": 150,
+  "candidate_unique_consensus_exact": 65,
+  "hds_gate_calls": 150,
+  "hds_gate_admitted": 0,
+  "hds_gate_rejected": 150,
+  "hds_gate_states": {
+    "充足する候補なし": 150
+  },
+  "paired_hds_calls": 0,
+  "paired_first_exact": 0,
+  "paired_first_fallback": 0,
+  "paired_second_exact": 0,
+  "paired_before_exact_union": 0,
+  "paired_after_exact_union": 0,
+  "paired_delta_exact": 0,
+  "paired_gains": 0,
+  "paired_regressions": 0,
+  "source_sha256": {
+    "runner": "562ae7016aa10175b257a4a058dd3887123d00340f8899145e4b8098a2bffdaf",
+    "simple_transform_runner": "a0211675c28b9f80dab7c7a08fc24834eabb64ebffe91f32db4847f45b0be4c7",
+    "hds_connector": "d9b427fe8bd092c89e4c59dbb4de1154b4333a1fd98ba13592950e5b822d7beb",
+    "submission_adapter": "f53358ffe020fe49786b9dee5d586fecd238365f29133a6d5cccbf06fb38863d"
+  }
+}

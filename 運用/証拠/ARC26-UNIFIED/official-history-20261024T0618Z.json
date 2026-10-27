@@ -1,0 +1,76 @@
+{
+  "competition": "arc-prize-2026-arc-agi-2",
+  "latest20": [
+    {
+      "date": "2026-10-24T00:12:39.127000",
+      "error_detail_present": false,
+      "public_score": "0.00",
+      "ref": 57576155,
+      "status": "COMPLETE"
+    },
+    {
+      "date": "2026-10-23T12:25:06.577000",
+      "error_detail_present": false,
+      "public_score": "0.00",
+      "ref": 57560705,
+      "status": "COMPLETE"
+    },
+    {
+      "date": "2026-10-22T08:35:19.380000",
+      "error_detail_present": true,
+      "public_score": "",
+      "ref": 57517199,
+      "status": "COMPLETE"
+    },
+    {
+      "date": "2026-07-28T06:19:16.917000",
+      "error_detail_present": false,
+      "public_score": "0.83",
+      "ref": 55046979,
+      "status": "COMPLETE"
+    },
+    {
+      "date": "2026-07-27T21:24:23.967000",
+      "error_detail_present": true,
+      "public_score": "",
+      "ref": 55038338,
+      "status": "COMPLETE"
+    },
+    {
+      "date": "2026-07-15T03:02:55.077000",
+      "error_detail_present": true,
+      "public_score": "",
+      "ref": 54709840,
+      "status": "COMPLETE"
+    },
+    {
+      "date": "2026-06-24T01:46:52.783000",
+      "error_detail_present": false,
+      "public_score": "0.00",
+      "ref": 53996447,
+      "status": "COMPLETE"
+    },
+    {
+      "date": "2026-06-23T01:18:06.620000",
+      "error_detail_present": false,
+      "public_score": "0.00",
+      "ref": 53962702,
+      "status": "COMPLETE"
+    }
+  ],
+  "new_submission_created": false,
+  "observed_at_utc": "2026-10-24T06:19:00.474810Z",
+  "source": "Kaggle SDK read-only competition_submissions",
+  "submission_gate": {
+    "allowed": false,
+    "latest_public_score": "0.00",
+    "latest_ref": 57576155,
+    "latest_status": "COMPLETE",
+    "reason": "daily UTC quota used",
+    "today_submission_refs": [
+      57576155
+    ],
+    "utc_day": "2026-10-24"
+  },
+  "track": "ARC2"
+}

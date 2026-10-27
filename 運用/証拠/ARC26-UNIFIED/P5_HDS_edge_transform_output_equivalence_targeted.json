@@ -1,0 +1,114 @@
+{
+  "ambiguous_matching_transform_count_histogram": {
+    "2": 6
+  },
+  "baseline_edge_source_sha256": "cc97bcd03e21575da786af4dd0b6f86b6c3b16c6139e66fcc6352b95b46c2612",
+  "baseline_hds_source_sha256": "d1b31e1c39aac62e99b86a1bbf267725e5306a13f54fced6690e67e133345f55",
+  "candidate_temporary_edge_sha256": "f3f82d7b97ce83426884ba5181f96e9117525e536593d727c42158f61a5730f2",
+  "data_source": "public ARC-AGI-2 training split only",
+  "delta_current_minus_previous": {
+    "answer": 0,
+    "exact": 0,
+    "fallback": 0,
+    "union_exact": 0,
+    "wrong": 0
+  },
+  "eligible_fold_population": 1191,
+  "eligible_task_population": 267,
+  "evaluation_solutions_read": false,
+  "experiment_id": "ARC2-C2-065-EDGE_TRANSFORM_AMBIGUITY_STRATIFIED_LOO",
+  "fallback_counted_correct": false,
+  "heldout_output_passed_to_solver": false,
+  "input_only_ambiguity_strata": {
+    "different_or_invalid_rendered_payloads": 3,
+    "equivalent_rendered_payloads": 3
+  },
+  "metrics_previous_current": {
+    "current_equivalent_output_acceptance": {
+      "answer": 0,
+      "exact": 0,
+      "fallback": 6,
+      "union_exact": 0,
+      "wrong": 0
+    },
+    "previous_unique_transform_name": {
+      "answer": 0,
+      "exact": 0,
+      "fallback": 6,
+      "union_exact": 0,
+      "wrong": 0
+    }
+  },
+  "official_submission_or_rerun": false,
+  "production_or_submission_changed": false,
+  "public_heldout_output_scored_after_both_solvers_return": true,
+  "run_type": "hypothesis_targeted_pilot",
+  "runtime_budget_seconds": 300.0,
+  "runtime_seconds": {
+    "combined_wall_seconds": 22.268,
+    "current_equivalent_output_acceptance": 6.812,
+    "delta_current_minus_previous": -0.374,
+    "previous_unique_transform_name": 7.186
+  },
+  "schema": "arc2-p5-hds-edge-transform-equivalence-targeted-loo.v1",
+  "selected_folds": 6,
+  "selected_unique_tasks": 4,
+  "selection_rule": "held-out input alone reports exactly two matching D4 edge transforms",
+  "solver_exceptions": {
+    "current": 0,
+    "previous": 0
+  },
+  "strata": {
+    "different_or_invalid_rendered_payloads": {
+      "current": {
+        "answer": 0,
+        "exact": 0,
+        "fallback": 3,
+        "union_exact": 0,
+        "wrong": 0
+      },
+      "delta": {
+        "answer": 0,
+        "exact": 0,
+        "fallback": 0,
+        "union_exact": 0,
+        "wrong": 0
+      },
+      "folds": 3,
+      "previous": {
+        "answer": 0,
+        "exact": 0,
+        "fallback": 3,
+        "union_exact": 0,
+        "wrong": 0
+      }
+    },
+    "equivalent_rendered_payloads": {
+      "current": {
+        "answer": 0,
+        "exact": 0,
+        "fallback": 3,
+        "union_exact": 0,
+        "wrong": 0
+      },
+      "delta": {
+        "answer": 0,
+        "exact": 0,
+        "fallback": 0,
+        "union_exact": 0,
+        "wrong": 0
+      },
+      "folds": 3,
+      "previous": {
+        "answer": 0,
+        "exact": 0,
+        "fallback": 3,
+        "union_exact": 0,
+        "wrong": 0
+      }
+    }
+  },
+  "task_identifiers_or_grids_saved": false,
+  "time_cap_reached": false,
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8"
+}

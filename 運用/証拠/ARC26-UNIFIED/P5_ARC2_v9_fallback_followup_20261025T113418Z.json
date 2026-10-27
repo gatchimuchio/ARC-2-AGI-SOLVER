@@ -1,0 +1,46 @@
+{
+  "schema": "arc26-p5-arc2-v9-output-followup.v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-25T11:34:18.413Z",
+  "kernel": "tecchannn/arc2-codex-main-baseline-v1",
+  "kernel_version": 9,
+  "official_submission_id": 57611018,
+  "official_status": "SubmissionStatus.COMPLETE",
+  "official_public_score": 0.0,
+  "previous_official_submission_id": 57576155,
+  "previous_official_public_score": 0.0,
+  "official_score_delta": 0.0,
+  "output_directory": "出力/Kaggle/arc2-codex-main-baseline-v1/v7/remote-output-v9",
+  "test_tasks": 240,
+  "test_examples": 259,
+  "submission_sha256": "c34dcdd39e1afacba8c2fe992ffd93378c92bbbde3885a58f43f3fd02253bcb2",
+  "audit_sha256": "e4c430609cf6cfef2b044980d6450bae9743360dfc1d2f3889da049729c9cd48",
+  "validation_sha256": "943fcb1b01e3ea0c61989f9f0e01749ad4ccdfe7ad37988750461c5d76442aa1",
+  "fallback_count": 254,
+  "fallback_reason_counts": {
+    "solver_hold": 254
+  },
+  "fallback_solver_status_counts": {
+    "断定保留": 254
+  },
+  "detailed_hds_hold_reason_available": false,
+  "fallback_counted_correct": false,
+  "correctness_score_measured": false,
+  "evaluation_solutions_read": false,
+  "task_ids_or_grids_saved": false,
+  "official_history_evidence": "運用/証拠/ARC26-UNIFIED/official-history-20261025T113418Z.json",
+  "matched_public_training_loo": {
+    "experiment_id": "ARC2-C2-068-HDS-ADMITTED-CANDIDATE-CONSENSUS",
+    "folds": 1191,
+    "exact_previous": 16,
+    "exact_current": 17,
+    "exact_delta": 1,
+    "fallback_previous": 1175,
+    "fallback_current": 1174,
+    "wrong_previous": 0,
+    "wrong_current": 0,
+    "regressions": 0
+  },
+  "interpretation": "Official public score remains 0.00; the reduced fallback count and one additional public-training LOO exact result do not establish hidden-item correctness or a score improvement.",
+  "next_action": "Track the existing C2-062 full matched LOO worker. Use aggregate HDS-only failure causes; no ID/hash-specific routing or answer map."
+}

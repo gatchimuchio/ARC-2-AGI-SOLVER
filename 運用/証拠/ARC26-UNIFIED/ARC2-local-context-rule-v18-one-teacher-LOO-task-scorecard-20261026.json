@@ -1,0 +1,51 @@
+{
+  "schema": "arc2-local-context-rule-v18-one-teacher-LOO-task-scorecard-v1",
+  "candidate": {
+    "radius": 1,
+    "minimum_context_support": 1,
+    "uses_input_fallback_for_unknown_or_conflicting_contexts": true
+  },
+  "source_split": "official ARC-AGI-2 training",
+  "loo_eligible_folds_with_at_least_one_teacher": 3232,
+  "loo_candidate_fit_and_worker_folds": 0,
+  "loo_worker_errors": 439,
+  "loo": {
+    "fit_folds": 0,
+    "baseline_exact": 0,
+    "combined_exact": 0,
+    "newly_correct": 0,
+    "regressions": 0,
+    "distinct_candidate_folds": 0
+  },
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "challenge_vs_v18": {
+    "baseline_exact_examples": 10,
+    "combined_exact_examples": 11,
+    "newly_correct_examples": 1,
+    "regressed_examples": 0,
+    "fit_examples": 41,
+    "distinct_candidates": 41,
+    "large_fit_examples": 21,
+    "large_distinct_candidates": 21,
+    "baseline_exact_tasks": 9,
+    "combined_exact_tasks": 10,
+    "newly_correct_tasks": 1,
+    "regressed_tasks": 0
+  },
+  "runtime_received_heldout_outputs": false,
+  "heldout_outputs_read_only_after_candidate_predictions": true,
+  "runtime_received_challenge_targets": false,
+  "challenge_targets_read_only_after_candidate_predictions": true,
+  "per_task_predictions_or_targets_saved": false,
+  "data_use": "public labels used only for offline evaluation; no task-identifier rules",
+  "elapsed_seconds": 163.734,
+  "source_sha256": {
+    "runner": "62588c1880a33fbaaf028fbfa9840e905935d77ffda841191f9b937d01d44306",
+    "local_context_candidate_source": "da82293ca31bca2c05d13e025f5424a9836a33bec437a2c6f63a02c845d760a7",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "baseline_submission": "08d0dc111f97c9f3a909955296fc58d46ea0c4514fe66e75169526723359f017",
+    "adapter": "c5b9c76f68b950b16e0843b57ba9ce2771e958b4e06905427697dd190a55f555",
+    "composite_geometry_module": "b7ee7d9c9ccc3767f47dccdef25b378c961a8e150f145fc1c11860e4e5e4ac39"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "schema": "arc26-p5-hds-guard-loo-decision.v1",
+  "track": "ARC2",
+  "experiment_id": "P5_HDS_partial_condition_consensus_visible_guard_LOO",
+  "observed_at_utc": "2026-10-25T05:41:54Z",
+  "decision": "REJECT_CANDIDATE_NO_PROMOTION",
+  "reason": "Matched full public-training LOO produced no exact gain and one additional wrong answer; reducing fallback by one is not correctness.",
+  "dataset": {
+    "all_training_folds": true,
+    "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8",
+    "eligible_tasks": 267,
+    "paired_loo_folds": 1191
+  },
+  "previous": {
+    "solver_runtime_seconds": 1679.839411,
+    "wrong": 0,
+    "fallback": 1174,
+    "exact": 17,
+    "answer_rows": 17
+  },
+  "candidate": {
+    "answer_rows": 18,
+    "solver_runtime_seconds": 1662.193873,
+    "rescued_principle_requests": 2,
+    "wrong": 1,
+    "exact": 17,
+    "partial_predictions": 2,
+    "fallback": 1173
+  },
+  "delta": {
+    "solver_runtime_seconds": -17.645538,
+    "wrong": 1,
+    "fallback": -1,
+    "exact": 0,
+    "answer_rows": 1
+  },
+  "evaluation_contract": {
+    "stop_reason": "all_training_folds",
+    "complete": true,
+    "hidden_or_evaluation_solutions_read": false,
+    "task_identifiers_or_grids_saved": false,
+    "fallback_counted_correct": false
+  },
+  "artifacts": {
+    "elapsed_seconds": 3343.259309,
+    "runner_sha256": "397b5457ddbd203b242ab88beaac7865426cfc4a57e9d8b5fdc1c7a9acf3ddc3",
+    "aggregate": "運用/証拠/ARC26-UNIFIED/P5_HDS_partial_condition_consensus_visible_guard_LOO_full.json",
+    "aggregate_sha256": "506c0c87de18cc2bf4f51f637e348d3074851a1ee10aa72a13e82628518b9f1a",
+    "stderr_sha256": "8f2516f8b0fff9fc3738a1d41c0f2447c1465f7bfc9a5e5c85a54fed93f0ba1b",
+    "runner": "運用/証拠/ARC26-UNIFIED/P5_HDS_partial_condition_consensus_visible_guard_LOO.py",
+    "stdout_sha256": "16ba1669a3888c8689127360741dd2415458abbb8bdac48b98fca9eacc5de23a"
+  },
+  "policy": "No production code, bundle, notebook, kernel, or official submission was changed.",
+  "next_action": "Keep the guard rejected. Form the next generic HDS hypothesis from the fallback classification and evaluate only with matched public-training LOO plus regression accounting."
+}

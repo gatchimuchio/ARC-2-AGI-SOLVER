@@ -1,0 +1,60 @@
+{
+  "schema": "arc26-v5-invalid-runtime-stop-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-25T19:20:49Z",
+  "experiment_path": "出力/Kaggle/arc2-v19-legacy-runtime-public-evaluation-20261025T191200Z",
+  "runner_sha256": "5d7f2cacce62bfba043e5b70147cf9b2691922cede1a055930932d1874d62f8e",
+  "payload_sha256": "dbbd889c79da390dcd462b74dc301b46c4c9d1f3303b0351bf414c3be97355cc",
+  "runtime_manifest_sha256": "b3bde56a4e554c21169dd6f0dfed468633c3d3574593064fad3ab087bcd18643",
+  "runtime_adapter_sha256": "b900cae71cf72719dd0cdd2e67eaa971a1aaeab3dae552691713cc0f7ef39094",
+  "payload_includes": [
+    "legacy_v4_candidate.py",
+    "legacy_v4_solver.py"
+  ],
+  "running_parent_command": "PowerShell Start-Process against runtime-root/接続/ARC2/Kaggle提出.py with --aggregate-diagnostics",
+  "stopped_process_ids": [
+    16148,
+    8832,
+    9208,
+    4304,
+    17424,
+    4924,
+    17660,
+    3784,
+    3740,
+    14864,
+    4680,
+    9552,
+    7784,
+    8472,
+    2784,
+    18060,
+    16112
+  ],
+  "matching_noncurrent_processes_remaining": false,
+  "output_directories": [
+    "public-evaluation-run",
+    "public-evaluation-run-direct"
+  ],
+  "submission_json_present": false,
+  "submission_audit_present": false,
+  "stdout_and_stderr_empty": true,
+  "metrics_accepted": false,
+  "official_submission_performed": false,
+  "preserved_run_artifacts": true,
+  "bundle_builder_fix": {
+    "path": "道具/ARC2Kaggle提出bundle.py",
+    "sha256": "15fe8bfc2b261d5bceba6156f6b5bc5abd576464a06dea5b998b3e11fa9413d5",
+    "excludes_filename_prefix": "legacy_v4_"
+  },
+  "regression_test": {
+    "path": "検証/test_ARC2Kaggle提出.py",
+    "sha256": "e97147029543e1bcc921f6b4843337c009c3b9c626f0a3da78e9f6d54942a2f9",
+    "result": "20 passed in 2.17s"
+  },
+  "safe_adapter_sha256": "f2c9858c250e612dc17526cffdacdfb3502212a46b5a1fe1c60779fa51ae2b0c",
+  "protected_files": {
+    "AGENTS.md": "315998bc0549de61f70fda28a9c9923bea8a61ba6d9b79019283165e5438109b",
+    "制御/現在状態.json": "773fdfdd37aad115c6bbbc879304142136654db649eb1954cde0d69eb14aa6d"
+  }
+}

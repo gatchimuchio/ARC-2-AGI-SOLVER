@@ -1,0 +1,187 @@
+{
+  "track": "ARC2",
+  "experiment_id": "ARC2-P5-INITIAL-258-FALLBACK-CLASSIFICATION",
+  "observed_at_utc": "2026-10-24T17:55:00Z",
+  "official_submission": {
+    "submission_id": "57560705",
+    "notebook_version": 2,
+    "status": "COMPLETE",
+    "public_score": 0.0,
+    "output_sha256": "a0eeaaa6203d4fdd049f8aa705a8ac7832cb98240759703eb0288ad3d62b4927",
+    "source_commit": "3d444f34db32d62bd2edad320648e08e8dae19d6",
+    "input_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83"
+  },
+  "counts": {
+    "test_examples": 259,
+    "official_fallbacks": 258,
+    "fallback_reason_counts": {
+      "solver_hold": 257,
+      "AssemblyIncomplete": 1
+    },
+    "hds_hold_rows": 257,
+    "assembly_incomplete_exceptions": 1,
+    "nonfallback_solver_outputs": 1,
+    "reconciles_to_259": true
+  },
+  "hold_reason_occurrences": {
+    "counts": {
+      "現行暫定原理の適用に必要な観測が不足している": 257,
+      "原因未確定で隔離中の原理が存在する": 2
+    },
+    "total_reason_occurrences": 259,
+    "hold_rows": 257,
+    "reason_occurrences_are_disjoint": false,
+    "interpretation": "Counts describe reason occurrences, not disjoint test-row buckets; the diagnostic reconciliation confirms 257 HOLD rows."
+  },
+  "assembly_failure": {
+    "exception_type": "AssemblyIncomplete",
+    "cause": "The optional sparse-marker assembly search exceeded its explicit work cap of 250000 units.",
+    "v2_integration_caught_exception": false,
+    "current_integration_catches_exception": true,
+    "current_candidate_module_matches_v2": true,
+    "v5_instrumented_solver_exception_count": 0,
+    "interpretation": "In v2 the optional fit_teachers call was uncaught; later local integration catches AssemblyIncomplete and safely abstains. The v5 diagnostic recorded zero task exceptions. This fix removes an exception path, not the 257-HOLD coverage gap."
+  },
+  "stage_classification": {
+    "hds_hold_rows": 257,
+    "dominant_reason": "現行暫定原理の適用に必要な観測が不足している",
+    "quarantined_reason": "原因未確定で隔離中の原理が存在する",
+    "quarantined_reason_occurrences": 2,
+    "task_timeout_observed": false,
+    "task_ids_or_grids_saved": false,
+    "evaluation_answers_read": false
+  },
+  "later_observations": {
+    "latest_official_v5": {
+      "submission_id": "57576155",
+      "public_score": 0.0,
+      "fallback_count": 256,
+      "nonhold_outputs": 3,
+      "exceptions": 0
+    },
+    "private_kernel_v8": {
+      "fallback_count": 254,
+      "nonfallback_outputs": 5,
+      "official_score": null,
+      "solver_output_same_as_v7": true
+    }
+  },
+  "generic_hds_pilots": {
+    "ARC2-C2-054-HDS_IDENTITY_CONFLICT_OVERRIDE": {
+      "status": "PILOT_COMPLETE_NO_GAIN_NOT_ADOPTED",
+      "eligible_tasks": 4,
+      "loo_folds": 19,
+      "baseline_metrics": {
+        "answer": 0,
+        "distinct_second": 0,
+        "fallback": 19,
+        "first_exact": 0,
+        "first_wrong": 0,
+        "second_exact": 0,
+        "second_wrong": 0,
+        "union_exact": 0
+      },
+      "candidate_metrics": {
+        "distinct_second": 0,
+        "fallback": 19,
+        "second_exact": 0,
+        "second_wrong": 0,
+        "union_exact": 0
+      },
+      "delta": {
+        "distinct_second": 0,
+        "fallback": 0,
+        "second_exact": 0,
+        "second_wrong": 0,
+        "union_exact": 0
+      },
+      "baseline_runtime_seconds": 164.346,
+      "candidate_runtime_seconds": 3.917,
+      "combined_runtime_seconds": 168.302,
+      "diagnostics": {
+        "cell_engines": 172,
+        "cell_queries": 169,
+        "cells_below_minimum_teacher_support": 3,
+        "cells_with_additional_observation_request": 7,
+        "cells_with_conflicting_predictions": 7,
+        "cells_with_quarantined_principles": 5,
+        "identity_fill_after_hds_conflict_or_quarantine": 8,
+        "identity_fill_after_observation_request": 19,
+        "identity_supported_copy_cells": 42,
+        "shape_precondition_failed": 5,
+        "training_relation_records": 633
+      }
+    },
+    "ARC2-C2-056-INTEGRATION-AUDIT": {
+      "status": "IMPLEMENTATION_INVALID_HYPOTHESIS_NOT_FALSIFIED"
+    },
+    "ARC2-C2-057-HDS_TASK_WIDE_COLOR_MAP_SHARED_ENGINE": {
+      "status": "PILOT_COMPLETE_NO_GAIN_NOT_ADOPTED",
+      "eligible_tasks": 4,
+      "loo_folds": 19,
+      "baseline_metrics": {
+        "answer": 0,
+        "distinct_second": 0,
+        "fallback": 19,
+        "first_exact": 0,
+        "first_wrong": 0,
+        "second_exact": 0,
+        "second_wrong": 0,
+        "union_exact": 0
+      },
+      "candidate_metrics": {
+        "distinct_second": 0,
+        "fallback": 19,
+        "second_exact": 0,
+        "second_wrong": 0,
+        "union_exact": 0
+      },
+      "delta": {
+        "distinct_second": 0,
+        "fallback": 0,
+        "second_exact": 0,
+        "second_wrong": 0,
+        "union_exact": 0
+      },
+      "baseline_runtime_seconds": 121.084,
+      "candidate_runtime_seconds": 0.296,
+      "combined_runtime_seconds": 121.409,
+      "diagnostics": {
+        "color_queries": 5,
+        "colors_with_hds_requests_conflicts_or_quarantine": 5,
+        "shape_precondition_failed": 5,
+        "shared_task_engines": 5,
+        "training_relation_records": 60,
+        "within_teacher_color_mapping_conflict": 9
+      }
+    }
+  },
+  "decision": "CLASSIFIED; EXCEPTION_PATH_REPAIRED; NO_GENERIC_MECHANISM_ADOPTED",
+  "reason": "The 258 official fallbacks reconcile to 257 HDS HOLD rows plus one work-cap assembly exception. Existing public-training generic pilots show no exact-coverage gain or one is an invalid integration, so keep production behavior unchanged and do not treat non-HOLD counts as accuracy.",
+  "evidence": {
+    "v2_audit_path": "出力\\Kaggle\\arc2-kaggle-out-v2-3d444f3\\submission_audit.json",
+    "v2_audit_sha256": "295e653ccccefe3b111f6d4f85ef5dc43f181b9d228e7f7cffae81a82858ffaa",
+    "hold_diagnostic_path": "運用\\証拠\\ARC2_公式スコア起点_20261024\\HDS_test_hold_reason_diagnostics.json",
+    "hold_diagnostic_sha256": "e1ccc3282c6865f6512d2511d3fa5bae0e1b0431ddbfe1f62b61a3d0bcd142a4",
+    "v5_diagnostic_path": "運用\\証拠\\ARC2_公式スコア起点_20261024\\HDS_test_mechanism_diagnostics-v5-57576155.json",
+    "v5_diagnostic_sha256": "c5f6fe1574182a865c7a5803c8a4ba3e8169ae17b2c64e7a0002417a2cdfa578",
+    "v8_audit_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-kernel-v8-output-audit-20261024T1740Z.json",
+    "v8_audit_sha256": "bf3d75eaff2234671004057c60899874f45ea00a609dfd9e471a2155f9cbad4a",
+    "source_blob_checks": {
+      "接続/ARC2/疎標点重畳候補.py": {
+        "commit_blob": "ea89f8b29ffdd7da287b94c8580cdfe7049ec7c8",
+        "current_blob": "ea89f8b29ffdd7da287b94c8580cdfe7049ec7c8",
+        "current_matches_v2_source": true,
+        "v2_source_has_uncaught_fit_teachers": false,
+        "current_source_catches_AssemblyIncomplete": false
+      },
+      "接続/ARC2/疎標点重畳教材.py": {
+        "commit_blob": "74577e0abb75e913a45ef51d8267a5c2fd59cc13",
+        "current_blob": "456a4f27f22f542fc208ff15b8df4d719becd24c",
+        "current_matches_v2_source": false,
+        "v2_source_has_uncaught_fit_teachers": true,
+        "current_source_catches_AssemblyIncomplete": true
+      }
+    }
+  }
+}

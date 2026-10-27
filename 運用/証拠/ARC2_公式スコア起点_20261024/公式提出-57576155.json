@@ -1,0 +1,91 @@
+{
+  "schema": "arc2-v2-daily-submission-evidence-v1",
+  "instruction_id": "ARC2-SCORE-GATE-20261024",
+  "competition": "arc-prize-2026-arc-agi-2",
+  "submission_ref": 57576155,
+  "submission_accepted_at_utc": "2026-10-24T00:12:39.158567+00:00",
+  "kernel": "tecchannn/arc2-codex-main-baseline-v1",
+  "kernel_version": 5,
+  "kernel_status_at_precheck": "COMPLETE",
+  "official_status_observed_at_utc": "2026-10-24T00:34:15.171685+00:00",
+  "official_status": "COMPLETE",
+  "official_public_score": "0.00",
+  "next_same_id_check_at_utc": "2026-10-24T01:34:15.171685+00:00",
+  "prior_official_score": {
+    "submission_ref": 57560705,
+    "status": "COMPLETE",
+    "public_score": "0.00"
+  },
+  "candidate_evidence": {
+    "source_commit": "2759d393a8d79824d36754785ce16f66d0493ebd",
+    "code_sha256": "d04668b0410a028195c1eb3c0c99620c9336d8ff10a41156181faaf73dc7910c",
+    "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "submission_sha256": "78e59642d9a84457c1ad9a16b1b98c12de717a34d562438ae830a8903cd5b026",
+    "audit_sha256": "5407ec04da1ecc3f82bfb6a96309f4779a2ac1201d9fce7a30e497c0104b8f41",
+    "tasks": 240,
+    "tests": 259,
+    "fallback_count": 256,
+    "fallback_delta_from_v2_official_output": -2,
+    "v5_kaggle_output_byte_equal_to_local": true,
+    "same_condition_d4_palette_loo": {
+      "answered": 13,
+      "exact": 13,
+      "incorrect": 0
+    },
+    "additional_public_test_prediction_correctness": "unknown; no solution file was read",
+    "local_unsubmitted_coordinate_patch_effect_on_259_public_test_inputs": "0 candidate output-set changes; the submitted v5 notebook remains byte-identical to its recorded artifact"
+  },
+  "artifacts": {
+    "submission_receipt_path": "出力/Kaggle/arc2-codex-main-baseline-v1/v5/提出記録-57576155.json",
+    "submission_receipt_sha256": "146a51243a4a3d6e9db0848a7bceadf00ed4cfc57c88f0e2c2f1233023612c75",
+    "run_record_path": "出力/Kaggle/arc2-codex-main-baseline-v1/v5/実行記録.json",
+    "run_record_sha256": "23d5093f9445c5f1a46cdb9553793d3869ecfff75805a2a533e09be847498f38",
+    "local_submission_path": "出力/Kaggle/arc2-codex-main-baseline-v1/v5/retrieved/submission.json",
+    "local_submission_sha256": "78e59642d9a84457c1ad9a16b1b98c12de717a34d562438ae830a8903cd5b026",
+    "notebook_validation_path": "運用/証拠/ARC2_Kaggle日次提出_20261023/KaggleNotebook-v5検証.json",
+    "notebook_validation_sha256": "caea8c9a323243190d16b327819a76de688a46edf813b533d95a8b6d5687cab7",
+    "palette_loo_evidence_path": "運用/証拠/ARC2_Kaggle日次提出_20261023/D4色写像拡張-訂正.json",
+    "palette_loo_evidence_sha256": "021f6050d6ddd2cfd129e1fbc70370c28623dddfb687fa9815454f87f882e3c8",
+    "baseline_score_evidence_path": "運用/証拠/ARC2_公式スコア起点_20261024/公式スコア観測-57560705.json",
+    "baseline_score_evidence_sha256": "50cc0e931579bdd2721ae2df439a0168bb42ce648ff1ca1e74a9c16844e9c9bf",
+    "fallback_reason_evidence_path": "運用/証拠/ARC2_公式スコア起点_20261024/HDS_test_hold_reason_diagnostics.json",
+    "fallback_reason_evidence_sha256": "e1ccc3282c6865f6512d2511d3fa5bae0e1b0431ddbfe1f62b61a3d0bcd142a4"
+  },
+  "utc_daily_quota_used": true,
+  "resubmission_on_2026_10_24": false,
+  "hidden_or_evaluation_solutions_read": false,
+  "score_improvement_claimed": false,
+  "observations": [
+    {
+      "observed_at_utc": "2026-10-24T00:12:53.243176+00:00",
+      "status": "PENDING",
+      "score": null,
+      "next_check_at_utc": "2026-10-24T00:17:53.243176+00:00"
+    },
+    {
+      "observed_at_utc": "2026-10-24T00:18:10.368066+00:00",
+      "status": "PENDING",
+      "score": null,
+      "next_check_at_utc": "2026-10-24T00:33:10.368066+00:00"
+    },
+    {
+      "observed_at_utc": "2026-10-24T00:34:15.171685+00:00",
+      "status": "COMPLETE",
+      "score": "0.00",
+      "next_check_at_utc": "2026-10-24T01:34:15.171685+00:00",
+      "confirmation": "official Kaggle history; same ref confirmed by read-only history command"
+    }
+  ],
+  "source_output_link_blockers": [],
+  "source_output_link": {
+    "source_commit": "2759d393a8d79824d36754785ce16f66d0493ebd",
+    "notebook_sha256": "d04668b0410a028195c1eb3c0c99620c9336d8ff10a41156181faaf73dc7910c",
+    "submission_sha256": "78e59642d9a84457c1ad9a16b1b98c12de717a34d562438ae830a8903cd5b026",
+    "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "monitor_verified": true
+  },
+  "official_score_evidence_path": "運用/証拠/ARC2_公式スコア起点_20261024/公式スコア観測-57576155.json",
+  "official_score_evidence_sha256": "7cd195c917dc8cff5e031f454a795a8b78fff1023fdac1905889b1acd4170b24",
+  "mechanism_diagnostics_evidence_path": "運用/証拠/ARC2_公式スコア起点_20261024/HDS_test_mechanism_diagnostics-v5-57576155.json",
+  "mechanism_diagnostics_evidence_sha256": "c5f6fe1574182a865c7a5803c8a4ba3e8169ae17b2c64e7a0002417a2cdfa578"
+}

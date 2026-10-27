@@ -32,6 +32,8 @@ python -m uv run --locked python -m 接続.Kaggle操作 履歴
 実行記録の版番号を省略したり、暗黙に最新版へ置き換えたりしない。
 Notebookのアップロードと大会提出は、それぞれ独立した操作である。
 
+大会提出の直前には`提出可否確認`を実行する。UTC日次枠、直近提出のCOMPLETEと数値score、前回提出から24時間以上の経過を確認する。数値scoreがない場合は通常停止するが、Kaggleの失敗詳細がNotebook Timeoutを明示し、修正版を再試行する場合に限り、日次枠と24時間条件を満たせば続行できる。保留中、曖昧な応答、原因不明のscore空欄は再送しない。さらに当日の公式rules/timeline、提出対象のNotebook版、完了状態、出力形式とSHAを照合する。
+
 本提出の公式APIは`competition_submit_code`。
 `submission.json`は指定Notebookの出力ファイル名であり、手元のJSONを通常のファイル提出へ送る方式ではない。
 [Kaggle公式提出手順](https://github.com/Kaggle/kaggle-cli/blob/main/docs/tutorials.md)

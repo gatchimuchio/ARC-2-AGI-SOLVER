@@ -1,0 +1,35 @@
+{
+  "schema": "arc2-pre-submit-rule-review-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-24T22:54:05Z",
+  "preliminary_only": true,
+  "official_rules_url": "https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-2/rules",
+  "official_overview_url": "https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-2",
+  "observed_rules": {
+    "max_submissions_per_day": 1,
+    "max_final_submissions": 2,
+    "cpu_notebook_runtime_limit_hours": 12,
+    "gpu_notebook_runtime_limit_hours": 12,
+    "internet_access_enabled": false,
+    "required_submission_filename": "submission.json"
+  },
+  "observed_timeline": {
+    "final_submission_deadline_utc": "2026-11-02T23:59:00Z",
+    "entry_deadline_utc": "2026-10-26T23:59:00Z"
+  },
+  "previous_official_submission": {
+    "ref": 57576155,
+    "submitted_at_utc": "2026-10-24T00:12:39.127000Z",
+    "status": "SubmissionStatus.COMPLETE",
+    "public_score": "0.00",
+    "history_observed_at_utc": "2026-10-24T22:20:25.322040Z",
+    "history_evidence": "運用/証拠/ARC26-UNIFIED/official-history-20261024T222025Z.json"
+  },
+  "earliest_24h_gate_utc": "2026-10-25T00:12:39.127000Z",
+  "candidate_kernel_version": 9,
+  "candidate_notebook_runtime_seconds": 222.454,
+  "candidate_internet_enabled": false,
+  "candidate_output_filename": "submission.json",
+  "official_submission_performed": false,
+  "mandatory_pre_submit_action": "Refresh rules and timeline, UTC date, latest history/score, remaining quota, 24-hour interval, exact notebook version, output file and SHA immediately before any official submit."
+}

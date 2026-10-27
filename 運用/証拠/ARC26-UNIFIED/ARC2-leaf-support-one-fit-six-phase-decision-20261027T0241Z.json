@@ -1,0 +1,42 @@
+{
+  "schema": "arc2-leaf-support-one-fit-six-phase-decision-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-27T02:42:06.2360587Z",
+  "run_id": "ARC2-leaf-support-one-fit-six-20261027T0221Z",
+  "status": "COMPLETE",
+  "selected_phases": 6,
+  "same_support_payloads_verified": true,
+  "old_statuses": {
+    "no_exact_bounded_tree": 3,
+    "fit_state_budget_exceeded": 3
+  },
+  "new_statuses": {
+    "fit_state_budget_exceeded": 6
+  },
+  "old_fit_states_total": 920,
+  "new_fit_states_total": 1542,
+  "old_work_units_total": 212980,
+  "new_work_units_total": 1051261,
+  "work_counter_not_latency": true,
+  "leaf_support_changed_from": 2,
+  "leaf_support_changed_to": 1,
+  "global_teacher_support_unchanged": 2,
+  "cell_support_unchanged": 2,
+  "hds_admission_unchanged": 3,
+  "grammar_changed": false,
+  "minimum_cost_tie_policy_changed": false,
+  "source_or_input_changed": false,
+  "module_sha256": "66a5b525e42881ae35b2a125c7a8f85628a8cce9b95179fdd89c62b38b7e22d6",
+  "baseline_module_sha256": "405065a7d8260f6b618e3b7cb1a90103f3e610250438eb5db7abf9c3289d366c",
+  "source_sha256": "ad6ddc1ca6f7fdaffcd04b5b7eab57d58831d14dfaf50d633d453d5c8b55bb40",
+  "records_path": "運用/証拠/ARC26-UNIFIED/ARC2-cell-conditional-tree-rowcol-leaf-support-ablation/fit_results/leaf1-fit-six-phases-20261027T0221Z.jsonl",
+  "records_sha256": "207ecb33b952cfcde1e29de0c605432bc9b322380abbd31600f720b3c4d79200",
+  "baseline_records_path": "運用/証拠/ARC26-UNIFIED/ARC2-cell-conditional-tree-rowcol-action-support-prune/fit_results/action-pruned-fit-six-phases-20261027T0151Z.jsonl",
+  "baseline_records_sha256": "d327205ecbbb2f3520fa7c47dd0085bf38835519ab79ece49aa4127689a5ca06",
+  "scope": "Same-six FIT only; no held-out query, HDS, scoring, public or official correctness run.",
+  "decision": "NOT ADOPTED: lowering leaf support to one increased fit-state work from 920 to 1542 and work units from 212980 to 1051261; fitted models remained zero. Three prior no-exact outcomes became capped searches. No new generalization evidence.",
+  "next_action": "Do not weaken support floors further. Continue only the already-authorized read-only root-frame retained-tree diagnostic; no anytime proposals or runtime adoption without a separate decision and matched evaluation.",
+  "adopted": false,
+  "production_source_changed": false,
+  "official_submission_performed": false
+}

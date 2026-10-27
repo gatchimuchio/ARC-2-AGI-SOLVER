@@ -1,0 +1,33 @@
+{
+  "agreements_with_existing_answer": 0,
+  "baseline_D4_answers": 13,
+  "baseline_D4_exact": 13,
+  "baseline_D4_wrong": 0,
+  "color_translation_answers": 0,
+  "color_translation_exact": 0,
+  "color_translation_wrong": 0,
+  "conflicts_with_existing_answer": 0,
+  "data_source": "public ARC-AGI-2 training split only",
+  "decision": "REJECT_OR_REFINE",
+  "elapsed_seconds": 1.612,
+  "eligible_tasks_minimum_teacher_support_3": 267,
+  "evaluation_solutions_read": false,
+  "incremental_answers_over_D4_and_whole_translation": 0,
+  "incremental_exact": 0,
+  "incremental_wrong": 0,
+  "instruction_id": "ARC2-SCORE-GATE-20261024",
+  "loo_folds": 1191,
+  "public_training_files": 1000,
+  "reference_source_commit": "2759d393a8d79824d36754785ce16f66d0493ebd",
+  "schema": "arc2-p5-color-group-translation-loo.v1",
+  "source_sha256": {
+    "2759d393a8d79824d36754785ce16f66d0493ebd:接続/ARC2/格子D4教材.py": "a5d6a2eedb063a876b47cd5d2fdf28cec13af535d89b9fef65df41b81c5ccf18",
+    "P5_color_group_translation_LOO.py": "dc2d2632fe57ad4fcc5521b5430a8176bba72d8baf3251f5fa37d0a634b5c0ed",
+    "接続/ARC2/全前景平行移動教材.py": "5c57ab06054c3ff3e716bbd864b08b56be488a70536152404eae9b27e1846621"
+  },
+  "task_identifiers_or_grids_saved": false,
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8",
+  "whole_translation_answers": 4,
+  "whole_translation_exact": 4,
+  "whole_translation_wrong": 0
+}

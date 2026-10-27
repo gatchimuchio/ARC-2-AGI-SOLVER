@@ -1,0 +1,51 @@
+{
+  "schema": "arc2-official-runtime-timeout-diagnosis-v1",
+  "observed_at_utc": "2026-10-26T15:18:14Z",
+  "competition": "arc-prize-2026-arc-agi-2",
+  "submission_ref": 57646990,
+  "kernel": "tecchannn/arc2-codex-main-baseline-v1",
+  "kernel_version": 11,
+  "official_status": "COMPLETE",
+  "official_public_score": null,
+  "official_private_score": null,
+  "official_error_description": "Your submission notebook exceeded the allowed runtime. Review the competition's Code Requirements page for the time limits. Note that the hidden dataset can be larger/smaller/different than the public dataset.",
+  "official_submission_date": "2026-10-26 00:14:46",
+  "submission_file_name": "submission.json",
+  "versioned_kernel_output_retrieved_read_only": true,
+  "submission_sha256_from_exact_version_output": "08d0dc111f97c9f3a909955296fc58d46ea0c4514fe66e75169526723359f017",
+  "expected_official_submission_sha256": "08d0dc111f97c9f3a909955296fc58d46ea0c4514fe66e75169526723359f017",
+  "output_matches_official_ref_file": true,
+  "public_challenge_tasks": 240,
+  "public_challenge_test_examples": 259,
+  "versioned_local_run_seconds": 338.955,
+  "versioned_local_fallback_examples": 249,
+  "run_record_timeout_seconds": 600,
+  "offline_exact_score": {
+    "tasks": 8,
+    "task_total": 240,
+    "examples": 9,
+    "example_total": 259,
+    "source": "運用/証拠/ARC26-UNIFIED/ARC2-v11-error-profile-20261026.json",
+    "is_official": false
+  },
+  "current_best_local_reference": {
+    "tasks": 14,
+    "task_total": 240,
+    "examples": 15,
+    "example_total": 259,
+    "source": "運用/証拠/ARC26-UNIFIED/ARC2-v51-largest-component-full-runtime-evaluation-20261026.json",
+    "is_official": false
+  },
+  "interpretation": "Kaggle reports a terminal runtime error on the hidden scoring run. The API does not expose actual hidden-run elapsed time or the internal cutoff. COMPLETE with blank scores is not a zero score. The local 338.955-second run covers the public challenge file only and does not establish hidden-run completion.",
+  "official_code_requirements_url": "https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-2/overview/prizes",
+  "official_code_requirements_observed": "CPU and GPU notebooks <=12 hours; no internet access; public external data and pretrained models allowed.",
+  "next_action": "Continue local ARC2 optimization from v51; do not repeat v11. Before any future official run, keep the v5 HDS and training-memory contract, verify improved local output, and review hidden-runtime headroom.",
+  "quota_used": false,
+  "notebook_kernel_push_or_edit": false,
+  "protected_files_changed": false,
+  "evidence_sha256": {
+    "submission_json": "08d0dc111f97c9f3a909955296fc58d46ea0c4514fe66e75169526723359f017",
+    "submission_audit_json": "5dbeb97eda89564627f6c3a8a06d39af78c862d31e0db705f84b6601949e4e50",
+    "kernel_run_record_json": "070caa09b56c7495671aa216111621324b2e0d485f4714a239548e6bc4fc6619"
+  }
+}

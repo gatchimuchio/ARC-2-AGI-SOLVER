@@ -1,0 +1,28 @@
+{
+  "schema": "arc2-composite-geometry-paired-loo-v1",
+  "source_split": "official ARC-AGI-2 training",
+  "training_tasks": 1000,
+  "eligible_loo_folds": 2916,
+  "candidate_fit_and_predicted_folds": 8,
+  "worker_errors": 0,
+  "baseline_exact_folds": 2,
+  "current_exact_folds": 8,
+  "candidate_exact_folds": 6,
+  "delta_exact_folds": 6,
+  "newly_correct_folds": 6,
+  "regressed_folds": 0,
+  "changed_attempt_1_folds": 8,
+  "changed_attempt_2_folds": 2,
+  "distinct_attempt_pairs_baseline": 2,
+  "distinct_attempt_pairs_current": 8,
+  "runtime_received_heldout_outputs": false,
+  "heldout_outputs_read_only_after_all_runtime_predictions": true,
+  "per_task_predictions_or_targets_saved": false,
+  "elapsed_seconds": 122.234,
+  "source_sha256": {
+    "runner": "c3e2d46f187f2140f88a85d917740848974ee612dc220431c31b914ea19a279c",
+    "composite_geometry_module": "b7ee7d9c9ccc3767f47dccdef25b378c961a8e150f145fc1c11860e4e5e4ac39",
+    "hds_connector": "50432e3702f600f1ba3d0a02448d4b3f918ae4d9ef085602e7de94688e141c6e",
+    "kaggle_adapter": "f5e8ca8bc168e6854d49b4207a4eec306235c33e1de0a2cd52a4e3daff1954bf"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema": "arc2-neighbor-color-count-v70-exact-paired-v1",
+  "observed_at_utc": "2026-10-26T14:45:33.875473+00:00",
+  "policy": "exact v51 prediction on candidate challenge tasks; candidate may fill a duplicate second slot only; all held-out targets read after predictions finish",
+  "loo_eligible_folds": 2916,
+  "loo_candidate_proposals": 396,
+  "loo_candidate_correct_examples": 4,
+  "challenge_tasks_with_candidates": 39,
+  "challenge_examples_with_candidates": 39,
+  "challenge_candidate_tasks_exact_v51_bundle_paired": {
+    "examples_in_candidate_tasks": 40,
+    "baseline_exact_examples": 2,
+    "combined_exact_examples": 2,
+    "candidate_proposals": 39,
+    "candidate_exact_outputs": 2,
+    "candidate_usable_when_v51_slot_duplicate": 6,
+    "newly_correct_examples": 0,
+    "regressions": 0,
+    "candidate_tasks": 39,
+    "baseline_exact_tasks_in_candidate_region": 2,
+    "combined_exact_tasks_in_candidate_region": 2,
+    "newly_correct_tasks": 0,
+    "regressed_tasks": 0
+  },
+  "exact_v51_runtime_tasks": 39,
+  "exact_v51_runtime_seconds": 136.151,
+  "exact_v51_temporary_output_sha256": {
+    "submission": "5a6384afe0864330baa1074aa31fb8151846b519b70a8c41dc906fb9ac1581ce",
+    "audit": "669f66a129cafb7e083da1769d3de7e4d735215bb635a9819f176d7f22196538"
+  },
+  "v51_full_challenge_baseline": {
+    "exact_tasks": 14,
+    "exact_examples": 15
+  },
+  "combined_local_estimate_from_paired_delta": {
+    "exact_tasks": 14,
+    "exact_examples": 15,
+    "scope": "paired local estimate; not a full 240-task rerun and not an official Kaggle score"
+  },
+  "targets_passed_to_runtime": false,
+  "targets_read_after_prediction_completion": true,
+  "task_ids_grids_or_targets_saved": false,
+  "temporary_predictions_and_payload_removed": true,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "74aa1f66350fad0c8cebd9c874f1a735dec527959d4a058bdc3a70f1ab6269c2",
+    "screen_runner": "290acdd76f4563df6547140db17468fd4d603b4b871bbd96bb3ce82d21439c38",
+    "screen_report": "0ba6046fedefdc16916a75b0ffce3f333c70d7f1d7832fc182a9ebc579f007a7",
+    "v51_baseline_report": "38f55726e8bf4d09e39c91c2f530a2be55470b47b3152530b951e21b987af2c6",
+    "v61_runtime_harness": "0e1d789ad388502a689306935f5e1ac1b84d3bb83a5d53acdd95fabc835e4925",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "training_files_manifest": "ea4bafeca5109a0eedf66608ec4672b092eab13f7401ce2314f0818c14f35833",
+    "v51_solve": "6c0bb1eecdbfba13491ef01d227b01e718e3cc4be1cb9bd73591570e41295d4d",
+    "v51_build_manifest": "ebdd96836be417c0257030a115c6a6043a46c9471611af63000f677a75104c85"
+  }
+}

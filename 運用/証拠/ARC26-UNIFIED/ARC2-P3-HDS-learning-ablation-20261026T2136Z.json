@@ -1,0 +1,101 @@
+{
+  "schema": "arc2-p3-hds-learning-ablation-evidence-v1",
+  "run_id": "ARC2-P3-HDS-LEARNING-ABLATION-20261026T2136Z",
+  "observed_at_utc": "2026-10-26T21:36:22Z",
+  "track": "ARC2",
+  "dataset": "Public ARC2 training only; deterministic first 20 eligible LOO folds",
+  "training_sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+  "git_head": "dae0a5dbe124a0c4a01bd69a26dda0036d0379e0",
+  "solver_code_changed": false,
+  "source_tree_sha256": {
+    "arc2_connector": {
+      "file_count": 268,
+      "sha256": "bad27978299932c1521c81d4e4a05b0c4597a2bc10359bf8a9f594153dd0ecfd"
+    },
+    "hds_v0.4.2": {
+      "file_count": 12,
+      "sha256": "5b0b377bfad4b5100459fa32198f79214dcd436ee10a426257c2b25eb20b1c14"
+    }
+  },
+  "source_file_sha256": {
+    "運用/証拠/ARC26-UNIFIED/ARC2-P3-HDS-core-adaptation-loo.py": "97092f4c68059dfacb5a58ee72984c6d35fe60b24ee2817b42582aec46760f75",
+    "運用/証拠/ARC26-UNIFIED/ARC2-P3-HDS-candidate-gate-ablation.py": "a20de88043c8af9d0763e0a9a5b04f1acdf4296ea0aa7fc8887770471cf39bd8",
+    "接続/ARC2/HDS接続.py": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe",
+    "接続/ARC2/Kaggle提出.py": "43fd2c444cc1428bdfb3da3b228fca14b6ccb939c169401b1684c2b93b4092e4",
+    "接続/ARC2/テンプレート充填教材.json": "8f5f24571f0457c44af68b57b9aebbcf4dabbb9164f24942108e1b98f635f112",
+    "検証/全HDS第二候補LOO.py": "69040f4fe092dc4c114554643a1a7c27bb898dfb08e878362b4aadb4dab184c5",
+    "出力/検証/ARC2-P3-HDS-core-adaptation-LOO-20261026T2120Z.jsonl": "ae8c0bbf0d65f1a6f68a0beb76b6f3cab6e73888cc95005bd2c748f692622419",
+    "出力/検証/ARC2-P3-HDS-core-adaptation-LOO-20261026T2120Z.summary.json": "8114f90641490acc5091f431ddc75a94575b26a482fe7ec12249ef898b8c03c9",
+    "出力/検証/ARC2-P3-HDS-candidate-gate-ablation-20261026T2125Z.jsonl": "6e69960fbb0c7eaf24cfc2be4ddabd50dc8a5cdd5561d54e22f7d1f836bccba5",
+    "出力/検証/ARC2-P3-HDS-candidate-gate-ablation-20261026T2125Z.summary.json": "2bf0579555dd9e0d604e24dedffe57c59e4a2b89f971f140206eba58eaa1a363"
+  },
+  "core_only_before_after": {
+    "folds": 20,
+    "heldout_exact_before": 0,
+    "heldout_exact_after": 0,
+    "recoveries": 0,
+    "regressions": 0,
+    "state_version_changed_folds": 20,
+    "state_digest_changed_folds": 20,
+    "active_principles_after_total": 40,
+    "separate_template_prior_loaded": false,
+    "candidate_modules_loaded": false,
+    "interpretation": "HDS raw-grid core updates state but does not transfer an exact held-out grid in this pilot."
+  },
+  "candidate_gate_paired_ablation": {
+    "folds": 20,
+    "gate_enabled": {
+      "solver_primary_exact": 2,
+      "admitted_candidate_exact_folds": 2,
+      "hds_equality_admitted_families": 5,
+      "state_changed_folds": 20,
+      "fallback_exact_excluded": 0,
+      "exact_fold_indexes": [
+        7,
+        9
+      ]
+    },
+    "gate_disabled": {
+      "solver_primary_exact": 0,
+      "admitted_candidate_exact_folds": 0,
+      "hds_equality_admitted_families": 0,
+      "state_changed_folds": 20,
+      "fallback_exact_excluded": 0,
+      "exact_fold_indexes": []
+    },
+    "paired_recoveries": 2,
+    "paired_regressions": 0,
+    "gate_enabled_exact_positions_match_regular_60s_loo": true,
+    "intervention": "Disable only the generic HDS equality-certification predicate; the same candidate generators, support pairs, prior leakage guard and test inputs are used."
+  },
+  "leakage_controls": {
+    "task_id_passed_to_solver": false,
+    "heldout_output_passed_to_solver": false,
+    "heldout_output_compared_after_solver": true,
+    "hidden_or_evaluation_solutions_read": false,
+    "fallback_counted_correct": false,
+    "problem_id_or_hash_answer_branching": false
+  },
+  "scope_limit": "First 20 eligible folds only; not a representative full-training estimate. Learning effect is measured locally in this paired pilot, not as official score.",
+  "official": {
+    "submission_id": "57646990",
+    "status": "COMPLETE",
+    "public_score": null,
+    "observed_at_utc": "2026-10-26T21:15:52Z",
+    "next_submission_gate_utc": "2026-10-27T00:14:45.885Z",
+    "next_candidate": "tecchannn/arc2-v61-local-teacher-pair-consensus-candidate v1"
+  },
+  "evidence_files": [
+    "運用/証拠/ARC26-UNIFIED/ARC2-HDS-LOO-cross-platform-repro-20261026T2115Z.json",
+    "運用/証拠/ARC26-UNIFIED/ARC2-P3-HDS-core-adaptation-loo.py",
+    "運用/証拠/ARC26-UNIFIED/ARC2-P3-HDS-candidate-gate-ablation.py",
+    "接続/ARC2/HDS接続.py",
+    "接続/ARC2/Kaggle提出.py",
+    "接続/ARC2/テンプレート充填教材.json",
+    "検証/全HDS第二候補LOO.py",
+    "出力/検証/ARC2-P3-HDS-core-adaptation-LOO-20261026T2120Z.jsonl",
+    "出力/検証/ARC2-P3-HDS-core-adaptation-LOO-20261026T2120Z.summary.json",
+    "出力/検証/ARC2-P3-HDS-candidate-gate-ablation-20261026T2125Z.jsonl",
+    "出力/検証/ARC2-P3-HDS-candidate-gate-ablation-20261026T2125Z.summary.json"
+  ]
+}

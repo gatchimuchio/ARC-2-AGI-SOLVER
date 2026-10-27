@@ -1,0 +1,117 @@
+{
+  "affected_fold_delta_current_minus_previous": {
+    "answer": 1,
+    "exact": 1,
+    "fallback": -1,
+    "union_exact": 1,
+    "wrong": 0
+  },
+  "baseline_solver_runtime_seconds": 6.556,
+  "candidate_applicable_folds": 3,
+  "candidate_applicable_tasks": 1,
+  "candidate_prediction_runtime_seconds": 0.0,
+  "combined_wall_seconds": 12.92,
+  "data_source": "public ARC-AGI-2 training split only",
+  "delta_current_minus_previous": {
+    "answer": 1,
+    "exact": 1,
+    "fallback": -1,
+    "union_exact": 1,
+    "wrong": 0
+  },
+  "eligible_fold_population": 1191,
+  "eligible_task_population": 267,
+  "evaluation_solutions_read": false,
+  "experiment_id": "ARC2-C2-066-COMPOUND_FOREGROUND_D4_PALETTE_TRANSLATION",
+  "fallback_counted_correct": false,
+  "full_cohort_previous_current": {
+    "baseline_affected_fold_exact_count": 2,
+    "baseline_source_elapsed_seconds": 1600.275,
+    "baseline_source_report": "\u904b\u7528\\\u8a3c\u62e0\\ARC2_\u516c\u5f0f\u30b9\u30b3\u30a2\u8d77\u70b9_20261024\\P5_HDS_raw_candidate_LOO.json",
+    "candidate_new_answer_count_on_affected_folds": 1,
+    "candidate_new_exact_count_on_affected_folds": 1,
+    "candidate_only_on_affected_folds": {
+      "answer": 3,
+      "exact": 3,
+      "fallback": 0,
+      "union_exact": 3,
+      "wrong": 0
+    },
+    "current_hds_plus_compound_candidate_union": {
+      "answer": 17,
+      "exact": 17,
+      "fallback": 1174,
+      "union_exact": 17,
+      "wrong": 0
+    },
+    "matched_affected_folds": {
+      "current": {
+        "answer": 3,
+        "exact": 3,
+        "fallback": 0,
+        "union_exact": 3,
+        "wrong": 0
+      },
+      "folds": 3,
+      "previous": {
+        "answer": 2,
+        "exact": 2,
+        "fallback": 1,
+        "union_exact": 2,
+        "wrong": 0
+      }
+    },
+    "previous_hds_first_answer": {
+      "answer": 16,
+      "exact": 16,
+      "fallback": 1175,
+      "union_exact": 16,
+      "wrong": 0
+    }
+  },
+  "full_loo_complete": true,
+  "full_loo_requested": true,
+  "heldout_output_passed_to_solver": false,
+  "metrics_previous_current": {
+    "compound_candidate_only": {
+      "answer": 3,
+      "exact": 3,
+      "fallback": 0,
+      "union_exact": 3,
+      "wrong": 0
+    },
+    "current_hds_plus_compound_candidate_union": {
+      "answer": 3,
+      "exact": 3,
+      "fallback": 0,
+      "union_exact": 3,
+      "wrong": 0
+    },
+    "previous_hds_first_answer": {
+      "answer": 2,
+      "exact": 2,
+      "fallback": 1,
+      "union_exact": 2,
+      "wrong": 0
+    }
+  },
+  "official_submission_or_rerun": false,
+  "pilot_seconds": 6.557,
+  "pre_screen_seconds": 6.364,
+  "production_or_submission_changed": false,
+  "public_heldout_output_scored_after_both_generators_return": true,
+  "regressions_previous_exact_to_current_not_exact": 0,
+  "run_type": "hypothesis_targeted_pilot",
+  "sample_seed_from_manifest": true,
+  "sample_tasks_limit": 12,
+  "schema": "arc2-p5-hds-compound-foreground-d4-palette-translation-loo.v1",
+  "selected_folds": 3,
+  "selected_tasks": 1,
+  "solver_exceptions": {
+    "baseline": 0
+  },
+  "task_identifiers_or_grids_saved": false,
+  "teacher_fit_folds": 4,
+  "time_cap_reached": false,
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8"
+}

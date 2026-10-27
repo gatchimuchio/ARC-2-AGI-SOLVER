@@ -1,0 +1,38 @@
+{
+  "schema": "arc2-v11-local-output-score-v1",
+  "observed_at_utc": "2026-10-26T14:05:03.723885+00:00",
+  "scope": "offline reference evaluation; not an official Kaggle score",
+  "submission_ref": 57646990,
+  "official_status_at_last_observation": "SubmissionStatus.COMPLETE",
+  "official_public_score": null,
+  "official_private_score": null,
+  "official_history_observed_at_utc": "2026-10-26T13:32:00.977941Z",
+  "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "submission_sha256": "08d0dc111f97c9f3a909955296fc58d46ea0c4514fe66e75169526723359f017",
+  "submission_matches_official_ref_file_sha256": true,
+  "target_source": "入力/公式ソース/ARC-AGI-2/data/training/<challenge task id>.json",
+  "targets_read_after_prediction_artifact_was_fixed": true,
+  "targets_passed_to_runtime": false,
+  "per_task_ids_grids_or_targets_saved": false,
+  "tasks": 240,
+  "examples": 259,
+  "exact_tasks": 8,
+  "exact_examples": 9,
+  "identical_attempt_pairs": 259,
+  "distinct_attempt_pairs": 0,
+  "fallback_examples": 249,
+  "previous_best_local_v51": {
+    "report_sha256": "38f55726e8bf4d09e39c91c2f530a2be55470b47b3152530b951e21b987af2c6",
+    "exact_tasks": 14,
+    "exact_examples": 15
+  },
+  "delta_v11_minus_v51": {
+    "exact_tasks": -6,
+    "exact_examples": -6
+  },
+  "source_sha256": {
+    "auditor": "65daf5c7c03cfd3d6199aff551943e4a1b1333011888d310ee5d62f8cb3f3bc0",
+    "submission_audit": "5dbeb97eda89564627f6c3a8a06d39af78c862d31e0db705f84b6601949e4e50",
+    "official_history": "f2db4c2a3ac6a137150919b1089dc8dc0ccbe027a9dc133548b78dc2ffa15917"
+  }
+}

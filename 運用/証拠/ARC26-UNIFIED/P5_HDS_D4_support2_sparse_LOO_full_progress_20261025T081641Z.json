@@ -1,0 +1,20 @@
+{
+  "schema": "arc26-p5-hds-support2-sparse-progress.v1",
+  "track": "ARC2",
+  "experiment_id": "ARC2-C2-062-D4_SPARSE_SUPPORT_TWO_FULL",
+  "observed_at_utc": "2026-10-25T08:16:41.849Z",
+  "worker_pid": 16192,
+  "process_status": "ACTIVE",
+  "eligible_tasks_done": 147,
+  "eligible_tasks_total": 575,
+  "paired_loo_folds_done": 441,
+  "paired_loo_folds_total": 1725,
+  "elapsed_seconds": 1604.0,
+  "worker_cpu_seconds": 1590.34,
+  "progress_log": "運用/証拠/ARC26-UNIFIED/P5_HDS_D4_support2_sparse_LOO_full_progress_20261025T0749Z.jsonl",
+  "output_file": "運用/証拠/ARC26-UNIFIED/P5_HDS_D4_support2_sparse_LOO_full_20261025T0748Z.json",
+  "adoption": "PENDING",
+  "production_source_changed": false,
+  "official_submission_or_quota_use": false,
+  "next_action": "Track same PID/log; next progress checkpoint near 08:26Z."
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "arc2-full-loo-progress-observation-v1",
+  "experiment_id": "P5_HDS_partial_condition_consensus_visible_guard_LOO",
+  "observed_at_utc": "2026-10-25T05:34:13Z",
+  "session_id": 93425,
+  "worker_pid": 6180,
+  "worker_started_at_utc": "2026-10-25T04:44:56.2555397Z",
+  "worker_cpu_seconds": 2880.578125,
+  "private_bytes": 755150848,
+  "status": "ACTIVE",
+  "aggregate_output_present": false,
+  "stdout_bytes": 0,
+  "stderr_bytes": 0,
+  "reference_unguarded_elapsed_full_loo_seconds": 2818.015,
+  "reference_unguarded_elapsed_total_seconds": 2837.169,
+  "next_action": "Continue polling the same live worker; elapsed time slightly exceeds the prior full-LOO reference, but CPU is advancing and no failure is observed."
+}

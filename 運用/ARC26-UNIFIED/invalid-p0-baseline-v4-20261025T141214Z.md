@@ -1,0 +1,1 @@
+Invalidated: compared SHA-256 working-file digests to Git SHA-1 blob IDs and used a Windows path separator in one revision lookup. Do not use this manifest. No protected files were modified. A corrected snapshot follows.

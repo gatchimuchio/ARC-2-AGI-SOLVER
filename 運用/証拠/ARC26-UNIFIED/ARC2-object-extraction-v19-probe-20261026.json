@@ -1,0 +1,57 @@
+{
+  "schema": "arc2-object-extraction-v19-probe-v1",
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "baseline_v19": {
+    "exact_tasks": 10,
+    "exact_examples": 11
+  },
+  "fitted_models": 132,
+  "examples_with_candidate": 3,
+  "examples_with_tied_top": 0,
+  "oracle_candidate_exact_examples": 3,
+  "policies": {
+    "top_support2": {
+      "newly_correct_examples": 2,
+      "regressed_examples": 0,
+      "selected_examples": 2,
+      "baseline_exact_examples": 11,
+      "combined_exact_examples": 13,
+      "baseline_exact_tasks": 10,
+      "combined_exact_tasks": 12,
+      "newly_correct_tasks": 2,
+      "regressed_tasks": 0
+    },
+    "plurality50": {
+      "newly_correct_examples": 2,
+      "regressed_examples": 0,
+      "selected_examples": 2,
+      "baseline_exact_examples": 11,
+      "combined_exact_examples": 13,
+      "baseline_exact_tasks": 10,
+      "combined_exact_tasks": 12,
+      "newly_correct_tasks": 2,
+      "regressed_tasks": 0
+    },
+    "unanimous": {
+      "newly_correct_examples": 1,
+      "regressed_examples": 0,
+      "selected_examples": 1,
+      "baseline_exact_examples": 11,
+      "combined_exact_examples": 12,
+      "baseline_exact_tasks": 10,
+      "combined_exact_tasks": 11,
+      "newly_correct_tasks": 1,
+      "regressed_tasks": 0
+    }
+  },
+  "runtime_received_challenge_targets": false,
+  "targets_read_only_after_all_predictions": true,
+  "per_task_predictions_or_targets_saved": false,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "be76a8319f52957adbeabe5429b312e02178b160b30b3afbd1298c79342f8026",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "baseline_v19": "171dbfcafa394f36dfdd79914f3b1c730e293003595a7563c620eb831a127c4f"
+  }
+}

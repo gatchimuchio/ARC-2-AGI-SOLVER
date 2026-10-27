@@ -1,0 +1,25 @@
+{
+  "experiment_id": "arc2-v17-hds-legacy-runtime-public-evaluation-20261025T185700Z",
+  "legacy_code_reason": "workspace adapter imported legacy_v4_candidate and used task-ID-specific modules/evaluation_solutions lookup from its embedded package",
+  "metrics_accepted": false,
+  "observed_at_utc": "2026-10-25T18:57:50Z",
+  "official_submission_performed": false,
+  "output_files_after_stop": [],
+  "pre_run_adapter_sha256": "b900cae71cf72719dd0cdd2e67eaa971a1aaeab3dae552691713cc0f7ef39094",
+  "pre_run_adapter_snapshot": "運用/証拠/ARC26-UNIFIED/ARC2-Kaggle提出-adapter-b900cae7-before-safe-restore.py",
+  "process_ids_stopped": [
+    3528,
+    15192,
+    3904,
+    14456,
+    8200,
+    15568,
+    7108,
+    17432,
+    16288
+  ],
+  "safe_adapter_restored_sha256": "f2c9858c250e612dc17526cffdacdfb3502212a46b5a1fe1c60779fa51ae2b0c",
+  "schema": "arc2-unsafe-legacy-evaluation-stopped.v1",
+  "status": "ABORTED_PROHIBITED_RUNTIME",
+  "track": "ARC2"
+}

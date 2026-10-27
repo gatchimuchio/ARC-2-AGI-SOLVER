@@ -1,0 +1,25 @@
+{
+  "schema": "arc2-background-component-v27-probe-v1",
+  "eligible_folds": 2916,
+  "background_component_proposal_folds": 42,
+  "exact_v25_bundle_evaluation_folds": 42,
+  "v25_bundle_fallbacks": 23,
+  "v25_duplicate_attempt2_slots": 17,
+  "v25_exact_on_background_proposals": 34,
+  "background_candidate_exact_on_proposals": 34,
+  "attempt2_changes": 0,
+  "newly_correct": 0,
+  "newly_wrong": 0,
+  "net_delta": 0,
+  "regressions": 0,
+  "heldout_outputs_passed_to_candidate_generator_or_runtime": false,
+  "targets_read_after_exact_v25_bundle_outputs": true,
+  "fold_ids_predictions_or_targets_saved": false,
+  "temporary_inputs_outputs_and_payloads_removed": true,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "32134ada7e9940758a9156d2c702c478ea88ca65da7d751037d1ad1ad63e140e",
+    "proposal_probe": "ba2c6dce2bbd522cd5844c03355a51fa7f7794e04ae99c991fa5ec8e0645f642",
+    "v25_build_manifest": "bc09d3caa1894df9a35ac35fffdd81cd9d4736037fae743571e2a84b54ecd0ec"
+  }
+}

@@ -1,0 +1,11 @@
+# index7・自input内の色役割の情報実現性
+
+既に固定したindex7 before/afterのsupportだけを読む。旧支持数診断80125444とproof1382a7f6に従い、元21 actionで支持数を満たせない同じ69／45セルだけを集計する。afterのFは既観測の通常教師、Uはinput/targetともworkerへ渡さない。
+
+既存のsupport-only workerへ、新しい診断callbackだけを注入する。旧fileは変更せず、そのDTO、119f module、source/origin検査、constructor/evaluator/HDS禁止、JSON禁止、正確な不在NumPy metadata例外、90秒wallをそのまま再使用する。callback自身のsourceも前後SHA固定する。targetやroles、feature vector、raw gridを保存しない。新しいaction・木・rendererは実装しない。
+
+自inputの色計数は現行の `枠端積層幾何.py:24-26 counts(grid, background=None)` を使う。各unsupported targetが自inputのどこかにあるかを数え、全色頻度および一意最多backgroundを除いた頻度の順位を調べる。同数の色は同一dense rankとし、tie sizeと順位区間を明示する。一意順位roleとして数えるのはtie size1だけ。backgroundが最多同数ならnonbackground順位は未定義、targetがbackgroundなら除外とする。実色の数値でtieを破らない。
+
+頻度roleの支持数は同じcurrent support内の全セルで、各input自身の計数を用いて事後集計する。これはtargetを使うteacher-only情報解析であり、input-only ruleが学習・採用されたことやheldout正解を予測したことの証拠ではない。入力に色がない場合やtieはそのまま記録する。一意rankで表せ、全体支持数も満たしても、同じ特徴で合法leafへ分割できること、bounded fit、query一致、score改善を証明しない。
+
+既存count primitiveは再利用できるが、汎用の一意k位frequency rankを21 actionへ束縛する既存resolverは今回のsource監査では見つからなかった。background/unique_rarestは既存21に含まれる。したがってrankの追加は将来許可が必要なgrammar仮説であり、現在のsolver能力と呼ばない。

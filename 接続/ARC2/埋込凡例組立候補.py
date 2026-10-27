@@ -7,10 +7,11 @@ when compatible; rendering requires agreement of all retained full grids.
 """
 from collections import Counter
 from itertools import product
-from math import gcd
+from math import gcd, isqrt
 
 from 接続.ARC2.標点組立教材 import (
-    WORK_LIMIT, mixed_c8, parse, search_assemblies, valid_grid,
+    WORK_LIMIT, EXTENDED_WORK_LIMIT, mixed_c8, oriented_cells, parse,
+    search_assemblies, valid_grid,
 )
 from 接続.ARC2.既存格子操作 import transform_grid_by_name
 
@@ -205,3 +206,228 @@ def render(grid, policy, *, budget=WORK_LIMIT):
     if len(surfaces) != 1:
         return None, {**record, 'failure': 'no_full_grid' if not surfaces else 'full_grids_disagree'}
     return [list(row) for row in next(iter(surfaces))], record
+
+
+SQUARE_PALETTE_MARKER = 10
+
+
+def observe_square_palette_roles(grid):
+    """Find a unique n-by-n embedded palette over n-squared assembly pieces."""
+    if not valid_grid(grid):
+        return []
+    roles = []
+    for background in sorted({v for row in grid for v in row}):
+        components = mixed_c8(grid, background)
+        n = isqrt(len(components))
+        if n < 3 or n * n != len(components):
+            continue
+        hosts = [p for p in components if len(p['color_counts']) > 1]
+        if len(hosts) != 1 or any(len(p['color_counts']) != 1
+                                  for p in components if p is not hosts[0]):
+            continue
+        host = hosts[0]
+        counts = host['color_counts']
+        body = max(counts, key=counts.get)
+        if sum(value == counts[body] for value in counts.values()) != 1:
+            continue
+        body_colors = {body} | {
+            next(iter(p['color_counts'])) for p in components if p is not host
+        }
+        if len(body_colors) != n * n:
+            continue
+        host_cells = {(r, c) for r, c, _ in host['cells']}
+        r0, c0, r1, c1 = host['bbox']
+        for top in range(r0, r1 - n + 2):
+            for left in range(c0, c1 - n + 2):
+                palette_cells = frozenset(
+                    (r, c) for r in range(top, top + n)
+                    for c in range(left, left + n)
+                )
+                values = [grid[r][c] for r, c in sorted(palette_cells)]
+                palette_colors = set(values)
+                if len(palette_colors) != n * n or body in palette_colors:
+                    continue
+                if set(counts) - {body} != palette_colors - {background}:
+                    continue
+                if any(value != background and counts.get(value) != 1
+                       for value in palette_colors):
+                    continue
+                if any(value != background and (r, c) not in host_cells
+                       for (r, c), value in zip(sorted(palette_cells), values)):
+                    continue
+                roles.append({
+                    'background': background,
+                    'body': body,
+                    'body_colors': frozenset(body_colors),
+                    'components': components,
+                    'host_component_index': host['component_index'],
+                    'host_bbox': tuple(host['bbox']),
+                    'host_cells': frozenset(host_cells),
+                    'n': n,
+                    'palette': tuple(tuple(values[r*n:(r+1)*n])
+                                     for r in range(n)),
+                    'palette_cells': palette_cells,
+                })
+    return roles
+
+
+def _square_palette_view(role, anchor):
+    r0, c0, r1, c1 = role['host_bbox']
+    marker = ((r0, c0), (r0, c1), (r1, c0), (r1, c1))[anchor]
+    if marker not in role['host_cells'] | role['palette_cells']:
+        return None
+    pieces = []
+    for component in role['components']:
+        cells = {(r, c): color for r, c, color in component['cells']}
+        if component['component_index'] == role['host_component_index']:
+            for r, c in role['palette_cells']:
+                cells[(r, c)] = role['body']
+            if marker not in cells:
+                return None
+            cells[marker] = SQUARE_PALETTE_MARKER
+        pieces.append({
+            'index': component['component_index'],
+            'cells': tuple((r, c, color) for (r, c), color in sorted(cells.items())),
+        })
+    return {
+        'role': {
+            'host_component_index': role['host_component_index'],
+            'marker_color': SQUARE_PALETTE_MARKER,
+        },
+        'pieces': tuple(pieces),
+    }
+
+
+def _paint_square_palette_model(assembly, parsed, role, rotation):
+    """Map each assembled piece by its centroid's n-by-n canvas position."""
+    grid = assembly['grid']
+    height, width = len(grid), len(grid[0])
+    owner = [[-1] * width for _ in range(height)]
+    pieces = {piece['index']: piece for piece in parsed['pieces']}
+    for piece_id, label, dr, dc in assembly['placements']:
+        for r, c, _ in oriented_cells(pieces[piece_id]['cells'], label):
+            r, c = r + dr, c + dc
+            if not (0 <= r < height and 0 <= c < width) or owner[r][c] != -1:
+                return None, {'failure': 'square_palette_ownership_invalid'}
+            owner[r][c] = piece_id
+    if any(piece_id == -1 for row in owner for piece_id in row):
+        return None, {'failure': 'square_palette_ownership_incomplete'}
+
+    rotation_name = ROTATION_NAMES[rotation]
+    grid = transform_grid_by_name(grid, rotation_name)
+    owner = transform_grid_by_name(owner, rotation_name)
+    height, width = len(grid), len(grid[0])
+    source_colors = {}
+    for component in role['components']:
+        piece_id = component['component_index']
+        if piece_id == role['host_component_index']:
+            source_colors[piece_id] = role['body']
+        else:
+            colors = {color for _, _, color in component['cells']}
+            if len(colors) != 1:
+                return None, {'failure': 'square_palette_piece_not_monochrome'}
+            source_colors[piece_id] = next(iter(colors))
+    if len(set(source_colors.values())) != role['n'] ** 2:
+        return None, {'failure': 'square_palette_source_colors_not_unique'}
+
+    assignments = {}
+    for piece_id, color in source_colors.items():
+        cells = [(r, c) for r, row in enumerate(owner)
+                 for c, owner_id in enumerate(row) if owner_id == piece_id]
+        if not cells:
+            return None, {'failure': 'square_palette_piece_missing'}
+        center_r = sum(r for r, _ in cells) / len(cells)
+        center_c = sum(c for _, c in cells) / len(cells)
+        row = min(role['n'] - 1, int((center_r + 0.5) * role['n'] / height))
+        col = min(role['n'] - 1, int((center_c + 0.5) * role['n'] / width))
+        assignments[color] = (row, col)
+    slots = set(assignments.values())
+    if (set(assignments) != set(role['body_colors'])
+            or len(slots) != role['n'] ** 2):
+        return None, {'failure': 'square_palette_centroid_slots_not_bijective'}
+
+    color_map = {color: role['palette'][row][col]
+                 for color, (row, col) in assignments.items()}
+    restored = [[role['body'] if value == SQUARE_PALETTE_MARKER else value
+                 for value in row] for row in grid]
+    if any(value not in color_map for row in restored for value in row):
+        return None, {'failure': 'square_palette_source_color_unmapped'}
+    output = [[color_map[value] for value in row] for row in restored]
+    return output, {
+        'assignments': {color: list(slot) for color, slot in assignments.items()},
+        'source_to_output': color_map,
+        'canvas_shape': [height, width],
+    }
+
+
+def render_square_palette(grid, policy, *, budget=EXTENDED_WORK_LIMIT):
+    """Enumerate complete larger palettes; retain at most two scoring hypotheses."""
+    if policy is None:
+        return None, {'failure': 'no_fitted_view'}
+    roles = observe_square_palette_roles(grid)
+    if len(roles) != 1:
+        return None, {'failure': 'square_palette_role_not_unique', 'role_count': len(roles)}
+    role = roles[0]
+    outputs, searches, paint_records = set(), [], []
+    for anchor, rotation in policy['models']:
+        parsed = _square_palette_view(role, anchor)
+        if parsed is None:
+            return None, {'failure': 'square_palette_marker_not_owned', 'searches': searches}
+        aspect = tuple(policy['aspect'] if rotation % 2 == 0
+                       else policy['aspect'][::-1])
+        _, record = search_assemblies(parsed, aspect, budget=budget)
+        searches.append({
+            'anchor': anchor,
+            'rotation': rotation,
+            'aspect': aspect,
+            'work': record.get('work'),
+            'physical_model_count': record.get('physical_model_count'),
+            'unique_grid_count': record.get('unique_grid_count'),
+            'failure': record.get('failure'),
+            'complete': record.get('complete'),
+        })
+        if not record.get('complete'):
+            if record.get('failure') in {
+                'area_not_compatible_with_aspect', 'canvas_outside_arc_bounds',
+            }:
+                continue
+            return None, {'failure': 'square_palette_search_incomplete', 'searches': searches}
+        if not record.get('models'):
+            return None, {'failure': 'square_palette_retained_model_missing', 'searches': searches}
+        for model in record['models']:
+            output, paint_record = _paint_square_palette_model(
+                model, parsed, role, rotation
+            )
+            if output is None:
+                return None, {
+                    'failure': paint_record.get('failure', 'square_palette_mapping_failed'),
+                    'searches': searches,
+                    'paint': paint_records + [paint_record],
+                }
+            outputs.add(key(output))
+            paint_records.append({
+                'anchor': anchor,
+                'rotation': rotation,
+                'placements': model['placements'],
+                **paint_record,
+            })
+    if not outputs:
+        return None, {'failure': 'square_palette_no_complete_assembly', 'searches': searches}
+    ordered = sorted(outputs)
+    record = {
+        'palette_size': role['n'],
+        'palette': [list(row) for row in role['palette']],
+        'searches': searches,
+        'physical_candidate_count': len(paint_records),
+        'unique_candidate_count': len(ordered),
+    }
+    if len(ordered) == 1:
+        return [list(row) for row in ordered[0]], record
+    if len(ordered) == 2:
+        return None, {
+            **record,
+            'failure': 'two_complete_square_palette_hypotheses',
+            'candidate_attempts': [[list(row) for row in candidate]
+                                   for candidate in ordered],
+        }
+    return None, {**record, 'failure': 'too_many_square_palette_hypotheses'}

@@ -1,0 +1,78 @@
+{
+  "schema": "arc2-object-background-fallback-v57-full-runtime-evaluation-v1",
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "runtime_task_count": 240,
+  "runtime_example_count": 259,
+  "runtime_seconds": 822.407,
+  "fallback_count": 249,
+  "fallback_reason_counts": {
+    "原因未確定で隔離中の原理が存在する": 2,
+    "現行暫定原理の適用に必要な観測が不足している": 249
+  },
+  "v19_baseline": {
+    "exact_tasks": 10,
+    "exact_examples": 11
+  },
+  "v57_full_challenge_score": {
+    "exact_tasks": 14,
+    "exact_examples": 15
+  },
+  "delta_vs_v19": {
+    "newly_correct_tasks": 4,
+    "newly_correct_examples": 4,
+    "regressed_tasks": 0,
+    "regressed_examples": 0,
+    "changed_attempt1_examples": 0,
+    "changed_attempt2_examples": 4
+  },
+  "delta_vs_v51_aggregate": {
+    "exact_tasks": 0,
+    "exact_examples": 0,
+    "parent_v51_score": {
+      "exact_tasks": 14,
+      "exact_examples": 15
+    },
+    "parent_v51_output_sha256": "8c4a3d09d80e9cef5cf9f3873afa523d2700a52882a5b65ad041d39380327194",
+    "paired_candidate_region_evidence": {
+      "baseline_exact_examples": 4,
+      "combined_exact_examples": 5,
+      "newly_correct_examples": 1,
+      "regressed_examples": 0,
+      "baseline_exact_tasks": 4,
+      "combined_exact_tasks": 5,
+      "newly_correct_tasks": 1,
+      "regressed_tasks": 0
+    }
+  },
+  "v57_submission_sha256": "8c4a3d09d80e9cef5cf9f3873afa523d2700a52882a5b65ad041d39380327194",
+  "temporary_audit_sha256": "0c238fc5ca427b50bb07b8eddd2bff9b3b15a278413a24912c4e3a3fa3aaec1e",
+  "bundle_payload_sha256": "b01432af3a51a2f147db20c07e8fd77874dc50b414c59b07cf082d0421f16edb",
+  "bundle_notebook_sha256": "f5ee4dea36d7c6a5cbd83bc0d627de6baf935514188c7585ada9ed121c7f4d1d",
+  "runtime_received_test_targets": false,
+  "targets_read_after_full_runtime_completion": true,
+  "temporary_predictions_targets_and_payload_removed": true,
+  "per_task_predictions_or_targets_saved": false,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "parent_v51_public_score": {
+    "exact_tasks": 14,
+    "exact_examples": 15
+  },
+  "parent_v28_output_sha256": "54f6a303c4143f15279e2084d5ad798455e565b4d51cd6a2b226e4d4735af46a",
+  "parent_v51_payload_sha256": "bea77a938152d80e39beb0f43be219e649c31e01dfb7fe3f7dc6ed5e44b4bb23",
+  "runtime_used_generic_prior_memory": true,
+  "runtime_includes_v51_largest_component_primary": true,
+  "runtime_includes_training_guided_fallback": true,
+  "source_sha256": {
+    "runner": "116214d06673a0404788b4c30b90474e5819a62e75ca6497713fb36f6b100bf8",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "baseline_v19": "171dbfcafa394f36dfdd79914f3b1c730e293003595a7563c620eb831a127c4f",
+    "build_manifest": "9f1bacf8dee54dc3f7b28c5d15b159ebb2c65afb8a3117f2ad2a376042e15fc4",
+    "paired_v51_scorecard": "073a1f099244393d130b537b095e3894807a679d2a0b714cd7843943c5e32504",
+    "bundle_prior_memory": "66e98b7eebab697b4b6877d73af3ec6cb2529104f0386183412ac340760d422a",
+    "bundle_adapter": "6d0dafc59a91d064ace1fd92e79f439b79421440039fb57d11f7a6f413ea2967",
+    "bundle_hds_bridge": "8cc1456edfab1b84478fcc1b8f82973481709d85a45532b5181d0e79655362a3",
+    "bundle_object_extraction": "9ad57868b2e61f78f8f97b53a2860d95ddd994c61343abf478cdd766fc2d8aa4",
+    "bundle_feature_neighbor": "271e34f7917ba82dd5d83dab3aba4f9684335fc6dd5e6b46bb85d5787234c2a6"
+  }
+}

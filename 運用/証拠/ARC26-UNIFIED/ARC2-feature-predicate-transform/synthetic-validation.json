@@ -1,0 +1,39 @@
+{
+  "schema": "arc2-feature-predicate-synthetic-validation-v1",
+  "scope": "isolated_experiment_only",
+  "module_path": "運用/証拠/ARC26-UNIFIED/ARC2-feature-predicate-transform/feature_predicate_transform.py",
+  "module_sha256": "79371d0bfef03bf47d938d41c6f37193e3bdce02a4e1cc9a701d4f0470245f31",
+  "test_path": "運用/証拠/ARC26-UNIFIED/ARC2-feature-predicate-transform/test_feature_predicate_transform.py",
+  "test_sha256": "923f2ce3a55afa18bc376f6ec28d4ac074ce9aef74efee62ea67a83ecababc1d",
+  "command": "& '.venv/Scripts/python.exe' -m pytest -q '運用/証拠/ARC26-UNIFIED/ARC2-feature-predicate-transform/test_feature_predicate_transform.py'",
+  "exit_code": 0,
+  "pytest_summary": "17 passed in 4.75s",
+  "tool_chunk_id": "16e623",
+  "synthetic_actual_hds_admission_and_query": true,
+  "synthetic_actual_hds_counterexample_rejection": true,
+  "fresh_process_external_model_state_reload": true,
+  "hds_core_predicate_discovery_exercised": false,
+  "hds_memory_persistence_exercised": false,
+  "same_eligibility_synthetic_refit": {
+    "current_train_counts": [4, 5],
+    "minimum_distinct_branch_support_before_and_after": 2,
+    "fixed_feature_indices": [0],
+    "unseen_query_correct_previous": 0,
+    "unseen_query_correct_current": 1,
+    "unseen_query_correct_delta": 1,
+    "previous_outcome": "ambiguous_minimal_hypotheses",
+    "current_outcome": "computed_rotate90",
+    "retained_hypotheses_decreased": true,
+    "all_current_train_replayed": 5,
+    "route": "external_candidate_direct_only",
+    "hds_adaptation_of_this_refit_exercised": false
+  },
+  "public_training_comparison_executed_by_this_artifact": false,
+  "official_kaggle_score": null,
+  "production_adopted": false,
+  "production_sources_reused_without_edits_by_this_experiment": {
+    "接続/ARC2/特徴近傍変換選択.py": "5cd2e0d39709576702dfa42474c1232ca0e14371e486ad4dfc7b35f8f0ac8726",
+    "接続/ARC2/単純変換候補.py": "efe210a4e183de93b5318aadeac7d2b5022a562189839b2ce1a414d367b5b0d3",
+    "接続/ARC2/HDS接続.py": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe"
+  }
+}

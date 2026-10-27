@@ -1,0 +1,27 @@
+{
+  "state": "PASS",
+  "tests": 8,
+  "seconds": 5.627735,
+  "hds_smoke": {
+    "actual_outer_minimum": 3,
+    "actual_inner_validator_minimum": 3,
+    "generator_global_minimum": 2,
+    "local_leaf_minimum": 1,
+    "minimum_cells": 2,
+    "whole_current_train_replayed": 3,
+    "equality_admitted": true,
+    "hds_query_exercised": true,
+    "query_answer_sha256": "97c994383547791180bddfe147f081d42d4f14f15b254ce0f8a0468c9e9b04a1",
+    "counterexample_adoption": false,
+    "prior_reader_calls": {
+      "template": 0,
+      "generic": 0
+    },
+    "scope": "synthetic whole-program HDS3 plumbing; one positive leaf teacher is not three leaf teachers"
+  },
+  "old_module_sha256": "405065a7d8260f6b618e3b7cb1a90103f3e610250438eb5db7abf9c3289d366c",
+  "module_sha256": "66a5b525e42881ae35b2a125c7a8f85628a8cce9b95179fdd89c62b38b7e22d6",
+  "test_sha256": "b821040ffe844a888e39432d61a5789fdab6ee4197c904dcbf63504594c82196",
+  "public_fit_or_query_executed": false,
+  "performance_or_score_improvement_claimed": false
+}

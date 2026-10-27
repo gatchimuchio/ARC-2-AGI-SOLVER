@@ -1,0 +1,28 @@
+{
+  "schema": "arc2-object-palette-v24-bundle-matched-loo-v1",
+  "eligible_folds": 2916,
+  "candidate_proposal_folds": 40,
+  "v21.1_bundle_evaluation_folds": 40,
+  "v24_bundle_evaluation_folds": 40,
+  "v21.1_bundle_fallbacks": 25,
+  "v24_bundle_fallbacks": 25,
+  "v21.1_bundle_exact_on_proposals": 30,
+  "v24_bundle_exact_on_proposals": 32,
+  "attempt2_changes": 2,
+  "newly_correct": 2,
+  "newly_wrong": 0,
+  "net_delta": 2,
+  "regressions": 0,
+  "heldout_outputs_passed_to_candidate_generator_or_runtimes": false,
+  "per_fold_predictions_or_targets_saved": false,
+  "temporary_fold_inputs_outputs_and_payloads_removed": true,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "9910f4f9b6c4d236f5fbfe11805d4132ebff097c3fadf836e78551ce0390da6d",
+    "proposal_runner": "ba2c6dce2bbd522cd5844c03355a51fa7f7794e04ae99c991fa5ec8e0645f642",
+    "v21.1_build_manifest": "bbc0e7e5266a44aaada42f6362736a49c7e13343e5bb24b7c66f289e9719f99b",
+    "v24_build_manifest": "6a52003b25dad93b4113c259b2d6e0f9d284161b5b78ecae544997fe11410aa1",
+    "adapter": "da91b327cf504d92ce3a2df594a0abeed29c06be96a90aabc72414a56345be69",
+    "object_extraction_module": "b0b5e95e2a86371e947e494a29dee91aa8d8ec880d72c3cc4076c7469ffc165f"
+  }
+}

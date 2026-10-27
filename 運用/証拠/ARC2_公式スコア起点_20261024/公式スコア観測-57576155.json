@@ -1,0 +1,55 @@
+{
+  "schema": "arc2-official-score-observation-v2",
+  "instruction_id": "ARC2-SCORE-GATE-20261024",
+  "competition": "arc-prize-2026-arc-agi-2",
+  "retrieval": {
+    "method": "Kaggle SDK competition_submissions via ARC2_Kaggleスコア監視.py --tick; independently confirmed by 接続/Kaggle操作.py 履歴",
+    "scope": "read-only official competition submission history",
+    "history_page_size": 100,
+    "history_rows_returned": 8,
+    "observed_at_utc": "2026-10-24T00:34:15.171685+00:00",
+    "confirmation": "Both official-history reads returned ref 57576155 as COMPLETE with public_score 0.00."
+  },
+  "submission": {
+    "submission_id": 57576155,
+    "submitted_at_official_history_raw": "2026-10-24T00:12:39.127000",
+    "submitted_at_local_receipt_utc": "2026-10-24T00:12:39.158567+00:00",
+    "status": "COMPLETE",
+    "official_public_score_raw": "0.00",
+    "official_public_score_numeric": 0.0,
+    "failure_details_present": false,
+    "file_name": "submission.json"
+  },
+  "execution_link": {
+    "notebook_id": "tecchannn/arc2-codex-main-baseline-v1",
+    "notebook_version": 5,
+    "notebook_code_sha256": "d04668b0410a028195c1eb3c0c99620c9336d8ff10a41156181faaf73dc7910c",
+    "source_commit": "2759d393a8d79824d36754785ce16f66d0493ebd",
+    "submission_json_sha256": "78e59642d9a84457c1ad9a16b1b98c12de717a34d562438ae830a8903cd5b026",
+    "test_dataset_file": "arc-agi_test_challenges.json",
+    "test_dataset_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "test_task_count": 240,
+    "test_count": 259,
+    "fallback_count": 256,
+    "local_retrieved_output_byte_equal_to_kaggle_output": true
+  },
+  "prior_official_score": {
+    "submission_id": 57560705,
+    "status": "COMPLETE",
+    "official_public_score_raw": "0.00"
+  },
+  "official_delta_from_previous_score": "0.00 -> 0.00; no score improvement",
+  "source_submission_evidence_path": "運用/証拠/ARC2_公式スコア起点_20261024/公式提出-57576155.json",
+  "submission_receipt_path": "出力/Kaggle/arc2-codex-main-baseline-v1/v5/提出記録-57576155.json",
+  "submission_json_path": "出力/Kaggle/arc2-codex-main-baseline-v1/v5/retrieved/submission.json",
+  "run_record_path": "出力/Kaggle/arc2-codex-main-baseline-v1/v5/実行記録.json",
+  "hidden_or_evaluation_solutions_read": false,
+  "new_submission_created_during_score_observation": false,
+  "post_score_mechanism_diagnostics": {
+    "path": "運用/証拠/ARC2_公式スコア起点_20261024/HDS_test_mechanism_diagnostics-v5-57576155.json",
+    "sha256": "c5f6fe1574182a865c7a5803c8a4ba3e8169ae17b2c64e7a0002417a2cdfa578",
+    "source_commit": "2759d393a8d79824d36754785ce16f66d0493ebd",
+    "test_ids_or_grids_saved": false,
+    "test_correctness": "unknown; solutions were not read"
+  }
+}

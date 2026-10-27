@@ -1,0 +1,55 @@
+{
+  "schema": "arc2-pruned35-lowshot-fixedmin2-decision-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-27T01:00:00.727290+00:00",
+  "run_id": "ARC2-pruned35-lowshot-fixedmin2-20261027T0039Z",
+  "status": "COMPLETE",
+  "session_id": 83385,
+  "tasks": 20,
+  "fresh_processes": 80,
+  "completed_processes": 80,
+  "worker_errors": 0,
+  "timeouts": 0,
+  "support_policy": "EXPLORATORY_FIXED_MIN2_ORIGINAL4_A2_TO_A_PLUS_F3",
+  "must_not_pool_with_min3_or_production_adaptive": true,
+  "unseen_direct_previous_current_delta": [
+    0,
+    0,
+    0
+  ],
+  "unseen_hds_previous_current_delta": [
+    0,
+    0,
+    0
+  ],
+  "feedback_training_fit_previous_current_delta": [
+    0,
+    0,
+    0
+  ],
+  "wrong_outputs": 0,
+  "holds_per_arm_phase_role": 20,
+  "fitted_models": 0,
+  "actual_hds_queries": 0,
+  "fit_status_counts": {
+    "unpruned35": {
+      "teacher_shape_changed": 16,
+      "fit_state_budget_exceeded": 24
+    },
+    "pruned35": {
+      "teacher_shape_changed": 16,
+      "fit_state_budget_exceeded": 24
+    }
+  },
+  "summary_path": "運用/証拠/ARC26-UNIFIED/ARC2-cell-conditional-tree-rowcol-support-prune-lowshot-min2/public_results/study20-20261027T0039Z.summary.json",
+  "summary_sha256": "051c839b1e487d2a6e2aa77a40278402755195599418d1eea5a46456e1c7f81d",
+  "records_sha256": "2377ea0c384f71ddd86bc8428022fac9cde6c2e480441ea89e068988ad138ec6",
+  "cohort_sha256": "3d12810ec92ef855802b6b559bcd7613a0a6868fdc469e09b58dd8fe794e6376",
+  "source_sha256": "5eb361b788207e72a49c36c7fc7b53e6456372480c6c17ceef57f75f3db593de",
+  "scope": "Isolated generator batch refit and unchanged actual HDS admission/query; not full submission or persistent learning. Fixed minimum 2 in both arms and phases.",
+  "decision": "NOT ADOPTED: no unseen or feedback fit gain; support-only pruning still reached bounded-search cap. No production support threshold change.",
+  "adopted": false,
+  "production_source_changed": false,
+  "official_submission_performed": false,
+  "next_action": "Measure unmodified current full Kaggle worker under production adaptive support policy 2 to 3 in a separately labelled public experiment."
+}

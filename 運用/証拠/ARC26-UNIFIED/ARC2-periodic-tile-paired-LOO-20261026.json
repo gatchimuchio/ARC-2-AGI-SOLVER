@@ -1,0 +1,27 @@
+{
+  "schema": "arc2-periodic-tile-paired-loo-v1",
+  "source_split": "official training",
+  "training_tasks": 1000,
+  "eligible_loo_folds": 2916,
+  "periodic_fit_and_predicted_folds": 63,
+  "worker_errors": 0,
+  "baseline_exact_folds": 3,
+  "candidate_exact_folds": 63,
+  "current_exact_folds": 63,
+  "delta_exact_folds": 60,
+  "newly_correct_folds": 60,
+  "regressed_folds": 0,
+  "tasks_with_fitting_folds": 19,
+  "tasks_all_folds_exact_baseline": 1,
+  "tasks_all_folds_exact_current": 19,
+  "runtime_received_heldout_outputs": false,
+  "heldout_outputs_read_only_after_all_runtime_predictions": true,
+  "per_task_predictions_or_targets_saved": false,
+  "elapsed_seconds": 30.766,
+  "source_sha256": {
+    "runner": "79174b9afe84fb27f358d34f76b7474e9fd85c7e874757410aae2e4d3f1afb7e",
+    "periodic_tile_module": "3ad156af6e2faa2297ad8419fc2e0db410e0aca362d49fa145fdbc8fd04f6cf2",
+    "hds_connector": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe",
+    "kaggle_adapter": "f5e8ca8bc168e6854d49b4207a4eec306235c33e1de0a2cd52a4e3daff1954bf"
+  }
+}

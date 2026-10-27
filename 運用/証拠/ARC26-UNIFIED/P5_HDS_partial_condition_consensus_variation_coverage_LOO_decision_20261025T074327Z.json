@@ -1,0 +1,49 @@
+{
+  "schema": "arc26-p5-experiment-decision.v1",
+  "track": "ARC2",
+  "experiment_id": "P5_HDS_partial_condition_consensus_variation_coverage_LOO",
+  "observed_at_utc": "2026-10-25T07:43:27Z",
+  "result_file": "運用/証拠/ARC26-UNIFIED/P5_HDS_partial_condition_consensus_variation_coverage_LOO_full_20261025T065056Z.json",
+  "result_sha256": "8ad954bfd9578f05196ec64dfa4c3cc8da941771ade16b16a0b3b8221a392720",
+  "eligible_tasks": 267,
+  "paired_loo_folds": 1191,
+  "previous": {
+    "answer_rows": 17,
+    "exact": 17,
+    "wrong_answers": 0,
+    "fallback_rows": 1174,
+    "runtime_seconds": 1530.842494
+  },
+  "current": {
+    "answer_rows": 18,
+    "exact": 17,
+    "wrong_answers": 1,
+    "fallback_rows": 1173,
+    "runtime_seconds": 1520.011298,
+    "partial_predictions": 2,
+    "rescued_principle_requests": 2
+  },
+  "delta": {
+    "answer_rows": 1,
+    "exact": 0,
+    "wrong_answers": 1,
+    "fallback_rows": -1,
+    "runtime_seconds": -10.831196,
+    "exact_gains": 0,
+    "exact_regressions": 0,
+    "previous_wrong_to_current_exact": 0,
+    "previous_exact_to_current_wrong": 0,
+    "changed_nonfallback_answers": 0
+  },
+  "partial_condition_variation_gate": {
+    "effective_minimum_support_mappings": 3,
+    "minimum_distinct_values_per_omitted_coordinate": 2,
+    "qualifying_projection_count_before_variation_gate": 2,
+    "projection_rejections_for_missing_omitted_variation": 0
+  },
+  "fallback_counted_correct": false,
+  "decision": "REJECTED_REGRESSION",
+  "decision_reason": "No exact-answer gain; wrong answers increased 0 to 1. One fewer fallback did not represent a correct rescue. The omitted-coordinate variation gate rejected no projections and did not improve exact accuracy.",
+  "production_hds_changed": false,
+  "next_action": "Resume generic fallback-reason classification and select a separate HDS hypothesis from observed mechanism counts; retain current production HDS and do not adopt this candidate."
+}

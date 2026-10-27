@@ -12,7 +12,7 @@ def render(grid, background, repair, control):
     original, record = core.paths(grid, background, repair, control)
     if original is None:
         return None, record
-    if not all(core.complete_path(path) for path in original.values()):
+    if not all(core.complete_path_union(path) for path in original.values()):
         return None, {'failure': 'repaired_geometry_not_complete_simple_paths'}
     marked = {color for cell, color in record['marker_owners']}
     colors = sorted(original)
@@ -55,7 +55,7 @@ def render(grid, background, repair, control):
     changed, controls = core.controls(grid, original, control)
     if changed is None:
         return None, controls
-    if not all(core.complete_path(path) for path in changed.values()):
+    if not all(core.complete_path_union(path) for path in changed.values()):
         return None, {'failure': 'controlled_geometry_not_complete_simple_paths'}
     footprints = controls['footprints']
     for i, left in enumerate(footprints):

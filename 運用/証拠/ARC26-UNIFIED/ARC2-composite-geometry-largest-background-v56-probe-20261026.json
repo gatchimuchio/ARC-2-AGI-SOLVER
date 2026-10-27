@@ -1,0 +1,20 @@
+{
+  "schema": "arc2-composite-geometry-largest-background-v56-probe-v1",
+  "background_policy": "color with the largest 4-connected component; ties break by total count then lowest color",
+  "candidate_family": "exact composite geometry candidate with largest-component crop background during teacher fit and query inference",
+  "loo_screening_performed": false,
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "challenge_tasks_with_candidate": 1,
+  "challenge_examples_with_candidate": 1,
+  "heldout_outputs_read": false,
+  "challenge_targets_read": false,
+  "per_task_ids_grids_or_candidates_saved": false,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "cd35a656bc2aa7b7046bf3e9b1bf33dfe6b811be55b0fb7e5d39ad9e27f62fb7",
+    "composite_geometry_module": "b7ee7d9c9ccc3767f47dccdef25b378c961a8e150f145fc1c11860e4e5e4ac39",
+    "challenge_inputs": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "v28_build_manifest": "8bafa314ddb1e25831769d38f3e1d779fc3b6c060a002cd91caccf5e37529f17"
+  }
+}

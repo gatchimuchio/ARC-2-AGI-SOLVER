@@ -1,0 +1,50 @@
+{
+  "schema": "arc2-global-training-feature-neighbor-v41-exact-paired-v1",
+  "global_training_tasks": 1000,
+  "global_training_pairs": 3232,
+  "global_training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8",
+  "radius_quantile": 0.99,
+  "radius": 0.05923698009158457,
+  "minimum_exact_teacher_pair_support": 2,
+  "loo_eligible_folds": 2916,
+  "loo_folds_passing_candidate_gate": 0,
+  "loo_candidate_proposals": 0,
+  "loo_candidate_exact": 0,
+  "public_tasks": 240,
+  "public_examples": 259,
+  "public_candidate_tasks": 2,
+  "public_candidate_examples": 2,
+  "public_exact_v28_paired": {
+    "examples_evaluated_in_candidate_tasks": 2,
+    "baseline_exact_examples": 1,
+    "combined_exact_examples": 1,
+    "candidate_proposals": 2,
+    "candidate_exact_outputs": 1,
+    "candidate_usable_when_v28_slot_duplicate": 0,
+    "newly_correct_examples": 0,
+    "regressed_examples": 0,
+    "baseline_exact_tasks": 1,
+    "combined_exact_tasks": 1,
+    "newly_correct_tasks": 0,
+    "regressed_tasks": 0
+  },
+  "v28_runtime_seconds": 64.169,
+  "v28_fallback_count": 0,
+  "v28_temporary_output_sha256": {
+    "submission": "ce20f2b8f586134bca5b355ad386ea143ceb70dd9d2f942c173dd4fe185ba967",
+    "audit": "c29a9c529fc8ff0afd0cf2160959df991de25bff4802331aaae38262cfd8bb98"
+  },
+  "loo_pool_excludes_entire_scored_task": true,
+  "global_pool_contains_training_split_only": true,
+  "candidate_or_v28_runtime_received_public_targets": false,
+  "public_targets_read_after_both_prediction_sets": true,
+  "per_task_ids_grids_or_targets_saved": false,
+  "temporary_outputs_and_payload_removed": true,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "466bfcc8d456e6efa22d7e31f35e8306c74deeba3e7913831b93b82badf64f77",
+    "probe": "4a8a49a15fea6eb50069bf225ac2a7c3adda1e1d505e3d3903b35126675eb8b0",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "v28_manifest": "8bafa314ddb1e25831769d38f3e1d779fc3b6c060a002cd91caccf5e37529f17"
+  }
+}

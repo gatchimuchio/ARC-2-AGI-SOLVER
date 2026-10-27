@@ -1,0 +1,39 @@
+{
+  "track": "ARC2",
+  "event": "correction to history comparison metadata",
+  "official_observation_at_utc": "2026-10-24T14:38:15Z",
+  "corrected_at_utc": "2026-10-24T14:39:30Z",
+  "previous_evidence_path": "運用/証拠/ARC26-UNIFIED/official-history-20261024T1336Z.json",
+  "previous_evidence_sha256": "fbfc42d3509a29f28a2e59b67de2bf7d659dd05bdc9da672cf7e6b980620dd52",
+  "current_evidence_path": "運用/証拠/ARC26-UNIFIED/official-history-20261024T1438Z.json",
+  "current_evidence_sha256": "f6605f4710c19d4e445b7ed4137f47f9561d4d1a1b232c40303656d14ea1c484",
+  "previous_history_refs": [
+    57576155,
+    57560705,
+    57517199,
+    55046979,
+    55038338,
+    54709840,
+    53996447,
+    53962702
+  ],
+  "current_history_refs": [
+    57576155,
+    57560705,
+    57517199,
+    55046979,
+    55038338,
+    54709840,
+    53996447,
+    53962702
+  ],
+  "all_rows_equal": true,
+  "history_unchanged": true,
+  "latest_submission_id": 57576155,
+  "official_status": "SubmissionStatus.COMPLETE",
+  "public_score": "0.00",
+  "private_score": "",
+  "correction_reason": "The 14:38 comparison used a checkpoint that did not contain official_history_refs and therefore marked unchanged false. The previous 13:36 score-ledger entry pointed to this verified 13:36 history evidence; comparing its official_rows to the 14:38 rows shows all 8 rows identical. No new submission or score change occurred.",
+  "quota_rechecked": false,
+  "submission_or_rerun_performed": false
+}

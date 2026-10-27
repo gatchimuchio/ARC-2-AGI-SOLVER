@@ -1,0 +1,38 @@
+{
+  "schema": "arc26-unified-baseline-manifest-v1",
+  "captured_at_utc": "2026-10-24T04:02:13.121537Z",
+  "track": "ARC2",
+  "competition_slug": "arc-prize-2026-arc-agi-2",
+  "repository": "gatchimuchio/ARC-2-AGI-SOLVER",
+  "head_sha": "dae0a5dbe124a0c4a01bd69a26dda0036d0379e0",
+  "branch": "main",
+  "worktree_dirty": true,
+  "preexisting_changes_preserved": true,
+  "worktree_status_file": "運用/ARC26-UNIFIED/worktree-status-20261024T035418Z.txt",
+  "worktree_status_line_count": 93,
+  "protected_file_sha256": {
+    "AGENTS.md": "315998bc0549de61f70fda28a9c9923bea8a61ba6d9b79019283165e5438109b",
+    "制御/現在状態.json": "773fdfdd37aad115c6bbbcb879304142136654db649eb1954cde0d69eb14aa6d"
+  },
+  "protected_files_modified_by_this_recording": false,
+  "canonical_common_instruction": "運用/ARC26-UNIFIED/v3_0/03_共通Codex指示書.md",
+  "archive_sha256": "51883eef24d4850fb5b700866bc2fc92f251d8829a13d75fb2c065a9ecea6096",
+  "documents": [
+    {
+      "path": "01_共通仕様書.md",
+      "sha256": "1f78da40edd8ec66d326faa68843489048da214019d946c958817be62fc2e2c0",
+      "bytes": 12249
+    },
+    {
+      "path": "02_共通工程表.md",
+      "sha256": "810c7de74ad650e1578ec845503add638e3de741f4d85a761712cffb5ebb736a",
+      "bytes": 10341
+    },
+    {
+      "path": "03_共通Codex指示書.md",
+      "sha256": "d5898129f8aa22b4f195ae01caec1dc67f541fac451a340dcd547980de74bfe9",
+      "bytes": 13964
+    }
+  ],
+  "official_history_snapshot": "運用/証拠/ARC26-UNIFIED/official-history-20261024T040213Z.json"
+}

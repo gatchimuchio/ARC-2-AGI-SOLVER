@@ -1,0 +1,55 @@
+{
+  "schema": "arc2-v50-v28-training-prior-full-runtime-evaluation-v1",
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "runtime_task_count": 240,
+  "runtime_example_count": 259,
+  "runtime_seconds": 768.922,
+  "fallback_count": 249,
+  "fallback_reason_counts": {
+    "原因未確定で隔離中の原理が存在する": 2,
+    "現行暫定原理の適用に必要な観測が不足している": 249
+  },
+  "v19_baseline": {
+    "exact_tasks": 10,
+    "exact_examples": 11
+  },
+  "v50_v28_with_training_prior": {
+    "exact_tasks": 13,
+    "exact_examples": 14
+  },
+  "delta": {
+    "newly_correct_tasks": 3,
+    "newly_correct_examples": 3,
+    "regressed_tasks": 0,
+    "regressed_examples": 0,
+    "changed_attempt1_examples": 0,
+    "changed_attempt2_examples": 3
+  },
+  "v50_submission_sha256": "54f6a303c4143f15279e2084d5ad798455e565b4d51cd6a2b226e4d4735af46a",
+  "temporary_audit_sha256": "6060ca5049c5e7a76822eb7e0f17cb8ea4151c28d0927d84c0269568b8c207b9",
+  "bundle_payload_sha256": "1d57ddd2fd28d0eb2f4b2c257cdacf9289ac5e6b07387ff4de23c67c7d47aa84",
+  "bundle_notebook_sha256": "f8c54cd48f4318424569c8f2007a09974c9cd95e5df414fc34963e9810eb626f",
+  "runtime_received_test_targets": false,
+  "targets_read_after_full_runtime_completion": true,
+  "temporary_predictions_targets_and_payload_removed": true,
+  "per_task_predictions_or_targets_saved": false,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "parent_v28_public_score": {
+    "exact_tasks": 13,
+    "exact_examples": 14
+  },
+  "parent_v28_output_sha256": "54f6a303c4143f15279e2084d5ad798455e565b4d51cd6a2b226e4d4735af46a",
+  "parent_v28_payload_sha256": "cfe1a2de49f918e349585825f06afcce1d147c52a011046fd52a371fac45a563",
+  "runtime_used_generic_prior_memory": true,
+  "source_sha256": {
+    "runner": "70de1e8fbd27f63e41d88ae9a1e3e1fbe57e190a59e531674f0c1995eb456b67",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "baseline_v19": "171dbfcafa394f36dfdd79914f3b1c730e293003595a7563c620eb831a127c4f",
+    "build_manifest": "47e721b91e6f17fa4a1bb0cbb23459ba06b23f8acfcb5aed6309668519d76ba2",
+    "bundle_prior_memory": "66e98b7eebab697b4b6877d73af3ec6cb2529104f0386183412ac340760d422a",
+    "bundle_adapter": "fb6174f3a1b81bc7d39f586e46224e9c74a4229a40d0f22823f9b0c337ed6d62",
+    "bundle_hds_bridge": "8cc1456edfab1b84478fcc1b8f82973481709d85a45532b5181d0e79655362a3",
+    "bundle_feature_neighbor": "271e34f7917ba82dd5d83dab3aba4f9684335fc6dd5e6b46bb85d5787234c2a6"
+  }
+}

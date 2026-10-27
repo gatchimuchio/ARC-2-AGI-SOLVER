@@ -1,0 +1,187 @@
+--- frozen405/prune_fit_diagnosis.py
++++ leaf-only-ablation/prune_fit_diagnosis.py
+@@ -1,4 +1,4 @@
+-"""SAME-budget FIT-only support-pruning diagnosis; selection never reads U scores.
++"""Leaf-only MIN1 ablation FIT diagnosis; global support2/cell2/caps unchanged.
+ 
+ Parent reads the frozen cohort/public training. Every fresh worker receives
+ only current support input/output pairs and one fixed bounds dictionary.
+@@ -30,7 +30,7 @@
+ OLD_ROOT = HERE.with_name("ARC2-cell-conditional-tree-rowcol")
+ HARNESS = OLD_ROOT / "public_harness.py"
+ TRAINING = ROOT / "入力/Kaggle/arc-agi_training_challenges.json"
+-MODULE_SHA256 = "405065a7d8260f6b618e3b7cb1a90103f3e610250438eb5db7abf9c3289d366c"
++MODULE_SHA256 = "66a5b525e42881ae35b2a125c7a8f85628a8cce9b95179fdd89c62b38b7e22d6"
+ OLD_MODULE_SHA256 = "0664c6ef1878f434c963125a767a65a35a4737aff9132a5091c05a5c316a5ac2"
+ HARNESS_SHA256 = "6deb75bc2cc980e1e7b59aa11354bd6b3ff02f01bc36b4fffdc64bf27479232e"
+ STUDY_SHA256 = "9e2dac77349f098f8130d97028ab7fd15a57717dfe5e481a1c652db5ccfbd316"
+@@ -41,6 +41,13 @@
+                   "max_training_cells": 4096, "minimum_teacher_support": 2,
+                   "minimum_cell_support": 2, "max_fit_states": 256,
+                   "max_alternatives": 32, "max_work_units": 2_000_000}
++EXPECTED_MODULE_DEFAULT_BOUNDS = {**DEFAULT_BOUNDS, "minimum_leaf_teacher_support": 2}
++FIT_BOUNDS = {**DEFAULT_BOUNDS, "minimum_leaf_teacher_support": 1}
++BASELINE_ROOT = HERE.with_name("ARC2-cell-conditional-tree-rowcol-action-support-prune")
++BASELINE_MODULE_SHA256 = "405065a7d8260f6b618e3b7cb1a90103f3e610250438eb5db7abf9c3289d366c"
++BASELINE_FIT = BASELINE_ROOT / "fit_results/action-pruned-fit-six-phases-20261027T0151Z.jsonl"
++BASELINE_FIT_SHA256 = "d327205ecbbb2f3520fa7c47dd0085bf38835519ab79ece49aa4127689a5ca06"
++BASELINE_SOURCE_SHA256 = "ad6ddc1ca6f7fdaffcd04b5b7eab57d58831d14dfaf50d633d453d5c8b55bb40"
+ SUMMARY_FIELDS = ("status", "training_examples", "distinct_training_examples",
+                   "training_cells", "fit_states", "work_units", "training_replayed")
+ 
+@@ -64,6 +71,8 @@
+ def fingerprint():
+     if sha(MODULE.read_bytes()) != MODULE_SHA256:
+         raise ValueError("reviewed pruned tree module changed")
++    if sha((BASELINE_ROOT / "cell_conditional_tree.py").read_bytes()) != BASELINE_MODULE_SHA256:
++        raise ValueError("frozen405 baseline module changed")
+     if sha((OLD_ROOT / "cell_conditional_tree.py").read_bytes()) != OLD_MODULE_SHA256 or sha(HARNESS.read_bytes()) != HARNESS_SHA256:
+         raise ValueError("recorded ROWCOL source or harness changed")
+     harness = load_source(HARNESS, "arc2_tree_fit_diagnosis_harness")
+@@ -73,7 +82,9 @@
+     script_sha = sha(Path(__file__).read_bytes())
+     pins = {"script_sha256": script_sha, "pruned_module_sha256": MODULE_SHA256,
+             "old_module_sha256": OLD_MODULE_SHA256, "recorded_harness_sha256": HARNESS_SHA256,
+-            "study_sources": original}
++            "study_sources": original, "baseline_module_sha256": BASELINE_MODULE_SHA256,
++            "baseline_fit_sha256": BASELINE_FIT_SHA256,
++            "global_generator_teacher_minimum": 2, "local_leaf_ablation_minimum": 1}
+     return {"sha256": sha(encoded(pins)), **pins}
+ 
+ 
+@@ -89,7 +100,7 @@
+         raise ValueError("workers accept only support pairs and fixed bounds")
+     if mode not in ("necessary_condition", "pruned_fit", "pruned_fit_with_condition"):
+         raise ValueError("unknown diagnostic mode")
+-    if not isinstance(payload["bounds"], dict) or payload["bounds"] != DEFAULT_BOUNDS or any(type(value) is not int for value in payload["bounds"].values()):
++    if not isinstance(payload["bounds"], dict) or payload["bounds"] != FIT_BOUNDS or any(type(value) is not int for value in payload["bounds"].values()):
+         raise ValueError("unreviewed fit bounds")
+     support = payload["support"]
+     if not isinstance(support, list) or not 3 <= len(support) <= DEFAULT_BOUNDS["max_teachers"]:
+@@ -212,17 +223,20 @@
+     if sources["sha256"] != expected_source:
+         raise ValueError("diagnostic source changed before worker")
+     absent = ROOT / ".venv/Lib/site-packages/numpy-2.3.5.dist-info/direct_url.json"
++    blocked_json, absent_probes = [], []
+     def guard(event, arguments):
+         if event == "open" and isinstance(arguments[0], (str, bytes, os.PathLike)):
+             path = Path(os.fsdecode(arguments[0]))
+             if path.suffix.lower() in (".json", ".jsonl"):
+                 if path.resolve() == absent.resolve() and not path.exists():
++                    absent_probes.append(str(path.resolve()))
+                     raise FileNotFoundError("reviewed absent package metadata")
++                blocked_json.append(str(path.resolve()))
+                 raise RuntimeError("FIT worker dataset/JSON file reads forbidden")
+     sys.addaudithook(guard)
+     sys.path.insert(0, str(ROOT))
+     module = load_source(MODULE, "arc2_cell_tree_fit_only")
+-    if asdict(module.Bounds()) != DEFAULT_BOUNDS:
++    if asdict(module.Bounds()) != EXPECTED_MODULE_DEFAULT_BOUNDS:
+         raise ValueError("default bounds differ from reviewed baseline")
+     def no_hds():
+         raise RuntimeError("HDS calls are outside FIT-only diagnosis")
+@@ -235,7 +249,7 @@
+         raise ValueError("reviewed 35-feature/21-action grammar changed")
+     result = {"state": "complete", "mode": mode,
+               "fit_executed": False, "default_full_feature_count": FEATURE_COUNT,
+-              "typed_action_count": ACTION_COUNT, "bounds": dict(DEFAULT_BOUNDS),
++              "typed_action_count": ACTION_COUNT, "bounds": dict(FIT_BOUNDS),
+               "external_query_calls": 0, "hds_calls": 0, "scoring_calls": 0}
+     if mode in ("necessary_condition", "pruned_fit_with_condition"):
+         result["condition"] = necessary_condition(module, support)
+@@ -245,14 +259,19 @@
+             model = module.CellConditionalTree(support, bounds=module.Bounds(**payload["bounds"]))
+         result["fit_executed"] = True
+         result["fit"] = {field: getattr(model, field) for field in SUMMARY_FIELDS}
+-        if model.feature_indices != tuple(range(FEATURE_COUNT)) or asdict(model.bounds) != DEFAULT_BOUNDS:
++        if model.feature_indices != tuple(range(FEATURE_COUNT)) or asdict(model.bounds) != FIT_BOUNDS:
+             raise ValueError("constructor changed frozen grammar or bounds")
+         result["constructor_training_replay_only"] = True
+     if encoded(support) != immutable:
+         raise ValueError("current support was mutated")
++    if blocked_json:
++        raise RuntimeError("forbidden JSON read was caught inside helper")
+     result.update(solver_seconds=round(time.perf_counter() - started, 6),
+                   process_cpu_seconds=round(time.process_time() - cpu_started, 6),
+                   support_unchanged=True, unexpected_stdout_sha256=sha(captured.getvalue().encode("utf-8")),
++                  blocked_json_open_attempts=blocked_json, json_content_opens=0,
++                  absent_numpy_metadata_probe_count=len(absent_probes),
++                  exact_absent_metadata_path=str(absent.resolve()),
+                   source_sha256=sources["sha256"], runtime_origins_before=origins_before,
+                   runtime_origins_after=runtime_origins(sources, module))
+     if fingerprint() != sources:
+@@ -315,18 +334,44 @@
+     rows = {row["index"]: row for row in cohort["rows"]}
+     if any(case["recorded_source_sha256"] != cohort["source_sha256"] for case in cases):
+         raise ValueError("selected phase source pin mismatch")
++    baseline_bytes = BASELINE_FIT.read_bytes()
++    if sha(baseline_bytes) != BASELINE_FIT_SHA256:
++        raise ValueError("frozen405 terminal FIT evidence differs from pin")
++    baseline_rows = [json.loads(line) for line in baseline_bytes.splitlines() if line.strip()]
++    if [(row["cohort_index"], row["phase"]) for row in baseline_rows] != [(case["cohort_index"], case["phase"]) for case in cases]:
++        raise ValueError("frozen405 phases differ from selected six")
++    for case, baseline in zip(cases, baseline_rows, strict=True):
++        evidence = baseline["pruned_fit"]
++        if evidence.get("state") != "complete" or evidence.get("source_sha256") != BASELINE_SOURCE_SHA256 or evidence.get("bounds") != DEFAULT_BOUNDS:
++            raise ValueError("frozen405 evidence is not terminal with original bounds/source")
++        case["ancestor_recorded_default"] = case["recorded_default"]
++        case["ancestor_source_sha256"] = case["recorded_source_sha256"]
++        case["recorded_default"] = evidence["fit"]
++        case["recorded_source_sha256"] = BASELINE_SOURCE_SHA256
++        case["baseline_support_payload_sha256"] = baseline["current_support_payload_sha256"]
+     for case in cases:
+-        payload = make_payload(training, rows[case["cohort_index"]], case["phase"], DEFAULT_BOUNDS)
++        payload = make_payload(training, rows[case["cohort_index"]], case["phase"], FIT_BOUNDS)
+         validate_payload(payload, "pruned_fit")
+         if len(payload["support"]) != case["recorded_default"]["training_examples"]:
+             raise ValueError("current support count differs from recorded phase")
+         case["current_support_payload_sha256"] = sha(encoded(payload))
++        case["current_support_only_sha256"] = sha(encoded(payload["support"]))
++        baseline_payload = {"support": payload["support"], "bounds": dict(DEFAULT_BOUNDS)}
++        if sha(encoded(baseline_payload)) != case["baseline_support_payload_sha256"]:
++            raise ValueError("support differs from frozen405 input payload")
+     prepared = {"state": "prepared_no_fit", "selected_phases": len(cases), "cases": cases,
+                 "sources": sources, "study_sha256": sha(study_bytes), "cohort_sha256": sha(cohort_bytes),
+-                "bounds": dict(DEFAULT_BOUNDS), "grammar": {"features": FEATURE_COUNT, "actions": ACTION_COUNT},
++                "bounds": dict(FIT_BOUNDS), "grammar": {"features": FEATURE_COUNT, "actions": ACTION_COUNT},
+                 "budget_expansion": False, "worker_mode": "pruned_fit_with_condition" if args.with_necessary_condition else "pruned_fit",
+                 "after_support_includes_observed_feedback_pair": True,
+-                "unseen_pair_excluded_entirely": True, "heldout_queries_or_scoring": False}
++                "unseen_pair_excluded_entirely": True, "heldout_queries_or_scoring": False,
++                "old_configuration": {"module_sha256": BASELINE_MODULE_SHA256,
++                    "bounds": dict(DEFAULT_BOUNDS), "implicit_local_leaf_minimum": 2,
++                    "terminal_fit_sha256": BASELINE_FIT_SHA256},
++                "new_configuration": {"module_sha256": MODULE_SHA256, "bounds": dict(FIT_BOUNDS)},
++                "global_generator_minimum_unchanged": 2, "minimum_cells_unchanged": 2,
++                "numerical_hds_support_not_modified_or_exercised_by_fit_only": True,
++                "recorded_default_is_frozen405_not_ancestor0664": True}
+     if not args.execute:
+         return prepared
+     output, summary_path = args.output.resolve(), args.output.resolve().with_suffix(".summary.json")
+@@ -338,13 +383,15 @@
+     completed = []
+     with output.open("x", encoding="utf-8") as stream:
+         for case in cases:
+-            payload = make_payload(training, rows[case["cohort_index"]], case["phase"], DEFAULT_BOUNDS)
++            payload = make_payload(training, rows[case["cohort_index"]], case["phase"], FIT_BOUNDS)
+             if len(payload["support"]) != case["recorded_default"]["training_examples"]:
+                 raise ValueError("current support count differs from recorded default phase")
++            if sha(encoded(payload)) != case["current_support_payload_sha256"]:
++                raise ValueError("ablation support/config differs from prepared payload")
+             diagnosis = diagnose_case(payload, lambda data, mode: invoke(data, mode, sources["sha256"]), args.with_necessary_condition)
+             record = {**case, "pruned_fit": diagnosis}
+             fit = diagnosis.get("fit")
+-            record["delta_vs_recorded_default"] = ({field: fit[field] - case["recorded_default"][field]
++            record["delta_vs_frozen405"] = ({field: fit[field] - case["recorded_default"][field]
+                 for field in SUMMARY_FIELDS if field != "status"} if fit is not None else None)
+             completed.append(record)
+             stream.write(json.dumps(record, ensure_ascii=False) + "\n")
+@@ -377,7 +424,7 @@
+     parser.add_argument("--expected-cohort-sha256", default=COHORT_SHA256)
+     parser.add_argument("--study", type=Path, default=OLD_ROOT / "public_results/study20-20261027T0005Z.jsonl")
+     parser.add_argument("--cohort", type=Path, default=OLD_ROOT / "public_results/study20-20261027T0005Z.cohort.json")
+-    parser.add_argument("--output", type=Path, default=HERE / "fit_results/pruned-fit-six-phases.jsonl")
++    parser.add_argument("--output", type=Path, default=HERE / "fit_results/leaf-min1-six-phases.jsonl")
+     args = parser.parse_args()
+     try:
+         if args.worker:

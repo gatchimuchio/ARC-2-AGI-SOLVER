@@ -1,0 +1,18 @@
+{
+  "schema": "arc26-arc2-variation-coverage-loo-progress.v1",
+  "track": "ARC2",
+  "experiment_id": "P5_HDS_partial_condition_consensus_variation_coverage_LOO",
+  "observed_at_utc": "2026-10-25T07:15:44Z",
+  "execution_session_id": 88511,
+  "venv_launcher_pid": 16620,
+  "python_worker_pid": 11448,
+  "eligible_tasks_done": 100,
+  "expected_eligible_tasks": 267,
+  "paired_loo_folds_done": 438,
+  "expected_paired_folds": 1191,
+  "elapsed_seconds": 1424.6,
+  "aggregate_present": false,
+  "partial_metrics_for_adoption": false,
+  "production_hds_changed": false,
+  "next_action": "Continue same attached process; decide only from terminal full aggregate."
+}

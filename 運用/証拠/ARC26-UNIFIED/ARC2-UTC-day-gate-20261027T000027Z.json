@@ -1,0 +1,24 @@
+{
+  "schema": "arc2-utc-day-and-owner24h-readonly-gate-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-27T00:00:27.994075+00:00",
+  "gate": {
+    "許可": false,
+    "competition": "arc-prize-2026-arc-agi-2",
+    "utc_day": "2026-10-27",
+    "latest_ref": 57646990,
+    "latest_status": "COMPLETE",
+    "latest_public_score": "",
+    "today_submission_refs": [],
+    "scoreless_timeout_retry": true,
+    "理由": "前回提出から24時間未満です。24時間経過後に再確認してください。",
+    "next_allowed_at_utc": "2026-10-27T00:14:46+00:00"
+  },
+  "limits": {
+    "num_today": 0,
+    "num_total": 10,
+    "num_allowed_now": 1,
+    "limited_by_total": false
+  },
+  "official_submission_performed": false
+}

@@ -1,0 +1,40 @@
+{
+  "schema": "arc2-score-monitor-repair-evidence-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-26T22:12:46Z",
+  "changes": [
+    "Tolerate5-second boot-estimate jitter in resume detection.",
+    "Declare GetTickCount64 as unsigned64-bit with no arguments.",
+    "Record observation stage and safe OSError filename/errno/winerror plus local code location; omit messages/API bodies/env/commands.",
+    "Classify observation failure by actual stage rather than calling every failure authentication/network."
+  ],
+  "source": "運用/ARC2_Kaggleスコア監視.py",
+  "source_sha256": "bdd41557d68463c03a9bcdbc33995e1dc8fb36beed3b088b010778eacb184b01",
+  "tests": "検証/test_ARC2KaggleScoreMonitor.py",
+  "tests_sha256": "1ef120859fa5ebb5e27aee43fdd1fd75ba0cdde6bd6abc34cb0c55d34b641a5f",
+  "test_command": ".venv\\Scripts\\python.exe -m pytest -q 検証\\test_ARC2KaggleScoreMonitor.py",
+  "test_result": "22 passed in1.15s",
+  "test_exit_code": 0,
+  "test_tool_chunk": "0de7ed",
+  "scheduled_task_changed": false,
+  "real_tick_run_by_agent": false,
+  "scheduled_observation": {
+    "last_observed_tick_utc": "2026-10-26T22:08:00Z",
+    "task_exit_code": 0,
+    "meaning": "not_due skip; not proof of history API success",
+    "next_due_utc": "2026-10-26T22:13:01.486619Z"
+  },
+  "remaining_issue": "Original scheduled FileNotFoundError could not be reproduced, including hidden pythonw/DEVNULL/minimal PATH. Exact missing path remains unknown until next due attempt diagnostics.",
+  "direct_history_probe": {
+    "observed_at_utc": "2026-10-26T21:50:21.153013Z",
+    "latest_ref": 57646990,
+    "status": "COMPLETE",
+    "score": null,
+    "path": "運用/証拠/ARC26-UNIFIED/official-history-20261026T215021Z.json"
+  },
+  "protected_hashes": {
+    "AGENTS.md": "315998bc0549de61f70fda28a9c9923bea8a61ba6d9b79019283165e5438109b",
+    "制御/現在状態.json": "773fdfdd37aad115c6bbbcb879304142136654db649eb1954cde0d69eb14aa6d"
+  },
+  "official_submission_performed": false
+}

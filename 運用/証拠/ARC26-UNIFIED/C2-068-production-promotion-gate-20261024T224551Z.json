@@ -1,0 +1,89 @@
+{
+  "schema": "arc26-c2-068-promotion-gate-v1",
+  "track": "ARC2",
+  "experiment_id": "ARC2-C2-068-HDS-ADMITTED-CANDIDATE-CONSENSUS",
+  "observed_at_utc": "2026-10-24T22:45:51Z",
+  "status": "PROMOTION_AND_LOCAL_REGRESSION_PASS_PRIVATE_KERNEL_VERSION_9_RUNNING",
+  "full_matched_loo": {
+    "evidence": "運用/証拠/ARC26-UNIFIED/C2-068-matched-full-LOO.json",
+    "sha256": "6373afe7cc173df53f5b1c85bdbb9889a8a5650e82507c905f47b5f863b54cbc",
+    "eligible_tasks": 267,
+    "matched_folds": 1191,
+    "baseline": {
+      "exact": 16,
+      "fallback": 1175,
+      "wrong": 0
+    },
+    "candidate": {
+      "exact": 17,
+      "fallback": 1174,
+      "wrong": 0
+    },
+    "delta": {
+      "exact": 1,
+      "fallback": -1,
+      "wrong": 0
+    },
+    "regressions": 0,
+    "exceptions": 0,
+    "family_teacher_fit_folds": 4,
+    "family_input_applicable_folds": 3,
+    "evaluation_solutions_read": false,
+    "fallback_counted_correct": false
+  },
+  "source_review": {
+    "task_identity_branching": false,
+    "answer_map_or_fixed_output": false,
+    "hidden_or_evaluation_runtime_access": false,
+    "candidate_sources_match_scored_overlay": true,
+    "production_hds_connector_sha256": "6ea7e6eceffa0c22407c7ea76ac58da99212ae00eb5b5fc90492ed7ece7d0135",
+    "added_family_module_sha256": "ae7364556c21bd04d22043138138c054a4a71d0a7a67ba12d2052b15205d4e3b",
+    "rollback_copy": "運用/証拠/ARC26-UNIFIED/C2-068-production-before-promotion-HDS接続.py",
+    "rollback_copy_sha256": "d1b31e1c39aac62e99b86a1bbf267725e5306a13f54fced6690e67e133345f55"
+  },
+  "regression": {
+    "isolated_candidate_collection": "1 passed in 4.97s",
+    "command": "python -m pytest -q 検証/test_HDS候補収集.py 検証/test_ARC2Kaggle提出.py 検証/test_Kaggle提出安全ゲート.py",
+    "result": "18 passed in 7.49s",
+    "py_compile": "PASS"
+  },
+  "kaggle_private_build": {
+    "directory": "出力/Kaggle/arc2-codex-main-baseline-v1/v7",
+    "manifest_sha256": "a49a5e3d734143435ac9596ee56739a096dc61a415d6b4fbb5987e3a3d0d4307",
+    "source_commit": "dae0a5dbe124a0c4a01bd69a26dda0036d0379e0+dirty",
+    "hds_submodule_commit": "f3283f727488ad98fe575ea6a5ac981e4a188e49",
+    "source_files": 275,
+    "source_bytes": 2126757,
+    "payload_sha256": "6456d952d8d3213cfd14e8dc9548af2416268fa48a8dd39a72b9a6aef69736bb",
+    "notebook_sha256": "6af02e34b8bd71ac06339579266c7928f2dd7cfe465c7891184f941e35d94f45",
+    "metadata_sha256": "d7de070ae4379246d8e26eece0ffe656ad44ba30fdc853bdc0af0957bc8a3a04",
+    "private": true,
+    "internet_enabled": false,
+    "non_python_runtime_files": [
+      "入力/公式ソース/ARC-AGI-2/data/training/93b4f4b3.json",
+      "接続/ARC2/テンプレート充填教材.json"
+    ],
+    "evaluation_or_hidden_files_in_payload": false
+  },
+  "kaggle_kernel": {
+    "slug": "tecchannn/arc2-codex-main-baseline-v1",
+    "version": 9,
+    "push_accepted": true,
+    "status": "KernelWorkerStatus.RUNNING",
+    "observed_at_utc": "2026-10-24T22:45:51Z",
+    "timeout_seconds": 1200,
+    "official_submission": false
+  },
+  "official_history_at_last_observation": {
+    "submission_id": 57576155,
+    "status": "COMPLETE",
+    "public_score": "0.00",
+    "observed_at_utc": "2026-10-24T22:20:25.322040Z",
+    "new_submission_or_rerun": false
+  },
+  "pending_gates": [
+    "Kaggle private kernel version 9 completion",
+    "download and validate submission.json and output hash",
+    "recheck official rules, timeline, UTC date, score history, quota and 24-hour condition before any official submission"
+  ]
+}

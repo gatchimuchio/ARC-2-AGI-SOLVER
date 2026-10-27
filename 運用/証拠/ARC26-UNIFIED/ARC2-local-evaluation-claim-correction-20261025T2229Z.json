@@ -1,0 +1,19 @@
+{
+  "schema": "arc2-local-evaluation-claim-correction-v1",
+  "observed_at_utc": "2026-10-25T22:29:10Z",
+  "claim_corrected": "ARC2 public-evaluation v17 local report claimed 116/120 solved tasks and 167/172 correct examples.",
+  "v17_evidence": "運用/証拠/ARC26-UNIFIED/ARC2-public-evaluation-v17-safe-runtime-score-20261025T184600Z.json",
+  "v17_evidence_sha256": "89c6394caca513f8234a94f8319bbba9ca0da4809ff977b5e3ef88076a21f37b",
+  "alignment_audit": "出力/Kaggle/arc2-v25-public-failures-candidate-pool-20261026/exact-input-alignment-audit-20261026.json",
+  "alignment_audit_sha256": "39fffc27c9c972538feb81303b8a82ca9d2109808a34bb574238d86fc12059c4",
+  "challenge_examples": 172,
+  "available_exactly_matched_labels": 167,
+  "matched_examples_correct": 167,
+  "fully_labeled_tasks_solved": 115,
+  "fully_labeled_tasks": 115,
+  "unmatched_examples": 5,
+  "unmatched_correctness": "UNKNOWN",
+  "official_kaggle_score": false,
+  "v25_claim": "A separate apparent +1 changes no matched-example prediction; the only changed prediction is on an unmatched input, so it is not verified improvement.",
+  "interpretation": "Use 167/167 matched examples and 115/115 fully labeled tasks as the supported local result. Do not count the five unmatched examples or report 116/120 as verified."
+}

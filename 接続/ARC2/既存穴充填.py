@@ -182,7 +182,7 @@ def _template_hole_pack_candidates(
                 height,
                 template_width,
                 0,
-                width - template_width,
+                0,
             )
         )
     for template_height in range(3, height - 2):

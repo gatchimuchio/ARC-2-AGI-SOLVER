@@ -1,0 +1,53 @@
+{
+  "schema": "arc2-object-single-vote-relaxed-v60-exact-paired-v1",
+  "policy": "accept a unique plurality object-model output with one or more votes instead of requiring at least two votes; preserve existing family confidence priority",
+  "loo_eligible_folds": 2916,
+  "loo_candidate_proposal_folds_all": 72,
+  "loo_candidate_proposal_folds_sampled": 72,
+  "loo_sample_policy": "evenly spaced deterministic sample from sorted training task/fold proposals",
+  "loo_exact_v51_bundle_paired_sample": {
+    "v51_exact": 51,
+    "candidate_exact_outputs": 51,
+    "candidate_usable_when_v51_slot_duplicate": 3,
+    "newly_correct": 0,
+    "regressions": 0
+  },
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "challenge_tasks_with_candidates": 5,
+  "challenge_examples_with_candidates": 5,
+  "challenge_candidate_tasks_exact_v51_bundle_paired": {
+    "examples_evaluated_in_candidate_tasks": 5,
+    "baseline_exact_examples": 5,
+    "combined_exact_examples": 5,
+    "candidate_proposals": 5,
+    "candidate_exact_outputs": 5,
+    "candidate_usable_when_v51_slot_duplicate": 0,
+    "newly_correct_examples": 0,
+    "regressions": 0,
+    "baseline_exact_tasks": 5,
+    "combined_exact_tasks": 5,
+    "newly_correct_tasks": 0,
+    "regressed_tasks": 0
+  },
+  "exact_v51_runtime_tasks": 77,
+  "exact_v51_runtime_seconds": 191.198,
+  "exact_v51_fallback_count": 61,
+  "exact_v51_temporary_output_sha256": {
+    "submission": "14893065a46e8b2a825aec8edb4d0790c15939234415f66308e839ee6b5ae7a6",
+    "audit": "c984dfe239522f0bef7224939f6f1152ef35a7c1e7358d1e8a852490b212ec25"
+  },
+  "candidate_runtime_received_heldout_outputs": false,
+  "exact_v51_runtime_received_heldout_or_challenge_targets": false,
+  "all_targets_read_after_both_prediction_sets": true,
+  "per_task_ids_grids_or_targets_saved": false,
+  "temporary_outputs_and_payload_removed": true,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "8808771b32f19ed53b834d0749cccd9b9cf3462dbd712ad78f0e5a329004c310",
+    "v51_background_probe": "26214fbf3e0e2e975571e0e898e61e37e52ff22f5c8b0400ff82053ac1632d95",
+    "challenge_inputs": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "v51_build_manifest": "ebdd96836be417c0257030a115c6a6043a46c9471611af63000f677a75104c85",
+    "object_module": "d0bd26fb4e6619ca20bc6dc8b02d2aa569769392825140c77170978adaac2fd5"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schema": "arc2-cropped-periodic-d4-challenge-probe-v1",
+  "challenge_tasks": 240,
+  "challenge_test_examples": 259,
+  "candidate_generation_completed_before_labels_loaded": true,
+  "runtime_received_targets": false,
+  "labels_source": "public ARC-AGI-2 training outputs; offline scorecard only",
+  "baseline_submission_sha256": "08d0dc111f97c9f3a909955296fc58d46ea0c4514fe66e75169526723359f017",
+  "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "cropped_periodic_d4_module_sha256": "fe3612c0566bf6dff1ae345fe5499f3c482ef5d96b121b6b99cab1e7a7de4ac3",
+  "composite_geometry_module_sha256": "b7ee7d9c9ccc3767f47dccdef25b378c961a8e150f145fc1c11860e4e5e4ac39",
+  "cropped_periodic_d4_fit_examples": 3,
+  "cropped_periodic_d4_distinct_from_primary_examples": 1,
+  "composite_geometry_fit_examples": 1,
+  "composite_geometry_selected_attempt2": 1,
+  "cropped_periodic_d4_selected_attempt2_after_composite_priority": 0,
+  "v16_baseline": {
+    "correct_tasks": 8,
+    "correct_examples": 9,
+    "distinct_attempt_pairs": 0
+  },
+  "v18_reconstructed": {
+    "correct_tasks": 9,
+    "correct_examples": 10,
+    "distinct_attempt_pairs": 1
+  },
+  "v19_combined_candidate": {
+    "correct_tasks": 9,
+    "correct_examples": 10,
+    "distinct_attempt_pairs": 1
+  },
+  "delta_v19_vs_v18_tasks": 0,
+  "delta_v19_vs_v18_examples": 0,
+  "newly_correct_tasks_vs_v18": 0,
+  "regressed_tasks_vs_v18": 0,
+  "official_competition_score": "UNKNOWN_NOT_SUBMITTED"
+}

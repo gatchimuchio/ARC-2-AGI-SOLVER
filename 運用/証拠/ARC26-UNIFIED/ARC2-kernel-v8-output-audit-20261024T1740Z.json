@@ -1,0 +1,54 @@
+{
+  "track": "ARC2",
+  "experiment_id": "ARC2-KERNEL-V8-NBFORMAT-CELL-ID",
+  "observed_at_utc": "2026-10-24T17:40:43Z",
+  "kernel": {
+    "slug": "tecchannn/arc2-codex-main-baseline-v1",
+    "version": 8,
+    "exact_version_query": true,
+    "status": "COMPLETE",
+    "private_kernel_execution": true,
+    "official_competition_submission": false
+  },
+  "change_under_review": "Notebook builder adds a deterministic 12-hex cell id; solver logic is unchanged.",
+  "bundle": {
+    "notebook_sha256": "d30813ecbfb724ec4b62e23a9c5a9d558ad7496edfb919b0d2fe863317143c69",
+    "manifest_sha256": "c857ef13940e525d412294125e2cd3f6a2fa917337bb5f9d31298b2198930d75"
+  },
+  "output": {
+    "tasks": 240,
+    "test_examples": 259,
+    "attempts_per_test": 2,
+    "all_attempt_pairs_and_grids_valid": true,
+    "distinct_attempt_2_count": 0,
+    "fallback_count": 254,
+    "fallback_reasons": [
+      "solver_hold"
+    ],
+    "fallback_solver_status_count": 1,
+    "runtime_seconds": 343.718,
+    "audit_submission_sha256": "c34dcdd39e1afacba8c2fe992ffd93378c92bbbde3885a58f43f3fd02253bcb2",
+    "submission_sha256": "c34dcdd39e1afacba8c2fe992ffd93378c92bbbde3885a58f43f3fd02253bcb2",
+    "audit_hash_matches": true,
+    "log_missing_id_field_warning_count": 0,
+    "log_traceback_count": 0,
+    "log_exception_count": 0,
+    "log_error_count": 0
+  },
+  "comparison_with_v7": {
+    "v7_submission_sha256": "c34dcdd39e1afacba8c2fe992ffd93378c92bbbde3885a58f43f3fd02253bcb2",
+    "identical_submission_bytes": true,
+    "v7_runtime_seconds": 343.763,
+    "runtime_delta_seconds": -0.045,
+    "v7_missing_id_field_warning_count": 1,
+    "v8_missing_id_field_warning_count": 0,
+    "solver_output_changed": false
+  },
+  "decision": "FORMAT_COMPATIBILITY_PASS_SOLVER_QUALITY_UNCHANGED",
+  "interpretation": "The cell-id warning is absent and the private run completed. Output bytes are identical to v7, so this establishes a notebook-format compatibility fix only; solver accuracy remains unknown. The 254 HOLD fallbacks are not counted correct.",
+  "evidence_files": [
+    "出力/Kaggle/arc2-kernel-v8-output-versioned-20261024T1740Z/submission.json",
+    "出力/Kaggle/arc2-kernel-v8-output-versioned-20261024T1740Z/submission_audit.json",
+    "出力/Kaggle/arc2-kernel-v8-output-versioned-20261024T1740Z/arc2-codex-main-baseline-v1.log"
+  ]
+}

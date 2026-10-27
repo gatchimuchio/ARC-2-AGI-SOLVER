@@ -1,0 +1,45 @@
+{
+  "schema": "arc2-aux-candidate-probe-v1",
+  "candidate_generation_completed_before_labels_loaded": true,
+  "labels_source": "public ARC-AGI-2 training files, offline scorecard only",
+  "challenge_tasks": 240,
+  "challenge_test_examples": 259,
+  "simple_transform": {
+    "candidate_tasks_with_any_prediction": 3,
+    "candidate_predicted_examples": 3,
+    "candidate_exact_tasks": 3,
+    "candidate_exact_examples": 3,
+    "baseline_correct_tasks": 5,
+    "baseline_correct_examples": 6,
+    "candidate_as_attempt_2_correct_tasks": 5,
+    "candidate_as_attempt_2_correct_examples": 6,
+    "delta_correct_tasks": 0,
+    "delta_correct_examples": 0,
+    "newly_correct_tasks": 0,
+    "regressed_tasks": 0
+  },
+  "feature_neighbor": {
+    "candidate_tasks_with_any_prediction": 5,
+    "candidate_predicted_examples": 5,
+    "candidate_exact_tasks": 2,
+    "candidate_exact_examples": 2,
+    "baseline_correct_tasks": 5,
+    "baseline_correct_examples": 6,
+    "candidate_as_attempt_2_correct_tasks": 5,
+    "candidate_as_attempt_2_correct_examples": 6,
+    "delta_correct_tasks": 0,
+    "delta_correct_examples": 0,
+    "newly_correct_tasks": 0,
+    "regressed_tasks": 0
+  },
+  "integration_assumption": "candidate is offered as attempt_2; baseline attempt_1 is preserved and baseline attempt_2 is retained when the candidate is absent or duplicates attempt_1",
+  "not_production_gate_equivalence": true,
+  "official_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "3ab0ca929eca34f6b778a6a1866d6931f2df1f5c1f56d652d55918352e05e030",
+    "challenge_inputs": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "baseline_submission": "1185244299abe142cfae823ee0b0c811bb03e70a6e2e40cb23cd8c08222bab0a",
+    "simple_transform": "efe210a4e183de93b5318aadeac7d2b5022a562189839b2ce1a414d367b5b0d3",
+    "feature_neighbor": "5cd2e0d39709576702dfa42474c1232ca0e14371e486ad4dfc7b35f8f0ac8726"
+  }
+}

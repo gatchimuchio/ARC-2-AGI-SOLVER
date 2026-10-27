@@ -1,0 +1,34 @@
+{
+  "schema": "arc2-official-one-shot-attempt-result-v1",
+  "created_at_utc": "2026-10-27T00:17:13.131576+00:00",
+  "intent_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-official-submit-intent-20261027.json",
+  "intent_sha256": "59714bc72c3fe699349e741289daa8a3c6133301454b21a70730e426ea6031cb",
+  "cli_invocations": 1,
+  "cli_returncode": 0,
+  "accepted_response": true,
+  "ambiguous_or_failed": false,
+  "response": {
+    "状態": "提出受理・採点結果未確認",
+    "competition": "arc-prize-2026-arc-agi-2",
+    "kernel": "tecchannn/arc2-v61-local-teacher-pair-consensus-candidate",
+    "version": 1,
+    "submission_ref": 57682971,
+    "created_at": "2026-10-27T00:17:12.992015+00:00",
+    "提出ゲート": {
+      "許可": true,
+      "competition": "arc-prize-2026-arc-agi-2",
+      "utc_day": "2026-10-27",
+      "latest_ref": 57646990,
+      "latest_status": "COMPLETE",
+      "latest_public_score": "",
+      "today_submission_refs": [],
+      "scoreless_timeout_retry": true,
+      "理由": "直近提出はKaggleが実行時間超過と明記した終端失敗です。UTC日次枠と24時間条件を満たした修正版の再試行を許可します。"
+    },
+    "提出記録": "C:\\Users\\ohira\\OneDrive\\ドキュメント\\ChatGPT\\ARC２\\出力\\Kaggle\\arc2-v61-local-teacher-pair-consensus-candidate\\v1\\提出記録-57682971.json"
+  },
+  "cli_stdout": "{\n  \"状態\": \"提出受理・採点結果未確認\",\n  \"competition\": \"arc-prize-2026-arc-agi-2\",\n  \"kernel\": \"tecchannn/arc2-v61-local-teacher-pair-consensus-candidate\",\n  \"version\": 1,\n  \"submission_ref\": 57682971,\n  \"created_at\": \"2026-10-27T00:17:12.992015+00:00\",\n  \"提出ゲート\": {\n    \"許可\": true,\n    \"competition\": \"arc-prize-2026-arc-agi-2\",\n    \"utc_day\": \"2026-10-27\",\n    \"latest_ref\": 57646990,\n    \"latest_status\": \"COMPLETE\",\n    \"latest_public_score\": \"\",\n    \"today_submission_refs\": [],\n    \"scoreless_timeout_retry\": true,\n    \"理由\": \"直近提出はKaggleが実行時間超過と明記した終端失敗です。UTC日次枠と24時間条件を満たした修正版の再試行を許可します。\"\n  },\n  \"提出記録\": \"C:\\\\Users\\\\ohira\\\\OneDrive\\\\ドキュメント\\\\ChatGPT\\\\ARC２\\\\出力\\\\Kaggle\\\\arc2-v61-local-teacher-pair-consensus-candidate\\\\v1\\\\提出記録-57682971.json\"\n}\n",
+  "cli_stderr": "",
+  "score_observed": false,
+  "next_action": "Immediately query official history; bind accepted ID to exact version/assets and follow same ID to numeric score. Never resend this attempt."
+}

@@ -1,0 +1,73 @@
+{
+  "schema": "arc26-arc2-p5-fallback-summary-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-25T00:53:32Z",
+  "official_current": {
+    "submission_id": 57611018,
+    "status": "COMPLETE",
+    "public_score": 0.0,
+    "output_file": "出力/Kaggle/arc2-codex-main-baseline-v1/v7/remote-output-v9/submission.json",
+    "output_sha256": "c34dcdd39e1afacba8c2fe992ffd93378c92bbbde3885a58f43f3fd02253bcb2",
+    "audit_file": "出力/Kaggle/arc2-codex-main-baseline-v1/v7/remote-output-v9/submission_audit.json",
+    "audit_sha256": "e4c430609cf6cfef2b044980d6450bae9743360dfc1d2f3889da049729c9cd48",
+    "validation_file": "出力/Kaggle/arc2-codex-main-baseline-v1/v7/remote-output-v9/output-validation.json",
+    "validation_sha256": "943fcb1b01e3ea0c61989f9f0e01749ad4ccdfe7ad37988750461c5d76442aa1",
+    "test_examples": 259,
+    "fallback_count": 254,
+    "fallback_reason_counts": {
+      "solver_hold": 254
+    },
+    "fallback_solver_status_counts": {
+      "断定保留": 254
+    },
+    "detailed_hold_reason_available": false,
+    "format_status": "FORMAT_VALID",
+    "fallback_counted_correct": false,
+    "correctness_score_measured": false,
+    "evaluation_solutions_read": false,
+    "task_ids_or_grids_saved": false
+  },
+  "prior_258_fallback_diagnostic": {
+    "submission_id": 57576155,
+    "public_score": 0.0,
+    "audit_file": "運用/証拠/ARC2_公式スコア起点_20261024/KaggleNotebook_v2_出力/submission_audit.json",
+    "audit_sha256": "295e653ccccefe3b111f6d4f85ef5dc43f181b9d228e7f7cffae81a82858ffaa",
+    "diagnostic_file": "運用/証拠/ARC2_公式スコア起点_20261024/HDS_test_hold_reason_diagnostics.json",
+    "fallback_count": 258,
+    "audit_reason_counts": {
+      "solver_hold": 257,
+      "AssemblyIncomplete": 1
+    },
+    "solver_status_counts": {
+      "断定保留": 257,
+      "出力": 1
+    },
+    "hold_reason_counts_overlapping": {
+      "現行暫定原理の適用に必要な観測が不足している": 257,
+      "原因未確定で隔離中の原理が存在する": 2
+    },
+    "fallback_not_equivalent_to_wrong_or_correct": true,
+    "ids_and_grids_saved": false
+  },
+  "interpretation": {
+    "official_zero_score_does_not_measure_per_item_correctness": true,
+    "v9_subtype_not_inferred_from_prior_v5_diagnostic": true,
+    "fallback_count_change_is_not_an_accuracy_delta": true
+  },
+  "candidate_evidence": {
+    "experiment_id": "ARC2-C2-068-HDS-ADMITTED-CANDIDATE-CONSENSUS",
+    "public_training_tasks": 267,
+    "matched_loo_folds": 1191,
+    "exact_previous": 16,
+    "exact_current": 17,
+    "exact_delta": 1,
+    "fallback_previous": 1175,
+    "fallback_current": 1174,
+    "wrong_previous": 0,
+    "wrong_current": 0,
+    "regressions": 0,
+    "official_score_after_submission": 0.0,
+    "limitation": "public-training LOO result; fallback reduction is not a correct-answer count"
+  },
+  "next_action": "Use only generic HDS mechanisms; propose a testable cause for insufficient observations, then compare previous/current/delta on matched public-training LOO, regression, and runtime before any promotion."
+}

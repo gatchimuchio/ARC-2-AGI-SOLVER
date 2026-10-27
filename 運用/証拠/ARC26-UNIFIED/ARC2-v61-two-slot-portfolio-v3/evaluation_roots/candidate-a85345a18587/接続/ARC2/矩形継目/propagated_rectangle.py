@@ -1,0 +1,149 @@
+"""Exact partial-contact propagation for frozen155's unchanged CSP.
+
+Two already-placed filled rectangles have their complete common boundary fixed.
+A failed seam-or-wall certificate cannot be repaired by any future placement.
+This module excludes only such impossible branches; no ranking/new prior.
+"""
+from dataclasses import dataclass
+from collections import Counter
+from . import anchored_rectangle as base
+from .touching_rectangle import observe
+from .seam_rectangle import certify_contacts
+
+PRIOR='double_wall_saturation_then_anchored_rectangle_seam_or_wall'
+@dataclass(frozen=True)
+class State:
+    programs: tuple=(PRIOR,)
+
+
+def fixed_contact(role,a,b,normalized,meter):
+    """Return exactly the 154 seam record for one already-fixed rectangle pair."""
+    meter.charge(1,'fixed_pair_geometry')
+    i,r,c=a;j,s,t=b
+    h,w,cells,pixels=normalized[i];hh,ww,other,other_pixels=normalized[j]
+    if r+h==s and max(c,t)<min(c+w,t+ww):
+        axis=0;left=a;right=b
+        coordinates=[((r+h-1,col),(s,col)) for col in range(max(c,t),min(c+w,t+ww))]
+    elif s+hh==r and max(c,t)<min(c+w,t+ww):
+        return fixed_contact(role,b,a,normalized,meter)
+    elif c+w==t and max(r,s)<min(r+h,s+hh):
+        axis=1;left=a;right=b
+        coordinates=[((row,c+w-1),(row,t)) for row in range(max(r,s),min(r+h,s+hh))]
+    elif t+ww==c and max(r,s)<min(r+h,s+hh):
+        return fixed_contact(role,b,a,normalized,meter)
+    else:return None
+    meter.charge(2*len(coordinates),'fixed_contact_profile')
+    first=[pixels[(x-r,y-c)] for (x,y),q in coordinates]
+    second=[other_pixels[(x-s,y-t)] for p,(x,y) in coordinates]
+    equal=first==second
+    wall=all(v==role['border'] for v in first) or all(v==role['border'] for v in second)
+    return dict(pieces=(i,j),axis=axis,profiles=[first,second],equal=equal,wall=wall,passes=equal or wall)
+
+
+def seam_assemble(grid,role,meter):
+    gh,gw=len(grid),len(grid[0]);pieces=role['pieces']
+    area=sum(p['area'] for p in pieces);host=role['host'];anchor=role['anchor'];sr,sc=role['signs']
+    border=role['border'];bg=role['background'];models=[];shapes=[];rejections=[]
+    source_counts=Counter(v for p in pieces for r,c,v in p['cells']);normalized=[]
+    for p in pieces:
+        r0,c0,r1,c1=p['bbox'];cells=tuple((r-r0,c-c0,v) for r,c,v in p['cells'])
+        normalized.append((r1-r0+1,c1-c0+1,cells,{(r,c):v for r,c,v in cells}))
+    def feasible(i,r,c,h,w,occupied):
+        meter.charge(1,'placement');ph,pw,cells,pixels=normalized[i]
+        if r<0 or c<0 or r+ph>h or c+pw>w:return None
+        moved=tuple((r+dr,c+dc,v) for dr,dc,v in cells)
+        if any((rr,cc) in occupied for rr,cc,v in moved):return None
+        if any(v!=border for rr,cc,v in moved if rr in (0,h-1) or cc in (0,w-1)):return None
+        return moved
+    for h in range(1,gh+1):
+        meter.charge(1,'shape')
+        if area%h:continue
+        w=area//h
+        if w>gw:continue
+        top=anchor[0] if sr==1 else anchor[0]-h+1
+        left=anchor[1] if sc==1 else anchor[1]-w+1
+        if top<0 or left<0 or top+h>gh or left+w>gw:continue
+        ph,pw,_,_=normalized[host];hr=0 if sr==1 else h-ph;hc=0 if sc==1 else w-pw
+        shapes.append([h,w]);first=feasible(host,hr,hc,h,w,set())
+        if first is None:continue
+        def visit(occupied,remaining,paint,placements):
+            meter.charge(1,'node')
+            if not remaining:
+                if len(occupied)!=area or Counter(v for r,c,v in paint)!=source_counts:
+                    raise ValueError('terminal_ownership_failure')
+                out=[[bg]*gw for _ in range(gh)]
+                for r,c,v in paint:out[top+r][left+c]=v
+                models.append((tuple(map(tuple,out)),placements));return
+            r,c=next((r,c) for r in range(h) for c in range(w) if (r,c) not in occupied)
+            for i in remaining:
+                moved=feasible(i,r,c,h,w,occupied)
+                if moved is None:continue
+                proposed=(i,r,c);violations=[]
+                # All contacts to the newly fixed whole rectangle are immutable.
+                for previous in placements:
+                    contact=fixed_contact(role,previous,proposed,normalized,meter)
+                    if contact is not None and not contact['passes']:violations.append(contact)
+                if violations:
+                    rejections.append(dict(shape=(h,w),prefix=placements,proposed=proposed,violations=violations))
+                    continue
+                visit(occupied|{(r,c) for r,c,v in moved},tuple(j for j in remaining if j!=i),paint+moved,placements+(proposed,))
+        visit({(r,c) for r,c,v in first},tuple(i for i in range(len(pieces)) if i!=host),first,((host,hr,hc),))
+    grids={out for out,placements in models}
+    rec=dict(role={k:v for k,v in role.items() if k!='pieces'},piece_count=len(pieces),candidate_shapes=shapes,
+             feasible_arrangements=len(models),distinct_outputs=len(grids),placements=[p for out,p in models],
+             irreversible_rejections=rejections)
+    if not models:return None,dict(rec,failure='no_complete_assembly')
+    if len(grids)!=1:return None,dict(rec,failure='assembly_disagreement')
+    return next(iter(grids)),rec
+
+
+def predict(state,grid,*,budget=base.LIMIT):
+    if not isinstance(state,State) or state.programs!=(PRIOR,):
+        return None,{'status':'HOLD','failure':'invalid_state'}
+    if type(budget)is not int or not 1<=budget<=base.LIMIT:
+        return None,{'status':'HOLD','failure':'invalid_budget'}
+    meter=base.WorkBudget(budget);role_returns=[]
+    try:
+        roles,observation=observe(grid,meter)
+        if not roles:return None,{'status':'HOLD','failure':'no_structural_role','observation':observation}
+        for role in roles:
+            _,geometry=seam_assemble(grid,role,meter)
+            candidates=[];feasible=[]
+            for placements in geometry['placements']:
+                accepted,contacts,painted=certify_contacts(role,placements,meter)
+                candidates.append(dict(placements=placements,contacts=contacts,seam_qualified=accepted))
+                if not accepted:continue
+                h=max(r for r,c in painted)+1;w=max(c for r,c in painted)+1
+                sr,sc=role['signs'];ar,ac=role['anchor']
+                top=ar if sr==1 else ar-h+1;left=ac if sc==1 else ac-w+1
+                out=[[role['background']]*len(grid[0]) for _ in grid]
+                for (r,c),v in painted.items():out[top+r][left+c]=v
+                feasible.append(tuple(map(tuple,out)))
+            grids=set(feasible)
+            failure=('no_seam_qualified_assembly' if not feasible else
+                     'seam_qualified_outputs_disagree' if len(grids)!=1 else None)
+            role_returns.append((next(iter(grids)) if len(grids)==1 else None,
+                                 dict(geometry=geometry,all_proposals=candidates,
+                                      feasible_count=len(feasible),distinct_outputs=len(grids),failure=failure)))
+    except base.BudgetIncomplete:
+        return None,{'status':'RESOURCE_INCOMPLETE','failure':'budget_incomplete','complete':False,'work':meter.used}
+    rec=dict(status='HOLD',complete=True,work=meter.used,observation=observation,
+             all_role_returns=[r for out,r in role_returns])
+    if any(out is None for out,r in role_returns):return None,dict(rec,failure='retained_role_failed')
+    grids={out for out,r in role_returns}
+    if len(grids)!=1:return None,dict(rec,failure='retained_role_disagreement')
+    return [list(row) for row in next(iter(grids))],dict(rec,status='CANDIDATE')
+
+
+def fit(teachers):
+    if not isinstance(teachers,(list,tuple)) or len(teachers)<2:
+        return None,{'status':'HOLD','failure':'insufficient_teachers'}
+    if any(not isinstance(p,dict) or not base.valid_grid(p.get('input')) or not base.valid_grid(p.get('output')) for p in teachers):
+        return None,{'status':'HOLD','failure':'invalid_teacher'}
+    if len({tuple(map(tuple,p['input'])) for p in teachers})!=len(teachers):
+        return None,{'status':'HOLD','failure':'duplicate_teacher'}
+    state=State();returns=[predict(state,p['input']) for p in teachers]
+    exact=[out==p['output'] for p,(out,r) in zip(teachers,returns)]
+    status='RESOURCE_INCOMPLETE' if any(r['status']=='RESOURCE_INCOMPLETE' for out,r in returns) else 'FIT' if all(exact) else 'HOLD'
+    return (state if all(exact) else None),dict(status=status,fixed_prior=PRIOR,fitted_parameters=[],
+        teacher_exact=exact,all_teacher_returns=[r for out,r in returns])

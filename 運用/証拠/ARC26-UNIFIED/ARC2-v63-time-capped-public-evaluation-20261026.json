@@ -1,0 +1,57 @@
+{
+  "schema": "arc2-public-full-runtime-evaluation-v1",
+  "created_at_utc": "2026-10-26T14:36:02Z",
+  "classification": "local_public_evaluation_not_official_score",
+  "candidate": {
+    "build": "v63-time-capped-20261026",
+    "task_wall_timeout_seconds": 90,
+    "parallel_tasks": 3,
+    "build_manifest_sha256": "eebf2c2aedd16fe8960b1434a939ceda29e6c41e06ad3c2e07471588eed1aeed",
+    "payload_sha256": "77afc0065be4276a606c4a76669a2c0d7227ab8c2433a0ebf37c81d2b8a657d3",
+    "notebook_sha256": "85ce070fdb470d4597e7655741715c653777b167679077810373b22f279a1d3f",
+    "adapter_source_sha256": "43fd2c444cc1428bdfb3da3b228fca14b6ccb939c169401b1684c2b93b4092e4",
+    "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "submission_sha256": "54f6a303c4143f15279e2084d5ad798455e565b4d51cd6a2b226e4d4735af46a",
+    "audit_sha256": "3e2a6b57c80915d4b589c14952db2915a6ba48c7d3f6d6fcf1ebd7934422929f"
+  },
+  "public_run": {
+    "tasks": 240,
+    "examples": 259,
+    "runtime_seconds": 813.953,
+    "fallback_count": 249,
+    "task_wall_timeout_count": 3,
+    "solver_hold_count": 246,
+    "exact_tasks": 13,
+    "exact_examples": 14,
+    "predictions_completed_before_public_targets_read": true
+  },
+  "comparison": {
+    "baseline": "v19-local-context-second-20261026",
+    "baseline_output_sha256": "171dbfcafa394f36dfdd79914f3b1c730e293003595a7563c620eb831a127c4f",
+    "baseline_exact_tasks": 10,
+    "baseline_exact_examples": 11,
+    "gained_examples": 3,
+    "regressed_examples": 0,
+    "v62_runtime_seconds": 799.906,
+    "v62_fallback_count": 250,
+    "v62_task_wall_timeout_count": 5,
+    "v62_exact_examples": 14,
+    "v63_exact_examples": 14
+  },
+  "data_handling": {
+    "public_training_targets_used_only_after_predictions_completed": true,
+    "per_task_targets_or_predictions_persisted": false,
+    "answer_map_or_task_specific_runtime_branch_added": false
+  },
+  "official_status_at_last_readonly_check": {
+    "submission_id": 57646990,
+    "status": "COMPLETE",
+    "public_score": null,
+    "score_state": "SCORE_UNOBSERVED",
+    "history_unchanged": true,
+    "history_evidence": "official-history-20261026T143619Z.json",
+    "history_evidence_sha256": "d693dd676dec2a0e350d6026f7223b57eafee62f3945548ad7cedc9a0c30c935",
+    "new_official_candidate_submitted": false
+  },
+  "decision": "Candidate can be staged for a later official attempt only after the UTC daily and 24-hour gates pass; this local evaluation is not an official score."
+}

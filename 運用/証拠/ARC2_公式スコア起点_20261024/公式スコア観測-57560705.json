@@ -1,0 +1,56 @@
+{
+  "schema": "arc2-official-score-observation-v2",
+  "instruction_id": "ARC2-SCORE-GATE-20261024",
+  "competition": "arc-prize-2026-arc-agi-2",
+  "retrieval": {
+    "method": "Kaggle SDK competition_submissions via project .venv; same state confirmed by 接続/Kaggle操作.py 履歴",
+    "scope": "read-only official competition submission history",
+    "history_page_size": 100,
+    "history_rows_returned": 7,
+    "query_started_at_utc": "2026-10-23T23:38:40.175723+00:00",
+    "query_completed_at_utc": "2026-10-23T23:38:41.085683+00:00"
+  },
+  "submission": {
+    "submission_id": 57560705,
+    "submitted_at_utc": "2026-10-23T12:25:06.577000+00:00",
+    "status": "COMPLETE",
+    "official_public_score_raw": "0.00",
+    "official_public_score_numeric": 0.0,
+    "error_description": "",
+    "file_name": "submission.json"
+  },
+  "execution_link": {
+    "notebook_id": "tecchannn/arc2-codex-main-baseline-v1",
+    "notebook_version": 2,
+    "notebook_sha256": "47fcc2a650fc59d33c2f2182c0670e3d639bac5d92e3f4fca836c0093493a8ef",
+    "metadata_sha256": "d7de070ae4379246d8e26eece0ffe656ad44ba30fdc853bdc0af0957bc8a3a04",
+    "source_commit": "3d444f34db32d62bd2edad320648e08e8dae19d6",
+    "execution_record_created_at_utc": "2026-10-22T09:08:07.638593+00:00",
+    "runtime_seconds": 283.265,
+    "test_dataset_file": "arc-agi_test_challenges.json",
+    "test_dataset_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "test_task_count": 240,
+    "test_count": 259,
+    "official_sample_sha256": "6b372dce41ad86a941ccdcbebb2b1926fd4f011d77c824ff421d77730f169a9a",
+    "submission_json_sha256": "a0eeaaa6203d4fdd049f8aa705a8ac7832cb98240759703eb0288ad3d62b4927",
+    "submission_json_tasks": 240,
+    "submission_json_tests": 259,
+    "attempts_per_test": 2,
+    "fallback_count": 258,
+    "submission_record_created_at_utc": "2026-10-23T12:25:05.449875+00:00"
+  },
+  "referenced_local_evidence": [
+    {
+      "path": "出力/Kaggle/arc2-codex-main-baseline-v1/v2/実行記録.json",
+      "sha256": "479d9d8da704d987e000ed223afad2ea49e430414949060b6ba68235a54b4042"
+    },
+    {
+      "path": "出力/Kaggle/arc2-codex-main-baseline-v1/v2/提出記録-57560705.json",
+      "sha256": "e40e902aa081b386583164d244e8a9d9ec8058835cfe4794126307fd7608614e"
+    },
+    {
+      "path": "運用/証拠/ARC2_Kaggle日次提出_20261023/Kaggle形式検査-v2.json",
+      "sha256": "9d78e7e55d940771f36aaf714b47c95c8c7e7042ddef7c105f24ac00c3dbfe05"
+    }
+  ]
+}

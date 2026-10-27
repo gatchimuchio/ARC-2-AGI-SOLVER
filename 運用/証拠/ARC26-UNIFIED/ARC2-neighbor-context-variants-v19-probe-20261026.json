@@ -1,0 +1,175 @@
+{
+  "schema": "arc2-neighbor-context-variants-v19-probe-v1",
+  "baseline": "completed v19 full runtime",
+  "tasks": 240,
+  "examples": 259,
+  "variants": {
+    "ring8": [
+      [
+        -1,
+        -1
+      ],
+      [
+        -1,
+        0
+      ],
+      [
+        -1,
+        1
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "orthogonal4": [
+      [
+        -1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "diagonal4": [
+      [
+        -1,
+        -1
+      ],
+      [
+        -1,
+        1
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "cross_radius2": [
+      [
+        -2,
+        0
+      ],
+      [
+        -1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        0,
+        -2
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ]
+    ]
+  },
+  "results": {
+    "ring8": {
+      "fits": 63,
+      "distinct_candidates": 43,
+      "selected_into_open_attempt2": 14,
+      "baseline_exact": 11,
+      "combined_exact": 11,
+      "newly_correct": 0,
+      "regressions": 0,
+      "baseline_exact_tasks": 10,
+      "combined_exact_tasks": 10,
+      "newly_correct_tasks": 0,
+      "regressed_tasks": 0
+    },
+    "orthogonal4": {
+      "fits": 67,
+      "distinct_candidates": 59,
+      "selected_into_open_attempt2": 22,
+      "baseline_exact": 11,
+      "combined_exact": 11,
+      "newly_correct": 0,
+      "regressions": 0,
+      "baseline_exact_tasks": 10,
+      "combined_exact_tasks": 10,
+      "newly_correct_tasks": 0,
+      "regressed_tasks": 0
+    },
+    "diagonal4": {
+      "fits": 65,
+      "distinct_candidates": 65,
+      "selected_into_open_attempt2": 25,
+      "baseline_exact": 11,
+      "combined_exact": 11,
+      "newly_correct": 0,
+      "regressions": 0,
+      "baseline_exact_tasks": 10,
+      "combined_exact_tasks": 10,
+      "newly_correct_tasks": 0,
+      "regressed_tasks": 0
+    },
+    "cross_radius2": {
+      "fits": 68,
+      "distinct_candidates": 68,
+      "selected_into_open_attempt2": 23,
+      "baseline_exact": 11,
+      "combined_exact": 11,
+      "newly_correct": 0,
+      "regressions": 0,
+      "baseline_exact_tasks": 10,
+      "combined_exact_tasks": 10,
+      "newly_correct_tasks": 0,
+      "regressed_tasks": 0
+    }
+  },
+  "runtime_received_challenge_targets": false,
+  "targets_read_only_after_all_candidate_predictions": true,
+  "per_task_predictions_or_targets_saved": false,
+  "data_use": "public ARC-AGI-2 training outputs for offline scoring only",
+  "source_sha256": {
+    "runner": "3e1bc4f438afe14790aa570e93cf1939dd373409a1f8824ebba53e8e6e6586d4",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "baseline_submission": "171dbfcafa394f36dfdd79914f3b1c730e293003595a7563c620eb831a127c4f"
+  }
+}

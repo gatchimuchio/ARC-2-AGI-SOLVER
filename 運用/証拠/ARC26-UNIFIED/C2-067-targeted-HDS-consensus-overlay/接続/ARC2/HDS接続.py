@@ -1,0 +1,526 @@
+"""既存テンプレート穴充填候補を既存HDSの学習・照会へ渡す。"""
+from __future__ import annotations
+
+from copy import deepcopy
+import json
+from pathlib import Path
+import sys
+
+from hds学習系統 import HDS学習実行系, 最小排気系
+from hds学習系統.型 import 学習入力, 観測事実
+from .既存穴充填 import _template_hole_pack_render
+from .既存入れ子合成 import _nested_panel_relation_render
+from .既存領域転写 import _dual_region_hole_palette_render
+from .未観測端対応合成 import 未観測端対応合成教材 as 端投射教材
+from .凡例穴対応 import 凡例穴教材
+from .色群充填 import 色群充填教材
+from .物体群整列 import 物体群教材
+from .格子自己マスク import 格子自己マスク教材
+from .既存辺対応抽出 import 辺対応候補
+from .成分経路教材 import 成分経路教材
+from .対角線橋教材 import 対角線橋教材
+from .対角領域教材 import 対角領域教材
+from .軸反射教材 import 軸反射教材
+from .周期組修復教材 import 周期組修復教材
+from .格子D4教材 import 格子D4教材
+from .全前景平行移動教材 import 全前景平行移動教材
+from .C2_066_compound_foreground_D4_palette_translation import CompoundForegroundD4PaletteTranslation
+from .部分見本教材 import 部分見本教材
+from .穴形拡大教材 import 穴形拡大教材
+from .標識移動教材 import 標識移動教材
+from .放射組立教材 import 放射組立教材
+from .穴輪郭教材 import 穴輪郭教材
+from .形状色教材 import 形状色教材
+from .凡例経路教材 import 凡例経路教材
+from .行周期教材 import 行周期教材
+from .重畳組立教材 import 重畳組立教材
+from .空白移動教材 import 空白移動教材
+from .順位着色教材 import 順位着色教材
+from .距離層教材 import 距離層教材
+from .対称剪定教材 import 対称剪定教材
+from .反復行教材 import 反復行教材
+from .種境界教材 import 種境界教材
+from .流路教材 import 流路教材
+from .成分直列教材 import 成分直列教材
+from .十字教材 import 十字教材
+from .枠計数教材 import 枠計数教材
+from .標識計数教材 import 標識計数教材
+from .標識組立教材 import 標識組立教材
+from .倍率置換教材 import 倍率置換教材
+from .包含正規化教材 import 包含正規化教材
+from .周期帯教材 import 周期帯教材
+from .中心配色教材 import 中心配色教材
+from .正方形格子教材 import 正方形格子教材
+from .側周期教材 import 側周期教材
+from .区切投射教材 import 区切投射教材
+from .物体slot教材 import 物体slot教材
+from .疎点転写教材 import 疎点転写教材
+from .帯輪郭教材 import 帯輪郭教材
+from .制御複写教材 import 制御複写教材
+from .配置展開教材 import 配置展開教材
+from .格子基点複製接続 import 基点複製教材
+from .接触配置教材 import 接触配置教材
+from .凡例展開教材 import 凡例展開教材
+from .枠列整列教材 import 枠列整列教材
+from .凡例旋回教材 import 凡例旋回教材
+from .帯図形教材 import 帯図形教材
+from .二値原型教材 import 二値原型教材
+from .象限配色教材 import 象限配色教材
+from .凡例集合教材 import 凡例集合教材
+from .二軸補完教材 import 二軸補完教材
+from .四欄反復教材 import 四欄反復教材
+from .軸投射教材 import 軸投射教材
+from .記号命令教材 import 記号命令教材
+from .櫛配置教材 import 櫛配置教材
+from .開口壁教材 import 開口壁教材
+from .遮蔽区画教材 import 遮蔽区画教材
+from .凡例矩形教材 import 凡例矩形教材
+from .十字曲線教材 import 十字曲線教材
+from .支持構造教材 import 支持構造教材
+from .標点組立教材 import 標点組立教材
+from .距離回収教材 import 距離回収教材
+from .枠端積層教材 import 枠端積層教材
+from .標識軸転写教材 import 標識軸転写教材
+from .見本格子分類教材 import 見本格子分類教材
+from .色線反射合成教材 import 色線反射教材
+from .境界点周期教材 import 境界点周期教材
+from .有限字形視野教材 import 有限字形視野教材
+from .帯profile積層教材 import 帯profile積層教材
+from .計数棒迂回教材 import 計数棒迂回教材
+from .境界色経路教材 import 境界色経路教材
+from .全足跡整列教材 import 全足跡整列教材
+from .矢印到達教材 import 矢印到達教材
+from .標識水路教材 import 標識水路教材
+from .隅模様転写教材 import 隅模様転写教材
+from .合同物体出口教材 import 合同物体出口教材
+from .全体模様窓必要条件教材 import 全体模様窓必要条件教材
+from .全体接触教材 import 全体接触教材
+from .計数色層旋回教材 import 計数色層旋回教材
+from .対辺標点配置教材 import 対辺標点配置教材
+from .連結箱参照教材 import 連結箱参照教材
+from .領域指令教材 import 領域指令教材
+from .全panel端連鎖教材 import 全panel端連鎖教材
+from .矩形継目教材 import 矩形継目教材
+from .観測成長教材 import 観測成長教材
+from .遮蔽端接続教材 import 遮蔽端接続教材
+from .空洞種伝播教材 import 空洞種伝播教材
+from .標点巡回教材 import 標点巡回教材
+from .受動凡例転写教材 import 受動凡例転写教材
+from .直交領域所有核 import 直交領域所有教材
+from .局所軌条鎖所有教材 import 局所軌条鎖所有教材
+from .境界表穴転写教材 import 境界表穴転写教材
+from .多面欠損所有教材 import 多面欠損所有教材
+from .枠質量保存教材 import 枠質量保存教材
+from .斜端点間隙教材 import 斜端点間隙教材
+from .標識経路層教材 import 標識経路層教材
+from .特徴条件整列教材 import 特徴条件整列教材
+from .周期枠位相教材 import 周期枠位相教材
+from .有限例外光線教材 import 有限例外光線教材
+
+
+def 事前教材を読む():
+    """固定したtraining教材の参照。現在課題の識別子は受け取らない。"""
+    ルート = Path(__file__).resolve().parents[2]
+    参照 = json.loads(
+        Path(__file__).with_name("テンプレート充填教材.json").read_text(encoding="utf-8")
+    )
+    if 参照["分割"] != "training":
+        raise ValueError("事前教材はtraining分割に限定する")
+    教材, 既出 = [], set()
+    for 出典 in 参照["教材"]:
+        原本 = json.loads(
+            (ルート / "入力/公式ソース/ARC-AGI-2/data/training" / f"{出典['課題ID']}.json")
+            .read_text(encoding="utf-8")
+        )
+        for 位置 in 出典["訓練例位置"]:
+            鍵 = (出典["課題ID"], 位置)
+            if 鍵 in 既出:
+                raise ValueError("同一の教師観測を重複して支持へ加算しない")
+            既出.add(鍵)
+            教材.append(原本["train"][位置])
+    return 教材
+
+
+def 有効格子(格子):
+    return (
+        isinstance(格子, list) and 1 <= len(格子) <= 30
+        and all(
+            isinstance(行, list) and 1 <= len(行) <= 30
+            and len(行) == len(格子[0])
+            and all(type(色) is int and 0 <= 色 <= 9 for 色 in 行)
+            for 行 in 格子
+        )
+    )
+
+
+def 観測へ(内容, 境界):
+    内容 = deepcopy(内容)
+    return 学習入力(
+        原入力=内容, 対象系境界=境界,
+        観測群=tuple(観測事実((名,), 値, "列") for 名, 値 in 内容.items()),
+    )
+
+
+def 格子観測(対):
+    内容 = {"入力": 対["input"]}
+    if "output" in 対:
+        内容["出力"] = 対["output"]
+    return 観測へ(内容, "ARC格子変換")
+
+
+def 同値原理あり(原理群, 境界):
+    return any(
+        原理.対象系境界 == 境界
+        and 原理.関係型 == "同値関係"
+        and 原理.条件経路群 == (("候補",),)
+        and 原理.結果経路 == ("出力",)
+        for 原理 in 原理群
+    )
+
+
+def 出力格子(機械, 観測, *, 同値必須=False):
+    実行結果 = 機械.照会(観測)
+    排気 = 最小排気系().排出する(実行結果)
+    値群 = [p.予測値 for p in 実行結果.予測群 if p.結果経路 == ("出力",)]
+    同値あり = 同値原理あり(実行結果.有効原理群, 観測.対象系境界)
+    確定 = (
+        排気.状態 == "出力" and bool(値群)
+        and all(v == 値群[0] for v in 値群)
+        and 有効格子(値群[0]) and (not 同値必須 or 同値あり)
+    )
+    return {
+        "answer": 値群[0] if 確定 else None,
+        "status": 排気.状態, "reasons": 排気.内容["断定保留理由群"],
+        "equality_admitted": 同値あり,
+        "quarantined": len(実行結果.係争中原理群),
+    }
+
+
+def 候補機構を学習(機械, 課題, 事前教材, 境界, 候補器):
+    記録 = {"境界": 境界, "事前観測数": 0, "現在観測数": 0,
+            "採用可": False, "同値採用": False}
+    全再現 = True
+    for 群名, 教材群 in (("事前観測数", 事前教材), ("現在観測数", 課題["train"])):
+        for 対 in 教材群:
+            # 常に入力だけで候補を生成。expected引数は渡さない。
+            候補, 詳細 = 候補器(対["input"], {})
+            if 候補 is None:
+                return {**記録, "状態": "充足する候補なし", "詳細": 詳細}
+            全再現 = 全再現 and 候補 == 対["output"]
+            # 反例も公開学習経路へ渡す。隔離・保留を解除しない。
+            学習結果 = 機械.実行(観測へ({"候補": 候補, "出力": 対["output"]}, 境界))
+            記録[群名] += 1
+            記録["同値採用"] = 同値原理あり(学習結果.有効原理群, 境界)
+    return {**記録, "採用可": 全再現,
+            "状態": "全教師再現" if 全再現 else "教師反例により不採用",
+            "隔離数": len(学習結果.係争中原理群) if 課題["train"] or 事前教材 else 0}
+
+
+def 課題を解く(課題, 事前教材, *, 候補収集=False):
+    if set(課題) != {"train", "test"}:
+        raise ValueError("runtime課題はtrain/testだけを受け取る")
+    if any(set(対) != {"input"} for 対 in 課題["test"]):
+        raise ValueError("runtimeのtest対へ正解や識別子を渡してはならない")
+    二例 = (len(課題["train"]) == 2
+            and 課題["train"][0]["input"] != 課題["train"][1]["input"])
+    必要支持数 = 2 if 二例 else 3
+    # 課題全体に作用する明示設定。HDS中核の既定値3は変更しない。
+    機械 = HDS学習実行系(最小支持数=必要支持数)
+    for 対 in 課題["train"]:
+        機械.実行(格子観測(対))
+    基底 = [出力格子(機械, 格子観測(対)) for 対 in 課題["test"]]
+    基底だけで解決 = all(結果["answer"] is not None for 結果 in 基底)
+    if 基底だけで解決 and not 候補収集:
+        return {"results": 基底, "mechanism": "格子値基底", "minimum_support": 必要支持数}
+
+    端教材 = 端投射教材(課題["train"])
+    端教材.学習する(機械, 観測へ)
+    凡例教材 = 凡例穴教材(課題["train"], 必要支持数)
+    色群教材 = 色群充填教材(課題["train"])
+    整列教材 = 物体群教材(課題["train"])
+    整列教材.学習する(機械, 観測へ)
+    格子教材 = 格子自己マスク教材(課題["train"])
+    経路教材 = 成分経路教材(課題["train"])
+    橋教材 = 対角線橋教材(課題["train"])
+    対角教材 = 対角領域教材(課題["train"])
+    反射教材 = 軸反射教材(課題["train"])
+    格子D4 = 格子D4教材(課題["train"])
+    全前景移動 = 全前景平行移動教材(課題["train"])
+    C2_066_複合前景 = CompoundForegroundD4PaletteTranslation(課題["train"])
+    周期教材 = 周期組修復教材(課題["train"])
+    見本教材 = 部分見本教材(課題["train"])
+    拡大教材 = 穴形拡大教材(課題["train"])
+    移動教材 = 標識移動教材(課題["train"])
+    放射教材 = 放射組立教材(課題["train"])
+    輪郭教材 = 穴輪郭教材(課題["train"])
+    形状教材 = 形状色教材(課題["train"])
+    凡例経路 = 凡例経路教材(課題["train"])
+    行周期 = 行周期教材(課題["train"])
+    重畳教材 = 重畳組立教材(課題["train"])
+    空白教材 = 空白移動教材(課題["train"])
+    順位教材 = 順位着色教材(課題["train"])
+    距離教材 = 距離層教材(課題["train"])
+    剪定教材 = 対称剪定教材(課題["train"])
+    反復教材 = 反復行教材(課題["train"])
+    種境界 = 種境界教材(課題["train"])
+    流路 = 流路教材(課題["train"])
+    直列 = 成分直列教材(課題["train"])
+    十字 = 十字教材(課題["train"])
+    枠計数 = 枠計数教材(課題["train"])
+    標識計数 = 標識計数教材(課題["train"])
+    標識組立 = 標識組立教材(課題["train"])
+    倍率置換 = 倍率置換教材(課題["train"])
+    包含正規化 = 包含正規化教材(課題["train"])
+    周期帯 = 周期帯教材(課題["train"])
+    中心配色 = 中心配色教材(課題["train"])
+    正方形格子 = 正方形格子教材(課題["train"])
+    側周期 = 側周期教材(課題["train"])
+    区切投射 = 区切投射教材(課題["train"])
+    物体slot = 物体slot教材(課題["train"])
+    疎点転写 = 疎点転写教材(課題["train"])
+    帯輪郭 = 帯輪郭教材(課題["train"])
+    制御複写 = 制御複写教材(課題["train"])
+    配置展開 = 配置展開教材(課題["train"])
+    基点複製 = 基点複製教材(課題["train"])
+    接触配置 = 接触配置教材(課題["train"])
+    凡例展開 = 凡例展開教材(課題["train"])
+    枠列整列 = 枠列整列教材(課題["train"])
+    凡例旋回 = 凡例旋回教材(課題["train"])
+    帯図形 = 帯図形教材(課題["train"])
+    二値原型 = 二値原型教材(課題["train"])
+    象限配色 = 象限配色教材(課題["train"])
+    凡例集合 = 凡例集合教材(課題["train"])
+    二軸補完 = 二軸補完教材(課題["train"])
+    四欄反復 = 四欄反復教材(課題["train"])
+    軸投射 = 軸投射教材(課題["train"])
+    記号命令 = 記号命令教材(課題["train"])
+    櫛配置 = 櫛配置教材(課題["train"])
+    開口壁 = 開口壁教材(課題["train"])
+    区画計数 = 遮蔽区画教材(課題["train"])
+    凡例矩形 = 凡例矩形教材(課題["train"])
+    十字曲線 = 十字曲線教材(課題["train"])
+    支持構造 = 支持構造教材(課題["train"])
+    標点組立 = 標点組立教材(課題["train"])
+    距離回収 = 距離回収教材(課題["train"])
+    枠端積層 = 枠端積層教材(課題["train"])
+    標識軸転写 = 標識軸転写教材(課題["train"])
+    見本格子分類 = 見本格子分類教材(課題["train"])
+    色線反射 = 色線反射教材(課題["train"])
+    境界点周期 = 境界点周期教材(課題["train"])
+    有限字形視野 = 有限字形視野教材(課題["train"])
+    帯profile積層 = 帯profile積層教材(課題["train"])
+    計数棒迂回 = 計数棒迂回教材(課題["train"])
+    境界色経路 = 境界色経路教材(課題["train"])
+    全足跡整列 = 全足跡整列教材(課題["train"])
+    矢印到達 = 矢印到達教材(課題["train"])
+    標識水路 = 標識水路教材(課題["train"])
+    隅模様転写 = 隅模様転写教材(課題["train"])
+    合同物体出口 = 合同物体出口教材(課題["train"])
+    全体模様窓 = 全体模様窓必要条件教材(課題["train"])
+    全体接触 = 全体接触教材(課題["train"])
+    計数色層旋回 = 計数色層旋回教材(課題["train"])
+    対辺標点配置 = 対辺標点配置教材(課題["train"])
+    連結箱参照 = 連結箱参照教材(課題["train"])
+    領域指令 = 領域指令教材(課題["train"])
+    全panel端連鎖 = 全panel端連鎖教材(課題["train"])
+    矩形継目 = 矩形継目教材(課題["train"])
+    観測成長 = 観測成長教材(課題["train"])
+    遮蔽端接続 = 遮蔽端接続教材(課題["train"])
+    空洞種伝播 = 空洞種伝播教材(課題["train"])
+    標点巡回 = 標点巡回教材(課題["train"])
+    受動凡例転写 = 受動凡例転写教材(課題["train"])
+    直交領域所有 = 直交領域所有教材(課題["train"])
+    局所軌条鎖所有 = 局所軌条鎖所有教材(課題["train"])
+    境界表穴転写 = 境界表穴転写教材(課題["train"])
+    多面欠損所有 = 多面欠損所有教材(課題["train"])
+    枠質量保存 = 枠質量保存教材(課題["train"])
+    斜端点間隙 = 斜端点間隙教材(課題["train"])
+    標識経路層 = 標識経路層教材(課題["train"])
+    特徴条件整列 = 特徴条件整列教材(課題["train"])
+    特徴条件整列.学習する(機械, 観測へ)
+    有限例外光線 = 有限例外光線教材(課題["train"])
+    有限例外光線.学習する(機械, 観測へ)
+    周期枠位相 = 周期枠位相教材(課題["train"])
+    周期枠位相.学習する(機械, 観測へ)
+    機構群 = (
+        ("ARCテンプレート穴充填", _template_hole_pack_render, 事前教材),
+        ("ARC入れ子パネル合成", _nested_panel_relation_render, ()),
+        ("ARC閉領域パレット転写", _dual_region_hole_palette_render, ()),
+        ("ARC物体端投射", 端教材.候補, ()),
+        ("ARC凡例穴数対応", 凡例教材.候補, ()),
+        ("ARC色群テンプレート充填", 色群教材.候補, ()),
+        ("ARC物体群整列", 整列教材.候補, ()),
+        ("ARC格子自己マスク", 格子教材.候補, ()),
+        ("ARC辺対応抽出", 辺対応候補, ()),
+        ("ARC成分最短経路", 経路教材.候補, ()),
+        ("ARC対角線橋", 橋教材.候補, ()),
+        ("ARC対角領域", 対角教材.候補, ()),
+        ("ARC軸反射", 反射教材.候補, ()),
+        ("ARC格子D4変換", 格子D4.候補, ()),
+        ("ARC全前景平行移動", 全前景移動.候補, ()),
+        ("ARC複合前景D4色写像平行移動", C2_066_複合前景.候補, ()),
+        ("ARC周期組修復", 周期教材.候補, ()),
+        ("ARC部分見本転写", 見本教材.候補, ()),
+        ("ARC穴形拡大", 拡大教材.候補, ()),
+        ("ARC標識移動", 移動教材.候補, ()),
+        ("ARC放射組立", 放射教材.候補, ()),
+        ("ARC穴輪郭", 輪郭教材.候補, ()),
+        ("ARC形状色転写", 形状教材.候補, ()),
+        ("ARC凡例経路接続", 凡例経路.候補, ()),
+        ("ARC行周期合成", 行周期.候補, ()),
+        ("ARC重畳組立", 重畳教材.候補, ()),
+        ("ARC空白矩形移動", 空白教材.候補, ()),
+        ("ARCheader順位着色", 順位教材.候補, ()),
+        ("ARC距離層周期充填", 距離教材.候補, ()),
+        ("ARC最大保持対称剪定", 剪定教材.候補, ()),
+        ("ARC反復行singleton抽出", 反復教材.候補, ()),
+        ("ARCseed境界着色", 種境界.候補, ()),
+        ("ARC下向き流路", 流路.候補, ()),
+        ("ARC成分path直列化", 直列.候補, ()),
+        ("ARC十字形態着色", 十字.候補, ()),
+        ("ARC枠内成分計数", 枠計数.候補, ()),
+        ("ARC標識panel計数", 標識計数.候補, ()),
+        ("ARC標識誘導組立", 標識組立.候補, ()),
+        ("ARC倍率motif相互置換", 倍率置換.候補, ()),
+        ("ARCbbox包含正規化", 包含正規化.候補, ()),
+        ("ARC境界marker周期帯", 周期帯.候補, ()),
+        ("ARC中心anchor配色", 中心配色.候補, ()),
+        ("ARC正方形格子写像", 正方形格子.候補, ()),
+        ("ARC反復形側周期延長", 側周期.候補, ()),
+        ("ARC区切整列gap投射", 区切投射.候補, ()),
+        ("ARC物体slot標識回廊", 物体slot.候補, ()),
+        ("ARC疎点graph転写", 疎点転写.候補, ()),
+        ("ARC帯列square輪郭", 帯輪郭.候補, ()),
+        ("ARC制御bar個数複写", 制御複写.候補, ()),
+        ("ARC配置mask展開", 配置展開.候補, ()),
+        ("ARC基点motif展開", 基点複製.候補, ()),
+        ("ARCD4最大接触配置", 接触配置.候補, ()),
+        ("ARC凡例token積展開", 凡例展開.候補, ()),
+        ("ARC枠tile二列整列", 枠列整列.候補, ()),
+        ("ARC凡例旋回経路", 凡例旋回.候補, ()),
+        ("ARC帯図形投射", 帯図形.候補, ()),
+        ("ARC二値原型補完", 二値原型.候補, ()),
+        ("ARC象限配色タイル", 象限配色.候補, ()),
+        ("ARC凡例集合選択", 凡例集合.候補, ()),
+        ("ARC二軸欠損補完", 二軸補完.候補, ()),
+        ("ARC四欄反復", 四欄反復.候補, ()),
+        ("ARC境界軸投射", 軸投射.候補, ()),
+        ("ARC記号命令列", 記号命令.候補, ()),
+        ("ARC櫛配置押上げ", 櫛配置.候補, ()),
+        ("ARC開口壁充填", 開口壁.候補, ()),
+        ("ARC遮蔽区画計数", 区画計数.候補, ()),
+        ("ARC凡例矩形転写", 凡例矩形.候補, ()),
+        ("ARC十字曲線延長", 十字曲線.候補, ()),
+        ("ARC支持構造沈降", 支持構造.候補, ()),
+        ("ARC標点全片組立", 標点組立.候補, ()),
+        ("ARC距離順位回収", 距離回収.候補, ()),
+        ("ARC枠端積層", 枠端積層.候補, ()),
+        ("ARC標識軸転写", 標識軸転写.候補, ()),
+        ("ARC見本格子分類", 見本格子分類.候補, ()),
+        ("ARC色線反射", 色線反射.候補, ()),
+        ("ARC境界点周期", 境界点周期.候補, ()),
+        ("ARC有限字形視野", 有限字形視野.候補, ()),
+        ("ARC帯profile積層", 帯profile積層.候補, ()),
+        ("ARC計数棒迂回", 計数棒迂回.候補, ()),
+        ("ARC境界色経路", 境界色経路.候補, ()),
+        ("ARC全足跡整列", 全足跡整列.候補, ()),
+        ("ARC矢印到達", 矢印到達.候補, ()),
+        ("ARC標識水路", 標識水路.候補, ()),
+        ("ARC隅模様転写", 隅模様転写.候補, ()),
+        ("ARC合同物体出口", 合同物体出口.候補, ()),
+        ("ARC全体模様窓", 全体模様窓.候補, ()),
+        ("ARC全体接触", 全体接触.候補, ()),
+        ("ARC計数色層旋回", 計数色層旋回.候補, ()),
+        ("ARC対辺標点配置", 対辺標点配置.候補, ()),
+        ("ARC連結箱参照", 連結箱参照.候補, ()),
+        ("ARC領域指令", 領域指令.候補, ()),
+        ("ARC全panel端連鎖", 全panel端連鎖.候補, ()),
+        ("ARC矩形継目", 矩形継目.候補, ()),
+        ("ARC観測成長", 観測成長.候補, ()),
+        ("ARC遮蔽端接続", 遮蔽端接続.候補, ()),
+        ("ARC空洞種伝播", 空洞種伝播.候補, ()),
+        ("ARC標点巡回", 標点巡回.候補, ()),
+        ("ARC受動凡例転写", 受動凡例転写.候補, ()),
+        ("ARC直交領域所有", 直交領域所有.候補, ()),
+        ("ARC局所軌条鎖所有", 局所軌条鎖所有.候補, ()),
+        ("ARC境界表穴転写", 境界表穴転写.候補, ()),
+        ("ARC多面欠損所有", 多面欠損所有.候補, ()),
+        ("ARC枠質量保存", 枠質量保存.候補, ()),
+        ("ARC斜端点間隙", 斜端点間隙.候補, ()),
+        ("ARC標識経路層", 標識経路層.候補, ()),
+        ("ARC特徴条件整列", 特徴条件整列.候補, ()),
+        ("ARC有限例外光線", 有限例外光線.候補, ()),
+        ("ARC周期枠位相", 周期枠位相.候補, ()),
+    )
+    記録群 = [候補機構を学習(機械, 課題, 教材, 境界, 候補器)
+              for 境界, 候補器, 教材 in 機構群]
+    結果群 = []
+    隔離数 = 0
+    for 対 in 課題["test"]:
+        # 全機構の学習後に照会するため、後発の隔離も既存排気gateへ反映される。
+        基底結果 = 出力格子(機械, 格子観測(対))
+        隔離数 = max(隔離数, 基底結果["quarantined"])
+        予測群 = [] if 基底結果["answer"] is None else [基底結果]
+        生候補群 = []
+        if 基底結果["answer"] is not None:
+            生候補群.append({"family": "HDS格子基底", "answer": deepcopy(基底結果["answer"])})
+        未解決理由 = []
+        for (境界, 候補器, _), 記録 in zip(機構群, 記録群):
+            if not 記録["採用可"] or not 記録["同値採用"]:
+                continue
+            候補, _ = 候補器(対["input"], {})
+            if 候補 is None:
+                未解決理由.append(f"採用済み機構{境界}のtest候補が未確定")
+                continue
+            if 候補収集 and 有効格子(候補):
+                生候補群.append({"family": 境界, "answer": deepcopy(候補)})
+            予測 = 出力格子(機械, 観測へ({"候補": 候補}, 境界), 同値必須=True)
+            if 予測["answer"] is not None:
+                予測群.append({**予測, "family": 境界})
+            else:
+                未解決理由.append(f"採用済み機構{境界}のHDS排気が保留")
+        if 候補収集 and 基底だけで解決:
+            # Diagnostic collection must not change the ordinary fast-path answer.
+            結果 = 基底[len(結果群)]
+        elif 未解決理由 and not 予測群:
+            結果 = {"answer": None, "status": "断定保留", "reasons": 未解決理由}
+        elif not 予測群:
+            結果 = 基底結果
+        elif all(p["answer"] == 予測群[0]["answer"] for p in 予測群):
+            結果 = {**予測群[0], "agreeing_predictions": len(予測群)}
+        else:
+            結果 = {"answer": None, "status": "断定保留",
+                    "reasons": ["採用済み機構の完全格子予測が競合したため保留"]}
+        if 候補収集 and 生候補群:
+            結果["candidate_predictions"] = 生候補群
+        結果群.append(結果)
+    return {"results": 結果群, "mechanism": "HDS機構候補の照会",
+            "paired_border_placement": 対辺標点配置.記録(),
+            "linked_box_lookup": 連結箱参照.記録(),
+            "region_commands": 領域指令.記録(),
+            "whole_panel_port_chain": 全panel端連鎖.記録(),
+            "rectangle_seam": 矩形継目.記録(),
+            "observed_growth": 観測成長.記録(),
+            "occluded_port_composition": 遮蔽端接続.記録(),
+            "cavity_seed_propagation": 空洞種伝播.記録(),
+            "marker_traversal": 標点巡回.記録(),
+            "passive_keyed_stamp": 受動凡例転写.記録(),
+            "orthogonal_region_ownership": 直交領域所有.記録(),
+            "local_rail_chain_ownership": 局所軌条鎖所有.記録(),
+            "boundary_table_cavity": 境界表穴転写.記録(),
+            "multisurface_defects": 多面欠損所有.記録(),
+            "frame_payload_conservation": 枠質量保存.記録(),
+            "diagonal_endpoint_gap": 斜端点間隙.記録(),
+            "marked_path_layers": 標識経路層.記録(),
+            "feature_conditioned_alignment": 特徴条件整列.記録(),
+            "period_relative_frame_phase": 周期枠位相.記録(),
+            "finite_exception_rays": 有限例外光線.記録(),
+            "counted_color_layers": 計数色層旋回.記録(),
+            "minimum_support": 必要支持数, "families": 記録群,
+            "d4_transform": 格子D4.記録(),
+            "global_foreground_translation": 全前景移動.記録(),
+            "quarantined": 隔離数, "object_learning": 端教材.記録(), "legend_learning": 凡例教材.記録(), "grouped_packing": 色群教材.記録(), "group_order": 整列教材.記録(), "lattice_self_mask": 格子教材.記録(), "component_path": 経路教材.記録(), "diagonal_bridge": 橋教材.記録(), "diagonal_region": 対角教材.記録(), "axis_reflection": 反射教材.記録(), "tuple_repair": 周期教材.記録(), "panel_exemplar": 見本教材.記録(), "hole_scale": 拡大教材.記録(), "guided_compaction": 移動教材.記録(), "radial_assembly": 放射教材.記録(), "hole_outline": 輪郭教材.記録(), "template_shape_color": 形状教材.記録(), "legend_gap": 凡例経路.記録(), "separator_run": 行周期.記録(), "overlap_mosaic": 重畳教材.記録(), "farthest_blank": 空白教材.記録(), "header_rank": 順位教材.記録(), "separator_layer": 距離教材.記録(), "vertical_pruning": 剪定教材.記録(), "periodic_panel": 反復教材.記録(), "seeded_boundary": 種境界.記録(), "corridor": 流路.記録(), "panel_path": 直列.記録(), "plus_motif": 十字.記録(), "frame_count": 枠計数.記録(), "marker_count": 標識計数.記録(), "marker_assembly": 標識組立.記録(), "motif_swap": 倍率置換.記録(), "nested_inventory": 包含正規化.記録(), "periodic_band": 周期帯.記録(), "square_palette": 中心配色.記録(), "square_anchor": 正方形格子.記録(), "repeated_side": 側周期.記録(), "separator_projection": 区切投射.記録(), "object_slot": 物体slot.記録(), "sparse_point": 疎点転写.記録(), "stripe_ring": 帯輪郭.記録(), "control_bar": 制御複写.記録(), "layout_macro": 配置展開.記録(), "anchored_motif": 基点複製.記録(), "chiral_payload": 接触配置.記録(), "legend_macro": 凡例展開.記録(), "framed_lanes": 枠列整列.記録(), "legend_turn": 凡例旋回.記録(), "band_glyph": 帯図形.記録(), "binary_completion": 二値原型.記録(), "quadrant_palette": 象限配色.記録(), "palette_subset": 凡例集合.記録(), "zero_reflection": 二軸補完.記録(), "four_field_repeat": 四欄反復.記録(), "edge_axis_projection": 軸投射.記録(), "glyph_instruction": 記号命令.記録(), "comb_pin": 櫛配置.記録(), "open_wall": 開口壁.記録(), "partition_faces": 区画計数.記録(), "bbox_legend": 凡例矩形.記録(), "cross_arm": 十字曲線.記録(), "support_contact": 支持構造.記録(), "marked_piece": 標点組立.記録(), "distance_collection": 距離回収.記録(), "border_stack": 枠端積層.記録(), "labeled_axis_transfer": 標識軸転写.記録(), "example_grid_classification": 見本格子分類.記録(), "colored_ray_reflection": 色線反射.記録(), "boundary_point_period": 境界点周期.記録(), "bounded_glyph_window": 有限字形視野.記録(), "band_profile_stack": 帯profile積層.記録(), "counted_bar_detour": 計数棒迂回.記録(), "boundary_color_path": 境界色経路.記録(), "full_footprint_chart": 全足跡整列.記録(), "arrow_pulses": 矢印到達.記録(), "marker_channel": 標識水路.記録(), "corner_patch_transfer": 隅模様転写.記録(), "congruent_object_ports": 合同物体出口.記録(), "whole_mask_view": 全体模様窓.記録(), "body_port_rays": 全体接触.記録()}
+
+
+if __name__ == "__main__":
+    print(json.dumps(課題を解く(json.load(sys.stdin), 事前教材を読む()), ensure_ascii=False))

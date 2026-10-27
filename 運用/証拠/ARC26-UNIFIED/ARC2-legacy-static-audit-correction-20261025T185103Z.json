@@ -1,0 +1,21 @@
+{
+  "8hex_occurrences": 454,
+  "correction": "The prior field legacy_solver_distinct_8hex_literals counted only the wrapper file and omitted its compressed embedded package. The static archive inspection below is authoritative for the embedded solver.",
+  "correction_of": "運用/証拠/ARC26-UNIFIED/ARC2-v17-invalid-runtime-aborted-20261025T184410Z.json",
+  "current_adapter_sha256": "f2c9858c250e612dc17526cffdacdfb3502212a46b5a1fe1c60779fa51ae2b0c",
+  "decision": "Legacy candidate runtime is excluded under AGENTS.md prohibition on task-ID branching and evaluation-answer runtime flow. Both v17 evaluations were stopped before output; no metrics accepted.",
+  "distinct_8hex_task_identifiers": 64,
+  "embedded_bundle_sha256": "293ce0e6176ab23c861cbb90c9b74fa778d19a80879d155df7dd804e3651e5a2",
+  "embedded_files": 79,
+  "embedded_python_files": 79,
+  "inspection": "static in-memory archive scan only; no legacy solver execution",
+  "modules_loading_evaluation_solutions_by_target_task_id": 37,
+  "modules_with_TARGET_TASK_ID": 61,
+  "observed_at_utc": "2026-10-25T18:51:03Z",
+  "python_modules_with_task_id_literals": 66,
+  "schema": "arc2-invalid-runtime-static-audit-correction.v1",
+  "track": "ARC2",
+  "v10_bundle_legacy_v4_entries": [],
+  "v10_safe_candidate_bundle_sha256": "bd13836d7ff3e14b18a13f159c6c2c62aa262521fc2d12f6daf0e5245dd499c5",
+  "wrapper_sha256": "112c6d5fff9994ef2c9f732581b9bc8952996949fbaafc27846d6b0b284b5210"
+}

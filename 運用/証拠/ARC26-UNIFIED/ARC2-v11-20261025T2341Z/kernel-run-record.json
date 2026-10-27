@@ -1,0 +1,11 @@
+{
+  "schema": "arc2-kaggle-run-v1",
+  "competition": "arc-prize-2026-arc-agi-2",
+  "kernel": "tecchannn/arc2-codex-main-baseline-v1",
+  "version": 11,
+  "code_file": "main.ipynb",
+  "code_sha256": "08734ff784e992f6cf3f4d78610692b34f19b61b9a5b7e6ed2584d50f0806bec",
+  "metadata_sha256": "d7de070ae4379246d8e26eece0ffe656ad44ba30fdc853bdc0af0957bc8a3a04",
+  "created_at": "2026-10-25T23:35:12.991102+00:00",
+  "timeout_seconds": 600
+}

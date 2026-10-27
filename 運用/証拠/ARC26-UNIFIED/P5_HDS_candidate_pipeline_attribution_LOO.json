@@ -1,0 +1,364 @@
+{
+  "answer_statuses": {
+    "出力": 16,
+    "断定保留": 1175
+  },
+  "baseline_loo_folds": 1191,
+  "baseline_training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8",
+  "candidate_module_families": 107,
+  "candidate_module_outcomes": {
+    "exact_teacher_fit_and_equality_admitted": 20,
+    "mechanism_produced_no_candidate": 127417
+  },
+  "candidate_module_outcomes_by_family": {
+    "ARCD4最大接触配置": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARCbbox包含正規化": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARCheader順位着色": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARCseed境界着色": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARCテンプレート穴充填": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC下向き流路": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC中心anchor配色": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC二値原型補完": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC二軸欠損補完": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC倍率motif相互置換": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC入れ子パネル合成": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC全panel端連鎖": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC全体接触": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC全体模様窓": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC全前景平行移動": {
+      "exact_teacher_fit_and_equality_admitted": 4,
+      "mechanism_produced_no_candidate": 1187
+    },
+    "ARC全足跡整列": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC凡例token積展開": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC凡例旋回経路": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC凡例矩形転写": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC凡例穴数対応": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC凡例経路接続": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC凡例集合選択": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC制御bar個数複写": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC区切整列gap投射": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC十字形態着色": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC十字曲線延長": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC反復形側周期延長": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC反復行singleton抽出": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC受動凡例転写": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC合同物体出口": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC周期枠位相": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC周期組修復": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC四欄反復": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC基点motif展開": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC境界marker周期帯": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC境界点周期": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC境界色経路": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC境界表穴転写": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC境界軸投射": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC多面欠損所有": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC対角線橋": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC対角領域": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC対辺標点配置": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC局所軌条鎖所有": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC帯profile積層": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC帯列square輪郭": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC帯図形投射": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC形状色転写": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC成分path直列化": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC成分最短経路": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC支持構造沈降": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC放射組立": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC斜端点間隙": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC最大保持対称剪定": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC有限例外光線": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC有限字形視野": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC枠tile二列整列": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC枠内成分計数": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC枠端積層": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC枠質量保存": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC格子D4変換": {
+      "exact_teacher_fit_and_equality_admitted": 16,
+      "mechanism_produced_no_candidate": 1175
+    },
+    "ARC格子自己マスク": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC標点全片組立": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC標点巡回": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC標識panel計数": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC標識水路": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC標識移動": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC標識経路層": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC標識誘導組立": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC標識軸転写": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC櫛配置押上げ": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC正方形格子写像": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC物体slot標識回廊": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC物体端投射": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC物体群整列": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC特徴条件整列": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC疎点graph転写": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC直交領域所有": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC矢印到達": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC矩形継目": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC穴形拡大": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC穴輪郭": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC空洞種伝播": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC空白矩形移動": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC色線反射": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC色群テンプレート充填": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC行周期合成": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC見本格子分類": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC観測成長": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC計数棒迂回": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC計数色層旋回": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC記号命令列": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC象限配色タイル": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC距離層周期充填": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC距離順位回収": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC軸反射": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC辺対応抽出": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC連結箱参照": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC遮蔽区画計数": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC遮蔽端接続": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC部分見本転写": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC配置mask展開": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC重畳組立": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC閉領域パレット転写": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC開口壁充填": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC隅模様転写": {
+      "mechanism_produced_no_candidate": 1191
+    },
+    "ARC領域指令": {
+      "mechanism_produced_no_candidate": 1191
+    }
+  },
+  "data_source": "public ARC-AGI-2 training split only",
+  "distinct_candidate_count_per_fold_histogram": {
+    "0": 1190,
+    "1": 1
+  },
+  "elapsed_seconds": 1826.345,
+  "eligible_tasks": 267,
+  "evaluation_solutions_read": false,
+  "fallback_as_correct": false,
+  "fallback_input_used_only_for_candidate_deduplication": true,
+  "first_answer_exact": 16,
+  "first_answer_rows": 16,
+  "first_or_one_vote_second_exact": 17,
+  "folds_with_distinct_candidate": 1,
+  "instruction_id": "ARC26-UNIFIED-RUN-003",
+  "loo_folds": 1191,
+  "manifest_matches_baseline": true,
+  "metrics_match_baseline": true,
+  "minimum_teacher_support": 3,
+  "prior_examples_used": 0,
+  "production_hds_source_sha256": "d1b31e1c39aac62e99b86a1bbf267725e5306a13f54fced6690e67e133345f55",
+  "raw_candidate_family_votes": 17,
+  "run_kind": "observational; decision behavior unchanged",
+  "schema": "arc2-p5-hds-candidate-pipeline-attribution-loo.v1",
+  "task_identifiers_or_grids_saved": false,
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8"
+}

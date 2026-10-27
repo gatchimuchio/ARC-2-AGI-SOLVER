@@ -1,0 +1,11 @@
+# Subset内typed action支持数による不可能枝除去
+
+旧partition-prune module SHA119f3908を保存し、新しい兄弟folderだけに実装した。35特徴、21 action、MDL、leaf、全最小木の保持、schema、HDS、既定支持数とdepth3／256 states／2m workを変えない。公開U評価、Kaggle、production採用は行わない。
+
+元教師は既存処理でinputごとに重複除去され、その順序のteacher IDと物理セルrecordを使う。各セル自身のinput rolesに対して全21 actionを評価し、targetに一致するaction maskを必要になった時に一度だけ計算する。実色が違っても同じtyped roleを別教師間で支持できる。MDLでmaskを絞らない。
+
+既存leafが成立せず、depth上限にも達していないrecursive subsetで、action別の一致セル数と異なるteacher ID数を数える。subset内のどのセルについても、両支持数下限を満たす一致actionが少なくとも一つ必要である。満たさないセルがあれば、子孫leafはsubsetから支持者を増やせないため、そのsubsetを不可能として返す。featureによる分離が可能という十分条件ではない。結果はindices tupleだけでcacheし、深さに依存しない不可能性だけを既存infeasible cacheへ加える。
+
+workは全action評価1件ごと、subsetセル訪問ごと、matching bit処理ごと、actionの支持数判定ごと、各セルの被覆確認ごとに加算する。新しい走査はwork上限を先に消費することがあり、有限予算下のfitや時間が常に改善するとは主張しない。計算途中の上限超過は既存HOLDへ流し、途中までのmaskやforestを採用しない。
+
+人工例で、ample budget下の旧119fとのforestと全小queryの一致、等価最小木の曖昧HOLD、動的rarest roleの色違い支持、重複教師、min-cell、root不可能性、small-cap閉鎖を検証する。公開実行前にmodule／test／FIT script／diffを固定する。コピーしたFIT診断はMODULE_SHA以外を変えず、旧六phaseのsupportだけを準備する。実FITは親agentのreview後に親agentだけが実行する。U/F query、U正解、HDS、採点は含まない。

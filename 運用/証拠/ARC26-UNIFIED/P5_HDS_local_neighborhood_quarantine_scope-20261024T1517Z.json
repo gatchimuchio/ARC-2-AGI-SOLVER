@@ -1,0 +1,26 @@
+{
+  "connector_sha256": "d1b31e1c39aac62e99b86a1bbf267725e5306a13f54fced6690e67e133345f55",
+  "data_source": "public ARC-AGI-2 training split only",
+  "experiment_id": "ARC2-C2-047-HDS_LOCAL_NEIGHBORHOOD",
+  "hds_source_manifest_sha256": "cbd6cfd624a093e4c59bf4bd8b3045af598459b08735ba1f3de64a504bd9c40d",
+  "heldout_output_passed_to_solver": false,
+  "hidden_or_evaluation_solutions_read": false,
+  "observed_at_utc": "2026-10-24T15:17:30Z",
+  "other_path_quarantined_principles": 300,
+  "output_color_additional_observation_requests": 0,
+  "output_color_conflicts": 0,
+  "output_color_predictions": 0,
+  "output_color_quarantined_principles": 200,
+  "production_or_submission_changed": false,
+  "quarantined_principles_by_path": {
+    "center_color": 200,
+    "neighbor_color_counts": 100,
+    "output_color": 200
+  },
+  "queried_input_cells": 100,
+  "schema": "arc2-hds-local-neighborhood-quarantine-scope.v1",
+  "scope": "single leakage-guarded LOO diagnostic fold; mechanism diagnostics only, not performance evidence",
+  "task_identifiers_or_grids_saved": false,
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8",
+  "training_relation_records": 62
+}

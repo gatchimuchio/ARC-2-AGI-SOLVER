@@ -1,0 +1,46 @@
+{
+  "schema": "arc2-v28-full-runtime-evaluation-v1",
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "runtime_task_count": 240,
+  "runtime_example_count": 259,
+  "runtime_seconds": 770.125,
+  "fallback_count": 249,
+  "fallback_reason_counts": {
+    "原因未確定で隔離中の原理が存在する": 2,
+    "現行暫定原理の適用に必要な観測が不足している": 249
+  },
+  "v19_baseline": {
+    "exact_tasks": 10,
+    "exact_examples": 11
+  },
+  "v28_full_runtime": {
+    "exact_tasks": 13,
+    "exact_examples": 14
+  },
+  "delta": {
+    "newly_correct_tasks": 3,
+    "newly_correct_examples": 3,
+    "regressed_tasks": 0,
+    "regressed_examples": 0,
+    "changed_attempt1_examples": 0,
+    "changed_attempt2_examples": 3
+  },
+  "v28_submission_sha256": "54f6a303c4143f15279e2084d5ad798455e565b4d51cd6a2b226e4d4735af46a",
+  "temporary_audit_sha256": "7960b39f79d8f162db558fae0e2717af5ea6d78f17c0bb2a7dcce28aea818643",
+  "bundle_payload_sha256": "cfe1a2de49f918e349585825f06afcce1d147c52a011046fd52a371fac45a563",
+  "bundle_notebook_sha256": "0926f55ce4afb5cfed386c7e6b5d3233cffa08a32f62faf3d21acba9930bc3ff",
+  "runtime_received_test_targets": false,
+  "targets_read_after_full_runtime_completion": true,
+  "temporary_predictions_targets_and_payload_removed": true,
+  "per_task_predictions_or_targets_saved": false,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "1f6dc189c3fb85fcddb669f471897c4ddde940452d73761ea544f7594a1e814e",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "baseline_v19": "171dbfcafa394f36dfdd79914f3b1c730e293003595a7563c620eb831a127c4f",
+    "build_manifest": "8bafa314ddb1e25831769d38f3e1d779fc3b6c060a002cd91caccf5e37529f17",
+    "adapter": "31b5321fc6fa804747d98e26bba9c2f771fb4d07f1ab1acfac2c3b834b738045",
+    "object_candidate": "d0bd26fb4e6619ca20bc6dc8b02d2aa569769392825140c77170978adaac2fd5"
+  }
+}

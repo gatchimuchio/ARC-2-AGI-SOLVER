@@ -1,0 +1,44 @@
+{
+  "schema": "arc2-v5-second-candidate-paired-loo-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-25T22:06:35.227Z",
+  "training_split": "public ARC-AGI-2 training",
+  "training_sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+  "training_tasks": 1000,
+  "eligible_folds": 1191,
+  "processed_folds": 1191,
+  "completed_folds": 1176,
+  "states": {
+    "complete": 1176,
+    "timeout": 15
+  },
+  "heldout_outputs_passed_to_solver": false,
+  "hidden_or_evaluation_solutions_read": false,
+  "current_pair": {
+    "nonidentity_exact": 28,
+    "distinct_second_folds": 3,
+    "raw_exact": 36,
+    "selected_second_exact": 0
+  },
+  "proposed_top_two_pair": {
+    "recoveries": 0,
+    "nonidentity_delta": 0,
+    "distinct_pair_folds": 3,
+    "delta_exact": 0,
+    "nonidentity_exact": 28,
+    "regressions": 0,
+    "raw_exact": 36
+  },
+  "identity_fallback_matches": 8,
+  "any_candidate_exact_upper_bound": 28,
+  "decision": "NO_GAIN_DO_NOT_PROMOTE",
+  "official_submission": false,
+  "records_path": "出力\\検証\\ARC2-v5-HDS-two-candidate-LOO-20261025T201244Z.jsonl",
+  "records_sha256": "c2af068a32086f608d7cba9291e53168b1cf1d201e3ad2df5dd2d0ac8c2ab521",
+  "summary_path": "出力\\検証\\ARC2-v5-HDS-two-candidate-LOO-20261025T201244Z.summary.json",
+  "summary_sha256": "c93a1e799436dd75e109c51255a5388b159e69bc5c2a6f28266a21d45fc123c7",
+  "analysis_script_sha256": "e6da6c5dc4785b609d1dcf96b478633a550bac7b63a5dcc78acebe4baca0ad3c",
+  "hds_source_sha256": "86cd4afe2266320c8d5fb68b9cbb3a676f99243d89aa7c3933794afdf26e0be7",
+  "adapter_source_sha256": "0d8a948454619673bd010d9f787574b5743776c963b7b1f383561b86f936b3f7",
+  "simple_transform_source_sha256": "efe210a4e183de93b5318aadeac7d2b5022a562189839b2ce1a414d367b5b0d3"
+}

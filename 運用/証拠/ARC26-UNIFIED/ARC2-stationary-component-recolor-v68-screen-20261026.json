@@ -1,0 +1,16 @@
+{
+  "schema": "arc2-stationary-component-recolor-v68-screen-v1",
+  "observed_at_utc": "2026-10-26T14:28:52.779706+00:00",
+  "hypothesis": "recolor stationary monochrome 4-connected components by a training-consistent mapping keyed by color plus shape, color plus size, shape, size, or color; require all uniquely applicable rule families to agree",
+  "loo_eligible_folds": 2916,
+  "loo_candidate_proposals": 14,
+  "challenge_tasks_with_proposals": 0,
+  "challenge_examples_with_proposals": 0,
+  "runtime_started": false,
+  "targets_read": false,
+  "task_ids_grids_or_targets_saved": false,
+  "source_sha256": {
+    "runner": "c0fae84c82430e1a903d514e9f781d16ce06d850e51825320f041e00700012eb",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83"
+  }
+}

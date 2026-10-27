@@ -1,0 +1,36 @@
+{
+  "schema": "arc2-v10-fallback-hold-root-cause-v1",
+  "observed_at_utc": "2026-10-25T22:36:04Z",
+  "track": "ARC2",
+  "candidate": {
+    "kernel": "tecchannn/arc2-codex-main-baseline-v1",
+    "version": 10,
+    "code_sha256": "ace8ed1973dbeb7249f9510b691b6249783a0256a98a3dc1112e0932b9ca9d4d",
+    "submission_sha256": "1185244299abe142cfae823ee0b0c811bb03e70a6e2e40cb23cd8c08222bab0a",
+    "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83"
+  },
+  "run_audit": "出力/Kaggle/arc2-v22-safe-private-input-diagnostics-20261025T194500Z/submission_audit.json",
+  "run_audit_sha256": "0efab8c23dab63ac265a83533911c7aed84574fe0c8a82c59dd506482deaf30f",
+  "test_tasks": 240,
+  "test_examples": 259,
+  "fallback_examples": 252,
+  "fallback_reason_counts": {
+    "原因未確定で隔離中の原理が存在する": 2,
+    "現行暫定原理の適用に必要な観測が不足している": 252
+  },
+  "observation_request_counts": {
+    "additional_observation_requests": 259,
+    "conflict_records": 0,
+    "missing_condition_path_requests": 0,
+    "other_additional_observation_requests": 0,
+    "prediction_records": 0,
+    "unidentified_records": 0,
+    "unknown_condition_value_requests": 259
+  },
+  "candidate_predictions": 10,
+  "examples_with_candidates": 7,
+  "examples_with_nonidentity_candidates": 7,
+  "simple_transform_distinct_from_first": 0,
+  "official_score": "UNKNOWN_FOR_VERSION_10_NOT_SUBMITTED",
+  "interpretation": "250 of 252 fallbacks are HDS holds for insufficient observations; 2 additionally have a quarantined principle. All 259 test examples request unknown condition values, and no missing condition paths are reported. In this static code submission, extra observations are unavailable. Next change should add a generic, training-supported way to resolve these conditions or generate a distinct evidence-backed second candidate; adoption requires matched public-training paired LOO and regression checks. No task ID/hash routing or evaluation labels."
+}

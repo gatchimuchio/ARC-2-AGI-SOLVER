@@ -1,0 +1,47 @@
+{
+  "schema": "arc2-venv-stale-metadata-quarantine-v1",
+  "observed_at_utc": "2026-10-26T22:20:44Z",
+  "reason": "Missing-METADATA old dist-info remnants shadowed current version lookup; preserved outside site-packages.",
+  "lock_versions": {
+    "kaggle": "2.2.5",
+    "kagglesdk": "0.1.38"
+  },
+  "moves": [
+    {
+      "source": "C:\\Users\\ohira\\OneDrive\\ドキュメント\\ChatGPT\\ARC２\\.venv\\Lib\\site-packages\\kaggle-2.2.4.dist-info",
+      "destination": "C:\\Users\\ohira\\OneDrive\\ドキュメント\\ChatGPT\\ARC２\\運用\\証拠\\ARC26-UNIFIED\\venv-stale-dist-info-quarantine-20261026T222044Z\\kaggle-2.2.4.dist-info",
+      "entries": {
+        ".": {
+          "kind": "directory"
+        },
+        "licenses": {
+          "kind": "directory"
+        }
+      },
+      "inventory_sha256": "cd276d0f72b329b65afd2306d4dd5fcc1c524a130ede03fe5fc576602912082b"
+    },
+    {
+      "source": "C:\\Users\\ohira\\OneDrive\\ドキュメント\\ChatGPT\\ARC２\\.venv\\Lib\\site-packages\\kagglesdk-0.1.37.dist-info",
+      "destination": "C:\\Users\\ohira\\OneDrive\\ドキュメント\\ChatGPT\\ARC２\\運用\\証拠\\ARC26-UNIFIED\\venv-stale-dist-info-quarantine-20261026T222044Z\\kagglesdk-0.1.37.dist-info",
+      "entries": {
+        ".": {
+          "kind": "directory"
+        },
+        "licenses": {
+          "kind": "directory"
+        }
+      },
+      "inventory_sha256": "cd276d0f72b329b65afd2306d4dd5fcc1c524a130ede03fe5fc576602912082b"
+    }
+  ],
+  "package_code_sha256_before": {
+    "kaggle": "a32ed2518245dee5cc04db9cfff2960c8e4b39691446e420bed4d8a376bb5a09",
+    "kagglesdk": "868c688135a3f5a6438e768ea26c5c34505322b1b3bfa24454345dc9c86cdbff"
+  },
+  "package_code_sha256_after": {
+    "kaggle": "a32ed2518245dee5cc04db9cfff2960c8e4b39691446e420bed4d8a376bb5a09",
+    "kagglesdk": "868c688135a3f5a6438e768ea26c5c34505322b1b3bfa24454345dc9c86cdbff"
+  },
+  "package_code_unchanged": true,
+  "credentials_accessed": false
+}

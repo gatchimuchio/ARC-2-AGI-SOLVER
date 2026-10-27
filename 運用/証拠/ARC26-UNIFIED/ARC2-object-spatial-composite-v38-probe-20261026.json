@@ -1,0 +1,34 @@
+{
+  "schema": "arc2-object-spatial-composite-v38-probe-v1",
+  "new_selectors": [
+    "center_distance_palette:unique",
+    "center_distance_shape:unique",
+    "border_clearance_palette:unique",
+    "border_clearance_shape:unique",
+    "border_count_palette:unique",
+    "border_count_shape:unique",
+    "area_center_distance:unique",
+    "shape_border_clearance:unique",
+    "shape_border_count:unique",
+    "perimeter_center_distance:unique",
+    "solidity_border_clearance:unique",
+    "touches_border_palette:unique"
+  ],
+  "loo_eligible_folds": 2916,
+  "loo_candidate_proposal_folds": 3,
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "challenge_examples_with_applicable_models": 1,
+  "challenge_examples_with_candidate": 1,
+  "challenge_tasks_with_candidate": 1,
+  "heldout_outputs_read": false,
+  "challenge_targets_read": false,
+  "per_task_ids_grids_or_candidates_saved": false,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "8ed9e653370d785ea62882f94857b58410f844489d7f7ff0a69791071fc450d4",
+    "object_module_before_runtime_patch": "d0bd26fb4e6619ca20bc6dc8b02d2aa569769392825140c77170978adaac2fd5",
+    "challenge_inputs": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "v28_build_manifest": "8bafa314ddb1e25831769d38f3e1d779fc3b6c060a002cd91caccf5e37529f17"
+  }
+}

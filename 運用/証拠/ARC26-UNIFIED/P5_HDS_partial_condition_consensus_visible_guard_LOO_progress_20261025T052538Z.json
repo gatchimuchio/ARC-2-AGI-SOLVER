@@ -1,0 +1,15 @@
+{
+  "schema": "arc2-full-loo-progress-observation-v1",
+  "experiment_id": "P5_HDS_partial_condition_consensus_visible_guard_LOO",
+  "observed_at_utc": "2026-10-25T05:25:38Z",
+  "session_id": 93425,
+  "worker_pid": 6180,
+  "worker_started_at_utc": "2026-10-25T04:44:56.2555397Z",
+  "worker_cpu_seconds": 2385.421875,
+  "private_bytes": 739352576,
+  "status": "ACTIVE",
+  "aggregate_output_present": false,
+  "stdout_bytes": 0,
+  "stderr_bytes": 0,
+  "next_action": "Continue the same worker; CPU is advancing, so do not restart."
+}

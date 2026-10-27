@@ -1,0 +1,99 @@
+{
+  "schema": "arc2-official-history-v1",
+  "track": "ARC2",
+  "source": "Kaggle CLI 2.2.5 competitions submissions",
+  "read_only": true,
+  "observed_at_utc": "2026-10-25T20:01:52.573Z",
+  "utc_day": "2026-10-25",
+  "remaining_today": 0,
+  "today_refs": [
+    57611018
+  ],
+  "latest": {
+    "status": "COMPLETE",
+    "file_name": "submission.json",
+    "public_score": "0.00",
+    "date_utc": "2026-10-25T00:13:10.933Z",
+    "ref": 57611018,
+    "private_score": ""
+  },
+  "history": [
+    {
+      "status": "COMPLETE",
+      "file_name": "submission.json",
+      "public_score": "0.00",
+      "date_utc": "2026-10-25T00:13:10.933Z",
+      "ref": 57611018,
+      "private_score": ""
+    },
+    {
+      "status": "COMPLETE",
+      "file_name": "submission.json",
+      "public_score": "0.00",
+      "date_utc": "2026-10-24T00:12:39.127Z",
+      "ref": 57576155,
+      "private_score": ""
+    },
+    {
+      "status": "COMPLETE",
+      "file_name": "submission.json",
+      "public_score": "0.00",
+      "date_utc": "2026-10-23T12:25:06.577Z",
+      "ref": 57560705,
+      "private_score": ""
+    },
+    {
+      "status": "COMPLETE",
+      "file_name": "submission.json",
+      "public_score": "",
+      "date_utc": "2026-10-22T08:35:19.380Z",
+      "ref": 57517199,
+      "private_score": ""
+    },
+    {
+      "status": "COMPLETE",
+      "file_name": "submission.json",
+      "public_score": "0.83",
+      "date_utc": "2026-07-28T06:19:16.917Z",
+      "ref": 55046979,
+      "private_score": ""
+    },
+    {
+      "status": "COMPLETE",
+      "file_name": "submission.json",
+      "public_score": "",
+      "date_utc": "2026-07-27T21:24:23.967Z",
+      "ref": 55038338,
+      "private_score": ""
+    },
+    {
+      "status": "COMPLETE",
+      "file_name": "submission.json",
+      "public_score": "",
+      "date_utc": "2026-07-15T03:02:55.077Z",
+      "ref": 54709840,
+      "private_score": ""
+    },
+    {
+      "status": "COMPLETE",
+      "file_name": "submission.json",
+      "public_score": "0.00",
+      "date_utc": "2026-06-24T01:46:52.783Z",
+      "ref": 53996447,
+      "private_score": ""
+    },
+    {
+      "status": "COMPLETE",
+      "file_name": "submission.json",
+      "public_score": "0.00",
+      "date_utc": "2026-06-23T01:18:06.620Z",
+      "ref": 53962702,
+      "private_score": ""
+    }
+  ],
+  "next_24h_gate_utc": "2026-10-26T00:13:10.933Z",
+  "seconds_until_24h_gate": 15078,
+  "submission_performed": false,
+  "supersedes_evidence": "運用/証拠/ARC26-UNIFIED/ARC2-official-history-20261025T200120Z-corrected.json",
+  "supersedes_reason": "Corrected UTC quota and preserved the fractional submission timestamp from Kaggle CLI JSON."
+}

@@ -1,0 +1,105 @@
+{
+  "track": "ARC2",
+  "source": "Kaggle official competition submission history via project .venv CLI, read-only",
+  "command": "kaggle competitions submissions arc-prize-2026-arc-agi-2 --format json",
+  "returncode": 0,
+  "observed_at_utc": "2026-10-24T14:38:15Z",
+  "history_unchanged": false,
+  "previous_refs": null,
+  "current_refs": [
+    57576155,
+    57560705,
+    57517199,
+    55046979,
+    55038338,
+    54709840,
+    53996447,
+    53962702
+  ],
+  "latest_submission": {
+    "ref": 57576155,
+    "fileName": "submission.json",
+    "date": "2026-10-24T00:12:39.127000",
+    "description": "ARC2 score-feedback candidate v5 2026-10-24",
+    "status": "SubmissionStatus.COMPLETE",
+    "publicScore": "0.00",
+    "privateScore": ""
+  },
+  "rows": [
+    {
+      "ref": 57576155,
+      "fileName": "submission.json",
+      "date": "2026-10-24T00:12:39.127000",
+      "description": "ARC2 score-feedback candidate v5 2026-10-24",
+      "status": "SubmissionStatus.COMPLETE",
+      "publicScore": "0.00",
+      "privateScore": ""
+    },
+    {
+      "ref": 57560705,
+      "fileName": "submission.json",
+      "date": "2026-10-23T12:25:06.577000",
+      "description": "ARC2 daily optimization D0 initial format-corrected submission",
+      "status": "SubmissionStatus.COMPLETE",
+      "publicScore": "0.00",
+      "privateScore": ""
+    },
+    {
+      "ref": 57517199,
+      "fileName": "submission.json",
+      "date": "2026-10-22T08:35:19.380000",
+      "description": "ARC2 main baseline v1",
+      "status": "SubmissionStatus.COMPLETE",
+      "publicScore": "",
+      "privateScore": ""
+    },
+    {
+      "ref": 55046979,
+      "fileName": "submission.json",
+      "date": "2026-07-28T06:19:16.917000",
+      "description": "ARC2 audited offline solver; notebook v4; official-format and hidden-rerun gates passed",
+      "status": "SubmissionStatus.COMPLETE",
+      "publicScore": "0.83",
+      "privateScore": ""
+    },
+    {
+      "ref": 55038338,
+      "fileName": "submission.json",
+      "date": "2026-07-27T21:24:23.967000",
+      "description": "ARC2 d594d535 audited offline solver; notebook v3",
+      "status": "SubmissionStatus.COMPLETE",
+      "publicScore": "",
+      "privateScore": ""
+    },
+    {
+      "ref": 54709840,
+      "fileName": "submission.json",
+      "date": "2026-07-15T03:02:55.077000",
+      "description": "",
+      "status": "SubmissionStatus.COMPLETE",
+      "publicScore": "",
+      "privateScore": ""
+    },
+    {
+      "ref": 53996447,
+      "fileName": "submission.json",
+      "date": "2026-06-24T01:46:52.783000",
+      "description": "",
+      "status": "SubmissionStatus.COMPLETE",
+      "publicScore": "0.00",
+      "privateScore": ""
+    },
+    {
+      "ref": 53962702,
+      "fileName": "submission.json",
+      "date": "2026-06-23T01:18:06.620000",
+      "description": "",
+      "status": "SubmissionStatus.COMPLETE",
+      "publicScore": "0.00",
+      "privateScore": ""
+    }
+  ],
+  "new_submission_or_rerun_performed": false,
+  "quota_rechecked": false,
+  "private_score_state": "not provided"
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "arc2-runtime-integration-correction.v1",
+  "observed_at_utc": "2026-10-25T19:25:01.519339+00:00",
+  "corrects": "v18 was labeled as an integrated legacy-first candidate, but its executed source was HDS-only.",
+  "correction_of": "出力\\Kaggle\\arc2-v18-hds-legacy-runtime-public-evaluation-20261025T185700Z\\scoring.json",
+  "executed_adapter_sha256": "f2c9858c250e612dc17526cffdacdfb3502212a46b5a1fe1c60779fa51ae2b0c",
+  "legacy_import_present_in_executed_source": false,
+  "v18_submission_sha256": "a3497542af5b2c809686ea8fa49f2eeb241c6a4ef0a3fae673282226166ef08c",
+  "hds_v13_submission_sha256": "a3497542af5b2c809686ea8fa49f2eeb241c6a4ef0a3fae673282226166ef08c",
+  "v18_submission_equals_hds_v13": true,
+  "v18_fallback_count": 5,
+  "v18_runtime_seconds": 513.094,
+  "v18_accepted_as_legacy_optimization": false,
+  "v18_actual_score": {
+    "first_attempt_correct_examples": 167,
+    "second_attempt_correct_examples": 167,
+    "second_attempt_only_rescues": 0,
+    "correct_examples_any_attempt": 167,
+    "correct_tasks_any_attempt": 116,
+    "task_score": 0.9666666666666667,
+    "attempt_score": 0.9709302325581395,
+    "duplicate_attempt_examples": 172
+  },
+  "status": "HDS-only repeat; not an integrated candidate"
+}

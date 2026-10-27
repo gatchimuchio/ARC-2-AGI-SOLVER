@@ -1,0 +1,12 @@
+{
+  "schema": "arc26-project-kaggle-cli-environment.v1",
+  "track": "ARC2",
+  "repository": "C:\\Users\\ohira\\OneDrive\\ドキュメント\\ChatGPT\\ARC２",
+  "python": "Python 3.12.10",
+  "kaggle_cli": "Kaggle CLI 2.2.5",
+  "kagglesdk": "0.1.38",
+  "venv_path": "C:\\Users\\ohira\\AppData\\Local\\Codex\\arc26-kaggle-envs\\arc2",
+  "created_by": "uv venv + uv pip install",
+  "install_spec": "kaggle==2.2.5 kagglesdk==0.1.38",
+  "credential_source": "existing user Kaggle credential store; not copied"
+}

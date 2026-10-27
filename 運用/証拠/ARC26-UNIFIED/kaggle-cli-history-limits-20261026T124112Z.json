@@ -1,0 +1,60 @@
+{
+  "schema": "arc26.kaggle-readonly-history-observation.v1",
+  "observed_at_utc": "2026-10-26T12:41:12Z",
+  "cli": {
+    "executable": ".venv\\Scripts\\kaggle.exe",
+    "version": "2.2.5",
+    "auth_state": "CLI reported an existing authenticated session.",
+    "login_screen_opened": false,
+    "new_token_created": false,
+    "credential_contents_read": false
+  },
+  "arc3": {
+    "history_command": ".venv\\Scripts\\kaggle.exe competitions submissions arc-prize-2026-arc-agi-3 --format json --page-size 200",
+    "history_exit_code": 0,
+    "c1_018": {
+      "ref": 57577905,
+      "status": "SubmissionStatus.COMPLETE",
+      "public_score": 23.86,
+      "private_score": null,
+      "private_score_provided": false,
+      "submitted_at_utc": "2026-10-24T01:15:49.963000"
+    },
+    "baseline_comparison": {
+      "B1": 0.25,
+      "delta_vs_B1": 23.61,
+      "B0": 0.0,
+      "delta_vs_B0": 23.86
+    },
+    "latest_submission": {
+      "ref": 57612586,
+      "status": "SubmissionStatus.COMPLETE",
+      "public_score": 0.03,
+      "private_score": null,
+      "submitted_at_utc": "2026-10-25T01:16:07.830000"
+    },
+    "explicit_v23_history_match": false,
+    "submission_limits_command": ".venv\\Scripts\\kaggle.exe competitions submission-limits arc-prize-2026-arc-agi-3 --json",
+    "submission_limits_exit_code": 0,
+    "submission_limits": {
+      "numTotal": 7,
+      "numAllowedNow": 1
+    }
+  },
+  "arc2": {
+    "history_command": ".venv\\Scripts\\kaggle.exe competitions submissions arc-prize-2024 --format json --page-size 200",
+    "history_exit_code": 1,
+    "history_error": "403 Client Error: Forbidden for url: https://api.kaggle.com/v1/competitions.CompetitionApiService/ListSubmissions\n\nYou don't have access to this resource. If this is a competition, you may need to accept its rules first at\n  https://www.kaggle.com/competitions/<competition>/rules",
+    "submission_limits_command": ".venv\\Scripts\\kaggle.exe competitions submission-limits arc-prize-2024 --json",
+    "submission_limits_exit_code": 0,
+    "submission_limits": {
+      "numAllowedNow": 100
+    },
+    "rules_accepted_or_changed": false
+  },
+  "actions": {
+    "submission_or_upload_performed": false,
+    "kernel_run_or_edit_performed": false,
+    "competition_quota_used": false
+  }
+}

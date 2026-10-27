@@ -1,0 +1,31 @@
+{
+  "contaminated_snapshot_sha256": "0258bd53920ee6f7051e359d638c93ee05f44bc697350454c0e74760a7c7e724",
+  "correction": "The 18:44 record incorrectly described the workspace adapter hash as safely restored. The adapter had been changed back to the contaminated SHA 0258bd53920ee6f7051e359d638c93ee05f44bc697350454c0e74760a7c7e724 by a concurrent writer at 18:41:59Z. The successful restoration to f2c985 was observed earlier, but it did not persist.",
+  "correction_of": "運用/証拠/ARC26-UNIFIED/ARC2-v17-invalid-runtime-aborted-20261025T184410Z.json",
+  "observed_at_utc": "2026-10-25T18:45:53Z",
+  "official_candidate_v10_remains_remote_and_unchanged": true,
+  "safe_v10_candidate_bundle_sha256": "bd13836d7ff3e14b18a13f159c6c2c62aa262521fc2d12f6daf0e5245dd499c5",
+  "safe_v10_candidate_code_sha256": "ace8ed1973dbeb7249f9510b691b6249783a0256a98a3dc1112e0932b9ca9d4d",
+  "safe_v10_candidate_notebook": "出力/Kaggle/arc2-codex-main-baseline-v1/v12-safe-feature-neighbor-20261026/main.ipynb",
+  "schema": "arc2-concurrent-invalid-evaluation-correction.v1",
+  "second_invalid_evaluation": {
+    "accuracy_metrics_accepted": false,
+    "experiment_id": "arc2-v17-hds-legacy-runtime-public-evaluation-20261025T184500Z",
+    "partial_output_files": [],
+    "process_ids_stopped": [
+      11188,
+      15216,
+      7608,
+      17856,
+      15108,
+      17648,
+      8176,
+      9264
+    ],
+    "runtime_output_accepted": false
+  },
+  "submission_action": false,
+  "track": "ARC2",
+  "workspace_adapter_has_legacy_import": true,
+  "workspace_adapter_sha256_at_correction": "0258bd53920ee6f7051e359d638c93ee05f44bc697350454c0e74760a7c7e724"
+}

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 from copy import deepcopy
 from datetime import datetime, timezone
@@ -9,6 +10,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import re
 import subprocess
 import sys
 import time
@@ -16,7 +18,7 @@ from typing import Any
 
 
 大会 = "arc-prize-2026-arc-agi-2"
-課題時間上限秒 = 300
+課題時間上限秒 = 90
 並列数 = 3
 提出名 = "submission.json"
 監査名 = "submission_audit.json"
@@ -34,6 +36,68 @@ def 格子か(値: object) -> bool:
             for 行 in 値
         )
     )
+
+
+def _保留理由ラベル群(値: object) -> list[str]:
+    """安全な文字列のHDS保留理由だけを重複なく保持する。"""
+    if not isinstance(値, list):
+        return []
+    理由群: set[str] = set()
+    for 理由 in 値:
+        if not isinstance(理由, str):
+            continue
+        ラベル = " ".join(理由.split())
+        if (
+            not ラベル
+            or len(ラベル) > 160
+            or re.search(r"\b[0-9a-f]{8,}\b", ラベル, re.IGNORECASE)
+        ):
+            continue
+        理由群.add(ラベル)
+    return sorted(理由群)
+
+
+def _保留理由数(保留群: list[dict[str, Any]]) -> dict[str, int]:
+    """各fallback例に現れたHDS理由を汎用ラベルごとに数える。"""
+    数 = Counter(
+        理由
+        for 保留 in 保留群
+        for 理由 in _保留理由ラベル群(保留.get("solver_hold_reasons"))
+    )
+    return dict(sorted(数.items()))
+
+
+def _一意な別候補を選ぶ(
+    予測群: object, 第一候補: list[list[int]]
+) -> list[list[int]] | None:
+    """HDS採用予測から一意な最多票の別格子だけを選ぶ。"""
+    if not isinstance(予測群, list):
+        return None
+    票: Counter[tuple[tuple[int, ...], ...]] = Counter()
+    for 予測 in 予測群:
+        if not isinstance(予測, dict):
+            continue
+        格子 = 予測.get("answer")
+        if not 格子か(格子) or 格子 == 第一候補:
+            continue
+        鍵 = tuple(tuple(行) for 行 in 格子)
+        票[鍵] += 1
+    if not 票:
+        return None
+    最大票 = max(票.values())
+    勝者 = [格子 for 格子, 数 in 票.items() if 数 == 最大票]
+    if len(勝者) != 1:
+        return None
+    return [list(行) for 行 in 勝者[0]]
+
+
+def _完全候補対(候補対: object) -> tuple[list[list[int]], list[list[int]]] | None:
+    """Return a distinct, complete pair of valid grids for the two answer slots."""
+    if (not isinstance(候補対, list) or len(候補対) != 2
+            or not all(格子か(格子) for 格子 in 候補対)
+            or 候補対[0] == 候補対[1]):
+        return None
+    return deepcopy(候補対[0]), deepcopy(候補対[1])
 
 
 def 入力検査(原本: object) -> dict[str, dict[str, list[dict[str, Any]]]]:
@@ -74,7 +138,7 @@ def 結果を候補へ(
     課題: dict[str, list[dict[str, Any]]],
     結果: object,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-    """HDSの確定出力を2候補へ写し、HOLD等は入力由来格子で補完する。"""
+    """第1候補と一意なHDS別候補を写し、HOLD等は入力格子で補完する。"""
     行群 = 結果.get("results") if isinstance(結果, dict) else None
     障害 = 結果.get("error") if isinstance(結果, dict) else "invalid_worker_result"
     if not isinstance(行群, list) or len(行群) != len(課題["test"]):
@@ -97,9 +161,17 @@ def 結果を候補へ(
                     "test_index": 位置,
                     "reason": 理由,
                     "solver_status": 行.get("status"),
+                    "solver_hold_reasons": _保留理由ラベル群(
+                        行.get("reasons")
+                    ),
                 }
             )
-        出力.append({"attempt_1": deepcopy(候補), "attempt_2": deepcopy(候補)})
+        第二候補 = 行.get("second_answer")
+        if not 格子か(第二候補) or 第二候補 == 候補:
+            第二候補 = 候補
+        出力.append(
+            {"attempt_1": deepcopy(候補), "attempt_2": deepcopy(第二候補)}
+        )
     return 出力, 保留記録
 
 
@@ -126,17 +198,226 @@ def _worker(課題: dict[str, list[dict[str, Any]]]) -> int:
         sys.path.insert(0, str(ルート / "HDS/学習系統/v0.4.2"))
         sys.path.insert(0, str(ルート))
         from 接続.ARC2.HDS接続 import 課題を解く, 事前教材を読む
+        from 接続.ARC2.単純変換候補 import unique_candidate
+        from 接続.ARC2.複合幾何変換候補 import CompositeGeometryCandidate
+        from 接続.ARC2.局所近傍変換候補 import LocalCellContextCandidate
+        from 接続.ARC2.物体抽出候補 import ObjectExtractionCandidate
+        from 接続.ARC2.埋込見本一致候補 import fit_candidate, predict_candidate
 
-        結果 = 課題を解く(課題, 事前教材を読む())
-        公開結果 = {
-            "results": [
+        事前教材 = 事前教材を読む()
+        観測診断 = os.environ.get("ARC2_AGGREGATE_DIAGNOSTICS") == "1"
+        if 観測診断:
+            結果 = 課題を解く(課題, 事前教材, 候補収集=True, 観測診断=True)
+        else:
+            結果 = 課題を解く(課題, 事前教材, 候補収集=True)
+        # This partial-fit family is allowed to propose only attempt 2. It never
+        # replaces the HDS answer and requires high teacher support plus a single
+        # residual confined to one header card at most.
+        見本モデル, 見本適合記録 = fit_candidate(課題["train"])
+        # Runtime candidates combine current HDS families, generic transforms,
+        # teacher-fitted repeated-panel/composite-geometry programs, and a
+        # local cell-context rule. The recovered v4 solver is excluded because
+        # it contains task identifiers.
+        複合幾何候補器 = CompositeGeometryCandidate(課題["train"])
+        局所近傍候補器 = LocalCellContextCandidate(課題["train"])
+        物体抽出候補器 = ObjectExtractionCandidate(課題["train"])
+        公開行群 = []
+        候補機構数: Counter[str] = Counter()
+        非同一候補機構数: Counter[str] = Counter()
+        候補予測数 = 非同一候補予測数 = 候補あり例数 = 非同一候補あり例数 = 0
+        単純変換候補数 = 単純変換非同一数 = 0
+        物体抽出候補例数 = 物体抽出選択例数 = 0
+        物体外れ値候補例数 = 物体外れ値選択例数 = 0
+        物体パレット候補例数 = 物体パレット選択例数 = 0
+        for 位置, 元行 in enumerate(結果.get("results", [])):
+            行 = 元行 if isinstance(元行, dict) else {}
+            候補対 = _完全候補対(行.get("candidate_attempts"))
+            第一候補 = 候補対[0] if 候補対 else 行.get("answer")
+            if not 格子か(第一候補):
+                第一候補 = 課題["test"][位置]["input"] if 位置 < len(課題["test"]) else []
+            局所近傍候補 = None
+            if 位置 < len(課題["test"]):
+                局所近傍候補, _ = 局所近傍候補器.候補(
+                    課題["test"][位置]["input"], {}
+                )
+                if 見本モデル is not None:
+                    見本候補, _ = predict_candidate(
+                        課題["test"][位置]["input"], 見本モデル
+                    )
+                    if 格子か(見本候補) and 見本候補 != 第一候補:
+                        候補群 = 行.get("candidate_predictions")
+                        if not isinstance(候補群, list):
+                            候補群 = []
+                            行["candidate_predictions"] = 候補群
+                        候補群.append({
+                            "family": "ARC反復見本パネル照合候補",
+                            "answer": 見本候補,
+                        })
+                単純候補 = unique_candidate(
+                    課題["train"], 課題["test"][位置]["input"]
+                )
+                if 単純候補 is not None:
+                    単純変換候補数 += 1
+                    if 単純候補 != 第一候補:
+                        単純変換非同一数 += 1
+                        行["simple_transform_candidate"] = 単純候補
+                複合幾何候補, _ = 複合幾何候補器.候補(
+                    課題["test"][位置]["input"], {}
+                )
+                if 格子か(複合幾何候補) and 複合幾何候補 != 第一候補:
+                    候補群 = 行.get("candidate_predictions")
+                    if not isinstance(候補群, list):
+                        候補群 = []
+                        行["candidate_predictions"] = 候補群
+                    候補群.append({
+                        "family": "ARC背景crop複合幾何変換",
+                        "answer": 複合幾何候補,
+                    })
+            第二候補 = (候補対[1] if 候補対 else _一意な別候補を選ぶ(
+                行.get("candidate_predictions"), 第一候補
+            ))
+            if not 格子か(第二候補) or 第二候補 == 第一候補:
+                単純候補 = 行.get("simple_transform_candidate")
+                第二候補 = (
+                    単純候補
+                    if 格子か(単純候補) and 単純候補 != 第一候補
+                    else None
+                )
+            if (
+                (not 格子か(第二候補) or 第二候補 == 第一候補)
+                and 格子か(局所近傍候補)
+                and 局所近傍候補 != 第一候補
+            ):
+                第二候補 = 局所近傍候補
+            if 位置 < len(課題["test"]):
+                物体枠未充足 = not 格子か(第二候補) or 第二候補 == 第一候補
+                物体候補群 = []
+                物体抽出候補, 物体抽出記録 = 物体抽出候補器.candidate(
+                    課題["test"][位置]["input"]
+                )
+                if 格子か(物体抽出候補) and 物体抽出候補 != 第一候補:
+                    物体抽出候補例数 += 1
+                    if 物体枠未充足:
+                        物体候補群.append(("object", 物体抽出候補, 物体抽出記録))
+                    if 観測診断:
+                        候補群 = 行.get("candidate_predictions")
+                        if not isinstance(候補群, list):
+                            候補群 = []
+                            行["candidate_predictions"] = 候補群
+                        候補群.append({
+                            "family": "ARC物体抽出・切出し",
+                            "answer": 物体抽出候補,
+                        })
+                if 物体枠未充足:
+                    物体外れ値候補, 物体外れ値記録 = 物体抽出候補器.outlier_candidate(
+                        課題["test"][位置]["input"]
+                    )
+                    if (
+                        格子か(物体外れ値候補)
+                        and 物体外れ値候補 != 第一候補
+                    ):
+                        物体外れ値候補例数 += 1
+                        物体候補群.append(("outlier", 物体外れ値候補, 物体外れ値記録))
+                        if 観測診断:
+                            候補群 = 行.get("candidate_predictions")
+                            if not isinstance(候補群, list):
+                                候補群 = []
+                                行["candidate_predictions"] = 候補群
+                            候補群.append({
+                                "family": "ARC物体外れ値選択・切出し",
+                                "answer": 物体外れ値候補,
+                            })
+                    物体パレット候補, 物体パレット記録 = 物体抽出候補器.palette_candidate(
+                        課題["test"][位置]["input"]
+                    )
+                    if 格子か(物体パレット候補) and 物体パレット候補 != 第一候補:
+                        物体パレット候補例数 += 1
+                        物体候補群.append(("palette", 物体パレット候補, 物体パレット記録))
+                        if 観測診断:
+                            候補群 = 行.get("candidate_predictions")
+                            if not isinstance(候補群, list):
+                                候補群 = []
+                                行["candidate_predictions"] = 候補群
+                            候補群.append({
+                                "family": "ARC物体パレット選択・切出し",
+                                "answer": 物体パレット候補,
+                            })
+                if 物体枠未充足 and 物体候補群:
+                    選択種別, 第二候補, _ = max(
+                        enumerate(物体候補群),
+                        key=lambda item: (
+                            int(item[1][2].get("top_votes", 0))
+                            / max(1, int(item[1][2].get("applicable_models", 0))),
+                            int(item[1][2].get("top_votes", 0)),
+                            -item[0],
+                        ),
+                    )[1]
+                    if 選択種別 == "object":
+                        物体抽出選択例数 += 1
+                    elif 選択種別 == "outlier":
+                        物体外れ値選択例数 += 1
+                    elif 選択種別 == "palette":
+                        物体パレット選択例数 += 1
+            if 格子か(局所近傍候補) and 局所近傍候補 != 第一候補:
+                候補群 = 行.get("candidate_predictions")
+                if not isinstance(候補群, list):
+                    候補群 = []
+                    行["candidate_predictions"] = 候補群
+                候補群.append({
+                    "family": "ARC局所近傍セル変換",
+                    "answer": 局所近傍候補,
+                })
+            公開行群.append(
                 {
-                    "answer": 行.get("answer"),
+                    "answer": 第一候補 if 候補対 else 元行.get("answer"),
                     "status": 行.get("status"),
+                    "reasons": _保留理由ラベル群(行.get("reasons")),
+                    "second_answer": 第二候補 if 位置 < len(課題["test"]) else None,
                 }
-                for 行 in 結果.get("results", [])
-            ]
-        }
+            )
+            if 観測診断 and 位置 < len(課題["test"]):
+                行候補群 = 行.get("candidate_predictions")
+                行候補群 = 行候補群 if isinstance(行候補群, list) else []
+                候補あり例数 += bool(行候補群)
+                非同一例あり = False
+                for 候補記録 in 行候補群:
+                    if not isinstance(候補記録, dict):
+                        continue
+                    機構名 = 候補記録.get("family")
+                    候補格子 = 候補記録.get("answer")
+                    if not isinstance(機構名, str) or not 格子か(候補格子):
+                        continue
+                    候補予測数 += 1
+                    候補機構数[機構名] += 1
+                    if 候補格子 != 課題["test"][位置]["input"]:
+                        非同一候補予測数 += 1
+                        非同一候補機構数[機構名] += 1
+                        非同一例あり = True
+                非同一候補あり例数 += 非同一例あり
+        公開結果 = {"results": 公開行群}
+        if 観測診断:
+            公開結果["aggregate_diagnostics"] = {
+                "observation_request_counts": 結果.get(
+                    "observation_request_counts", {}
+                ),
+                "candidate_prediction_count": 候補予測数,
+                "examples_with_candidates": 候補あり例数,
+                "nonidentity_candidate_prediction_count": 非同一候補予測数,
+                "examples_with_nonidentity_candidates": 非同一候補あり例数,
+                "candidate_family_counts": dict(sorted(候補機構数.items())),
+                "nonidentity_candidate_family_counts": dict(
+                    sorted(非同一候補機構数.items())
+                ),
+                "simple_transform_unique_candidates": 単純変換候補数,
+                "simple_transform_distinct_from_first": 単純変換非同一数,
+                "object_extraction_candidates": 物体抽出候補例数,
+                "object_extraction_selected": 物体抽出選択例数,
+                "object_outlier_candidates": 物体外れ値候補例数,
+                "object_outlier_selected": 物体外れ値選択例数,
+                "object_palette_candidates": 物体パレット候補例数,
+                "object_palette_selected": 物体パレット選択例数,
+                "repeated_panel_candidate_fit": 見本適合記録,
+            }
         print(json.dumps(公開結果, ensure_ascii=False))
         return 0
     except Exception as error:  # Kaggle parentが課題単位のfallbackを記録する。
@@ -152,7 +433,10 @@ def _preflight() -> int:
         from 接続.ARC2.HDS接続 import 事前教材を読む
 
         教材 = 事前教材を読む()
-        print(json.dumps({"status": "ok", "prior_examples": len(教材)}))
+        print(json.dumps({
+            "status": "ok",
+            "template_examples": len(教材),
+        }, ensure_ascii=False))
         return 0
     except Exception as error:
         print(
@@ -169,9 +453,15 @@ def _run_one(
     課題: dict[str, list[dict[str, Any]]],
     launcher: str,
     payload_root: Path,
-) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    *,
+    aggregate_diagnostics: bool = False,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], dict[str, Any]]:
     環境 = os.environ.copy()
     環境["ARC2_PAYLOAD_ROOT"] = str(payload_root)
+    if aggregate_diagnostics:
+        環境["ARC2_AGGREGATE_DIAGNOSTICS"] = "1"
+    else:
+        環境.pop("ARC2_AGGREGATE_DIAGNOSTICS", None)
     try:
         実行 = subprocess.run(
             [sys.executable, launcher, "--worker"],
@@ -195,7 +485,12 @@ def _run_one(
                 実行結果 = json.loads(実行.stdout)
             except (json.JSONDecodeError, TypeError):
                 実行結果 = {"error": "worker_invalid_json"}
-    return 結果を候補へ(課題ID, 課題, 実行結果)
+    診断 = (
+        実行結果.get("aggregate_diagnostics", {})
+        if aggregate_diagnostics and isinstance(実行結果, dict)
+        else {}
+    )
+    return (*結果を候補へ(課題ID, 課題, 実行結果), 診断)
 
 
 def _atomic_new(path: Path, value: dict[str, Any]) -> bytes:
@@ -219,6 +514,7 @@ def run_cli(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--worker", action="store_true")
     parser.add_argument("--preflight", action="store_true")
+    parser.add_argument("--aggregate-diagnostics", action="store_true")
     parser.add_argument("--challenges", type=Path)
     parser.add_argument("--output-dir", type=Path, default=Path("/kaggle/working"))
     arguments = parser.parse_args(argv)
@@ -262,15 +558,49 @@ def run_cli(argv: list[str] | None = None) -> int:
     with ThreadPoolExecutor(max_workers=並列数) as executor:
         記録群 = list(
             executor.map(
-                lambda item: _run_one(item[0], item[1], str(入口), payload_root),
+                lambda item: _run_one(
+                    item[0],
+                    item[1],
+                    str(入口),
+                    payload_root,
+                    aggregate_diagnostics=arguments.aggregate_diagnostics,
+                ),
                 item_iter,
             )
         )
     提出: dict[str, list[dict[str, Any]]] = {}
     保留群: list[dict[str, Any]] = []
-    for (課題ID, _), (候補群, 保留記録) in zip(課題群.items(), 記録群, strict=True):
+    診断数: Counter[str] = Counter()
+    機構数: Counter[str] = Counter()
+    非同一機構数: Counter[str] = Counter()
+    追加観測数: Counter[str] = Counter()
+    for (課題ID, _), (候補群, 保留記録, 診断) in zip(課題群.items(), 記録群, strict=True):
         提出[課題ID] = 候補群
         保留群.extend(保留記録)
+        if not arguments.aggregate_diagnostics or not isinstance(診断, dict):
+            continue
+        for キー in (
+            "candidate_prediction_count",
+            "examples_with_candidates",
+            "nonidentity_candidate_prediction_count",
+            "examples_with_nonidentity_candidates",
+            "simple_transform_unique_candidates",
+            "simple_transform_distinct_from_first",
+        ):
+            値 = 診断.get(キー)
+            if type(値) is int and 値 >= 0:
+                診断数[キー] += 値
+        for キー, 値群 in (
+            ("candidate_family_counts", 機構数),
+            ("nonidentity_candidate_family_counts", 非同一機構数),
+            ("observation_request_counts", 追加観測数),
+        ):
+            元 = 診断.get(キー)
+            if not isinstance(元, dict):
+                continue
+            for 名, 値 in 元.items():
+                if isinstance(名, str) and len(名) <= 160 and type(値) is int and 値 >= 0:
+                    値群[名] += 値
     提出検査(課題群, 提出)
 
     submission_bytes = _atomic_new(submission_path, 提出)
@@ -284,10 +614,18 @@ def run_cli(argv: list[str] | None = None) -> int:
         "test_examples": 総test,
         "attempts_per_test": 2,
         "fallback_count": len(保留群),
+        "solver_hold_reason_counts": _保留理由数(保留群),
         "fallbacks": 保留群,
         "seconds": round(time.monotonic() - started, 3),
         "submission_sha256": hashlib.sha256(submission_bytes).hexdigest(),
     }
+    if arguments.aggregate_diagnostics:
+        audit["aggregate_diagnostics"] = {
+            **dict(診断数),
+            "candidate_family_counts": dict(sorted(機構数.items())),
+            "nonidentity_candidate_family_counts": dict(sorted(非同一機構数.items())),
+            "observation_request_counts": dict(sorted(追加観測数.items())),
+        }
     _atomic_new(audit_path, audit)
     print(json.dumps(audit, ensure_ascii=False, indent=2))
     return 0

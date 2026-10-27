@@ -1,0 +1,70 @@
+{
+  "schema": "arc2-v5-feature-neighbor-transform-loo.v3",
+  "experiment_id": "ARC26-ARC2-V5-P5-FEATURE-NEIGHBOR-TRANSFORM-SCOPED-PRIOR-LOO",
+  "data_source": "public ARC-AGI-2 training split and fixed training-only runtime prior",
+  "feature_based_selection_only": true,
+  "task_identifiers_or_grids_saved": false,
+  "heldout_output_passed_to_solver": false,
+  "evaluation_solutions_read_by_parent_only": true,
+  "fallback_counted_correct": false,
+  "candidate_program_families": [
+    "D4 orientation",
+    "color map",
+    "crop background",
+    "integer scale",
+    "uniform downscale",
+    "tile"
+  ],
+  "selection_features": [
+    "grid dimensions",
+    "aspect ratio",
+    "color-count profile",
+    "foreground occupancy and bounds",
+    "connected-component profile",
+    "row and column transition rates"
+  ],
+  "prior_examples": 2,
+  "prior_context_mode": "scoped",
+  "prior_in_scope_checks": 61,
+  "prior_out_of_scope_checks": 203,
+  "prior_wrong_checks": 61,
+  "prior_conflict_folds": 34,
+  "prior_source_tasks_excluded": 1,
+  "eligible_tasks": 842,
+  "loo_folds": 2916,
+  "complete": true,
+  "elapsed_seconds": 261.494,
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8",
+  "candidate_folds": 132,
+  "candidate_unique_consensus_exact": 56,
+  "hds_gate_calls": 132,
+  "hds_gate_admitted": 80,
+  "hds_gate_rejected": 52,
+  "hds_gate_states": {
+    "全教師再現": 80,
+    "充足する候補なし": 18,
+    "prior counterexample": 34
+  },
+  "paired_hds_calls": 80,
+  "paired_first_exact": 13,
+  "paired_first_fallback": 67,
+  "paired_second_exact": 0,
+  "paired_before_exact_union": 13,
+  "paired_after_exact_union": 42,
+  "paired_delta_exact": 29,
+  "paired_gains": 29,
+  "paired_regressions": 0,
+  "source_sha256_start": {
+    "runner": "697caa40f6aa0e38ba6c12d33c8b050ecf3314a4c5e2337187e8a4b468574daf",
+    "simple_transform_candidate": "efe210a4e183de93b5318aadeac7d2b5022a562189839b2ce1a414d367b5b0d3",
+    "hds_connector": "33bc0e6b30e47e4f35bffb4d2a472837c60614d9c3fcedc3d7bb2969890607be",
+    "submission_adapter": "25c01363de18eb877dbb1788273ba53c59284f3e8d931b689000779be9d285a5"
+  },
+  "source_sha256_end": {
+    "runner": "697caa40f6aa0e38ba6c12d33c8b050ecf3314a4c5e2337187e8a4b468574daf",
+    "simple_transform_candidate": "efe210a4e183de93b5318aadeac7d2b5022a562189839b2ce1a414d367b5b0d3",
+    "hds_connector": "33bc0e6b30e47e4f35bffb4d2a472837c60614d9c3fcedc3d7bb2969890607be",
+    "submission_adapter": "25c01363de18eb877dbb1788273ba53c59284f3e8d931b689000779be9d285a5"
+  },
+  "source_hashes_unchanged": true
+}

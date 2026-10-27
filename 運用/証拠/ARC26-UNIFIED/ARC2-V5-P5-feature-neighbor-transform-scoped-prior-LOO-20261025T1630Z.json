@@ -1,0 +1,63 @@
+{
+  "schema": "arc2-v5-feature-neighbor-transform-loo.v1",
+  "experiment_id": "ARC26-ARC2-V5-P5-FEATURE-NEIGHBOR-TRANSFORM-LOO",
+  "data_source": "public ARC-AGI-2 training split and fixed training-only runtime prior",
+  "feature_based_selection_only": true,
+  "task_identifiers_or_grids_saved": false,
+  "heldout_output_passed_to_solver": false,
+  "evaluation_solutions_read_by_parent_only": true,
+  "fallback_counted_correct": false,
+  "candidate_program_families": [
+    "D4 orientation",
+    "color map",
+    "crop background",
+    "integer scale",
+    "uniform downscale",
+    "tile"
+  ],
+  "selection_features": [
+    "grid dimensions",
+    "aspect ratio",
+    "color-count profile",
+    "foreground occupancy and bounds",
+    "connected-component profile",
+    "row and column transition rates"
+  ],
+  "prior_examples": 2,
+  "prior_context_mode": "scoped",
+  "prior_in_scope_supports": 34,
+  "prior_out_of_scope_supports": 203,
+  "prior_counterexamples": 34,
+  "prior_source_tasks_excluded": 1,
+  "eligible_tasks": 842,
+  "loo_folds": 2916,
+  "complete": true,
+  "elapsed_seconds": 156.57,
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8",
+  "candidate_folds": 132,
+  "candidate_unique_consensus_exact": 56,
+  "hds_gate_calls": 132,
+  "hds_gate_admitted": 80,
+  "hds_gate_rejected": 52,
+  "hds_gate_states": {
+    "全教師再現": 80,
+    "充足する候補なし": 18,
+    "prior_counterexample": 34,
+    "prior counterexample": 34
+  },
+  "paired_hds_calls": 80,
+  "paired_first_exact": 13,
+  "paired_first_fallback": 67,
+  "paired_second_exact": 0,
+  "paired_before_exact_union": 13,
+  "paired_after_exact_union": 42,
+  "paired_delta_exact": 29,
+  "paired_gains": 29,
+  "paired_regressions": 0,
+  "source_sha256": {
+    "runner": "05cca75b82582ef5a41755df49cad10d6c6f079ea6752775eaf28e7700139d3f",
+    "simple_transform_runner": "a0211675c28b9f80dab7c7a08fc24834eabb64ebffe91f32db4847f45b0be4c7",
+    "hds_connector": "33bc0e6b30e47e4f35bffb4d2a472837c60614d9c3fcedc3d7bb2969890607be",
+    "submission_adapter": "1ff14973abd2dc4eb58ead7c6c7bbb664815c6e1b52e62963563193cca0beb21"
+  }
+}

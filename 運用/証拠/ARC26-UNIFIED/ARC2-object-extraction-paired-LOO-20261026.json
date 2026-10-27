@@ -1,0 +1,42 @@
+{
+  "schema": "arc2-object-extraction-paired-loo-v1",
+  "source_training_tasks": 1000,
+  "eligible_tasks_with_at_least_3_pairs": 842,
+  "eligible_folds": 2916,
+  "evaluated_folds": 2916,
+  "candidate_generation_seconds": 35.204,
+  "policies": {
+    "top_support2": {
+      "selected_nonidentity_folds": 48,
+      "candidate_any_exact_upper_bound": 36,
+      "identity_baseline_exact_folds": 10,
+      "combined_exact_folds": 43,
+      "newly_correct_folds": 33,
+      "regressions": 0
+    },
+    "plurality50": {
+      "selected_nonidentity_folds": 49,
+      "candidate_any_exact_upper_bound": 36,
+      "identity_baseline_exact_folds": 10,
+      "combined_exact_folds": 43,
+      "newly_correct_folds": 33,
+      "regressions": 0
+    },
+    "unanimous": {
+      "selected_nonidentity_folds": 41,
+      "candidate_any_exact_upper_bound": 36,
+      "identity_baseline_exact_folds": 10,
+      "combined_exact_folds": 37,
+      "newly_correct_folds": 27,
+      "regressions": 0
+    }
+  },
+  "heldout_outputs_passed_to_candidate_generator": false,
+  "candidate_predictions_and_targets_saved": false,
+  "task_ids_or_grids_saved": false,
+  "source_sha256": {
+    "runner": "a6ce9519762f370a259e504e1d614e559f341da87fa901389efd381ea195f445",
+    "object_extraction_probe": "be76a8319f52957adbeabe5429b312e02178b160b30b3afbd1298c79342f8026",
+    "training_manifest": "33e229c0f10d4a79a88371d52bbf681661b0d95cea008a953f6fa000d161e995"
+  }
+}

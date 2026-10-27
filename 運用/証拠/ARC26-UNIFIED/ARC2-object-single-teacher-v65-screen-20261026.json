@@ -1,0 +1,22 @@
+{
+  "schema": "arc2-object-single-teacher-v65-screen-v1",
+  "observed_at_utc": "2026-10-26T14:06:45.912217+00:00",
+  "candidate_policy": "fit object, outlier, and palette candidates independently from each single training example; pool unique nonidentity outputs by teacher and require a unique top candidate with support from at least two teachers (or one when only one teacher is available)",
+  "training_loo_eligible_folds": 2916,
+  "training_loo_candidate_proposals": 0,
+  "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "challenge_candidate_tasks": 0,
+  "challenge_candidate_examples": 0,
+  "exact_bundle_runtime_started": false,
+  "screen_result": "REJECTED_NO_CANDIDATE",
+  "observed_error": "RuntimeError: no exact-bundle inputs",
+  "targets_read": false,
+  "production_source_changed": false,
+  "kaggle_kernel_changed_or_run": false,
+  "submission_or_quota_used": false,
+  "v51_parent_payload_sha256": "bea77a938152d80e39beb0f43be219e649c31e01dfb7fe3f7dc6ed5e44b4bb23",
+  "source_sha256": {
+    "runner": "9a4805140b713ee80a10a3eba442ba787998e395792a44bd61b8762759659763",
+    "v51_build_manifest": "ebdd96836be417c0257030a115c6a6043a46c9471611af63000f677a75104c85"
+  }
+}

@@ -1,0 +1,1790 @@
+{
+  "state": "PASS_DATAFLOW",
+  "completed_at": "2026-10-27T00:05:17.920003+00:00",
+  "fixture": "existing synthetic north/west ambiguity A3->A+F4; no new induction design",
+  "arm_feature_counts": {
+    "tree33": 33,
+    "rowcol35": 35
+  },
+  "baseline_module_sha256": "f1116b7c386baad86a958af5f936b598960e83a64a9644b548efbda3978a49c4",
+  "fresh_processes": 4,
+  "public_data_loaded": false,
+  "module_sha256": "0664c6ef1878f434c963125a767a65a35a4737aff9132a5091c05a5c316a5ac2",
+  "harness_sha256": "6deb75bc2cc980e1e7b59aa11354bd6b3ff02f01bc36b4fffdc64bf27479232e",
+  "source_sha256": "a15209df6436553d37a96d62c67f07574a68eca353844ec93905a51233257b77",
+  "results": {
+    "tree33": {
+      "before": {
+        "scores": [
+          {
+            "direct_exact": false,
+            "hds_exact": false,
+            "direct_prediction_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "hds_prediction_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "direct_abstain_or_failure": true,
+            "hds_abstain_or_failure": true,
+            "complete": true,
+            "query_role": "feedback"
+          },
+          {
+            "direct_exact": false,
+            "hds_exact": false,
+            "direct_prediction_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "hds_prediction_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "direct_abstain_or_failure": true,
+            "hds_abstain_or_failure": true,
+            "complete": true,
+            "query_role": "unseen"
+          }
+        ],
+        "evidence": {
+          "state": "complete",
+          "rows": [
+            {
+              "direct_diagnostic": {
+                "reason": "ambiguous_minimal_trees"
+              },
+              "hds_status": "candidate_hold",
+              "hds_queried": false,
+              "equality_admitted": false,
+              "hds_observation_requests": {}
+            },
+            {
+              "direct_diagnostic": {
+                "reason": "ambiguous_minimal_trees"
+              },
+              "hds_status": "candidate_hold",
+              "hds_queried": false,
+              "equality_admitted": false,
+              "hds_observation_requests": {}
+            }
+          ],
+          "effective_feature_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "arm_feature_count": 33,
+          "typed_action_count": 21,
+          "admission": {
+            "境界": "ARC入力セル条件木_実験v1",
+            "事前観測数": 0,
+            "現在観測数": 3,
+            "採用可": true,
+            "同値採用": true,
+            "状態": "全教師再現",
+            "隔離数": 0
+          },
+          "model_fitted": {
+            "sha256": "aaabaf7b74ef06dc9921ec0fb0713b64c334c3fff251656ac3fc8b602902e7fd",
+            "typed_state": {
+              "schema": "arc2-cell-conditional-tree-v1",
+              "status": "fitted",
+              "bounds": {
+                "max_depth": 3,
+                "max_nodes": 15,
+                "max_teachers": 8,
+                "max_training_cells": 4096,
+                "minimum_teacher_support": 2,
+                "minimum_cell_support": 2,
+                "max_fit_states": 256,
+                "max_alternatives": 32,
+                "max_work_units": 2000000
+              },
+              "feature_indices": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "training_examples": 3,
+              "distinct_training_examples": 3,
+              "training_cells": 27,
+              "fit_states": 1,
+              "work_units": 2039,
+              "training_replayed": 3,
+              "forest": {
+                "cost": [
+                  3,
+                  0,
+                  1
+                ],
+                "choices": [
+                  {
+                    "kind": "split",
+                    "feature_index": 9,
+                    "branches": {
+                      "different": {
+                        "cost": [
+                          1,
+                          0,
+                          1
+                        ],
+                        "choices": [
+                          {
+                            "kind": "leaf",
+                            "programs": [
+                              "neighbor_1",
+                              "neighbor_3"
+                            ],
+                            "teacher_support": 3,
+                            "cell_support": 12
+                          }
+                        ]
+                      },
+                      "outside": {
+                        "cost": [
+                          1,
+                          0,
+                          0
+                        ],
+                        "choices": [
+                          {
+                            "kind": "leaf",
+                            "programs": [
+                              "center"
+                            ],
+                            "teacher_support": 3,
+                            "cell_support": 15
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "operational_query_cache": {
+            "entries_before": 0,
+            "entries_after": 0,
+            "excluded_from_learned_semantic_state": true
+          },
+          "model_final": {
+            "sha256": "aaabaf7b74ef06dc9921ec0fb0713b64c334c3fff251656ac3fc8b602902e7fd",
+            "typed_state": {
+              "schema": "arc2-cell-conditional-tree-v1",
+              "status": "fitted",
+              "bounds": {
+                "max_depth": 3,
+                "max_nodes": 15,
+                "max_teachers": 8,
+                "max_training_cells": 4096,
+                "minimum_teacher_support": 2,
+                "minimum_cell_support": 2,
+                "max_fit_states": 256,
+                "max_alternatives": 32,
+                "max_work_units": 2000000
+              },
+              "feature_indices": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "training_examples": 3,
+              "distinct_training_examples": 3,
+              "training_cells": 27,
+              "fit_states": 1,
+              "work_units": 2039,
+              "training_replayed": 3,
+              "forest": {
+                "cost": [
+                  3,
+                  0,
+                  1
+                ],
+                "choices": [
+                  {
+                    "kind": "split",
+                    "feature_index": 9,
+                    "branches": {
+                      "different": {
+                        "cost": [
+                          1,
+                          0,
+                          1
+                        ],
+                        "choices": [
+                          {
+                            "kind": "leaf",
+                            "programs": [
+                              "neighbor_1",
+                              "neighbor_3"
+                            ],
+                            "teacher_support": 3,
+                            "cell_support": 12
+                          }
+                        ]
+                      },
+                      "outside": {
+                        "cost": [
+                          1,
+                          0,
+                          0
+                        ],
+                        "choices": [
+                          {
+                            "kind": "leaf",
+                            "programs": [
+                              "center"
+                            ],
+                            "teacher_support": 3,
+                            "cell_support": 15
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "model_unchanged_after_query": true,
+          "hds_initial": {
+            "semantic_rule_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "semantic_rules": [],
+            "experience_count": 0,
+            "update_count": 0,
+            "active_principle_count": 0,
+            "quarantined_principle_count": 0
+          },
+          "hds_admitted": {
+            "semantic_rule_sha256": "e68fbd4e90a5fa626f93c258c6f6325be6523f0c40025338e3b5de3b675a17dd",
+            "semantic_rules": [
+              {
+                "boundary": "ARC入力セル条件木_実験v1",
+                "relation": "同値関係",
+                "conditions": [
+                  [
+                    "候補"
+                  ]
+                ],
+                "result": [
+                  "出力"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 3,
+                "counterexample_count": 0,
+                "mapping_sha256": "6de30b80d4a91ea55cf0e3e605eb9c7b2cc45d93cf111f2bea135ff24be6e20b"
+              },
+              {
+                "boundary": "ARC入力セル条件木_実験v1",
+                "relation": "同値関係",
+                "conditions": [
+                  [
+                    "出力"
+                  ]
+                ],
+                "result": [
+                  "候補"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 3,
+                "counterexample_count": 0,
+                "mapping_sha256": "6de30b80d4a91ea55cf0e3e605eb9c7b2cc45d93cf111f2bea135ff24be6e20b"
+              }
+            ],
+            "experience_count": 3,
+            "update_count": 2,
+            "active_principle_count": 2,
+            "quarantined_principle_count": 0
+          },
+          "hds_final": {
+            "semantic_rule_sha256": "e68fbd4e90a5fa626f93c258c6f6325be6523f0c40025338e3b5de3b675a17dd",
+            "semantic_rules": [
+              {
+                "boundary": "ARC入力セル条件木_実験v1",
+                "relation": "同値関係",
+                "conditions": [
+                  [
+                    "候補"
+                  ]
+                ],
+                "result": [
+                  "出力"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 3,
+                "counterexample_count": 0,
+                "mapping_sha256": "6de30b80d4a91ea55cf0e3e605eb9c7b2cc45d93cf111f2bea135ff24be6e20b"
+              },
+              {
+                "boundary": "ARC入力セル条件木_実験v1",
+                "relation": "同値関係",
+                "conditions": [
+                  [
+                    "出力"
+                  ]
+                ],
+                "result": [
+                  "候補"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 3,
+                "counterexample_count": 0,
+                "mapping_sha256": "6de30b80d4a91ea55cf0e3e605eb9c7b2cc45d93cf111f2bea135ff24be6e20b"
+              }
+            ],
+            "experience_count": 3,
+            "update_count": 2,
+            "active_principle_count": 2,
+            "quarantined_principle_count": 0
+          },
+          "hds_semantics_unchanged_after_query": true,
+          "solver_seconds": 0.574801,
+          "process_cpu_seconds": 0.578125,
+          "unexpected_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "absent_import_metadata_probes": {
+            "path": ".venv/Lib/site-packages/numpy-2.3.5.dist-info/direct_url.json",
+            "state": "ABSENT",
+            "probe_count": 1,
+            "content_reads": 0
+          },
+          "source_sha256": "a15209df6436553d37a96d62c67f07574a68eca353844ec93905a51233257b77",
+          "runtime_origins_before": {
+            "module_count": 259,
+            "modules_sha256": "284fd23536b0c47c700ddb2a499a34cceab122115ea15f83ab6f69c0772d34ab",
+            "all_origins_current_worktree_and_pinned": true,
+            "hds_connector_path": "接続/ARC2/HDS接続.py",
+            "hds_connector_sha256": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe",
+            "scope": "current worktree HDS and helpers; not frozen v61 full solver"
+          },
+          "runtime_origins_after": {
+            "module_count": 259,
+            "modules_sha256": "284fd23536b0c47c700ddb2a499a34cceab122115ea15f83ab6f69c0772d34ab",
+            "all_origins_current_worktree_and_pinned": true,
+            "hds_connector_path": "接続/ARC2/HDS接続.py",
+            "hds_connector_sha256": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe",
+            "scope": "current worktree HDS and helpers; not frozen v61 full solver"
+          },
+          "wall_seconds": 6.734865
+        }
+      },
+      "after": {
+        "scores": [
+          {
+            "direct_exact": true,
+            "hds_exact": true,
+            "direct_prediction_sha256": "62ed33271a55a3945e6e022e666136fbb287287dce6919f218f33995010f3165",
+            "hds_prediction_sha256": "62ed33271a55a3945e6e022e666136fbb287287dce6919f218f33995010f3165",
+            "direct_abstain_or_failure": false,
+            "hds_abstain_or_failure": false,
+            "complete": true,
+            "query_role": "feedback"
+          },
+          {
+            "direct_exact": true,
+            "hds_exact": true,
+            "direct_prediction_sha256": "5d12672a8dfbd28c390e522fd23396c5602b365d17b08cada063bea6806929b0",
+            "hds_prediction_sha256": "5d12672a8dfbd28c390e522fd23396c5602b365d17b08cada063bea6806929b0",
+            "direct_abstain_or_failure": false,
+            "hds_abstain_or_failure": false,
+            "complete": true,
+            "query_role": "unseen"
+          }
+        ],
+        "evidence": {
+          "state": "complete",
+          "rows": [
+            {
+              "direct_diagnostic": {
+                "reason": "all_minimal_trees_agree",
+                "root_alternatives": 1
+              },
+              "hds_status": "出力",
+              "hds_queried": true,
+              "equality_admitted": true,
+              "hds_observation_requests": {}
+            },
+            {
+              "direct_diagnostic": {
+                "reason": "all_minimal_trees_agree",
+                "root_alternatives": 1
+              },
+              "hds_status": "出力",
+              "hds_queried": true,
+              "equality_admitted": true,
+              "hds_observation_requests": {}
+            }
+          ],
+          "effective_feature_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "arm_feature_count": 33,
+          "typed_action_count": 21,
+          "admission": {
+            "境界": "ARC入力セル条件木_実験v1",
+            "事前観測数": 0,
+            "現在観測数": 4,
+            "採用可": true,
+            "同値採用": true,
+            "状態": "全教師再現",
+            "隔離数": 0
+          },
+          "model_fitted": {
+            "sha256": "795204b2b4adc63d4260d2b8977c8462c7d1927d81fc3e4b5548dc939c13a56b",
+            "typed_state": {
+              "schema": "arc2-cell-conditional-tree-v1",
+              "status": "fitted",
+              "bounds": {
+                "max_depth": 3,
+                "max_nodes": 15,
+                "max_teachers": 8,
+                "max_training_cells": 4096,
+                "minimum_teacher_support": 2,
+                "minimum_cell_support": 2,
+                "max_fit_states": 256,
+                "max_alternatives": 32,
+                "max_work_units": 2000000
+              },
+              "feature_indices": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "training_examples": 4,
+              "distinct_training_examples": 4,
+              "training_cells": 36,
+              "fit_states": 1,
+              "work_units": 2650,
+              "training_replayed": 4,
+              "forest": {
+                "cost": [
+                  3,
+                  0,
+                  1
+                ],
+                "choices": [
+                  {
+                    "kind": "split",
+                    "feature_index": 9,
+                    "branches": {
+                      "different": {
+                        "cost": [
+                          1,
+                          0,
+                          1
+                        ],
+                        "choices": [
+                          {
+                            "kind": "leaf",
+                            "programs": [
+                              "neighbor_1"
+                            ],
+                            "teacher_support": 4,
+                            "cell_support": 16
+                          }
+                        ]
+                      },
+                      "outside": {
+                        "cost": [
+                          1,
+                          0,
+                          0
+                        ],
+                        "choices": [
+                          {
+                            "kind": "leaf",
+                            "programs": [
+                              "center"
+                            ],
+                            "teacher_support": 4,
+                            "cell_support": 20
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "operational_query_cache": {
+            "entries_before": 0,
+            "entries_after": 0,
+            "excluded_from_learned_semantic_state": true
+          },
+          "model_final": {
+            "sha256": "795204b2b4adc63d4260d2b8977c8462c7d1927d81fc3e4b5548dc939c13a56b",
+            "typed_state": {
+              "schema": "arc2-cell-conditional-tree-v1",
+              "status": "fitted",
+              "bounds": {
+                "max_depth": 3,
+                "max_nodes": 15,
+                "max_teachers": 8,
+                "max_training_cells": 4096,
+                "minimum_teacher_support": 2,
+                "minimum_cell_support": 2,
+                "max_fit_states": 256,
+                "max_alternatives": 32,
+                "max_work_units": 2000000
+              },
+              "feature_indices": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "training_examples": 4,
+              "distinct_training_examples": 4,
+              "training_cells": 36,
+              "fit_states": 1,
+              "work_units": 2650,
+              "training_replayed": 4,
+              "forest": {
+                "cost": [
+                  3,
+                  0,
+                  1
+                ],
+                "choices": [
+                  {
+                    "kind": "split",
+                    "feature_index": 9,
+                    "branches": {
+                      "different": {
+                        "cost": [
+                          1,
+                          0,
+                          1
+                        ],
+                        "choices": [
+                          {
+                            "kind": "leaf",
+                            "programs": [
+                              "neighbor_1"
+                            ],
+                            "teacher_support": 4,
+                            "cell_support": 16
+                          }
+                        ]
+                      },
+                      "outside": {
+                        "cost": [
+                          1,
+                          0,
+                          0
+                        ],
+                        "choices": [
+                          {
+                            "kind": "leaf",
+                            "programs": [
+                              "center"
+                            ],
+                            "teacher_support": 4,
+                            "cell_support": 20
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "model_unchanged_after_query": true,
+          "hds_initial": {
+            "semantic_rule_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "semantic_rules": [],
+            "experience_count": 0,
+            "update_count": 0,
+            "active_principle_count": 0,
+            "quarantined_principle_count": 0
+          },
+          "hds_admitted": {
+            "semantic_rule_sha256": "8292a5a8b01d931052c19d37d0d3cc135b1740f4ebd7ea54cfe74b8fcbe30da5",
+            "semantic_rules": [
+              {
+                "boundary": "ARC入力セル条件木_実験v1",
+                "relation": "同値関係",
+                "conditions": [
+                  [
+                    "候補"
+                  ]
+                ],
+                "result": [
+                  "出力"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 4,
+                "counterexample_count": 0,
+                "mapping_sha256": "b2836512137a054437bf31e8a7b34158b811d9929883f35872b6f7b01116fb49"
+              },
+              {
+                "boundary": "ARC入力セル条件木_実験v1",
+                "relation": "同値関係",
+                "conditions": [
+                  [
+                    "出力"
+                  ]
+                ],
+                "result": [
+                  "候補"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 4,
+                "counterexample_count": 0,
+                "mapping_sha256": "b2836512137a054437bf31e8a7b34158b811d9929883f35872b6f7b01116fb49"
+              }
+            ],
+            "experience_count": 4,
+            "update_count": 4,
+            "active_principle_count": 2,
+            "quarantined_principle_count": 0
+          },
+          "hds_final": {
+            "semantic_rule_sha256": "8292a5a8b01d931052c19d37d0d3cc135b1740f4ebd7ea54cfe74b8fcbe30da5",
+            "semantic_rules": [
+              {
+                "boundary": "ARC入力セル条件木_実験v1",
+                "relation": "同値関係",
+                "conditions": [
+                  [
+                    "候補"
+                  ]
+                ],
+                "result": [
+                  "出力"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 4,
+                "counterexample_count": 0,
+                "mapping_sha256": "b2836512137a054437bf31e8a7b34158b811d9929883f35872b6f7b01116fb49"
+              },
+              {
+                "boundary": "ARC入力セル条件木_実験v1",
+                "relation": "同値関係",
+                "conditions": [
+                  [
+                    "出力"
+                  ]
+                ],
+                "result": [
+                  "候補"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 4,
+                "counterexample_count": 0,
+                "mapping_sha256": "b2836512137a054437bf31e8a7b34158b811d9929883f35872b6f7b01116fb49"
+              }
+            ],
+            "experience_count": 4,
+            "update_count": 4,
+            "active_principle_count": 2,
+            "quarantined_principle_count": 0
+          },
+          "hds_semantics_unchanged_after_query": true,
+          "solver_seconds": 0.725755,
+          "process_cpu_seconds": 0.71875,
+          "unexpected_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "absent_import_metadata_probes": {
+            "path": ".venv/Lib/site-packages/numpy-2.3.5.dist-info/direct_url.json",
+            "state": "ABSENT",
+            "probe_count": 1,
+            "content_reads": 0
+          },
+          "source_sha256": "a15209df6436553d37a96d62c67f07574a68eca353844ec93905a51233257b77",
+          "runtime_origins_before": {
+            "module_count": 259,
+            "modules_sha256": "284fd23536b0c47c700ddb2a499a34cceab122115ea15f83ab6f69c0772d34ab",
+            "all_origins_current_worktree_and_pinned": true,
+            "hds_connector_path": "接続/ARC2/HDS接続.py",
+            "hds_connector_sha256": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe",
+            "scope": "current worktree HDS and helpers; not frozen v61 full solver"
+          },
+          "runtime_origins_after": {
+            "module_count": 259,
+            "modules_sha256": "284fd23536b0c47c700ddb2a499a34cceab122115ea15f83ab6f69c0772d34ab",
+            "all_origins_current_worktree_and_pinned": true,
+            "hds_connector_path": "接続/ARC2/HDS接続.py",
+            "hds_connector_sha256": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe",
+            "scope": "current worktree HDS and helpers; not frozen v61 full solver"
+          },
+          "wall_seconds": 8.531762
+        }
+      }
+    },
+    "rowcol35": {
+      "before": {
+        "scores": [
+          {
+            "direct_exact": false,
+            "hds_exact": false,
+            "direct_prediction_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "hds_prediction_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "direct_abstain_or_failure": true,
+            "hds_abstain_or_failure": true,
+            "complete": true,
+            "query_role": "feedback"
+          },
+          {
+            "direct_exact": false,
+            "hds_exact": false,
+            "direct_prediction_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "hds_prediction_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "direct_abstain_or_failure": true,
+            "hds_abstain_or_failure": true,
+            "complete": true,
+            "query_role": "unseen"
+          }
+        ],
+        "evidence": {
+          "state": "complete",
+          "rows": [
+            {
+              "direct_diagnostic": {
+                "reason": "ambiguous_minimal_trees"
+              },
+              "hds_status": "candidate_hold",
+              "hds_queried": false,
+              "equality_admitted": false,
+              "hds_observation_requests": {}
+            },
+            {
+              "direct_diagnostic": {
+                "reason": "ambiguous_minimal_trees"
+              },
+              "hds_status": "candidate_hold",
+              "hds_queried": false,
+              "equality_admitted": false,
+              "hds_observation_requests": {}
+            }
+          ],
+          "effective_feature_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34
+          ],
+          "arm_feature_count": 35,
+          "typed_action_count": 21,
+          "admission": {
+            "境界": "ARC入力セル条件木_実験v1",
+            "事前観測数": 0,
+            "現在観測数": 3,
+            "採用可": true,
+            "同値採用": true,
+            "状態": "全教師再現",
+            "隔離数": 0
+          },
+          "model_fitted": {
+            "sha256": "98eb784357bf6864a78c5af510876b9e3c6ec9056aa2cb98a8bb189d2b2c5bae",
+            "typed_state": {
+              "schema": "arc2-cell-conditional-tree-rowcol-v1",
+              "status": "fitted",
+              "bounds": {
+                "max_depth": 3,
+                "max_nodes": 15,
+                "max_teachers": 8,
+                "max_training_cells": 4096,
+                "minimum_teacher_support": 2,
+                "minimum_cell_support": 2,
+                "max_fit_states": 256,
+                "max_alternatives": 32,
+                "max_work_units": 2000000
+              },
+              "feature_indices": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34
+              ],
+              "training_examples": 3,
+              "distinct_training_examples": 3,
+              "training_cells": 27,
+              "fit_states": 1,
+              "work_units": 2093,
+              "training_replayed": 3,
+              "forest": {
+                "cost": [
+                  3,
+                  0,
+                  1
+                ],
+                "choices": [
+                  {
+                    "kind": "split",
+                    "feature_index": 9,
+                    "branches": {
+                      "different": {
+                        "cost": [
+                          1,
+                          0,
+                          1
+                        ],
+                        "choices": [
+                          {
+                            "kind": "leaf",
+                            "programs": [
+                              "neighbor_1",
+                              "neighbor_3"
+                            ],
+                            "teacher_support": 3,
+                            "cell_support": 12
+                          }
+                        ]
+                      },
+                      "outside": {
+                        "cost": [
+                          1,
+                          0,
+                          0
+                        ],
+                        "choices": [
+                          {
+                            "kind": "leaf",
+                            "programs": [
+                              "center"
+                            ],
+                            "teacher_support": 3,
+                            "cell_support": 15
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "operational_query_cache": {
+            "entries_before": 0,
+            "entries_after": 0,
+            "excluded_from_learned_semantic_state": true
+          },
+          "model_final": {
+            "sha256": "98eb784357bf6864a78c5af510876b9e3c6ec9056aa2cb98a8bb189d2b2c5bae",
+            "typed_state": {
+              "schema": "arc2-cell-conditional-tree-rowcol-v1",
+              "status": "fitted",
+              "bounds": {
+                "max_depth": 3,
+                "max_nodes": 15,
+                "max_teachers": 8,
+                "max_training_cells": 4096,
+                "minimum_teacher_support": 2,
+                "minimum_cell_support": 2,
+                "max_fit_states": 256,
+                "max_alternatives": 32,
+                "max_work_units": 2000000
+              },
+              "feature_indices": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34
+              ],
+              "training_examples": 3,
+              "distinct_training_examples": 3,
+              "training_cells": 27,
+              "fit_states": 1,
+              "work_units": 2093,
+              "training_replayed": 3,
+              "forest": {
+                "cost": [
+                  3,
+                  0,
+                  1
+                ],
+                "choices": [
+                  {
+                    "kind": "split",
+                    "feature_index": 9,
+                    "branches": {
+                      "different": {
+                        "cost": [
+                          1,
+                          0,
+                          1
+                        ],
+                        "choices": [
+                          {
+                            "kind": "leaf",
+                            "programs": [
+                              "neighbor_1",
+                              "neighbor_3"
+                            ],
+                            "teacher_support": 3,
+                            "cell_support": 12
+                          }
+                        ]
+                      },
+                      "outside": {
+                        "cost": [
+                          1,
+                          0,
+                          0
+                        ],
+                        "choices": [
+                          {
+                            "kind": "leaf",
+                            "programs": [
+                              "center"
+                            ],
+                            "teacher_support": 3,
+                            "cell_support": 15
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "model_unchanged_after_query": true,
+          "hds_initial": {
+            "semantic_rule_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "semantic_rules": [],
+            "experience_count": 0,
+            "update_count": 0,
+            "active_principle_count": 0,
+            "quarantined_principle_count": 0
+          },
+          "hds_admitted": {
+            "semantic_rule_sha256": "e68fbd4e90a5fa626f93c258c6f6325be6523f0c40025338e3b5de3b675a17dd",
+            "semantic_rules": [
+              {
+                "boundary": "ARC入力セル条件木_実験v1",
+                "relation": "同値関係",
+                "conditions": [
+                  [
+                    "候補"
+                  ]
+                ],
+                "result": [
+                  "出力"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 3,
+                "counterexample_count": 0,
+                "mapping_sha256": "6de30b80d4a91ea55cf0e3e605eb9c7b2cc45d93cf111f2bea135ff24be6e20b"
+              },
+              {
+                "boundary": "ARC入力セル条件木_実験v1",
+                "relation": "同値関係",
+                "conditions": [
+                  [
+                    "出力"
+                  ]
+                ],
+                "result": [
+                  "候補"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 3,
+                "counterexample_count": 0,
+                "mapping_sha256": "6de30b80d4a91ea55cf0e3e605eb9c7b2cc45d93cf111f2bea135ff24be6e20b"
+              }
+            ],
+            "experience_count": 3,
+            "update_count": 2,
+            "active_principle_count": 2,
+            "quarantined_principle_count": 0
+          },
+          "hds_final": {
+            "semantic_rule_sha256": "e68fbd4e90a5fa626f93c258c6f6325be6523f0c40025338e3b5de3b675a17dd",
+            "semantic_rules": [
+              {
+                "boundary": "ARC入力セル条件木_実験v1",
+                "relation": "同値関係",
+                "conditions": [
+                  [
+                    "候補"
+                  ]
+                ],
+                "result": [
+                  "出力"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 3,
+                "counterexample_count": 0,
+                "mapping_sha256": "6de30b80d4a91ea55cf0e3e605eb9c7b2cc45d93cf111f2bea135ff24be6e20b"
+              },
+              {
+                "boundary": "ARC入力セル条件木_実験v1",
+                "relation": "同値関係",
+                "conditions": [
+                  [
+                    "出力"
+                  ]
+                ],
+                "result": [
+                  "候補"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 3,
+                "counterexample_count": 0,
+                "mapping_sha256": "6de30b80d4a91ea55cf0e3e605eb9c7b2cc45d93cf111f2bea135ff24be6e20b"
+              }
+            ],
+            "experience_count": 3,
+            "update_count": 2,
+            "active_principle_count": 2,
+            "quarantined_principle_count": 0
+          },
+          "hds_semantics_unchanged_after_query": true,
+          "solver_seconds": 0.960434,
+          "process_cpu_seconds": 0.875,
+          "unexpected_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "absent_import_metadata_probes": {
+            "path": ".venv/Lib/site-packages/numpy-2.3.5.dist-info/direct_url.json",
+            "state": "ABSENT",
+            "probe_count": 1,
+            "content_reads": 0
+          },
+          "source_sha256": "a15209df6436553d37a96d62c67f07574a68eca353844ec93905a51233257b77",
+          "runtime_origins_before": {
+            "module_count": 259,
+            "modules_sha256": "284fd23536b0c47c700ddb2a499a34cceab122115ea15f83ab6f69c0772d34ab",
+            "all_origins_current_worktree_and_pinned": true,
+            "hds_connector_path": "接続/ARC2/HDS接続.py",
+            "hds_connector_sha256": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe",
+            "scope": "current worktree HDS and helpers; not frozen v61 full solver"
+          },
+          "runtime_origins_after": {
+            "module_count": 259,
+            "modules_sha256": "284fd23536b0c47c700ddb2a499a34cceab122115ea15f83ab6f69c0772d34ab",
+            "all_origins_current_worktree_and_pinned": true,
+            "hds_connector_path": "接続/ARC2/HDS接続.py",
+            "hds_connector_sha256": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe",
+            "scope": "current worktree HDS and helpers; not frozen v61 full solver"
+          },
+          "wall_seconds": 6.232454
+        }
+      },
+      "after": {
+        "scores": [
+          {
+            "direct_exact": true,
+            "hds_exact": true,
+            "direct_prediction_sha256": "62ed33271a55a3945e6e022e666136fbb287287dce6919f218f33995010f3165",
+            "hds_prediction_sha256": "62ed33271a55a3945e6e022e666136fbb287287dce6919f218f33995010f3165",
+            "direct_abstain_or_failure": false,
+            "hds_abstain_or_failure": false,
+            "complete": true,
+            "query_role": "feedback"
+          },
+          {
+            "direct_exact": true,
+            "hds_exact": true,
+            "direct_prediction_sha256": "5d12672a8dfbd28c390e522fd23396c5602b365d17b08cada063bea6806929b0",
+            "hds_prediction_sha256": "5d12672a8dfbd28c390e522fd23396c5602b365d17b08cada063bea6806929b0",
+            "direct_abstain_or_failure": false,
+            "hds_abstain_or_failure": false,
+            "complete": true,
+            "query_role": "unseen"
+          }
+        ],
+        "evidence": {
+          "state": "complete",
+          "rows": [
+            {
+              "direct_diagnostic": {
+                "reason": "all_minimal_trees_agree",
+                "root_alternatives": 1
+              },
+              "hds_status": "出力",
+              "hds_queried": true,
+              "equality_admitted": true,
+              "hds_observation_requests": {}
+            },
+            {
+              "direct_diagnostic": {
+                "reason": "all_minimal_trees_agree",
+                "root_alternatives": 1
+              },
+              "hds_status": "出力",
+              "hds_queried": true,
+              "equality_admitted": true,
+              "hds_observation_requests": {}
+            }
+          ],
+          "effective_feature_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34
+          ],
+          "arm_feature_count": 35,
+          "typed_action_count": 21,
+          "admission": {
+            "境界": "ARC入力セル条件木_実験v1",
+            "事前観測数": 0,
+            "現在観測数": 4,
+            "採用可": true,
+            "同値採用": true,
+            "状態": "全教師再現",
+            "隔離数": 0
+          },
+          "model_fitted": {
+            "sha256": "ad3b2cfae1b28278197b2b1c2dceee7977667086a8e287406e1a58b99bbf4fc1",
+            "typed_state": {
+              "schema": "arc2-cell-conditional-tree-rowcol-v1",
+              "status": "fitted",
+              "bounds": {
+                "max_depth": 3,
+                "max_nodes": 15,
+                "max_teachers": 8,
+                "max_training_cells": 4096,
+                "minimum_teacher_support": 2,
+                "minimum_cell_support": 2,
+                "max_fit_states": 256,
+                "max_alternatives": 32,
+                "max_work_units": 2000000
+              },
+              "feature_indices": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34
+              ],
+              "training_examples": 4,
+              "distinct_training_examples": 4,
+              "training_cells": 36,
+              "fit_states": 1,
+              "work_units": 2722,
+              "training_replayed": 4,
+              "forest": {
+                "cost": [
+                  3,
+                  0,
+                  1
+                ],
+                "choices": [
+                  {
+                    "kind": "split",
+                    "feature_index": 9,
+                    "branches": {
+                      "different": {
+                        "cost": [
+                          1,
+                          0,
+                          1
+                        ],
+                        "choices": [
+                          {
+                            "kind": "leaf",
+                            "programs": [
+                              "neighbor_1"
+                            ],
+                            "teacher_support": 4,
+                            "cell_support": 16
+                          }
+                        ]
+                      },
+                      "outside": {
+                        "cost": [
+                          1,
+                          0,
+                          0
+                        ],
+                        "choices": [
+                          {
+                            "kind": "leaf",
+                            "programs": [
+                              "center"
+                            ],
+                            "teacher_support": 4,
+                            "cell_support": 20
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "operational_query_cache": {
+            "entries_before": 0,
+            "entries_after": 0,
+            "excluded_from_learned_semantic_state": true
+          },
+          "model_final": {
+            "sha256": "ad3b2cfae1b28278197b2b1c2dceee7977667086a8e287406e1a58b99bbf4fc1",
+            "typed_state": {
+              "schema": "arc2-cell-conditional-tree-rowcol-v1",
+              "status": "fitted",
+              "bounds": {
+                "max_depth": 3,
+                "max_nodes": 15,
+                "max_teachers": 8,
+                "max_training_cells": 4096,
+                "minimum_teacher_support": 2,
+                "minimum_cell_support": 2,
+                "max_fit_states": 256,
+                "max_alternatives": 32,
+                "max_work_units": 2000000
+              },
+              "feature_indices": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34
+              ],
+              "training_examples": 4,
+              "distinct_training_examples": 4,
+              "training_cells": 36,
+              "fit_states": 1,
+              "work_units": 2722,
+              "training_replayed": 4,
+              "forest": {
+                "cost": [
+                  3,
+                  0,
+                  1
+                ],
+                "choices": [
+                  {
+                    "kind": "split",
+                    "feature_index": 9,
+                    "branches": {
+                      "different": {
+                        "cost": [
+                          1,
+                          0,
+                          1
+                        ],
+                        "choices": [
+                          {
+                            "kind": "leaf",
+                            "programs": [
+                              "neighbor_1"
+                            ],
+                            "teacher_support": 4,
+                            "cell_support": 16
+                          }
+                        ]
+                      },
+                      "outside": {
+                        "cost": [
+                          1,
+                          0,
+                          0
+                        ],
+                        "choices": [
+                          {
+                            "kind": "leaf",
+                            "programs": [
+                              "center"
+                            ],
+                            "teacher_support": 4,
+                            "cell_support": 20
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "model_unchanged_after_query": true,
+          "hds_initial": {
+            "semantic_rule_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "semantic_rules": [],
+            "experience_count": 0,
+            "update_count": 0,
+            "active_principle_count": 0,
+            "quarantined_principle_count": 0
+          },
+          "hds_admitted": {
+            "semantic_rule_sha256": "8292a5a8b01d931052c19d37d0d3cc135b1740f4ebd7ea54cfe74b8fcbe30da5",
+            "semantic_rules": [
+              {
+                "boundary": "ARC入力セル条件木_実験v1",
+                "relation": "同値関係",
+                "conditions": [
+                  [
+                    "候補"
+                  ]
+                ],
+                "result": [
+                  "出力"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 4,
+                "counterexample_count": 0,
+                "mapping_sha256": "b2836512137a054437bf31e8a7b34158b811d9929883f35872b6f7b01116fb49"
+              },
+              {
+                "boundary": "ARC入力セル条件木_実験v1",
+                "relation": "同値関係",
+                "conditions": [
+                  [
+                    "出力"
+                  ]
+                ],
+                "result": [
+                  "候補"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 4,
+                "counterexample_count": 0,
+                "mapping_sha256": "b2836512137a054437bf31e8a7b34158b811d9929883f35872b6f7b01116fb49"
+              }
+            ],
+            "experience_count": 4,
+            "update_count": 4,
+            "active_principle_count": 2,
+            "quarantined_principle_count": 0
+          },
+          "hds_final": {
+            "semantic_rule_sha256": "8292a5a8b01d931052c19d37d0d3cc135b1740f4ebd7ea54cfe74b8fcbe30da5",
+            "semantic_rules": [
+              {
+                "boundary": "ARC入力セル条件木_実験v1",
+                "relation": "同値関係",
+                "conditions": [
+                  [
+                    "候補"
+                  ]
+                ],
+                "result": [
+                  "出力"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 4,
+                "counterexample_count": 0,
+                "mapping_sha256": "b2836512137a054437bf31e8a7b34158b811d9929883f35872b6f7b01116fb49"
+              },
+              {
+                "boundary": "ARC入力セル条件木_実験v1",
+                "relation": "同値関係",
+                "conditions": [
+                  [
+                    "出力"
+                  ]
+                ],
+                "result": [
+                  "候補"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 4,
+                "counterexample_count": 0,
+                "mapping_sha256": "b2836512137a054437bf31e8a7b34158b811d9929883f35872b6f7b01116fb49"
+              }
+            ],
+            "experience_count": 4,
+            "update_count": 4,
+            "active_principle_count": 2,
+            "quarantined_principle_count": 0
+          },
+          "hds_semantics_unchanged_after_query": true,
+          "solver_seconds": 0.743874,
+          "process_cpu_seconds": 0.734375,
+          "unexpected_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "absent_import_metadata_probes": {
+            "path": ".venv/Lib/site-packages/numpy-2.3.5.dist-info/direct_url.json",
+            "state": "ABSENT",
+            "probe_count": 1,
+            "content_reads": 0
+          },
+          "source_sha256": "a15209df6436553d37a96d62c67f07574a68eca353844ec93905a51233257b77",
+          "runtime_origins_before": {
+            "module_count": 259,
+            "modules_sha256": "284fd23536b0c47c700ddb2a499a34cceab122115ea15f83ab6f69c0772d34ab",
+            "all_origins_current_worktree_and_pinned": true,
+            "hds_connector_path": "接続/ARC2/HDS接続.py",
+            "hds_connector_sha256": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe",
+            "scope": "current worktree HDS and helpers; not frozen v61 full solver"
+          },
+          "runtime_origins_after": {
+            "module_count": 259,
+            "modules_sha256": "284fd23536b0c47c700ddb2a499a34cceab122115ea15f83ab6f69c0772d34ab",
+            "all_origins_current_worktree_and_pinned": true,
+            "hds_connector_path": "接続/ARC2/HDS接続.py",
+            "hds_connector_sha256": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe",
+            "scope": "current worktree HDS and helpers; not frozen v61 full solver"
+          },
+          "wall_seconds": 6.065211
+        }
+      }
+    }
+  },
+  "scope": "default-grammar plumbing only; actual status/admission/output retained without asserting public gain or HDS-core discovery"
+}

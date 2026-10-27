@@ -1,0 +1,121 @@
+{
+  "state": "SYNTHETIC_TESTS_PASS_PREPARED_NO_PUBLIC_FIT",
+  "recorded_at": "2026-10-27T01:48:13.544209+00:00",
+  "old_module_sha256": "119f390837e8c5ecf77eff8833ef7371c13bb565aa123f86f13b2076b931e6f0",
+  "artifact_sha256": {
+    "cell_conditional_tree.py": "405065a7d8260f6b618e3b7cb1a90103f3e610250438eb5db7abf9c3289d366c",
+    "prune_fit_diagnosis.py": "4ecd3e08ee0ba6a4af46f8fd3b18d2a246e319eb87375965eedf1286226dfad4",
+    "test_action_support_prune.py": "1f99d0dcd83a1d5388d4e56f4ddd23d33ce6211485647f951788cc8bcb0149d9",
+    "PROTOCOL.md": "6b89dd86e38cd3e4904a97fed33883645097cde77df82b7f13413032337333c4"
+  },
+  "fit_diagnosis_source_sha256": "ad6ddc1ca6f7fdaffcd04b5b7eab57d58831d14dfaf50d633d453d5c8b55bb40",
+  "pure_tests": {
+    "count": 10,
+    "status": "PASS",
+    "seconds": 0.339469,
+    "tool_chunk": "5b374a",
+    "exhaustive_tiny_cases": 96,
+    "all_tiny_query_forests_and_answers_equal": true,
+    "ambiguity_hold_preserved": true,
+    "dynamic_role_color_change_witnesses": true,
+    "root_unsupported_small_cap_closure": true
+  },
+  "prepared_state": "prepared_no_fit",
+  "selected_phases": 6,
+  "cases": [
+    {
+      "cohort_index": 1,
+      "phase": "before",
+      "recorded_default": {
+        "status": "fit_state_budget_exceeded",
+        "training_examples": 3,
+        "distinct_training_examples": 3,
+        "training_cells": 27,
+        "fit_states": 257,
+        "work_units": 18854,
+        "training_replayed": 0
+      },
+      "recorded_source_sha256": "a15209df6436553d37a96d62c67f07574a68eca353844ec93905a51233257b77",
+      "current_support_payload_sha256": "6915e8a91fdfc5d40183927ab421ea88faeef8cdd67e9cb98d16fc70df262a7f"
+    },
+    {
+      "cohort_index": 1,
+      "phase": "after",
+      "recorded_default": {
+        "status": "fit_state_budget_exceeded",
+        "training_examples": 4,
+        "distinct_training_examples": 4,
+        "training_cells": 36,
+        "fit_states": 257,
+        "work_units": 19056,
+        "training_replayed": 0
+      },
+      "recorded_source_sha256": "a15209df6436553d37a96d62c67f07574a68eca353844ec93905a51233257b77",
+      "current_support_payload_sha256": "789356565cfca32d317dda4025e8891d6743161efa6a413a61f62dd4c4707401"
+    },
+    {
+      "cohort_index": 7,
+      "phase": "before",
+      "recorded_default": {
+        "status": "fit_state_budget_exceeded",
+        "training_examples": 3,
+        "distinct_training_examples": 3,
+        "training_cells": 588,
+        "fit_states": 257,
+        "work_units": 106938,
+        "training_replayed": 0
+      },
+      "recorded_source_sha256": "a15209df6436553d37a96d62c67f07574a68eca353844ec93905a51233257b77",
+      "current_support_payload_sha256": "65c48f709c9c9b96e88890cda5a5ab76a30878e65d3af97887ef0a2c9a9e5378"
+    },
+    {
+      "cohort_index": 7,
+      "phase": "after",
+      "recorded_default": {
+        "status": "fit_state_budget_exceeded",
+        "training_examples": 4,
+        "distinct_training_examples": 4,
+        "training_cells": 784,
+        "fit_states": 257,
+        "work_units": 118035,
+        "training_replayed": 0
+      },
+      "recorded_source_sha256": "a15209df6436553d37a96d62c67f07574a68eca353844ec93905a51233257b77",
+      "current_support_payload_sha256": "defa726fb032500f25d89daf26299a6806c22c20fa34b865b909d17cb4872f08"
+    },
+    {
+      "cohort_index": 12,
+      "phase": "before",
+      "recorded_default": {
+        "status": "fit_state_budget_exceeded",
+        "training_examples": 3,
+        "distinct_training_examples": 3,
+        "training_cells": 72,
+        "fit_states": 257,
+        "work_units": 29664,
+        "training_replayed": 0
+      },
+      "recorded_source_sha256": "a15209df6436553d37a96d62c67f07574a68eca353844ec93905a51233257b77",
+      "current_support_payload_sha256": "6c05c3b8522b893eef5fc0f781ffcd11bc59f00cc5198e7e9769476b4e9523a1"
+    },
+    {
+      "cohort_index": 12,
+      "phase": "after",
+      "recorded_default": {
+        "status": "fit_state_budget_exceeded",
+        "training_examples": 4,
+        "distinct_training_examples": 4,
+        "training_cells": 96,
+        "fit_states": 257,
+        "work_units": 27611,
+        "training_replayed": 0
+      },
+      "recorded_source_sha256": "a15209df6436553d37a96d62c67f07574a68eca353844ec93905a51233257b77",
+      "current_support_payload_sha256": "b58e0f0e35cd8c103bba6e0acffd8a4c967954e3b9c0e5a5c5558dbcdc1d3316"
+    }
+  ],
+  "public_fit_executed": false,
+  "public_query_evaluation_executed": false,
+  "production_changed": false,
+  "performance_or_score_improvement_claimed": false
+}

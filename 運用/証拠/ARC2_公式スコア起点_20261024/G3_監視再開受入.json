@@ -1,0 +1,62 @@
+{
+  "schema": "arc2-v2-monitoring-resume-acceptance-v1",
+  "instruction_id": "ARC2-SCORE-GATE-20261024",
+  "created_at_utc": "2026-10-23T23:51:43+00:00",
+  "official_baseline": {
+    "submission_id": 57560705,
+    "status": "COMPLETE",
+    "public_score": "0.00",
+    "read_only_requeries": [
+      {
+        "observed_at_utc": "2026-10-23T23:49:56.254542+00:00",
+        "process": "separate monitor invocation",
+        "status": "COMPLETE",
+        "score": "0.00"
+      },
+      {
+        "observed_at_utc": "2026-10-23T23:50:06.716739+00:00",
+        "process": "separate monitor invocation after restart boundary",
+        "status": "COMPLETE",
+        "score": "0.00"
+      }
+    ]
+  },
+  "monitor": {
+    "script": "運用/ARC2_Kaggleスコア監視.py",
+    "checkpoint": "運用/ARC2_公式スコア運用チェックポイント.jsonl",
+    "runtime_state": "運用/ARC2_Kaggleスコア監視状態.json",
+    "polling": "PENDING: 5, 15, 30, then 60 minutes; numeric/blank-complete/failed: 60 minutes; restart or >15 minute disconnect triggers immediate requery",
+    "network_effect": "Kaggle competition history read-only; no submission endpoint"
+  },
+  "scheduled_task": {
+    "name": "ARC2-Kaggle-Score-Monitor",
+    "state": "Ready",
+    "user": "ohira",
+    "logon_type": "Interactive",
+    "run_level": "Limited",
+    "interval_minutes": 5,
+    "configured_start_local": "2026-10-24T08:53:00.6755976+09:00",
+    "configured_end_local": "2026-11-03T08:59:00+09:00",
+    "observed_run_local": "2026-10-24T08:51:11+09:00",
+    "observed_run_utc": "2026-10-23T23:51:11+00:00",
+    "last_task_result": 0,
+    "next_run_local": "2026-10-24T08:53:00+09:00"
+  },
+  "codex_resume": {
+    "automation_id": "arc2-kaggle-v2",
+    "status": "ACTIVE",
+    "daily_utc_time": "17:40",
+    "configured_until_utc": "2026-11-03T17:40:00Z",
+    "actual_scheduled_resume_observed": false,
+    "acceptance": "Configured and bound to this Codex thread; actual future heartbeat wake remains unobserved, therefore G3 is PARTIAL rather than PASS."
+  },
+  "tests": {
+    "monitor_self_test": "PASS",
+    "monitor_and_submission_gate_pytest": "8 passed",
+    "submission_gate_pytest": "5 passed",
+    "duplicate_utc_day_guard": "PASS: same-day submission blocks; previous-day COMPLETE 0.00 allows",
+    "actual_submission_performed": false
+  },
+  "g3_status": "PARTIAL",
+  "remaining": "Observe one real Codex heartbeat resumption; until then do not report G3 PASS."
+}

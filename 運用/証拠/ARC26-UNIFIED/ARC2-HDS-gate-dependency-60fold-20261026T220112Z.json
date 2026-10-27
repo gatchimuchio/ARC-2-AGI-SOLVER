@@ -1,0 +1,30 @@
+{
+  "schema": "arc2-hds-gate-dependency-evidence-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-26T22:01:12Z",
+  "requested_folds": 60,
+  "completed_paired_folds": 60,
+  "distinct_tasks": 14,
+  "gate_enabled_primary_exact": 3,
+  "gate_disabled_primary_exact": 0,
+  "distinct_primary_exact_tasks": 2,
+  "candidate_pool_oracle_enabled": 3,
+  "candidate_pool_oracle_disabled": 0,
+  "actual_submission_pass2": "NOT MEASURED BY THIS SCRIPT; its candidate pool is unrestricted",
+  "identical_final_hds_states_between_gate_modes": 60,
+  "first20_reproduction_matches": true,
+  "learning_effect": "UNPROVEN",
+  "interpretation": "Only output admission differs; learned state is identical between modes. Counts are gate-dependency evidence and candidate-pool diagnostics, not additional-observation learning effect or implementation improvement.",
+  "fallback_counted_correct": false,
+  "hidden_or_evaluation_solutions_read": false,
+  "evidence_files": [
+    "出力/検証/ARC2-P3-HDS-candidate-gate-ablation-60fold-20261026T2140Z.jsonl",
+    "出力/検証/ARC2-P3-HDS-candidate-gate-ablation-60fold-20261026T2140Z.summary.json"
+  ],
+  "records_sha256": "6c152c4f87142d706b79a449d585c9b33fa7f0419ff3d5acba73de6dbc79f5a0",
+  "summary_sha256": "58fe4b7052c10839b4c7071a6ee6d1bb3e72ae33a8d9cbceff284e253e2671e2",
+  "script": "運用/証拠/ARC26-UNIFIED/ARC2-P3-HDS-candidate-gate-ablation.py",
+  "script_sha256": "a20de88043c8af9d0763e0a9a5b04f1acdf4296ea0aa7fc8887770471cf39bd8",
+  "official_submission": false,
+  "official_score": null
+}

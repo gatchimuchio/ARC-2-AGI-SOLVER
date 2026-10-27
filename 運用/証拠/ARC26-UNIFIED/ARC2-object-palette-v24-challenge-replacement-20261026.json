@@ -1,0 +1,31 @@
+{
+  "schema": "arc2-object-palette-v24-challenge-replacement-v1",
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "v21.1_baseline": {
+    "exact_tasks": 13,
+    "exact_examples": 14
+  },
+  "palette_candidate_examples_distinct_from_attempt1": 3,
+  "palette_candidates_already_in_attempt2": 3,
+  "duplicate_slots_applied": 0,
+  "distinct_attempt2_slots_replaced": 0,
+  "v24_forced_replacement_score": {
+    "exact_tasks": 13,
+    "exact_examples": 14
+  },
+  "newly_correct_examples": 0,
+  "regressed_examples": 0,
+  "candidate_correct_after_replacement": 0,
+  "runtime_received_targets": false,
+  "targets_read_after_all_predictions": true,
+  "per_task_predictions_or_targets_saved": false,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "db41b6c376d2926649815dfde579a6ecef1c320fd2a465957bf7e71e7f74833b",
+    "probe": "ba2c6dce2bbd522cd5844c03355a51fa7f7794e04ae99c991fa5ec8e0645f642",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "baseline_v19": "171dbfcafa394f36dfdd79914f3b1c730e293003595a7563c620eb831a127c4f",
+    "object_module": "09d1ac6eec39bfcbec99d681434f238daaa57242b6a89f642d17e58076ab67ce"
+  }
+}

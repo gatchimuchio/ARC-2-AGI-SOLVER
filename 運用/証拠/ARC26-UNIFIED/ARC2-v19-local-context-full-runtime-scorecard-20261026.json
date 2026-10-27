@@ -1,0 +1,57 @@
+{
+  "schema": "arc2-v19-local-context-full-runtime-scorecard-v1",
+  "runtime_tasks": 240,
+  "runtime_examples": 259,
+  "runtime_seconds": 784.297,
+  "fallback_count": 249,
+  "score_by_version": {
+    "v16": {
+      "exact_tasks": 8,
+      "exact_examples": 9,
+      "nonidentity_exact_tasks": 8,
+      "nonidentity_exact_examples": 9,
+      "distinct_attempt_pairs": 0
+    },
+    "v18_matched_composition": {
+      "exact_tasks": 9,
+      "exact_examples": 10,
+      "nonidentity_exact_tasks": 9,
+      "nonidentity_exact_examples": 10,
+      "distinct_attempt_pairs": 1
+    },
+    "v19_full_runtime": {
+      "exact_tasks": 10,
+      "exact_examples": 11,
+      "nonidentity_exact_tasks": 10,
+      "nonidentity_exact_examples": 11,
+      "distinct_attempt_pairs": 51
+    }
+  },
+  "delta_v19_minus_v18": {
+    "exact_tasks": 1,
+    "exact_examples": 1,
+    "nonidentity_exact_tasks": 1,
+    "nonidentity_exact_examples": 1,
+    "newly_correct_tasks": 1,
+    "regressed_tasks": 0,
+    "attempt_1_changed_examples": 0,
+    "attempt_2_changed_examples": 50,
+    "distinct_local_candidates": 50,
+    "local_candidates_selected": 50
+  },
+  "local_candidate_fits": 50,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "runtime_received_targets": false,
+  "targets_read_only_after_full_runtime_and_candidate_predictions": true,
+  "per_task_predictions_or_targets_saved": false,
+  "source_sha256": {
+    "runner": "a85a5fc30bc12226b6ec6c23297dfbf5dea827ec1f5888d659bf10a652322d87",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "baseline_submission": "08d0dc111f97c9f3a909955296fc58d46ea0c4514fe66e75169526723359f017",
+    "current_submission": "171dbfcafa394f36dfdd79914f3b1c730e293003595a7563c620eb831a127c4f",
+    "current_audit": "ea322b868c75dc4d8b3db49d37a61784b4e5be1e15d9ba54479f49f86c5b96d8",
+    "build_manifest": "e98e846f5ee858db2e334814d893ebd0eec30fd6a465497acf87233957d7fcef",
+    "local_context_module": "6643eb9f1900b0774aa0fe0701650c5410ab5fde05fb538be368c96a71194bd8",
+    "adapter": "58d4e0ccbec13e86222e2de932be8fc5b3d638c2fb8a51576ed50f3511aebd95"
+  }
+}

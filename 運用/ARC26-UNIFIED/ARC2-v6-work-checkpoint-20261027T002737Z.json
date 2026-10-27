@@ -1,0 +1,152 @@
+{
+  "blockers": [],
+  "candidate_code_sha256": "9cb8580836257a95423560407351612cb1413c62cbd7b0ac8d62169da16120d4",
+  "candidate_fallback_examples": 249,
+  "candidate_kernel": "tecchannn/arc2-v61-local-teacher-pair-consensus-candidate",
+  "candidate_kernel_status": "COMPLETE",
+  "candidate_metadata_sha256": "511f18f3207790e9a4f6f119c58aeba49f09f560810028eee2a8a544798a66f9",
+  "candidate_next_action": "After00:14:46Z with margin, recheck rules/timeline, UTC/day+Owner24h, history/eligibility, v61 v1 COMPLETE and exact-version output/format/SHA; submit once if all PASS.",
+  "candidate_payload_sha256": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",
+  "candidate_quota_gate_allowed": false,
+  "candidate_submission_performed": false,
+  "candidate_submission_sha256": "827bccfc1cf51e2fc87d687ba51e1375899650a530ec00e7a20eb1f71eb2dd18",
+  "candidate_test_correctness": "Local public posthoc16/259; not official",
+  "candidate_test_examples": 259,
+  "candidate_test_tasks": 240,
+  "candidate_version": 1,
+  "checkpoint_created_at_utc": "2026-10-27T00:27:37.521821+00:00",
+  "consecutive_pending_observations": 2,
+  "eligible_tasks_done": 20,
+  "eligible_tasks_total": 20,
+  "evidence_file": "運用\\証拠\\ARC26-UNIFIED\\ARC2-cell-tree-fit-only-decision-20261026T235420Z.json",
+  "evidence_sha256": "3d9e001cc68ebc155baef672c7ceec6ecbf7410c1e10db454863fa6934ae8fc2",
+  "experiment_id": "ARC2-rowcol35-public20-20261027T0005Z",
+  "experiment_next_action": "Audit exact admissible support-infeasibility pruning; keeporiginals frozen. Continue same officialsubmission57682971 to numeric score; no furtherPOSTtoday.",
+  "history_unchanged": null,
+  "instruction_id": "ARC26-UNIFIED-v6.0",
+  "kaggle_cli_discovery": {
+    "manifest_cli_exists": true,
+    "manifest_cli_path": "C:\\Users\\ohira\\AppData\\Local\\Codex\\arc26-kaggle-envs\\arc2\\Scripts\\kaggle.exe",
+    "manifest_cli_version_matches": true,
+    "manifest_path": "C:\\Users\\ohira\\OneDrive\\ドキュメント\\ChatGPT\\ARC２\\運用\\ARC26-UNIFIED\\kaggle-cli-environment.json",
+    "manifest_read_status": "ok",
+    "manifest_track_matches": true,
+    "python_executable": "C:\\Users\\ohira\\OneDrive\\ドキュメント\\ChatGPT\\ARC２\\.venv\\Scripts\\python.exe",
+    "root": "C:\\Users\\ohira\\OneDrive\\ドキュメント\\ChatGPT\\ARC２",
+    "root_exists": true,
+    "selected_source": "manifest"
+  },
+  "last_status": "PENDING",
+  "last_submission_ref": 57682971,
+  "last_submitted_utc_day": "2026-10-27",
+  "monitor_boot_time_utc": "2026-10-25T02:21:53+00:00",
+  "monitor_interval_minutes": 15,
+  "next_action": "Follow57682971sameID to numeric score; next officialread-onlypoll at2026-10-27T00:37:49.149007+00:00. Neverresendv61v1. UTC27slotused, Owner24hnext28T00:17:10.770Z butnewcandidatepermission/gatesmustberechecked.",
+  "next_check_at_utc": "2026-10-27T00:37:49.149007+00:00",
+  "notebook_id": "tecchannn/arc2-v61-local-teacher-pair-consensus-candidate",
+  "notebook_sha256": "9cb8580836257a95423560407351612cb1413c62cbd7b0ac8d62169da16120d4",
+  "notebook_version": 1,
+  "observed_at_utc": "2026-10-27T00:22:49.149007+00:00",
+  "official_history_next_due_utc": "2026-10-27T00:37:49.149007+00:00",
+  "official_history_refs": [
+    57682971,
+    57646990,
+    57611018,
+    57576155,
+    57560705,
+    57517199,
+    55046979,
+    55038338,
+    54709840,
+    53996447,
+    53962702
+  ],
+  "official_score": null,
+  "official_submission_or_quota_use": false,
+  "phase": "P5_OFFICIAL_NUMERIC_SCORE_PENDING",
+  "process_status": "COMPLETE",
+  "production_source_changed": false,
+  "runtime_source_sha256": "6a7276738dfb246c998aad898cc4b096c1310a73f6dbc783921a95fc81e5b0a9",
+  "score_evidence_path": "運用/証拠/ARC26-UNIFIED/official-history-20261027T002249Z.json",
+  "score_evidence_sha256": "0fb78fd4f8e368599a97cbff87b2ffeb789b7a5261b841734cb444636cbf09d6",
+  "score_state": "PENDING",
+  "source_sha": "dae0a5dbe124a0c4a01bd69a26dda0036d0379e0",
+  "submission_evidence_path": "運用/証拠/ARC2_公式スコア起点_20261024/公式提出-57682971.json",
+  "submission_sha256": "827bccfc1cf51e2fc87d687ba51e1375899650a530ec00e7a20eb1f71eb2dd18",
+  "test_dataset_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "track": "ARC2",
+  "active_experiment": {
+    "schema": "arc2-rowcol35-public-adoption-decision-v1",
+    "track": "ARC2",
+    "observed_at_utc": "2026-10-27T00:27:37.521821+00:00",
+    "run_id": "ARC2-rowcol35-public20-20261027T0005Z",
+    "status": "COMPLETE",
+    "session_id": 42100,
+    "unique_tasks": 20,
+    "fresh_processes": 80,
+    "completed_processes": 80,
+    "worker_errors": 0,
+    "timeouts": 0,
+    "old_new_unseen_hds_before_after": {
+      "old33": [
+        0,
+        0
+      ],
+      "new35": [
+        0,
+        0
+      ],
+      "denominator": 20
+    },
+    "old_new_unseen_direct_before_after": {
+      "old33": [
+        0,
+        0
+      ],
+      "new35": [
+        0,
+        0
+      ],
+      "denominator": 20
+    },
+    "wrong_outputs": 0,
+    "hold_outputs_per_role_arm_phase": 20,
+    "fitted_models": 0,
+    "actual_hds_queries": 0,
+    "fit_status_counts": {
+      "tree33": {
+        "teacher_shape_changed": 34,
+        "fit_state_budget_exceeded": 6
+      },
+      "rowcol35": {
+        "teacher_shape_changed": 34,
+        "fit_state_budget_exceeded": 6
+      }
+    },
+    "old33_reproduction_phases": 40,
+    "old33_prior_model_prediction_HDS_states_identical": true,
+    "summary_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-cell-conditional-tree-rowcol\\public_results\\study20-20261027T0005Z.summary.json",
+    "summary_sha256": "0da420aeafa0d9997099116fa8091c9a23218ae4e4e3e0ee70553ce6373998d6",
+    "records_sha256": "9e2dac77349f098f8130d97028ab7fd15a57717dfe5e481a1c652db5ccfbd316",
+    "cohort_sha256": "f4ccbe47c84d0807f61a246d4622e3d46d5580e086bcb6d346195d06f84be5ba",
+    "source_sha256": "a15209df6436553d37a96d62c67f07574a68eca353844ec93905a51233257b77",
+    "scope": "Same20/U/F/support, currentHDS isolated33vs35 familybatchrefit. Not fullsolver/official performance.",
+    "adopted": false,
+    "decision": "NO ADOPTION: input-globalfeatures reduced necessarycondition conflicts in separateteacher-only probe, but defaultboundedsearch stillfoundno publicmodel/output/score gain.",
+    "next_action": "Audit exact admissible support-infeasibility pruning; keeporiginals frozen. Continue same officialsubmission57682971 to numeric score; no furtherPOSTtoday.",
+    "official_candidate_changed": false,
+    "official_submission_performed_by_this_experiment": false,
+    "production_source_changed": false,
+    "decision_evidence": "運用\\証拠\\ARC26-UNIFIED\\ARC2-rowcol35-public-decision-20261027T002737Z.json",
+    "evidence_sha256": "a0180c6f1722685edaeefc1bea074904b96be8c0313bec80358e4f59de819b48"
+  },
+  "local_experiments_all_terminal": true,
+  "experiment_result": "Rowcol35public20 old/newU0->0, nofits/noHDSquery, NOADOPTION.",
+  "codex_automation_update": {
+    "id": "arc2-kaggle-v2",
+    "prompt_updated_to_ref": 57682971,
+    "status_preserved": "PAUSED",
+    "rrule_preserved": true,
+    "target_thread_preserved": true
+  }
+}

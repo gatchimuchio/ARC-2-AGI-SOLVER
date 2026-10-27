@@ -1,0 +1,54 @@
+{
+  "baseline_d4_source_sha256": "a5d6a2eedb063a876b47cd5d2fdf28cec13af535d89b9fef65df41b81c5ccf18",
+  "candidate_temporary_d4_sha256": "5d9b227e50a0708bedfa2dc606998304b4a50d4525c4687b14e74af6681b3b75",
+  "complete": false,
+  "data_source": "public ARC-AGI-2 training split only",
+  "delta_current_minus_previous": {
+    "answer": 0,
+    "exact": 0,
+    "fallback": 0,
+    "union_exact": 0,
+    "wrong": 0
+  },
+  "eligible_task_population": 575,
+  "eligible_tasks_evaluated": 8,
+  "evaluation_solutions_read": false,
+  "experiment_id": "ARC2-C2-062-D4_SPARSE_SUPPORT_TWO",
+  "fallback_counted_correct": false,
+  "heldout_output_passed_to_solver": false,
+  "heldout_output_scored_only_after_solver_return": true,
+  "loo_folds": 24,
+  "metrics_previous_current": {
+    "current_min_support_two_for_two_teachers": {
+      "answer": 0,
+      "exact": 0,
+      "fallback": 24,
+      "union_exact": 0,
+      "wrong": 0
+    },
+    "previous_min_support_three": {
+      "answer": 0,
+      "exact": 0,
+      "fallback": 24,
+      "union_exact": 0,
+      "wrong": 0
+    }
+  },
+  "official_submission_or_rerun": false,
+  "pilot_task_limit": 8,
+  "production_or_submission_changed": false,
+  "run_type": "pilot",
+  "runtime_budget_seconds": 300.0,
+  "runtime_seconds": {
+    "combined_wall_seconds": 57.234,
+    "current_min_support_two_for_two_teachers": 24.736,
+    "delta_current_minus_previous": 0.064,
+    "previous_min_support_three": 24.673
+  },
+  "schema": "arc2-p5-hds-d4-sparse-support2-loo.v1",
+  "sparse_task_training_pair_count": 3,
+  "stop_reason": "task_limit",
+  "task_identifiers_or_grids_saved": false,
+  "time_cap_reached": false,
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8"
+}

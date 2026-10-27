@@ -1,0 +1,53 @@
+{
+  "schema": "arc2-safe-candidate-routing-screen-v1",
+  "observed_at_utc": "2026-10-25T22:54:52Z",
+  "track": "ARC2",
+  "evaluation": {
+    "records": "出力/検証/ARC2-safe-candidate-routing-screen-20261025T2250Z.jsonl",
+    "records_sha256": "635b942af328f75ccc60161e8490e5482251c38d5d5dcd84792e413929d6ee31",
+    "summary": "出力/検証/ARC2-safe-candidate-routing-screen-20261025T2250Z.summary.json",
+    "summary_sha256": "7831c1551e429406e34066cec8846977d25b2efa34b06572bab93b8e365278f8",
+    "public_training_sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+    "public_training_tasks": 1000,
+    "eligible_folds": 1191,
+    "completed_folds": 40,
+    "previous_pair_exact": 3,
+    "proposed_pair_exact": 3,
+    "delta_exact": 0,
+    "recoveries": 0,
+    "regressions": 0,
+    "distinct_pairs": 2,
+    "distinct_second_candidate_exact": 0,
+    "mean_solver_seconds": 7.0853,
+    "max_solver_seconds": 46.029,
+    "evaluation_or_hidden_solutions_read": false,
+    "official_submission": false
+  },
+  "source": {
+    "git_head": "dae0a5dbe124a0c4a01bd69a26dda0036d0379e0",
+    "dirty_workspace_evaluated": true,
+    "files": {
+      "検証/全HDS第二候補LOO.py": "b98674ff11a85021b815ad4c0ce93a5e7fe577d97fd08cc1673afd27d7123e7f",
+      "接続/ARC2/HDS接続.py": "86cd4afe2266320c8d5fb68b9cbb3a676f99243d89aa7c3933794afdf26e0be7",
+      "接続/ARC2/Kaggle提出.py": "0d8a948454619673bd010d9f787574b5743776c963b7b1f383561b86f936b3f7",
+      "接続/ARC2/単純変換候補.py": "efe210a4e183de93b5318aadeac7d2b5022a562189839b2ce1a414d367b5b0d3",
+      "接続/ARC2/埋込見本一致候補.py": "f288c3f98e9b3c6667e34d6ff7292673d7f5a5db4c6f7ebdc63f24dd414bb1a7"
+    },
+    "harness_fix": "The LOO fresh worker now adds HDS/学習系統/v0.4.2 to sys.path; evaluation used the project .venv containing numpy and scipy."
+  },
+  "decision": "Do not adopt candidate-rank routing: on this deterministic 40-fold screen it adds no exact solutions and causes no regressions. This screen is from the current dirty workspace, not the exact v10 Kaggle artifact. Keep v10 as the next official measurement candidate.",
+  "official_state": {
+    "latest_submission_ref": 57611018,
+    "latest_kernel_version": 9,
+    "latest_status": "COMPLETE",
+    "latest_public_score": "0.00",
+    "score_evidence": "運用/証拠/ARC26-UNIFIED/official-history-20261025T224214Z.json",
+    "score_evidence_sha256": "b00d62f83db401f40389105921d8db4143df9fda29a43604f585c84c404a745c",
+    "next_24h_gate_utc": "2026-10-26T00:13:10.933Z",
+    "next_scheduled_check_utc": "2026-10-26T00:20:00Z",
+    "candidate_kernel": "tecchannn/arc2-codex-main-baseline-v1",
+    "candidate_version": 10,
+    "candidate_submission_sha256": "1185244299abe142cfae823ee0b0c811bb03e70a6e2e40cb23cd8c08222bab0a",
+    "candidate_official_score": "UNKNOWN_NOT_SUBMITTED"
+  }
+}

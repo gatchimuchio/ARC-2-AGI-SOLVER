@@ -1,0 +1,19 @@
+{
+  "candidate_second_exact_at_last_progress": 0,
+  "complete_candidate_grids_at_last_progress": 0,
+  "completed_loo_folds_at_last_progress": 19,
+  "completed_tasks_at_last_progress": 4,
+  "data_source": "public ARC-AGI-2 training split only",
+  "elapsed_wall_seconds": 606,
+  "experiment_id": "ARC2-C2-047-HDS_LOCAL_NEIGHBORHOOD",
+  "fifth_task_completed": false,
+  "hidden_or_evaluation_solutions_read": false,
+  "interrupted_at_utc": "2026-10-24T15:06:58Z",
+  "output_artifact_written": false,
+  "pilot_tasks_requested": 5,
+  "production_or_submission_changed": false,
+  "reason": "The fifth task remained active beyond the practical pilot runtime; process was stopped. This interrupted attempt is not performance evidence.",
+  "schema": "arc2-hds-local-neighborhood-pilot-interruption.v1",
+  "started_at_utc": "2026-10-24T14:56:52Z",
+  "status": "INTERRUPTED_RESOURCE_CAP_NO_PERFORMANCE_CONCLUSION"
+}

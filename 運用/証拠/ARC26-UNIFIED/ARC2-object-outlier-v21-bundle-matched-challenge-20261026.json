@@ -1,0 +1,46 @@
+{
+  "schema": "arc2-object-outlier-v21-bundle-matched-challenge-v1",
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "v20_tasks_run_from_bundle": 2,
+  "v21_union_tasks_run_from_bundle": 2,
+  "candidate_selection": {
+    "v20_distinct_candidates": 2,
+    "v20_duplicate_slots_selected": 2,
+    "v21_distinct_candidates_after_v20": 0,
+    "v21_duplicate_slots_selected": 0
+  },
+  "v20_bundle_fallbacks": 2,
+  "v21_bundle_fallbacks": 2,
+  "v20_bundle_matched_composition": {
+    "exact_tasks": 12,
+    "exact_examples": 13
+  },
+  "v21_bundle_matched_composition": {
+    "exact_tasks": 12,
+    "exact_examples": 13
+  },
+  "delta_v21_vs_v20": {
+    "newly_correct_tasks": 0,
+    "newly_correct_examples": 0,
+    "regressed_examples": 0,
+    "changed_attempt2_examples": 0
+  },
+  "v20_payload_sha256": "407dc55dcacd408451997afc098e45aadc9b69dde828a9c18e4c7d173d6df43b",
+  "v21_payload_sha256": "898bf8474873a940ae3d961fc2b39b53043d78fb4acfee555357960e0654d565",
+  "v21_notebook_sha256": "856efe711b7230b621a26e947eabfe30e8c821782a8a991b5ed998b37d0d20f4",
+  "runtime_received_challenge_targets": false,
+  "targets_read_only_after_both_bundle_outputs": true,
+  "temporary_subset_inputs_outputs_and_payloads_removed": true,
+  "per_task_predictions_or_targets_saved": false,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "e12c99bb5a97a54d1507f369c852fd1cd0318f77eb2ff99f0b64d3b58389773d",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "baseline_v19": "171dbfcafa394f36dfdd79914f3b1c730e293003595a7563c620eb831a127c4f",
+    "v20_build_manifest": "87cb4d81f570275239d69ff46c56eb8e5a5d5107c14db059643512d2105cbc89",
+    "v21_build_manifest": "7a098f9df50123ebbb9ec876013bf288bca410ff4f26363e5d26c62eb62ed009",
+    "adapter": "091350d44015d3fde94ef0dfabfb9d53df1b9eda18233012c37a9ab1018dbdf2",
+    "object_extraction_module": "44dcfc289b4fe0c29b6f0681f7e785e4c6396ce715dde5387d42ef590650ce4a"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schema": "arc26.kaggle.history.read-only.v1",
+  "track": "ARC2",
+  "competition_slug": "arc-prize-2026-arc-agi-2",
+  "observed_at_utc": "2026-10-24T11:33:58Z",
+  "command": ".venv\\Scripts\\python.exe -m kaggle competitions submissions arc-prize-2026-arc-agi-2 --page-size 20 --format json",
+  "command_exit_code": 0,
+  "kaggle_cli_version": "2.2.4",
+  "stdout_version_warning": "installed 2.2.4; latest notice 2.2.5",
+  "latest_submission": {
+    "ref": 57576155,
+    "fileName": "submission.json",
+    "date": "2026-10-24T00:12:39.127000",
+    "status": "SubmissionStatus.COMPLETE",
+    "publicScore": "0.00",
+    "privateScore": ""
+  },
+  "previous_submission": {
+    "ref": 57560705,
+    "fileName": "submission.json",
+    "date": "2026-10-23T12:25:06.577000",
+    "status": "SubmissionStatus.COMPLETE",
+    "publicScore": "0.00",
+    "privateScore": ""
+  },
+  "latest_numeric_public_score": 0.0,
+  "private_score_state": "blank/not provided",
+  "quota_currently_rechecked": false,
+  "last_quota_observation_utc": "2026-10-24T10:33:13.104835+00:00",
+  "last_quota_remaining_today": null,
+  "duplicate_submission_or_rerun": false,
+  "protected_file_sha256": {
+    "AGENTS.md": "315998bc0549de61f70fda28a9c9923bea8a61ba6d9b79019283165e5438109b",
+    "制御/現在状態.json": "773fdfdd37aad115c6bbbcb879304142136654db649eb1954cde0d69eb14aa6d"
+  },
+  "next_check_at_utc": "2026-10-24T12:33:58.000Z"
+}

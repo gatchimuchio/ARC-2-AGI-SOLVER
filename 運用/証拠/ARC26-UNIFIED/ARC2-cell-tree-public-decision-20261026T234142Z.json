@@ -1,0 +1,103 @@
+{
+  "schema": "arc2-cell-tree-public-adoption-decision-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-26T23:41:42.831809+00:00",
+  "run_id": "ARC2-cell-tree-public20-20261026T2332Z",
+  "status": "COMPLETE",
+  "session_id": 75853,
+  "unique_tasks": 20,
+  "completed_processes": 80,
+  "errors": 0,
+  "timeouts": 0,
+  "unseen_metrics": {
+    "local_context": {
+      "before": {
+        "direct": {
+          "correct": 0,
+          "wrong": 2,
+          "hold_or_failure": 18,
+          "denominator": 20
+        },
+        "hds": {
+          "correct": 0,
+          "wrong": 0,
+          "hold_or_failure": 20,
+          "denominator": 20
+        }
+      },
+      "after": {
+        "direct": {
+          "correct": 0,
+          "wrong": 2,
+          "hold_or_failure": 18,
+          "denominator": 20
+        },
+        "hds": {
+          "correct": 0,
+          "wrong": 1,
+          "hold_or_failure": 19,
+          "denominator": 20
+        }
+      }
+    },
+    "cell_tree": {
+      "before": {
+        "direct": {
+          "correct": 0,
+          "wrong": 0,
+          "hold_or_failure": 20,
+          "denominator": 20
+        },
+        "hds": {
+          "correct": 0,
+          "wrong": 0,
+          "hold_or_failure": 20,
+          "denominator": 20
+        }
+      },
+      "after": {
+        "direct": {
+          "correct": 0,
+          "wrong": 0,
+          "hold_or_failure": 20,
+          "denominator": 20
+        },
+        "hds": {
+          "correct": 0,
+          "wrong": 0,
+          "hold_or_failure": 20,
+          "denominator": 20
+        }
+      }
+    }
+  },
+  "new_fit_status_counts": {
+    "teacher_shape_changed": 34,
+    "fit_state_budget_exceeded": 6
+  },
+  "actual_hds_queries": {
+    "local_context": 2,
+    "cell_tree": 0
+  },
+  "feedback_after_training_fit": {
+    "local_context_correct": 1,
+    "cell_tree_correct": 0,
+    "denominator": 20,
+    "not_unseen_gain": true
+  },
+  "new_model_state_change_scope": "Only support/search statistics; no fitted tree40/40, no public output queries.",
+  "summary_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-cell-conditional-tree\\public_results\\study20-20261026T2332Z.summary.json",
+  "summary_sha256": "94679e1d7b8e1dae4dc747829bbd6e5adc8ad357015ea73987965b315c613dfe",
+  "records_sha256": "860d0c208cfbec7cd3c937334a1af14e10bda0eb1c970fa59845a8a57c59128f",
+  "cohort_sha256": "0d8e6b47d65bc264de5a68757b4fb61a48535d15ef00a22772e17f456e832073",
+  "source_fingerprint_sha256": "123ee9a7cd963535f7aa50b9a177b193e9d69fd81a267bd584b3447c29a55d6f",
+  "module_sha256": "f1116b7c386baad86a958af5f936b598960e83a64a9644b548efbda3978a49c4",
+  "harness_sha256": "6a7276738dfb246c998aad898cc4b096c1310a73f6dbc783921a95fc81e5b0a9",
+  "source_unchanged": true,
+  "scope": "Current-worktree isolated family comparison/batch refit, not frozenv61 fullsolver.",
+  "adopted": false,
+  "decision": "NO ADOPTION: no public fit/unseen gain. 3budget-limited tasks are incomplete search, not proof of grammar impossibility.",
+  "next_action": "FIT-only support-only diagnosis on budget-limited cases, necessary condition for identical-feature group leaf consistency first, expand budget only when not disproven. No U/F query/target in worker. Official00:15Z v61v1 gate remainspriority.",
+  "official_submission_performed": false,
+  "production_source_changed": false
+}

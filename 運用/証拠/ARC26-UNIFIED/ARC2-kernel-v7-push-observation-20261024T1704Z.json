@@ -1,0 +1,17 @@
+{
+  "schema": "arc2-kernel-push-observation.v1",
+  "track": "ARC2",
+  "competition_slug": "arc-prize-2026-arc-agi-2",
+  "kernel_slug": "tecchannn/arc2-codex-main-baseline-v1",
+  "kernel_version": 7,
+  "observed_at_utc": "2026-10-24T17:05:30Z",
+  "push_result": "success",
+  "kernel_session_status": "KernelWorkerStatus.RUNNING",
+  "source_commit": "dae0a5dbe124a0c4a01bd69a26dda0036d0379e0+dirty",
+  "notebook_sha256": "5670d709d7f847c2e7d9984f8018ac4a97eef028f2ec1f0605de952cb7239421",
+  "kernel_metadata_sha256": "d7de070ae4379246d8e26eece0ffe656ad44ba30fdc853bdc0af0957bc8a3a04",
+  "private": true,
+  "internet_enabled": false,
+  "competition_submission_performed": false,
+  "official_submission_id": null
+}

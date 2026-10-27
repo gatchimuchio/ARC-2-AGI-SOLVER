@@ -1,0 +1,71 @@
+{
+  "schema": "arc2-global-training-feature-neighbor-v34-exact-baseline-probe-v1",
+  "minimum_nearest_training_examples": 1,
+  "training_tasks": 1000,
+  "training_pairs": 3232,
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8",
+  "radius_method": "95th percentile of each training example's nearest same-task input-feature distance; inputs only",
+  "radius": 0.018171951814233436,
+  "loo": {
+    "eligible_folds": 2916,
+    "folds_passing_training_only_global_candidate_gate": 0,
+    "folds_with_distinct_candidate": 0,
+    "candidate_exact": 0
+  },
+  "public_challenge": {
+    "tasks": 240,
+    "examples": 259,
+    "tasks_passing_training_only_global_candidate_gate": 2,
+    "eligible_examples_with_candidate": 2,
+    "candidate_exact_on_changed_examples": 1,
+    "v28_exact_on_changed_examples": 1,
+    "candidate_already_correct_in_v28": 1,
+    "candidate_wrong_where_v28_correct": 0,
+    "potential_safe_second_slot_gains": 0,
+    "tasks_run_in_exact_v28_bundle": 2,
+    "examples_run_in_exact_v28_bundle": 2,
+    "v28_subset_score": {
+      "exact_tasks": 1,
+      "exact_examples": 1
+    },
+    "safe_second_slot_candidate_subset_projection": {
+      "exact_tasks": 1,
+      "exact_examples": 1
+    },
+    "projected_full_v28_score": {
+      "exact_tasks": 13,
+      "exact_examples": 14
+    },
+    "projected_full_v34_score": {
+      "exact_tasks": 13,
+      "exact_examples": 14
+    },
+    "projected_delta": {
+      "exact_tasks": 0,
+      "exact_examples": 0
+    },
+    "v28_bundle_fallbacks": 0
+  },
+  "global_pool_contains_training_split_only": true,
+  "runtime_selector_uses_task_ids": false,
+  "loo_pool_excludes_entire_scored_task": true,
+  "heldout_output_passed_to_candidate_generation": false,
+  "public_test_targets_passed_to_candidate_generation": false,
+  "targets_read_after_exact_v28_bundle": true,
+  "per_task_ids_grids_and_predictions_written": false,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "434a7e35e21c35a5756607d40e1cc83b5dcf89c5d2018caaf1d534a824dc53e1",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "feature_neighbor": "5cd2e0d39709576702dfa42474c1232ca0e14371e486ad4dfc7b35f8f0ac8726",
+    "simple_transforms": "efe210a4e183de93b5318aadeac7d2b5022a562189839b2ce1a414d367b5b0d3",
+    "v28_bundle_manifest": "8bafa314ddb1e25831769d38f3e1d779fc3b6c060a002cd91caccf5e37529f17",
+    "v28_full_runtime_report": "169ace5f406914e1679a195d64e8162ef9f9a35cbccbacd9386a7cbc2b56ea6b"
+  },
+  "adoption_decision": {
+    "adopted": false,
+    "exact_candidate_bundle_built": false,
+    "reason": "The sole exact public candidate was already covered by v28; no candidate passed the leakage-guarded LOO teacher gate, and the projected full-challenge delta was 0.",
+    "production_unchanged": true
+  }
+}

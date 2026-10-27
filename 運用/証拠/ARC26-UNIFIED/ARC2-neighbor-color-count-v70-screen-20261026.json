@@ -1,0 +1,16 @@
+{
+  "schema": "arc2-neighbor-color-count-v70-screen-v1",
+  "observed_at_utc": "2026-10-26T14:42:26.803164+00:00",
+  "hypothesis": "map the center color and D4-invariant 3x3 neighbor color histogram to an output color; preserve unseen or contradictory contexts",
+  "loo_eligible_folds": 2916,
+  "loo_candidate_proposals": 396,
+  "challenge_tasks_with_proposals": 39,
+  "challenge_examples_with_proposals": 39,
+  "runtime_started": false,
+  "targets_read": false,
+  "task_ids_grids_or_targets_saved": false,
+  "source_sha256": {
+    "runner": "290acdd76f4563df6547140db17468fd4d603b4b871bbd96bb3ce82d21439c38",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83"
+  }
+}

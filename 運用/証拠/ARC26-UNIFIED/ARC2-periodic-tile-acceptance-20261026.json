@@ -1,0 +1,100 @@
+{
+  "schema": "arc2-periodic-tile-acceptance-v1",
+  "observed_at_utc": "2026-10-25T23:51:15Z",
+  "track": "ARC2 local optimization under ARC26 v5",
+  "status": "LOCAL_CANDIDATE_RETAINED_FOR_CONTINUED_OPTIMIZATION",
+  "change": {
+    "module": "接続/ARC2/周期タイルD4教材.py",
+    "integration": "HDS機構候補として、全教師を再現した場合だけ入力testへ出力する",
+    "rule": "教師例で一定倍率のタイル分割を確認し、位置ごとに同じ厳密D4変換が全教師で成立する場合にtest入力から構成する",
+    "task_id_or_hash_branching": false,
+    "runtime_target_outputs_used": false
+  },
+  "paired_training_loo": {
+    "evidence": "運用/証拠/ARC26-UNIFIED/ARC2-periodic-tile-paired-LOO-20261026.json",
+    "evidence_sha256": "0355fe7130ccf28e2fcb98f60b4ff606cfe14a2bf843cd5f1d69d24b8e0a3194",
+    "training_tasks": 1000,
+    "eligible_folds": 2916,
+    "candidate_fit_and_predicted_folds": 63,
+    "baseline_exact_folds": 3,
+    "candidate_exact_folds": 63,
+    "delta_exact_folds": 60,
+    "newly_correct_folds": 60,
+    "regressed_folds": 0,
+    "worker_errors": 0,
+    "heldout_outputs_read_after_predictions": true
+  },
+  "challenge_local_proxy": {
+    "evidence": "出力/Kaggle/arc2-codex-main-baseline-v1/v16-periodic-tiling-20261026/matched-composition/scorecard.json",
+    "evidence_sha256": "ff16a5579724fdde236bfa8788be5639695896e9a0a16e014c14db32066c53d3",
+    "composition_evidence": "出力/Kaggle/arc2-codex-main-baseline-v1/v16-periodic-tiling-20261026/matched-composition/composition-audit.json",
+    "composition_evidence_sha256": "d04a5d9776557cc6007329bd4e94763fb4cf01b552a46bd88d155cd86618fced",
+    "tasks": 240,
+    "test_examples": 259,
+    "baseline_correct_tasks_examples": [
+      5,
+      6
+    ],
+    "candidate_correct_tasks_examples": [
+      8,
+      9
+    ],
+    "delta_tasks_examples": [
+      3,
+      3
+    ],
+    "newly_correct_tasks": 3,
+    "regressed_tasks": 0,
+    "target_source": "official ARC-AGI-2 training source; all 240 challenge IDs overlap source task files",
+    "targets_read_only_after_prediction_artifacts": true,
+    "runtime_received_targets": false,
+    "interpretation": "Matched local proxy only; not an official competition score"
+  },
+  "adapter_validation": {
+    "build_manifest": "出力/Kaggle/arc2-codex-main-baseline-v1/v16-periodic-tiling-20261026/build-manifest.json",
+    "build_manifest_sha256": "8b6663300cc81d612e65a68ea54f1de82bd6ca23d070c76a6b867435fa9d5f01",
+    "payload_sha256": "f2d7d7d84429be67cc80a7bce6ee6df6123e9ff5bf38138204e1db928dfea825",
+    "candidate_source_commit": "dae0a5dbe124a0c4a01bd69a26dda0036d0379e0+dirty",
+    "source_files": 279,
+    "internet_enabled": false,
+    "eligible_tasks_run_through_adapter": 3,
+    "eligible_test_examples_run_through_adapter": 3,
+    "eligible_adapter_fallbacks": 0,
+    "eligible_adapter_submission_sha256": "49882c8e80f60aecc80bb43bfb7872c4e1060cbcdd17f4bdfedc5cdb99be0918",
+    "full_240_run": "INTERRUPTED_AFTER_10_MINUTE_LOCAL_CAP; no full-output submission or audit was produced; the challenge scorecard composes the exact v10 baseline with the actual adapter output for the exhaustive three-task fit set",
+    "official_submission_performed": false,
+    "competition_quota_used": false,
+    "candidate_official_score": "UNKNOWN_NOT_SUBMITTED"
+  },
+  "additional_probes": {
+    "palette_mapped_periodic_tiles": {
+      "candidate_tasks": 3,
+      "new_fit_tasks_over_exact_D4": 0,
+      "additional_score_gain": 0
+    },
+    "unique_simple_transform": {
+      "candidate_tasks": 3,
+      "exact_candidate_tasks": 3,
+      "newly_correct_tasks_over_baseline": 0
+    },
+    "feature_neighbor_transform": {
+      "candidate_tasks": 5,
+      "exact_candidate_tasks": 2,
+      "newly_correct_tasks_over_baseline": 0
+    },
+    "generic_prior_memory": "removed after matched local probe showed no score improvement"
+  },
+  "validation": {
+    "pytest": "15 passed in 7.93 seconds: 検証/test_ARC2Kaggle提出.py and 検証/test_HDS候補収集.py",
+    "py_compile": "PASS for period tile module, HDS connector, Kaggle adapter, bundle builder",
+    "protected_files_edited": false,
+    "notebook_or_kernel_changed": false
+  },
+  "source_sha256": {
+    "periodic_tile_module": "3ad156af6e2faa2297ad8419fc2e0db410e0aca362d49fa145fdbc8fd04f6cf2",
+    "hds_connector": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe",
+    "kaggle_adapter": "f5e8ca8bc168e6854d49b4207a4eec306235c33e1de0a2cd52a4e3daff1954bf",
+    "bundle_builder": "15fe8bfc2b261d5bceba6156f6b5bc5abd576464a06dea5b998b3e11fa9413d5",
+    "targeted_regression_test": "1d82d51d43dd6230b1767f5c27ccf8e210aaf0dd96ad20db0c9795e5bf99a2a2"
+  }
+}

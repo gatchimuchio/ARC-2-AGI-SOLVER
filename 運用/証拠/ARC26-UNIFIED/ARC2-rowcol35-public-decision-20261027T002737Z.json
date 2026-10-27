@@ -1,0 +1,63 @@
+{
+  "schema": "arc2-rowcol35-public-adoption-decision-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-27T00:27:37.521821+00:00",
+  "run_id": "ARC2-rowcol35-public20-20261027T0005Z",
+  "status": "COMPLETE",
+  "session_id": 42100,
+  "unique_tasks": 20,
+  "fresh_processes": 80,
+  "completed_processes": 80,
+  "worker_errors": 0,
+  "timeouts": 0,
+  "old_new_unseen_hds_before_after": {
+    "old33": [
+      0,
+      0
+    ],
+    "new35": [
+      0,
+      0
+    ],
+    "denominator": 20
+  },
+  "old_new_unseen_direct_before_after": {
+    "old33": [
+      0,
+      0
+    ],
+    "new35": [
+      0,
+      0
+    ],
+    "denominator": 20
+  },
+  "wrong_outputs": 0,
+  "hold_outputs_per_role_arm_phase": 20,
+  "fitted_models": 0,
+  "actual_hds_queries": 0,
+  "fit_status_counts": {
+    "tree33": {
+      "teacher_shape_changed": 34,
+      "fit_state_budget_exceeded": 6
+    },
+    "rowcol35": {
+      "teacher_shape_changed": 34,
+      "fit_state_budget_exceeded": 6
+    }
+  },
+  "old33_reproduction_phases": 40,
+  "old33_prior_model_prediction_HDS_states_identical": true,
+  "summary_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-cell-conditional-tree-rowcol\\public_results\\study20-20261027T0005Z.summary.json",
+  "summary_sha256": "0da420aeafa0d9997099116fa8091c9a23218ae4e4e3e0ee70553ce6373998d6",
+  "records_sha256": "9e2dac77349f098f8130d97028ab7fd15a57717dfe5e481a1c652db5ccfbd316",
+  "cohort_sha256": "f4ccbe47c84d0807f61a246d4622e3d46d5580e086bcb6d346195d06f84be5ba",
+  "source_sha256": "a15209df6436553d37a96d62c67f07574a68eca353844ec93905a51233257b77",
+  "scope": "Same20/U/F/support, currentHDS isolated33vs35 familybatchrefit. Not fullsolver/official performance.",
+  "adopted": false,
+  "decision": "NO ADOPTION: input-globalfeatures reduced necessarycondition conflicts in separateteacher-only probe, but defaultboundedsearch stillfoundno publicmodel/output/score gain.",
+  "next_action": "Audit exact admissible support-infeasibility pruning; keeporiginals frozen. Continue same officialsubmission57682971 to numeric score; no furtherPOSTtoday.",
+  "official_candidate_changed": false,
+  "official_submission_performed_by_this_experiment": false,
+  "production_source_changed": false
+}

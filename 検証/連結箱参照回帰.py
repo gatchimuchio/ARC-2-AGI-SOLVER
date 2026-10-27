@@ -3,13 +3,18 @@
 import hashlib
 import json
 from pathlib import Path
-import resource
 import sys
 import time
 import traceback
 
-resource.setrlimit(resource.RLIMIT_CPU, (10, 10))
-resource.setrlimit(resource.RLIMIT_AS, (512*1024**2, 512*1024**2))
+try:
+    import resource
+except ImportError:  # Windows does not expose the POSIX resource module.
+    resource = None
+
+if resource is not None:
+    resource.setrlimit(resource.RLIMIT_CPU, (10, 10))
+    resource.setrlimit(resource.RLIMIT_AS, (512*1024**2, 512*1024**2))
 sys.dont_write_bytecode = True
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -79,6 +84,8 @@ except BaseException as error:
     summary.update(error=type(error).__name__, message=str(error))
     traceback.print_exc()
 summary.update(cpu_seconds=time.process_time()-started,
-               maxrss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+               maxrss_kib=(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+                           if resource is not None else None),
+               resource_limits_supported=resource is not None)
 print(json.dumps(summary))
 raise SystemExit(0 if summary['successful'] else 1)

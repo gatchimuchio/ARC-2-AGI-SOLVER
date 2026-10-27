@@ -1,0 +1,59 @@
+{
+  "schema": "arc2-v4-p4-prior-memory-json-repair-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-25T14:50:29Z",
+  "memory_version": "v0.4",
+  "manifest_pre_sha256": "bab4171f109a5704188b510753578a4f15a29eed73a05adfdb7333b1f605de2d",
+  "manifest_post_sha256": "4cf435a5feaf23f3a3cbfdc5192947d60d55e60f712722988ea3c2210f7b53e9",
+  "manifest_gitblob_links_verified": true,
+  "declared_and_parsed_total_records": 1120,
+  "repaired_shards": 3,
+  "repair": "inserted one missing closing bracket before each shard final object delimiter; all bytes before the prior final delimiter are unchanged",
+  "shards": [
+    {
+      "file": "1120題_HDS索引_1.json",
+      "declared_records": 280,
+      "parsed_records_after": 280,
+      "repair": "unchanged_valid",
+      "pre_sha256": "565224491320ab44d1e3c5a5efaa60a60858462b5ce4cac27d91bc3dd3ea1e04",
+      "post_sha256": "565224491320ab44d1e3c5a5efaa60a60858462b5ce4cac27d91bc3dd3ea1e04",
+      "unchanged_prefix_sha256": null,
+      "pre_git_blob": "e01b59c524e6decf08ea80ac24d6d6b10157688c"
+    },
+    {
+      "file": "1120題_HDS索引_2.json",
+      "declared_records": 280,
+      "parsed_records_after": 280,
+      "repair": "insert_one_missing_array_close_before_final_object_close",
+      "pre_sha256": "d57df6203df27af435103d0f3e670dc48d2e98ed2b8e9e0004421b75224d8e10",
+      "post_sha256": "47462176ac13e8dd1e870bbb5f7342813c100c88b3ce638f8621dea2e72670f7",
+      "unchanged_prefix_sha256": "ee8300e0325221d4e42bc64e0e92713f9a69cd8cdc33acb3df4922ebecd43c3c",
+      "pre_git_blob": "581668ccb1b6f3937946e7dd5ecc2a6f44234978"
+    },
+    {
+      "file": "1120題_HDS索引_3.json",
+      "declared_records": 280,
+      "parsed_records_after": 280,
+      "repair": "insert_one_missing_array_close_before_final_object_close",
+      "pre_sha256": "acea059cc3b977ef38f2c1111cb86d63483afbb93a1644caa87cf1dcbfdd97e1",
+      "post_sha256": "3596df58a114be46b40a630efdc60137d987aaea1b6890a08dc5a923be2ac8ce",
+      "unchanged_prefix_sha256": "abea41a9ada81c32fe8cf194e0a8b4db9801b76c95a4df26f8868216d05fb83f",
+      "pre_git_blob": "dcae55be67784615f10f1865eff8e629eef03761"
+    },
+    {
+      "file": "1120題_HDS索引_4.json",
+      "declared_records": 280,
+      "parsed_records_after": 280,
+      "repair": "insert_one_missing_array_close_before_final_object_close",
+      "pre_sha256": "6b8bfb7a02c96e4ccd8b2c28f10135a6bf8b3ba7318d40170245acfbf52ccfce",
+      "post_sha256": "f29fe8013d8f8930f26f7ae4cae00216f822a7354267f695f86440fb14714d1d",
+      "unchanged_prefix_sha256": "aed17ccd671d9fa1c293ae4a557516a820694dca90d12d09fdc80045cd0e7e17",
+      "pre_git_blob": "466148ae305acbe88d73df158ae70aacab6611a2"
+    }
+  ],
+  "all_shards_parse_after_repair": true,
+  "official_submission_or_rerun": false,
+  "runtime_bundle_changed": false,
+  "pre_repair_recoverable_from_head": true,
+  "task_ids_or_grid_values_saved_in_report": false
+}

@@ -1,0 +1,47 @@
+{
+  "schema": "arc26-official-cli-observation-v1",
+  "track": "ARC2",
+  "competition_slug": "arc-prize-2026-arc-agi-2",
+  "submission_id": "57576155",
+  "observed_at_utc": "2026-10-24T09:55:28Z",
+  "retrieval_method": "Configured local .venv Kaggle CLI; read-only",
+  "commands": [
+    ".\\.venv\\Scripts\\python.exe -m kaggle competitions submissions arc-prize-2026-arc-agi-2 --format json",
+    ".\\.venv\\Scripts\\python.exe -m kaggle competitions submission-limits arc-prize-2026-arc-agi-2"
+  ],
+  "command_exit_codes": {
+    "history": 0,
+    "submission_limits": 0
+  },
+  "cli_warning": "Installed Kaggle CLI 2.2.4; query succeeded, update notice reports 2.2.5.",
+  "history": [
+    {
+      "submission_id": 57576155,
+      "submitted_at_utc": "2026-10-24T00:12:39.127Z",
+      "official_status": "SubmissionStatus.COMPLETE",
+      "publicScore": "0.00",
+      "privateScore": ""
+    },
+    {
+      "submission_id": 57560705,
+      "submitted_at_utc": "2026-10-23T12:25:06.577Z",
+      "official_status": "SubmissionStatus.COMPLETE",
+      "publicScore": "0.00",
+      "privateScore": ""
+    }
+  ],
+  "submission_limits": {
+    "numToday": 1,
+    "numTotal": 8,
+    "remainingToday": 0
+  },
+  "notebook_slug": "tecchannn/arc2-codex-main-baseline-v1",
+  "notebook_version": 5,
+  "source_commit": "2759d393a8d79824d36754785ce16f66d0493ebd",
+  "input_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "output_sha256": "78e59642d9a84457c1ad9a16b1b98c12de717a34d562438ae830a8903cd5b026",
+  "previous_numeric_score": "0.00",
+  "score_delta": "0.00",
+  "next_check_at_utc": "2026-10-24T10:33:01.174328+00:00",
+  "submission_created": false
+}

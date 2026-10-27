@@ -1,0 +1,65 @@
+{
+  "schema": "arc26-v4-reproduction-report-v1",
+  "track": "ARC2",
+  "reproduction_id": "ARC26-ARC2-V4-RB-C2-062-repro-20261025T142006Z",
+  "observed_at_utc": "2026-10-25T14:20:57Z",
+  "status": "REPRODUCED_LIMITED_SAMPLE",
+  "baseline_manifest": "運用/ARC26-UNIFIED/p0-baseline-v4-corrected-20261025T141349Z.json",
+  "baseline_manifest_sha256": "959a15de5df8d53f82f7a7110d7daf6eee58013af900344d3290ed451f18d241",
+  "environment": {
+    "python_version": "3.12.10",
+    "environment": "repo .venv",
+    "dependency_lock_sha256": "c95e73cb6723c9d7b403b4a93079c4e330dbb0499e5c59e2698709ac2e519d38",
+    "seed": "runner exposes no seed parameter; deterministic result checked by two independent process runs",
+    "time_budget_seconds": 300,
+    "runtime_previous_current_each": true
+  },
+  "implementation": {
+    "runner": "運用/証拠/ARC26-UNIFIED/P5_HDS_D4_support2_sparse_LOO.py",
+    "runner_sha256": "9521b132b34f77cb5c38915007826d4488fdb0e7e1c5e95fbbdf92dc0e40dfac",
+    "core": "接続/ARC2/連結箱参照核.py",
+    "core_sha256": "498ab35ebbf6df9ba7589bb05bcf9677ae24febfc946dd6e35e67d3367ec7a2e",
+    "baseline_d4_sha256": "a5d6a2eedb063a876b47cd5d2fdf28cec13af535d89b9fef65df41b81c5ccf18",
+    "candidate_temporary_d4_sha256": "5d9b227e50a0708bedfa2dc606998304b4a50d4525c4687b14e74af6681b3b75"
+  },
+  "input": {
+    "source": "public ARC-AGI-2 training split; sparse two-example cohort",
+    "manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8",
+    "eligible_population": 575,
+    "tasks_per_run": 4,
+    "loo_folds_per_run": 12,
+    "evaluation_solutions_read": false,
+    "heldout_outputs_passed_to_solver": false,
+    "initial_memory_loaded": false,
+    "memory_not_used_reason": "This paired LOO runner learns only from each task training pair; it does not load prior-memory assets."
+  },
+  "runs": [
+    {
+      "path": "運用/証拠/ARC26-UNIFIED/ARC2-V4-RB-C2-062-repro-20261025T142006Z-run1.json",
+      "sha256": "c59ffc57fd9be4c359722f2fbebcbf6428356e4c36ff931fd38c90bf87256cfd",
+      "runtime_seconds": 27.39
+    },
+    {
+      "path": "運用/証拠/ARC26-UNIFIED/ARC2-V4-RB-C2-062-repro-20261025T142006Z-run2.json",
+      "sha256": "3b463a65de876a1d35346d365a7c16f8c3a765e4d5266550001706272d08535f",
+      "runtime_seconds": 20.707
+    }
+  ],
+  "same_outcome": true,
+  "metrics": {
+    "previous_exact": 0,
+    "previous_wrong": 0,
+    "previous_fallback": 12,
+    "current_exact": 0,
+    "current_wrong": 0,
+    "current_fallback": 12,
+    "delta_current_minus_previous": {
+      "answer": 0,
+      "exact": 0,
+      "fallback": 0,
+      "union_exact": 0,
+      "wrong": 0
+    }
+  },
+  "acceptance": "R-B limited sample only; P3 full reproducible baseline remains open; G3 ability not accepted because exact=0 and fallback=12"
+}

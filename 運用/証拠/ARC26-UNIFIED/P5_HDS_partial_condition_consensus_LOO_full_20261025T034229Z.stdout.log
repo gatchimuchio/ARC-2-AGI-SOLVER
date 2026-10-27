@@ -1,0 +1,11 @@
+{"eligible_tasks_done": 25, "paired_loo_folds_done": 106, "elapsed_seconds": 538.4}
+{"eligible_tasks_done": 50, "paired_loo_folds_done": 224, "elapsed_seconds": 750.1}
+{"eligible_tasks_done": 75, "paired_loo_folds_done": 334, "elapsed_seconds": 1196.6}
+{"eligible_tasks_done": 100, "paired_loo_folds_done": 438, "elapsed_seconds": 1618.8}
+{"eligible_tasks_done": 125, "paired_loo_folds_done": 552, "elapsed_seconds": 1847.5}
+{"eligible_tasks_done": 150, "paired_loo_folds_done": 661, "elapsed_seconds": 2046.9}
+{"eligible_tasks_done": 175, "paired_loo_folds_done": 767, "elapsed_seconds": 2253.2}
+{"eligible_tasks_done": 200, "paired_loo_folds_done": 886, "elapsed_seconds": 2481.8}
+{"eligible_tasks_done": 225, "paired_loo_folds_done": 1000, "elapsed_seconds": 2610.6}
+{"eligible_tasks_done": 250, "paired_loo_folds_done": 1113, "elapsed_seconds": 2940.1}
+{"output": "\u904b\u7528\\\u8a3c\u62e0\\ARC26-UNIFIED\\P5_HDS_partial_condition_consensus_LOO_full.json", "complete": true, "paired_loo_folds": 1191, "previous_exact": 17, "current_exact": 17, "delta_exact": 0, "previous_wrong": 0, "current_wrong": 1, "elapsed_seconds": 3224.979222}

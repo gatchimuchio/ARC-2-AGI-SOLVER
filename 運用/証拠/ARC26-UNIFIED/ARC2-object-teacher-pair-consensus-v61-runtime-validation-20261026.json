@@ -1,0 +1,43 @@
+{
+  "schema": "arc2-object-teacher-pair-consensus-v61-runtime-validation-v1",
+  "candidate_tasks": 6,
+  "candidate_examples": 7,
+  "paired_public_results": {
+    "examples": 7,
+    "baseline_exact": 5,
+    "candidate_exact": 6,
+    "newly_correct": 1,
+    "regressions": 0,
+    "candidate_proposals": 7,
+    "candidate_usable_duplicate_slots": 2,
+    "expected_second_matches": 7,
+    "attempt1_unchanged": 7,
+    "attempt2_changed": 2,
+    "baseline_exact_tasks": 5,
+    "candidate_exact_tasks": 5,
+    "newly_correct_tasks": 0,
+    "regressed_tasks": 0
+  },
+  "v51_runtime_seconds": 33.081,
+  "v61_runtime_seconds": 30.043,
+  "v51_fallback_count": 6,
+  "v61_fallback_count": 6,
+  "v51_temporary_output_sha256": {
+    "submission": "628dfc1fe4aed5ffdf7ba3bcc448737b9a310bc753bbf92cf0442b8f0a213783",
+    "audit": "b9dc07e496d1ccd8505d803eef46e733a9a6cc8f8a9f5ec061dad013674fab88"
+  },
+  "v61_temporary_output_sha256": {
+    "submission": "259c7dd4fa4f48f4d3539b7327c575a619dbaccbf9781fcab45d549e3b57f133",
+    "audit": "52a2f96c5f5abd9463d053e01cdf7b6afd7d4c968d1458f2ae36e9fa9022c351"
+  },
+  "challenge_targets_read_after_both_prediction_sets": true,
+  "per_task_ids_grids_or_targets_saved": false,
+  "temporary_outputs_and_payload_removed": true,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "80f78e774e1ed2a80c63a908eb68d5fb9469d122961a2b7ed4d3dc8f3d2163c7",
+    "challenge_inputs": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "v51_build_manifest": "ebdd96836be417c0257030a115c6a6043a46c9471611af63000f677a75104c85",
+    "v61_build_manifest": "21150b4b766b823a2cc9fd3089b083229db2deaea23e4b0d0a5d06acec4f0356"
+  }
+}

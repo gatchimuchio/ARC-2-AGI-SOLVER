@@ -1,0 +1,51 @@
+            portfolio候補 = None
+            portfolio診断 = {
+                "policy_id": _PORTFOLIO_POLICY_ID,
+                "eligible": False,
+                "eligibility_reason": "outside_test_rows",
+                "selected": False,
+                "sources": [],
+                "extra_seconds": 0.0,
+                "targets_or_task_ids_received": False,
+            }
+            hds一次保留 = 元行.get("answer") is None if isinstance(元行, dict) else False
+            if 位置 < len(課題["test"]):
+                portfolio入力 = 課題["test"][位置]["input"]
+                legacy予測 = 第一候補 if 候補対 else 元行.get("answer")
+                legacy第一 = legacy予測 if 格子か(legacy予測) else portfolio入力
+                legacy第二 = 第二候補 if 格子か(第二候補) and 第二候補 != legacy第一 else legacy第一
+                if not hds一次保留:
+                    portfolio診断["eligibility_reason"] = "hds_primary_answer_present"
+                elif 候補対:
+                    portfolio診断["eligibility_reason"] = "legacy_candidate_pair_present"
+                elif legacy第一 != portfolio入力:
+                    portfolio診断["eligibility_reason"] = "legacy_nonidentity_attempt1_present"
+                else:
+                    portfolio準備開始 = _portfolio_clock()
+                    portfolio文脈新規 = portfolio_task is None
+                    if portfolio文脈新規:
+                        portfolio_task = _PortfolioTaskProviders(
+                            課題["train"],
+                            (
+                                ("teacher_pair_consensus", "all_current_train_exact", lambda teachers: _portfolio_model_predictor(ObjectExtractionCandidate, teachers, "teacher_pair_consensus_candidate")),
+                                ("object_extraction", "all_current_train_exact", lambda teachers: _portfolio_model_predictor(ObjectExtractionCandidate, teachers, "candidate")),
+                                ("object_outlier", "all_current_train_exact", lambda teachers: _portfolio_model_predictor(ObjectExtractionCandidate, teachers, "outlier_candidate")),
+                                ("object_palette", "all_current_train_exact", lambda teachers: _portfolio_model_predictor(ObjectExtractionCandidate, teachers, "palette_candidate")),
+                                ("local_cell_context", "all_current_train_exact", lambda teachers: _portfolio_model_predictor(LocalCellContextCandidate, teachers, "候補", True)),
+                                ("simple_unique_transform", "all_current_train_exact", lambda teachers: _portfolio_simple_predictor(teachers, _portfolio_fitted_simple_models, _portfolio_apply_simple_model)),
+                                ("composite_geometry", "all_current_train_exact", lambda teachers: _portfolio_model_predictor(CompositeGeometryCandidate, teachers, "候補", True)),
+                            ),
+                            格子か,
+                        )
+                    portfolio準備秒 = _portfolio_clock() - portfolio準備開始
+                    portfolio候補, portfolio診断 = _portfolio_select_attempt1(
+                        portfolio入力, legacy第二,
+                        portfolio_task.providers_for_query(
+                            portfolio入力,
+                            ("composite_geometry",) if legacy第二 == portfolio入力 else None,
+                        ),
+                        格子か,
+                    )
+                    portfolio診断["task_context_created"] = portfolio文脈新規
+                    portfolio診断["task_context_setup_seconds"] = round(portfolio準備秒, 6)
+                    portfolio診断["extra_seconds"] = round(portfolio診断["extra_seconds"] + portfolio準備秒, 6)

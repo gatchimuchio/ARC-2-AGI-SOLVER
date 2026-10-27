@@ -1,0 +1,53 @@
+{
+  "schema": "arc2-v61-full-runtime-public-score-v1",
+  "run_id": "ARC2-V61-FULL-REPRO-20261026T180318Z",
+  "track": "ARC2",
+  "source_commit": "dae0a5dbe124a0c4a01bd69a26dda0036d0379e0+dirty+v50-local-prior-memory+v51-largest-component-object+v61-teacher-pair-consensus",
+  "build_manifest_sha256": "21150b4b766b823a2cc9fd3089b083229db2deaea23e4b0d0a5d06acec4f0356",
+  "payload_sha256": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",
+  "launcher_sha256": "d47dac81dbcb9cd9a151fa7461145b5ac708291dbb52af8a4099e20efbc4a791",
+  "notebook_sha256": "9cb8580836257a95423560407351612cb1413c62cbd7b0ac8d62169da16120d4",
+  "challenge_file": "入力/Kaggle/arc-agi_test_challenges.json",
+  "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "attempts_per_test": 2,
+  "execution_command": ".venv/Scripts/python.exe <v61 build>/solve.py --challenges 入力/Kaggle/arc-agi_test_challenges.json --output-dir <unique run>/output",
+  "runtime_seconds": 890.281,
+  "fallback_count": 249,
+  "runtime_received_solutions_or_targets": false,
+  "public_targets_read_only_after_both_prediction_files_fixed": true,
+  "public_solutions_file": "入力/Kaggle/arc-agi_training_solutions.json",
+  "public_solutions_sha256": "9f07a38bd25af5e83aa5bf85c5cb1a1fefdb30f6a755256fa65429e697ca97f9",
+  "scoring_method": "For each public test grid, exact match of either attempt_1 or attempt_2 earns one correct grid; a task is exact only if every test grid is exact. Aggregate only; no task-level predictions or targets persisted.",
+  "v51_baseline": {
+    "exact_tasks": 14,
+    "task_count": 240,
+    "exact_examples": 15,
+    "example_count": 259,
+    "submission_sha256": "8c4a3d09d80e9cef5cf9f3873afa523d2700a52882a5b65ad041d39380327194"
+  },
+  "v61_current": {
+    "exact_tasks": 14,
+    "task_count": 240,
+    "exact_examples": 16,
+    "example_count": 259,
+    "submission_sha256": "827bccfc1cf51e2fc87d687ba51e1375899650a530ec00e7a20eb1f71eb2dd18",
+    "audit_sha256": "0b410b456a7be4601a3f2c7bc234b5e1def723de1b6030880f65c604b1ace09a"
+  },
+  "paired_delta_vs_v51": {
+    "newly_correct_examples": 1,
+    "regressed_examples": 0,
+    "newly_correct_tasks": 0,
+    "regressed_tasks": 0
+  },
+  "runtime_submission_sha256": "827bccfc1cf51e2fc87d687ba51e1375899650a530ec00e7a20eb1f71eb2dd18",
+  "runtime_audit_sha256": "0b410b456a7be4601a3f2c7bc234b5e1def723de1b6030880f65c604b1ace09a",
+  "official_score": null,
+  "official_submission_performed": false,
+  "limitations": [
+    "local public target evaluation only; not Kaggle official score",
+    "Windows run did not enforce CPU/RAM limits"
+  ],
+  "next_candidate_ref_if_remote_reproduces": "tecchannn/arc2-v61-local-teacher-pair-consensus-candidate"
+}

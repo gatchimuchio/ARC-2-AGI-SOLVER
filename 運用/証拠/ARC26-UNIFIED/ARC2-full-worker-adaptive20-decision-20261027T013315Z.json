@@ -1,0 +1,66 @@
+{
+  "schema": "arc2-full-current-worker-adaptive-public-decision-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-27T01:33:15.973471+00:00",
+  "run_id": "ARC2-P3-full-worker-adaptive20-20261027T0124Z",
+  "status": "COMPLETE",
+  "session_id": 60123,
+  "tasks": 20,
+  "fresh_processes": 40,
+  "completed_processes": 40,
+  "worker_errors": 0,
+  "timeouts": 0,
+  "support_policy": "Unmodified production adaptive outer and validator 2 to 3",
+  "unseen_nonfallback_pass1_previous_current_delta": [
+    0,
+    0,
+    0
+  ],
+  "unseen_nonfallback_pass2_previous_current_delta": [
+    0,
+    0,
+    0
+  ],
+  "unseen_raw_pass2_previous_current_delta": [
+    0,
+    0,
+    0
+  ],
+  "unseen_wrong_generated_before_after": [
+    4,
+    4
+  ],
+  "unseen_hold_no_generated_before_after": [
+    16,
+    16
+  ],
+  "unseen_gains": 0,
+  "unseen_regressions": 0,
+  "feedback_after_training_fit": 20,
+  "feedback_fit_denominator": 20,
+  "feedback_not_unseen_learning": true,
+  "family_record_count_each_phase": 2200,
+  "family_no_candidate_count_each_phase": 2200,
+  "family_full_train_without_equality_count_each_phase": 0,
+  "family_fully_accepted_count_each_phase": 0,
+  "source_unchanged": true,
+  "prior_unchanged": true,
+  "environment_unchanged": true,
+  "template_reader_calls_each_worker": 1,
+  "generic_reader_calls_each_worker": 0,
+  "generic_status": "ABSENT_CALL_PATH_PINNED_CURRENT_SOURCE",
+  "generic_content_opens": 0,
+  "source_sha256": "4fd0226f3c650899e229addc766d63340086bb4a667ab61e4018e43ddd7bb2c0",
+  "cohort_sha256": "b1bb3b5aaffb33ba7b07c6254713bb81f421e55f8fa1acfed19fcca62213a39d",
+  "summary_path": "運用/証拠/ARC26-UNIFIED/ARC2-P3-full-worker-lowshot-adaptive/public_results/study20-20261027T0124Z.summary.json",
+  "summary_sha256": "4853550f7df5119963da025d90c53d85f5ef94bb6a9389ef23e9f5164357fdc0",
+  "records_sha256": "87f44dd41bcaa63b2f94b2bc3fed040e164f0630247b767a6755c52ba22f9ffc",
+  "decision": "Learning effect not demonstrated: no unseen correct output gain. All primary family endpoints report no candidate, so this cohort provides no basis to weaken HDS equality/support admission.",
+  "scope": "full current system response to F under unchanged adaptive2->3 code/policy; not pure HDS-core causality",
+  "source_scope": "current local worker and actual formatter with filtered template prior; not frozen v61 Notebook",
+  "must_not_pool_with_fixed_min2_or_default_min3": true,
+  "adopted": false,
+  "production_source_changed": false,
+  "official_submission_performed": false,
+  "next_action": "Test a sound whole-partition support infeasibility prune on six fixed support-only phases of the isolated generic cell learner; keep same grammar and limits. In parallel, isolate whole-run deadline repair. Continue official 57682971 tracking."
+}

@@ -1,0 +1,1336 @@
+{
+  "schema": "arc2-cell-conditional-tree-public-study-v1",
+  "state": "COMPLETE",
+  "completed_at": "2026-10-26T23:39:41.886068+00:00",
+  "requested_tasks": 20,
+  "requested_queries_per_arm_phase": 40,
+  "cohort_sha256": "0d8e6b47d65bc264de5a68757b4fb61a48535d15ef00a22772e17f456e832073",
+  "source_unchanged": true,
+  "sources": {
+    "sha256": "123ee9a7cd963535f7aa50b9a177b193e9d69fd81a267bd584b3447c29a55d6f",
+    "file_count": 282,
+    "files": [
+      {
+        "path": "HDS/学習系統/v0.4.2/hds学習系統/__init__.py",
+        "sha256": "eaed97760656afc40088ad7e0d85a02fbd59a0d0034054956e9ead63319fba57"
+      },
+      {
+        "path": "HDS/学習系統/v0.4.2/hds学習系統/台帳.py",
+        "sha256": "a6cab8fca7cb591c42fa7444f9678fe0003da69faafcce852598286dceb522e2"
+      },
+      {
+        "path": "HDS/学習系統/v0.4.2/hds学習系統/吸気系.py",
+        "sha256": "50c48e5a9a8aa39158d0cdaacc0501608a829486960d41cb2fea6cb02e5660a4"
+      },
+      {
+        "path": "HDS/学習系統/v0.4.2/hds学習系統/型.py",
+        "sha256": "aa1241708655280b36564f5e3ff6968849b4d09790b8932aabad1570cbca302c"
+      },
+      {
+        "path": "HDS/学習系統/v0.4.2/hds学習系統/実行系.py",
+        "sha256": "11d253705181873bcc22e312a0d0a2198fe16a82e3d7289ea8746fdc14695429"
+      },
+      {
+        "path": "HDS/学習系統/v0.4.2/hds学習系統/懐疑.py",
+        "sha256": "bb7e85c2dbafbd430f1b7733bf3a2d307dc24e3227e79994b491cf711322f715"
+      },
+      {
+        "path": "HDS/学習系統/v0.4.2/hds学習系統/排気系.py",
+        "sha256": "2ba7ceb8d0d6c784d092f91fe484477127f044e50f68c54c977374b17f2f6361"
+      },
+      {
+        "path": "HDS/学習系統/v0.4.2/hds学習系統/推論.py",
+        "sha256": "315dd0d23a9682cdf14be71346341976cbdbcd2cbd924a250afc4ad53058dba6"
+      },
+      {
+        "path": "HDS/学習系統/v0.4.2/hds学習系統/検証.py",
+        "sha256": "e23f271d38e1f52d75557dbf3342abf7b59a85fbdc315a06c0040fd7ca204eb3"
+      },
+      {
+        "path": "HDS/学習系統/v0.4.2/hds学習系統/永続化.py",
+        "sha256": "8aa431b3012424fd8347c5b3d93a5fbf2218d35020836f5d40abb427f9d6da0d"
+      },
+      {
+        "path": "HDS/学習系統/v0.4.2/hds学習系統/系統.py",
+        "sha256": "f57e34fcab9249ad7fef72d7b9088fbb440c01afcd4313c9447b7a31427bd4a5"
+      },
+      {
+        "path": "HDS/学習系統/v0.4.2/hds学習系統/適応.py",
+        "sha256": "c74797d49472646010ed0b37bd17dfa602084ba3347ac9386dec265e78a797ac"
+      },
+      {
+        "path": "接続/ARC2/C2_066_compound_foreground_D4_palette_translation.py",
+        "sha256": "ae7364556c21bd04d22043138138c054a4a71d0a7a67ba12d2052b15205d4e3b"
+      },
+      {
+        "path": "接続/ARC2/HDS接続.py",
+        "sha256": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe"
+      },
+      {
+        "path": "接続/ARC2/Kaggle提出.py",
+        "sha256": "43fd2c444cc1428bdfb3da3b228fca14b6ccb939c169401b1684c2b93b4092e4"
+      },
+      {
+        "path": "接続/ARC2/legacy_v4_candidate.py",
+        "sha256": "cd16193e59d14b7d714133b2e9a0b559fcb8ce76e04ab68e73676e0dd41f5706"
+      },
+      {
+        "path": "接続/ARC2/legacy_v4_solver.py",
+        "sha256": "112c6d5fff9994ef2c9f732581b9bc8952996949fbaafc27846d6b0b284b5210"
+      },
+      {
+        "path": "接続/ARC2/並列枠命令配置.py",
+        "sha256": "fe30021e81a14dfc65785f737e787c5ba5dc415d8f4d5fe77ebb923482300d32"
+      },
+      {
+        "path": "接続/ARC2/中心配色教材.py",
+        "sha256": "8cf63b8a4fdd6850978d68d81dcd402ff6b8fd17c26afa99151410aa7d5237ae"
+      },
+      {
+        "path": "接続/ARC2/二値原型教材.py",
+        "sha256": "0b1bd665ad3066d26e79215e188043be4501ac9275285e8d9c2b80a61987423e"
+      },
+      {
+        "path": "接続/ARC2/二軸補完教材.py",
+        "sha256": "684ba1660fd71e55d64c9311a0c63c7ffc28697b630016257de8d5c6bdbca62b"
+      },
+      {
+        "path": "接続/ARC2/倍率置換教材.py",
+        "sha256": "451a39ea6f2631cb1ae051f0c7ee7386fe982c9916c3311418b2f338e948de50"
+      },
+      {
+        "path": "接続/ARC2/側周期教材.py",
+        "sha256": "a4cc660cfd6b9c9619633b669366d702c83e6c6105e68e385634b173ee6c7a93"
+      },
+      {
+        "path": "接続/ARC2/全panel端連鎖教材.py",
+        "sha256": "9d938eb3b32cf87d1d0632bac4f80cec040d6312edaf2da8d09ecf9d30bcf988"
+      },
+      {
+        "path": "接続/ARC2/全panel端連鎖核.py",
+        "sha256": "091f639523ddedc4bd11b222e7e931a1defb19e38ebd6173b5abf6b37fd1cdbb"
+      },
+      {
+        "path": "接続/ARC2/全体接触候補.py",
+        "sha256": "6f17f940e316caf37487968766d9b3f7e73c3837285e4a65db4464e937bdbbea"
+      },
+      {
+        "path": "接続/ARC2/全体接触教材.py",
+        "sha256": "b68887b480b689910d4adcacbacb3bd2a9a0d7e35b0257ced1912a0b74b1d5d7"
+      },
+      {
+        "path": "接続/ARC2/全体模様窓必要条件教材.py",
+        "sha256": "0e26aa30710a66f0a3cdd39c1e14d73a260f3a25f2c5e210d59b00e2c2723e91"
+      },
+      {
+        "path": "接続/ARC2/全体模様窓教材.py",
+        "sha256": "1b9dbce6ae437ac865d51cf87b24ce1a1c10dbf1e98213b69e5628be94f1a13d"
+      },
+      {
+        "path": "接続/ARC2/全体模様窓視点.py",
+        "sha256": "bf8ef6214beb1b99c296572e05b09c2d26c875316582a22eedaaae5ea25fd2bd"
+      },
+      {
+        "path": "接続/ARC2/全前景平行移動教材.py",
+        "sha256": "5c57ab06054c3ff3e716bbd864b08b56be488a70536152404eae9b27e1846621"
+      },
+      {
+        "path": "接続/ARC2/全枠命令配置.py",
+        "sha256": "469a8b8be0875002967585868163a8b58a36d92950c6b78aac6b4b2d7d23e67f"
+      },
+      {
+        "path": "接続/ARC2/全足跡整列候補.py",
+        "sha256": "d37d8a7d68d08ed5e40d9a9dcd7078a265e3bd2fb0de79f2d872555b860bbcc6"
+      },
+      {
+        "path": "接続/ARC2/全足跡整列基底教材.py",
+        "sha256": "d129b92cc017f5f17f0c6a2659cf91d0ebc618ed178e7d8b9619768627d99d0c"
+      },
+      {
+        "path": "接続/ARC2/全足跡整列教材.py",
+        "sha256": "e688c931c3069c6e42f342220959191af9c87dc0932e707bec1e9c1c68658aff"
+      },
+      {
+        "path": "接続/ARC2/全足跡旧部品.py",
+        "sha256": "db38e61a07c5bfac3e014bb457a0955a86c4852b599e03271d5af4672f945f9d"
+      },
+      {
+        "path": "接続/ARC2/凡例展開教材.py",
+        "sha256": "5128d236c64f62805e1780a187a1a92f2ae89ec92a6c4e63237ecf50eb097dec"
+      },
+      {
+        "path": "接続/ARC2/凡例所有境界候補.py",
+        "sha256": "a6637e397866052318eba6344ab942abbe44701affb9728fe5fdcf5b4ee5b8e1"
+      },
+      {
+        "path": "接続/ARC2/凡例方向移動候補.py",
+        "sha256": "4f344c2ae754f733a10e5180e5f445ac13e46f11d9360c6091930ebf0323ba8e"
+      },
+      {
+        "path": "接続/ARC2/凡例旋回教材.py",
+        "sha256": "f88ff14a2ddd52cf62b5d9ea3a7d05f4c5a6643c97789e947fb01023724f9983"
+      },
+      {
+        "path": "接続/ARC2/凡例矩形教材.py",
+        "sha256": "27e646039172e5271cdc3ea8aee30484e3896ca6f25bf02296b39c4d01b5a3b3"
+      },
+      {
+        "path": "接続/ARC2/凡例穴対応.py",
+        "sha256": "e8de37fa35683753d39859ac8dd8736033159b20b64993d0c522c53f546a2e0f"
+      },
+      {
+        "path": "接続/ARC2/凡例経路教材.py",
+        "sha256": "cf38bb6ccc4f41cfa06acff63ee3e2f1949e1845a80cf8d2e5bb33d0eba7a123"
+      },
+      {
+        "path": "接続/ARC2/凡例集合教材.py",
+        "sha256": "630765259176dd9efd68b2a273264b0c89f2bad79191f9862cb7edee543cc62d"
+      },
+      {
+        "path": "接続/ARC2/制御複写教材.py",
+        "sha256": "46c31162d5c522860bbe978864a7a083b92801f02b3ded6d037e8e9675a81928"
+      },
+      {
+        "path": "接続/ARC2/包含正規化教材.py",
+        "sha256": "11d5c0b88c42062dae05c022acd2b6bf1e3073ebd45c6ef05ad788569353589f"
+      },
+      {
+        "path": "接続/ARC2/区切投射教材.py",
+        "sha256": "656f8c7f4d6b3229f3776c8e041fd7bd04faa9c175a65be45bf312932d336f47"
+      },
+      {
+        "path": "接続/ARC2/十字教材.py",
+        "sha256": "2a9b11a894d9be2a4c1b1a019925e27c86ef1d7309427ecddc6118d58410f19f"
+      },
+      {
+        "path": "接続/ARC2/十字曲線教材.py",
+        "sha256": "b771fa5e83d90fcd50f95e71abdbcc4a808e3bf0983807959b9cdf9ed7ce55a6"
+      },
+      {
+        "path": "接続/ARC2/単純変換候補.py",
+        "sha256": "efe210a4e183de93b5318aadeac7d2b5022a562189839b2ce1a414d367b5b0d3"
+      },
+      {
+        "path": "接続/ARC2/厳密枠命令配置.py",
+        "sha256": "83cf5ac23fb59530f3d186b34e0ce8360392c6c1b8503f8c66d0111930690a86"
+      },
+      {
+        "path": "接続/ARC2/厳密枠局所命令.py",
+        "sha256": "921026d88a2c739c15840f34280fadf9ed959cab827d17ff8b0ec56192f80b36"
+      },
+      {
+        "path": "接続/ARC2/厳格枠倍率置換.py",
+        "sha256": "ba35c68ef9c94f38004ebe749c8fe52efabc91fc51ce21a3114588a4ae6dfecf"
+      },
+      {
+        "path": "接続/ARC2/反復枠タイル本体.py",
+        "sha256": "70c6393be0fd34e242a6be4ea5950aecfde7cfc0e3a28263672f41e6feb67cb6"
+      },
+      {
+        "path": "接続/ARC2/反復枠共通部品.py",
+        "sha256": "a55986c28fdab66c330435bdfef0e04dc78d52e7d271f4af0a33da39bff5293c"
+      },
+      {
+        "path": "接続/ARC2/反復枠旧候補.py",
+        "sha256": "ccdd3e90d9c8226c4d0db1b24bb4f43eb7249a1d834d3792015887c3164dc241"
+      },
+      {
+        "path": "接続/ARC2/反復行教材.py",
+        "sha256": "276cc5353ebdedb25143ae55fdb1af729c34f8ae3d23654601f38aa6dde643a8"
+      },
+      {
+        "path": "接続/ARC2/受動凡例転写教材.py",
+        "sha256": "d15b45506311d37f7556811ec80e072d572e588287551f25004defba610f7b06"
+      },
+      {
+        "path": "接続/ARC2/受動凡例転写核.py",
+        "sha256": "5335ffaa1ed36463d24141546484cb0f40f4506d41ebc8a5cb44099f0e6e7cdb"
+      },
+      {
+        "path": "接続/ARC2/可視材例外学習.py",
+        "sha256": "1cf603636578e308ee398c179cbc8777667d9e7c8d88233355fe8531b2706463"
+      },
+      {
+        "path": "接続/ARC2/可視材例外核.py",
+        "sha256": "be507f95aa139f16da652e36bd387a1f312bb44f7ba0d4ecd9cb77a2057952e2"
+      },
+      {
+        "path": "接続/ARC2/合同物体出口候補.py",
+        "sha256": "4b4b86ad5d13b113633ec619775f25975291126fcd599a4fa998bde0ea10e266"
+      },
+      {
+        "path": "接続/ARC2/合同物体出口教材.py",
+        "sha256": "59d11f2caab1dbf8f9de51e6025ce5a48901b4d56e96349731d97fc1e1d48cfc"
+      },
+      {
+        "path": "接続/ARC2/周期タイルD4教材.py",
+        "sha256": "3ad156af6e2faa2297ad8419fc2e0db410e0aca362d49fa145fdbc8fd04f6cf2"
+      },
+      {
+        "path": "接続/ARC2/周期帯教材.py",
+        "sha256": "bb1a62eccf9e1d5f2485b01911fd76b16a5f7462e9fc2caebcf2288b741fa28f"
+      },
+      {
+        "path": "接続/ARC2/周期枠位相.py",
+        "sha256": "649976b78b731ae3564cf9325e5e28cd29ed3ec489de608a7c3db9b9b87d9ca8"
+      },
+      {
+        "path": "接続/ARC2/周期枠位相教材.py",
+        "sha256": "62fe056ca0906be56d0bc22b174ea0472c16d19442b5e26eef5bcaf4996d8b74"
+      },
+      {
+        "path": "接続/ARC2/周期枠基底.py",
+        "sha256": "bf4b30d489ae248217ab685d82af70cd7cf30b686af9c74f7514c4748d8e42cc"
+      },
+      {
+        "path": "接続/ARC2/周期模様窓候補.py",
+        "sha256": "4666e2f267b2b57054e4f290c42f2d62a5e4d1eaa2f20c215c04fa44ea18dd58"
+      },
+      {
+        "path": "接続/ARC2/周期模様窓基底教材.py",
+        "sha256": "3bf6cee95ab60e2588a78580882c022188664b83d4ada42532b2271a910ffe32"
+      },
+      {
+        "path": "接続/ARC2/周期模様窓必要条件教材.py",
+        "sha256": "6e11a53cc273986557f683345f42ffb4acaa8f696c0c5ae0a7f0b5be1219b5cd"
+      },
+      {
+        "path": "接続/ARC2/周期模様窓教材.py",
+        "sha256": "de2378434c03e509baff79054004912644465a1956b67fa630e8518c18399138"
+      },
+      {
+        "path": "接続/ARC2/周期組修復教材.py",
+        "sha256": "12ade801a2297bcfb69bf07f739f571be0ebfdb590a3d929bd775317fdbd7e90"
+      },
+      {
+        "path": "接続/ARC2/周期補色局所命令.py",
+        "sha256": "2549295bf02989c15b86f7154e1993ad8985ef3f8fb1498f429762786b9c7d24"
+      },
+      {
+        "path": "接続/ARC2/四欄反復教材.py",
+        "sha256": "7d3b69cf6bca665c1a75a159adab26a19e8237138fed59e3c6b0a4da05d72327"
+      },
+      {
+        "path": "接続/ARC2/埋込凡例組立候補.py",
+        "sha256": "29d5acdd1419074ee11127ffec06bb9026035b791a85ad433f99c91f027f217d"
+      },
+      {
+        "path": "接続/ARC2/埋込見本一致候補.py",
+        "sha256": "f288c3f98e9b3c6667e34d6ff7292673d7f5a5db4c6f7ebdc63f24dd414bb1a7"
+      },
+      {
+        "path": "接続/ARC2/基点複製教材.py",
+        "sha256": "4d3efbad983efc03f2f6234aa8994c3a893bf5969d3d2f91627af533253d1c41"
+      },
+      {
+        "path": "接続/ARC2/境界点周期候補.py",
+        "sha256": "6a006151aab77898eb78575786f1a1348d8b0c2808375382845500c3503085b5"
+      },
+      {
+        "path": "接続/ARC2/境界点周期教材.py",
+        "sha256": "49e35c8cedf5ecbf8c082ebd2f7b738d6437ca7611da5f818ed5ff3eb783ecac"
+      },
+      {
+        "path": "接続/ARC2/境界色経路候補.py",
+        "sha256": "3483fb8fb778fd1e20423ed6c6be341a4368dfc1d2c51967beba8d7b039b1293"
+      },
+      {
+        "path": "接続/ARC2/境界色経路教材.py",
+        "sha256": "314e889583e2a48c6ce0e0f0f23df8d18ad96f28f9926401f1fa0f7758af96d7"
+      },
+      {
+        "path": "接続/ARC2/境界表穴転写教材.py",
+        "sha256": "ac6302a04789aecaf72496d2a52b61bbc0813d7beba06385734540780cbc7236"
+      },
+      {
+        "path": "接続/ARC2/境界表穴転写核.py",
+        "sha256": "0e1e9de98003f0059036f88e94408c2857d2632203b987dfc83957506815e133"
+      },
+      {
+        "path": "接続/ARC2/多面欠損所有教材.py",
+        "sha256": "5a99cd87a7efaea8c215717608028e8a4c748999b3290dc289f251951a69a9df"
+      },
+      {
+        "path": "接続/ARC2/多面欠損所有核.py",
+        "sha256": "79df6217c61f32536e8a3ef218aad458c5a5ac2ae563b25978070df2f2578b46"
+      },
+      {
+        "path": "接続/ARC2/多類枠倍率置換.py",
+        "sha256": "aeda8a97ab0709ad02ea816f02390396ece82d684099f5512368c04fd374d212"
+      },
+      {
+        "path": "接続/ARC2/対内枠色命令視野.py",
+        "sha256": "7c22fed6f79ddc4337ed3efcd27005f9059e372079a680b6fdfdc27978433823"
+      },
+      {
+        "path": "接続/ARC2/対称剪定教材.py",
+        "sha256": "5180f09276ef059e851d60c6e0592c16790ea3abe5dda6a0bc49964d85ddfe6f"
+      },
+      {
+        "path": "接続/ARC2/対角線橋教材.py",
+        "sha256": "102510745b8e74b519b0909211d28f2205ce868277dddff1e1fff63f87cb9f92"
+      },
+      {
+        "path": "接続/ARC2/対角領域教材.py",
+        "sha256": "ac27d68bc6afda7e32033c9b0e4bffaa414134974c4f8fe709d423a017830bc6"
+      },
+      {
+        "path": "接続/ARC2/対辺標点配置候補.py",
+        "sha256": "4e49c84456fcefa9a3fe9beb9d613ea1cf3f4dae5dc01e7549340b3b55ab154f"
+      },
+      {
+        "path": "接続/ARC2/対辺標点配置教材.py",
+        "sha256": "84023aebe59e362cc1e863f4a601cd970810c462fcf55259f7563905871c8cb3"
+      },
+      {
+        "path": "接続/ARC2/対辺標点配置核.py",
+        "sha256": "441bd607d19ba96d56890397a2cef29ac2502aeaaa49fc744aa8b8b9aa2c3ab5"
+      },
+      {
+        "path": "接続/ARC2/局所格子側線候補.py",
+        "sha256": "6868795484f9c2cf7bbb082da1c90bf10c8a115937577cd21a785debf1b87ad3"
+      },
+      {
+        "path": "接続/ARC2/局所軌条鎖所有教材.py",
+        "sha256": "99b3213741cec0c19ee862b8c30aab28a8364322126619eeb73dccad2032a5d6"
+      },
+      {
+        "path": "接続/ARC2/局所軌条鎖所有核.py",
+        "sha256": "5025b46ef8c0bfc52b0f69a8e760e6551438a948d753b73663a931836297b679"
+      },
+      {
+        "path": "接続/ARC2/局所近傍変換候補.py",
+        "sha256": "6643eb9f1900b0774aa0fe0701650c5410ab5fde05fb538be368c96a71194bd8"
+      },
+      {
+        "path": "接続/ARC2/帯profile積層候補.py",
+        "sha256": "c1a16f9141f0b7645908319f1deb9e7324f0887e59d9f7b31a1a8d60efa2f2d2"
+      },
+      {
+        "path": "接続/ARC2/帯profile積層教材.py",
+        "sha256": "9e5fd7d1f835f5a294323173c02bde73b0075269ff3618a9617a9916ad2cba9f"
+      },
+      {
+        "path": "接続/ARC2/帯図形教材.py",
+        "sha256": "c03031e6c7d88a512db6b3fdb9d4a1c393c3ffa79b8662d6c82f034f865cfeda"
+      },
+      {
+        "path": "接続/ARC2/帯輪郭教材.py",
+        "sha256": "d00d510e208f10c70ac5e3649a14061f539f9c52788cdcd98c0f1f4695274ef6"
+      },
+      {
+        "path": "接続/ARC2/平行線基準長候補.py",
+        "sha256": "0a0cce6f5daf5de2b1d4e22821fb0143d90c2afb1a198981cac8b8f2532755a5"
+      },
+      {
+        "path": "接続/ARC2/形状色教材.py",
+        "sha256": "2936f95c6eaf9c40092ada3f1a2b304a171588ebfb61a9722b895397e8da6e93"
+      },
+      {
+        "path": "接続/ARC2/成分直列教材.py",
+        "sha256": "5f38d59178cd72013f2bd74d7be07692d3d10c100b91602c629b655bf150ab94"
+      },
+      {
+        "path": "接続/ARC2/成分経路教材.py",
+        "sha256": "45038bfbaf0dd14d847b41f01ba44a43bdca5d7c424c422df4daf16c4a90351c"
+      },
+      {
+        "path": "接続/ARC2/接触配置教材.py",
+        "sha256": "685d45d4ae7249220c6903d59c41241151adec2eccfe476112e5fdb66838273f"
+      },
+      {
+        "path": "接続/ARC2/支持構造教材.py",
+        "sha256": "d463afc2c0fe38c776b10c7fa4e4a7acbab87f32a0612d8b75e6de3d0ec3d53e"
+      },
+      {
+        "path": "接続/ARC2/放射組立教材.py",
+        "sha256": "d9b1f205b3716a5a28ca4ea79a5f29e9eca046dd23cd1e73e1fd9cfb3c09ea49"
+      },
+      {
+        "path": "接続/ARC2/斜端点間隙教材.py",
+        "sha256": "0a8227fddf280d700d7bf405430f2f71a838c91d7499337d69b086f24e55ed38"
+      },
+      {
+        "path": "接続/ARC2/斜端点間隙核.py",
+        "sha256": "46500b9a50a292945af81457cc9c4f532224232b1c76157fcafd376c7b3cfb59"
+      },
+      {
+        "path": "接続/ARC2/既存中心配色.py",
+        "sha256": "2467778d5ff60d0e2c2434a9a5830eec84041ceed77efb5434d1562772dd42fe"
+      },
+      {
+        "path": "接続/ARC2/既存二値原型.py",
+        "sha256": "1f9eca0627198e784a5e38c3b08443545663d8d265d92b1c759457b487a5e723"
+      },
+      {
+        "path": "接続/ARC2/既存二軸補完.py",
+        "sha256": "f7e87a8b1502e48614de5133eb13f250bf9457293f748d4f8cf5f81803a524a8"
+      },
+      {
+        "path": "接続/ARC2/既存倍率置換.py",
+        "sha256": "5729598184dfe54d73c05969b63ae9d64521aa1c5008bd0c719f276a12d4410b"
+      },
+      {
+        "path": "接続/ARC2/既存側周期.py",
+        "sha256": "d55a69ad42c78db5a8f52842206793d4c8bd7857487dfcc6c7cc9397f8bda7fe"
+      },
+      {
+        "path": "接続/ARC2/既存入れ子合成.py",
+        "sha256": "a5a7b57187e2d03d4114186e10fbc58c51f6204ead5f18e4d482a0513f627193"
+      },
+      {
+        "path": "接続/ARC2/既存凡例展開.py",
+        "sha256": "69526f0e72677b67ea5ac9a8d62ff352dc0e477020c87497689de6db4e57d6aa"
+      },
+      {
+        "path": "接続/ARC2/既存凡例旋回.py",
+        "sha256": "7046a84e255870e08213e9d749c970662354fb0513f28832c728f6d3698ca39f"
+      },
+      {
+        "path": "接続/ARC2/既存凡例穴対応.py",
+        "sha256": "3e2471e03faaf58badbbb4d9426308beea41495201cdf9513c0e3993b7e832f2"
+      },
+      {
+        "path": "接続/ARC2/既存凡例経路.py",
+        "sha256": "71ec8be34047c9d3534932f09e1014af904c20a33ae8aa8dc3e52915f6aee77a"
+      },
+      {
+        "path": "接続/ARC2/既存制御複写.py",
+        "sha256": "b1f894ad36e60dfc73a726273d94492ab48ce3f16d70a486b37c98bf09d1558d"
+      },
+      {
+        "path": "接続/ARC2/既存包含正規化.py",
+        "sha256": "a70de4c33ec5aaa99abd8064d67539279b9ff86637e4170164148ba5eb436434"
+      },
+      {
+        "path": "接続/ARC2/既存区切投射.py",
+        "sha256": "8679762ff593cd8888611890cde283e1a7edd5097534b75e2b075b36d17c830c"
+      },
+      {
+        "path": "接続/ARC2/既存十字着色.py",
+        "sha256": "4489cb9c909821afc48e800292ae5ab455c98b4494e6f18eb03fe5f483e02451"
+      },
+      {
+        "path": "接続/ARC2/既存反復行.py",
+        "sha256": "13bffa2c0a1f7b27b33a014cab2bd1603219bdf8b8b2b2f320f592a7f5efff4e"
+      },
+      {
+        "path": "接続/ARC2/既存周期帯.py",
+        "sha256": "82616b0d90a0a6dd2bbe53e90199d501ae1db37dc487571a709278563a7b4de6"
+      },
+      {
+        "path": "接続/ARC2/既存周期組修復.py",
+        "sha256": "0ae1d350bca8318f15b24d2678c2c006497d14fbf74e9a9affbc5f4b2602d8ed"
+      },
+      {
+        "path": "接続/ARC2/既存基点複製.py",
+        "sha256": "1188cf6a6057b38b07a322734bd02f6c2b8907a99b672e35f1fb66220e6058b6"
+      },
+      {
+        "path": "接続/ARC2/既存対称剪定.py",
+        "sha256": "bed49d4165ea232e9c4f79fcffd73a392a3eff55cd3a3f4695a5bccb390a4a20"
+      },
+      {
+        "path": "接続/ARC2/既存対角線橋.py",
+        "sha256": "aafdf6019d65ae41785204495892a5077692fc3801988d09a7d4e54c563b8f8b"
+      },
+      {
+        "path": "接続/ARC2/既存対角領域.py",
+        "sha256": "9f1a959d3d6e77b8284cb2fe708fbd4afb96d610c4dbc562609f5a23341de92b"
+      },
+      {
+        "path": "接続/ARC2/既存帯図形投射.py",
+        "sha256": "413483a1c4fbfe07afa155e66810e48243bdf835386064249c06d4f213f37537"
+      },
+      {
+        "path": "接続/ARC2/既存帯輪郭.py",
+        "sha256": "9e84b1ed190fced0ddefc24ebd6ed293056343eceb307d50ae04e89887caa502"
+      },
+      {
+        "path": "接続/ARC2/既存形状色転写.py",
+        "sha256": "a11dd7b05494b23c1c8d518bfd4e66a7cbbd18a4f06a24b85014fdaa6c557cd6"
+      },
+      {
+        "path": "接続/ARC2/既存成分最短経路.py",
+        "sha256": "9017291824a0bea5f07a15b7c911222d7c6bcbd6c4736f5b93506af9d32177e0"
+      },
+      {
+        "path": "接続/ARC2/既存成分直列.py",
+        "sha256": "12e271d9df5e75eae69d10156b3673067a2a5ac1bf5b31782fa6acb883547c16"
+      },
+      {
+        "path": "接続/ARC2/既存接触配置.py",
+        "sha256": "6343a3b9f787bd31b42f89ce0d1d41c20554f8efa8c0b91c2a793307d4f982b1"
+      },
+      {
+        "path": "接続/ARC2/既存放射組立.py",
+        "sha256": "c7f1639072434c41ec1a24364bd12d72cb400ac56cdc28dcaf9c0a830235e558"
+      },
+      {
+        "path": "接続/ARC2/既存枠列整列.py",
+        "sha256": "87ab60635412a7117034a11954db0aeff379f68710f0cf1c202df5a3223bb79d"
+      },
+      {
+        "path": "接続/ARC2/既存枠計数.py",
+        "sha256": "4c33e933c18d0dcb7da410cd5af9a9a38979161e5f95eb370dc06cb78d711aa7"
+      },
+      {
+        "path": "接続/ARC2/既存格子操作.py",
+        "sha256": "d03c16e870a245dc18dd24446c09a3fcadbbf7bc9d184510105dc5ae46a32b23"
+      },
+      {
+        "path": "接続/ARC2/既存標識移動.py",
+        "sha256": "f5cc23af24f8c72464591bfdf66c0d64a8231de42ab8b0b66f5546a5eaaa36b2"
+      },
+      {
+        "path": "接続/ARC2/既存標識組立.py",
+        "sha256": "a39c7aea40afa220475d2a15958de012b8717a386addfdfe3b25b01829d91b04"
+      },
+      {
+        "path": "接続/ARC2/既存標識計数.py",
+        "sha256": "8fed1993cf3a6acc29d8d69b80be28e67885411c85cb3e4bb7cf51e7127aacc5"
+      },
+      {
+        "path": "接続/ARC2/既存正方形座標.py",
+        "sha256": "8ec3246e2f2ada0d9505e26cd2355dd791fd0b2f8281795b22adaff37d642d36"
+      },
+      {
+        "path": "接続/ARC2/既存流路.py",
+        "sha256": "3d46051b219954adec60f719f20d496c93efdd4ab54098435e3c3830a1e6b242"
+      },
+      {
+        "path": "接続/ARC2/既存物体slot.py",
+        "sha256": "8ffd2d89a32593258830e809fd2b136221b9073862987ccacf8b918ecc118c5d"
+      },
+      {
+        "path": "接続/ARC2/既存物体特徴.py",
+        "sha256": "e7a662182961e45cdba38a00bbd267ad03261cb1217dc8d08f2d867d9f4acc60"
+      },
+      {
+        "path": "接続/ARC2/既存疎点転写.py",
+        "sha256": "b9e676f2605cf2e05e92f4bae21f4f39afac40f1e8c41e0d175710cdcb69a248"
+      },
+      {
+        "path": "接続/ARC2/既存種境界.py",
+        "sha256": "b0d413e5e3d9180f81ab95aa6fdf1ad9d870ae8bc2cf5adae9cbb182f0896f73"
+      },
+      {
+        "path": "接続/ARC2/既存穴充填.py",
+        "sha256": "02c52a362a314cde7c6d37794251271724c41aeb4adb41a35214e15900e0953e"
+      },
+      {
+        "path": "接続/ARC2/既存穴形拡大.py",
+        "sha256": "ba17cc5fd91c700944078b2ca2178cb29bf4f8d71b30d1d76121439c692501ae"
+      },
+      {
+        "path": "接続/ARC2/既存穴輪郭.py",
+        "sha256": "df24878a9661cadf8b69a00c16688f783b870a2d485b9fbb3167f7e41bbf3f81"
+      },
+      {
+        "path": "接続/ARC2/既存空白移動.py",
+        "sha256": "70bf97bee5522d2fe364f8394a2643387b35021648d97ce8473b3e3565d6e7ec"
+      },
+      {
+        "path": "接続/ARC2/既存色群関係.py",
+        "sha256": "116068335b39fd1ed18a87008534537fcdaee41073a94d509b18946a3f6e66ef"
+      },
+      {
+        "path": "接続/ARC2/既存行周期.py",
+        "sha256": "b002d27838ec41822f4671499bc5a0d793614b9cdd3fefdf158735b3deb7fb4b"
+      },
+      {
+        "path": "接続/ARC2/既存象限配色.py",
+        "sha256": "eeef1a774d1bcf88bb8d44bd7ddbe8097c81730f47326694669b9b667e9e4780"
+      },
+      {
+        "path": "接続/ARC2/既存距離層.py",
+        "sha256": "83822e2ef7874ceeb9341bc1a55c2706fe286be9be4ff4a49d24088c01b154c3"
+      },
+      {
+        "path": "接続/ARC2/既存軸反射.py",
+        "sha256": "9802bf53c23011fc61b9d266185b0fafba0a5b761efb51fc09c6ddf298046df0"
+      },
+      {
+        "path": "接続/ARC2/既存軸投射.py",
+        "sha256": "47a7d378994e36ead4d2652c522be686396921957f493fd00e26a079531cee8e"
+      },
+      {
+        "path": "接続/ARC2/既存辺対応抽出.py",
+        "sha256": "cc97bcd03e21575da786af4dd0b6f86b6c3b16c6139e66fcc6352b95b46c2612"
+      },
+      {
+        "path": "接続/ARC2/既存部分見本転写.py",
+        "sha256": "8d1b8c390d22dfb9eedcdd3303e1e56dd54edfc97fe157a8259a16b37124f4d2"
+      },
+      {
+        "path": "接続/ARC2/既存配置展開.py",
+        "sha256": "89a04069344c12418e15f08a100354fe21a9d1f0221bba9c073b19b00ece70dc"
+      },
+      {
+        "path": "接続/ARC2/既存重畳組立.py",
+        "sha256": "708167bcf7cf20502570c519d69492b3bffa00f51ae9a55c6a1480b952eedf2b"
+      },
+      {
+        "path": "接続/ARC2/既存順位着色.py",
+        "sha256": "c66a6f7e90af955c8e2ec414c2abc780a0a9adeb56321b703365633d2461356a"
+      },
+      {
+        "path": "接続/ARC2/既存領域転写.py",
+        "sha256": "76a73e2228f7546a2ad22c30dfaf6550a494d3ee40cffdb22926afa4d75fe304"
+      },
+      {
+        "path": "接続/ARC2/有限例外光線教材.py",
+        "sha256": "80c00ac0dde504b2bdb67bacd4390a9b862fc4ac050caec1765708320bfbf882"
+      },
+      {
+        "path": "接続/ARC2/有限字形視野候補.py",
+        "sha256": "f8dd19f369c807a7ecedc0a91cbcddc93d20dc33d1f60c07e40a68d75d53d145"
+      },
+      {
+        "path": "接続/ARC2/有限字形視野教材.py",
+        "sha256": "f7476888d153a94e1305a1b424ad54b02a33da7950d521f28458566605231db5"
+      },
+      {
+        "path": "接続/ARC2/有限量流路候補.py",
+        "sha256": "8912688b491182ea2fe06d10d411aa962612f581dc0ca0b43c713b5f670e10eb"
+      },
+      {
+        "path": "接続/ARC2/有限量流路接続.py",
+        "sha256": "86f50bb97de01afec29a99ce9b9898eb7584e899bafdb6a41fa66bea0b41ec4c"
+      },
+      {
+        "path": "接続/ARC2/未観測端対応合成.py",
+        "sha256": "3517688880a3ded700b34136924ba20d857cc3c0f39ffad7f966e0dd4dca9025"
+      },
+      {
+        "path": "接続/ARC2/枠列整列教材.py",
+        "sha256": "3e3aee7d38e3dda032c50b56f1e2e06f3ee883900062bc3c4fe81ef0f26bf340"
+      },
+      {
+        "path": "接続/ARC2/枠命令配置接続.py",
+        "sha256": "495c113455c26c0ff46b96e7d4d2c143dcddaa8e4a45a726f27901c5c7c767c0"
+      },
+      {
+        "path": "接続/ARC2/枠局所命令接続.py",
+        "sha256": "75ca3feb0f274ac3f0db8ca2ffd7f38171b7198fee9a1d11599ffcaccd3d7544"
+      },
+      {
+        "path": "接続/ARC2/枠端積層候補.py",
+        "sha256": "61a25f250c9901d6ab98f9a0a74971e33f133372cf77b7191e1370555bc8dbc1"
+      },
+      {
+        "path": "接続/ARC2/枠端積層幾何.py",
+        "sha256": "7474cc2ac839d4b2230572f862e36f74708a4aa3cf82b161c678281b6abb7ea9"
+      },
+      {
+        "path": "接続/ARC2/枠端積層教材.py",
+        "sha256": "15a9d0b1455b6c2040922e15efaa37880f4b4f9aeb64cfa19463fa96e49eaa13"
+      },
+      {
+        "path": "接続/ARC2/枠見本所有補完.py",
+        "sha256": "22bca60d05dbf4d10f82a64157e16e093aa66050863af915a57cf9bc90626ec8"
+      },
+      {
+        "path": "接続/ARC2/枠計数教材.py",
+        "sha256": "2af0fcf6bf5385d015aa57a813436db1e76f708799a3be7445242bcadd4d0c33"
+      },
+      {
+        "path": "接続/ARC2/枠質量保存教材.py",
+        "sha256": "1e822831480f32a791b67764aa464b35f145e2647141768b14ae67c29cba8844"
+      },
+      {
+        "path": "接続/ARC2/枠質量保存核.py",
+        "sha256": "d7cddf1c22a7252ac5ed5ce5a2a6e48bc6a7a84a3342555db67d89a15a8acbbb"
+      },
+      {
+        "path": "接続/ARC2/格子D4教材.py",
+        "sha256": "a5d6a2eedb063a876b47cd5d2fdf28cec13af535d89b9fef65df41b81c5ccf18"
+      },
+      {
+        "path": "接続/ARC2/格子側線厳密候補.py",
+        "sha256": "58c04406854dd0e915d4201990e52504e27268e4dc3878ffccb7d8a717faf1ab"
+      },
+      {
+        "path": "接続/ARC2/格子基点複製接続.py",
+        "sha256": "53cbc4af4382a0d52e73cc2a1a7705fb71a86a4934e1d8dbac99936140793858"
+      },
+      {
+        "path": "接続/ARC2/格子基点視野.py",
+        "sha256": "8960feaf7b776c7829d48c0c4b37a47da8ab48e768d6a4d1a73ca2d103d21d5c"
+      },
+      {
+        "path": "接続/ARC2/格子基点転写核.py",
+        "sha256": "3deaae23e8cac7b72465c18c73f8ae2fc4102ffbb6c95b722816bd8921df0b7a"
+      },
+      {
+        "path": "接続/ARC2/格子自己マスク.py",
+        "sha256": "fee2fc508917c5facb3f0f597e1e0b8027e3d011935624663f521b255c5d9675"
+      },
+      {
+        "path": "接続/ARC2/標点巡回教材.py",
+        "sha256": "4be73413d657886c565362a277ebef85386c722341121b03aaf88cb2fb07178e"
+      },
+      {
+        "path": "接続/ARC2/標点巡回核.py",
+        "sha256": "165d27d48596cca8534d9685e689443ba44caa1a632401e212723407fce9fe09"
+      },
+      {
+        "path": "接続/ARC2/標点組立教材.py",
+        "sha256": "581bb9469ccf64e3c119633d55b6bce8af85e5096e886be4c7fb5955f49f0f2b"
+      },
+      {
+        "path": "接続/ARC2/標識二領域再構成.py",
+        "sha256": "ad21fa7897b3faf71ba499b425b90f176a81f9b800d0003c14cf098451a0441b"
+      },
+      {
+        "path": "接続/ARC2/標識水路候補.py",
+        "sha256": "24be9c6e8ea84f967cac521ac8a2ad30208817523cd7f032cc4ebeaa9388cd45"
+      },
+      {
+        "path": "接続/ARC2/標識水路教材.py",
+        "sha256": "8721ffd8606c7f1e3b4fe4a2d82a18d11cccf5dd6e29fd8aafd6e8da6f4ac727"
+      },
+      {
+        "path": "接続/ARC2/標識移動教材.py",
+        "sha256": "ca4d5c019098fd87b20f9be70f3646aa5c20fa114878861d71f83dd2b3fd45db"
+      },
+      {
+        "path": "接続/ARC2/標識組立完全所有.py",
+        "sha256": "dd4fc62838ec4fc01db3654291e396961db50fc5e57d2792bc6687af117c2249"
+      },
+      {
+        "path": "接続/ARC2/標識組立教材.py",
+        "sha256": "98542bfb2ea5309573e5ab80d1a16fe789d293cfe45dd77ce50132718c7267a6"
+      },
+      {
+        "path": "接続/ARC2/標識経路層教材.py",
+        "sha256": "a1afca41f2702d08980a9d43029fa2fe42747cf5cfbd06554a69fc3e0a4d277a"
+      },
+      {
+        "path": "接続/ARC2/標識経路層核.py",
+        "sha256": "8c03655abb1e26b970de6f7096f7879c1cae98af1516dabf479c612168de18e0"
+      },
+      {
+        "path": "接続/ARC2/標識経路幾何.py",
+        "sha256": "bc37bb0c4dc8d6467beeabbbe4601c23ec7615c3270c7a7f8a4c9023b8810c24"
+      },
+      {
+        "path": "接続/ARC2/標識計数教材.py",
+        "sha256": "556524c9b76de8912f17464ebfe5df3a4232f7358b4ec78553a8d020b2f60e71"
+      },
+      {
+        "path": "接続/ARC2/標識軸転写候補.py",
+        "sha256": "ea2d9275d1189b4555c3ed2a8eae66564ac9df9412c5d538d499daf1e5d5a591"
+      },
+      {
+        "path": "接続/ARC2/標識軸転写所有補完.py",
+        "sha256": "4e1cf6f509e987f64ada430f5a512305dfc49fe742e091505082eb50516708f6"
+      },
+      {
+        "path": "接続/ARC2/標識軸転写教材.py",
+        "sha256": "7405fcb2453987e477f03ad36c4309e401c83fadf3740c3b132f4106172abc99"
+      },
+      {
+        "path": "接続/ARC2/櫛配置教材.py",
+        "sha256": "36f6c238720701edcd6ceaf78f0d95f2e2ba5aa5b1acddf54fefcaf186563cdd"
+      },
+      {
+        "path": "接続/ARC2/正方形格子反復枠接続.py",
+        "sha256": "8c255b1887499946b07fab57782ceec23dc9befbc23ee9cfce264433aae1205d"
+      },
+      {
+        "path": "接続/ARC2/正方形格子教材.py",
+        "sha256": "5ae12d116c08a9f972bf2c56dad7a73ef21ea0befa4076a886d28988396f8c4e"
+      },
+      {
+        "path": "接続/ARC2/流路教材.py",
+        "sha256": "508bb3055c14d847b43f6780343bd87c3c1fe01dba949d064dfc5151259d87f9"
+      },
+      {
+        "path": "接続/ARC2/物体slot教材.py",
+        "sha256": "cc2e57f365a052befd7189444bb49be1a518e120666c7acac93c4fe9161eb2d2"
+      },
+      {
+        "path": "接続/ARC2/物体抽出候補.py",
+        "sha256": "d0bd26fb4e6619ca20bc6dc8b02d2aa569769392825140c77170978adaac2fd5"
+      },
+      {
+        "path": "接続/ARC2/物体端投射.py",
+        "sha256": "7539bfb42258fed95e6cd54b025ab3d6be9edb6f7391415d310262ce414e4778"
+      },
+      {
+        "path": "接続/ARC2/物体群整列.py",
+        "sha256": "15dbd63f269e11310c2567c77e77cfee9a2f7bb663a707738301ac5181d79895"
+      },
+      {
+        "path": "接続/ARC2/特徴条件整列.py",
+        "sha256": "eaf2d8a91ceb815cc5eb8d262cc6555cbf2d0b5a1a03f7611b75210438653918"
+      },
+      {
+        "path": "接続/ARC2/特徴条件整列教材.py",
+        "sha256": "4483241b30b3a5d403a2d3d2b1312947de9fc7694b8626c2236b3ee6452ac6a1"
+      },
+      {
+        "path": "接続/ARC2/特徴近傍変換選択.py",
+        "sha256": "5cd2e0d39709576702dfa42474c1232ca0e14371e486ad4dfc7b35f8f0ac8726"
+      },
+      {
+        "path": "接続/ARC2/疎標点重畳候補.py",
+        "sha256": "1713eac98ca8225efb3412c38e1783558bf84e314fae66c85f2daaec6cb7516e"
+      },
+      {
+        "path": "接続/ARC2/疎標点重畳教材.py",
+        "sha256": "0d0e185d26f672cf07302ec1f730125ced92dc11d98c4f80e4df9ed61af54f27"
+      },
+      {
+        "path": "接続/ARC2/疎点転写教材.py",
+        "sha256": "2a0e1e0f77e05b9298cc35a4b6dbb5109362ba06b5f179c1866447b539b1200d"
+      },
+      {
+        "path": "接続/ARC2/直交領域所有核.py",
+        "sha256": "dc584c874e83781caa6b0bb38445035ff915198f76cf34b71a90bda71ba9458c"
+      },
+      {
+        "path": "接続/ARC2/矢印到達候補.py",
+        "sha256": "ef94687bf72c98c8e9f0eb85fb66d5380101b2c131a5a445410a0094aa053a73"
+      },
+      {
+        "path": "接続/ARC2/矢印到達教材.py",
+        "sha256": "08b58a0ffaffc262e8b42c241ae0cc5f9719b4e011bf80dc2b3053169ec60b0c"
+      },
+      {
+        "path": "接続/ARC2/矩形継目/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "接続/ARC2/矩形継目/anchored_rectangle.py",
+        "sha256": "3b25da045f96cb799a4d84c0c4159fd3b39e34214212f72936ea5b87940e4ad7"
+      },
+      {
+        "path": "接続/ARC2/矩形継目/physical_rectangle.py",
+        "sha256": "f9665cdeab7d0278eced54e182ea4359f970da95cf7d0402dea5f2487680fe90"
+      },
+      {
+        "path": "接続/ARC2/矩形継目/physical_rectangle_view.py",
+        "sha256": "e6628fc5ab8ef9176779f9105e7c4c7a715a063e840e8ea286148641429da64b"
+      },
+      {
+        "path": "接続/ARC2/矩形継目/propagated_rectangle.py",
+        "sha256": "a0b7b8dd9a6a1b5de6298dbb005ada1114f85c66bf3a054f19ee920fef4b8cf6"
+      },
+      {
+        "path": "接続/ARC2/矩形継目/seam_rectangle.py",
+        "sha256": "ab2ef19e09ea5c3c1c279284b54fc2166ebfd5e1e7f66a9bffc57602e0780a65"
+      },
+      {
+        "path": "接続/ARC2/矩形継目/touching_rectangle.py",
+        "sha256": "41716836a26632906fc22d8dba88b8b0509c1b30be27b664e9274a4d162ea8d0"
+      },
+      {
+        "path": "接続/ARC2/矩形継目教材.py",
+        "sha256": "4bc1355503e5403545bcae6d4d6b1fa49a66e20ee6a97749ecca9c04722b9768"
+      },
+      {
+        "path": "接続/ARC2/種境界教材.py",
+        "sha256": "c477ccd6206d1e9ef3bf850479adcb0b4998ed6285950d485393a55f2299f87c"
+      },
+      {
+        "path": "接続/ARC2/穴形拡大教材.py",
+        "sha256": "6340fec9a292ccfbdde90582b6997ab4aa6c6d109bb4730e9454a5e33006bc87"
+      },
+      {
+        "path": "接続/ARC2/穴輪郭教材.py",
+        "sha256": "2fc85f714f602b7d3dbc0a15123bc2e7b1cc0eccd1508e418e0489471fee8883"
+      },
+      {
+        "path": "接続/ARC2/空洞種伝播教材.py",
+        "sha256": "e062aaee1239a2fc1219ed2d3f1f066e010ade5a3e35956d89b2a47f02407db3"
+      },
+      {
+        "path": "接続/ARC2/空洞種伝播核.py",
+        "sha256": "e7026a4898004f228e03ac0fcdc0666070db3b0f09a3031662153d52c429e013"
+      },
+      {
+        "path": "接続/ARC2/空白移動教材.py",
+        "sha256": "2de00c7f31a1833700fb11aa0f1d4e491f8243a0e4c2a782c1bbdac8e6a99483"
+      },
+      {
+        "path": "接続/ARC2/符号字形辞書候補.py",
+        "sha256": "a1bd77b13bb984c3af7d910adfadecca8f8eabc19c7c25f684a10f41fa826cdd"
+      },
+      {
+        "path": "接続/ARC2/符号字形辞書教材.py",
+        "sha256": "636fa64a1d639b50e54ad1da1b32351f0d884a8a6fc723f480a0593023edec73"
+      },
+      {
+        "path": "接続/ARC2/結合光線核.py",
+        "sha256": "56675182dde3583e95f55fb6a1e7803ca778bc1ea4de14e2295cef3121711580"
+      },
+      {
+        "path": "接続/ARC2/色線反射候補.py",
+        "sha256": "09ed007f61da2093d5458695880cedca0fdc6bd19b3b5382c3248c9f7d513195"
+      },
+      {
+        "path": "接続/ARC2/色線反射合成教材.py",
+        "sha256": "44ea52b06b231df66515335245a157fdc14db768620e84accf61e6d8057d0446"
+      },
+      {
+        "path": "接続/ARC2/色線反射教材.py",
+        "sha256": "dba596dc99dfd350b4d0bf1f232d1b56cce7a878b384c15358078e9cace1e77b"
+      },
+      {
+        "path": "接続/ARC2/色群充填.py",
+        "sha256": "80efc7cc6813a9837ee51c110362483314fb7c6fca60ff3e6ca77ca333a6ae81"
+      },
+      {
+        "path": "接続/ARC2/行周期教材.py",
+        "sha256": "946d11e0b7bf96da548236bb4a790eec18b42b429dca9cb0e933f72cee8ad811"
+      },
+      {
+        "path": "接続/ARC2/複合幾何変換候補.py",
+        "sha256": "b7ee7d9c9ccc3767f47dccdef25b378c961a8e150f145fc1c11860e4e5e4ac39"
+      },
+      {
+        "path": "接続/ARC2/見本格子分類候補.py",
+        "sha256": "961b66b5fd5d3fe35c19f15a5ac8fac45bcc88f8ff128ed97fe9bfea317b1404"
+      },
+      {
+        "path": "接続/ARC2/見本格子分類教材.py",
+        "sha256": "3f1634f309b7dbb85ef12d05c1233073cfa0f8badd7ce4e76543d825e2b74231"
+      },
+      {
+        "path": "接続/ARC2/観測成長/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "接続/ARC2/観測成長/growth_series.py",
+        "sha256": "6b2139090fb1d2f94412bc8b330f33ed4868a03c1736f3a6f8ab3448ee99faaa"
+      },
+      {
+        "path": "接続/ARC2/観測成長教材.py",
+        "sha256": "d4617e132cd5053d92232d1464f68383fa5d3ddada4ef4116ac1ad7177b23251"
+      },
+      {
+        "path": "接続/ARC2/計数棒迂回候補.py",
+        "sha256": "c2101e6a48f9bc05d648660fccb051a64e4c6e3064ee848a25ed7f7fb1a27e4f"
+      },
+      {
+        "path": "接続/ARC2/計数棒迂回教材.py",
+        "sha256": "2349dd527fb29d40c9d431827cea538512ba37b5fc82f12b25b6cea1002edb66"
+      },
+      {
+        "path": "接続/ARC2/計数色層旋回候補.py",
+        "sha256": "3d98bbaae5bdb1c71408733c0c57a2916c25eb7e5371138deedc1c5b47bc33ab"
+      },
+      {
+        "path": "接続/ARC2/計数色層旋回教材.py",
+        "sha256": "7253b2983a85e5c9f733c8743e4586715817a34baf2c7ac115f2ae1850f8482b"
+      },
+      {
+        "path": "接続/ARC2/記号命令教材.py",
+        "sha256": "d98a4a38ae10fda6f530ae35b5682aa88d50292156396bf7b8bbd610db470d48"
+      },
+      {
+        "path": "接続/ARC2/象限配色教材.py",
+        "sha256": "4895fdd6c07fafdf0df4b31daed0b73cc230cdcf705f3dfe8279145ad09db172"
+      },
+      {
+        "path": "接続/ARC2/距離回収候補.py",
+        "sha256": "96c19905552297b8065896f29e4fa9278573f9b8df1cec9db21963831ff5362e"
+      },
+      {
+        "path": "接続/ARC2/距離回収教材.py",
+        "sha256": "ca92dbac60e2923c6e603c9603c9fc63164b29843cbd0a8ae192e91b244596d3"
+      },
+      {
+        "path": "接続/ARC2/距離層教材.py",
+        "sha256": "e25f0a0b2017c72e33f24a68e7bc0a188b6d9992c7d03a75ff2485209e4fbc5a"
+      },
+      {
+        "path": "接続/ARC2/軸反射教材.py",
+        "sha256": "e7f7d13133ffd9d42b672bafb602ac1048f823053a04f23fe60531868428597e"
+      },
+      {
+        "path": "接続/ARC2/軸投射教材.py",
+        "sha256": "4e30a5ccc4ce1e1e88805ceb32af33b1407b9735467bebc3bdfad247d559879d"
+      },
+      {
+        "path": "接続/ARC2/連結箱参照候補.py",
+        "sha256": "d4ac36b3f8055cfd6e30c449d5b2c5389023a987ef992bb875f88d241dec01a1"
+      },
+      {
+        "path": "接続/ARC2/連結箱参照教材.py",
+        "sha256": "11a98bdc51a3cfa7f20293f965c64d57ba3a6a77ba626b33bbd74b89e4fc88b2"
+      },
+      {
+        "path": "接続/ARC2/連結箱参照核.py",
+        "sha256": "498ab35ebbf6df9ba7589bb05bcf9677ae24febfc946dd6e35e67d3367ec7a2e"
+      },
+      {
+        "path": "接続/ARC2/遮蔽区画教材.py",
+        "sha256": "9f636f450bdadde750312b6ea93c4ab9d2a060320ecfabc40ef19317a942bec4"
+      },
+      {
+        "path": "接続/ARC2/遮蔽端接続教材.py",
+        "sha256": "16199db9fe615468cb40d7c7ce2dab900632923ae09ffbdebfaf2138ff0f805b"
+      },
+      {
+        "path": "接続/ARC2/遮蔽端接続核.py",
+        "sha256": "82a6d8715706245d9eb3a256d812e397b1c1f0e83e46c33bd0c1a8bd15705e2f"
+      },
+      {
+        "path": "接続/ARC2/遮蔽軌道窓.py",
+        "sha256": "1522b9a4201eea9dcf123352eea49968173b855783d43d5ac6ffa354211079fc"
+      },
+      {
+        "path": "接続/ARC2/部分見本教材.py",
+        "sha256": "36f3b5b7468bafc5bfb6a54b722c4ee8d0340f73ff0614ffc7933ff3e197b7e2"
+      },
+      {
+        "path": "接続/ARC2/配置展開教材.py",
+        "sha256": "a7f7a65ec351f0dd1d9a6bc819b5e384351ca339d952f70259b22b6191709c39"
+      },
+      {
+        "path": "接続/ARC2/重畳組立教材.py",
+        "sha256": "96e69f3094ba0e9ebf2f3fac46f1303b10e2aff7b0ecd1fe883e35dbd141cfda"
+      },
+      {
+        "path": "接続/ARC2/門経路再構成候補.py",
+        "sha256": "8c8a8e51723a3850779a4291e250ea5e68b6646c27130603d724ab8d6525c052"
+      },
+      {
+        "path": "接続/ARC2/開口壁教材.py",
+        "sha256": "bfd0d8bdc8622ccdbd95f0e951feca097dba89c6f7a8436252fd6b261b9a0d23"
+      },
+      {
+        "path": "接続/ARC2/関係枠命令配置.py",
+        "sha256": "33182eb9d62facdad6f6591f1bc650b60a8a56de8cde0fc6df139f2c73bb8c28"
+      },
+      {
+        "path": "接続/ARC2/隅模様転写候補.py",
+        "sha256": "10eae448048ec2df15f4e9f2890f1d4807da4741296998e8d1aa816aba50702c"
+      },
+      {
+        "path": "接続/ARC2/隅模様転写基底教材.py",
+        "sha256": "be39040f64bc3326b0dfe370d1e7a341692d04c8e5442e3eb38c4460d22fc33f"
+      },
+      {
+        "path": "接続/ARC2/隅模様転写教材.py",
+        "sha256": "460c2260c1dcc5d108bc93c6d1ceeb47084bc2efbf0e9b235ff1802a2516558b"
+      },
+      {
+        "path": "接続/ARC2/順位着色教材.py",
+        "sha256": "c1027423bd169ae0837fe04c5ccd71d96b084858fa7ee6d049c2c9bcabac7143"
+      },
+      {
+        "path": "接続/ARC2/領域指令教材.py",
+        "sha256": "86a7a7205756d2faf0ea9134bcbff79d36f922e30c6ec47237ad708b678d82a2"
+      },
+      {
+        "path": "接続/ARC2/領域指令核.py",
+        "sha256": "a3568dd28202b318494f843b5f882cf5a283e3e4f7c3b2e9bc3d87e73f0f4b88"
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-cell-conditional-tree/cell_conditional_tree.py",
+        "sha256": "f1116b7c386baad86a958af5f936b598960e83a64a9644b548efbda3978a49c4"
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-cell-conditional-tree/public_harness.py",
+        "sha256": "6a7276738dfb246c998aad898cc4b096c1310a73f6dbc783921a95fc81e5b0a9"
+      }
+    ],
+    "import_metadata_probe": {
+      "path": ".venv/Lib/site-packages/numpy-2.3.5.dist-info/direct_url.json",
+      "state": "ABSENT"
+    }
+  },
+  "training_file_sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+  "output_sha256": "860d0c208cfbec7cd3c937334a1af14e10bda0eb1c970fa59845a8a57c59128f",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "resources": {
+    "process_wall_limit_seconds": 90.0,
+    "cpu_ram_hard_limits": false,
+    "fresh_process_per_arm_phase": true,
+    "fit_work_budget_scope": "CellConditionalTree work cap covers fit search only; wall cap also covers replay/query/import"
+  },
+  "scope": "isolated generator refit plus actual HDS admission/query; no full submission or persistent incremental learner",
+  "feedback_after_is_training_fit": true,
+  "unseen_target_worker_access": false,
+  "prior_memory": "none; JSON/JSONL content access denied; exact absent NumPy direct_url.json probe receives FileNotFoundError",
+  "import_metadata_probe_at_start": {
+    "path": ".venv/Lib/site-packages/numpy-2.3.5.dist-info/direct_url.json",
+    "state": "ABSENT"
+  },
+  "import_metadata_probe_at_end": {
+    "path": ".venv/Lib/site-packages/numpy-2.3.5.dist-info/direct_url.json",
+    "state": "ABSENT"
+  },
+  "metrics": {
+    "local_context": {
+      "feedback": {
+        "before": {
+          "requested": 20,
+          "scored_tasks": 20,
+          "complete": 20,
+          "direct_exact": 0,
+          "hds_exact": 0
+        },
+        "after": {
+          "requested": 20,
+          "scored_tasks": 20,
+          "complete": 20,
+          "direct_exact": 1,
+          "hds_exact": 1
+        },
+        "direct_delta": 1,
+        "direct_gains": 1,
+        "direct_regressions": 0,
+        "hds_delta": 1,
+        "hds_gains": 1,
+        "hds_regressions": 0
+      },
+      "unseen": {
+        "before": {
+          "requested": 20,
+          "scored_tasks": 20,
+          "complete": 20,
+          "direct_exact": 0,
+          "hds_exact": 0
+        },
+        "after": {
+          "requested": 20,
+          "scored_tasks": 20,
+          "complete": 20,
+          "direct_exact": 0,
+          "hds_exact": 0
+        },
+        "direct_delta": 0,
+        "direct_gains": 0,
+        "direct_regressions": 0,
+        "hds_delta": 0,
+        "hds_gains": 0,
+        "hds_regressions": 0
+      },
+      "states": {
+        "complete": 40
+      },
+      "paired_evidence": {
+        "requested": 20,
+        "both_complete": 20,
+        "model_state_changed": 20,
+        "hds_admitted_semantic_state_changed": 1,
+        "direct_unseen_prediction_changed": 3,
+        "hds_unseen_prediction_changed": 1,
+        "model_query_mutations": 0,
+        "hds_query_semantic_mutations": 0
+      }
+    },
+    "cell_tree": {
+      "feedback": {
+        "before": {
+          "requested": 20,
+          "scored_tasks": 20,
+          "complete": 20,
+          "direct_exact": 0,
+          "hds_exact": 0
+        },
+        "after": {
+          "requested": 20,
+          "scored_tasks": 20,
+          "complete": 20,
+          "direct_exact": 0,
+          "hds_exact": 0
+        },
+        "direct_delta": 0,
+        "direct_gains": 0,
+        "direct_regressions": 0,
+        "hds_delta": 0,
+        "hds_gains": 0,
+        "hds_regressions": 0
+      },
+      "unseen": {
+        "before": {
+          "requested": 20,
+          "scored_tasks": 20,
+          "complete": 20,
+          "direct_exact": 0,
+          "hds_exact": 0
+        },
+        "after": {
+          "requested": 20,
+          "scored_tasks": 20,
+          "complete": 20,
+          "direct_exact": 0,
+          "hds_exact": 0
+        },
+        "direct_delta": 0,
+        "direct_gains": 0,
+        "direct_regressions": 0,
+        "hds_delta": 0,
+        "hds_gains": 0,
+        "hds_regressions": 0
+      },
+      "states": {
+        "complete": 40
+      },
+      "paired_evidence": {
+        "requested": 20,
+        "both_complete": 20,
+        "model_state_changed": 20,
+        "hds_admitted_semantic_state_changed": 0,
+        "direct_unseen_prediction_changed": 0,
+        "hds_unseen_prediction_changed": 0,
+        "model_query_mutations": 0,
+        "hds_query_semantic_mutations": 0
+      }
+    },
+    "candidate_vs_old_selector_unseen": {
+      "before_direct": {
+        "previous": 0,
+        "current": 0,
+        "delta": 0,
+        "gains": 0,
+        "regressions": 0,
+        "requested": 20,
+        "new_correct_old_wrong": 0,
+        "hypothetical_two_candidate_union_exact": 0,
+        "union_scope": "candidate-family complementarity only; not full submission-policy evidence"
+      },
+      "before_hds": {
+        "previous": 0,
+        "current": 0,
+        "delta": 0,
+        "gains": 0,
+        "regressions": 0,
+        "requested": 20,
+        "new_correct_old_wrong": 0,
+        "hypothetical_two_candidate_union_exact": 0,
+        "union_scope": "candidate-family complementarity only; not full submission-policy evidence"
+      },
+      "after_direct": {
+        "previous": 0,
+        "current": 0,
+        "delta": 0,
+        "gains": 0,
+        "regressions": 0,
+        "requested": 20,
+        "new_correct_old_wrong": 0,
+        "hypothetical_two_candidate_union_exact": 0,
+        "union_scope": "candidate-family complementarity only; not full submission-policy evidence"
+      },
+      "after_hds": {
+        "previous": 0,
+        "current": 0,
+        "delta": 0,
+        "gains": 0,
+        "regressions": 0,
+        "requested": 20,
+        "new_correct_old_wrong": 0,
+        "hypothetical_two_candidate_union_exact": 0,
+        "union_scope": "candidate-family complementarity only; not full submission-policy evidence"
+      }
+    }
+  },
+  "adoption": "UNDECIDED_REQUIRES_REVIEW"
+}

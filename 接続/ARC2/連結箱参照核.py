@@ -1,5 +1,6 @@
 """Input-only composition diagnostic; no IO, identifiers, or fixed role colors."""
 from collections import Counter
+from heapq import merge
 from itertools import combinations, product
 
 from 接続.ARC2.凡例旋回教材 import body_components
@@ -9,6 +10,27 @@ from 接続.ARC2.境界点周期候補 import valid_grid, merge_proposals
 
 PROGRAMS = tuple(product(('C4', 'C8', 'C8_no_corner_shortcut'),
                          ('C4', 'C8', 'cardinal_side_midpoint')))
+
+
+def _disjoint_subsets(indices, size, footprints):
+    """Yield disjoint candidate subsets in the same lexicographic order."""
+    selected = []
+
+    def visit(start, remaining, owned):
+        if remaining == 0:
+            yield tuple(selected), owned
+            return
+        last_start = len(indices) - remaining
+        for position in range(start, last_start + 1):
+            index = indices[position]
+            footprint = footprints[index]
+            if not owned.isdisjoint(footprint):
+                continue
+            selected.append(index)
+            yield from visit(position + 1, remaining - 1, owned | footprint)
+            selected.pop()
+
+    yield from visit(0, size, set())
 
 
 def physical_objects(grid, bg):
@@ -87,7 +109,8 @@ def _ownerships(grid, clipped=False):
     fg = {(r, c) for r, row in enumerate(grid) for c, v in enumerate(row) if v != bg}
     # Every selected ownership is contained in this over-approximated union.
     # Cells outside it must remain wire for every possible candidate subset.
-    candidate_union = set().union(*(set(box['footprint']) for box in candidates))
+    candidate_footprints = [set(box['footprint']) for box in candidates]
+    candidate_union = set().union(*candidate_footprints)
     unavoidable_wire = fg - candidate_union
     unavoidable_colors = sorted({grid[r][c] for r, c in unavoidable_wire})
     if len(unavoidable_colors) > 1:
@@ -99,22 +122,45 @@ def _ownerships(grid, clipped=False):
                                    unavoidable_wire_colors=unavoidable_colors,
                                    subset_enumeration_started=False, enumerated_subsets=0))
     roles = []
-    for n in range(2, len(candidates)+1):
-        for indices in combinations(range(len(candidates)), n):
-            boxes = [candidates[i] for i in indices]
-            if len({x['side'] for x in boxes}) != 1:
-                continue
-            if shell_view and len({x['template'] for x in boxes}) != 1:
-                continue
-            owned = set().union(*(set(x['footprint']) for x in boxes))
-            if len(owned) != sum(len(x['footprint']) for x in boxes):
-                continue
-            wire = fg - owned
-            colors = {grid[r][c] for r, c in wire}
-            if len(colors) != 1:
-                continue
-            roles.append(dict(background=bg, boxes=boxes, wire=sorted(wire),
-                              wire_color=next(iter(colors))))
+    can_group = not shell_view or all('template' in box for box in candidates)
+    if can_group:
+        groups = {}
+        for index, box in enumerate(candidates):
+            key = (box['side'], box.get('template') if shell_view else None)
+            groups.setdefault(key, []).append(index)
+        max_group_size = max((len(indices) for indices in groups.values()), default=0)
+        for n in range(2, max_group_size + 1):
+            subset_iterators = [
+                _disjoint_subsets(indices, n, candidate_footprints)
+                for indices in groups.values() if len(indices) >= n
+            ]
+            for indices, owned in merge(*subset_iterators, key=lambda item: item[0]):
+                boxes = [candidates[i] for i in indices]
+                wire = fg - owned
+                colors = {grid[r][c] for r, c in wire}
+                if len(colors) != 1:
+                    continue
+                roles.append(dict(background=bg, boxes=boxes, wire=sorted(wire),
+                                  wire_color=next(iter(colors))))
+    else:
+        # Keep legacy behavior for the clipped-shell domain where candidates
+        # may lack the complete-shell template key used by the original filter.
+        for n in range(2, len(candidates)+1):
+            for indices in combinations(range(len(candidates)), n):
+                boxes = [candidates[i] for i in indices]
+                if len({x['side'] for x in boxes}) != 1:
+                    continue
+                if len({x['template'] for x in boxes}) != 1:
+                    continue
+                owned = set().union(*(candidate_footprints[i] for i in indices))
+                if len(owned) != sum(len(candidate_footprints[i]) for i in indices):
+                    continue
+                wire = fg - owned
+                colors = {grid[r][c] for r, c in wire}
+                if len(colors) != 1:
+                    continue
+                roles.append(dict(background=bg, boxes=boxes, wire=sorted(wire),
+                                  wire_color=next(iter(colors))))
     return roles, dict(background=bg, candidate_boxes=candidates, ownership_count=len(roles))
 
 

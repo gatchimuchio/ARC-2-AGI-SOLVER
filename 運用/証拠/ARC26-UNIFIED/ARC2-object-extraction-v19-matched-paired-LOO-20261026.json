@@ -1,0 +1,27 @@
+{
+  "schema": "arc2-object-extraction-v19-matched-paired-loo-v1",
+  "eligible_training_folds": 2916,
+  "candidate_support2_folds": 48,
+  "matched_v19_adapter_folds": 48,
+  "worker_errors": 0,
+  "selection_policy": "support >= 2 unique top; replace attempt_2 only when it duplicates attempt_1",
+  "baseline_exact_candidate_folds": 17,
+  "combined_exact_candidate_folds": 33,
+  "newly_correct_folds": 16,
+  "regressions": 0,
+  "selected_duplicate_slots": 29,
+  "baseline_duplicate_slots": 44,
+  "candidate_distinct_from_both_attempts": 29,
+  "candidate_exact_folds": 33,
+  "elapsed_seconds": 58.75,
+  "heldout_outputs_passed_to_adapter_or_candidate": false,
+  "heldout_outputs_read_after_all_predictions": true,
+  "per_fold_predictions_or_targets_saved": false,
+  "source_sha256": {
+    "runner": "1c34e27bebabacb268dc28534543bec6a7fa8dc94cda83b3e68dc8c03710041b",
+    "object_extraction_probe": "be76a8319f52957adbeabe5429b312e02178b160b30b3afbd1298c79342f8026",
+    "adapter": "58d4e0ccbec13e86222e2de932be8fc5b3d638c2fb8a51576ed50f3511aebd95",
+    "hds_connector": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe",
+    "training_manifest": "33e229c0f10d4a79a88371d52bbf681661b0d95cea008a953f6fa000d161e995"
+  }
+}

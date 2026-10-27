@@ -1,0 +1,43 @@
+{
+  "actual_experiment_id": "arc2-v18-hds-legacy-runtime-public-evaluation-20261025T185700Z",
+  "correction": "The stopped v18 directory contains five log files, not zero files. No submission.json or submission_audit.json was present. The logs are preserved, treated as untrusted/unused, and no output metrics were accepted.",
+  "correction_of": "運用/証拠/ARC26-UNIFIED/ARC2-stopped-run-path-correction-20261025T185823Z.json",
+  "metrics_accepted": false,
+  "observed_at_utc": "2026-10-25T18:59:27Z",
+  "official_submission_performed": false,
+  "output_files": [
+    {
+      "bytes": 0,
+      "path": "preflight.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 39,
+      "path": "preflight.stdout.log",
+      "sha256": "cd3d93fe976cc3d5a50066fe2a7682a94a34bd8aa2e5e230b3b75e61d6fed3c9"
+    },
+    {
+      "bytes": 0,
+      "path": "run.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "run.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "run2.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "run2.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "prediction_artifacts_present": false,
+  "schema": "arc2-stopped-run-log-correction.v1",
+  "track": "ARC2"
+}

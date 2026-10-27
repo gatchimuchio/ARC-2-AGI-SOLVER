@@ -1,0 +1,47 @@
+{
+  "schema": "arc2-task-scoped-loo-source-and-bundle-eligibility-audit-v1",
+  "observed_at_utc": "2026-10-25T22:39:09Z",
+  "track": "ARC2",
+  "task_scoped_loo": {
+    "evidence": "運用/証拠/ARC26-UNIFIED/ARC2-V5-P5-feature-neighbor-transform-task-scoped-LOO-20261025T1635Z.json",
+    "evidence_sha256": "040e343c373caf9a5d2f2d8d35f94d53569565b35b75efe706d6d359d9e8a238",
+    "delta_exact": 44,
+    "regressions": 0,
+    "adapter_sha256": "f53358ffe020fe49786b9dee5d586fecd238365f29133a6d5cccbf06fb38863d",
+    "hds_connector_sha256": "d9b427fe8bd092c89e4c59dbb4de1154b4333a1fd98ba13592950e5b822d7beb",
+    "source_matches_v10_safe_runtime": false
+  },
+  "production_safe_runtime_loo": {
+    "evidence": "運用/証拠/ARC26-UNIFIED/ARC2-V5-P5-feature-neighbor-actual-runtime-paired-LOO-20261025T1805Z.json",
+    "evidence_sha256": "aec8c4c269797d6ac153f6d831ad8e2ca92f61858e40cdc30260e2bca02a6211",
+    "delta_exact": 29,
+    "regressions": 0,
+    "adapter_sha256": "f2c9858c250e612dc17526cffdacdfb3502212a46b5a1fe1c60779fa51ae2b0c",
+    "hds_connector_sha256": "046f60a3d668c07fcf3c0e62e2d107d93374fbc4f5213788e39e658f915e9295",
+    "source_hashes_unchanged": true
+  },
+  "v11_bundle": {
+    "manifest": "出力/Kaggle/arc2-codex-main-baseline-v1/v11-feature-neighbor-20261026/build-manifest.json",
+    "manifest_sha256": "3ff63607d8047b84daacad13e3bf1456e7ef0546b8ff94bccc1a8d041d3d4b14",
+    "payload_sha256": "897694cd5de3456ec40c15b6a8ff3d9362833b8f9d7c988c8d63bc18a32bdb6d",
+    "code_sha256": "0b2ac9f3e511650a1b7fe963e5f8e265a0f54bc1e4f48e559610f744e0bf33d6",
+    "included_forbidden_legacy_files": [
+      "接続/ARC2/legacy_v4_candidate.py",
+      "接続/ARC2/legacy_v4_solver.py"
+    ],
+    "adapter_sha256": "d1f1c1b0f34c5820f69422f326b101b6d68d96658ab474d5db5b1bc5d7c2b8f1",
+    "adapter_imports_legacy_candidate": true,
+    "runtime_merge_slots_call": true,
+    "eligible_for_submission": false
+  },
+  "v12_safe_bundle": {
+    "manifest": "出力/Kaggle/arc2-codex-main-baseline-v1/v12-safe-feature-neighbor-20261026/build-manifest.json",
+    "manifest_sha256": "feab1a435c43f922e44d9ad56d85546fd321807372eefef2b25652bc4f1244c4",
+    "payload_sha256": "bd13836d7ff3e14b18a13f159c6c2c62aa262521fc2d12f6daf0e5245dd499c5",
+    "code_sha256": "ace8ed1973dbeb7249f9510b691b6249783a0256a98a3dc1112e0932b9ca9d4d",
+    "adapter_sha256": "f2c9858c250e612dc17526cffdacdfb3502212a46b5a1fe1c60779fa51ae2b0c",
+    "contains_legacy_v4_files": false,
+    "eligible_source_lineage": "Kaggle kernel v10"
+  },
+  "decision": "The +44 task-scoped LOO is not attributable to the v11 bundle and uses different adapter/HDS source hashes. v11 directly includes and imports task-ID/evaluation-linked legacy_v4 modules, so it is rejected. Keep v10 as the only exact-source, safe, completed official-score candidate; its valid same-condition evidence is +29 exact with 0 regressions. Do not claim the +44 result for v10 or v11."
+}

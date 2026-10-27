@@ -1,0 +1,16 @@
+{
+  "schema": "arc2-multiobject-translation-v71-screen-v1",
+  "observed_at_utc": "2026-10-26T14:46:46.270836+00:00",
+  "hypothesis": "match unchanged monochrome 4-connected objects by color and translation-normalized shape; learn a consistent per-descriptor translation vector and apply it to all objects",
+  "loo_eligible_folds": 2916,
+  "loo_candidate_proposals": 2,
+  "challenge_tasks_with_proposals": 0,
+  "challenge_examples_with_proposals": 0,
+  "runtime_started": false,
+  "targets_read": false,
+  "task_ids_grids_or_targets_saved": false,
+  "source_sha256": {
+    "runner": "ef69ba79b9ecd9f85151109bc260febf62ec4b71b6a5e22f78a3a8776ec41ee4",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "schema": "arc26-arc2-support4-loo-start.v1",
+  "track": "ARC2",
+  "experiment_id": "P5_HDS_partial_condition_consensus_support4_LOO",
+  "started_at_utc": "2026-10-25T05:55:02Z",
+  "execution_session_id": 23649,
+  "worker_pid": 5916,
+  "support3_base_runner": "運用/証拠/ARC26-UNIFIED/P5_HDS_partial_condition_consensus_visible_guard_LOO.py",
+  "support3_base_runner_sha256": "397b5457ddbd203b242ab88beaac7865426cfc4a57e9d8b5fdc1c7a9acf3ddc3",
+  "support4_wrapper": "運用/証拠/ARC26-UNIFIED/P5_HDS_partial_condition_consensus_support4_LOO.py",
+  "support4_wrapper_sha256": "ef23c3778e272cc2b32f965f36c0d19e90900ca8fda48836f4a8970f62b2478d",
+  "aggregate_output": "運用/証拠/ARC26-UNIFIED/P5_HDS_partial_condition_consensus_support4_LOO_full_20261025T0555Z.json",
+  "production_hds_changed": false,
+  "public_training_only": true,
+  "task_eligibility_threshold_preserved": true,
+  "expected_eligible_tasks": 267,
+  "expected_paired_folds": 1191,
+  "hidden_or_evaluation_solutions_read": false,
+  "task_identifiers_or_grids_saved": false,
+  "acceptance": "Require exact gain, zero new wrong answers, and zero exact regressions against same HDS baseline; fallback reduction alone is not a pass."
+}

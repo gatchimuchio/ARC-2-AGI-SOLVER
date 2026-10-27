@@ -4,6 +4,8 @@ import importlib
 import io
 import json
 from pathlib import Path
+import sys
+import types
 import zipfile
 
 
@@ -58,13 +60,204 @@ def test_HOLDは入力由来の合法gridを二候補へ複写する():
     候補群, 保留 = 提出.結果を候補へ(
         "task-a",
         課題,
-        {"results": [{"answer": None}, {"answer": None}]},
+        {
+            "results": [
+                {
+                    "answer": None,
+                    "status": "断定保留",
+                    "reasons": [
+                        "  generic   candidate conflict  ",
+                        "generic candidate conflict",
+                        "deadbeef",
+                    ],
+                },
+                {"answer": None, "reasons": ["no admitted complete grid"]},
+            ]
+        },
     )
     assert 候補群 == [
         {"attempt_1": [[3]], "attempt_2": [[3]]},
         {"attempt_1": [[4]], "attempt_2": [[4]]},
     ]
     assert [row["reason"] for row in 保留] == ["solver_hold", "solver_hold"]
+    assert [row["solver_hold_reasons"] for row in 保留] == [
+        ["generic candidate conflict"],
+        ["no admitted complete grid"],
+    ]
+    assert 提出._保留理由数(保留) == {
+        "generic candidate conflict": 1,
+        "no admitted complete grid": 1,
+    }
+
+
+def test_一意な最多HDS別候補だけを選び同数候補は保留する():
+    第一 = [[1]]
+    予測群 = [
+        {"answer": 第一},
+        {"answer": [[2]]},
+        {"answer": [[2]]},
+        {"answer": [[3]]},
+        {"answer": [["invalid"]]},
+    ]
+    assert 提出._一意な別候補を選ぶ(予測群, 第一) == [[2]]
+    assert 提出._一意な別候補を選ぶ(
+        [{"answer": [[2]]}, {"answer": [[3]]}], 第一
+    ) is None
+    assert 提出._一意な別候補を選ぶ([{"answer": 第一}], 第一) is None
+
+
+def test_別候補が有効な場合だけattempt2へ写す():
+    課題 = 提出.入力検査(_課題())["task-a"]
+    候補群, 保留 = 提出.結果を候補へ(
+        "task-a",
+        課題,
+        {
+            "results": [
+                {"answer": None, "second_answer": [[9]]},
+                {"answer": [[6]], "second_answer": [[6]]},
+            ]
+        },
+    )
+    assert 候補群 == [
+        {"attempt_1": [[3]], "attempt_2": [[9]]},
+        {"attempt_1": [[6]], "attempt_2": [[6]]},
+    ]
+    assert [row["reason"] for row in 保留] == ["solver_hold"]
+
+
+def test_workerはHDS候補収集を要求し選んだ第二候補だけを返す(
+    monkeypatch, tmp_path, capsys
+):
+    呼出し = {}
+    fake_hds = types.ModuleType("接続.ARC2.HDS接続")
+
+    def 課題を解く(課題, 教材, *, 候補収集=False):
+        呼出し["課題"] = 課題
+        呼出し["教材"] = 教材
+        呼出し["候補収集"] = 候補収集
+        return {
+            "results": [
+                {
+                    "answer": None,
+                    "status": "断定保留",
+                    "reasons": ["no admitted complete grid"],
+                    "candidate_predictions": [
+                        {"family": "generic", "answer": [[9]]}
+                    ],
+                }
+            ]
+        }
+
+    fake_hds.課題を解く = 課題を解く
+    fake_hds.事前教材を読む = lambda: ["公開事前例"]
+    monkeypatch.setitem(sys.modules, "接続.ARC2.HDS接続", fake_hds)
+    monkeypatch.setattr(sys, "path", sys.path.copy())
+    monkeypatch.setenv("ARC2_PAYLOAD_ROOT", str(tmp_path))
+
+    challenge = {
+        "train": [{"input": [[1]], "output": [[2]]}],
+        "test": [{"input": [[3]]}],
+    }
+    assert 提出._worker(challenge) == 0
+    output = json.loads(capsys.readouterr().out)
+    assert 呼出し["課題"] == challenge
+    assert 呼出し["教材"] == ["公開事前例"]
+    assert 呼出し["候補収集"] is True
+    assert output == {
+        "results": [
+            {
+                "answer": None,
+                "status": "断定保留",
+                "reasons": ["no admitted complete grid"],
+                "second_answer": [[9]],
+            }
+        ]
+    }
+
+
+def test_workerは完全候補対を両attemptへ渡す(monkeypatch, tmp_path, capsys):
+    fake_hds = types.ModuleType("接続.ARC2.HDS接続")
+    fake_hds.課題を解く = lambda 課題, 教材, *, 候補収集=False: {
+        "results": [{
+            "answer": None,
+            "status": "断定保留",
+            "reasons": ["two complete hypotheses"],
+            "candidate_attempts": [[[8]], [[9]]],
+        }]
+    }
+    fake_hds.事前教材を読む = lambda: []
+    monkeypatch.setitem(sys.modules, "接続.ARC2.HDS接続", fake_hds)
+    monkeypatch.setattr(sys, "path", sys.path.copy())
+    monkeypatch.setenv("ARC2_PAYLOAD_ROOT", str(tmp_path))
+
+    challenge = {
+        "train": [{"input": [[1]], "output": [[2]]}],
+        "test": [{"input": [[3]]}],
+    }
+    assert 提出._worker(challenge) == 0
+    output = json.loads(capsys.readouterr().out)
+    assert output["results"][0] == {
+        "answer": [[8]],
+        "status": "断定保留",
+        "reasons": ["two complete hypotheses"],
+        "second_answer": [[9]],
+    }
+
+
+def test_workerは教師適合した一意単純変換を別候補へ追加する(
+    monkeypatch, tmp_path, capsys
+):
+    fake_hds = types.ModuleType("接続.ARC2.HDS接続")
+    fake_hds.課題を解く = lambda 課題, 教材, *, 候補収集=False: {
+        "results": [{"answer": None, "status": "断定保留"}]
+    }
+    fake_hds.事前教材を読む = lambda: []
+    monkeypatch.setitem(sys.modules, "接続.ARC2.HDS接続", fake_hds)
+    monkeypatch.setattr(sys, "path", sys.path.copy())
+    monkeypatch.setenv("ARC2_PAYLOAD_ROOT", str(tmp_path))
+
+    challenge = {
+        "train": [
+            {"input": [[1]], "output": [[1, 1], [1, 1]]},
+            {"input": [[2]], "output": [[2, 2], [2, 2]]},
+        ],
+        "test": [{"input": [[3]]}],
+    }
+    assert 提出._worker(challenge) == 0
+    output = json.loads(capsys.readouterr().out)
+    assert output["results"][0]["second_answer"] == [[3, 3], [3, 3]]
+
+
+def test_workerは教師適合した複合幾何候補をsecond_onlyで使う(
+    monkeypatch, tmp_path, capsys
+):
+    fake_hds = types.ModuleType("接続.ARC2.HDS接続")
+    fake_hds.課題を解く = lambda 課題, 教材, *, 候補収集=False: {
+        "results": [{"answer": [[9]], "status": "出力", "reasons": []}]
+    }
+    fake_hds.事前教材を読む = lambda: []
+    monkeypatch.setitem(sys.modules, "接続.ARC2.HDS接続", fake_hds)
+    monkeypatch.setattr(sys, "path", sys.path.copy())
+    monkeypatch.setenv("ARC2_PAYLOAD_ROOT", str(tmp_path))
+
+    challenge = {
+        "train": [
+            {
+                "input": [[0, 1, 0], [0, 0, 0], [0, 0, 0]],
+                "output": [[1, 1], [1, 1]],
+            },
+            {
+                "input": [[0, 2, 0], [0, 0, 0], [0, 0, 0]],
+                "output": [[2, 2], [2, 2]],
+            },
+        ],
+        "test": [{"input": [[0, 3, 0], [0, 0, 0], [0, 0, 0]]}],
+    }
+
+    assert 提出._worker(challenge) == 0
+    output = json.loads(capsys.readouterr().out)
+    assert output["results"][0]["answer"] == [[9]]
+    assert output["results"][0]["second_answer"] == [[3, 3], [3, 3]]
 
 
 def test_提出検査は全testとattemptを要求する():
@@ -91,12 +284,16 @@ def test_bundleはsolverと許可済trainingだけを含む():
     names = [name for name, _ in files]
     assert "接続/ARC2/Kaggle提出.py" in names
     assert "接続/ARC2/テンプレート充填教材.json" in names
+    assert "接続/ARC2/周期タイルD4教材.py" in names
+    assert "接続/ARC2/単純変換候補.py" in names
+    assert "接続/ARC2/複合幾何変換候補.py" in names
     assert "missing_edge_bindings.py" in names
     assert "peer_edge.py" in names
     assert any(name.startswith("HDS/学習系統/v0.4.2/") for name in names)
     assert any("/data/training/" in name for name in names)
     assert not any("/data/evaluation/" in name for name in names)
     assert not any("solutions" in name.lower() for name in names)
+    assert not any(name.rsplit("/", 1)[-1].startswith("legacy_v4_") for name in names)
     first, _ = bundle._make_payload(files)
     second, _ = bundle._make_payload(files)
     assert first == second
@@ -105,11 +302,42 @@ def test_bundleはsolverと許可済trainingだけを含む():
         assert set(archive.namelist()[1:]) == set(names)
 
 
+def test_periodic_tile_d4_learns_and_applies_positionwise_transforms():
+    from 接続.ARC2.周期タイルD4教材 import 周期タイルD4教材
+
+    learner = 周期タイルD4教材([
+        {
+            "input": [[7, 9], [4, 3]],
+            "output": [
+                [7, 9, 7, 9, 7, 9], [4, 3, 4, 3, 4, 3],
+                [9, 7, 9, 7, 9, 7], [3, 4, 3, 4, 3, 4],
+                [7, 9, 7, 9, 7, 9], [4, 3, 4, 3, 4, 3],
+            ],
+        },
+        {
+            "input": [[8, 6], [6, 4]],
+            "output": [
+                [8, 6, 8, 6, 8, 6], [6, 4, 6, 4, 6, 4],
+                [6, 8, 6, 8, 6, 8], [4, 6, 4, 6, 4, 6],
+                [8, 6, 8, 6, 8, 6], [6, 4, 6, 4, 6, 4],
+            ],
+        },
+    ])
+    answer, _ = learner.候補([[3, 2], [7, 8]], {})
+    assert answer == [
+        [3, 2, 3, 2, 3, 2], [7, 8, 7, 8, 7, 8],
+        [2, 3, 2, 3, 2, 3], [8, 7, 8, 7, 8, 7],
+        [3, 2, 3, 2, 3, 2], [7, 8, 7, 8, 7, 8],
+    ]
+
+
 def test_送信Notebookは正しいipynbでrunnerを起動する():
     raw = bundle._render_notebook(b"print('runner-ok')\n", "a" * 64)
     notebook = json.loads(raw.decode("utf-8"))
     assert notebook["nbformat"] == 4
     assert len(notebook["cells"]) == 1
+    cell_id = notebook["cells"][0]["id"]
+    assert len(cell_id) == 12 and all(character in "0123456789abcdef" for character in cell_id)
     source = "".join(notebook["cells"][0]["source"])
     compile(source, "main.ipynb", "exec")
     assert '"--output-dir"' in source

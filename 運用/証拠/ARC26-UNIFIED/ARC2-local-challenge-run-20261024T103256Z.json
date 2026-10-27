@@ -1,0 +1,46 @@
+{
+  "format": "arc26-arc2-local-challenge-run-v1",
+  "observed_at_utc": "2026-10-24T10:38:06.967490Z",
+  "experiment_id": "ARC2_local_candidate_v3_20261024T1018Z",
+  "status": "OBSERVATIONAL_ONLY",
+  "source_commit": "dae0a5dbe124a0c4a01bd69a26dda0036d0379e0+dirty",
+  "hds_submodule_commit": "f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "payload_sha256": "b119dfa9852c57dd9d5b6a2121322c50ca70c8f2ec497132a679ba0b220eafa7",
+  "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "submission_sha256": "c34dcdd39e1afacba8c2fe992ffd93378c92bbbde3885a58f43f3fd02253bcb2",
+  "submission_sha256_recomputed": "c34dcdd39e1afacba8c2fe992ffd93378c92bbbde3885a58f43f3fd02253bcb2",
+  "audit_sha256": "18fb62cbc5c83fd54133aa185fa00ce9ac44a6dccb0fbf39b605cfff50c887ce",
+  "tasks": 240,
+  "test_examples": 259,
+  "audit_test_examples": 259,
+  "attempts_per_test": 2,
+  "fallback_count": 254,
+  "fallback_reason_counts": {
+    "solver_hold": 254
+  },
+  "fallback_solver_status_counts": {
+    "断定保留": 254
+  },
+  "test_inputs_not_listed_as_fallback": 5,
+  "correctness_of_nonfallback_outputs": "UNKNOWN",
+  "runtime_seconds": 671.562,
+  "output_structure": {
+    "submission_task_count": 240,
+    "per_task_test_count_mismatches": 0,
+    "malformed_predictions": 0,
+    "valid": true
+  },
+  "prior_diagnostic_comparison": {
+    "prior_reported_hold_count": 256,
+    "current_audit_fallback_count": 254,
+    "delta": -2,
+    "comparability": "NOT_ESTABLISHED; source/run artifacts differ, do not infer improvement"
+  },
+  "source_modified_in_event": false,
+  "kaggle_submission_or_rerun_performed": false,
+  "evidence_files": [
+    "運用/証拠/ARC26-UNIFIED/ARC2-local-candidate-v3-20261024T1018Z/submission.json",
+    "運用/証拠/ARC26-UNIFIED/ARC2-local-candidate-v3-20261024T1018Z/submission_audit.json",
+    "出力/Kaggle/arc2-candidate-v3-20261024/build-manifest.json"
+  ]
+}

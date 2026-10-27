@@ -1,0 +1,17 @@
+{
+  "adapter_source_sha256": "ddcabae65eeb08656a0690c47fb892d3a4524c2ceca760ae92c1980fc0988abc",
+  "attempt2_exact": 0,
+  "data_source": "public ARC-AGI-2 training split LOO; held-out output used only after worker return",
+  "distinct_attempt2_rows": 0,
+  "elapsed_seconds": 44.526,
+  "evaluation_solutions_read": false,
+  "fallback_rows": 5,
+  "first_exact_nonfallback": 0,
+  "instruction_id": "ARC2-SCORE-GATE-20261024",
+  "public_training_sample_manifest_sha256": "80e2dfb1055b8c97b5ef0f4507e2668304d8652e430c77af80051f10149b3c3a",
+  "schema": "arc2-p5-adapter-runtime-smoke.v1",
+  "submission_shape_valid": true,
+  "task_identifiers_or_grids_saved": false,
+  "tasks": 5,
+  "worker_error_rows": 0
+}

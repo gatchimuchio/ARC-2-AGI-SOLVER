@@ -1,0 +1,19 @@
+{
+  "schema": "arc2-global-color-remap-v47-probe-v1",
+  "candidate_rule": "one conflict-free cellwise color map fits every teacher; at least two teachers; query colors all observed; output differs from query",
+  "loo_eligible_folds": 2916,
+  "loo_candidate_proposal_folds": 13,
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "challenge_tasks_with_candidate": 1,
+  "challenge_examples_with_candidate": 1,
+  "heldout_outputs_read": false,
+  "challenge_targets_read": false,
+  "per_task_ids_grids_or_candidates_saved": false,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "8241e05868e238e854e276b3e3dc1a69e8b517280d24400a9522e468a67af4ba",
+    "challenge_inputs": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "v28_build_manifest": "8bafa314ddb1e25831769d38f3e1d779fc3b6c060a002cd91caccf5e37529f17"
+  }
+}

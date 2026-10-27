@@ -1,0 +1,58 @@
+{
+  "schema": "arc2-kaggle-v61-version1-verification-v1",
+  "verified_at_utc": "2026-10-26T18:30:05.992Z",
+  "kernel": "tecchannn/arc2-v61-local-teacher-pair-consensus-candidate",
+  "version": 1,
+  "current_version": 1,
+  "status": "COMPLETE",
+  "failure_detail_present": false,
+  "metadata": {
+    "private": true,
+    "internet": false,
+    "competition_sources": [
+      "arc-prize-2026-arc-agi-2"
+    ]
+  },
+  "source_commit": "dae0a5dbe124a0c4a01bd69a26dda0036d0379e0+dirty+v50-local-prior-memory+v51-largest-component-object+v61-teacher-pair-consensus",
+  "local_notebook_sha256": "9cb8580836257a95423560407351612cb1413c62cbd7b0ac8d62169da16120d4",
+  "remote_notebook_sha256": "c87d57620e14b6c6b302cb87d2541fbb9206fd26d63f736d143a4d422cefc29d",
+  "local_remote_code_cell_identical": true,
+  "code_cell_sha256": "58b6219ecbdcdd33c41181c7d5c5743d9231f54759c7eb01aacc99aa474297e6",
+  "runner_sha256": "d47dac81dbcb9cd9a151fa7461145b5ac708291dbb52af8a4099e20efbc4a791",
+  "payload_sha256": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",
+  "remote_runtime_seconds": 398.848,
+  "tasks": 240,
+  "test_examples": 259,
+  "attempts_per_test": 2,
+  "fallback_count": 249,
+  "remote_submission_sha256": "827bccfc1cf51e2fc87d687ba51e1375899650a530ec00e7a20eb1f71eb2dd18",
+  "local_submission_sha256": "827bccfc1cf51e2fc87d687ba51e1375899650a530ec00e7a20eb1f71eb2dd18",
+  "remote_local_submission_byte_identical": true,
+  "remote_audit_sha256": "4b4474d8e7a956f8e5a2ec6d50e7391af0aeacd2eb08b71052068e34797b3b86",
+  "submission_format_valid": true,
+  "offline_public_score": {
+    "exact_tasks": 14,
+    "task_count": 240,
+    "exact_examples": 16,
+    "example_count": 259,
+    "scope": "public-solution post-run scoring; not official Kaggle score"
+  },
+  "paired_vs_v51": {
+    "v51_exact_tasks": 14,
+    "v51_exact_examples": 15,
+    "newly_correct_examples": 1,
+    "regressed_examples": 0,
+    "newly_correct_tasks": 0,
+    "regressed_tasks": 0
+  },
+  "evaluation_inputs": {
+    "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "public_solutions_sha256": "9f07a38bd25af5e83aa5bf85c5cb1a1fefdb30f6a755256fa65429e697ca97f9"
+  },
+  "official_score": null,
+  "official_submission_performed": false,
+  "latest_official_submission_ref": 57646990,
+  "next_earliest_submission_gate_utc": "2026-10-27T00:14:45.885Z",
+  "local_public_evidence": "運用/証拠/ARC26-UNIFIED/ARC2-v61-full-runtime-public-score-20261026.json",
+  "execution_record": "出力/Kaggle/arc2-v61-local-teacher-pair-consensus-candidate/v1/実行記録.json"
+}

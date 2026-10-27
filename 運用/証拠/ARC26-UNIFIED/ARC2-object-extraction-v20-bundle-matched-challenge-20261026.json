@@ -1,0 +1,38 @@
+{
+  "schema": "arc2-object-extraction-v20-bundle-matched-challenge-v1",
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "selected_tasks_run_from_bundle": 2,
+  "candidate_examples_distinct_from_attempt1": 2,
+  "selected_duplicate_second_slots": 2,
+  "worker_errors": 0,
+  "baseline_v19": {
+    "exact_tasks": 10,
+    "exact_examples": 11
+  },
+  "v20_bundle_matched_composition": {
+    "exact_tasks": 12,
+    "exact_examples": 13
+  },
+  "delta": {
+    "newly_correct_tasks": 2,
+    "newly_correct_examples": 2,
+    "regressed_examples": 0,
+    "changed_attempt2_examples": 2
+  },
+  "bundle_payload_sha256": "407dc55dcacd408451997afc098e45aadc9b69dde828a9c18e4c7d173d6df43b",
+  "bundle_notebook_sha256": "2187bd3a99509885926fe0d7a94f6ff4d1ef5210faaef5d350894bedd0877b4d",
+  "runtime_received_challenge_targets": false,
+  "targets_read_only_after_all_bundle_outputs": true,
+  "temporary_subset_inputs_and_outputs_removed": true,
+  "per_task_predictions_or_targets_saved": false,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "08ac21d15e6e76f18caddeea3aeed00ff6057b9f8c09efa4d2bc6a0cf6465fc0",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "baseline_v19": "171dbfcafa394f36dfdd79914f3b1c730e293003595a7563c620eb831a127c4f",
+    "build_manifest": "87cb4d81f570275239d69ff46c56eb8e5a5d5107c14db059643512d2105cbc89",
+    "adapter": "fc1e3f71ea68d15e34e4b04a9a3d604b3dbb34605da1494abfa9f1cb2b579f18",
+    "object_extraction_module": "03e38ebbbf01e2444278fc419a22f13d9b23b34ce9d3abc5b8fdb04ee9c6781f"
+  }
+}

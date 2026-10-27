@@ -5,7 +5,8 @@ from __future__ import annotations
 
 import argparse
 from contextlib import redirect_stderr, redirect_stdout
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
+from decimal import Decimal, InvalidOperation
 import hashlib
 import io
 import json
@@ -308,10 +309,93 @@ def 出力取得(api, 記録: dict, 保存先: Path) -> dict:
     }
 
 
+def _日時UTC(値):
+    if isinstance(値, datetime):
+        return 値.replace(tzinfo=timezone.utc) if 値.tzinfo is None else 値.astimezone(timezone.utc)
+    if isinstance(値, str):
+        try:
+            日時 = datetime.fromisoformat(値.replace("Z", "+00:00"))
+        except ValueError:
+            return None
+        return 日時.replace(tzinfo=timezone.utc) if 日時.tzinfo is None else 日時.astimezone(timezone.utc)
+    return None
+
+
+def _数値スコアか(値) -> bool:
+    if 値 is None or isinstance(値, bool):
+        return False
+    try:
+        return Decimal(str(値).strip()).is_finite()
+    except (InvalidOperation, ValueError):
+        return False
+
+
+def _明示的な実行時間超過(提出記録) -> bool:
+    """Kaggleが実行時間超過を明記した終端失敗だけを再試行可能とする。"""
+    詳細 = getattr(提出記録, "error_description", None)
+    if not isinstance(詳細, str):
+        return False
+    小文字 = 詳細.casefold()
+    return "notebook timeout" in 小文字 or "exceeded the allowed runtime" in 小文字
+
+
+def 提出可能性(api, now: datetime | None = None) -> dict:
+    """UTC日次枠・24時間間隔・直近公式スコアを確認して提出可否を判定する。"""
+    now = now or datetime.now(timezone.utc)
+    now = now.replace(tzinfo=timezone.utc) if now.tzinfo is None else now.astimezone(timezone.utc)
+    履歴 = [x for x in (api.competition_submissions(大会, page_size=100) or []) if x is not None]
+    日付付き = [(x, _日時UTC(getattr(x, "date", None))) for x in 履歴]
+    日付不明 = [x for x, 日時 in 日付付き if 日時 is None]
+    当日提出 = [x for x, 日時 in 日付付き if 日時 is not None and 日時.date() == now.date()]
+    最新 = max(日付付き, key=lambda row: row[1] or datetime.min.replace(tzinfo=timezone.utc))[0] if 日付付き else None
+    最新日時 = _日時UTC(getattr(最新, "date", None)) if 最新 is not None else None
+    実行時間超過再試行 = (
+        最新 is not None
+        and getattr(getattr(最新, "status", None), "name", None) == "COMPLETE"
+        and not _数値スコアか(getattr(最新, "public_score", None))
+        and _明示的な実行時間超過(最新)
+    )
+    結果 = {
+        "許可": False,
+        "competition": 大会,
+        "utc_day": now.date().isoformat(),
+        "latest_ref": getattr(最新, "ref", None),
+        "latest_status": getattr(getattr(最新, "status", None), "name", None),
+        "latest_public_score": getattr(最新, "public_score", None),
+        "today_submission_refs": [getattr(x, "ref", None) for x in 当日提出],
+        "scoreless_timeout_retry": 実行時間超過再試行,
+    }
+    if 日付不明:
+        結果["理由"] = "提出日時を解釈できない履歴があり、日次枠を安全に確認できません。"
+    elif 当日提出:
+        結果["理由"] = "UTC日次提出枠は使用済みです。"
+    elif 最新 is not None and getattr(getattr(最新, "status", None), "name", None) != "COMPLETE":
+        結果["理由"] = "直近提出の公式採点が完了していません。先に同一IDの履歴を追跡してください。"
+    elif (
+        最新 is not None
+        and not _数値スコアか(getattr(最新, "public_score", None))
+        and not 実行時間超過再試行
+    ):
+        結果["理由"] = "直近提出の公式数値スコアが未取得です。採点経路を確認してください。"
+    elif 最新日時 is not None and now - 最新日時 < timedelta(hours=24):
+        結果["理由"] = "前回提出から24時間未満です。24時間経過後に再確認してください。"
+        結果["next_allowed_at_utc"] = (最新日時 + timedelta(hours=24)).isoformat()
+    else:
+        結果["許可"] = True
+        if 実行時間超過再試行:
+            結果["理由"] = "直近提出はKaggleが実行時間超過と明記した終端失敗です。UTC日次枠と24時間条件を満たした修正版の再試行を許可します。"
+        else:
+            結果["理由"] = "UTC日次枠があり、前回提出から24時間以上経過し、直近提出は数値採点完了です。"
+    return 結果
+
+
 def 提出(api, 記録: dict, メッセージ: str) -> dict:
     記録確認(記録)
     if not メッセージ.strip():
         raise 操作エラー("提出messageは空にできません。")
+    ゲート = 提出可能性(api)
+    if not ゲート["許可"]:
+        raise 操作エラー(ゲート["理由"])
     if 状態(api, 記録)["status"] != "COMPLETE":
         raise 操作エラー("指定版のNotebookがCOMPLETEではないため提出しません。")
     一覧, _ = 出力一覧(api, 記録)
@@ -327,6 +411,7 @@ def 提出(api, 記録: dict, メッセージ: str) -> dict:
         "状態": "提出受理・採点結果未確認", "competition": 大会,
         "kernel": 記録["kernel"], "version": 記録["version"],
         "submission_ref": 応答.ref, "created_at": datetime.now(timezone.utc).isoformat(),
+        "提出ゲート": ゲート,
     }
 
 
@@ -356,6 +441,7 @@ def main(argv=None) -> int:
             command.add_argument("--path", type=Path, required=True)
         if 名前 == "提出":
             command.add_argument("--message", required=True)
+    sub.add_parser("提出可否確認", help="UTC日次枠・24時間間隔・直近公式スコアを読み取り専用で確認")
     sub.add_parser("履歴", help="対象大会の最新20件の提出履歴")
     args = parser.parse_args(argv)
     try:
@@ -387,9 +473,13 @@ def main(argv=None) -> int:
                         "再提出せず提出履歴を確認してください。"
                     ) from None
                 結果["提出記録"] = str(保存先)
+            elif args.操作 == "提出可否確認":
+                結果 = 提出可能性(api)
             else:
                 結果 = 履歴取得(api)
         print(json.dumps(結果, ensure_ascii=False, indent=2))
+        if args.操作 == "提出可否確認" and not 結果["許可"]:
+            return 2
         if args.操作 == "状態" and 結果["status"] in (
             "ERROR", "CANCEL_REQUESTED", "CANCEL_ACKNOWLEDGED",
         ):

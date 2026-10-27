@@ -1,0 +1,37 @@
+{
+  "format": "arc2-runtime-stage-sample-v1",
+  "experiment_id": "P5_runtime_stage_sample_20261024T1043Z",
+  "observed_at_utc": "2026-10-24T10:44:50.808726Z",
+  "sample_tasks": 5,
+  "sample_test_inputs": 5,
+  "sample_selection": "seeded sample from current fallback audit; identifiers not saved",
+  "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "source_commit": "dae0a5dbe124a0c4a01bd69a26dda0036d0379e0+dirty",
+  "hds_submodule_commit": "f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "connector_sha256": "d1b31e1c39aac62e99b86a1bbf267725e5306a13f54fced6690e67e133345f55",
+  "hold_rows": 5,
+  "answer_rows": 0,
+  "candidate_prediction_rows": 0,
+  "row_status_counts": {
+    "answer": 5
+  },
+  "reason_counts": {
+    "現行暫定原理の適用に必要な観測が不足している": 5
+  },
+  "family_record_count": 535,
+  "family_state_counts": {
+    "充足する候補なし": 535
+  },
+  "family_adoptable_counts": {
+    "False": 535
+  },
+  "family_equality_admitted_counts": {
+    "True": 2,
+    "False": 533
+  },
+  "evaluation_solutions_read": false,
+  "task_identifiers_or_grids_saved": false,
+  "fallback_counted_correct": false,
+  "runtime_seconds": 5.641,
+  "interpretation": "diagnostic sample only; not an accuracy or full-population estimate"
+}

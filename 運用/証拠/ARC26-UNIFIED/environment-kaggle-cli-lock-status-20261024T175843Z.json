@@ -1,0 +1,27 @@
+{
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-24T17:58:43Z",
+  "project_lock_versions": {
+    "kaggle": "2.2.5",
+    "kagglesdk": "0.1.38",
+    "certifi": "2026.10.23"
+  },
+  "project_venv_versions": {
+    "kaggle": "2.2.4",
+    "kagglesdk": "0.1.37",
+    "certifi": "2026.7.22"
+  },
+  "project_venv_kaggle_exe_exists": true,
+  "sync_state": "not attempted for this lock update; existing .venv is stale",
+  "sync_error": null,
+  "uvx_pinned_cli": "kaggle==2.2.5",
+  "uvx_pinned_cli_verified": true,
+  "verified_operations": [
+    "official history read-only query",
+    "versioned kernel status",
+    "versioned kernel output retrieval"
+  ],
+  "credentials_or_secrets_recorded": false,
+  "acl_changed": false,
+  "official_submission_performed": false
+}

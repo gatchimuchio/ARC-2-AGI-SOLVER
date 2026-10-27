@@ -1,0 +1,40 @@
+{
+  "schema": "arc2-object-composite-palette-v25-proposal-scan-v1",
+  "eligible_folds": 2916,
+  "composite_feature_pairs": [
+    "area_palette",
+    "box_palette",
+    "shape_palette",
+    "aspect_palette",
+    "holes_palette",
+    "perimeter_palette",
+    "symmetry_palette",
+    "shape_area",
+    "shape_box",
+    "shape_dominant_color",
+    "area_dominant_color",
+    "shape_color_count",
+    "area_dominant_count"
+  ],
+  "proposal_folds": 43,
+  "proposal_vote_count_distribution": {
+    "144": 2,
+    "15": 3,
+    "16": 5,
+    "2": 7,
+    "24": 6,
+    "4": 3,
+    "6": 3,
+    "7": 3,
+    "8": 9,
+    "96": 2
+  },
+  "heldout_outputs_passed_to_candidate_generator": false,
+  "targets_used_for_scoring": false,
+  "fold_ids_predictions_or_targets_saved": false,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "b121bb04b508ef768bb4139e651a6a964a1300b442cbb49dd113f1293958af25",
+    "palette_probe": "ba2c6dce2bbd522cd5844c03355a51fa7f7794e04ae99c991fa5ec8e0645f642"
+  }
+}

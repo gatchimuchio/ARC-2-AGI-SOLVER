@@ -1,0 +1,53 @@
+{
+  "schema": "arc2-kaggle-kernel-public-evaluation-v1",
+  "observed_at_utc": "2026-10-26T14:46:58Z",
+  "classification": "Kaggle kernel run and public-only offline evaluation; not official score",
+  "kernel_run": {
+    "kernel": "tecchannn/arc2-codex-main-baseline-v1",
+    "version": 12,
+    "status": "COMPLETE",
+    "code_sha256": "85ce070fdb470d4597e7655741715c653777b167679077810373b22f279a1d3f",
+    "metadata_sha256": "d7de070ae4379246d8e26eece0ffe656ad44ba30fdc853bdc0af0957bc8a3a04",
+    "build_manifest_sha256": "eebf2c2aedd16fe8960b1434a939ceda29e6c41e06ad3c2e07471588eed1aeed",
+    "payload_sha256": "77afc0065be4276a606c4a76669a2c0d7227ab8c2433a0ebf37c81d2b8a657d3",
+    "notebook_sha256": "85ce070fdb470d4597e7655741715c653777b167679077810373b22f279a1d3f",
+    "submission_sha256": "54f6a303c4143f15279e2084d5ad798455e565b4d51cd6a2b226e4d4735af46a",
+    "audit_sha256": "cca33c17aa1080e306cffa27b19fe90c139c7cf4f17e84613b2f07988ebb71dd",
+    "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83"
+  },
+  "remote_output": {
+    "tasks": 240,
+    "examples": 259,
+    "runtime_seconds": 320.762,
+    "fallback_count": 249,
+    "fallback_reason_counts": {
+      "solver_hold": 247,
+      "task_wall_timeout": 2
+    },
+    "submission_format_valid": true,
+    "remote_and_local_submission_sha_match": true
+  },
+  "public_training_evaluation_after_output_completion": {
+    "baseline": "v19-local-context-second-20261026",
+    "baseline_output_sha256": "171dbfcafa394f36dfdd79914f3b1c730e293003595a7563c620eb831a127c4f",
+    "baseline_exact_tasks": 10,
+    "baseline_exact_examples": 11,
+    "candidate_exact_tasks": 13,
+    "candidate_exact_examples": 14,
+    "gained_examples": 3,
+    "regressed_examples": 0,
+    "targets_persisted": false
+  },
+  "official_submission": {
+    "prior_ref": 57646990,
+    "prior_status": "COMPLETE",
+    "prior_public_score": null,
+    "current_candidate_submitted": false,
+    "eligibility_after_24h_utc": "2026-10-27T00:14:45.885Z",
+    "official_score": "NOT_YET_OBSERVED"
+  },
+  "protected_sha256": {
+    "AGENTS.md": "315998bc0549de61f70fda28a9c9923bea8a61ba6d9b79019283165e5438109b",
+    "control_state": "773fdfdd37aad115c6bbbcb879304142136654db649eb1954cde0d69eb14aa6d"
+  }
+}

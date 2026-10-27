@@ -1,0 +1,37 @@
+{
+  "schema": "arc2-action-support-prune-fit-only-decision-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-27T01:50:48.339959+00:00",
+  "run_id": "ARC2-action-support-prune-fit-six-20261027T0151Z",
+  "status": "COMPLETE",
+  "session_id": 19916,
+  "selected_phases": 6,
+  "same_support_payloads_verified": true,
+  "new_fitted_models": 0,
+  "old_statuses": {
+    "no_exact_bounded_tree": 1,
+    "fit_state_budget_exceeded": 5
+  },
+  "new_statuses": {
+    "no_exact_bounded_tree": 3,
+    "fit_state_budget_exceeded": 3
+  },
+  "old_fit_states_total": 1474,
+  "new_fit_states_total": 920,
+  "old_work_units_total": 664863,
+  "new_work_units_total": 212980,
+  "work_counter_not_latency": true,
+  "bounds_grammar_support_and_hds_unchanged": true,
+  "module_sha256": "405065a7d8260f6b618e3b7cb1a90103f3e610250438eb5db7abf9c3289d366c",
+  "diagnostic_sha256": "4ecd3e08ee0ba6a4af46f8fd3b18d2a246e319eb87375965eedf1286226dfad4",
+  "source_sha256": "ad6ddc1ca6f7fdaffcd04b5b7eab57d58831d14dfaf50d633d453d5c8b55bb40",
+  "records_path": "運用/証拠/ARC26-UNIFIED/ARC2-cell-conditional-tree-rowcol-action-support-prune/fit_results/action-pruned-fit-six-phases-20261027T0151Z.jsonl",
+  "records_sha256": "d327205ecbbb2f3520fa7c47dd0085bf38835519ab79ece49aa4127689a5ca06",
+  "old_records_sha256": "f3ee2bb1e381f70e71a61299b4eb1737b72fe43a1c529ba73512f9c18ff8ca1b",
+  "scope": "Same-six current-support FIT diagnosis only; no heldout queries, HDS or scoring.",
+  "decision": "NOT ADOPTED: sound pruning closes two already disproven phases and reduces total explored states/work on this six-phase sample, but zero new model or correct unseen output is demonstrated. Three phases remain capped.",
+  "next_action": "Stop adding pruning or widening limits. Probe only the proven unsupported teacher cells for missing input-derived global colour roles; no U/fit/HDS/scoring. Continue isolated deadline repair and official same-ID tracking.",
+  "adopted": false,
+  "production_source_changed": false,
+  "official_submission_performed": false
+}

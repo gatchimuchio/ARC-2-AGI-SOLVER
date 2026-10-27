@@ -1,0 +1,34 @@
+{
+  "schema": "arc2-p3-interpretation-correction-v1",
+  "observed_at_utc": "2026-10-26T21:54:24Z",
+  "track": "ARC2",
+  "corrects": [
+    "運用/証拠/ARC26-UNIFIED/ARC2-P3-HDS-learning-ablation-20261026T2136Z.json",
+    "運用/ARC26-UNIFIED/ARC2-v6-work-checkpoint-20261026T2136Z.json"
+  ],
+  "numeric_results_preserved": {
+    "gate_enabled_exact": 2,
+    "gate_disabled_exact": 0,
+    "gate_dependency_delta": 2,
+    "regressions": 0,
+    "core_before_exact": 0,
+    "core_after_exact": 0,
+    "folds": 20
+  },
+  "corrected_interpretation": "Forcing the certification predicate false suppresses all admitted candidate-family outputs. The +2 result proves output-path dependence on this gate; it does not measure performance improvement from new observations or learned state.",
+  "learning_effect": "UNPROVEN",
+  "core_actual_before_after": "0/20 -> 0/20",
+  "source_references": [
+    "運用/証拠/ARC26-UNIFIED/ARC2-P3-HDS-candidate-gate-ablation.py:45",
+    "接続/ARC2/HDS接続.py:526"
+  ],
+  "broader_dependency_run": {
+    "session_id": 23708,
+    "last_verified_live_at_utc": "2026-10-26T21:53:42Z",
+    "last_completed_fold": 44,
+    "planned_folds": 60,
+    "purpose": "gate dependency only; not learning-effect evidence"
+  },
+  "next_experiment": "Public tasks with at least five training pairs. Fix unseen U and feedback F by an input-independent index rule. Before: support excludes U,F. Predict F and U. Observe F output; after: add F to support and refit the same solver/policy, query the same F,U inputs. Score unseen U only after both calls; min support remains3. This measures batch-refit response to an additional observation, not persistent incremental learning.",
+  "official_submission_performed": false
+}

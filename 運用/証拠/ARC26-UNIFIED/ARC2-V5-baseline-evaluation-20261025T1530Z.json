@@ -1,0 +1,3603 @@
+{
+  "summary": {
+    "mode": "baseline",
+    "tasks": 120,
+    "test_examples": 167,
+    "correct_tasks": 0,
+    "accuracy": 0.0,
+    "correct_examples": 0,
+    "unanswered": 167,
+    "wrong_attempted_tasks": 0,
+    "resource_failures": {},
+    "seconds": 250.4539999999979,
+    "challenge_sha256": "bd9a3bdd8d176764412108eb3a1a6cb8b792a9c6fe2567532c186b2e3e4bd3bb",
+    "solutions_sha256": "e8b49629e2683adb79b1d137b25fd0b6d87e4b7d81cc636d60c4c9f7d6888961",
+    "cpu_seconds_per_task": 10,
+    "address_space_mib": 512,
+    "wall_seconds_per_task": 60,
+    "workers": 3,
+    "resource_limit_scope": "Windows wall-time only; CPU/address-space limits unavailable"
+  },
+  "original_audit": {
+    "total_tasks": 120,
+    "solved_count": 0,
+    "score": 0.0,
+    "solved_task_ids": [],
+    "wrong_attempted_task_ids": [],
+    "no_candidate_task_ids": [
+      "0934a4d8",
+      "135a2760",
+      "136b0064",
+      "13e47133",
+      "142ca369",
+      "16b78196",
+      "16de56c4",
+      "1818057f",
+      "195c6913",
+      "1ae2feb7",
+      "20270e3b",
+      "20a9e565",
+      "21897d95",
+      "221dfab4",
+      "247ef758",
+      "269e22fb",
+      "271d71e2",
+      "28a6681f",
+      "291dc1e1",
+      "2b83f449",
+      "2ba387bc",
+      "2c181942",
+      "2d0172a1",
+      "31f7f899",
+      "332f06d7",
+      "35ab12c3",
+      "36a08778",
+      "38007db0",
+      "3a25b0d8",
+      "3dc255db",
+      "3e6067c3",
+      "409aa875",
+      "446ef5d2",
+      "45a5af55",
+      "4a21e3da",
+      "4c3d4a41",
+      "4c416de3",
+      "4c7dc4dd",
+      "4e34c42c",
+      "53fb4810",
+      "5545f144",
+      "581f7754",
+      "58490d8a",
+      "58f5dbd5",
+      "5961cc34",
+      "5dbc8537",
+      "62593bfd",
+      "64efde09",
+      "65b59efc",
+      "67e490f4",
+      "6e453dd6",
+      "6e4f6532",
+      "6ffbe589",
+      "71e489b6",
+      "7491f3cf",
+      "7666fa5d",
+      "78332cb0",
+      "7b0280bc",
+      "7b3084d4",
+      "7b5033c1",
+      "7b80bb43",
+      "7c66cb00",
+      "7ed72f31",
+      "800d221b",
+      "80a900e0",
+      "8698868d",
+      "88bcf3b4",
+      "88e364bc",
+      "89565ca0",
+      "898e7135",
+      "8b7bacbf",
+      "8b9c3697",
+      "8e5c0c38",
+      "8f215267",
+      "8f3a5a89",
+      "9385bd28",
+      "97d7923e",
+      "981571dc",
+      "9aaea919",
+      "9bbf930d",
+      "a251c730",
+      "a25697e4",
+      "a32d8b75",
+      "a395ee82",
+      "a47bf94d",
+      "a6f40cea",
+      "aa4ec2a5",
+      "abc82100",
+      "b0039139",
+      "b10624e5",
+      "b5ca7ac4",
+      "b6f77b65",
+      "b99e7126",
+      "b9e38dc0",
+      "bf45cf4b",
+      "c4d067a0",
+      "c7f57c3e",
+      "cb2d8a2c",
+      "cbebaa4b",
+      "d35bdbdc",
+      "d59b0160",
+      "d8e07eb2",
+      "da515329",
+      "db0c5428",
+      "db695cfb",
+      "dbff022c",
+      "dd6b8c4b",
+      "de809cff",
+      "dfadab01",
+      "e12f9a14",
+      "e3721c99",
+      "e376de54",
+      "e8686506",
+      "e87109e9",
+      "edb79dae",
+      "eee78d87",
+      "f560132c",
+      "f931b4a8",
+      "faa9f03d",
+      "fc7cae8d"
+    ],
+    "component_attempt_counts": {},
+    "source_attempt_counts": {},
+    "task_records": [
+      {
+        "task_id": "0934a4d8",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "135a2760",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "136b0064",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "13e47133",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "142ca369",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "16b78196",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "16de56c4",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "1818057f",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "195c6913",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "1ae2feb7",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 3,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "20270e3b",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "20a9e565",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "21897d95",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "221dfab4",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "247ef758",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "269e22fb",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "271d71e2",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "28a6681f",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "291dc1e1",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "2b83f449",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "2ba387bc",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "2c181942",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "2d0172a1",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "31f7f899",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "332f06d7",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "35ab12c3",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "36a08778",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "38007db0",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "3a25b0d8",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "3dc255db",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "3e6067c3",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "409aa875",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "446ef5d2",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "45a5af55",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "4a21e3da",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "4c3d4a41",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "4c416de3",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "4c7dc4dd",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "4e34c42c",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "53fb4810",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "5545f144",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "581f7754",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "58490d8a",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "58f5dbd5",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "5961cc34",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "5dbc8537",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "62593bfd",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "64efde09",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "65b59efc",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "67e490f4",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "6e453dd6",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "6e4f6532",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "6ffbe589",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "71e489b6",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "7491f3cf",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "7666fa5d",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "78332cb0",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "7b0280bc",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "7b3084d4",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "7b5033c1",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "7b80bb43",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "7c66cb00",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "7ed72f31",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "800d221b",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "80a900e0",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "8698868d",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "88bcf3b4",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "88e364bc",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "89565ca0",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "898e7135",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "8b7bacbf",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "8b9c3697",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "8e5c0c38",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "8f215267",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "8f3a5a89",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "9385bd28",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "97d7923e",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "981571dc",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "9aaea919",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "9bbf930d",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "a251c730",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "a25697e4",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "a32d8b75",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "a395ee82",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "a47bf94d",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "a6f40cea",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "aa4ec2a5",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "abc82100",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "b0039139",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "b10624e5",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "b5ca7ac4",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "b6f77b65",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "b99e7126",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "b9e38dc0",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "bf45cf4b",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "c4d067a0",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "c7f57c3e",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "cb2d8a2c",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "cbebaa4b",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "d35bdbdc",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 3,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "d59b0160",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "d8e07eb2",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "da515329",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "db0c5428",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "db695cfb",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "dbff022c",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "dd6b8c4b",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "de809cff",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "dfadab01",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "e12f9a14",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "e3721c99",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "e376de54",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "e8686506",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "e87109e9",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "edb79dae",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "eee78d87",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "f560132c",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "f931b4a8",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 2,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "faa9f03d",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      },
+      {
+        "task_id": "fc7cae8d",
+        "solved": false,
+        "candidate_emitted": false,
+        "emitted_components": [],
+        "emitted_sources": [],
+        "test_count": 1,
+        "non_placeholder_attempt_count": 0
+      }
+    ]
+  },
+  "execution": [
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "0934a4d8",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "135a2760",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "136b0064",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "13e47133",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "142ca369",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "16b78196",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "16de56c4",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "1818057f",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "195c6913",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "1ae2feb7",
+      "test_count": 3,
+      "unanswered": 3,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "20270e3b",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "20a9e565",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "21897d95",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "221dfab4",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "247ef758",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "269e22fb",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "271d71e2",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "28a6681f",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "291dc1e1",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "2b83f449",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "2ba387bc",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "2c181942",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "2d0172a1",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "31f7f899",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "332f06d7",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "35ab12c3",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "36a08778",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "38007db0",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "3a25b0d8",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "3dc255db",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "3e6067c3",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "409aa875",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "446ef5d2",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "45a5af55",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "4a21e3da",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "4c3d4a41",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "4c416de3",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "4c7dc4dd",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "4e34c42c",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "53fb4810",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "5545f144",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "581f7754",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "58490d8a",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "58f5dbd5",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "5961cc34",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "5dbc8537",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "62593bfd",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "64efde09",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "65b59efc",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "67e490f4",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "6e453dd6",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "6e4f6532",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "6ffbe589",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "71e489b6",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "7491f3cf",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "7666fa5d",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "78332cb0",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "7b0280bc",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "7b3084d4",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "7b5033c1",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "7b80bb43",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "7c66cb00",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "7ed72f31",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "800d221b",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "80a900e0",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "8698868d",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "88bcf3b4",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "88e364bc",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "89565ca0",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "898e7135",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "8b7bacbf",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "8b9c3697",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "8e5c0c38",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "8f215267",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "8f3a5a89",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "9385bd28",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "97d7923e",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "981571dc",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "9aaea919",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "9bbf930d",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "a251c730",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "a25697e4",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "a32d8b75",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "a395ee82",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "a47bf94d",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "a6f40cea",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "aa4ec2a5",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "abc82100",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "b0039139",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "b10624e5",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "b5ca7ac4",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "b6f77b65",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "b99e7126",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "b9e38dc0",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "bf45cf4b",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "c4d067a0",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "c7f57c3e",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "cb2d8a2c",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "cbebaa4b",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "d35bdbdc",
+      "test_count": 3,
+      "unanswered": 3,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "d59b0160",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "d8e07eb2",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "da515329",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "db0c5428",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "db695cfb",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "dbff022c",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "dd6b8c4b",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "de809cff",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "dfadab01",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "e12f9a14",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "e3721c99",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "e376de54",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "e8686506",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "e87109e9",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "edb79dae",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "eee78d87",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "出力",
+          "reasons": [],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "f560132c",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        },
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "f931b4a8",
+      "test_count": 2,
+      "unanswered": 2,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "faa9f03d",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    },
+    {
+      "results": [
+        {
+          "answer": null,
+          "status": "断定保留",
+          "reasons": [
+            "現行暫定原理の適用に必要な観測が不足している"
+          ],
+          "equality_admitted": false,
+          "quarantined": 0
+        }
+      ],
+      "task_id": "fc7cae8d",
+      "test_count": 1,
+      "unanswered": 1,
+      "correct_examples": 0
+    }
+  ]
+}

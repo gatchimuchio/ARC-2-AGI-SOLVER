@@ -1,0 +1,121 @@
+{
+  "schema": "arc2-v5-simple-transform-program-loo.v1",
+  "experiment_id": "ARC26-ARC2-V5-P5-SIMPLE-TRANSFORM-PROGRAM-LOO",
+  "data_source": "public ARC-AGI-2 training split only",
+  "evaluation_solutions_read_by_parent_only": true,
+  "heldout_output_passed_to_solver": false,
+  "task_identifiers_or_grids_saved": false,
+  "fallback_counted_correct": false,
+  "min_source_task_examples": 3,
+  "eligible_tasks": 842,
+  "loo_folds": 2916,
+  "complete": true,
+  "stop_reason": "all_eligible_folds",
+  "budget_seconds": 1800.0,
+  "elapsed_seconds": 133.272,
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8",
+  "prior_examples_loaded_in_paired_hds_calls": 2,
+  "prior_source_tasks_excluded": 1,
+  "candidate_programs": [
+    "D4 orientation",
+    "color map",
+    "crop background",
+    "integer scale",
+    "uniform downscale",
+    "tile"
+  ],
+  "candidate_folds": 56,
+  "unique_candidate_folds": 51,
+  "ambiguous_candidate_folds": 5,
+  "candidate_models_total": 187,
+  "distinct_candidate_predictions_total": 61,
+  "candidate_any_model_exact_upper_bound": 46,
+  "simplest_model_exact": 46,
+  "unique_consensus_exact": 41,
+  "paired_hds_calls": 51,
+  "paired_hds_first_exact": 13,
+  "paired_hds_first_fallback": 38,
+  "paired_hds_second_exact": 0,
+  "paired_before_exact_union": 13,
+  "paired_after_exact_union": 41,
+  "paired_delta_exact": 28,
+  "paired_gains": 28,
+  "paired_regressions": 0,
+  "by_teacher_example_count": {
+    "4": {
+      "folds": 245,
+      "candidate_folds": 0,
+      "unique_folds": 0,
+      "ambiguous_folds": 0,
+      "candidate_any_exact": 0,
+      "consensus_exact": 0,
+      "paired_gains": 0,
+      "paired_regressions": 0
+    },
+    "3": {
+      "folds": 756,
+      "candidate_folds": 18,
+      "unique_folds": 16,
+      "ambiguous_folds": 2,
+      "candidate_any_exact": 13,
+      "consensus_exact": 11,
+      "paired_gains": 0,
+      "paired_regressions": 0
+    },
+    "2": {
+      "folds": 1725,
+      "candidate_folds": 38,
+      "unique_folds": 35,
+      "ambiguous_folds": 3,
+      "candidate_any_exact": 33,
+      "consensus_exact": 30,
+      "paired_gains": 28,
+      "paired_regressions": 0
+    },
+    "5": {
+      "folds": 108,
+      "candidate_folds": 0,
+      "unique_folds": 0,
+      "ambiguous_folds": 0,
+      "candidate_any_exact": 0,
+      "consensus_exact": 0,
+      "paired_gains": 0,
+      "paired_regressions": 0
+    },
+    "7": {
+      "folds": 16,
+      "candidate_folds": 0,
+      "unique_folds": 0,
+      "ambiguous_folds": 0,
+      "candidate_any_exact": 0,
+      "consensus_exact": 0,
+      "paired_gains": 0,
+      "paired_regressions": 0
+    },
+    "6": {
+      "folds": 56,
+      "candidate_folds": 0,
+      "unique_folds": 0,
+      "ambiguous_folds": 0,
+      "candidate_any_exact": 0,
+      "consensus_exact": 0,
+      "paired_gains": 0,
+      "paired_regressions": 0
+    },
+    "9": {
+      "folds": 10,
+      "candidate_folds": 0,
+      "unique_folds": 0,
+      "ambiguous_folds": 0,
+      "candidate_any_exact": 0,
+      "consensus_exact": 0,
+      "paired_gains": 0,
+      "paired_regressions": 0
+    }
+  },
+  "source_sha256": {
+    "runner": "5187c756fbc9f03e2ffff1d47c333db17abfaed721e4617acd088241e0e86e52",
+    "hds_connector": "2d0a0e89203cda796494c5684ac2298a6dab765429dcace075fa4a5fcc42f681",
+    "submission_adapter": "d0bf695cc21d8760334c3e86eb40b8dbd6f21672e3ba3b3ca311b6278b289e86"
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "affected_fold_delta_current_minus_previous": {
+    "answer": -1,
+    "exact": -1,
+    "fallback": 1,
+    "union_exact": -1,
+    "wrong": 0
+  },
+  "base_hds_source_sha256": "d1b31e1c39aac62e99b86a1bbf267725e5306a13f54fced6690e67e133345f55",
+  "candidate_family_source_sha256": "ae7364556c21bd04d22043138138c054a4a71d0a7a67ba12d2052b15205d4e3b",
+  "candidate_input_applicable_fold_count": 3,
+  "compound_family_learning_outcomes": {
+    "adopt=True;equivalent=True;state=\u5168\u6559\u5e2b\u518d\u73fe": 4
+  },
+  "compound_family_selected_as_solver_output_count": 0,
+  "current_hds_with_isolated_compound_family": {
+    "answer": 2,
+    "exact": 2,
+    "fallback": 2,
+    "union_exact": 2,
+    "wrong": 0
+  },
+  "current_hold_reason_counts_on_affected_folds": {
+    "\u63a1\u7528\u6e08\u307f\u6a5f\u69cbARC\u5168\u524d\u666f\u5e73\u884c\u79fb\u52d5\u306eHDS\u6392\u6c17\u304c\u4fdd\u7559": 1,
+    "\u63a1\u7528\u6e08\u307f\u6a5f\u69cbARC\u8907\u5408\u524d\u666fD4\u8272\u5199\u50cf\u5e73\u884c\u79fb\u52d5\u306eHDS\u6392\u6c17\u304c\u4fdd\u7559": 1,
+    "\u63a1\u7528\u6e08\u307f\u6a5f\u69cbARC\u8907\u5408\u524d\u666fD4\u8272\u5199\u50cf\u5e73\u884c\u79fb\u52d5\u306etest\u5019\u88dc\u304c\u672a\u78ba\u5b9a": 1
+  },
+  "current_mechanism_counts_on_affected_folds": {
+    "ARC\u5168\u524d\u666f\u5e73\u884c\u79fb\u52d5": 2,
+    "unknown": 2
+  },
+  "current_quarantined_count_counts": {
+    "0": 4
+  },
+  "current_status_counts_on_affected_folds": {
+    "\u51fa\u529b": 2,
+    "\u65ad\u5b9a\u4fdd\u7559": 2
+  },
+  "derived_full_cohort_after_replacing_all_affected_folds": {
+    "answer": 15,
+    "exact": 15,
+    "fallback": 1176,
+    "union_exact": 15,
+    "wrong": 0
+  },
+  "derived_full_cohort_method": "existing complete 1191-fold baseline plus matched deltas on every teacher-fit fold found by this full public-training pre-screen; 1187 non-fit folds cannot activate this family",
+  "elapsed_seconds": 23.932,
+  "eligible_task_count": 267,
+  "evaluation_solutions_read": false,
+  "existing_translation_family_learning_outcomes": {
+    "current:adopt=True;equivalent=True;state=\u5168\u6559\u5e2b\u518d\u73fe": 4,
+    "previous:adopt=True;equivalent=True;state=\u5168\u6559\u5e2b\u518d\u73fe": 4
+  },
+  "fallback_counted_correct": false,
+  "hds_admission_folds_evaluated": 4,
+  "heldout_output_passed_to_either_solver": false,
+  "heldout_output_scored_after_both_solvers_return": true,
+  "official_score_or_submission": false,
+  "official_submission_or_rerun": false,
+  "overlay_hds_source_sha256": "afc045d0fd4fd2edb9127cf2bc16becb50ec1e52f8b59d3efc09d1d77e0067e7",
+  "overlay_path_relative": "\u904b\u7528\\\u8a3c\u62e0\\ARC26-UNIFIED\\C2-066-HDS-admission-final-overlay",
+  "previous_current_metrics_by_candidate_applicability": {
+    "candidate_input_applicable": {
+      "current": {
+        "answer": 2,
+        "exact": 2,
+        "fallback": 1,
+        "union_exact": 2,
+        "wrong": 0
+      },
+      "previous": {
+        "answer": 2,
+        "exact": 2,
+        "fallback": 1,
+        "union_exact": 2,
+        "wrong": 0
+      }
+    },
+    "candidate_input_not_applicable": {
+      "current": {
+        "answer": 0,
+        "exact": 0,
+        "fallback": 1,
+        "union_exact": 0,
+        "wrong": 0
+      },
+      "previous": {
+        "answer": 1,
+        "exact": 1,
+        "fallback": 0,
+        "union_exact": 1,
+        "wrong": 0
+      }
+    }
+  },
+  "previous_full_cohort_from_existing_baseline": {
+    "answer": 16,
+    "exact": 16,
+    "fallback": 1175,
+    "union_exact": 16,
+    "wrong": 0
+  },
+  "previous_hds_first_answer": {
+    "answer": 3,
+    "exact": 3,
+    "fallback": 1,
+    "union_exact": 3,
+    "wrong": 0
+  },
+  "prior_baseline_report_sha256": "37e33e116155a833df01991c49f44ddfef218818d603de340e4cabe6519b5a28",
+  "prior_candidate_full_audit_sha256": "c006fc670f0811520f02bb7c66b8dc40078b328979b53b2054cff083b77ff31c",
+  "production_code_or_notebook_changed": false,
+  "public_training_fold_count": 1191,
+  "public_training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8",
+  "run_type": "isolated_hds_admission_all_teacher_fit_folds",
+  "solver_exception_counts": {
+    "current": 0,
+    "previous": 0
+  },
+  "task_identifiers_or_grids_saved": false,
+  "teacher_fit_fold_count": 4,
+  "unresolved_reason_mentions_of_family": 2
+}

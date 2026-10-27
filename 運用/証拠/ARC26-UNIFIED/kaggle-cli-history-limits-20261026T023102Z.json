@@ -1,0 +1,56 @@
+{
+  "schema": "arc26-kaggle-cli-history-limits-v1",
+  "observed_at_utc": "2026-10-26T02:31:02Z",
+  "cli": {
+    "path": ".venv/Scripts/kaggle.exe",
+    "reported_version": "2.2.5",
+    "authenticated_read_succeeded": true,
+    "credential_contents_printed_or_saved": false,
+    "submission_or_upload_performed": false
+  },
+  "arc_agi_2": {
+    "history_entries_returned": 10,
+    "latest": {
+      "ref": 57646990,
+      "date": "2026-10-26T00:14:46",
+      "description": "ARC26 v5 v11 score measurement",
+      "status": "PENDING",
+      "public_score": null,
+      "private_score": null
+    },
+    "previous_numeric": {
+      "ref": 57611018,
+      "status": "COMPLETE",
+      "public_score": "0.00",
+      "private_score": null
+    },
+    "submission_limits": {
+      "numToday": 1,
+      "numTotal": 10
+    }
+  },
+  "arc_agi_3": {
+    "history_entries_returned": 13,
+    "latest": {
+      "ref": 57612586,
+      "date": "2026-10-25T01:16:07.830000",
+      "description": "ARC3 prior-memory coefficient public-25 scorecard candidate 2026-10-25",
+      "status": "COMPLETE",
+      "public_score": "0.03",
+      "private_score": null
+    },
+    "c1_018": {
+      "ref": 57577905,
+      "date": "2026-10-24T01:15:49.963000",
+      "status": "COMPLETE",
+      "public_score": "23.86",
+      "private_score": null
+    },
+    "submission_limits": {
+      "numTotal": 7,
+      "numAllowedNow": 1
+    },
+    "history_match_for_v23_or_c2_059_v28": false
+  },
+  "interpretation": "CLI history and limit calls were read-only. The history does not identify a submission described as v23 or C2-059 v28; no kernel output was fetched."
+}

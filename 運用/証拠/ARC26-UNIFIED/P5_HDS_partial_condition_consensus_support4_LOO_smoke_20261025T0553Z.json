@@ -1,0 +1,51 @@
+{
+  "schema": "arc26-p5-hds-partial-condition-consensus-paired-loo.v1",
+  "generated_at_utc": "2026-10-25T05:53:20.003104+00:00",
+  "hypothesis": "for a valid provisional principle only, back off one condition coordinate or use the visible condition subset when at least three stored condition mappings unanimously predict the same output; retain conflict/HOLD on disagreement",
+  "data_source": "public ARC-AGI-2 training split only",
+  "public_training_outputs_used_for_loo": true,
+  "hidden_or_evaluation_solutions_read": false,
+  "task_identifiers_or_grids_saved": false,
+  "fallback_counted_correct": false,
+  "minimum_matching_condition_mappings": 3,
+  "fold_limit": 1,
+  "skip_initial_folds": 0,
+  "folds_skipped": 0,
+  "complete": false,
+  "stop_reason": "fold_limit",
+  "eligible_tasks": 1,
+  "paired_loo_folds": 1,
+  "training_manifest_sha256": "af367f878cfcb0801316f4c3bb21e0dbb214513e38e7c38c368aea72598ed2d8",
+  "previous": {
+    "answer_rows": 0,
+    "exact": 0,
+    "wrong_answers": 0,
+    "fallback_rows": 1,
+    "runtime_seconds": 0.156674
+  },
+  "current": {
+    "answer_rows": 0,
+    "exact": 0,
+    "wrong_answers": 0,
+    "fallback_rows": 1,
+    "runtime_seconds": 0.139461,
+    "partial_predictions": 0,
+    "rescued_principle_requests": 0
+  },
+  "delta": {
+    "answer_rows": 0,
+    "exact": 0,
+    "wrong_answers": 0,
+    "fallback_rows": 0,
+    "runtime_seconds": -0.017213,
+    "exact_gains": 0,
+    "exact_regressions": 0,
+    "previous_wrong_to_current_exact": 0,
+    "previous_exact_to_current_wrong": 0,
+    "changed_nonfallback_answers": 0
+  },
+  "elapsed_seconds": 0.297415,
+  "hds_adapter_sha256": "6ea7e6eceffa0c22407c7ea76ac58da99212ae00eb5b5fc90492ed7ece7d0135",
+  "hds_adaptation_sha256": "c74797d49472646010ed0b37bd17dfa602084ba3347ac9386dec265e78a797ac",
+  "runner_sha256": "397b5457ddbd203b242ab88beaac7865426cfc4a57e9d8b5fdc1c7a9acf3ddc3"
+}

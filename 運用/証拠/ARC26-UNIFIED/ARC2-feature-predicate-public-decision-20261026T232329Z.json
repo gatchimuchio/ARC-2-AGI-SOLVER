@@ -1,0 +1,62 @@
+{
+  "schema": "arc2-feature-predicate-public-adoption-decision-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-26T23:23:29.127020+00:00",
+  "run_id": "ARC2-feature-predicate-public20-20261026T2314Z",
+  "status": "COMPLETE",
+  "session_id": 37851,
+  "unique_tasks": 20,
+  "fresh_processes": 80,
+  "completed_processes": 80,
+  "worker_errors": 0,
+  "timeouts": 0,
+  "unseen_direct_before_after": {
+    "old": [
+      0,
+      0
+    ],
+    "new": [
+      0,
+      0
+    ],
+    "denominator": 20
+  },
+  "unseen_hds_before_after": {
+    "old": [
+      0,
+      0
+    ],
+    "new": [
+      0,
+      0
+    ],
+    "denominator": 20
+  },
+  "feedback_training_fit_after": {
+    "old": 0,
+    "new": 0,
+    "denominator": 20
+  },
+  "new_fit_status_counts": {
+    "no_conditional_model": 40
+  },
+  "actual_hds_output_queries": 0,
+  "actual_hds_admissions": 0,
+  "model_state_changed_tasks": 20,
+  "model_state_change_scope": "support-count/search-statistic changes only; no executable conditional models in public study.",
+  "synthetic_result_separate": "Height-only4->5 support synthetic disambiguation0->1 with unchanged real HDS connector; not public performance/HDS-core discovery.",
+  "summary_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-feature-predicate-transform\\public_results\\study20-20261026T2314Z.summary.json",
+  "summary_sha256": "8c6f75af2a22ea288239856f98c03ab7e060749b7d4b4e673fe5c27e697a3f43",
+  "records_sha256": "9fc5780996adbf6a7425d83db6a4cd9970ec67fcc250df044d6d63427c3531a4",
+  "cohort_sha256": "9399d0923b3cb5dc4ce06586a2d29b85bbf4292cbe9a8c874609654318f372de",
+  "sources_sha256": "cba9f70cd934396067cffb2d52485f3f714cd7e1428eee3a0800e053b780d514",
+  "module_sha256": "79371d0bfef03bf47d938d41c6f37193e3bdce02a4e1cc9a701d4f0470245f31",
+  "harness_sha256": "d063948ce3f5e0df16bdc219de3ab04bf7d2f59ae5a41bd6ae3deb0ce79d0bf4",
+  "source_unchanged": true,
+  "scope": "Isolated candidate-family batch refit; actual HDS admission attempted but no candidates/observations/output-query on public20. Not full solver or persistent learning.",
+  "adopted": false,
+  "decision": "NO ADOPTION: no public fit or unseen gain; do not extrapolate synthetic success.",
+  "next_action": "Review bounded per-cell typed-tree candidate and fixed publictraining study; official v61v1 remains frozen pending00:15Z gates.",
+  "official_submission_performed": false,
+  "production_source_changed": false
+}

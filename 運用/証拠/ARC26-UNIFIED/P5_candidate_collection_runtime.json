@@ -1,0 +1,23 @@
+{
+  "adapter_source_sha256": "ddcabae65eeb08656a0690c47fb892d3a4524c2ceca760ae92c1980fc0988abc",
+  "baseline_elapsed_seconds": 177.841,
+  "baseline_median_seconds_per_fold": 1.0593,
+  "baseline_mode": "候補収集=False",
+  "benchmark_source_sha256": "eb7c16d74943446829e61c492cba5b8c81a3cab4f494f12dedd80e03caef01ec",
+  "current_elapsed_seconds": 184.241,
+  "current_median_seconds_per_fold": 1.0711,
+  "current_mode": "候補収集=True plus adapter unique-alternative selector",
+  "data_source": "public ARC-AGI-2 training split only; held-out output unused",
+  "elapsed_delta_percent": 3.599,
+  "elapsed_delta_seconds": 6.4,
+  "evaluation_solutions_read": false,
+  "first_answer_changed_folds": 0,
+  "folds_with_distinct_second_candidate": 0,
+  "hds_source_sha256": "d1b31e1c39aac62e99b86a1bbf267725e5306a13f54fced6690e67e133345f55",
+  "instruction_id": "ARC2-SCORE-GATE-20261024",
+  "prior_examples_used": 0,
+  "sample_source_manifest_sha256": "a4ff15443afa3595f89c8db825083229ff126fcb95fee4b47fef583d6b2ce5c6",
+  "sampled_loo_folds": 50,
+  "schema": "arc2-p5-candidate-collection-runtime-benchmark.v1",
+  "task_identifiers_or_grids_saved": false
+}

@@ -1,0 +1,67 @@
+{
+  "schema": "arc2-v61-two-slot-portfolio-build-v3",
+  "built_at_utc": "2026-10-26T23:04:24.097926+00:00",
+  "scope": "local experimental artifact only; no solver, LOO, Kaggle, or official candidate mutation",
+  "parent_directory": "出力\\Kaggle\\arc2-codex-main-baseline-v1\\v61-kaggle-staging-20261026",
+  "parent_sha256": {
+    "bundle.zip": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",
+    "solve.py": "d47dac81dbcb9cd9a151fa7461145b5ac708291dbb52af8a4099e20efbc4a791",
+    "接続/ARC2/Kaggle提出.py": "c20102c4e9a01e833ca8f9e2778b5306333c50c065d9aebe7cbeaf574e74418d",
+    "接続/ARC2/HDS接続.py": "8cc1456edfab1b84478fcc1b8f82973481709d85a45532b5181d0e79655362a3"
+  },
+  "changed_payload_members": [
+    "接続/ARC2/Kaggle提出.py"
+  ],
+  "unchanged_payload_member_count": 282,
+  "candidate_payload_sha256": "a85345a1858743b4d4dedef48a5cd043002dd882357be323e187e840f4f95c05",
+  "candidate_wrapper_sha256": "f209c26367277c7e259a2163af63dd12cd5d692063b46d140cb8f62b00552e9c",
+  "candidate_launcher_sha256": "90570661ab528239914c136c5b42c16260c130edcbd27ae0942c68c58f18b6f8",
+  "builder_sha256": "87cb26d11e1f7de9fab434a7c2cbc3c43b66caa412bc49fa57203ff480b6c682",
+  "overlay_sha256": {
+    "portfolio_helpers.py": "1eb0faf02c2bc265cfc50e56f0f7e1aaf05c72e117b68ccaabea621763129493",
+    "formatter_overlay.py": "91c650a28aeb23d78f7a71ddfee4e61981f6f7699d2d7a1212a489fa9bf89f9e",
+    "worker_fragment.pyfrag": "eb039f81f42cec6b626daf774d14b8f23e8488910a49f8e7844c3928ad86bbb8",
+    "protocol.md": "e547bc225fee5d680a1f8b6c432e7ea900bbf165fcf3f3d52bee02216cf8079c"
+  },
+  "protected_and_active_source_hashes_unchanged": {
+    "AGENTS.md": "315998bc0549de61f70fda28a9c9923bea8a61ba6d9b79019283165e5438109b",
+    "制御\\現在状態.json": "773fdfdd37aad115c6bbbcb879304142136654db649eb1954cde0d69eb14aa6d",
+    "接続\\ARC2\\HDS接続.py": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe",
+    "接続\\ARC2\\Kaggle提出.py": "43fd2c444cc1428bdfb3da3b228fca14b6ccb939c169401b1684c2b93b4092e4"
+  },
+  "policy_id": "arc2-v61-hold-two-slot-portfolio-v3-both-copy-composite",
+  "new_attempt1_training_requirement": "all_current_train_exact",
+  "eligibility_scope": "hds_primary_hold_input_copy_first_any_legacy_second",
+  "both_copy_provider_families": [
+    "composite_geometry"
+  ],
+  "existing_noncopy_second_provider_families": [
+    "teacher_pair_consensus",
+    "object_extraction",
+    "object_outlier",
+    "object_palette",
+    "local_cell_context",
+    "simple_unique_transform",
+    "composite_geometry"
+  ],
+  "provider_state_isolation": "separate_lazy_per_provider_instances",
+  "qualification_cache": "once_per_provider_per_task",
+  "priority": [
+    "teacher_pair_consensus",
+    "object_extraction",
+    "object_outlier",
+    "object_palette",
+    "local_cell_context",
+    "simple_unique_transform",
+    "composite_geometry"
+  ],
+  "syntax_compile": {
+    "wrapper": true,
+    "launcher": true,
+    "helpers": true,
+    "formatter": true
+  },
+  "solver_runs": 0,
+  "evaluation_targets_read": false,
+  "performance_improvement": "UNMEASURED"
+}

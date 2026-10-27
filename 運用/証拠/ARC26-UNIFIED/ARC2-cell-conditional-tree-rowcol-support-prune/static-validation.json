@@ -1,0 +1,43 @@
+{
+  "schema": "arc2-cell-tree-support-prune-validation-v1",
+  "old_module_sha256": "0664c6ef1878f434c963125a767a65a35a4737aff9132a5091c05a5c316a5ac2",
+  "new_module_sha256": "5eb6ee0ebc7c99a277c3e00d57b035f16a307caed806d6143c68d1bbd903ecf0",
+  "test_sha256": "5ce74a1f38412720933f079b7f5c9c71402e019151d846e5a92031518b283054",
+  "source_diff_added_lines": 7,
+  "source_diff_removed_lines": 0,
+  "only_fit_body_ast_changed": true,
+  "same_features": 35,
+  "same_typed_actions": 21,
+  "same_default_bounds_schema_and_hds": true,
+  "node_lower_bound_added": false,
+  "new_lookahead_added": false,
+  "support_prune_condition": "existing leaf scan proved fewer distinct teacher inputs or cells than current Bounds minimum; descendant cannot regain support",
+  "command": "& '.venv/Scripts/python.exe' -m pytest -q '運用/証拠/ARC26-UNIFIED/ARC2-cell-conditional-tree-rowcol-support-prune/test_support_prune.py'",
+  "pytest_summary": "7 passed in 1.03s",
+  "tool_chunk_id": "753c32",
+  "exit_code": 0,
+  "small_exhaustive_comparisons": 96,
+  "ample_budget_status_all_minimal_forests_and_synthetic_queries_identical": true,
+  "explicit_equal_cost_tree_and_role_ambiguity_hold_preserved": true,
+  "independent_cell_support_and_duplicate_input_controls": true,
+  "synthetic_default_256_state_measurement": {
+    "previous_status": "no_exact_bounded_tree",
+    "current_status": "no_exact_bounded_tree",
+    "previous_fit_states": 171,
+    "current_fit_states": 104,
+    "fit_states_delta": -67,
+    "previous_work_units": 33321,
+    "current_work_units": 28141,
+    "work_units_delta": -5180,
+    "metric_tool_chunk_id": "ea71aa"
+  },
+  "same_synthetic_128_state_test_cap": {
+    "previous": "fit_state_budget_exceeded",
+    "current": "no_exact_bounded_tree",
+    "production_default_256_unchanged": true
+  },
+  "independent_static_math_review": "PASS",
+  "public_fits_or_queries_run_by_this_agent": false,
+  "performance_or_score_improvement_claimed": false,
+  "production_adopted": false
+}

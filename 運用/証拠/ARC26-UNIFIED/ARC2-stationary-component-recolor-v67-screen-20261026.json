@@ -1,0 +1,16 @@
+{
+  "schema": "arc2-stationary-component-recolor-v67-screen-v1",
+  "observed_at_utc": "2026-10-26T14:27:35.661958+00:00",
+  "hypothesis": "recolor each stationary monochrome 4-connected component by a consistent mapping from input color and D4-normalized shape; preserve the mapped background",
+  "loo_eligible_folds": 2916,
+  "loo_candidate_proposals": 6,
+  "challenge_tasks_with_proposals": 0,
+  "challenge_examples_with_proposals": 0,
+  "runtime_started": false,
+  "targets_read": false,
+  "task_ids_grids_or_targets_saved": false,
+  "source_sha256": {
+    "runner": "dea5d0c7d393661e6cb4b2df29b9cbbd868be1b489d07fee736981f97c35cfc0",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "arc26-arc2-variation-gate-targeted-check.v1",
+  "track": "ARC2",
+  "experiment_id": "P5_HDS_partial_condition_consensus_variation_coverage_LOO",
+  "observed_at_utc": "2026-10-25T06:54:24Z",
+  "status": "PASS",
+  "method": "Synthetic non-ARC fixture called the wrapper function directly; no training task IDs, grids, hidden answers, or repository test sources were used.",
+  "cases": [
+    {
+      "case": "three unique support records but one value on an omitted condition coordinate",
+      "expected": "HOLD",
+      "observed": "HOLD",
+      "pass": true
+    },
+    {
+      "case": "three unique support records spanning two values on an omitted condition coordinate",
+      "expected": "partial candidate",
+      "observed": "partial candidate",
+      "pass": true
+    }
+  ],
+  "wrapper_sha256": "9e8343d6a0074862db6f04d5d04045f33dc19b72261dd237694be39bf6b60191",
+  "production_hds_changed": false
+}

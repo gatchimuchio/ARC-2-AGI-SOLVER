@@ -1,0 +1,56 @@
+{
+  "schema": "arc26-unified-kaggle-history-observation-v1",
+  "track": "ARC2",
+  "competition_slug": "arc-prize-2026-arc-agi-2",
+  "retrieved_at_utc": "2026-10-24T03:51:31.378063Z",
+  "retrieval": {
+    "method": "Kaggle SDK competition_submissions(slug, page_size=100)",
+    "read_only": true,
+    "history_rows_returned": 8,
+    "credential_values_saved": false
+  },
+  "submissions": [
+    {
+      "submission_id": "57560705",
+      "submitted_at_source_raw": "2026-10-23 12:25:06.577000",
+      "submitted_at_utc": "2026-10-23T12:25:06.577000Z",
+      "official_status": "COMPLETE",
+      "official_score_raw": "0.00",
+      "official_score_numeric": 0.0,
+      "score_unit": "public_score",
+      "error_description": null,
+      "file_name_api_field": null,
+      "execution_link": {
+        "notebook_slug": "tecchannn/arc2-codex-main-baseline-v1",
+        "notebook_version": 2,
+        "notebook_code_sha256": "47fcc2a650fc59d33c2f2182c0670e3d639bac5d92e3f4fca836c0093493a8ef",
+        "source_commit": "3d444f34db32d62bd2edad320648e08e8dae19d6",
+        "input_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+        "output_sha256": "a0eeaaa6203d4fdd049f8aa705a8ac7832cb98240759703eb0288ad3d62b4927"
+      },
+      "history_evidence": "運用/証拠/ARC26-UNIFIED/official-history-20261024T035131Z.json",
+      "execution_evidence": "運用/証拠/ARC2_公式スコア起点_20261024/公式スコア観測-57560705.json"
+    },
+    {
+      "submission_id": "57576155",
+      "submitted_at_source_raw": "2026-10-24 00:12:39.127000",
+      "submitted_at_utc": "2026-10-24T00:12:39.127000Z",
+      "official_status": "COMPLETE",
+      "official_score_raw": "0.00",
+      "official_score_numeric": 0.0,
+      "score_unit": "public_score",
+      "error_description": null,
+      "file_name_api_field": null,
+      "execution_link": {
+        "notebook_slug": "tecchannn/arc2-codex-main-baseline-v1",
+        "notebook_version": 5,
+        "notebook_code_sha256": "d04668b0410a028195c1eb3c0c99620c9336d8ff10a41156181faaf73dc7910c",
+        "source_commit": "2759d393a8d79824d36754785ce16f66d0493ebd",
+        "input_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+        "output_sha256": "78e59642d9a84457c1ad9a16b1b98c12de717a34d562438ae830a8903cd5b026"
+      },
+      "history_evidence": "運用/証拠/ARC26-UNIFIED/official-history-20261024T035131Z.json",
+      "execution_evidence": "運用/証拠/ARC2_公式スコア起点_20261024/公式スコア観測-57576155.json"
+    }
+  ]
+}

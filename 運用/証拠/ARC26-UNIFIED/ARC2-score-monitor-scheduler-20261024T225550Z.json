@@ -1,0 +1,14 @@
+{
+  "schema": "arc26-score-monitor-scheduler-state-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-24T22:55:50Z",
+  "task_name": "ARC2-Kaggle-Score-Monitor",
+  "state": "Ready",
+  "enabled": true,
+  "repetition_interval": "PT5M",
+  "last_run_utc": "2026-10-24T22:53:01Z",
+  "next_run_utc": "2026-10-24T22:58:00Z",
+  "last_task_result": 0,
+  "action": "運用/ARC2_Kaggleスコア監視.py --tick",
+  "task_updated_or_recreated": false
+}

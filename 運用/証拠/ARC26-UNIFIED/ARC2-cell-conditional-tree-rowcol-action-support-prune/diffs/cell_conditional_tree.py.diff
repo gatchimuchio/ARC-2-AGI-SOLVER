@@ -1,0 +1,59 @@
+--- partition-prune/cell_conditional_tree.py
++++ action-support-prune/cell_conditional_tree.py
+@@ -208,6 +208,47 @@
+ 
+         infeasible_subsets = set()
+ 
++        # Lazily precompute ALL typed-action matches once. A subset leaf can
++        # only use witnesses already matching that same action in the subset.
++        matching_masks = None
++
++        @lru_cache(maxsize=None)
++        def action_support_possible(indices):
++            nonlocal matching_masks
++            if matching_masks is None:
++                matching_masks = []
++                for _features, roles, target, _teacher in records:
++                    mask = 0
++                    for action_index, program in enumerate(PROGRAMS):
++                        spend(1)
++                        if _program_value(program, roles) == target:
++                            mask |= 1 << action_index
++                    matching_masks.append(mask)
++            cell_counts = [0] * len(PROGRAMS)
++            teacher_masks = [0] * len(PROGRAMS)
++            for index in indices:
++                spend(1)
++                mask = matching_masks[index]
++                while mask:
++                    spend(1)
++                    bit = mask & -mask
++                    action_index = bit.bit_length() - 1
++                    cell_counts[action_index] += 1
++                    teacher_masks[action_index] |= 1 << records[index][3]
++                    mask ^= bit
++            eligible = 0
++            for action_index in range(len(PROGRAMS)):
++                spend(1)
++                if (cell_counts[action_index] >= self.bounds.minimum_cell_support
++                        and teacher_masks[action_index].bit_count() >= self.bounds.minimum_teacher_support):
++                    eligible |= 1 << action_index
++            for index in indices:
++                spend(1)
++                if matching_masks[index] & eligible == 0:
++                    infeasible_subsets.add(indices)
++                    return False
++            return True
++
+         @lru_cache(maxsize=None)
+         def leaf(indices):
+             spend(len(indices))
+@@ -244,6 +285,8 @@
+             if indices in infeasible_subsets:
+                 return None
+             if depth == self.bounds.max_depth:
++                return None
++            if not action_support_possible(indices):
+                 return None
+             best, alternatives = None, []
+             partitions = []

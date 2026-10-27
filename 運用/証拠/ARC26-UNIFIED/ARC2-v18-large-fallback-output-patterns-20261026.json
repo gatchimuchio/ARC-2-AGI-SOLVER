@@ -1,0 +1,110 @@
+{
+  "schema": "arc2-v18-large-fallback-output-patterns-v1",
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "focus": "large means test input area greater than 100 cells",
+  "data_use": "public ARC-AGI-2 training outputs used for offline aggregate error analysis only",
+  "runtime_received_targets": false,
+  "per_task_ids_or_grids_saved": false,
+  "baseline_source": "complete v16 runtime output",
+  "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "baseline_submission_sha256": "08d0dc111f97c9f3a909955296fc58d46ea0c4514fe66e75169526723359f017",
+  "aggregates": {
+    "<=100 cells": {
+      "baseline exact": {
+        "examples": 8,
+        "same_shape": 5,
+        "input_palette_preserved": 7,
+        "same_palette": 7,
+        "new_output_colors": 1,
+        "bijective_same_size_color_map": 1,
+        "exact_whole_grid_d4": 2,
+        "change_bands": {
+          "20-50% cells changed": 2,
+          "5-20% cells changed": 1,
+          ">50% cells changed": 2,
+          "shape_changed": 3
+        }
+      },
+      "baseline wrong": {
+        "examples": 93,
+        "same_shape": 50,
+        "input_palette_preserved": 47,
+        "same_palette": 29,
+        "new_output_colors": 46,
+        "bijective_same_size_color_map": 0,
+        "exact_whole_grid_d4": 0,
+        "change_bands": {
+          "20-50% cells changed": 22,
+          "5-20% cells changed": 17,
+          "<=5% cells changed": 2,
+          ">50% cells changed": 9,
+          "shape_changed": 43
+        }
+      }
+    },
+    ">100 cells": {
+      "baseline exact": {
+        "examples": 1,
+        "same_shape": 0,
+        "input_palette_preserved": 1,
+        "same_palette": 1,
+        "new_output_colors": 0,
+        "bijective_same_size_color_map": 0,
+        "exact_whole_grid_d4": 0,
+        "change_bands": {
+          "shape_changed": 1
+        }
+      },
+      "baseline wrong": {
+        "examples": 157,
+        "same_shape": 120,
+        "input_palette_preserved": 119,
+        "same_palette": 72,
+        "new_output_colors": 38,
+        "bijective_same_size_color_map": 0,
+        "exact_whole_grid_d4": 0,
+        "change_bands": {
+          "20-50% cells changed": 36,
+          "5-20% cells changed": 56,
+          "<=5% cells changed": 20,
+          ">50% cells changed": 8,
+          "shape_changed": 37
+        }
+      }
+    },
+    "all": {
+      "baseline exact": {
+        "examples": 9,
+        "same_shape": 5,
+        "input_palette_preserved": 8,
+        "same_palette": 8,
+        "new_output_colors": 1,
+        "bijective_same_size_color_map": 1,
+        "exact_whole_grid_d4": 2,
+        "change_bands": {
+          "20-50% cells changed": 2,
+          "5-20% cells changed": 1,
+          ">50% cells changed": 2,
+          "shape_changed": 4
+        }
+      },
+      "baseline wrong": {
+        "examples": 250,
+        "same_shape": 170,
+        "input_palette_preserved": 166,
+        "same_palette": 101,
+        "new_output_colors": 84,
+        "bijective_same_size_color_map": 0,
+        "exact_whole_grid_d4": 0,
+        "change_bands": {
+          "20-50% cells changed": 58,
+          "5-20% cells changed": 73,
+          "<=5% cells changed": 22,
+          ">50% cells changed": 17,
+          "shape_changed": 80
+        }
+      }
+    }
+  }
+}

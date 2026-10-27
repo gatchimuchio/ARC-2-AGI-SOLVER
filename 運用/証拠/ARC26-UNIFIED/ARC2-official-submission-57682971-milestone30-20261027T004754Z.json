@@ -1,0 +1,18 @@
+{
+  "schema": "arc2-official-same-id-30min-milestone-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-27T00:47:54.165522+00:00",
+  "competition": "arc-prize-2026-arc-agi-2",
+  "submission_ref": 57682971,
+  "date": "2026-10-27T00:17:10.770000",
+  "status": "PENDING",
+  "public_score": "",
+  "numeric_score_observed": false,
+  "description_matches_attempt": true,
+  "failure_detail_present": false,
+  "notebook_timeout": false,
+  "failure_description_sha256": null,
+  "read_only": true,
+  "submission_performed": false,
+  "milestone_scope": "One additional readonly observation aroundsubmission+30min; nativebackoffnotchanged."
+}

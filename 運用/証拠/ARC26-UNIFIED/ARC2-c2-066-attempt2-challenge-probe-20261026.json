@@ -1,0 +1,38 @@
+{
+  "schema": "arc2-c2-066-attempt2-challenge-probe-v1",
+  "challenge_tasks": 240,
+  "test_examples": 259,
+  "candidate_generation_completed_before_labels_loaded": true,
+  "runtime_received_targets": false,
+  "labels_source": "public ARC-AGI-2 training outputs; offline scoring only",
+  "baseline_submission_sha256": "08d0dc111f97c9f3a909955296fc58d46ea0c4514fe66e75169526723359f017",
+  "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "candidate_module_sha256": "ae7364556c21bd04d22043138138c054a4a71d0a7a67ba12d2052b15205d4e3b",
+  "v16_baseline": {
+    "correct_tasks": 8,
+    "correct_examples": 9,
+    "distinct_attempt_pairs": 0
+  },
+  "c2_066_fit_examples": 2,
+  "c2_066_distinct_from_primary_examples": 0,
+  "c2_066_selected_after_v18_priority": 0,
+  "v18_composite_selected": 1,
+  "v18_reconstructed": {
+    "correct_tasks": 9,
+    "correct_examples": 10,
+    "distinct_attempt_pairs": 1
+  },
+  "c2_066_as_second_only": {
+    "correct_tasks": 8,
+    "correct_examples": 9,
+    "distinct_attempt_pairs": 0
+  },
+  "combined_with_v18": {
+    "correct_tasks": 9,
+    "correct_examples": 10,
+    "distinct_attempt_pairs": 1
+  },
+  "delta_combined_vs_v18_tasks": 0,
+  "delta_combined_vs_v18_examples": 0,
+  "official_score": "UNKNOWN_NOT_SUBMITTED"
+}

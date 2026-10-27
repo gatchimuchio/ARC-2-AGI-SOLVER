@@ -1,0 +1,16 @@
+{
+  "schema": "arc2-dihedral-local-context-v69-screen-v1",
+  "observed_at_utc": "2026-10-26T14:30:45.724726+00:00",
+  "hypothesis": "learn an unambiguous 3x3 cell context rule after canonicalizing all D4 orientations; leave unseen contexts unchanged",
+  "loo_eligible_folds": 2916,
+  "loo_candidate_proposals": 413,
+  "challenge_tasks_with_proposals": 41,
+  "challenge_examples_with_proposals": 41,
+  "runtime_started": false,
+  "targets_read": false,
+  "task_ids_grids_or_targets_saved": false,
+  "source_sha256": {
+    "runner": "ca77ee20351583f8128faad60d1fb9200c95a0a26224b265a8797a3c7c07d911",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83"
+  }
+}

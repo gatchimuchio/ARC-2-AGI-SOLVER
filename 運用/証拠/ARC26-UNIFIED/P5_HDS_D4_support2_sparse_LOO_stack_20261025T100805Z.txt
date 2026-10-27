@@ -1,0 +1,14 @@
+Process 16192: "C:\Users\ohira\AppData\Local\Programs\Python\Python312\python.exe" .\運用\証拠\ARC26-UNIFIED\P5_HDS_D4_support2_sparse_LOO.py --pilot-tasks 575 --budget-seconds 7200 --output .\運用\証拠\ARC26-UNIFIED\P5_HDS_D4_support2_sparse_LOO_full_20261025T0748Z.json
+Python v3.12.10 (C:\Users\ohira\AppData\Local\Programs\Python\Python312\python.exe)
+
+Thread 9008 (active+gil): "MainThread"
+    _ownerships (連結箱参照核.py:109)
+    ownerships (連結箱参照核.py:160)
+    render (連結箱参照核.py:268)
+    fit (連結箱参照候補.py:39)
+    fit (連結箱参照教材.py:47)
+    __init__ (連結箱参照教材.py:59)
+    課題を解く (HDS接続.py:323)
+    score_call (P5_HDS_D4_support2_sparse_LOO.py:74)
+    main (P5_HDS_D4_support2_sparse_LOO.py:138)
+    <module> (P5_HDS_D4_support2_sparse_LOO.py:218)

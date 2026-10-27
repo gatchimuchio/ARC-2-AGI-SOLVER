@@ -1,0 +1,27 @@
+{
+  "schema": "arc2-object-relational-v22-paired-loo-v1",
+  "eligible_folds": 2916,
+  "candidate_proposal_folds": 27,
+  "adapter_evaluation_folds": 27,
+  "adapter_errors": 0,
+  "adapter_hold_folds": 13,
+  "adapter_hold_reasons": {
+    "solver_hold": 13
+  },
+  "v21.1_adapter_exact_on_proposals": 16,
+  "v22_relation_candidate_applied_to_duplicate_slots": 2,
+  "paired_v22_exact_on_proposals": 16,
+  "newly_correct": 0,
+  "newly_wrong": 0,
+  "net_delta": 0,
+  "regressions": 0,
+  "heldout_outputs_passed_to_candidate_generator_or_adapter": false,
+  "per_fold_predictions_or_targets_saved": false,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "d6b16362caff4b3ab73030a9a6142b45111548c0ab7aa34ed94cf73b10cf4831",
+    "proposal_runner": "ee0c72d35c0dd42622e999f5fdfaa93d531de471804c48cf9e134d4533f3f3d1",
+    "adapter": "091350d44015d3fde94ef0dfabfb9d53df1b9eda18233012c37a9ab1018dbdf2",
+    "object_candidate": "09d1ac6eec39bfcbec99d681434f238daaa57242b6a89f642d17e58076ab67ce"
+  }
+}

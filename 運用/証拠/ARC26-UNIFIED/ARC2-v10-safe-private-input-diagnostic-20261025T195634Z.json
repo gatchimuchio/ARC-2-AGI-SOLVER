@@ -1,0 +1,72 @@
+{
+  "schema": "arc26-v5-safe-private-input-diagnostic-v1",
+  "observed_at_utc": "2026-10-25T19:56:34.261Z",
+  "track": "ARC2",
+  "run": {
+    "output_dir": "出力/Kaggle/arc2-v22-safe-private-input-diagnostics-20261025T194500Z",
+    "generated_at_utc": "2026-10-25T19:55:31.701854+00:00",
+    "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "tasks": 240,
+    "test_examples": 259,
+    "attempts_per_test": 2,
+    "fallback_count": 252,
+    "fallback_counted_correct": false,
+    "seconds": 872.75,
+    "submission_sha256": "1185244299abe142cfae823ee0b0c811bb03e70a6e2e40cb23cd8c08222bab0a",
+    "audit_sha256": "0efab8c23dab63ac265a83533911c7aed84574fe0c8a82c59dd506482deaf30f",
+    "matches_official_kernel_v10_output_sha256": true,
+    "test_correctness": "UNKNOWN",
+    "runtime_received_solutions": false,
+    "runtime_input": "入力/Kaggle/arc-agi_test_challenges.json only"
+  },
+  "aggregate_diagnostics": {
+    "candidate_prediction_count": 10,
+    "examples_with_candidates": 7,
+    "nonidentity_candidate_prediction_count": 10,
+    "examples_with_nonidentity_candidates": 7,
+    "simple_transform_unique_candidates": 3,
+    "simple_transform_distinct_from_first": 0,
+    "candidate_family_counts": {
+      "ARC全前景平行移動": 2,
+      "ARC格子D4変換": 2,
+      "ARC特徴近傍変換選択": 3,
+      "ARC疎点graph転写": 1,
+      "ARC複合前景D4色写像平行移動": 2
+    },
+    "nonidentity_candidate_family_counts": {
+      "ARC全前景平行移動": 2,
+      "ARC格子D4変換": 2,
+      "ARC特徴近傍変換選択": 3,
+      "ARC疎点graph転写": 1,
+      "ARC複合前景D4色写像平行移動": 2
+    },
+    "observation_request_counts": {
+      "additional_observation_requests": 259,
+      "conflict_records": 0,
+      "missing_condition_path_requests": 0,
+      "other_additional_observation_requests": 0,
+      "prediction_records": 0,
+      "unidentified_records": 0,
+      "unknown_condition_value_requests": 259
+    }
+  },
+  "reproducibility": {
+    "version10_manifest": "出力/Kaggle/arc2-codex-main-baseline-v1/v12-safe-feature-neighbor-20261026/build-manifest.json",
+    "manifest_payload_sha256": "bd13836d7ff3e14b18a13f159c6c2c62aa262521fc2d12f6daf0e5245dd499c5",
+    "manifest_source_file_count": 277,
+    "current_missing_file_count": 0,
+    "current_hash_mismatch_count": 0,
+    "legacy_v4_payload_entry_count": 0,
+    "runtime_adapter_sha256": "f2c9858c250e612dc17526cffdacdfb3502212a46b5a1fe1c60779fa51ae2b0c"
+  },
+  "official_status_at_last_query": {
+    "latest_ref": 57611018,
+    "status": "COMPLETE",
+    "public_score": "0.00",
+    "latest_history_observed_at_utc": "2026-10-25T19:53:03.406Z",
+    "next_24h_gate_utc": "2026-10-26T00:13:10.933Z",
+    "next_check_utc": "2026-10-26T00:20:00Z",
+    "v10_submitted": false
+  },
+  "next_action": "Analyze only generic aggregate family coverage; validate any proposed HDS change on matched public-training LOO. Do not use private/evaluation labels. Submit v10 once after the official gate and final checks, then track its ref to numeric score."
+}

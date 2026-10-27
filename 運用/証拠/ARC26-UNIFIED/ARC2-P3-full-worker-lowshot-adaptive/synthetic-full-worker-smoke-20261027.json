@@ -1,0 +1,2836 @@
+{
+  "state": "PASS_CURRENT_FULL_WORKER_ADAPTIVE2_TO3",
+  "completed_at": "2026-10-27T01:22:15.010723+00:00",
+  "source_sha256": "4fd0226f3c650899e229addc766d63340086bb4a667ab61e4018e43ddd7bb2c0",
+  "fresh_worker_processes": 2,
+  "public_data_loaded": false,
+  "scope": "synthetic actual worker/formatter/adaptive policy plumbing; no public or pure-HDS learning gain claim",
+  "prior_filter": {
+    "same_source_task_removed": 0,
+    "all_four_input_collisions_removed": 0,
+    "retained_examples": 2,
+    "retained_io_sha256": "b78406638882d3576863b4d2946477563c0c0ba4f690e42e4b4f2fb4b7d19d58",
+    "same_prior_both_phases": true,
+    "target_values_used_for_filter": false
+  },
+  "parent_prior_files": [
+    {
+      "path": "接続/ARC2/テンプレート充填教材.json",
+      "sha256": "8f5f24571f0457c44af68b57b9aebbcf4dabbb9164f24942108e1b98f635f112"
+    },
+    {
+      "path": "入力/公式ソース/ARC-AGI-2/data/training/93b4f4b3.json",
+      "sha256": "d84bde1258daea05eb115295751ea20c026384fb04436da0b640d462aa7d7f22"
+    }
+  ],
+  "results": {
+    "before": {
+      "scores": [
+        {
+          "raw_pass1": true,
+          "raw_pass2": true,
+          "nonfallback_pass1": true,
+          "nonfallback_pass2": true,
+          "second_incremental_exact": false,
+          "attempt1_input_copy_fallback": false,
+          "attempt2_input_copy_fallback": false,
+          "generated_attempt_available": true,
+          "distinct_attempts": false,
+          "identity_target": false,
+          "prediction_sha256": "c452a4025ecdecdf483ef3da4549b169c7731ac79168a030824d06c9b32615ce",
+          "attempt1_sha256": "b43809a1558967990ce7b09a48c65bf2c5be1523cd1979272fb234e953e35187",
+          "attempt2_sha256": "b43809a1558967990ce7b09a48c65bf2c5be1523cd1979272fb234e953e35187",
+          "complete": true,
+          "query_role": "feedback"
+        },
+        {
+          "raw_pass1": true,
+          "raw_pass2": true,
+          "nonfallback_pass1": true,
+          "nonfallback_pass2": true,
+          "second_incremental_exact": false,
+          "attempt1_input_copy_fallback": false,
+          "attempt2_input_copy_fallback": false,
+          "generated_attempt_available": true,
+          "distinct_attempts": false,
+          "identity_target": false,
+          "prediction_sha256": "39e8d7a41deb7b88d7c7c8e070852a7e32d59be0c0144bf4d642e4e82fb6c7b6",
+          "attempt1_sha256": "e57e6cc780959e0c91426192bc28ae355ab20190f25ab8da8a5cc1d539bae9a2",
+          "attempt2_sha256": "e57e6cc780959e0c91426192bc28ae355ab20190f25ab8da8a5cc1d539bae9a2",
+          "complete": true,
+          "query_role": "unseen"
+        }
+      ],
+      "evidence": {
+        "state": "complete",
+        "hold_audit": [],
+        "blocked_json": [],
+        "boundary_violation": false,
+        "solver_error_type": null,
+        "scope": "CURRENT_FULL_WORKER_ADAPTIVE2_TO3_BATCH_REFIT",
+        "hds_central_constructor_settings": [
+          {
+            "outer": 2,
+            "validator": 2,
+            "constructor_minimum_support": 2
+          }
+        ],
+        "hds_initial_states": [
+          {
+            "minimum_support": 2,
+            "validator_minimum_support": 2,
+            "experience_count": 0,
+            "update_count": 0,
+            "active_principle_count": 0,
+            "quarantined_principle_count": 0,
+            "semantic_rule_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "semantic_rules": []
+          }
+        ],
+        "hds_final_states": [
+          {
+            "minimum_support": 2,
+            "validator_minimum_support": 2,
+            "experience_count": 6,
+            "update_count": 6,
+            "active_principle_count": 6,
+            "quarantined_principle_count": 0,
+            "semantic_rule_sha256": "04476646be1eb20c53c8df841dbc801839e4d599db7017eccb968bc61b978fb9",
+            "semantic_rules": [
+              {
+                "boundary": "ARCテンプレート穴充填",
+                "relation": "同値関係",
+                "conditions": [
+                  [
+                    "候補"
+                  ]
+                ],
+                "result": [
+                  "出力"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 2,
+                "counterexample_count": 0,
+                "excluded_counterexample_count": 0,
+                "mapping_sha256": "6419934b7e676d0c669dac582a4e28fa00cadea27faec9e35059af789cf64ca2"
+              },
+              {
+                "boundary": "ARCテンプレート穴充填",
+                "relation": "同値関係",
+                "conditions": [
+                  [
+                    "出力"
+                  ]
+                ],
+                "result": [
+                  "候補"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 2,
+                "counterexample_count": 0,
+                "excluded_counterexample_count": 0,
+                "mapping_sha256": "6419934b7e676d0c669dac582a4e28fa00cadea27faec9e35059af789cf64ca2"
+              },
+              {
+                "boundary": "ARC格子変換",
+                "relation": "決定的対応関係",
+                "conditions": [
+                  [
+                    "入力"
+                  ]
+                ],
+                "result": [
+                  "出力"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 2,
+                "counterexample_count": 0,
+                "excluded_counterexample_count": 0,
+                "mapping_sha256": "04fec121ece4ad75afb381066f817a29ed1d5a429ee7f8027f701665ea488319"
+              },
+              {
+                "boundary": "ARC格子変換",
+                "relation": "決定的対応関係",
+                "conditions": [
+                  [
+                    "出力"
+                  ]
+                ],
+                "result": [
+                  "入力"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 2,
+                "counterexample_count": 0,
+                "excluded_counterexample_count": 0,
+                "mapping_sha256": "cde36b02d14d47a4ddf80496c94a91768290ccf7ae7327fbcebf3a1759a29198"
+              },
+              {
+                "boundary": "ARC特徴近傍変換選択",
+                "relation": "同値関係",
+                "conditions": [
+                  [
+                    "候補"
+                  ]
+                ],
+                "result": [
+                  "出力"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 2,
+                "counterexample_count": 0,
+                "excluded_counterexample_count": 0,
+                "mapping_sha256": "ce5c1c8f761f8c2afad20010a61763cd5a5106102cceef0b5d09e704c96347b4"
+              },
+              {
+                "boundary": "ARC特徴近傍変換選択",
+                "relation": "同値関係",
+                "conditions": [
+                  [
+                    "出力"
+                  ]
+                ],
+                "result": [
+                  "候補"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 2,
+                "counterexample_count": 0,
+                "excluded_counterexample_count": 0,
+                "mapping_sha256": "ce5c1c8f761f8c2afad20010a61763cd5a5106102cceef0b5d09e704c96347b4"
+              }
+            ]
+          }
+        ],
+        "hds_families": [
+          {
+            "boundary": "ARCテンプレート穴充填",
+            "prior_observations": 2,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": true,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC入れ子パネル合成",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC閉領域パレット転写",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC物体端投射",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC凡例穴数対応",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC色群テンプレート充填",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC物体群整列",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC格子自己マスク",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC辺対応抽出",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC成分最短経路",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC対角線橋",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC対角領域",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC軸反射",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC格子D4変換",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC周期タイルD4反復",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC全前景平行移動",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC複合前景D4色写像平行移動",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC周期組修復",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC部分見本転写",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC穴形拡大",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC標識移動",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC放射組立",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC穴輪郭",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC形状色転写",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC凡例経路接続",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC行周期合成",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC重畳組立",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC空白矩形移動",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARCheader順位着色",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC距離層周期充填",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC最大保持対称剪定",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC反復行singleton抽出",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARCseed境界着色",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC下向き流路",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC成分path直列化",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC十字形態着色",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC枠内成分計数",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC標識panel計数",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC標識誘導組立",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC倍率motif相互置換",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARCbbox包含正規化",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC境界marker周期帯",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC中心anchor配色",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC正方形格子写像",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC反復形側周期延長",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC区切整列gap投射",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC物体slot標識回廊",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC疎点graph転写",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC帯列square輪郭",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC制御bar個数複写",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC配置mask展開",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC基点motif展開",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARCD4最大接触配置",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC凡例token積展開",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC枠tile二列整列",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC凡例旋回経路",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC帯図形投射",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC二値原型補完",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC象限配色タイル",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC凡例集合選択",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC二軸欠損補完",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC四欄反復",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC境界軸投射",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC記号命令列",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC櫛配置押上げ",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC開口壁充填",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC遮蔽区画計数",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC凡例矩形転写",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC十字曲線延長",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC支持構造沈降",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC標点全片組立",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC距離順位回収",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC枠端積層",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC標識軸転写",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC見本格子分類",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC色線反射",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC境界点周期",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC有限字形視野",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC帯profile積層",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC計数棒迂回",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC境界色経路",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC全足跡整列",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC矢印到達",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC標識水路",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC隅模様転写",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC合同物体出口",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC全体模様窓",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC全体接触",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC計数色層旋回",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC対辺標点配置",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC連結箱参照",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC領域指令",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC全panel端連鎖",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC矩形継目",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC観測成長",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC遮蔽端接続",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC空洞種伝播",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC標点巡回",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC受動凡例転写",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC直交領域所有",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC局所軌条鎖所有",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC境界表穴転写",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC多面欠損所有",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC枠質量保存",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC斜端点間隙",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC標識経路層",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC特徴条件整列",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC有限例外光線",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC周期枠位相",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC特徴近傍変換選択",
+            "prior_observations": 0,
+            "current_observations": 2,
+            "training_all_reproduced": true,
+            "equality_admitted": true,
+            "status": "全教師再現",
+            "quarantined": 0,
+            "admission_stage": "full_accepted"
+          }
+        ],
+        "raw_hds_rows": [
+          {
+            "primary_valid": true,
+            "primary_is_none": false,
+            "primary_sha256": "b43809a1558967990ce7b09a48c65bf2c5be1523cd1979272fb234e953e35187",
+            "status": null,
+            "reasons": [],
+            "candidate_pair_valid": false,
+            "candidate_pair_sha256": null,
+            "candidate_pair_attempt1_sha256": null,
+            "candidate_pair_family": null,
+            "candidate_prediction_family_counts": {
+              "ARC特徴近傍変換選択": 1
+            }
+          },
+          {
+            "primary_valid": true,
+            "primary_is_none": false,
+            "primary_sha256": "e57e6cc780959e0c91426192bc28ae355ab20190f25ab8da8a5cc1d539bae9a2",
+            "status": null,
+            "reasons": [],
+            "candidate_pair_valid": false,
+            "candidate_pair_sha256": null,
+            "candidate_pair_attempt1_sha256": null,
+            "candidate_pair_family": null,
+            "candidate_prediction_family_counts": {
+              "ARC特徴近傍変換選択": 1
+            }
+          }
+        ],
+        "wrapper_rows": [
+          {
+            "public_answer_valid": true,
+            "public_answer_sha256": "b43809a1558967990ce7b09a48c65bf2c5be1523cd1979272fb234e953e35187",
+            "public_status": null,
+            "public_reasons": [],
+            "raw_hds_primary_hold": false,
+            "wrapper_promoted_candidate_pair_first": false
+          },
+          {
+            "public_answer_valid": true,
+            "public_answer_sha256": "e57e6cc780959e0c91426192bc28ae355ab20190f25ab8da8a5cc1d539bae9a2",
+            "public_status": null,
+            "public_reasons": [],
+            "raw_hds_primary_hold": false,
+            "wrapper_promoted_candidate_pair_first": false
+          }
+        ],
+        "raw_hds_primary_is_not_wrapper_promoted_pair": true,
+        "reported_minimum_support": [
+          2
+        ],
+        "aggregate_diagnostics": {
+          "observation_request_counts": {
+            "additional_observation_requests": 2,
+            "missing_condition_path_requests": 0,
+            "unknown_condition_value_requests": 2,
+            "other_additional_observation_requests": 0,
+            "conflict_records": 0,
+            "unidentified_records": 0,
+            "prediction_records": 0
+          },
+          "candidate_prediction_count": 2,
+          "examples_with_candidates": 2,
+          "nonidentity_candidate_prediction_count": 2,
+          "examples_with_nonidentity_candidates": 2,
+          "candidate_family_counts": {
+            "ARC特徴近傍変換選択": 2
+          },
+          "nonidentity_candidate_family_counts": {
+            "ARC特徴近傍変換選択": 2
+          },
+          "simple_transform_unique_candidates": 2,
+          "simple_transform_distinct_from_first": 0,
+          "object_extraction_candidates": 0,
+          "object_extraction_selected": 0,
+          "object_outlier_candidates": 0,
+          "object_outlier_selected": 0,
+          "object_palette_candidates": 0,
+          "object_palette_selected": 0,
+          "repeated_panel_candidate_fit": {
+            "failure": "insufficient_teacher_support"
+          }
+        },
+        "prior_readers": {
+          "template_reader": 1,
+          "generic_reader": 0,
+          "generic_status": "ABSENT_CALL_PATH",
+          "generic_content_opens": 0,
+          "template_io_sha256": "b78406638882d3576863b4d2946477563c0c0ba4f690e42e4b4f2fb4b7d19d58"
+        },
+        "runtime_origins_before": {
+          "module_count": 259,
+          "modules_sha256": "b8001342883a2b7d2e2b26b4aca031081e210f7b17c8ea9e93e60a3cdc1bcdde",
+          "all_current_origins_and_hashes_verified": true,
+          "hds_sha256": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe",
+          "worker_sha256": "43fd2c444cc1428bdfb3da3b228fca14b6ccb939c169401b1684c2b93b4092e4"
+        },
+        "runtime_origins_after": {
+          "module_count": 273,
+          "modules_sha256": "8a3ed91fa8cb355b8d11c302cf22c7f9654b55712e4ee5f5040e461b6804511e",
+          "all_current_origins_and_hashes_verified": true,
+          "hds_sha256": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe",
+          "worker_sha256": "43fd2c444cc1428bdfb3da3b228fca14b6ccb939c169401b1684c2b93b4092e4"
+        },
+        "source_sha256": "4fd0226f3c650899e229addc766d63340086bb4a667ab61e4018e43ddd7bb2c0",
+        "solver_seconds": 1.920243,
+        "process_cpu_seconds": 1.234375,
+        "absent_import_metadata_probes": {
+          "state": "ABSENT",
+          "probe_count": 1,
+          "content_reads": 0
+        },
+        "wall_seconds": 12.849567
+      }
+    },
+    "after": {
+      "scores": [
+        {
+          "raw_pass1": true,
+          "raw_pass2": true,
+          "nonfallback_pass1": true,
+          "nonfallback_pass2": true,
+          "second_incremental_exact": false,
+          "attempt1_input_copy_fallback": false,
+          "attempt2_input_copy_fallback": false,
+          "generated_attempt_available": true,
+          "distinct_attempts": false,
+          "identity_target": false,
+          "prediction_sha256": "c452a4025ecdecdf483ef3da4549b169c7731ac79168a030824d06c9b32615ce",
+          "attempt1_sha256": "b43809a1558967990ce7b09a48c65bf2c5be1523cd1979272fb234e953e35187",
+          "attempt2_sha256": "b43809a1558967990ce7b09a48c65bf2c5be1523cd1979272fb234e953e35187",
+          "complete": true,
+          "query_role": "feedback"
+        },
+        {
+          "raw_pass1": true,
+          "raw_pass2": true,
+          "nonfallback_pass1": true,
+          "nonfallback_pass2": true,
+          "second_incremental_exact": false,
+          "attempt1_input_copy_fallback": false,
+          "attempt2_input_copy_fallback": false,
+          "generated_attempt_available": true,
+          "distinct_attempts": false,
+          "identity_target": false,
+          "prediction_sha256": "39e8d7a41deb7b88d7c7c8e070852a7e32d59be0c0144bf4d642e4e82fb6c7b6",
+          "attempt1_sha256": "e57e6cc780959e0c91426192bc28ae355ab20190f25ab8da8a5cc1d539bae9a2",
+          "attempt2_sha256": "e57e6cc780959e0c91426192bc28ae355ab20190f25ab8da8a5cc1d539bae9a2",
+          "complete": true,
+          "query_role": "unseen"
+        }
+      ],
+      "evidence": {
+        "state": "complete",
+        "hold_audit": [],
+        "blocked_json": [],
+        "boundary_violation": false,
+        "solver_error_type": null,
+        "scope": "CURRENT_FULL_WORKER_ADAPTIVE2_TO3_BATCH_REFIT",
+        "hds_central_constructor_settings": [
+          {
+            "outer": 3,
+            "validator": 3,
+            "constructor_minimum_support": 3
+          }
+        ],
+        "hds_initial_states": [
+          {
+            "minimum_support": 3,
+            "validator_minimum_support": 3,
+            "experience_count": 0,
+            "update_count": 0,
+            "active_principle_count": 0,
+            "quarantined_principle_count": 0,
+            "semantic_rule_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "semantic_rules": []
+          }
+        ],
+        "hds_final_states": [
+          {
+            "minimum_support": 3,
+            "validator_minimum_support": 3,
+            "experience_count": 11,
+            "update_count": 6,
+            "active_principle_count": 6,
+            "quarantined_principle_count": 0,
+            "semantic_rule_sha256": "8220ad75db2f26c1541fa50f88e0094dae9f15b21ba9313d2c153cd0f8bd0436",
+            "semantic_rules": [
+              {
+                "boundary": "ARC格子D4変換",
+                "relation": "同値関係",
+                "conditions": [
+                  [
+                    "候補"
+                  ]
+                ],
+                "result": [
+                  "出力"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 3,
+                "counterexample_count": 0,
+                "excluded_counterexample_count": 0,
+                "mapping_sha256": "54704d3574874a82aa6565937aad62da3a0d2df16be9baaf92d8192f15fe9e26"
+              },
+              {
+                "boundary": "ARC格子D4変換",
+                "relation": "同値関係",
+                "conditions": [
+                  [
+                    "出力"
+                  ]
+                ],
+                "result": [
+                  "候補"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 3,
+                "counterexample_count": 0,
+                "excluded_counterexample_count": 0,
+                "mapping_sha256": "54704d3574874a82aa6565937aad62da3a0d2df16be9baaf92d8192f15fe9e26"
+              },
+              {
+                "boundary": "ARC格子変換",
+                "relation": "決定的対応関係",
+                "conditions": [
+                  [
+                    "入力"
+                  ]
+                ],
+                "result": [
+                  "出力"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 3,
+                "counterexample_count": 0,
+                "excluded_counterexample_count": 0,
+                "mapping_sha256": "15b87abac27b2b9ac78db891507a20020562f0b0bddea71960d94fc309929e66"
+              },
+              {
+                "boundary": "ARC格子変換",
+                "relation": "決定的対応関係",
+                "conditions": [
+                  [
+                    "出力"
+                  ]
+                ],
+                "result": [
+                  "入力"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 3,
+                "counterexample_count": 0,
+                "excluded_counterexample_count": 0,
+                "mapping_sha256": "06d98ad2a5b97aabf4a89be1b16661473264ebef64af533d2917423fa58521e1"
+              },
+              {
+                "boundary": "ARC特徴近傍変換選択",
+                "relation": "同値関係",
+                "conditions": [
+                  [
+                    "候補"
+                  ]
+                ],
+                "result": [
+                  "出力"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 3,
+                "counterexample_count": 0,
+                "excluded_counterexample_count": 0,
+                "mapping_sha256": "54704d3574874a82aa6565937aad62da3a0d2df16be9baaf92d8192f15fe9e26"
+              },
+              {
+                "boundary": "ARC特徴近傍変換選択",
+                "relation": "同値関係",
+                "conditions": [
+                  [
+                    "出力"
+                  ]
+                ],
+                "result": [
+                  "候補"
+                ],
+                "state": "適用範囲付き暫定原理",
+                "adoption": "有効",
+                "support_count": 3,
+                "counterexample_count": 0,
+                "excluded_counterexample_count": 0,
+                "mapping_sha256": "54704d3574874a82aa6565937aad62da3a0d2df16be9baaf92d8192f15fe9e26"
+              }
+            ]
+          }
+        ],
+        "hds_families": [
+          {
+            "boundary": "ARCテンプレート穴充填",
+            "prior_observations": 2,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC入れ子パネル合成",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC閉領域パレット転写",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC物体端投射",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC凡例穴数対応",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC色群テンプレート充填",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC物体群整列",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC格子自己マスク",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC辺対応抽出",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC成分最短経路",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC対角線橋",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC対角領域",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC軸反射",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC格子D4変換",
+            "prior_observations": 0,
+            "current_observations": 3,
+            "training_all_reproduced": true,
+            "equality_admitted": true,
+            "status": "全教師再現",
+            "quarantined": 0,
+            "admission_stage": "full_accepted"
+          },
+          {
+            "boundary": "ARC周期タイルD4反復",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC全前景平行移動",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC複合前景D4色写像平行移動",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC周期組修復",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC部分見本転写",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC穴形拡大",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC標識移動",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC放射組立",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC穴輪郭",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC形状色転写",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC凡例経路接続",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC行周期合成",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC重畳組立",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC空白矩形移動",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARCheader順位着色",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC距離層周期充填",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC最大保持対称剪定",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC反復行singleton抽出",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARCseed境界着色",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC下向き流路",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC成分path直列化",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC十字形態着色",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC枠内成分計数",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC標識panel計数",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC標識誘導組立",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC倍率motif相互置換",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARCbbox包含正規化",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC境界marker周期帯",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC中心anchor配色",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC正方形格子写像",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC反復形側周期延長",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC区切整列gap投射",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC物体slot標識回廊",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC疎点graph転写",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC帯列square輪郭",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC制御bar個数複写",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC配置mask展開",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC基点motif展開",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARCD4最大接触配置",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC凡例token積展開",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC枠tile二列整列",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC凡例旋回経路",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC帯図形投射",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC二値原型補完",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC象限配色タイル",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC凡例集合選択",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC二軸欠損補完",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC四欄反復",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC境界軸投射",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC記号命令列",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC櫛配置押上げ",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC開口壁充填",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC遮蔽区画計数",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC凡例矩形転写",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC十字曲線延長",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC支持構造沈降",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC標点全片組立",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC距離順位回収",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC枠端積層",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC標識軸転写",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC見本格子分類",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC色線反射",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC境界点周期",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC有限字形視野",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC帯profile積層",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC計数棒迂回",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC境界色経路",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC全足跡整列",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC矢印到達",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC標識水路",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC隅模様転写",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC合同物体出口",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC全体模様窓",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC全体接触",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC計数色層旋回",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC対辺標点配置",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC連結箱参照",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC領域指令",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC全panel端連鎖",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC矩形継目",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC観測成長",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC遮蔽端接続",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC空洞種伝播",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC標点巡回",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC受動凡例転写",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC直交領域所有",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC局所軌条鎖所有",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC境界表穴転写",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC多面欠損所有",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC枠質量保存",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC斜端点間隙",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC標識経路層",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC特徴条件整列",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC有限例外光線",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC周期枠位相",
+            "prior_observations": 0,
+            "current_observations": 0,
+            "training_all_reproduced": false,
+            "equality_admitted": false,
+            "status": "充足する候補なし",
+            "quarantined": 0,
+            "admission_stage": "no_candidate"
+          },
+          {
+            "boundary": "ARC特徴近傍変換選択",
+            "prior_observations": 0,
+            "current_observations": 3,
+            "training_all_reproduced": true,
+            "equality_admitted": true,
+            "status": "全教師再現",
+            "quarantined": 0,
+            "admission_stage": "full_accepted"
+          }
+        ],
+        "raw_hds_rows": [
+          {
+            "primary_valid": true,
+            "primary_is_none": false,
+            "primary_sha256": "b43809a1558967990ce7b09a48c65bf2c5be1523cd1979272fb234e953e35187",
+            "status": "出力",
+            "reasons": [],
+            "candidate_pair_valid": false,
+            "candidate_pair_sha256": null,
+            "candidate_pair_attempt1_sha256": null,
+            "candidate_pair_family": null,
+            "candidate_prediction_family_counts": {
+              "ARC格子D4変換": 1,
+              "ARC特徴近傍変換選択": 1
+            }
+          },
+          {
+            "primary_valid": true,
+            "primary_is_none": false,
+            "primary_sha256": "e57e6cc780959e0c91426192bc28ae355ab20190f25ab8da8a5cc1d539bae9a2",
+            "status": null,
+            "reasons": [],
+            "candidate_pair_valid": false,
+            "candidate_pair_sha256": null,
+            "candidate_pair_attempt1_sha256": null,
+            "candidate_pair_family": null,
+            "candidate_prediction_family_counts": {
+              "ARC格子D4変換": 1,
+              "ARC特徴近傍変換選択": 1
+            }
+          }
+        ],
+        "wrapper_rows": [
+          {
+            "public_answer_valid": true,
+            "public_answer_sha256": "b43809a1558967990ce7b09a48c65bf2c5be1523cd1979272fb234e953e35187",
+            "public_status": "出力",
+            "public_reasons": [],
+            "raw_hds_primary_hold": false,
+            "wrapper_promoted_candidate_pair_first": false
+          },
+          {
+            "public_answer_valid": true,
+            "public_answer_sha256": "e57e6cc780959e0c91426192bc28ae355ab20190f25ab8da8a5cc1d539bae9a2",
+            "public_status": null,
+            "public_reasons": [],
+            "raw_hds_primary_hold": false,
+            "wrapper_promoted_candidate_pair_first": false
+          }
+        ],
+        "raw_hds_primary_is_not_wrapper_promoted_pair": true,
+        "reported_minimum_support": [
+          3
+        ],
+        "aggregate_diagnostics": {
+          "observation_request_counts": {
+            "additional_observation_requests": 1,
+            "missing_condition_path_requests": 0,
+            "unknown_condition_value_requests": 1,
+            "other_additional_observation_requests": 0,
+            "conflict_records": 0,
+            "unidentified_records": 0,
+            "prediction_records": 1
+          },
+          "candidate_prediction_count": 4,
+          "examples_with_candidates": 2,
+          "nonidentity_candidate_prediction_count": 4,
+          "examples_with_nonidentity_candidates": 2,
+          "candidate_family_counts": {
+            "ARC格子D4変換": 2,
+            "ARC特徴近傍変換選択": 2
+          },
+          "nonidentity_candidate_family_counts": {
+            "ARC格子D4変換": 2,
+            "ARC特徴近傍変換選択": 2
+          },
+          "simple_transform_unique_candidates": 2,
+          "simple_transform_distinct_from_first": 0,
+          "object_extraction_candidates": 0,
+          "object_extraction_selected": 0,
+          "object_outlier_candidates": 0,
+          "object_outlier_selected": 0,
+          "object_palette_candidates": 0,
+          "object_palette_selected": 0,
+          "repeated_panel_candidate_fit": {
+            "failure": "insufficient_teacher_support"
+          }
+        },
+        "prior_readers": {
+          "template_reader": 1,
+          "generic_reader": 0,
+          "generic_status": "ABSENT_CALL_PATH",
+          "generic_content_opens": 0,
+          "template_io_sha256": "b78406638882d3576863b4d2946477563c0c0ba4f690e42e4b4f2fb4b7d19d58"
+        },
+        "runtime_origins_before": {
+          "module_count": 259,
+          "modules_sha256": "b8001342883a2b7d2e2b26b4aca031081e210f7b17c8ea9e93e60a3cdc1bcdde",
+          "all_current_origins_and_hashes_verified": true,
+          "hds_sha256": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe",
+          "worker_sha256": "43fd2c444cc1428bdfb3da3b228fca14b6ccb939c169401b1684c2b93b4092e4"
+        },
+        "runtime_origins_after": {
+          "module_count": 273,
+          "modules_sha256": "8a3ed91fa8cb355b8d11c302cf22c7f9654b55712e4ee5f5040e461b6804511e",
+          "all_current_origins_and_hashes_verified": true,
+          "hds_sha256": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe",
+          "worker_sha256": "43fd2c444cc1428bdfb3da3b228fca14b6ccb939c169401b1684c2b93b4092e4"
+        },
+        "source_sha256": "4fd0226f3c650899e229addc766d63340086bb4a667ab61e4018e43ddd7bb2c0",
+        "solver_seconds": 1.37627,
+        "process_cpu_seconds": 1.203125,
+        "absent_import_metadata_probes": {
+          "state": "ABSENT",
+          "probe_count": 1,
+          "content_reads": 0
+        },
+        "wall_seconds": 9.045253
+      }
+    }
+  }
+}

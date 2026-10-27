@@ -1,0 +1,34 @@
+{
+  "schema": "arc26-arc2-variation-coverage-loo-start.v1",
+  "track": "ARC2",
+  "instruction_id": "ARC26-UNIFIED-v3.0",
+  "experiment_id": "P5_HDS_partial_condition_consensus_variation_coverage_LOO",
+  "started_at_utc": "2026-10-25T06:50:56Z",
+  "wrapper": "運用/証拠/ARC26-UNIFIED/P5_HDS_partial_condition_consensus_variation_coverage_LOO.py",
+  "wrapper_sha256": "9e8343d6a0074862db6f04d5d04045f33dc19b72261dd237694be39bf6b60191",
+  "base_runner": "運用/証拠/ARC26-UNIFIED/P5_HDS_partial_condition_consensus_visible_guard_LOO.py",
+  "base_runner_sha256": "397b5457ddbd203b242ab88beaac7865426cfc4a57e9d8b5fdc1c7a9acf3ddc3",
+  "output": "運用/証拠/ARC26-UNIFIED/P5_HDS_partial_condition_consensus_variation_coverage_LOO_full_20261025T065056Z.json",
+  "expected_eligible_tasks": 267,
+  "expected_paired_folds": 1191,
+  "candidate_rule": {
+    "minimum_matching_condition_mappings": 3,
+    "minimum_distinct_training_values_per_omitted_condition_coordinate": 2
+  },
+  "previous_reference": {
+    "exact": 17,
+    "wrong": 0,
+    "fallback": 1174,
+    "source": "support3 full matched public-training LOO baseline"
+  },
+  "acceptance": "Require positive exact delta, zero new wrong answers, zero exact regressions, and matched full-fold completion. Fallback reduction alone is not a correctness gain.",
+  "public_training_only": true,
+  "hidden_or_evaluation_solutions_read": false,
+  "task_identifiers_or_grids_saved": false,
+  "production_hds_changed": false,
+  "official_submission_or_rerun": false,
+  "smoke_evidence": "運用/証拠/ARC26-UNIFIED/P5_HDS_partial_condition_consensus_variation_coverage_smoke_20261025T0649Z.json",
+  "smoke_sha256": "7a397f651686b90177742b31f8dc9c0815ec4adf96b32f816086ce442cd41080",
+  "smoke_complete": false,
+  "next_action": "Track this one full run to its terminal aggregate; do not start another copy."
+}

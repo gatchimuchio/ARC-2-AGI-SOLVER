@@ -7,10 +7,26 @@
   "保守的直接機構閉包課題数": 102,
   "原記憶": "入力/公式ソース/ARC-AGI-2",
   "索引": [
-    {"path":"1120題_HDS索引_1.json","件数":280,"GitBlob":"e01b59c524e6decf08ea80ac24d6d6b10157688c"},
-    {"path":"1120題_HDS索引_2.json","件数":280,"GitBlob":"581668ccb1b6f3937946e7dd5ecc2a6f44234978"},
-    {"path":"1120題_HDS索引_3.json","件数":280,"GitBlob":"dcae55be67784615f10f1865eff8e629eef03761"},
-    {"path":"1120題_HDS索引_4.json","件数":280,"GitBlob":"466148ae305acbe88d73df158ae70aacab6611a2"}
+    {
+      "path": "1120題_HDS索引_1.json",
+      "件数": 280,
+      "GitBlob": "e01b59c524e6decf08ea80ac24d6d6b10157688c"
+    },
+    {
+      "path": "1120題_HDS索引_2.json",
+      "件数": 280,
+      "GitBlob": "c02dea5f7646cd35d274b23e90bed300badc13be"
+    },
+    {
+      "path": "1120題_HDS索引_3.json",
+      "件数": 280,
+      "GitBlob": "bbceb750012d92cdcf919d687648ffdd58222d90"
+    },
+    {
+      "path": "1120題_HDS索引_4.json",
+      "件数": 280,
+      "GitBlob": "b8ef4556278196b103418e6c578849453c4a1b18"
+    }
   ],
   "定石語彙": "定石語彙.json",
   "水平蒸留": "水平蒸留サマリ.json",

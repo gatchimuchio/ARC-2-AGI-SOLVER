@@ -1,0 +1,66 @@
+{
+  "schema": "arc2-v61-portfolio-v3-adoption-decision-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-26T23:15:28.045301+00:00",
+  "run_id": "ARC2-v61-portfolio-v3-20task-20261026T2307Z",
+  "status": "COMPLETE",
+  "session_id": 78652,
+  "requested_tasks": 20,
+  "requested_grids": 27,
+  "paired_complete_tasks": 20,
+  "scientific_nonfallback_pass2": {
+    "previous": 3,
+    "current": 3,
+    "delta": 0,
+    "denominator": 27
+  },
+  "raw_pass2": {
+    "previous": 4,
+    "current": 4,
+    "delta": 0,
+    "note": "One input-copy coincidence excluded from scientificscore."
+  },
+  "eligible_rows": 23,
+  "scope_counts": {
+    "both_copy_composite_only": 21,
+    "noncopy_second_seven_provider": 2,
+    "outside_scope": 4
+  },
+  "materialized_rows": 0,
+  "attempt2_mismatches": 0,
+  "regressions": 0,
+  "new_runtime_failures": 0,
+  "provider_scope_failures": 0,
+  "qualification_failures": 0,
+  "extra_portfolio_seconds": 1.279,
+  "wall_seconds": {
+    "baseline": 219.094985,
+    "candidate": 230.397313
+  },
+  "resource_limits": {
+    "cpu_limit": null,
+    "limitation": "Windows CPU/RAM are not isolated; both arms use same host and wall limit",
+    "ram_limit": null,
+    "wall_seconds_per_task_worker": 90.0
+  },
+  "candidate_sha256": "a85345a1858743b4d4dedef48a5cd043002dd882357be323e187e840f4f95c05",
+  "baseline_sha256": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",
+  "harness_sha256": "161ffdbcb4e9e71c49c10b70965851fb34deb3cd39da50a5e44432a0e6e9a3e4",
+  "summary_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-v61-two-slot-portfolio-v3\\evaluation_results\\v3-20task-20261026T2307Z.summary.json",
+  "summary_sha256": "e446c65f3837447b1675d7aa159f36e2fe627b07e04084e4201c2f96a21cd1d6",
+  "records_sha256": "8a4bc1a61e4e89ba83571705ce3fb88637affd6b860491a116727fd0743802bd",
+  "adopted": false,
+  "decision": "NO ADOPTION: no output/score gain. No repeat or expansion without revised hypothesis.",
+  "frozen_baseline_repeat": {
+    "same_task_and_fold_rows": true,
+    "cohort_files_differ_only_in_static_preflight": true,
+    "prediction_pairs_equal": 27,
+    "prediction_pairs_total": 27,
+    "hds_states_equal_tasks": 20,
+    "tasks_total": 20,
+    "scope": "Same frozen baseline executed once in each v2/v3 study; candidate repeat not claimed."
+  },
+  "official_candidate_changed": false,
+  "official_submission_performed": false,
+  "next_action": "Run fixed20-task feature-predicate A-to-A+F actual HDS public study. Preserve v61v1 official candidate; fresh gate00:15Z."
+}

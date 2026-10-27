@@ -1,0 +1,55 @@
+{
+  "baseline_c2_067_policy": {
+    "answer": 3,
+    "exact": 3,
+    "fallback": 1,
+    "union_exact": 3,
+    "wrong": 0
+  },
+  "baseline_policy_overlay_hds_source_sha256": "17ed9252488add034b57b0e71cf25ad81fc86c72aa811f417b0a789e892b0e93",
+  "candidate_added_answer_count": 1,
+  "candidate_added_exact_count": 1,
+  "candidate_added_wrong_count": 0,
+  "candidate_base_answer_absent_applicable_count": 1,
+  "candidate_c2_068_consensus": {
+    "answer": 4,
+    "exact": 4,
+    "fallback": 0,
+    "union_exact": 4,
+    "wrong": 0
+  },
+  "candidate_family_source_sha256": "ae7364556c21bd04d22043138138c054a4a71d0a7a67ba12d2052b15205d4e3b",
+  "candidate_input_applicable_fold_count": 3,
+  "candidate_overlay_hds_source_sha256": "6ea7e6eceffa0c22407c7ea76ac58da99212ae00eb5b5fc90492ed7ece7d0135",
+  "delta_current_minus_baseline": {
+    "answer": 1,
+    "exact": 1,
+    "fallback": -1,
+    "union_exact": 1,
+    "wrong": 0
+  },
+  "elapsed_seconds": 19.152,
+  "eligible_fold_count": 1191,
+  "eligible_task_count": 267,
+  "evaluation_solutions_read": false,
+  "fallback_counted_correct": false,
+  "family_teacher_fit_fold_count": 4,
+  "heldout_output_passed_to_either_solver": false,
+  "heldout_output_scored_after_both_solvers_return": true,
+  "official_submission_or_rerun": false,
+  "original_targeted_report_sha256": "baade9e81f5a67e15cc1fac22cc264b7fede732ab302b88bc4e5c33deb2d8c30",
+  "policy_full_loo_report_sha256": "7ce5bd1b82201121d56e3e755d18c98c8bfa3bf32ecdb06f2220971fcd9497ff",
+  "production_or_notebook_changed": false,
+  "regressions_baseline_exact_to_candidate_not_exact": 0,
+  "root_hds_source_sha256": "d1b31e1c39aac62e99b86a1bbf267725e5306a13f54fced6690e67e133345f55",
+  "run_type": "matched_targeted_public_training_LOO_C2-068_vs_C2-067_policy",
+  "runner_sha256": "9b2dc1a20e332e2a81f127e08cca12a28e5ebf188e9d10d8662408addf97d66a",
+  "solver_exceptions": {
+    "baseline": 0,
+    "candidate": 0
+  },
+  "status": "TARGETED_GATE_PASS_FULL_LOO_STARTED",
+  "targeted_folds_evaluated": 4,
+  "task_identifiers_or_grids_saved": false,
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8"
+}

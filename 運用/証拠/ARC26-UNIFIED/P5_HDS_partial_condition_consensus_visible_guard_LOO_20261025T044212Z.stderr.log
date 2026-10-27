@@ -1,0 +1,2 @@
+C:\Users\ohira\OneDrive\�h�L�������g\ChatGPT\ARC�Q\�ڑ�\ARC2\����̈揊�L�j.py:35: RuntimeWarning: Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim.
+  res=milp(cost,integrality=np.zeros(nv) if relax else np.r_[np.ones(N),np.zeros(nv-N)],bounds=Bounds(lower,upper),constraints=LinearConstraint(mat,lo,hi),options={'time_limit':time_limit,'mip_rel_gap':0,'threads':1})

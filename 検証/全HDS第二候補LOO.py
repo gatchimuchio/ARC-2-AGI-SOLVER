@@ -1,4 +1,4 @@
-"""Train-only LOO diagnostic for distinct HDS predictions used as attempt_2.
+"""Train-only LOO comparison of current selection and two distinct HDS candidates.
 
 Task identifiers are retained only for fold provenance and to remove that task's
 seeded examples from the analysis prior. They are never passed to the solver.
@@ -13,7 +13,6 @@ from datetime import datetime, timezone
 import faulthandler
 import hashlib
 import importlib
-import importlib.util
 import io
 import json
 import os
@@ -33,67 +32,11 @@ PRIOR_TRAINING = ROOT / "入力/公式ソース/ARC-AGI-2/data/training"
 
 
 def _analysis_hds() -> ModuleType:
-    """Load an in-memory diagnostic variant; do not edit the production file."""
-    base = importlib.import_module("接続.ARC2.HDS接続")
-    source_path = Path(base.__file__)
-    source = source_path.read_text(encoding="utf-8")
-    replacements = (
-        (
-            "def 課題を解く(課題, 事前教材):",
-            "def 課題を解く(課題, 事前教材, *, 代替候補分析=False):",
-        ),
-        (
-            '    if all(結果["answer"] is not None for 結果 in 基底):\n'
-            '        return {"results": 基底, "mechanism": "格子値基底", "minimum_support": 必要支持数}',
-            '    if all(結果["answer"] is not None for 結果 in 基底):\n'
-            '        if 代替候補分析:\n'
-            '            基底 = [{**結果, "candidate_answers": [結果["answer"]]} for 結果 in 基底]\n'
-            '        return {"results": 基底, "mechanism": "格子値基底", "minimum_support": 必要支持数}',
-        ),
-        (
-            '        if 未解決理由:\n'
-            '            結果群.append({"answer": None, "status": "断定保留", "reasons": 未解決理由})\n'
-            '        elif not 予測群:\n'
-            '            結果群.append(基底結果)\n'
-            '        elif all(p["answer"] == 予測群[0]["answer"] for p in 予測群):\n'
-            '            結果群.append({**予測群[0], "agreeing_predictions": len(予測群)})\n'
-            '        else:\n'
-            '            結果群.append({"answer": None, "status": "断定保留",\n'
-            '                           "reasons": ["採用済み機構の完全格子予測が競合したため保留"]})',
-            '        if 未解決理由:\n'
-            '            出力 = {"answer": None, "status": "断定保留", "reasons": 未解決理由}\n'
-            '        elif not 予測群:\n'
-            '            出力 = 基底結果\n'
-            '        elif all(p["answer"] == 予測群[0]["answer"] for p in 予測群):\n'
-            '            出力 = {**予測群[0], "agreeing_predictions": len(予測群)}\n'
-            '        else:\n'
-            '            出力 = {"answer": None, "status": "断定保留",\n'
-            '                    "reasons": ["採用済み機構の完全格子予測が競合したため保留"]}\n'
-            '        if 代替候補分析:\n'
-            '            候補群 = []\n'
-            '            for 予測 in 予測群:\n'
-            '                if 予測["answer"] not in 候補群:\n'
-            '                    候補群.append(予測["answer"])\n'
-            '            出力["candidate_answers"] = 候補群\n'
-            '        結果群.append(出力)',
-        ),
-    )
-    for original, replacement in replacements:
-        if source.count(original) != 1:
-            raise RuntimeError("HDS source no longer matches the pinned diagnostic transformation")
-        source = source.replace(original, replacement, 1)
-
-    module_name = "接続.ARC2._HDS接続LOO分析"
-    spec = importlib.util.spec_from_file_location(module_name, source_path)
-    if spec is None:
-        raise RuntimeError("cannot create an in-memory HDS diagnostic module")
-    module = ModuleType(module_name)
-    module.__file__ = str(source_path)
-    module.__package__ = "接続.ARC2"
-    module.__spec__ = spec
-    sys.modules[module_name] = module
-    exec(compile(source, str(source_path), "exec"), module.__dict__)
-    return module
+    """Use the current production HDS connector without source rewriting."""
+    hds_root = ROOT / "HDS/学習系統/v0.4.2"
+    if str(hds_root) not in sys.path:
+        sys.path.insert(0, str(hds_root))
+    return importlib.import_module("接続.ARC2.HDS接続")
 
 
 def _prior_examples() -> tuple[list[dict[str, Any]], set[str]]:
@@ -114,31 +57,99 @@ def _prior_examples() -> tuple[list[dict[str, Any]], set[str]]:
 
 def _worker_line(payload: dict[str, Any], hds: ModuleType,
                  include_diagnostics: bool = False) -> dict[str, Any]:
+    from 接続.ARC2.Kaggle提出 import _一意な別候補を選ぶ, 格子か
+    from 接続.ARC2.単純変換候補 import unique_candidate
+
     task = payload["task"]
     expected = payload["expected"]
     query = task["test"][0]["input"]
     started = time.perf_counter()
     noise = io.StringIO()
     with redirect_stdout(noise):
-        result_data = hds.課題を解く(task, payload["prior"], 代替候補分析=True)
+        result_data = hds.課題を解く(task, payload["prior"], 候補収集=True)
     elapsed = time.perf_counter() - started
     row = result_data["results"][0]
     answer = row.get("answer")
     primary = answer if answer is not None else query
-    candidates = row.get("candidate_answers", [])
-    if not isinstance(candidates, list):
-        candidates = []
-    second = next((candidate for candidate in candidates if candidate != primary), primary)
+    candidate_records = row.get("candidate_predictions", [])
+    if not isinstance(candidate_records, list):
+        candidate_records = []
+    candidate_grids = [
+        record["answer"] for record in candidate_records
+        if isinstance(record, dict) and 格子か(record.get("answer"))
+    ]
+    simple = unique_candidate(task["train"], query)
+    second = _一意な別候補を選ぶ(candidate_records, primary)
+    if not 格子か(second) or second == primary:
+        second = simple if 格子か(simple) and simple != primary else primary
+    votes: dict[tuple[tuple[int, ...], ...], int] = {}
+    grids: dict[tuple[tuple[int, ...], ...], list[list[int]]] = {}
+    for candidate in candidate_grids:
+        key = tuple(tuple(row) for row in candidate)
+        grids.setdefault(key, candidate)
+        votes[key] = votes.get(key, 0) + 1
+    ranked = sorted(votes, key=lambda key: -votes[key])
+    ranked_grids = [grids[key] for key in ranked if grids[key] != query]
+    if answer is not None:
+        proposed_primary = answer
+    else:
+        proposed_primary = ranked_grids[0] if ranked_grids else query
+    proposed_second = next(
+        (candidate for candidate in ranked_grids if candidate != proposed_primary),
+        None,
+    )
+    if proposed_second is None:
+        proposed_second = (
+            simple if 格子か(simple) and simple != proposed_primary
+            else proposed_primary
+        )
+    candidate_keys = {
+        tuple(tuple(cell for cell in row) for row in candidate)
+        for candidate in candidate_grids + ([simple] if 格子か(simple) else [])
+    }
+    current_pair_exact = primary == expected or second == expected
+    proposed_pair_exact = proposed_primary == expected or proposed_second == expected
+    identity_second = second if second != primary else (query if primary != query else primary)
+    identity_pair_exact = primary == expected or identity_second == expected
+    current_nonidentity_pair_exact = any(
+        candidate == expected and candidate != query for candidate in (primary, second)
+    )
+    proposed_nonidentity_pair_exact = any(
+        candidate == expected and candidate != query
+        for candidate in (proposed_primary, proposed_second)
+    )
     result = {
         "state": "complete",
         "seconds": round(elapsed, 4),
         "solver_answer_present": answer is not None,
         "primary_exact": primary == expected,
-        "candidate_count": len(candidates),
+        "candidate_count": len(candidate_keys),
         "distinct_second_candidate": second != primary,
         "second_exact": second == expected,
-        "any_candidate_exact": any(candidate == expected for candidate in candidates),
-        "pair_exact": primary == expected or second == expected,
+        "any_candidate_exact": any(
+            candidate == expected
+            for candidate in candidate_grids + ([simple] if 格子か(simple) else [])
+        ),
+        "pair_exact": current_pair_exact,
+        "identity_fallback_distinct": identity_second != primary,
+        "identity_fallback_pair_exact": identity_pair_exact,
+        "identity_fallback_recovery": identity_pair_exact and not current_pair_exact,
+        "identity_fallback_regression": current_pair_exact and not identity_pair_exact,
+        "current_nonidentity_pair_exact": current_nonidentity_pair_exact,
+        "proposed_primary_answer_present": proposed_primary != query,
+        "proposed_primary_exact": proposed_primary == expected,
+        "proposed_second_exact": proposed_second == expected,
+        "proposed_distinct_pair": proposed_primary != proposed_second,
+        "proposed_pair_exact": proposed_pair_exact,
+        "proposed_nonidentity_pair_exact": proposed_nonidentity_pair_exact,
+        "proposed_pair_recovery": proposed_pair_exact and not current_pair_exact,
+        "proposed_pair_regression": current_pair_exact and not proposed_pair_exact,
+        "proposed_nonidentity_recovery": (
+            proposed_nonidentity_pair_exact and not current_nonidentity_pair_exact
+        ),
+        "proposed_nonidentity_regression": (
+            current_nonidentity_pair_exact and not proposed_nonidentity_pair_exact
+        ),
         "status": row.get("status"),
     }
     if include_diagnostics:
@@ -347,6 +358,55 @@ async def _run(args: argparse.Namespace) -> int:
         "selected_second_exact": sum(bool(item.get("second_exact")) and bool(item.get("distinct_second_candidate")) for item in complete),
         "pair_exact": sum(bool(item.get("pair_exact")) for item in complete),
         "incremental_pair_exact": sum(bool(item.get("pair_exact")) and not bool(item.get("primary_exact")) for item in complete),
+        "current_nonidentity_pair_exact": sum(
+            bool(item.get("current_nonidentity_pair_exact")) for item in complete
+        ),
+        "proposed_pair_exact": sum(
+            bool(item.get("proposed_pair_exact")) for item in complete
+        ),
+        "proposed_pair_delta_exact": sum(
+            bool(item.get("proposed_pair_recovery"))
+            for item in complete
+        ) - sum(bool(item.get("proposed_pair_regression")) for item in complete),
+        "proposed_pair_recoveries": sum(
+            bool(item.get("proposed_pair_recovery")) for item in complete
+        ),
+        "proposed_pair_regressions": sum(
+            bool(item.get("proposed_pair_regression")) for item in complete
+        ),
+        "identity_fallback_pair_exact": sum(
+            bool(item.get("identity_fallback_pair_exact")) for item in complete
+        ),
+        "identity_fallback_pair_delta_exact": sum(
+            bool(item.get("identity_fallback_recovery")) for item in complete
+        ) - sum(bool(item.get("identity_fallback_regression")) for item in complete),
+        "identity_fallback_recoveries": sum(
+            bool(item.get("identity_fallback_recovery")) for item in complete
+        ),
+        "identity_fallback_regressions": sum(
+            bool(item.get("identity_fallback_regression")) for item in complete
+        ),
+        "identity_fallback_distinct_pairs": sum(
+            bool(item.get("identity_fallback_distinct")) for item in complete
+        ),
+        "proposed_nonidentity_pair_exact": sum(
+            bool(item.get("proposed_nonidentity_pair_exact")) for item in complete
+        ),
+        "proposed_nonidentity_delta_exact": sum(
+            bool(item.get("proposed_nonidentity_recovery"))
+            for item in complete
+        ) - sum(
+            bool(item.get("proposed_nonidentity_regression")) for item in complete
+        ),
+        "proposed_nonidentity_recoveries": sum(
+            bool(item.get("proposed_nonidentity_recovery")) for item in complete
+        ),
+        "proposed_nonidentity_regressions": sum(
+            bool(item.get("proposed_nonidentity_regression")) for item in complete
+        ),
+        "proposed_distinct_pair_folds": sum(
+            bool(item.get("proposed_distinct_pair")) for item in complete
+        ),
         "any_candidate_exact_upper_bound": sum(bool(item.get("any_candidate_exact")) for item in complete),
         "distinct_second_candidate_folds": sum(bool(item.get("distinct_second_candidate")) for item in complete),
         "mean_solver_seconds": round(sum(seconds) / len(seconds), 4) if seconds else None,

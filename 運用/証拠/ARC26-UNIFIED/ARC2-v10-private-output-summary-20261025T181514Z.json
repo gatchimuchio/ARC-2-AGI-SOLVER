@@ -1,0 +1,20 @@
+{
+  "schema": "arc26-v5-private-kernel-output-summary-v1",
+  "observed_at_utc": "2026-10-25T18:15:14.192Z",
+  "track": "ARC2",
+  "kernel": "tecchannn/arc2-codex-main-baseline-v1",
+  "kernel_version": 10,
+  "kernel_status": "COMPLETE",
+  "source_commit": "dae0a5dbe124a0c4a01bd69a26dda0036d0379e0+dirty",
+  "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "submission_sha256": "1185244299abe142cfae823ee0b0c811bb03e70a6e2e40cb23cd8c08222bab0a",
+  "audit_sha256": "a858a5dc0287d6afd7bb30bedd8ce811b2e9c7fac3745b36a284bae4f79848cd",
+  "tasks": 240,
+  "test_examples": 259,
+  "fallback_examples": 252,
+  "fallback_counted_correct": false,
+  "first_attempt_different_from_input": 7,
+  "distinct_second_attempts": 0,
+  "test_correctness": "UNKNOWN (hidden targets not available)",
+  "private_kernel_output_is_official_score": false
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "arc2-object-parallel-background-v58-probe-v1",
+  "policy": "evaluate modal, largest 4-connected component, and training removed-color plurality backgrounds in parallel; choose each object-family prediction by its own teacher-vote confidence, then apply the existing family priority",
+  "loo_eligible_folds": 2916,
+  "loo_candidate_proposal_folds": 73,
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "challenge_tasks_with_candidates": 5,
+  "challenge_examples_with_candidates": 5,
+  "heldout_outputs_read": false,
+  "challenge_targets_read": false,
+  "per_task_ids_grids_or_candidates_saved": false,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "a8b9b7f8d733a883e2c941aad027d6fb8de9236792fad79c9f7a46c1a851391b",
+    "object_module": "d0bd26fb4e6619ca20bc6dc8b02d2aa569769392825140c77170978adaac2fd5",
+    "challenge_inputs": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "v51_build_manifest": "ebdd96836be417c0257030a115c6a6043a46c9471611af63000f677a75104c85"
+  }
+}

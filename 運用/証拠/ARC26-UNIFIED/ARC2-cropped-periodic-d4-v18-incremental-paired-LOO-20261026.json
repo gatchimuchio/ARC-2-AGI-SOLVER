@@ -1,0 +1,28 @@
+{
+  "schema": "arc2-cropped-periodic-d4-v18-incremental-paired-loo-v1",
+  "source_split": "official ARC-AGI-2 training",
+  "training_tasks": 1000,
+  "eligible_loo_folds": 2916,
+  "candidate_fit_and_predicted_folds": 14,
+  "candidate_exact_folds": 14,
+  "worker_errors": 0,
+  "baseline_v18_exact_folds": 14,
+  "current_exact_folds": 14,
+  "delta_exact_folds": 0,
+  "newly_correct_folds": 0,
+  "regressed_folds": 0,
+  "changed_attempt_1_folds": 0,
+  "changed_attempt_2_folds": 0,
+  "distinct_attempt_pairs_baseline": 14,
+  "distinct_attempt_pairs_current": 14,
+  "runtime_received_heldout_outputs": false,
+  "heldout_outputs_read_only_after_all_runtime_predictions": true,
+  "per_task_predictions_or_targets_saved": false,
+  "elapsed_seconds": 18.75,
+  "source_sha256": {
+    "runner": "e53814676b397df1a853a7f1349c49dd1903e86566a08a7919894323ea611401",
+    "candidate_module": "fe3612c0566bf6dff1ae345fe5499f3c482ef5d96b121b6b99cab1e7a7de4ac3",
+    "hds_connector": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe",
+    "kaggle_adapter": "ff41c9e40c81695968ecfe19d07f3470fa0f62489c372f398872d46010a26063"
+  }
+}

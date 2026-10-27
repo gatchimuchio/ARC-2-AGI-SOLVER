@@ -1,0 +1,27 @@
+{
+  "schema": "arc2-object-composite-palette-v25-exact-bundle-paired-loo-v1",
+  "eligible_folds": 2916,
+  "composite_proposal_folds": 43,
+  "v24_bundle_evaluation_folds": 43,
+  "v25_bundle_evaluation_folds": 43,
+  "v24_bundle_fallbacks": 28,
+  "v25_bundle_fallbacks": 28,
+  "v24_bundle_exact_on_proposals": 33,
+  "v25_bundle_exact_on_proposals": 34,
+  "attempt2_changes": 1,
+  "newly_correct": 1,
+  "newly_wrong": 0,
+  "net_delta": 1,
+  "regressions": 0,
+  "heldout_outputs_passed_to_candidate_generator_or_runtimes": false,
+  "targets_read_after_both_exact_bundle_outputs": true,
+  "fold_ids_predictions_or_targets_saved": false,
+  "temporary_inputs_outputs_and_payloads_removed": true,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "883d08ee52bb71df1a86cc8b91e47dcc86819aac4f4abb7b717c059f521cc1a8",
+    "proposal_probe": "ba2c6dce2bbd522cd5844c03355a51fa7f7794e04ae99c991fa5ec8e0645f642",
+    "v24_build_manifest": "6a52003b25dad93b4113c259b2d6e0f9d284161b5b78ecae544997fe11410aa1",
+    "v25_build_manifest": "bc09d3caa1894df9a35ac35fffdd81cd9d4736037fae743571e2a84b54ecd0ec"
+  }
+}

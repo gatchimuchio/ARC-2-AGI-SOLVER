@@ -1,0 +1,27 @@
+{
+  "schema": "arc2-object-outlier-v21-paired-loo-v1",
+  "eligible_folds": 2916,
+  "candidate_proposal_folds": 41,
+  "adapter_evaluation_folds": 41,
+  "adapter_errors": 0,
+  "adapter_hold_folds": 26,
+  "adapter_hold_reasons": {
+    "solver_hold": 26
+  },
+  "current_adapter_exact_on_proposals": 26,
+  "v21_candidate_applied_to_duplicate_slots": 12,
+  "paired_v21_exact_on_proposals": 35,
+  "newly_correct": 9,
+  "newly_wrong": 0,
+  "net_delta": 9,
+  "regressions": 0,
+  "heldout_outputs_passed_to_candidate_generator_or_adapter": false,
+  "per_fold_predictions_or_targets_saved": false,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "ff346e10ad35f29ecd39dc3563c83b5f5f65010a9f541af7d5422494345e19bd",
+    "proposal_runner": "e223462592f23875e4e563bfe0b5d0b1591db2e9523b3f78ff6e5044bb9277e6",
+    "adapter": "fc1e3f71ea68d15e34e4b04a9a3d604b3dbb34605da1494abfa9f1cb2b579f18",
+    "object_candidate": "03e38ebbbf01e2444278fc419a22f13d9b23b34ce9d3abc5b8fdb04ee9c6781f"
+  }
+}

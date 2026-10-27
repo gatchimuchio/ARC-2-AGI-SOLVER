@@ -1,0 +1,74 @@
+{
+  "schema": "arc2-v61-exact-version-readonly-preflight-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-26T22:53:44.216175+00:00",
+  "read_only": true,
+  "submission_performed": false,
+  "competition": "arc-prize-2026-arc-agi-2",
+  "entry_verified": true,
+  "official_deadline_utc": "2026-11-02T23:59:00+00:00",
+  "critical_pages_changed_since_review": [],
+  "submission_limits": {
+    "num_today": 1,
+    "num_total": 10,
+    "num_allowed_now": 0,
+    "limited_by_total": false
+  },
+  "kernel": "tecchannn/arc2-v61-local-teacher-pair-consensus-candidate",
+  "version": 1,
+  "status": {
+    "kernel": "tecchannn/arc2-v61-local-teacher-pair-consensus-candidate",
+    "version": 1,
+    "status": "COMPLETE",
+    "失敗詳細あり": false,
+    "観測方法": "現行版番号を前後確認"
+  },
+  "status_after": {
+    "kernel": "tecchannn/arc2-v61-local-teacher-pair-consensus-candidate",
+    "version": 1,
+    "status": "COMPLETE",
+    "失敗詳細あり": false,
+    "観測方法": "現行版番号を前後確認"
+  },
+  "private": true,
+  "internet": false,
+  "competition_source_verified": true,
+  "remote_notebook_sha256": "c87d57620e14b6c6b302cb87d2541fbb9206fd26d63f736d143a4d422cefc29d",
+  "local_remote_code_cells_identical": true,
+  "artifact_sha256": {
+    "main.ipynb": "9cb8580836257a95423560407351612cb1413c62cbd7b0ac8d62169da16120d4",
+    "kernel-metadata.json": "511f18f3207790e9a4f6f119c58aeba49f09f560810028eee2a8a544798a66f9",
+    "solve.py": "d47dac81dbcb9cd9a151fa7461145b5ac708291dbb52af8a4099e20efbc4a791",
+    "bundle.zip": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",
+    "code_cell": "58b6219ecbdcdd33c41181c7d5c5743d9231f54759c7eb01aacc99aa474297e6",
+    "submission.json": "827bccfc1cf51e2fc87d687ba51e1375899650a530ec00e7a20eb1f71eb2dd18",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83"
+  },
+  "submission_format_valid": true,
+  "test_tasks": 240,
+  "test_grids": 259,
+  "exact_version_download": {
+    "kernel": "tecchannn/arc2-v61-local-teacher-pair-consensus-candidate",
+    "version": 1,
+    "取得ファイル": [
+      "C:\\Users\\ohira\\OneDrive\\ドキュメント\\ChatGPT\\ARC２\\運用\\証拠\\ARC26-UNIFIED\\ARC2-v61-official-preflight-20261026T2255Z\\exact-version-output\\submission.json",
+      "C:\\Users\\ohira\\OneDrive\\ドキュメント\\ChatGPT\\ARC２\\運用\\証拠\\ARC26-UNIFIED\\ARC2-v61-official-preflight-20261026T2255Z\\exact-version-output\\submission_audit.json"
+    ]
+  },
+  "gate": {
+    "許可": false,
+    "competition": "arc-prize-2026-arc-agi-2",
+    "utc_day": "2026-10-26",
+    "latest_ref": 57646990,
+    "latest_status": "COMPLETE",
+    "latest_public_score": "",
+    "today_submission_refs": [
+      57646990
+    ],
+    "scoreless_timeout_retry": true,
+    "理由": "UTC日次提出枠は使用済みです。"
+  },
+  "all_observed_submission_preconditions_pass": false,
+  "source_sha256": "bacd169afc21d1b37c0435f91beacc90b85d415457ad56574ac8e54d23b45587",
+  "next_action": "Root must review fresh evidence, create exclusive one-shot intent, and use recorded v61/v1 once; on ambiguity query history, never resend."
+}

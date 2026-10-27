@@ -1,0 +1,109 @@
+{
+  "schema": "arc2-official-history-v1",
+  "track": "ARC2",
+  "source": "Kaggle CLI 2.2.5 competitions submissions",
+  "read_only": true,
+  "observed_at_utc": "2026-10-25T20:01:20.613Z",
+  "utc_day": "2026-10-25",
+  "remaining_today": 0,
+  "today_refs": [
+    57611018
+  ],
+  "latest": {
+    "public_score": "0.00",
+    "status": "COMPLETE",
+    "date_utc": "2026-10-25T00:13:10.000Z",
+    "ref": 57611018,
+    "file_name": "submission.json",
+    "description": "ARC26 v3.0 daily candidate v9",
+    "private_score": ""
+  },
+  "history": [
+    {
+      "public_score": "0.00",
+      "status": "COMPLETE",
+      "date_utc": "2026-10-25T00:13:10.000Z",
+      "ref": 57611018,
+      "file_name": "submission.json",
+      "description": "ARC26 v3.0 daily candidate v9",
+      "private_score": ""
+    },
+    {
+      "public_score": "0.00",
+      "status": "COMPLETE",
+      "date_utc": "2026-10-24T00:12:39.000Z",
+      "ref": 57576155,
+      "file_name": "submission.json",
+      "description": "ARC2 score-feedback candidate v5 2026-10-24",
+      "private_score": ""
+    },
+    {
+      "public_score": "0.00",
+      "status": "COMPLETE",
+      "date_utc": "2026-10-23T12:25:06.000Z",
+      "ref": 57560705,
+      "file_name": "submission.json",
+      "description": "ARC2 daily optimization D0 initial format-corrected submission",
+      "private_score": ""
+    },
+    {
+      "public_score": "",
+      "status": "COMPLETE",
+      "date_utc": "2026-10-22T08:35:19.000Z",
+      "ref": 57517199,
+      "file_name": "submission.json",
+      "description": "ARC2 main baseline v1",
+      "private_score": ""
+    },
+    {
+      "public_score": "0.83",
+      "status": "COMPLETE",
+      "date_utc": "2026-07-28T06:19:16.000Z",
+      "ref": 55046979,
+      "file_name": "submission.json",
+      "description": "ARC2 audited offline solver; notebook v4; official-format and hidden-rerun gates passed",
+      "private_score": ""
+    },
+    {
+      "public_score": "",
+      "status": "COMPLETE",
+      "date_utc": "2026-07-27T21:24:23.000Z",
+      "ref": 55038338,
+      "file_name": "submission.json",
+      "description": "ARC2 d594d535 audited offline solver; notebook v3",
+      "private_score": ""
+    },
+    {
+      "public_score": "",
+      "status": "COMPLETE",
+      "date_utc": "2026-07-15T03:02:55.000Z",
+      "ref": 54709840,
+      "file_name": "submission.json",
+      "description": "",
+      "private_score": ""
+    },
+    {
+      "public_score": "0.00",
+      "status": "COMPLETE",
+      "date_utc": "2026-06-24T01:46:52.000Z",
+      "ref": 53996447,
+      "file_name": "submission.json",
+      "description": "",
+      "private_score": ""
+    },
+    {
+      "public_score": "0.00",
+      "status": "COMPLETE",
+      "date_utc": "2026-06-23T01:18:06.000Z",
+      "ref": 53962702,
+      "file_name": "submission.json",
+      "description": "",
+      "private_score": ""
+    }
+  ],
+  "next_24h_gate_utc": "2026-10-26T00:13:10.933Z",
+  "seconds_until_24h_gate": 15110,
+  "submission_performed": false,
+  "supersedes_evidence": "運用/証拠/ARC26-UNIFIED/ARC2-official-history-20261025T200044Z.json",
+  "supersedes_reason": "Kaggle CLI JSON date values omit the UTC suffix; previous recorder interpreted them as local time."
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "arc26-p5-hds-support2-stack-diagnostic-correction.v1",
+  "track": "ARC2",
+  "experiment_id": "ARC2-C2-062-D4_SPARSE_SUPPORT_TWO_FULL",
+  "corrected_at_utc": "2026-10-25T10:08:36.783Z",
+  "original_evidence_file": "運用/証拠/ARC26-UNIFIED/P5_HDS_D4_support2_sparse_LOO_progress_diagnostic_20261025T100805Z.json",
+  "original_evidence_sha256": "b12b6ef5cfb87c1b33535205dd73e2a619eb768f431411c7fd54d293e36fe324",
+  "original_diagnostic_stack_line": 112,
+  "corrected_stack_line": 109,
+  "corrected_stack_source_text": "owned = set().union(*(set(x['footprint']) for x in boxes))",
+  "stack_capture_file": "運用/証拠/ARC26-UNIFIED/P5_HDS_D4_support2_sparse_LOO_stack_20261025T100805Z.txt",
+  "stack_capture_sha256": "2f65df405c17b737260d4843e22414be4a6f9b51df01b9517800600bccdf1a4e",
+  "correction_reason": "The diagnostic collector hardcoded source line 112, but the saved py-spy stack shows line 109. Verified against the current numbered source. The active frame remains inside the same generic candidate-subset loop; no locals or task/grid data were inspected.",
+  "process_status": "ACTIVE",
+  "worker_pid": 16192,
+  "stack_still_in_generic_candidate_subset_enumeration": true
+}

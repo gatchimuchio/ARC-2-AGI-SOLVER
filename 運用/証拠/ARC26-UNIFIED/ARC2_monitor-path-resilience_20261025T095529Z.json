@@ -1,0 +1,24 @@
+{
+  "schema": "arc26-kaggle-history-monitor-path-diagnostic.v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-25T09:52:54.028553Z",
+  "prior_scheduled_error": {
+    "cleared_by_successful_requery": true,
+    "type": "FileNotFoundError",
+    "observed_at_utc": "2026-10-25T09:48:02.269633Z"
+  },
+  "verification": {
+    "submission_or_rerun_performed": false,
+    "history_unchanged": true,
+    "result": "observed",
+    "path_restricted_to": "C:\\Windows\\System32",
+    "command": "project .venv Python + ARC2_Kaggleスコア監視.py --tick --force",
+    "public_score": "0.00",
+    "status": "COMPLETE",
+    "kaggle_cli": "2.2.5",
+    "submission_id": 57611018
+  },
+  "evidence_file": "運用/証拠/ARC26-UNIFIED/official-history-20261025T095254Z.json",
+  "evidence_sha256": "4c2594b90b283615595fe707b7b07f5b97f3ac873d3b276a3d1e5d887ea59a78",
+  "protected_files_changed": false
+}

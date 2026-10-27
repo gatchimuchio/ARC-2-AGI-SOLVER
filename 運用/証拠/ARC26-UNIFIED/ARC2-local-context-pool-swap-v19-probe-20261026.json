@@ -1,0 +1,56 @@
+{
+  "schema": "arc2-local-context-pool-swap-v19-probe-v1",
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "candidate_priority": "pooled candidates replace the selected same-shape local candidate only when it occupies attempt_2; otherwise only an identical duplicate slot is filled",
+  "results_against_v19": {
+    "same_shape_direct": {
+      "baseline_exact_examples": 11,
+      "combined_exact_examples": 11,
+      "newly_correct_examples": 0,
+      "regressed_examples": 0,
+      "candidate_fits": 50,
+      "distinct_candidates": 0,
+      "baseline_exact_tasks": 10,
+      "combined_exact_tasks": 10,
+      "newly_correct_tasks": 0,
+      "regressed_tasks": 0
+    },
+    "pooled_support1": {
+      "baseline_exact_examples": 11,
+      "combined_exact_examples": 11,
+      "newly_correct_examples": 0,
+      "regressed_examples": 0,
+      "candidate_fits": 105,
+      "distinct_candidates": 63,
+      "replaced_direct": 8,
+      "filled_open": 55,
+      "baseline_exact_tasks": 10,
+      "combined_exact_tasks": 10,
+      "newly_correct_tasks": 0,
+      "regressed_tasks": 0
+    },
+    "pooled_support2": {
+      "baseline_exact_examples": 11,
+      "combined_exact_examples": 10,
+      "newly_correct_examples": 0,
+      "regressed_examples": 1,
+      "candidate_fits": 73,
+      "distinct_candidates": 66,
+      "replaced_direct": 26,
+      "filled_open": 40,
+      "baseline_exact_tasks": 10,
+      "combined_exact_tasks": 9,
+      "newly_correct_tasks": 0,
+      "regressed_tasks": 1
+    }
+  },
+  "runtime_received_challenge_targets": false,
+  "targets_read_only_after_all_candidate_predictions": true,
+  "per_task_predictions_or_targets_saved": false,
+  "source_sha256": {
+    "runner": "455e0045c623d87b44c9407b4674a9fc456ccaed4aa134b160915941fd907859",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "baseline_v19": "171dbfcafa394f36dfdd79914f3b1c730e293003595a7563c620eb831a127c4f"
+  }
+}

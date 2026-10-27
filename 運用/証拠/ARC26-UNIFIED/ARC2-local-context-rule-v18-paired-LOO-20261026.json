@@ -1,0 +1,133 @@
+{
+  "schema": "arc2-local-context-rule-v18-paired-loo-v1",
+  "variants": [
+    {
+      "radius": 0,
+      "minimum_context_support": 1
+    },
+    {
+      "radius": 1,
+      "minimum_context_support": 1
+    },
+    {
+      "radius": 1,
+      "minimum_context_support": 2
+    },
+    {
+      "radius": 2,
+      "minimum_context_support": 1
+    }
+  ],
+  "source_split": "official ARC-AGI-2 training",
+  "eligible_loo_folds": 2916,
+  "predicted_loo_folds": 0,
+  "worker_errors": 469,
+  "loo": {
+    "radius0_support1": {
+      "fit_folds": 0,
+      "distinct_from_v18_folds": 0,
+      "changed_second_folds": 0,
+      "baseline_exact": 0,
+      "combined_exact": 0,
+      "candidate_exact": 0,
+      "newly_correct": 0,
+      "regressions": 0
+    },
+    "radius1_support1": {
+      "fit_folds": 0,
+      "distinct_from_v18_folds": 0,
+      "changed_second_folds": 0,
+      "baseline_exact": 0,
+      "combined_exact": 0,
+      "candidate_exact": 0,
+      "newly_correct": 0,
+      "regressions": 0
+    },
+    "radius1_support2": {
+      "fit_folds": 0,
+      "distinct_from_v18_folds": 0,
+      "changed_second_folds": 0,
+      "baseline_exact": 0,
+      "combined_exact": 0,
+      "candidate_exact": 0,
+      "newly_correct": 0,
+      "regressions": 0
+    },
+    "radius2_support1": {
+      "fit_folds": 0,
+      "distinct_from_v18_folds": 0,
+      "changed_second_folds": 0,
+      "baseline_exact": 0,
+      "combined_exact": 0,
+      "candidate_exact": 0,
+      "newly_correct": 0,
+      "regressions": 0
+    }
+  },
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "challenge": {
+    "radius0_support1": {
+      "fit_examples": 13,
+      "distinct_from_v16_folds": 12,
+      "changed_second_examples": 12,
+      "baseline_exact": 10,
+      "combined_exact": 10,
+      "candidate_exact": 1,
+      "newly_correct": 0,
+      "regressions": 0,
+      "large_fit_examples": 4,
+      "large_distinct_examples": 4
+    },
+    "radius1_support1": {
+      "fit_examples": 41,
+      "distinct_from_v16_folds": 41,
+      "changed_second_examples": 41,
+      "baseline_exact": 10,
+      "combined_exact": 11,
+      "candidate_exact": 1,
+      "newly_correct": 1,
+      "regressions": 0,
+      "large_fit_examples": 21,
+      "large_distinct_examples": 21
+    },
+    "radius1_support2": {
+      "fit_examples": 29,
+      "distinct_from_v16_folds": 29,
+      "changed_second_examples": 29,
+      "baseline_exact": 10,
+      "combined_exact": 10,
+      "candidate_exact": 0,
+      "newly_correct": 0,
+      "regressions": 0,
+      "large_fit_examples": 15,
+      "large_distinct_examples": 15
+    },
+    "radius2_support1": {
+      "fit_examples": 30,
+      "distinct_from_v16_folds": 30,
+      "changed_second_examples": 30,
+      "baseline_exact": 10,
+      "combined_exact": 10,
+      "candidate_exact": 0,
+      "newly_correct": 0,
+      "regressions": 0,
+      "large_fit_examples": 19,
+      "large_distinct_examples": 19
+    }
+  },
+  "runtime_received_heldout_outputs": false,
+  "heldout_outputs_read_only_after_all_runtime_predictions": true,
+  "runtime_received_challenge_targets": false,
+  "challenge_targets_read_only_after_all_predictions": true,
+  "per_task_predictions_or_targets_saved": false,
+  "data_use": "public labels used only for offline matched evaluation; no task-specific runtime rules",
+  "elapsed_seconds": 159.188,
+  "source_sha256": {
+    "runner": "da82293ca31bca2c05d13e025f5424a9836a33bec437a2c6f63a02c845d760a7",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "baseline_submission": "08d0dc111f97c9f3a909955296fc58d46ea0c4514fe66e75169526723359f017",
+    "adapter": "c5b9c76f68b950b16e0843b57ba9ce2771e958b4e06905427697dd190a55f555",
+    "composite_geometry_module": "b7ee7d9c9ccc3767f47dccdef25b378c961a8e150f145fc1c11860e4e5e4ac39"
+  }
+}

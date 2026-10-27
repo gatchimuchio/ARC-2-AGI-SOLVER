@@ -1,0 +1,51 @@
+{
+  "schema": "arc2-v61-two-slot-portfolio-build-v1",
+  "built_at_utc": "2026-10-26T22:14:04.148324+00:00",
+  "scope": "local experimental artifact only; no solver, LOO, Kaggle, or official candidate mutation",
+  "parent_directory": "出力\\Kaggle\\arc2-codex-main-baseline-v1\\v61-kaggle-staging-20261026",
+  "parent_sha256": {
+    "bundle.zip": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",
+    "solve.py": "d47dac81dbcb9cd9a151fa7461145b5ac708291dbb52af8a4099e20efbc4a791",
+    "接続/ARC2/Kaggle提出.py": "c20102c4e9a01e833ca8f9e2778b5306333c50c065d9aebe7cbeaf574e74418d",
+    "接続/ARC2/HDS接続.py": "8cc1456edfab1b84478fcc1b8f82973481709d85a45532b5181d0e79655362a3"
+  },
+  "changed_payload_members": [
+    "接続/ARC2/Kaggle提出.py"
+  ],
+  "unchanged_payload_member_count": 282,
+  "candidate_payload_sha256": "629fff543c65b5b2847a19aab1ea644edbc84f9278445d8092e51c472246d2bf",
+  "candidate_wrapper_sha256": "8a00e5f705e168c95c311c9da914926a5da7f15fe94528cd01319ac3a39ee0fc",
+  "candidate_launcher_sha256": "93bccce327dc040b9116b898dd072384ba3694d5e0fa6f83212868993958f0ef",
+  "builder_sha256": "c5f1f39dd1b09d864477817fde0597cf0d6c71f7e83ec2e09ce4dcf95ad224e0",
+  "overlay_sha256": {
+    "portfolio_helpers.py": "521f23ff8e0166333b474bfb51b2e29516b249e2ce2c3f19bfc9a35a4673e64e",
+    "formatter_overlay.py": "101c81470ab0896b9a5fefb73f5133c205071d90d96aecf72a22d5fd27002e17",
+    "worker_fragment.pyfrag": "8bbe7c75d6c0fc228fd7a64a64898ff1e22f60a0235b2e18ef33f697eee306a2",
+    "protocol.md": "d582a94a199c6984e6a96a0dab82ba6e921d94580eb6d6d78bdbcce63b33185a"
+  },
+  "protected_and_active_source_hashes_unchanged": {
+    "AGENTS.md": "315998bc0549de61f70fda28a9c9923bea8a61ba6d9b79019283165e5438109b",
+    "制御\\現在状態.json": "773fdfdd37aad115c6bbbcb879304142136654db649eb1954cde0d69eb14aa6d",
+    "接続\\ARC2\\HDS接続.py": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe",
+    "接続\\ARC2\\Kaggle提出.py": "43fd2c444cc1428bdfb3da3b228fca14b6ccb939c169401b1684c2b93b4092e4"
+  },
+  "policy_id": "arc2-v61-hold-two-slot-portfolio-v1",
+  "priority": [
+    "teacher_pair_consensus",
+    "object_extraction",
+    "object_outlier",
+    "object_palette",
+    "local_cell_context",
+    "simple_unique_transform",
+    "composite_geometry"
+  ],
+  "syntax_compile": {
+    "wrapper": true,
+    "launcher": true,
+    "helpers": true,
+    "formatter": true
+  },
+  "solver_runs": 0,
+  "evaluation_targets_read": false,
+  "performance_improvement": "UNMEASURED"
+}

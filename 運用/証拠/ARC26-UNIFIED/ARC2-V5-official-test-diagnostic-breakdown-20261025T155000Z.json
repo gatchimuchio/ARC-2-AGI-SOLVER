@@ -1,0 +1,64 @@
+{
+  "schema": "arc2-v5-official-test-diagnostic-breakdown.v1",
+  "observed_at_utc": "2026-10-25T15:38:49.710900+00:00",
+  "submission_id": 57611018,
+  "official_score_at_latest_history": 0.0,
+  "official_score_source": "read-only Kaggle history",
+  "input_dataset": "official test challenge; hidden targets not read",
+  "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "tasks": 240,
+  "test_examples": 259,
+  "first_attempt_fallback_examples": 254,
+  "first_attempt_nonfallback_examples": 5,
+  "tasks_with_any_first_fallback": 236,
+  "distinct_second_attempt_examples": 0,
+  "fallback_reason_occurrences": {
+    "原因未確定で隔離中の原理が存在する": 2,
+    "現行暫定原理の適用に必要な観測が不足している": 254
+  },
+  "fallback_counted_correct": false,
+  "per_train_example_count": {
+    "2": {
+      "tasks": 45,
+      "test_examples": 49,
+      "first_fallback_examples": 49
+    },
+    "5": {
+      "tasks": 14,
+      "test_examples": 17,
+      "first_fallback_examples": 17
+    },
+    "4": {
+      "tasks": 43,
+      "test_examples": 47,
+      "first_fallback_examples": 43
+    },
+    "3": {
+      "tasks": 132,
+      "test_examples": 137,
+      "first_fallback_examples": 136
+    },
+    "6": {
+      "tasks": 4,
+      "test_examples": 5,
+      "first_fallback_examples": 5
+    },
+    "8": {
+      "tasks": 1,
+      "test_examples": 1,
+      "first_fallback_examples": 1
+    },
+    "7": {
+      "tasks": 1,
+      "test_examples": 3,
+      "first_fallback_examples": 3
+    }
+  },
+  "submission_sha256": "c34dcdd39e1afacba8c2fe992ffd93378c92bbbde3885a58f43f3fd02253bcb2",
+  "v9_submission_sha256": "c34dcdd39e1afacba8c2fe992ffd93378c92bbbde3885a58f43f3fd02253bcb2",
+  "matches_submitted_v9": true,
+  "correctness_of_local_hidden_input_predictions_measured": false,
+  "official_diagnostic_summary_sha256": "cdb36fc68cef80b03f669026b46ba92815dd945cbaf9960a3d79249f129ef0cf",
+  "no_task_ids_or_grids_in_this_report": true,
+  "official_submission_or_rerun": false
+}

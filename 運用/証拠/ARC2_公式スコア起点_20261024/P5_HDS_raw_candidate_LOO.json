@@ -1,0 +1,33 @@
+{
+  "data_source": "public ARC-AGI-2 training split only",
+  "distinct_candidate_count_per_fold_histogram": {
+    "0": 1190,
+    "1": 1
+  },
+  "elapsed_seconds": 1600.275,
+  "eligible_tasks": 267,
+  "evaluation_solutions_read": false,
+  "fallback_as_correct": false,
+  "first_guess_scoring": "only non-HOLD HDS answers; input fallback excluded",
+  "first_or_one_vote_second_exact": 17,
+  "first_or_two_vote_second_exact": 16,
+  "folds_with_any_distinct_raw_candidate": 1,
+  "hds_first_answer_rows": 16,
+  "hds_first_guess_exact": 16,
+  "hds_source_sha256": "d1b31e1c39aac62e99b86a1bbf267725e5306a13f54fced6690e67e133345f55",
+  "instruction_id": "ARC2-SCORE-GATE-20261024",
+  "loo_folds": 1191,
+  "minimum_teacher_support": 3,
+  "prior_examples_used": 0,
+  "probe_source_sha256": "5a459dd7cdc3136011f050b0495f9faece932411706e134474a81bf283e1c23e",
+  "raw_candidate_family_votes": 17,
+  "schema": "arc2-p5-hds-raw-candidate-second-guess-loo.v1",
+  "second_guess_one_vote_exact": 1,
+  "second_guess_one_vote_folds": 1,
+  "second_guess_one_vote_wrong": 0,
+  "second_guess_two_vote_exact": 0,
+  "second_guess_two_vote_folds": 0,
+  "second_guess_two_vote_wrong": 0,
+  "task_identifiers_or_grids_saved": false,
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8"
+}

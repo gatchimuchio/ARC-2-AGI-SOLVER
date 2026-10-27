@@ -1,0 +1,14 @@
+{
+  "observed_at_utc": "2026-10-25T00:00:55Z",
+  "event": "ARC2 official read-only submission eligibility check",
+  "competition": "arc-prize-2026-arc-agi-2",
+  "latest_submission_ref": 57576155,
+  "latest_status": "COMPLETE",
+  "latest_public_score": "0.00",
+  "utc_day": "2026-10-25",
+  "today_submission_refs": [],
+  "eligible": false,
+  "reason": "less than 24 hours since previous submission",
+  "next_allowed_at_utc": "2026-10-25T00:12:39.127000+00:00",
+  "new_submission": false
+}

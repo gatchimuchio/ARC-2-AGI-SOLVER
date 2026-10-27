@@ -1,0 +1,4453 @@
+{
+  "schema": "arc2-v2-official-test-mechanism-diagnostics-v1",
+  "instruction_id": "ARC2-SCORE-GATE-20261024",
+  "source_commit": "2759d393a8d79824d36754785ce16f66d0493ebd",
+  "source_scope": "exact git archive of Kaggle v2 source commit; temporary runtime instrumentation only",
+  "challenge_file": "arc-agi_test_challenges.json",
+  "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "challenge_fields": "test input only; evaluation solutions were not read",
+  "challenge_tasks": 240,
+  "challenge_test_examples": 259,
+  "solver_execution": {
+    "isolated_process_per_task": true,
+    "max_parallel_workers": 3,
+    "per_task_wall_timeout_seconds": 300
+  },
+  "solver_task_exceptions": {},
+  "exception_test_count": 0,
+  "solver_rows_returned": 259,
+  "solver_status_counts": {
+    "出力": 3,
+    "断定保留": 256
+  },
+  "solver_reason_counts": {
+    "原因未確定で隔離中の原理が存在する": 2,
+    "現行暫定原理の適用に必要な観測が不足している": 256
+  },
+  "answer_present_count": 3,
+  "fallback_test_count": 256,
+  "predicted_family_counts": {
+    "ARC格子D4変換": 2,
+    "ARC疎点graph転写": 1
+  },
+  "agreeing_prediction_count_histogram": {
+    "1": 3
+  },
+  "equality_admitted_histogram": {
+    "False": 256,
+    "True": 3
+  },
+  "quarantined_histogram": {
+    "0": 257,
+    "1": 2
+  },
+  "solver_call_seconds": {
+    "count": 240,
+    "total": 845.97664,
+    "mean": 3.524903,
+    "p50": 1.3041,
+    "p90": 5.013289,
+    "p95": 8.10936,
+    "p99": 55.545759,
+    "max": 192.696131
+  },
+  "worker_wall_seconds": {
+    "count": 240,
+    "total": 1825.844049,
+    "mean": 7.607684,
+    "p50": 5.394937,
+    "p90": 9.581463,
+    "p95": 12.081556,
+    "p99": 59.6194,
+    "max": 196.38451
+  },
+  "family_mechanisms": {
+    "ARCD4最大接触配置": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.000937,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 5e-06,
+        "p99": 6e-06,
+        "max": 3.2e-05
+      },
+      "failure_categories": {
+        "全教師を再現するD<n>接触配置なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARCbbox包含正規化": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.000918,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 5e-06,
+        "p99": 9e-06,
+        "max": 1.1e-05
+      },
+      "failure_categories": {
+        "全教師を再現する包含正規化なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARCheader順位着色": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001038,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 6e-06,
+        "p99": 9e-06,
+        "max": 2.6e-05
+      },
+      "failure_categories": {
+        "全教師を再現するheader順位着色なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARCseed境界着色": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.000993,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 6e-06,
+        "p99": 7e-06,
+        "max": 2.1e-05
+      },
+      "failure_categories": {
+        "全教師を再現するseed境界役割なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARCテンプレート穴充填": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 45,
+      "prior_observations": {
+        "2": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 6.159108,
+        "mean": 0.025663,
+        "p50": 0.023093,
+        "p90": 0.040328,
+        "p95": 0.047541,
+        "p99": 0.069179,
+        "max": 0.073706
+      },
+      "failure_categories": {
+        "template_hole_pack_candidate_count": 240
+      },
+      "detail_metric_histograms": {
+        "candidate_count": {
+          "0": 239,
+          "2": 1
+        },
+        "candidate_details_length": {
+          "0": 239,
+          "2": 1
+        }
+      }
+    },
+    "ARC下向き流路": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001154,
+        "mean": 5e-06,
+        "p50": 4e-06,
+        "p90": 6e-06,
+        "p95": 6e-06,
+        "p99": 7e-06,
+        "max": 4.2e-05
+      },
+      "failure_categories": {
+        "全教師を再現する流路役割なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC中心anchor配色": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.00089,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 5e-06,
+        "p99": 6e-06,
+        "max": 7e-06
+      },
+      "failure_categories": {
+        "全教師を再現する中心配色なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC二値原型補完": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001013,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 6e-06,
+        "p99": 7e-06,
+        "max": 2.8e-05
+      },
+      "failure_categories": {
+        "全教師を再現する現在課題の二値原型なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC二軸欠損補完": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001164,
+        "mean": 5e-06,
+        "p50": 4e-06,
+        "p90": 6e-06,
+        "p95": 6e-06,
+        "p99": 7e-06,
+        "max": 7.8e-05
+      },
+      "failure_categories": {
+        "全教師を再現する共有二軸なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC倍率motif相互置換": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001565,
+        "mean": 7e-06,
+        "p50": 5e-06,
+        "p90": 7e-06,
+        "p95": 7e-06,
+        "p99": 9e-06,
+        "max": 0.000275
+      },
+      "failure_categories": {
+        "全教師を再現する倍率motif置換なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC入れ子パネル合成": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 13.070062,
+        "mean": 0.054459,
+        "p50": 0.004726,
+        "p90": 0.070399,
+        "p95": 0.128559,
+        "p99": 1.318999,
+        "max": 3.299203
+      },
+      "failure_categories": {
+        "nested_panel_relation_candidate_count": 240
+      },
+      "detail_metric_histograms": {
+        "candidate_count": {
+          "0": 240
+        },
+        "candidate_details_length": {
+          "0": 240
+        }
+      }
+    },
+    "ARC全panel端連鎖": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001704,
+        "mean": 7e-06,
+        "p50": 7e-06,
+        "p90": 9e-06,
+        "p95": 9e-06,
+        "p99": 1.3e-05,
+        "max": 2e-05
+      },
+      "failure_categories": {},
+      "detail_metric_histograms": {}
+    },
+    "ARC全体接触": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.022083,
+        "mean": 9.2e-05,
+        "p50": 7.4e-05,
+        "p90": 0.000168,
+        "p95": 0.0002,
+        "p99": 0.000263,
+        "max": 0.000583
+      },
+      "failure_categories": {
+        "no_retained_models": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC全体模様窓": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.075529,
+        "mean": 0.000315,
+        "p50": 0.000211,
+        "p90": 0.000635,
+        "p95": 0.000917,
+        "p99": 0.0018,
+        "max": 0.002454
+      },
+      "failure_categories": {
+        "no_teacher_fit_model": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC全足跡整列": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.019466,
+        "mean": 8.1e-05,
+        "p50": 5.8e-05,
+        "p90": 0.000154,
+        "p95": 0.000188,
+        "p99": 0.000278,
+        "max": 0.001648
+      },
+      "failure_categories": {
+        "no_fitted_models": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC凡例token積展開": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001032,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 6e-06,
+        "p99": 7e-06,
+        "max": 0.000108
+      },
+      "failure_categories": {
+        "全教師を再現する凡例token展開なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC凡例旋回経路": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.000864,
+        "mean": 4e-06,
+        "p50": 3e-06,
+        "p90": 5e-06,
+        "p95": 5e-06,
+        "p99": 7e-06,
+        "max": 1.1e-05
+      },
+      "failure_categories": {
+        "全教師を再現する凡例旋回なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC凡例矩形転写": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.000962,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 5e-06,
+        "p99": 9e-06,
+        "max": 3.2e-05
+      },
+      "failure_categories": {
+        "全教師を再現する凡例矩形規則なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC凡例穴数対応": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001365,
+        "mean": 6e-06,
+        "p50": 5e-06,
+        "p90": 7e-06,
+        "p95": 8e-06,
+        "p99": 9e-06,
+        "max": 4.4e-05
+      },
+      "failure_categories": {
+        "全教師に適合する役割色なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC凡例経路接続": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001239,
+        "mean": 5e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 6e-06,
+        "p99": 7e-06,
+        "max": 0.000236
+      },
+      "failure_categories": {
+        "全教師を再現する確定凡例経路なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC凡例集合選択": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001025,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 6e-06,
+        "p99": 1.2e-05,
+        "max": 4.1e-05
+      },
+      "failure_categories": {
+        "全教師を再現する凡例集合モデルなし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC制御bar個数複写": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001008,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 6e-06,
+        "p99": 7e-06,
+        "max": 3.1e-05
+      },
+      "failure_categories": {
+        "全教師を再現する制御bar複写なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC区切整列gap投射": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.000982,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 5e-06,
+        "p99": 9e-06,
+        "max": 5.7e-05
+      },
+      "failure_categories": {
+        "全教師を再現する区切投射役割なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC十字形態着色": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.000928,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 5e-06,
+        "p99": 6e-06,
+        "max": 8e-06
+      },
+      "failure_categories": {
+        "全教師を再現する十字色遷移なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC十字曲線延長": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.000933,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 5e-06,
+        "p99": 6e-06,
+        "max": 8e-06
+      },
+      "failure_categories": {
+        "全教師を再現する十字曲線規則なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC反復形側周期延長": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.000998,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 6e-06,
+        "p95": 6e-06,
+        "p99": 8e-06,
+        "max": 8e-06
+      },
+      "failure_categories": {
+        "全教師を再現する側周期延長なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC反復行singleton抽出": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.000945,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 5e-06,
+        "p99": 6e-06,
+        "max": 7e-06
+      },
+      "failure_categories": {
+        "全教師を再現する最小周期の反復行抽出なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC受動凡例転写": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.002663,
+        "mean": 1.1e-05,
+        "p50": 1.1e-05,
+        "p90": 1.4e-05,
+        "p95": 1.6e-05,
+        "p99": 1.9e-05,
+        "max": 4.3e-05
+      },
+      "failure_categories": {
+        "invalid_model": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC合同物体出口": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.020033,
+        "mean": 8.3e-05,
+        "p50": 6.5e-05,
+        "p90": 0.000149,
+        "p95": 0.00019,
+        "p99": 0.000269,
+        "max": 0.000771
+      },
+      "failure_categories": {
+        "no_retained_models": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC周期枠位相": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.017061,
+        "mean": 7.1e-05,
+        "p50": 5.2e-05,
+        "p90": 0.000139,
+        "p95": 0.000184,
+        "p99": 0.000395,
+        "max": 0.000549
+      },
+      "failure_categories": {
+        "teacher_roles": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC周期組修復": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001179,
+        "mean": 5e-06,
+        "p50": 5e-06,
+        "p90": 6e-06,
+        "p95": 7e-06,
+        "p99": 1.4e-05,
+        "max": 3e-05
+      },
+      "failure_categories": {
+        "全教師を再現する確定した周期修復なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC四欄反復": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001271,
+        "mean": 5e-06,
+        "p50": 5e-06,
+        "p90": 7e-06,
+        "p95": 7e-06,
+        "p99": 9e-06,
+        "max": 1e-05
+      },
+      "failure_categories": {
+        "全教師を再現する四欄反復なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC基点motif展開": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001829,
+        "mean": 8e-06,
+        "p50": 7e-06,
+        "p90": 9e-06,
+        "p95": 1e-05,
+        "p99": 1.5e-05,
+        "max": 7.8e-05
+      },
+      "failure_categories": {
+        "全教師を再現する基点motif展開なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC境界marker周期帯": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001291,
+        "mean": 5e-06,
+        "p50": 5e-06,
+        "p90": 7e-06,
+        "p95": 7e-06,
+        "p99": 9e-06,
+        "max": 1e-05
+      },
+      "failure_categories": {
+        "no_teacher_fitted_models": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC境界点周期": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.01782,
+        "mean": 7.4e-05,
+        "p50": 5.6e-05,
+        "p90": 0.000145,
+        "p95": 0.000189,
+        "p99": 0.000247,
+        "max": 0.00037
+      },
+      "failure_categories": {
+        "no_fitted_models": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC境界色経路": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.018179,
+        "mean": 7.6e-05,
+        "p50": 5.6e-05,
+        "p90": 0.000156,
+        "p95": 0.000192,
+        "p99": 0.000304,
+        "max": 0.000624
+      },
+      "failure_categories": {
+        "no_fitted_models": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC境界表穴転写": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001247,
+        "mean": 5e-06,
+        "p50": 5e-06,
+        "p90": 6e-06,
+        "p95": 7e-06,
+        "p99": 8e-06,
+        "max": 1.2e-05
+      },
+      "failure_categories": {
+        "no_fitted_model": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC境界軸投射": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.000875,
+        "mean": 4e-06,
+        "p50": 3e-06,
+        "p90": 5e-06,
+        "p95": 5e-06,
+        "p99": 6e-06,
+        "max": 1.2e-05
+      },
+      "failure_categories": {
+        "全教師を再現する軸投射なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC多面欠損所有": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001651,
+        "mean": 7e-06,
+        "p50": 6e-06,
+        "p90": 7e-06,
+        "p95": 8e-06,
+        "p99": 2.5e-05,
+        "max": 0.000103
+      },
+      "failure_categories": {
+        "no_teacher_fit": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC対角線橋": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001524,
+        "mean": 6e-06,
+        "p50": 6e-06,
+        "p90": 8e-06,
+        "p95": 9e-06,
+        "p99": 3.2e-05,
+        "max": 3.9e-05
+      },
+      "failure_categories": {
+        "全教師に適合する主色が一意でない": 240
+      },
+      "detail_metric_histograms": {
+        "候補数": {
+          "0": 240
+        }
+      }
+    },
+    "ARC対角領域": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.01417,
+        "mean": 5.9e-05,
+        "p50": 4.8e-05,
+        "p90": 0.00011,
+        "p95": 0.00013,
+        "p99": 0.000187,
+        "max": 0.000198
+      },
+      "failure_categories": {
+        "background_tie": 6,
+        "fill_is_not_new_color": 234
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC対辺標点配置": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.002617,
+        "mean": 1.1e-05,
+        "p50": 1e-05,
+        "p90": 1.3e-05,
+        "p95": 1.4e-05,
+        "p99": 1.7e-05,
+        "max": 0.000234
+      },
+      "failure_categories": {
+        "no_retained_programs": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC局所軌条鎖所有": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001532,
+        "mean": 6e-06,
+        "p50": 6e-06,
+        "p90": 8e-06,
+        "p95": 8e-06,
+        "p99": 1e-05,
+        "max": 2.1e-05
+      },
+      "failure_categories": {
+        "not_fitted": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC帯profile積層": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.017169,
+        "mean": 7.2e-05,
+        "p50": 5.2e-05,
+        "p90": 0.000142,
+        "p95": 0.000178,
+        "p99": 0.000239,
+        "max": 0.000495
+      },
+      "failure_categories": {
+        "no_fitted_models": 240
+      },
+      "detail_metric_histograms": {
+        "learned_parameter_count": {
+          "0": 240
+        }
+      }
+    },
+    "ARC帯列square輪郭": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.000892,
+        "mean": 4e-06,
+        "p50": 3e-06,
+        "p90": 5e-06,
+        "p95": 5e-06,
+        "p99": 7e-06,
+        "max": 2.1e-05
+      },
+      "failure_categories": {
+        "全教師を再現する帯輪郭規約なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC帯図形投射": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001021,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 6e-06,
+        "p99": 1e-05,
+        "max": 2.1e-05
+      },
+      "failure_categories": {
+        "全教師を再現する帯図形投射なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC形状色転写": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001044,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 6e-06,
+        "p99": 2.4e-05,
+        "max": 3.6e-05
+      },
+      "failure_categories": {
+        "全教師を再現する形状色転写なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC成分path直列化": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.000958,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 6e-06,
+        "p99": 8e-06,
+        "max": 1e-05
+      },
+      "failure_categories": {
+        "全教師を再現する成分path直列化なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC成分最短経路": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001313,
+        "mean": 5e-06,
+        "p50": 5e-06,
+        "p90": 7e-06,
+        "p95": 9e-06,
+        "p99": 1.1e-05,
+        "max": 4.1e-05
+      },
+      "failure_categories": {
+        "教師共有palette又は一意背景なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC支持構造沈降": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.000957,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 5e-06,
+        "p99": 6e-06,
+        "max": 2.9e-05
+      },
+      "failure_categories": {
+        "全教師を再現する支持構造規約なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC放射組立": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.00115,
+        "mean": 5e-06,
+        "p50": 5e-06,
+        "p90": 6e-06,
+        "p95": 6e-06,
+        "p99": 1.2e-05,
+        "max": 3.2e-05
+      },
+      "failure_categories": {
+        "全教師を再現する放射組立なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC斜端点間隙": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.00172,
+        "mean": 7e-06,
+        "p50": 7e-06,
+        "p90": 9e-06,
+        "p95": 9e-06,
+        "p99": 1.4e-05,
+        "max": 9.9e-05
+      },
+      "failure_categories": {
+        "invalid_or_empty_model": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC最大保持対称剪定": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.000984,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 6e-06,
+        "p99": 7e-06,
+        "max": 9e-06
+      },
+      "failure_categories": {
+        "全教師を再現する最大保持対称剪定なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC有限例外光線": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.015879,
+        "mean": 6.6e-05,
+        "p50": 4.9e-05,
+        "p90": 0.000135,
+        "p95": 0.000168,
+        "p99": 0.000236,
+        "max": 0.000436
+      },
+      "failure_categories": {
+        "invalid_teachers": 71,
+        "teacher_full_grid_reconstruction_failed": 2,
+        "teacher_roles": 167
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC有限字形視野": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.008021,
+        "mean": 3.3e-05,
+        "p50": 3.2e-05,
+        "p90": 4.4e-05,
+        "p95": 4.7e-05,
+        "p99": 5.6e-05,
+        "max": 0.00012
+      },
+      "failure_categories": {
+        "one_or_more_retained_models_failed": 240
+      },
+      "detail_metric_histograms": {
+        "all_retained_models_evaluated": {
+          "0": 240
+        }
+      }
+    },
+    "ARC枠tile二列整列": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.000904,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 5e-06,
+        "p99": 6e-06,
+        "max": 7e-06
+      },
+      "failure_categories": {
+        "全教師を再現する枠tile整列なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC枠内成分計数": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.000932,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 5e-06,
+        "p99": 6e-06,
+        "max": 2.9e-05
+      },
+      "failure_categories": {
+        "全教師を再現する枠計数なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC枠端積層": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.032723,
+        "mean": 0.000136,
+        "p50": 0.000115,
+        "p90": 0.000231,
+        "p95": 0.00027,
+        "p99": 0.000361,
+        "max": 0.000967
+      },
+      "failure_categories": {},
+      "detail_metric_histograms": {
+        "distinct_success_outputs": {
+          "0": 240
+        }
+      }
+    },
+    "ARC枠質量保存": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.019186,
+        "mean": 8e-05,
+        "p50": 6.3e-05,
+        "p90": 0.000145,
+        "p95": 0.000178,
+        "p99": 0.00028,
+        "max": 0.000713
+      },
+      "failure_categories": {
+        "retained_failure_or_empty": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC格子D4変換": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 238,
+        "全教師再現": 2
+      },
+      "adoptable_true": 2,
+      "equality_admitted_true": 2,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 238,
+        "4": 2
+      },
+      "quarantined": {
+        "0": 2
+      },
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.076788,
+        "mean": 0.00032,
+        "p50": 4e-06,
+        "p90": 6e-06,
+        "p95": 7e-06,
+        "p99": 0.000399,
+        "max": 0.046194
+      },
+      "failure_categories": {
+        "no D<n> transform reproduces all training pairs": 238
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC格子自己マスク": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001325,
+        "mean": 6e-06,
+        "p50": 5e-06,
+        "p90": 8e-06,
+        "p95": 9e-06,
+        "p99": 1.1e-05,
+        "max": 1.2e-05
+      },
+      "failure_categories": {
+        "全教師再現モデルなし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC標点全片組立": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001943,
+        "mean": 8e-06,
+        "p50": 8e-06,
+        "p90": 1e-05,
+        "p95": 1.1e-05,
+        "p99": 1.4e-05,
+        "max": 4.2e-05
+      },
+      "failure_categories": {
+        "全教師を再現する標点組立規則なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC標点巡回": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.0047,
+        "mean": 2e-05,
+        "p50": 1.9e-05,
+        "p90": 2.5e-05,
+        "p95": 2.7e-05,
+        "p99": 4.5e-05,
+        "max": 7.5e-05
+      },
+      "failure_categories": {
+        "invalid_fitted_state": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC標識panel計数": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.000977,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 6e-06,
+        "p99": 6e-06,
+        "max": 9e-06
+      },
+      "failure_categories": {
+        "全教師を再現する標識計数panelなし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC標識水路": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.021845,
+        "mean": 9.1e-05,
+        "p50": 7.2e-05,
+        "p90": 0.000171,
+        "p95": 0.000199,
+        "p99": 0.00035,
+        "max": 0.000509
+      },
+      "failure_categories": {
+        "no_retained_models": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC標識移動": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001904,
+        "mean": 8e-06,
+        "p50": 7e-06,
+        "p90": 9e-06,
+        "p95": 1e-05,
+        "p99": 2.7e-05,
+        "max": 0.000146
+      },
+      "failure_categories": {
+        "全教師を再現する役割方針が一意でない": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC標識経路層": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.01716,
+        "mean": 7.1e-05,
+        "p50": 5.3e-05,
+        "p90": 0.000139,
+        "p95": 0.000174,
+        "p99": 0.000254,
+        "max": 0.000324
+      },
+      "failure_categories": {
+        "no_teacher_fit_model": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC標識誘導組立": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001057,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 6e-06,
+        "p99": 3.2e-05,
+        "max": 3.7e-05
+      },
+      "failure_categories": {
+        "全教師を再現する標識組立なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC標識軸転写": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.002692,
+        "mean": 1.1e-05,
+        "p50": 1e-05,
+        "p90": 1.4e-05,
+        "p95": 1.6e-05,
+        "p99": 2.5e-05,
+        "max": 8.6e-05
+      },
+      "failure_categories": {
+        "no_teacher_fit_program": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC櫛配置押上げ": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.000876,
+        "mean": 4e-06,
+        "p50": 3e-06,
+        "p90": 5e-06,
+        "p95": 5e-06,
+        "p99": 6e-06,
+        "max": 8e-06
+      },
+      "failure_categories": {
+        "全教師を再現する櫛配置押上げなし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC正方形格子写像": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001471,
+        "mean": 6e-06,
+        "p50": 6e-06,
+        "p90": 8e-06,
+        "p95": 8e-06,
+        "p99": 9e-06,
+        "max": 3.4e-05
+      },
+      "failure_categories": {
+        "全教師を再現する正方形格子写像なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC物体slot標識回廊": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001087,
+        "mean": 5e-06,
+        "p50": 4e-06,
+        "p90": 6e-06,
+        "p95": 6e-06,
+        "p99": 9e-06,
+        "max": 3.1e-05
+      },
+      "failure_categories": {
+        "全教師を再現する物体slot回廊なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC物体端投射": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.003089,
+        "mean": 1.3e-05,
+        "p50": 1.2e-05,
+        "p90": 1.6e-05,
+        "p95": 1.8e-05,
+        "p99": 2.1e-05,
+        "max": 2.5e-05
+      },
+      "failure_categories": {
+        "教師の完全な端対応なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC物体群整列": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.079222,
+        "mean": 0.00033,
+        "p50": 0.000219,
+        "p90": 0.000752,
+        "p95": 0.001057,
+        "p99": 0.001704,
+        "max": 0.002164
+      },
+      "failure_categories": {
+        "教師整合モデルまたは適用できる物体群なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC特徴条件整列": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.016211,
+        "mean": 6.8e-05,
+        "p50": 5.1e-05,
+        "p90": 0.000136,
+        "p95": 0.000173,
+        "p99": 0.000216,
+        "max": 0.000272
+      },
+      "failure_categories": {
+        "no_all_teacher_model": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC疎点graph転写": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 239,
+        "全教師再現": 1
+      },
+      "adoptable_true": 1,
+      "equality_admitted_true": 1,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 239,
+        "3": 1
+      },
+      "quarantined": {
+        "0": 1
+      },
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.039565,
+        "mean": 0.000165,
+        "p50": 4e-06,
+        "p90": 6e-06,
+        "p95": 6e-06,
+        "p99": 1.2e-05,
+        "max": 0.038456
+      },
+      "failure_categories": {
+        "全教師を再現する疎点転写規則なし": 239
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC直交領域所有": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001135,
+        "mean": 5e-06,
+        "p50": 5e-06,
+        "p90": 6e-06,
+        "p95": 6e-06,
+        "p99": 8e-06,
+        "max": 1e-05
+      },
+      "failure_categories": {
+        "no_teacher_fit": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC矢印到達": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.134913,
+        "mean": 0.000562,
+        "p50": 0.000519,
+        "p90": 0.000787,
+        "p95": 0.00086,
+        "p99": 0.001454,
+        "max": 0.002943
+      },
+      "failure_categories": {
+        "no_retained_models": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC矩形継目": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001134,
+        "mean": 5e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 6e-06,
+        "p99": 7e-06,
+        "max": 0.000162
+      },
+      "failure_categories": {
+        "no_fitted_program": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC穴形拡大": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001009,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 6e-06,
+        "p99": 8e-06,
+        "max": 1e-05
+      },
+      "failure_categories": {
+        "全教師を再現する穴形拡大なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC穴輪郭": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001048,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 6e-06,
+        "p95": 6e-06,
+        "p99": 1.2e-05,
+        "max": 3.1e-05
+      },
+      "failure_categories": {
+        "全教師を再現する穴輪郭方針が一意でない": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC空洞種伝播": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001311,
+        "mean": 5e-06,
+        "p50": 5e-06,
+        "p90": 7e-06,
+        "p95": 7e-06,
+        "p99": 9e-06,
+        "max": 1e-05
+      },
+      "failure_categories": {
+        "no_teacher_fitted_model": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC空白矩形移動": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.000902,
+        "mean": 4e-06,
+        "p50": 3e-06,
+        "p90": 5e-06,
+        "p95": 5e-06,
+        "p99": 6e-06,
+        "max": 3e-05
+      },
+      "failure_categories": {
+        "全教師を再現する一意な空白移動役割なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC色線反射": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.0191,
+        "mean": 8e-05,
+        "p50": 6.2e-05,
+        "p90": 0.000159,
+        "p95": 0.000198,
+        "p99": 0.000268,
+        "max": 0.000339
+      },
+      "failure_categories": {
+        "no_fitted_models": 240
+      },
+      "detail_metric_histograms": {
+        "models_length": {
+          "0": 240
+        }
+      }
+    },
+    "ARC色群テンプレート充填": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 239,
+        "教師反例により不採用": 1
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 239,
+        "2": 1
+      },
+      "quarantined": {
+        "0": 1
+      },
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.161631,
+        "mean": 0.000673,
+        "p50": 0.000299,
+        "p90": 0.001308,
+        "p95": 0.002268,
+        "p99": 0.006381,
+        "max": 0.014319
+      },
+      "failure_categories": {
+        "現在教師入力に既存の充填候補が存在する": 2
+      },
+      "detail_metric_histograms": {
+        "candidates_length": {
+          "0": 237
+        },
+        "output_count": {
+          "0": 237
+        }
+      }
+    },
+    "ARC行周期合成": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001019,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 6e-06,
+        "p99": 1e-05,
+        "max": 3.9e-05
+      },
+      "failure_categories": {
+        "全教師を再現する行周期合成なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC見本格子分類": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.018823,
+        "mean": 7.8e-05,
+        "p50": 6e-05,
+        "p90": 0.000153,
+        "p95": 0.000192,
+        "p99": 0.000272,
+        "max": 0.000275
+      },
+      "failure_categories": {
+        "no_models": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC観測成長": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001711,
+        "mean": 7e-06,
+        "p50": 7e-06,
+        "p90": 9e-06,
+        "p95": 1e-05,
+        "p99": 1.2e-05,
+        "max": 1.6e-05
+      },
+      "failure_categories": {
+        "no_fitted_program": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC計数棒迂回": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.017366,
+        "mean": 7.2e-05,
+        "p50": 5.4e-05,
+        "p90": 0.000142,
+        "p95": 0.000184,
+        "p99": 0.0003,
+        "max": 0.000392
+      },
+      "failure_categories": {
+        "no_fitted_models": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC計数色層旋回": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001721,
+        "mean": 7e-06,
+        "p50": 7e-06,
+        "p90": 9e-06,
+        "p95": 1.1e-05,
+        "p99": 1.5e-05,
+        "max": 3.7e-05
+      },
+      "failure_categories": {
+        "no_teacher_fitting_program": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC記号命令列": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001298,
+        "mean": 5e-06,
+        "p50": 5e-06,
+        "p90": 7e-06,
+        "p95": 7e-06,
+        "p99": 9e-06,
+        "max": 4.5e-05
+      },
+      "failure_categories": {
+        "全教師を再現する完走命令表なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC象限配色タイル": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.000927,
+        "mean": 4e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 5e-06,
+        "p99": 6e-06,
+        "max": 7e-06
+      },
+      "failure_categories": {
+        "全教師を再現する四象限符号なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC距離層周期充填": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001093,
+        "mean": 5e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 5e-06,
+        "p99": 9e-06,
+        "max": 0.000106
+      },
+      "failure_categories": {
+        "全教師を再現する距離層周期充填なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC距離順位回収": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001959,
+        "mean": 8e-06,
+        "p50": 8e-06,
+        "p90": 1e-05,
+        "p95": 1.1e-05,
+        "p99": 1.2e-05,
+        "max": 5.8e-05
+      },
+      "failure_categories": {
+        "no_teacher_fit_model": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC軸反射": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001214,
+        "mean": 5e-06,
+        "p50": 5e-06,
+        "p90": 7e-06,
+        "p95": 7e-06,
+        "p99": 9e-06,
+        "max": 2.8e-05
+      },
+      "failure_categories": {
+        "全教師で整合する標識色なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC辺対応抽出": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.068977,
+        "mean": 0.000287,
+        "p50": 0.000225,
+        "p90": 0.000597,
+        "p95": 0.000726,
+        "p99": 0.001079,
+        "max": 0.004355
+      },
+      "failure_categories": {
+        "ambiguous_edge_payload_transform": 1,
+        "guideの外周辺が未確定": 5,
+        "guide帯が非一様又は空": 36,
+        "payload境界が未確定": 89,
+        "too_few_edge_payload_side_constraints": 103,
+        "背景頻度が同率": 6
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC連結箱参照": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.016882,
+        "mean": 7e-05,
+        "p50": 5.1e-05,
+        "p90": 0.000137,
+        "p95": 0.000174,
+        "p99": 0.000287,
+        "max": 0.00053
+      },
+      "failure_categories": {
+        "invalid_retained_state": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC遮蔽区画計数": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001007,
+        "mean": 4e-06,
+        "p50": 3e-06,
+        "p90": 5e-06,
+        "p95": 5e-06,
+        "p99": 3.8e-05,
+        "max": 8.4e-05
+      },
+      "failure_categories": {
+        "全教師を再現する遮蔽区画計数なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC遮蔽端接続": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001432,
+        "mean": 6e-06,
+        "p50": 6e-06,
+        "p90": 8e-06,
+        "p95": 8e-06,
+        "p99": 1e-05,
+        "max": 1.4e-05
+      },
+      "failure_categories": {
+        "no_teacher_fitted_model": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC部分見本転写": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.002027,
+        "mean": 8e-06,
+        "p50": 8e-06,
+        "p90": 1e-05,
+        "p95": 1.2e-05,
+        "p99": 1.8e-05,
+        "max": 4.5e-05
+      },
+      "failure_categories": {
+        "全教師を再現する部分見本転写なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC配置mask展開": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.004153,
+        "mean": 1.7e-05,
+        "p50": 1.7e-05,
+        "p90": 2.2e-05,
+        "p95": 2.3e-05,
+        "p99": 2.7e-05,
+        "max": 5.1e-05
+      },
+      "failure_categories": {
+        "no_models": 240
+      },
+      "detail_metric_histograms": {
+        "model_returns_length": {
+          "0": 240
+        }
+      }
+    },
+    "ARC重畳組立": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.002003,
+        "mean": 8e-06,
+        "p50": 8e-06,
+        "p90": 1e-05,
+        "p95": 1.2e-05,
+        "p99": 1.4e-05,
+        "max": 2.4e-05
+      },
+      "failure_categories": {
+        "全教師を再現する一意な重畳組立なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC閉領域パレット転写": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.040887,
+        "mean": 0.00017,
+        "p50": 0.000135,
+        "p90": 0.000311,
+        "p95": 0.000442,
+        "p99": 0.000891,
+        "max": 0.001295
+      },
+      "failure_categories": {
+        "dual_region_hole_inventory_mismatch": 12,
+        "dual_region_requires_exactly_two_foreground_regions": 199,
+        "dual_region_template_and_colored_roles_not_unique": 29
+      },
+      "detail_metric_histograms": {
+        "dual_region_colored_hole_count": {
+          "0": 12
+        },
+        "dual_region_colored_region_count": {
+          "0": 20,
+          "2": 9
+        },
+        "dual_region_plain_region_count": {
+          "0": 9,
+          "2": 20
+        },
+        "dual_region_region_count": {
+          "0": 2,
+          "1": 57,
+          "10": 7,
+          "11": 2,
+          "12": 1,
+          "13": 2,
+          "14": 2,
+          "15": 1,
+          "17": 2,
+          "20": 2,
+          "27": 1,
+          "3": 37,
+          "31": 1,
+          "33": 1,
+          "35": 1,
+          "4": 27,
+          "40": 1,
+          "5": 13,
+          "6": 14,
+          "64": 1,
+          "7": 12,
+          "8": 9,
+          "9": 3
+        },
+        "dual_region_template_hole_count": {
+          "0": 11,
+          "1": 1
+        }
+      }
+    },
+    "ARC開口壁充填": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.00112,
+        "mean": 5e-06,
+        "p50": 4e-06,
+        "p90": 5e-06,
+        "p95": 5e-06,
+        "p99": 1.9e-05,
+        "max": 0.000145
+      },
+      "failure_categories": {
+        "全教師を再現する開口壁充填なし": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC隅模様転写": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.017998,
+        "mean": 7.5e-05,
+        "p50": 5.8e-05,
+        "p90": 0.000145,
+        "p95": 0.000185,
+        "p99": 0.000254,
+        "max": 0.000335
+      },
+      "failure_categories": {
+        "no_fitted_models": 240
+      },
+      "detail_metric_histograms": {}
+    },
+    "ARC領域指令": {
+      "task_records": 240,
+      "states": {
+        "充足する候補なし": 240
+      },
+      "adoptable_true": 0,
+      "equality_admitted_true": 0,
+      "prior_observations": {
+        "0": 240
+      },
+      "current_observations": {
+        "0": 240
+      },
+      "quarantined": {},
+      "fit_seconds": {
+        "count": 240,
+        "total": 0.001685,
+        "mean": 7e-06,
+        "p50": 7e-06,
+        "p90": 9e-06,
+        "p95": 1e-05,
+        "p99": 1.5e-05,
+        "max": 1.6e-05
+      },
+      "failure_categories": {},
+      "detail_metric_histograms": {}
+    }
+  },
+  "legacy_and_module_mechanism_constraints": {
+    "anchored_motif": {
+      "全教師共通基点展開": {
+        "False": 240
+      }
+    },
+    "arrow_pulses": {
+      "不足理由": {
+        "model_independent_parse_rejection": 238,
+        "no_all_teacher_model": 2
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "保持候補数": {
+        "0": 240
+      },
+      "教師fit最小数": {
+        "2": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      },
+      "異入力数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "axis_reflection": {
+      "標識色候補_length": {
+        "0": 240
+      }
+    },
+    "band_profile_stack": {
+      "fit種別": {
+        "固定規則の全教師適合によるactivation": 240
+      },
+      "不足理由": {
+        "fixed_rule_does_not_fit_all_teachers": 17,
+        "fixed_rule_fit_impossible_by_conservation": 223
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "保持候補数": {
+        "0": 240
+      },
+      "学習関係parameter数": {
+        "0": 240
+      },
+      "教師fit最小数": {
+        "2": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      },
+      "異入力数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "bbox_legend": {
+      "適合": {
+        "False": 240
+      }
+    },
+    "binary_completion": {
+      "現在教師からの原型": {
+        "False": 240
+      },
+      "記憶bit数": {
+        "0": 240
+      }
+    },
+    "body_port_rays": {
+      "不足理由": {
+        "no_all_teacher_model": 240
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "保持候補数": {
+        "0": 240
+      },
+      "教師fit最小数": {
+        "2": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      },
+      "異入力数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "border_stack": {
+      "不足理由": {
+        "no_model_fits_all_teachers": 240
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "保持候補数": {
+        "0": 240
+      },
+      "教師fit最小数": {
+        "2": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "boundary_color_path": {
+      "不足理由": {
+        "no_all_teacher_model": 240
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "保持候補数": {
+        "0": 240
+      },
+      "教師fit最小数": {
+        "2": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      },
+      "異入力数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "boundary_point_period": {
+      "不足理由": {
+        "no_model_fits_all_teachers": 240
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "保持候補数": {
+        "0": 240
+      },
+      "教師fit最小数": {
+        "2": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "boundary_table_cavity": {
+      "事前支持数": {
+        "0": 240
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "全教師再現": {
+        "False": 240
+      }
+    },
+    "bounded_glyph_window": {
+      "保持候補_length": {
+        "0": 240
+      },
+      "保持候補数": {
+        "0": 240
+      },
+      "制約": {
+        "clipped教師の新辞書学習なし。旧<n>fresh背景出力、元前景保存の主張なし。label過剰paddingで旧有効入力もHOLDし得る。": 240
+      },
+      "教師fit最小数": {
+        "2": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "cavity_seed_propagation": {
+      "事前支持数": {
+        "0": 240
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "全教師再現": {
+        "False": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "chiral_payload": {
+      "全教師共通接触配置": {
+        "False": 240
+      }
+    },
+    "colored_ray_reflection": {
+      "不足理由": {
+        "no_model_fits_all_teachers": 240
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "保持候補数": {
+        "0": 240
+      },
+      "教師fit最小数": {
+        "2": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "comb_pin": {
+      "適合": {
+        "False": 240
+      }
+    },
+    "congruent_object_ports": {
+      "不足理由": {
+        "no_all_teacher_model": 12,
+        "teacher_output_necessity_impossible": 228
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "保持候補数": {
+        "0": 240
+      },
+      "教師fit最小数": {
+        "2": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      },
+      "異入力数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "corner_patch_transfer": {
+      "不足理由": {
+        "fit_domain_proven_empty_by_common_structural_rejection": 38,
+        "fit_domain_proven_empty_by_necessary_invariants": 202
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "保持候補数": {
+        "0": 240
+      },
+      "教師fit最小数": {
+        "2": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      },
+      "異入力数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "corridor": {
+      "全教師再現": {
+        "False": 240
+      }
+    },
+    "counted_bar_detour": {
+      "不足理由": {
+        "no_all_teacher_model": 240
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "保持候補数": {
+        "0": 240
+      },
+      "教師fit最小数": {
+        "2": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      },
+      "異入力数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "counted_color_layers": {
+      "fit_records_length": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      },
+      "fit_table_length": {
+        "8": 240
+      },
+      "grammar_count": {
+        "8": 240
+      },
+      "programs_length": {
+        "0": 240
+      },
+      "teacher_count": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "cross_arm": {
+      "適合": {
+        "False": 240
+      }
+    },
+    "d4_transform": {
+      "fitting_operations_length": {
+        "0": 239,
+        "1": 1
+      },
+      "fitting_palette_operations_length": {
+        "0": 239,
+        "2": 1
+      },
+      "minimum_support": {
+        "3": 240
+      }
+    },
+    "diagonal_bridge": {
+      "主色候補_length": {
+        "0": 240
+      }
+    },
+    "diagonal_endpoint_gap": {
+      "事前支持数": {
+        "0": 240
+      },
+      "全教師再現": {
+        "False": 240
+      }
+    },
+    "distance_collection": {
+      "保持候補_length": {
+        "0": 240
+      },
+      "保持候補数": {
+        "0": 240
+      }
+    },
+    "edge_axis_projection": {
+      "全教師の軸投射再現": {
+        "False": 240
+      }
+    },
+    "example_grid_classification": {
+      "不足理由": {
+        "no_model_fits_all_teachers": 169,
+        "shape_preservation_refutes_whole_grammar": 71
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "保持候補数": {
+        "0": 240
+      },
+      "教師fit最小数": {
+        "2": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "farthest_blank": {
+      "全教師再現": {
+        "False": 240
+      },
+      "教師記録_length": {
+        "0": 240
+      },
+      "生適合数": {
+        "0": 240
+      }
+    },
+    "feature_conditioned_alignment": {
+      "事前支持数": {
+        "0": 240
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "教師数": {
+        "0": 223,
+        "2": 1,
+        "3": 12,
+        "4": 4
+      }
+    },
+    "finite_exception_rays": {
+      "blocked_contexts_length": {
+        "0": 240
+      },
+      "failure": {
+        "invalid_teachers": 71,
+        "teacher_full_grid_reconstruction_failed": 2,
+        "teacher_roles": 167
+      },
+      "physical_observations": {
+        "0": 240
+      },
+      "risk": {
+        "HIGH OVERFIT RISK; not physically established or teacher-unique": 240
+      },
+      "teacher_exact_length": {
+        "0": 240
+      },
+      "事前支持数": {
+        "0": 240
+      },
+      "保持候補数": {
+        "0": 240
+      }
+    },
+    "four_field_repeat": {
+      "全教師の四欄再現": {
+        "False": 240
+      }
+    },
+    "frame_count": {
+      "全教師再現": {
+        "False": 240
+      },
+      "消去証拠数": {
+        "0": 240
+      }
+    },
+    "frame_payload_conservation": {
+      "事前支持数": {
+        "0": 240
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "全教師再現": {
+        "False": 240
+      }
+    },
+    "full_footprint_chart": {
+      "不足理由": {
+        "fit_domain_proven_empty_by_axis_necessity": 229,
+        "no_all_teacher_model": 11
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "保持候補数": {
+        "0": 240
+      },
+      "教師fit最小数": {
+        "2": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      },
+      "異入力数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "glyph_instruction": {
+      "完走適合model数": {
+        "0": 240
+      },
+      "読取順序_length": {
+        "0": 240
+      }
+    },
+    "group_order": {
+      "モデル群_length": {
+        "0": 240
+      },
+      "物理物体観測数": {
+        "0": 240
+      }
+    },
+    "grouped_packing": {
+      "グループ上限": {
+        "55": 240
+      },
+      "教師入力の既存候補数_length": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      },
+      "適用可": {
+        "False": 2,
+        "True": 238
+      },
+      "部品上限": {
+        "12": 240
+      }
+    },
+    "guided_compaction": {
+      "接触消去教師数": {
+        "0": 240
+      },
+      "適合方針数": {
+        "0": 240
+      }
+    },
+    "header_rank": {
+      "全教師再現": {
+        "False": 240
+      }
+    },
+    "hole_outline": {
+      "適合方針数": {
+        "0": 240
+      }
+    },
+    "hole_scale": {
+      "全教師再現": {
+        "False": 240
+      }
+    },
+    "labeled_axis_transfer": {
+      "不足理由": {
+        "no_model_fits_all_teachers": 240
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "保持候補数": {
+        "0": 240
+      },
+      "教師fit最小数": {
+        "2": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "lattice_self_mask": {
+      "モデル群_length": {
+        "0": 240
+      },
+      "候補文法数": {
+        "32": 240
+      }
+    },
+    "layout_macro": {
+      "全教師共通配置積": {
+        "False": 240
+      }
+    },
+    "legend_gap": {
+      "全教師再現": {
+        "False": 240
+      },
+      "経路探索上限": {
+        "100000": 240
+      }
+    },
+    "legend_learning": {
+      "役割候補群_length": {
+        "0": 240
+      },
+      "消去分岐最小支持数": {
+        "2": 45,
+        "3": 195
+      }
+    },
+    "legend_macro": {
+      "全教師共通凡例展開": {
+        "False": 240
+      }
+    },
+    "linked_box_lookup": {
+      "fit完了": {
+        "True": 240
+      },
+      "不足理由": {
+        "no_complete_teacher_fitting_program": 108,
+        "teacher_output_color_not_in_input": 61,
+        "teacher_shape_not_preserved": 71
+      },
+      "事前支持数": {
+        "0": 240
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "保持候補数": {
+        "0": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "local_rail_chain_ownership": {
+      "事前支持数": {
+        "0": 240
+      },
+      "全教師再現": {
+        "False": 240
+      }
+    },
+    "marked_path_layers": {
+      "事前支持数": {
+        "0": 240
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "全教師再現": {
+        "False": 240
+      }
+    },
+    "marked_piece": {
+      "適合": {
+        "False": 240
+      }
+    },
+    "marker_assembly": {
+      "全教師再現": {
+        "False": 240
+      }
+    },
+    "marker_channel": {
+      "不足理由": {
+        "no_all_teacher_model": 17,
+        "teacher_conservation_impossibility": 223
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "保持候補数": {
+        "0": 240
+      },
+      "教師fit最小数": {
+        "2": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      },
+      "異入力数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "marker_count": {
+      "全教師再現": {
+        "False": 240
+      }
+    },
+    "marker_traversal": {
+      "事前支持数": {
+        "0": 240
+      },
+      "全教師再現": {
+        "False": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "motif_swap": {
+      "全教師再現": {
+        "False": 240
+      }
+    },
+    "multisurface_defects": {
+      "事前支持数": {
+        "0": 240
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "全教師再現": {
+        "False": 240
+      }
+    },
+    "nested_inventory": {
+      "全教師再現": {
+        "False": 240
+      }
+    },
+    "object_learning": {
+      "peer学習完了": {
+        "False": 240
+      },
+      "物理物体観測数": {
+        "0": 240
+      },
+      "特徴番号群_length": {
+        "0": 240
+      },
+      "状態": {
+        "教師の完全な端対応なし": 240
+      },
+      "確認済み原理数": {
+        "0": 240
+      }
+    },
+    "observed_growth": {
+      "事前支持数": {
+        "0": 240
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "全教師再現": {
+        "False": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "occluded_port_composition": {
+      "事前支持数": {
+        "0": 240
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "全教師再現": {
+        "False": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "open_wall": {
+      "適合": {
+        "False": 240
+      }
+    },
+    "orthogonal_region_ownership": {
+      "models_length": {
+        "0": 240
+      },
+      "version": {
+        "1": 240
+      }
+    },
+    "overlap_mosaic": {
+      "全教師再現": {
+        "False": 240
+      }
+    },
+    "paired_border_placement": {
+      "fit完了": {
+        "True": 240
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "保持候補数": {
+        "0": 240
+      },
+      "教師fit最小数": {
+        "2": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "palette_subset": {
+      "全教師共通モデル_length": {
+        "0": 240
+      }
+    },
+    "panel_exemplar": {
+      "全教師再現": {
+        "False": 240
+      }
+    },
+    "panel_path": {
+      "全教師再現": {
+        "False": 240
+      }
+    },
+    "partition_faces": {
+      "適合": {
+        "False": 240
+      }
+    },
+    "passive_keyed_stamp": {
+      "事前支持数": {
+        "0": 240
+      },
+      "全教師再現": {
+        "False": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "period_relative_frame_phase": {
+      "failure": {
+        "teacher_roles": 240
+      },
+      "failure_contexts_length": {
+        "0": 240
+      },
+      "physical_observations": {
+        "0": 240
+      },
+      "risk": {
+        "HIGH OVERFIT RISK; corrected context appears in one teacher frame": 240
+      },
+      "事前支持数": {
+        "0": 240
+      },
+      "保持候補数": {
+        "0": 240
+      }
+    },
+    "periodic_band": {
+      "全教師再現": {
+        "False": 240
+      }
+    },
+    "periodic_panel": {
+      "全教師再現": {
+        "False": 240
+      }
+    },
+    "plus_motif": {
+      "全教師再現": {
+        "False": 240
+      }
+    },
+    "quadrant_palette": {
+      "全教師の符号再現": {
+        "False": 240
+      }
+    },
+    "radial_assembly": {
+      "全教師再現": {
+        "False": 240
+      },
+      "未対応除去教師数": {
+        "0": 240
+      }
+    },
+    "rectangle_seam": {
+      "事前支持数": {
+        "0": 240
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "全教師再現": {
+        "False": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "region_commands": {
+      "fit完了": {
+        "True": 240
+      },
+      "不足理由": {
+        "teacher_rotation_shape_or_palette_impossible": 132
+      },
+      "事前支持数": {
+        "0": 240
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "保持候補数": {
+        "0": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "repeated_side": {
+      "全教師再現": {
+        "False": 240
+      }
+    },
+    "seeded_boundary": {
+      "全教師再現": {
+        "False": 240
+      },
+      "消去証拠数": {
+        "0": 240
+      }
+    },
+    "separator_layer": {
+      "全教師再現": {
+        "False": 240
+      },
+      "無seed保存証拠数": {
+        "0": 240
+      },
+      "背景位相証拠数": {
+        "0": 240
+      }
+    },
+    "separator_run": {
+      "全教師再現": {
+        "False": 240
+      }
+    },
+    "square_anchor": {
+      "全教師共通モデル_length": {
+        "0": 240
+      }
+    },
+    "square_palette": {
+      "全教師再現": {
+        "False": 240
+      }
+    },
+    "stripe_ring": {
+      "全教師共通符号規約": {
+        "False": 240
+      }
+    },
+    "support_contact": {
+      "適合": {
+        "False": 240
+      }
+    },
+    "template_shape_color": {
+      "全教師再現": {
+        "False": 240
+      }
+    },
+    "tuple_repair": {
+      "全教師再現": {
+        "False": 240
+      }
+    },
+    "vertical_pruning": {
+      "全教師再現": {
+        "False": 240
+      },
+      "所有間隙軸支持": {
+        "False": 240
+      }
+    },
+    "whole_mask_view": {
+      "不足理由": {
+        "no_model_fits_all_teachers": 240
+      },
+      "保持候補_length": {
+        "0": 240
+      },
+      "保持候補数": {
+        "0": 240
+      },
+      "教師fit最小数": {
+        "2": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    },
+    "whole_panel_port_chain": {
+      "事前支持数": {
+        "0": 240
+      },
+      "全教師再現": {
+        "False": 240
+      },
+      "教師数": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    }
+  },
+  "task_ids_and_grids_saved": false,
+  "hidden_or_evaluation_solutions_read": false,
+  "generated_at_utc": "2026-10-24T00:51:17.428867+00:00",
+  "source_tree_sha1": "57a78cadfa3b6d1933f227b8198f39a758e32194",
+  "source_archive_sha256": "4f8926589620d1cb3f329c2ef0d333b64575a39554ef7ce069f59d28cc8801a0",
+  "training_prior": {
+    "source_commit": "f3283f727488ad98fe575ea6a5ac981e4a188e49",
+    "manifest_sha256": "8f5f24571f0457c44af68b57b9aebbcf4dabbb9164f24942108e1b98f635f112",
+    "source_json_sha256": "d84bde1258daea05eb115295751ea20c026384fb04436da0b640d462aa7d7f22",
+    "examples_loaded_by_solver": 2,
+    "evaluation_solutions_read": false
+  },
+  "runtime_environment": {
+    "python_version": "3.12.10",
+    "source_commit_uv_lock_sha256": "62aa3fae89a1c1cec6f60f7192a70e894949defde6a2b463a6a010fc1405838f",
+    "isolated_worker_script_sha256": "5701d98ebfb95eb60f95f4caacc17c3c9f41f35046f27fc382c1571f893abf8e",
+    "aggregate_runner_script_sha256": "8bf2a3fc57751b7d0f97ce6a4339f956d5046aec3bb57cedcd077735c345023f",
+    "instrumentation": "temporary wrapper measured per-family fit time; no solver source files were edited",
+    "concurrent_workers": 3,
+    "per_task_timeout_seconds": 300
+  }
+}

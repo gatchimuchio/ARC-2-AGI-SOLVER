@@ -1,0 +1,28 @@
+{
+  "schema": "arc2-object-outlier-v21.1-bundle-matched-loo-v1",
+  "eligible_folds": 2916,
+  "candidate_proposal_folds": 41,
+  "v20_bundle_evaluation_folds": 41,
+  "v21_bundle_evaluation_folds": 41,
+  "v20_bundle_fallbacks": 26,
+  "v21_bundle_fallbacks": 26,
+  "v20_bundle_exact_on_proposals": 26,
+  "v21_bundle_exact_on_proposals": 35,
+  "attempt2_changes": 12,
+  "newly_correct": 9,
+  "newly_wrong": 0,
+  "net_delta": 9,
+  "regressions": 0,
+  "heldout_outputs_passed_to_candidate_generator_or_runtimes": false,
+  "per_fold_predictions_or_targets_saved": false,
+  "temporary_fold_inputs_outputs_and_payloads_removed": true,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "e815b220d74bc2a084f5cadf8ae1a1cd9a76748b622e48a8ee7278f3cac16de8",
+    "proposal_runner": "e223462592f23875e4e563bfe0b5d0b1591db2e9523b3f78ff6e5044bb9277e6",
+    "v20_build_manifest": "87cb4d81f570275239d69ff46c56eb8e5a5d5107c14db059643512d2105cbc89",
+    "v21_build_manifest": "bbc0e7e5266a44aaada42f6362736a49c7e13343e5bb24b7c66f289e9719f99b",
+    "adapter": "091350d44015d3fde94ef0dfabfb9d53df1b9eda18233012c37a9ab1018dbdf2",
+    "object_extraction_module": "09d1ac6eec39bfcbec99d681434f238daaa57242b6a89f642d17e58076ab67ce"
+  }
+}

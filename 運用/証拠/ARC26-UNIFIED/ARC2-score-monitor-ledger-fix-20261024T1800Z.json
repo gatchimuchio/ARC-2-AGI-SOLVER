@@ -1,0 +1,30 @@
+{
+  "track": "ARC2",
+  "experiment_id": "ARC2-SCORE-MONITOR-UNIFIED-LEDGER-WRITE",
+  "observed_at_utc": "2026-10-24T18:00:00Z",
+  "defect": "Successful official history ticks updated only the ARC2 checkpoint, leaving the unified score ledger, work ledger, and a per-observation history evidence artifact stale.",
+  "change": "Successful ticks now serialize normalized read-only history rows, persist a hashed official-history evidence file, append score-ledger and work-ledger entries, and link the checkpoint to that evidence. Query failures are appended to the work ledger without logging secrets.",
+  "targeted_test": {
+    "command": ".venv/Scripts/python.exe -m pytest -q 検証/test_ARC2KaggleScoreMonitor.py",
+    "result": "PASS",
+    "passed": 5
+  },
+  "test_file_sha256": "7342b22ce9b1e48cf45b5e10fb3a8ddee865d8c267de45cc56fec730adf72ee0",
+  "monitor_file_sha256": "7eb4505b4d01d32be2bf1c5803a1e1397f769db41d5a2d742efbaa405323eadd",
+  "backfilled_observation": {
+    "observed_at_utc": "2026-10-24T17:43:51.335742Z",
+    "submission_id": "57576155",
+    "status": "COMPLETE",
+    "public_score": 0.0,
+    "history_rows_refreshed": false,
+    "previous_full_history_reference": "official-history-20261024T1540Z.json",
+    "latest_submission_unchanged": true,
+    "score_ledger_appended": true,
+    "work_ledger_appended": true,
+    "evidence": "運用/証拠/ARC26-UNIFIED/official-status-57576155-20261024T174351Z.json"
+  },
+  "next_live_tick_due_utc": "2026-10-24T18:43:51.335742+00:00",
+  "next_live_tick_after_fix_verified": false,
+  "official_submission_or_rerun": false,
+  "credentials_or_acl_changed": false
+}

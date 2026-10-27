@@ -1,0 +1,31 @@
+{
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-24T17:17:17Z",
+  "read_only": true,
+  "history_unchanged": true,
+  "competition_slug": "arc-prize-2026-arc-agi-2",
+  "history_refs": [
+    57576155,
+    57560705,
+    57517199,
+    55046979,
+    55038338,
+    54709840,
+    53996447,
+    53962702
+  ],
+  "latest": {
+    "submission_id": "57576155",
+    "submitted_at_utc": "2026-10-24T00:12:39.127Z",
+    "status": "SubmissionStatus.COMPLETE",
+    "public_score": 0.0
+  },
+  "previous": {
+    "submission_id": "57560705",
+    "status": "SubmissionStatus.COMPLETE",
+    "public_score": 0.0
+  },
+  "private_score_state": "not provided",
+  "submission_or_rerun_performed": false,
+  "next_due_utc": "2026-10-24T17:43:00Z"
+}

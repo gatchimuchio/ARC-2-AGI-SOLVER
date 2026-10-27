@@ -1,0 +1,59 @@
+{
+  "all_previous_and_current_folds_matched": true,
+  "base_hds_source_sha256": "d1b31e1c39aac62e99b86a1bbf267725e5306a13f54fced6690e67e133345f55",
+  "baseline_report_sha256": "37e33e116155a833df01991c49f44ddfef218818d603de340e4cabe6519b5a28",
+  "current_hds_nonveto_policy": {
+    "answer": 16,
+    "exact": 16,
+    "fallback": 1175,
+    "union_exact": 16,
+    "wrong": 0
+  },
+  "current_hold_reason_counts": {
+    "\u539f\u56e0\u672a\u78ba\u5b9a\u3067\u9694\u96e2\u4e2d\u306e\u539f\u7406\u304c\u5b58\u5728\u3059\u308b": 44,
+    "\u63a1\u7528\u6e08\u307f\u6a5f\u69cbARC\u5168\u524d\u666f\u5e73\u884c\u79fb\u52d5\u306eHDS\u6392\u6c17\u304c\u4fdd\u7559": 1,
+    "\u63a1\u7528\u6e08\u307f\u6a5f\u69cbARC\u683c\u5b50D4\u5909\u63db\u306etest\u5019\u88dc\u304c\u672a\u78ba\u5b9a": 3,
+    "\u73fe\u884c\u66ab\u5b9a\u539f\u7406\u306e\u9069\u7528\u306b\u5fc5\u8981\u306a\u89b3\u6e2c\u304c\u4e0d\u8db3\u3057\u3066\u3044\u308b": 1171
+  },
+  "current_solver_runtime_seconds": 1476.022,
+  "current_status_counts": {
+    "\u51fa\u529b": 16,
+    "\u65ad\u5b9a\u4fdd\u7559": 1175
+  },
+  "delta_current_minus_previous": {
+    "answer": 0,
+    "exact": 0,
+    "fallback": 0,
+    "union_exact": 0,
+    "wrong": 0
+  },
+  "elapsed_seconds": 2997.351,
+  "eligible_fold_count": 1191,
+  "eligible_task_count": 267,
+  "evaluated_fold_count": 1191,
+  "evaluation_solutions_read": false,
+  "fallback_counted_correct": false,
+  "heldout_output_passed_to_either_solver": false,
+  "heldout_output_scored_after_both_solvers_return": true,
+  "newly_answered": 0,
+  "newly_exact": 0,
+  "official_submission_or_rerun": false,
+  "policy_overlay_hds_source_sha256": "17ed9252488add034b57b0e71cf25ad81fc86c72aa811f417b0a789e892b0e93",
+  "previous_hds_first_answer": {
+    "answer": 16,
+    "exact": 16,
+    "fallback": 1175,
+    "union_exact": 16,
+    "wrong": 0
+  },
+  "previous_solver_runtime_seconds": 1510.437,
+  "production_or_notebook_changed": false,
+  "regressions_previous_exact_to_current_not_exact": 0,
+  "run_type": "matched_full_public_training_LOO_HDS_unresolved_family_nonveto",
+  "solver_exceptions": {
+    "current": 0,
+    "previous": 0
+  },
+  "task_identifiers_or_grids_saved": false,
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8"
+}

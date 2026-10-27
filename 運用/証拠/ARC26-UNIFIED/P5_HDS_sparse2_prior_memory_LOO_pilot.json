@@ -1,0 +1,72 @@
+{
+  "additional_input_overlap_task_count_excluded": 0,
+  "candidate_union_counts_only_distinct_second_answers": true,
+  "conditions": {
+    "current": "one remaining within-task teacher pair plus exactly two approved training prior examples",
+    "previous": "one remaining within-task teacher pair, no prior examples",
+    "task_training_pair_count": 2
+  },
+  "connector_sha256": "d1b31e1c39aac62e99b86a1bbf267725e5306a13f54fced6690e67e133345f55",
+  "data_source": "public ARC-AGI-2 training split only",
+  "delta_current_minus_previous": {
+    "answer": 0,
+    "candidate_votes": 0,
+    "distinct_second": 0,
+    "fallback": 0,
+    "first_exact": 0,
+    "first_wrong": 0,
+    "second_exact": 0,
+    "second_wrong": 0,
+    "union_exact": 0
+  },
+  "elapsed_seconds": 0.935,
+  "eligible_task_population": 157,
+  "eligible_tasks_evaluated": 4,
+  "experiment_id": "ARC2-C2-060-SPARSE_TWO_EXAMPLE_PRIOR_MEMORY",
+  "fallback_as_correct": false,
+  "first_answer_rows_exclude_fallback": true,
+  "heldout_output_passed_to_solver": false,
+  "heldout_output_scored_only_after_solver_return": true,
+  "hidden_or_evaluation_solutions_read": false,
+  "loo_fold_count": 8,
+  "metrics_previous_current": {
+    "current_approved_prior": {
+      "answer": 0,
+      "candidate_votes": 0,
+      "distinct_second": 0,
+      "fallback": 8,
+      "first_exact": 0,
+      "first_wrong": 0,
+      "second_exact": 0,
+      "second_wrong": 0,
+      "union_exact": 0
+    },
+    "previous_no_prior": {
+      "answer": 0,
+      "candidate_votes": 0,
+      "distinct_second": 0,
+      "fallback": 8,
+      "first_exact": 0,
+      "first_wrong": 0,
+      "second_exact": 0,
+      "second_wrong": 0,
+      "union_exact": 0
+    }
+  },
+  "pilot_task_limit": 4,
+  "prior_reference_sha256": "8f5f24571f0457c44af68b57b9aebbcf4dabbb9164f24942108e1b98f635f112",
+  "prior_source_task_count_excluded": 1,
+  "production_or_submission_changed": false,
+  "run_type": "pilot",
+  "runtime_or_solver_changed": false,
+  "runtime_seconds": {
+    "combined_wall_seconds": 0.935,
+    "current_approved_prior": 0.504,
+    "delta_current_minus_previous": 0.081,
+    "delta_percent": 19.086,
+    "previous_no_prior": 0.423
+  },
+  "schema": "arc2-p5-sparse-two-example-prior-loo.v1",
+  "task_identifiers_or_grids_saved": false,
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8"
+}

@@ -1,0 +1,47 @@
+{
+  "schema": "arc2-v5-feature-neighbor-production-paired-loo.v1",
+  "experiment_id": "ARC26-ARC2-V5-P5-FEATURE-NEIGHBOR-ACTUAL-RUNTIME-PAIRED-LOO",
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8",
+  "data_source": "public ARC-AGI-2 training split and fixed training-only prior",
+  "heldout_output_passed_to_solver": false,
+  "fallback_counted_correct": false,
+  "task_identifiers_or_grids_saved": false,
+  "comparison": "current runtime source with only the new candidate import/registration/filter/record removed in memory for baseline",
+  "eligible_tasks": 842,
+  "loo_folds_scanned": 2916,
+  "complete": true,
+  "candidate_eligible_folds": 132,
+  "actual_hds_gate_accepted": 80,
+  "actual_hds_gate_rejected": 52,
+  "actual_hds_gate_states": {
+    "全教師再現": 80,
+    "充足する候補なし": 26,
+    "教師反例により不採用": 26
+  },
+  "actual_candidate_predictions_emitted": 80,
+  "paired_baseline_exact": 14,
+  "paired_candidate_exact": 43,
+  "paired_delta_exact": 29,
+  "paired_gains": 29,
+  "paired_regressions": 0,
+  "paired_unchanged": 103,
+  "baseline_first_fallbacks": 118,
+  "candidate_first_fallbacks": 51,
+  "baseline_runtime_seconds": 250.744,
+  "candidate_runtime_seconds": 243.45,
+  "source_sha256_start": {
+    "runner": "2e6bf1cf74f16105194001de4e13e340b1f142d41b665260e594df90d0fe4372",
+    "hds_connector": "046f60a3d668c07fcf3c0e62e2d107d93374fbc4f5213788e39e658f915e9295",
+    "feature_neighbor_module": "5cd2e0d39709576702dfa42474c1232ca0e14371e486ad4dfc7b35f8f0ac8726",
+    "simple_transform_module": "efe210a4e183de93b5318aadeac7d2b5022a562189839b2ce1a414d367b5b0d3",
+    "submission_adapter": "f2c9858c250e612dc17526cffdacdfb3502212a46b5a1fe1c60779fa51ae2b0c"
+  },
+  "source_sha256_end": {
+    "runner": "2e6bf1cf74f16105194001de4e13e340b1f142d41b665260e594df90d0fe4372",
+    "hds_connector": "046f60a3d668c07fcf3c0e62e2d107d93374fbc4f5213788e39e658f915e9295",
+    "feature_neighbor_module": "5cd2e0d39709576702dfa42474c1232ca0e14371e486ad4dfc7b35f8f0ac8726",
+    "simple_transform_module": "efe210a4e183de93b5318aadeac7d2b5022a562189839b2ce1a414d367b5b0d3",
+    "submission_adapter": "f2c9858c250e612dc17526cffdacdfb3502212a46b5a1fe1c60779fa51ae2b0c"
+  },
+  "source_hashes_unchanged": true
+}

@@ -1,0 +1,52 @@
+{
+  "schema": "arc2-p5-targeted-coordinate-repair-v1",
+  "scope": "公開trainingの同一support-2 LOOにおける既知の2 IndexError foldと右側テンプレートの切り出し回帰",
+  "training_sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+  "baseline": {
+    "fold_count": 2,
+    "runner_error_count": 2,
+    "error_type": "IndexError",
+    "solver_accuracy": "測定不能（solver例外）",
+    "source": "出力/検証/ARC2-HDS-support2-LOO-20261023T1920Z.jsonl",
+    "source_sha256": "8a9822f4d54c7f7c8a8b7b91ecec773db9d26ad401fa75e08b869554726c476e"
+  },
+  "current": {
+    "replayed_folds": 2,
+    "runner_completed": 2,
+    "solver_answer_folds": 0,
+    "solver_answer_exact": 0,
+    "identity_fallback_matches": 0,
+    "pair_exact": 0,
+    "solver_accuracy": "正答改善なし。2 foldともsolver回答なし",
+    "summary_sha256": [
+      "c344a611564775e4daacafc52b9a4d42a3809303fe0b4f9a1c5f0a1451a4e55e",
+      "7a1b7ec2ad3ade2367b46f38a409e07a7e2adacf7528505c7029070384fd4fa9"
+    ],
+    "record_sha256": [
+      "b06b3cbd833e39402d76cbf19449817c2efec5bbe9fd46ee312a7860994f32cc",
+      "2731d29d17d3c444898bc675c9bfd005092c3c6f021ed06224203789550899ef"
+    ]
+  },
+  "delta": {
+    "runner_errors": -2,
+    "completed_folds": 2,
+    "solver_answer_folds": 0,
+    "solver_answer_exact": 0,
+    "performance_improvement_established": false
+  },
+  "repair": {
+    "file": "接続/ARC2/既存穴充填.py",
+    "change": "vertical_template_rightの素材列開始位置を左パネル先頭の0に修正",
+    "code_sha256": "02c52a362a314cde7c6d37794251271724c41aeb4adb41a35214e15900e0953e",
+    "regression_test": "検証/既存穴充填回帰.py",
+    "test_sha256": "7e1560dec752bc949689c83b26dc8ebfcb3c5c19e54e9dc4cd3dd924a570b27a",
+    "synthetic_test": "公式提出版source commit 3d444f34db32d62bd2edad320648e08e8dae19d6でIndexErrorを再現し、修正版で右パネル候補の素材原点・幅を確認",
+    "targeted_tests": {
+      "command": "pytest 検証/テンプレート充填回帰.py 検証/色群充填回帰.py 検証/既存穴充填回帰.py",
+      "passed": 15
+    },
+    "status": "局所修正候補として保持。性能向上および次回公式提出候補とは扱わない"
+  },
+  "hidden_or_evaluation_solutions_read": false,
+  "official_submission_made": false
+}

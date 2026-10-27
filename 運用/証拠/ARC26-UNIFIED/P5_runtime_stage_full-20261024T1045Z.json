@@ -1,0 +1,60 @@
+{
+  "format": "arc2-runtime-stage-full-v1",
+  "experiment_id": "P5_runtime_stage_full_20261024T1045Z",
+  "observed_at_utc": "2026-10-24T10:57:22.341628Z",
+  "source_commit": "dae0a5dbe124a0c4a01bd69a26dda0036d0379e0+dirty",
+  "hds_submodule_commit": "f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "payload_sha256": "b119dfa9852c57dd9d5b6a2121322c50ca70c8f2ec497132a679ba0b220eafa7",
+  "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "connector_sha256": "d1b31e1c39aac62e99b86a1bbf267725e5306a13f54fced6690e67e133345f55",
+  "tasks": 240,
+  "test_inputs": 259,
+  "rows_returned": 259,
+  "answer_rows": 5,
+  "hold_rows": 254,
+  "audit_fallback_rows": 254,
+  "audit_hold_matches": 254,
+  "audit_only_rows": 0,
+  "direct_only_rows": 0,
+  "output_shape_errors": 0,
+  "fallback_reason_counts": {
+    "現行暫定原理の適用に必要な観測が不足している": 254,
+    "原因未確定で隔離中の原理が存在する": 2
+  },
+  "solver_status_counts": {
+    "no_answer": 254,
+    "answer": 5
+  },
+  "minimum_support_task_counts": {
+    "2": 45,
+    "3": 195
+  },
+  "family_record_count": 25680,
+  "family_state_counts": {
+    "充足する候補なし": 25675,
+    "全教師再現": 4,
+    "教師反例により不採用": 1
+  },
+  "family_adoptable_counts": {
+    "False": 25676,
+    "True": 4
+  },
+  "family_equality_admitted_counts": {
+    "True": 49,
+    "False": 25631
+  },
+  "quarantined_count_sum": 2,
+  "candidate_prediction_rows": 5,
+  "prior_example_count": 2,
+  "exception_counts": {},
+  "warning_counts": {
+    "RuntimeWarning": 605
+  },
+  "threads_option_warning_count": 605,
+  "evaluation_solutions_read": false,
+  "hidden_test_outputs_present": false,
+  "task_identifiers_or_grids_saved": false,
+  "fallback_counted_correct": false,
+  "runtime_seconds": 666.594,
+  "interpretation": "full-population stage diagnosis, not an accuracy evaluation"
+}

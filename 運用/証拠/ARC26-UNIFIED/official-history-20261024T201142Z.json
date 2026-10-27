@@ -1,0 +1,43 @@
+{
+  "command": ".venv\\Scripts\\python.exe -m kaggle competitions submissions -c arc-prize-2026-arc-agi-2",
+  "observed_at_utc": "2026-10-24T20:11:42Z",
+  "returncode": 0,
+  "read_only": true,
+  "new_submission_or_rerun_performed": false,
+  "previous_refs": [
+    57576155,
+    57560705,
+    57517199,
+    55046979,
+    55038338,
+    54709840,
+    53996447,
+    53962702
+  ],
+  "current_refs": [
+    57576155,
+    57560705,
+    57517199,
+    55046979,
+    55038338,
+    54709840,
+    53996447,
+    53962702
+  ],
+  "history_unchanged": true,
+  "latest_submission": {
+    "ref": 57576155,
+    "fileName": "submission.json",
+    "date": "2026-10-24T00:12:39.127000Z",
+    "description": "ARC2 score-feedback candidate v5 2026-10-24",
+    "status": "SubmissionStatus.COMPLETE",
+    "publicScore": "0.00",
+    "privateScore": ""
+  },
+  "official_score": "0.00",
+  "score_state": "NUMERIC",
+  "official_status": "COMPLETE",
+  "last_submitted_utc_day": "2026-10-24",
+  "daily_quota_already_used": true,
+  "next_check_at_utc": "2026-10-24T20:48:28.375986Z"
+}

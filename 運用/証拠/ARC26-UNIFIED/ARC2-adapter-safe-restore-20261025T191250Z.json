@@ -1,0 +1,24 @@
+{
+  "schema": "arc26-v5-arc2-adapter-safe-restore-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-25T19:12:50Z",
+  "adapter_path": "接続/ARC2/Kaggle提出.py",
+  "adapter_before_sha256": "b900cae71cf72719dd0cdd2e67eaa971a1aaeab3dae552691713cc0f7ef39094",
+  "preserved_snapshot_path": "運用/証拠/ARC26-UNIFIED/ARC2-Kaggle提出-adapter-b900cae7-before-safe-restore.py",
+  "preserved_snapshot_sha256": "b900cae71cf72719dd0cdd2e67eaa971a1aaeab3dae552691713cc0f7ef39094",
+  "adapter_after_sha256": "f2c9858c250e612dc17526cffdacdfb3502212a46b5a1fe1c60779fa51ae2b0c",
+  "verified_source_bundle": "出力/Kaggle/arc2-codex-main-baseline-v1/v12-safe-feature-neighbor-20261026/bundle.zip",
+  "verified_payload_sha256": "bd13836d7ff3e14b18a13f159c6c2c62aa262521fc2d12f6daf0e5245dd499c5",
+  "bundle_manifest_adapter_sha256": "f2c9858c250e612dc17526cffdacdfb3502212a46b5a1fe1c60779fa51ae2b0c",
+  "targeted_validation": {
+    "command": ".venv\\Scripts\\python.exe -m pytest -q 検証/test_Kaggle提出安全ゲート.py 検証/test_ARC2Kaggle提出.py",
+    "result": "20 passed in 2.00s",
+    "safety_test_sha256": "7f94277eb7dc5488139da7d689735fb9dd89cf08367328dff007027516189267",
+    "submission_test_sha256": "6818e47a9aac135a282d81e82c5a8d7224901526a89c5022c685eee88ac36f88"
+  },
+  "protected_files": {
+    "AGENTS.md": "315998bc0549de61f70fda28a9c9923bea8a61ba6d9b79019283165e5438109b",
+    "制御/現在状態.json": "773fdfdd37aad115c6bbbc879304142136654db649eb1954cde0d69eb14aa6d"
+  },
+  "official_submission_performed": false
+}

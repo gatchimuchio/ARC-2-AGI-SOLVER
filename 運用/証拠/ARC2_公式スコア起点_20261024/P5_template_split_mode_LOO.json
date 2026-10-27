@@ -1,0 +1,33 @@
+{
+  "baseline_exact": 0,
+  "baseline_unique_candidate_answers": 0,
+  "baseline_wrong": 0,
+  "challenge_inputs_read": false,
+  "data_source": "public ARC-AGI-2 training split only",
+  "decision": "REJECT_NO_INCREMENTAL_LOO_ANSWER",
+  "disagreements_on_baseline_answered_folds": 0,
+  "elapsed_seconds": 9.776,
+  "eligible_tasks_minimum_teacher_support_3": 267,
+  "evaluation_solutions_read": false,
+  "excluded_prior_source_folds": 0,
+  "fixed_prior_examples": 2,
+  "fixed_prior_source_tasks_excluded_from_evaluation": 1,
+  "hypothesis": "Infer a generic split_mode from complete teacher pairs; answer only if every surviving split_mode produces one identical query grid.",
+  "incremental_answers": 0,
+  "incremental_exact": 0,
+  "incremental_wrong": 0,
+  "instruction_id": "ARC2-SCORE-GATE-20261024",
+  "loo_folds": 1191,
+  "public_training_files": 1000,
+  "schema": "arc2-template-hole-mode-loo.v1",
+  "source_commit": "2759d393a8d79824d36754785ce16f66d0493ebd",
+  "source_sha256": {
+    "接続/ARC2/テンプレート充填教材.json": "8f5f24571f0457c44af68b57b9aebbcf4dabbb9164f24942108e1b98f635f112",
+    "接続/ARC2/既存穴充填.py": "451d07ba636d4e4ce5a2443cfe56745f55fd16cf8845a2f4c9f62abd08d78b53"
+  },
+  "split_mode_candidate_answers": 0,
+  "split_mode_candidate_exact": 0,
+  "split_mode_candidate_wrong": 0,
+  "task_identifiers_or_grids_saved": false,
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8"
+}

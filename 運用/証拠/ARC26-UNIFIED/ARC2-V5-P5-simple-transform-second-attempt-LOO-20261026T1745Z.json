@@ -1,0 +1,52 @@
+{
+  "schema": "arc2-v5-simple-transform-second-attempt-loo.v1",
+  "experiment_id": "ARC26-ARC2-V5-P5-SIMPLE-TRANSFORM-SECOND-ATTEMPT-LOO",
+  "data_source": "public ARC-AGI-2 training split; task-level heldout output used only by scorer",
+  "training_manifest_sha256": "aacf94e3c2985d334d26890dde20516f4c178b88cdec2651d6350158354faed1",
+  "heldout_output_passed_to_solver": false,
+  "fallback_counted_correct": false,
+  "task_identifiers_or_grids_saved": false,
+  "candidate_policy": "second slot only; exact-fit simple transforms with at least two model votes; excludes first, current second, and input copy",
+  "loo_folds_scanned": 2916,
+  "complete": true,
+  "feature_neighbor_candidate_folds": 132,
+  "previous_paired_exact": 54,
+  "current_paired_exact": 54,
+  "paired_delta_exact": 0,
+  "paired_gains": 0,
+  "paired_regressions": 0,
+  "paired_unchanged": 132,
+  "distinct_second_candidates": 1,
+  "selected_support_counts": {
+    "4": 1
+  },
+  "max_transform_model_agreement_counts": {
+    "0": 89,
+    "1": 11,
+    "10": 3,
+    "2": 4,
+    "3": 6,
+    "4": 3,
+    "5": 6,
+    "6": 1,
+    "7": 5,
+    "8": 2,
+    "9": 2
+  },
+  "source_sha256_start": {
+    "runner": "2e6bf1cf74f16105194001de4e13e340b1f142d41b665260e594df90d0fe4372",
+    "hds_connector": "046f60a3d668c07fcf3c0e62e2d107d93374fbc4f5213788e39e658f915e9295",
+    "feature_neighbor_module": "5cd2e0d39709576702dfa42474c1232ca0e14371e486ad4dfc7b35f8f0ac8726",
+    "simple_transform_module": "efe210a4e183de93b5318aadeac7d2b5022a562189839b2ce1a414d367b5b0d3",
+    "submission_adapter": "f2c9858c250e612dc17526cffdacdfb3502212a46b5a1fe1c60779fa51ae2b0c"
+  },
+  "source_sha256_end": {
+    "runner": "2e6bf1cf74f16105194001de4e13e340b1f142d41b665260e594df90d0fe4372",
+    "hds_connector": "046f60a3d668c07fcf3c0e62e2d107d93374fbc4f5213788e39e658f915e9295",
+    "feature_neighbor_module": "5cd2e0d39709576702dfa42474c1232ca0e14371e486ad4dfc7b35f8f0ac8726",
+    "simple_transform_module": "efe210a4e183de93b5318aadeac7d2b5022a562189839b2ce1a414d367b5b0d3",
+    "submission_adapter": "f2c9858c250e612dc17526cffdacdfb3502212a46b5a1fe1c60779fa51ae2b0c"
+  },
+  "source_hashes_unchanged": true,
+  "seconds": 528.847
+}

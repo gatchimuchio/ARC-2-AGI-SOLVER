@@ -1,0 +1,42 @@
+{
+  "schema": "arc2-local-linux-deadline-synthetic-root-observation-v1",
+  "observed_at_utc": "2026-10-27T02:02:08.504615+00:00",
+  "scope": "Local WSL Linux synthetic processes only; not Kaggle host proof or public/HDS evaluation.",
+  "python": "3.12.3",
+  "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "exit_code": 0,
+  "checks": [
+    {
+      "name": "actual_posix_group_descendant_cleanup",
+      "passed": true,
+      "seconds": 0.707
+    },
+    {
+      "name": "actual_global_cutoff_ordered_all_id_fallback",
+      "passed": true,
+      "seconds": 1.3698,
+      "fallback_rows": 16
+    },
+    {
+      "name": "actual_linux_outer_atexit_join",
+      "passed": true,
+      "seconds": 1.4397
+    },
+    {
+      "name": "actual_linux_outer_publication_recovery",
+      "passed": true,
+      "seconds": 1.4287
+    }
+  ],
+  "tool_output_chunk": "7d8648",
+  "runtime_pins": {
+    "deadline_control.py": "fd20d8b0609882b83217a7356a6175cd549c63a4c13ba7b9b852bc27a0a39f27",
+    "Kaggle提出.py": "dc90314d9fa18626c67b02177ddac9fd9ec2d1ef89bc3b5f76ae013861a15213",
+    "solve.py": "740ebb543f6fbed996b12fff96cbb3b2892c964ece66d692e29445450ecac7af",
+    "outer_watchdog.py": "a26b1711cc77ad9797dcded9ad63427ea656ca27193fe7c5c2f24a1585473347",
+    "deadline_notebook_template.ipynb": "5656c167e134daeab2350b1c143664c4a8ef5b0ffe85a7c6ae6e30eb7b86e0dd"
+  },
+  "smoke_sha256": "830ad6564597c249476a5081b794d46c91c39a903557400000d6c786c9062237",
+  "kaggle_runtime_proof": false,
+  "production_changed": false
+}

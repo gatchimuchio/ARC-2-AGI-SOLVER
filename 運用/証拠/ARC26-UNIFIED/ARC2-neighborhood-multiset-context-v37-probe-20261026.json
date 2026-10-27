@@ -1,0 +1,28 @@
+{
+  "schema": "arc2-neighborhood-multiset-context-v37-probe-v1",
+  "candidate": {
+    "context": "center color plus unordered multiset of four orthogonal neighbors",
+    "minimum_distinct_teacher_pair_support": 2,
+    "uses_only_shape_compatible_teacher_pairs": true,
+    "conflicting_context_outputs_are_held": true,
+    "unknown_contexts_keep_input_color": true
+  },
+  "loo_eligible_folds": 2916,
+  "loo_folds_with_compatible_teacher": 905,
+  "loo_folds_with_candidate": 186,
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "challenge_examples_with_compatible_teacher": 92,
+  "challenge_examples_with_candidate": 21,
+  "challenge_tasks_with_candidate": 21,
+  "heldout_outputs_read": false,
+  "challenge_targets_read": false,
+  "per_task_ids_grids_or_candidates_saved": false,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "dabc0ddea3441678760efba4fb6cda3b83ddf7b00a7e3d95f91e9126c23dc69c",
+    "challenge_inputs": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "training_source_tree_manifest": "059492c5a178bd93dc6dcbbc3602bbacad9de304851b67228f85383e5f7dd069",
+    "v28_build_manifest": "8bafa314ddb1e25831769d38f3e1d779fc3b6c060a002cd91caccf5e37529f17"
+  }
+}

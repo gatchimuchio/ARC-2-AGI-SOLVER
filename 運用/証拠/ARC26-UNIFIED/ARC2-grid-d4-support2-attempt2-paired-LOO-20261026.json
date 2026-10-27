@@ -1,0 +1,29 @@
+{
+  "schema": "arc2-grid-d4-support2-attempt2-paired-loo-v1",
+  "source_split": "official ARC-AGI-2 training",
+  "training_tasks": 1000,
+  "eligible_loo_folds": 2916,
+  "candidate_fit_folds": 32,
+  "candidate_distinct_from_primary_folds": 4,
+  "worker_errors": 0,
+  "baseline_exact_folds": 4,
+  "current_exact_folds": 4,
+  "delta_exact_folds": 0,
+  "newly_correct_folds": 0,
+  "regressed_folds": 0,
+  "changed_attempt_1_folds": 0,
+  "changed_attempt_2_folds": 0,
+  "distinct_attempt_pairs_baseline": 4,
+  "distinct_attempt_pairs_current": 4,
+  "runtime_received_heldout_outputs": false,
+  "heldout_outputs_read_only_after_all_runtime_predictions": true,
+  "per_task_predictions_or_targets_saved": false,
+  "candidate_policy": "two distinct teacher inputs must agree on one D4 transform or bijective palette map; fills attempt_2 only when distinct and both existing attempts are identical",
+  "elapsed_seconds": 27.797,
+  "source_sha256": {
+    "runner": "45eb3c8e63d6d49bfb61726ecd5554d79330b7d4803752912965694e34efb2f1",
+    "d4_module": "a5d6a2eedb063a876b47cd5d2fdf28cec13af535d89b9fef65df41b81c5ccf18",
+    "hds_connector": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe",
+    "kaggle_adapter": "c5b9c76f68b950b16e0843b57ba9ce2771e958b4e06905427697dd190a55f555"
+  }
+}

@@ -266,6 +266,186 @@ def render_model(grid, background_rule, passive_policy='preserve'):
         return None, {**record, 'failure': 'unique_role_render_failed'}
     return output, record
 
+
+def support_boundary_role(grid, background_rule):
+    """Find a fully-owned multi-key stamp using rays from actual support pixels."""
+    if not valid_grid(grid):
+        return None, {'failure': 'invalid_arc_grid'}
+    height, width = len(grid), len(grid[0])
+    palette = sorted({v for row in grid for v in row})
+    scores = background_scores(grid, background_rule)
+    winners = [colour for colour, value in scores.items() if value == max(scores.values())]
+    if len(winners) != 1:
+        return None, {'failure': 'ambiguous_background', 'background_scores': scores,
+                      'background_winners': winners}
+    background = winners[0]
+    supports = {colour: {(r, c) for r, row in enumerate(grid) for c, value in enumerate(row)
+                         if value == colour} for colour in palette}
+    foreground = {(r, c) for r, row in enumerate(grid) for c, value in enumerate(row)
+                  if value != background}
+    role_candidates, role_records = [], []
+    for shape_colour in palette:
+        if shape_colour == background:
+            continue
+        parts = components(supports[shape_colour], True)
+        raw_codes, per_component = [], []
+        for component, part in enumerate(parts):
+            component_codes, seen = [], set()
+            for anchor in sorted(part):
+                for dr, dc in ((-1, 0), (1, 0), (0, -1), (0, 1)):
+                    value_cell = (anchor[0] + dr, anchor[1] + dc)
+                    key_cell = (anchor[0] + 2 * dr, anchor[1] + 2 * dc)
+                    if not all(0 <= r < height and 0 <= c < width
+                               for r, c in (value_cell, key_cell)):
+                        continue
+                    value = grid[value_cell[0]][value_cell[1]]
+                    key = grid[key_cell[0]][key_cell[1]]
+                    if (value == key or value in (background, shape_colour)
+                            or key in (background, shape_colour)):
+                        continue
+                    signature = (key, value, key_cell, value_cell, anchor)
+                    if signature in seen:
+                        continue
+                    seen.add(signature)
+                    component_codes.append({'raw_id': len(raw_codes) + len(component_codes),
+                                            'component': component, 'anchor': anchor,
+                                            'key_cell': key_cell, 'value_cell': value_cell,
+                                            'key': key, 'value': value})
+            per_component.append(component_codes)
+            raw_codes.extend(component_codes)
+        reason = None
+        if len(raw_codes) < 2:
+            reason = 'fewer_than_two_support_rays'
+        elif any(not codes for codes in per_component):
+            reason = 'shape_component_without_support_ray'
+        elif len({item['key'] for item in raw_codes}) != len(raw_codes):
+            reason = 'non_unique_support_ray_keys'
+        code_cells = {cell for item in raw_codes for cell in (item['key_cell'], item['value_cell'])}
+        if reason is None and (supports[shape_colour] & code_cells
+                               or len(code_cells) != 2 * len(raw_codes)):
+            reason = 'support_ray_code_ownership_overlap'
+        remaining = foreground - supports[shape_colour] - code_cells
+        keys = {item['key'] for item in raw_codes}
+        if reason is None and any(grid[r][c] not in keys for r, c in remaining):
+            reason = 'unmatched_foreground_outside_support_rays'
+        if reason is None:
+            for part in parts:
+                top, left, bottom, right = box(part)
+                if any(grid[r][c] != background
+                       and (r, c) not in supports[shape_colour]
+                       and (r, c) not in code_cells
+                       for r in range(top, bottom + 1) for c in range(left, right + 1)):
+                    reason = 'unowned_foreground_inside_template_box'
+                    break
+        if reason is not None:
+            role_records.append({'shape_colour': shape_colour, 'raw_code_count': len(raw_codes),
+                                 'per_component_ray_counts': [len(codes) for codes in per_component],
+                                 'rejection': reason})
+            continue
+        markers = {key: tuple(sorted((r, c) for r, c in remaining if grid[r][c] == key))
+                   for key in keys}
+        if any(not points for points in markers.values()):
+            role_records.append({'shape_colour': shape_colour, 'raw_code_count': len(raw_codes),
+                                 'per_component_ray_counts': [len(codes) for codes in per_component],
+                                 'rejection': 'support_ray_key_without_markers'})
+            continue
+        templates = []
+        for item in raw_codes:
+            anchor = item['anchor']
+            part = parts[item['component']]
+            templates.append({**item, 'anchor': tuple(anchor),
+                              'shape_cells': tuple(sorted(part)),
+                              'offsets': tuple(sorted((r - anchor[0], c - anchor[1])
+                                                      for r, c in part)),
+                              'markers': markers[item['key']]})
+        role_candidates.append({'background': background, 'shape_colour': shape_colour,
+                                'templates': templates, 'metadata': frozenset(
+                                    supports[shape_colour] | code_cells),
+                                'unmatched': (), 'shape': (height, width),
+                                'shape_cell_count': len(supports[shape_colour]),
+                                'marker_count': len(remaining)})
+        role_records.append({'shape_colour': shape_colour, 'raw_code_count': len(raw_codes),
+                             'per_component_ray_counts': [len(codes) for codes in per_component],
+                             'keys': sorted(keys), 'markers_by_key': {
+                                 str(key): len(points) for key, points in sorted(markers.items())}})
+    record = {'background_rule': background_rule, 'background_scores': scores,
+              'background_winners': winners, 'support_boundary_roles': role_records,
+              'support_boundary_role_count': len(role_candidates)}
+    if len(role_candidates) != 1:
+        return None, {**record, 'failure': 'support_boundary_role_not_unique'}
+    return role_candidates[0], record
+
+
+def render_conflict_candidates(payload):
+    """Return nearest-owner outputs with first/last input-order tie handling."""
+    height, width = payload['shape']
+    proposals, clipped = defaultdict(list), []
+    proposal_order = 0
+    for template in payload['templates']:
+        for marker_index, (marker_r, marker_c) in enumerate(template['markers']):
+            for source_index, (dr, dc) in enumerate(template['offsets']):
+                r, c = marker_r + dr, marker_c + dc
+                if 0 <= r < height and 0 <= c < width:
+                    proposals[(r, c)].append({'value': template['value'],
+                                              'marker': (marker_r, marker_c),
+                                              'key': template['key'],
+                                              'raw_id': template['raw_id'],
+                                              'order': proposal_order})
+                else:
+                    clipped.append([template['raw_id'], marker_index, source_index, r, c])
+                proposal_order += 1
+    mixed_conflicts = {point: values for point, values in proposals.items()
+                       if len({item['value'] for item in values}) > 1}
+    if not mixed_conflicts:
+        return None, {'failure': 'no_different_colour_overlap',
+                      'proposal_count': proposal_order,
+                      'mixed_colour_conflict_count': 0}
+    outputs, tied_owner_cells = [], 0
+    for choose_last in (False, True):
+        output = [[payload['background']] * width for _ in range(height)]
+        for r, c, value in payload['unmatched']:
+            output[r][c] = value
+        for (r, c), values in proposals.items():
+            distances = [abs(item['marker'][0] - r) + abs(item['marker'][1] - c)
+                         for item in values]
+            nearest = min(distances)
+            owners = [item for item, distance in zip(values, distances) if distance == nearest]
+            if len({item['value'] for item in owners}) > 1 and not choose_last:
+                tied_owner_cells += 1
+            chosen = (max if choose_last else min)(owners, key=lambda item: item['order'])
+            output[r][c] = chosen['value']
+        outputs.append(output)
+    record = {'policies': ['nearest_manhattan_first_input_order',
+                           'nearest_manhattan_last_input_order'],
+              'proposal_count': proposal_order, 'clipped_count': len(clipped),
+              'mixed_colour_conflict_count': len(mixed_conflicts),
+              'nearest_owner_tie_cell_count': tied_owner_cells,
+              'distinct_outputs': outputs[0] != outputs[1]}
+    if outputs[0] == outputs[1]:
+        return None, {**record, 'failure': 'nearest_owner_policies_agree'}
+    return outputs, record
+
+
+def render_support_model(grid, background_rule):
+    payload, parse_record = support_boundary_role(grid, background_rule)
+    if payload is None:
+        return None, {'failure': 'support_boundary_input_not_interpretable',
+                      'parse': parse_record}
+    output, render_record = render_role(payload)
+    if output is not None:
+        return output, {'parse': parse_record, 'render': render_record,
+                        'support_boundary_role': True}
+    candidates, candidate_record = render_conflict_candidates(payload)
+    if candidates is None:
+        return None, {'failure': 'support_boundary_render_failed',
+                      'parse': parse_record, 'render': render_record,
+                      'candidate_render': candidate_record}
+    return None, {'failure': 'support_boundary_overlap_requires_attempt_choice',
+                  'parse': parse_record, 'render': render_record,
+                  'candidate_attempts': candidates,
+                  'candidate_attempt_policies': candidate_record['policies'],
+                  'candidate_render': candidate_record}
+
 def fit_teachers(teachers):
     if (type(teachers) not in (list,tuple) or len(teachers)<2
         or any(type(pair) is not dict or not valid_grid(pair.get('input'))
@@ -293,6 +473,32 @@ def predict(grid, model):
     records = [{'rule':rule,'record':d} for rule,(_,d) in zip(model['background_rules'],evaluations)]
     outputs = [out for out,_ in evaluations]
     if any(out is None for out in outputs):
+        if all(out is None for out in outputs):
+            support_evaluations = [render_support_model(grid, rule)
+                                   for rule in model['background_rules']]
+            support_outputs = [out for out, _ in support_evaluations]
+            support_records = [{'rule': rule, 'record': record}
+                               for rule, (_, record) in zip(model['background_rules'],
+                                                           support_evaluations)]
+            if support_outputs and all(out is not None for out in support_outputs):
+                if all(out == support_outputs[0] for out in support_outputs):
+                    return support_outputs[0], {'all_candidates': records,
+                                                'support_boundary_candidates': support_records,
+                                                'all_support_boundary_rules_agree': True}
+            pairs = [record.get('candidate_attempts')
+                     if isinstance(record, dict) else None
+                     for _, record in support_evaluations]
+            valid_pairs = [isinstance(pair, list) and len(pair) == 2
+                           and all(valid_grid(grid) for grid in pair)
+                           and pair[0] != pair[1] for pair in pairs]
+            if pairs and all(valid_pairs) and all(pair == pairs[0] for pair in pairs):
+                return None, {'failure': 'overlap_requires_attempt_choice',
+                              'candidate_attempts': pairs[0],
+                              'candidate_attempt_policies': support_evaluations[0][1][
+                                  'candidate_attempt_policies'],
+                              'all_candidates': records,
+                              'support_boundary_candidates': support_records,
+                              'all_support_boundary_rules_agree': True}
         return None, {'failure':'retained_candidate_failed','all_candidates':records}
     if any(out != outputs[0] for out in outputs):
         return None, {'failure':'retained_candidates_disagree','all_candidates':records}

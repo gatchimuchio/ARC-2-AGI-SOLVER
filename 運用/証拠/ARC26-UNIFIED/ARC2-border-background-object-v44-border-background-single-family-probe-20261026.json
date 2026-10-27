@@ -1,0 +1,21 @@
+{
+  "schema": "arc2-border-background-object-v44-probe-v1",
+  "background_policy": "most frequent color among all border cells; ties choose lowest color",
+  "candidate_agreement": "a unique top grid from object, outlier, and palette families; single-family support is allowed",
+  "loo_eligible_folds": 2916,
+  "loo_candidate_proposal_folds": 60,
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "challenge_tasks_with_candidate": 4,
+  "challenge_examples_with_candidate": 4,
+  "heldout_outputs_read": false,
+  "challenge_targets_read": false,
+  "per_task_ids_grids_or_candidates_saved": false,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "ae00de7fc7b1e6921a4e4a314029e430fe0003178c996adeee934242ce3ad61d",
+    "object_module": "d0bd26fb4e6619ca20bc6dc8b02d2aa569769392825140c77170978adaac2fd5",
+    "challenge_inputs": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "v28_build_manifest": "8bafa314ddb1e25831769d38f3e1d779fc3b6c060a002cd91caccf5e37529f17"
+  }
+}

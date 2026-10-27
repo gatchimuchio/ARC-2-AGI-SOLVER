@@ -72,6 +72,7 @@ def API作成(status=KernelWorkerStatus.COMPLETE, ファイル名=("submission.j
     remote.get_kernel.return_value = Notebook
     api = Mock()
     api.build_kaggle_client.side_effect = lambda: nullcontext(client)
+    api.competition_submissions.return_value = []
     api.competition_submit_code.return_value = SimpleNamespace(ref=123)
     return api, remote
 

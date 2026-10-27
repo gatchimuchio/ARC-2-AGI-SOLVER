@@ -1,0 +1,67 @@
+{
+  "schema": "arc2-cell-tree-synthetic-validation-v1",
+  "scope": "isolated_experiment_only",
+  "module_sha256": "f1116b7c386baad86a958af5f936b598960e83a64a9644b548efbda3978a49c4",
+  "test_sha256": "4b8aa32a197d793639117e1116c032d608d5a46c980501e97ce4773f664223ea",
+  "command": "& '.venv/Scripts/python.exe' -m pytest -q '運用/証拠/ARC26-UNIFIED/ARC2-cell-conditional-tree/test_cell_conditional_tree.py'",
+  "exit_code": 0,
+  "pytest_summary": "14 passed in 5.32s",
+  "tool_chunk_id": "1f1e68",
+  "source_primitives_reused": {
+    "接続/ARC2/局所近傍変換候補.py": "6643eb9f1900b0774aa0fe0701650c5410ab5fde05fb538be368c96a71194bd8",
+    "接続/ARC2/既存物体特徴.py": "e7a662182961e45cdba38a00bbd267ad03261cb1217dc8d08f2d867d9f4acc60",
+    "接続/ARC2/HDS接続.py": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe"
+  },
+  "default_grammar": {
+    "feature_categories": 33,
+    "typed_role_programs": 11,
+    "constant_color_programs": 10,
+    "raw_absolute_coordinates_used": false,
+    "same_shape_per_teacher_pair": true
+  },
+  "bounds": {
+    "max_depth": 3,
+    "max_nodes_per_realized_tree": 15,
+    "max_teachers": 8,
+    "max_training_cells": 4096,
+    "minimum_distinct_teacher_inputs_per_leaf": 2,
+    "minimum_cell_support": 2,
+    "max_fit_states": 256,
+    "max_alternatives_per_subproblem": 32,
+    "max_work_units": 2000000
+  },
+  "synthetic_features_subset_generalization": {
+    "default_full_grammar": true,
+    "novel_input_colors_and_contexts": true,
+    "candidate_correct": true,
+    "exact_context_baseline_correct": false,
+    "public_generalization_claimed": false
+  },
+  "synthetic_same_eligibility_feedback": {
+    "current_train_previous": 3,
+    "current_train_current": 4,
+    "fixed_grammar": ["border_top", "border_left"],
+    "both_phases_minimum_distinct_leaf_teacher_support_satisfied": true,
+    "both_phases_default_hds_equality_admitted": true,
+    "same_unseen_query_previous_correct": 0,
+    "same_unseen_query_current_correct": 1,
+    "same_unseen_query_correct_delta": 1,
+    "previous_reason": "ambiguous_minimal_trees",
+    "previous_unseen_hds_queried": false,
+    "current_unseen_hds_queried": true,
+    "typed_forest_changed": true,
+    "all_current_train_grids_replayed": 4,
+    "unseen_target_passed_to_fit": false,
+    "separate_external_model_and_hds_instances_per_phase": true,
+    "same_python_process": true
+  },
+  "default_hds_three_observation_gate_preserved": true,
+  "actual_hds_counterexample_rejection_exercised": true,
+  "hds_hold_bypass_forbidden_and_tested": true,
+  "fresh_process_typed_external_state_reload_exercised": true,
+  "hds_core_tree_discovery_exercised": false,
+  "hds_memory_persistence_exercised": false,
+  "public_heavy_study_run_by_this_agent": false,
+  "production_adopted": false,
+  "official_kaggle_score": null
+}

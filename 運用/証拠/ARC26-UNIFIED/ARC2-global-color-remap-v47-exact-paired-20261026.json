@@ -1,0 +1,49 @@
+{
+  "schema": "arc2-global-color-remap-v47-exact-paired-v1",
+  "loo_eligible_folds": 2916,
+  "loo_candidate_proposal_folds": 13,
+  "loo_exact_v28_bundle_paired": {
+    "v28_exact": 10,
+    "candidate_exact_outputs": 10,
+    "candidate_usable_when_v28_slot_duplicate": 1,
+    "newly_correct": 0,
+    "regressions": 0
+  },
+  "challenge_tasks": 240,
+  "challenge_examples": 259,
+  "challenge_tasks_with_candidates": 1,
+  "challenge_examples_with_candidates": 1,
+  "challenge_candidate_tasks_exact_v28_bundle_paired": {
+    "examples_evaluated_in_candidate_tasks": 1,
+    "baseline_exact_examples": 1,
+    "combined_exact_examples": 1,
+    "candidate_proposals": 1,
+    "candidate_exact_outputs": 1,
+    "candidate_usable_when_v28_slot_duplicate": 0,
+    "newly_correct_examples": 0,
+    "regressed_examples": 0,
+    "baseline_exact_tasks": 1,
+    "combined_exact_tasks": 1,
+    "newly_correct_tasks": 0,
+    "regressed_tasks": 0
+  },
+  "exact_v28_runtime_tasks": 14,
+  "exact_v28_runtime_seconds": 35.049,
+  "exact_v28_fallback_count": 1,
+  "exact_v28_temporary_output_sha256": {
+    "submission": "7203747d165e2e0e06a3f1b168fa9d8bfac6f8b4e30805d33883b9fa5df6d9d3",
+    "audit": "3f8eb3f1a6db12be6b405bda673828c55b223032788971d81c5ac65b359846d0"
+  },
+  "candidate_runtime_received_heldout_outputs": false,
+  "exact_v28_runtime_received_heldout_or_challenge_targets": false,
+  "all_targets_read_after_both_prediction_sets": true,
+  "per_task_ids_grids_predictions_or_targets_saved": false,
+  "temporary_outputs_and_payload_removed": true,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "447e075cec9ba924a6817c4c2999c1f382a2cda96457b7a70a8f81ed9a1cb797",
+    "candidate_probe": "8241e05868e238e854e276b3e3dc1a69e8b517280d24400a9522e468a67af4ba",
+    "challenge_inputs": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "v28_build_manifest": "8bafa314ddb1e25831769d38f3e1d779fc3b6c060a002cd91caccf5e37529f17"
+  }
+}

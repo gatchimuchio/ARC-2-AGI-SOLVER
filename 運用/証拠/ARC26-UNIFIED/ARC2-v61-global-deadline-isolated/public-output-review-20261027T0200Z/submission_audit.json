@@ -1,0 +1,2293 @@
+{
+  "format": "arc2-kaggle-submission-audit-v1",
+  "generated_at_utc": "2026-10-27T02:21:47.869356+00:00",
+  "source_commit": "dae0a5dbe124a0c4a01bd69a26dda0036d0379e0+dirty+v50-local-prior-memory+v51-largest-component-object+v61-teacher-pair-consensus",
+  "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "challenge_file": "arc-agi_test_challenges.json",
+  "tasks": 240,
+  "test_examples": 259,
+  "attempts_per_test": 2,
+  "fallback_count": 249,
+  "solver_hold_reason_counts": {
+    "原因未確定で隔離中の原理が存在する": 2,
+    "現行暫定原理の適用に必要な観測が不足している": 249
+  },
+  "fallbacks": [
+    {
+      "task_id": "007bbfb7",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "00d62c1b",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "00dbd492",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "017c7c7b",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "025d127b",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "03560426",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "045e512c",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "0520fde7",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "05269061",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "05a7bcf2",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "05f2a901",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "0607ce86",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "0692e18c",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "06df4c85",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "070dd51e",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "08ed6ac7",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "09629e4f",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "0962bcdd",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "09c534e7",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "0a1d4ef5",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "0a2355a6",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "0a938d79",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "0b148d64",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "0b17323b",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "0bb8deee",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "0becf7df",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "0c9aba6e",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "0ca9ddb6",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "0d87d2a6",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "0e206a2e",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "0e671a1a",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "0f63c0b9",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "103eff5b",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "10fcaaa3",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "11852cab",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1190bc91",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1190e5a7",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "11dc524f",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "11e1fe23",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "12422b43",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "12997ef3",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "12997ef3",
+      "test_index": 1,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "12eac192",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "13713586",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "137eaa0f",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "137f0df0",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "13f06aa5",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "140c817e",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "14754a24",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1478ab18",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "14b8e18c",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "150deff5",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "15113be4",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "15660dd6",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "15663ba9",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "15696249",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "17829a00",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "178fcbfb",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "17b80ad2",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "17b866bd",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "17b866bd",
+      "test_index": 1,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "17cae0c1",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "18286ef8",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "182e5d0f",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "18419cfa",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "18447a8d",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "184a9768",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "195ba7dc",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1990f7a8",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "19bb5feb",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1a07d186",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1a244afd",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1a2e2828",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "原因未確定で隔離中の原理が存在する",
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1a6449f1",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1acc24af",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1b2d62fb",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "原因未確定で隔離中の原理が存在する",
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1b59e163",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1b60fb0c",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1b8318e3",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1be83260",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1be83260",
+      "test_index": 1,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1bfc4729",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1c02dbbe",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1c0d0a4b",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1c56ad9f",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1c786137",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1caeab9d",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1d0a4b61",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1d398264",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1d398264",
+      "test_index": 1,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1d61978c",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1da012fc",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1e0a9b12",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1e32b0e9",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1e5d6875",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1e81d6f9",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1efba499",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1f0c79e5",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1f642eb9",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1f85a75f",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "1fad071e",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2013d3e2",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2037f2c7",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2072aba6",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "20818e16",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "20981f0e",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "20fb2937",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "212895b5",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "21f83797",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2204b7a8",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "22168020",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "22208ba4",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "22233c11",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "22425bda",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "22806e14",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2281f1f4",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "228f6490",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "22a4bbc2",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "22eb0ac0",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "230f2e48",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "234bbc79",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "23581191",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "239be575",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "239be575",
+      "test_index": 1,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "23b5c85d",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "25094a63",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "252143c9",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "253bf280",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2546ccf6",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "256b0a75",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "25c199f5",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "25c199f5",
+      "test_index": 1,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "25d487eb",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "25d8a9c8",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "25e02866",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2601afb7",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "264363fd",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2685904e",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2697da3f",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "272f95fa",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2753e76c",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "278e5215",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "27a28665",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "27a28665",
+      "test_index": 1,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "27a28665",
+      "test_index": 2,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "27a77e38",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "27f8ce4f",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "281123b4",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "28bf18c6",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "28e73c20",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "292dd178",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "29623171",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "29700607",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "29c11459",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2a28add5",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2a5f8217",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2b01abd0",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2b9ef948",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2b9ef948",
+      "test_index": 1,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2bcee788",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2bee17df",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2c0b0aff",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2c608aff",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2c737e39",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2ccd9fef",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2ccd9fef",
+      "test_index": 1,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2dc579da",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2dd70a9a",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2de01db2",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2dee498d",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2e65ae53",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2f0c5170",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2f767503",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "2faf500b",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "305b1341",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "30f42897",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "310f3251",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3194b014",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "319f2597",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "31aa019c",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "31adaf00",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "31d5ba1a",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "31d5ba1a",
+      "test_index": 1,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "320afe60",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "320afe60",
+      "test_index": 1,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "321b1fc6",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "32597951",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "32e9702f",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "33067df9",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "332202d5",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "332efdb3",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3345333e",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "337b420f",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "337b420f",
+      "test_index": 1,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3391f8c0",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "33b52de3",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3428a4f5",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3428a4f5",
+      "test_index": 1,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "342ae2ed",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "342dd610",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3490cc26",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "34b99a2b",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "34cfa167",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "34cfa167",
+      "test_index": 1,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "351d6448",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "358ba94e",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3618c87e",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "363442ee",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "36d67576",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "36fdfd69",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "37ce87bb",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "37d3e8b2",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3906de3d",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "396d80d7",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3979b1a8",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "39a8645d",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "39e1d7f9",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3a301edc",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3aa6fb7a",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3ac3eb23",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3ad05f52",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3b4c2228",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3b4c2228",
+      "test_index": 1,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3bd292e8",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3bd67248",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3bdb4ada",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3befdf3e",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3cd86f4f",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3cd86f4f",
+      "test_index": 1,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3cd86f4f",
+      "test_index": 2,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3d31c5b3",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3d588dc9",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3d6c6e23",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3de23699",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3e980e27",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3eda0437",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3ee1011a",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3f23242b",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "3f7978a0",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "4093f84a",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "40f6cd08",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "412b6263",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "414297c0",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "41ace6b5",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "41e4d17e",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "423a55dc",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "4258a5f9",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "4290ef0e",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "42918530",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    }
+  ],
+  "seconds": 1233.203,
+  "submission_sha256": "827bccfc1cf51e2fc87d687ba51e1375899650a530ec00e7a20eb1f71eb2dd18",
+  "deadline_control": {
+    "run_state": "COMPLETE",
+    "all_tasks_processed": true,
+    "completed_task_count": 240,
+    "unprocessed_task_count": 0,
+    "scientific_correctness_evaluated": false,
+    "solved_count": null,
+    "absolute_deadline_monotonic": 214150.968,
+    "finalization_reserve_seconds": 600.0,
+    "max_inflight": 3,
+    "max_active_subprocesses": 3,
+    "capture_limit_bytes": 16777216,
+    "parent_error_type": null,
+    "remaining_owned_processes": 0,
+    "termination_signal_failures": 0,
+    "preflight_passed": true,
+    "run_token": "70b7758cc2ed454eb4255e9e0bec36d5",
+    "process_tree_backend": "windows_job_after_creation",
+    "tree_termination_scope": "OS signal/job acknowledgement plus direct-child reap; not unconditional OS liveness proof",
+    "whole_notebook_outer_watchdog_wired": true,
+    "outer_watchdog": {
+      "completed": true,
+      "deadline_terminated_runner": false,
+      "runner_returncode": 0,
+      "child_reaped": true,
+      "tree_termination_acknowledged": true,
+      "elapsed_seconds": 1234.547,
+      "whole_notebook_host_runtime_proved": false,
+      "windows_assignment_race_unproved": true
+    }
+  }
+}

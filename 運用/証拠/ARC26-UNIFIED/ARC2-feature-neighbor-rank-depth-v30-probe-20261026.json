@@ -1,0 +1,45 @@
+{
+  "schema": "arc2-feature-neighbor-rank-depth-v30-probe-v1",
+  "eligible_loo_folds": 2916,
+  "loo_baseline_candidate_folds": 132,
+  "loo_rank_depth_candidate_folds": 132,
+  "loo_changed_candidate_folds": 0,
+  "loo_candidate_exact": {
+    "baseline": 0,
+    "rank_depth": 0,
+    "newly_correct": 0,
+    "newly_wrong": 0
+  },
+  "loo_candidate_equal_to_held_input": 0,
+  "public_challenge_tasks": 240,
+  "public_challenge_examples": 259,
+  "public_candidate_examples": {
+    "baseline": 5,
+    "rank_depth": 5,
+    "changed": 0
+  },
+  "public_changed_tasks_for_exact_bundle": 0,
+  "public_candidate_exact": {
+    "baseline": 0,
+    "rank_depth": 0,
+    "newly_correct": 0,
+    "newly_wrong": 0
+  },
+  "candidate_generation_received_heldout_outputs": false,
+  "public_candidate_scan_received_test_targets": false,
+  "targets_read_after_all_candidate_generation": true,
+  "per_task_ids_grids_and_predictions_written": false,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "0c6d02872866e5fd4765f5bac835d5421fe7073e68bf5f07530a0966da927487",
+    "challenge": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "feature_neighbor": "5cd2e0d39709576702dfa42474c1232ca0e14371e486ad4dfc7b35f8f0ac8726",
+    "simple_transforms": "efe210a4e183de93b5318aadeac7d2b5022a562189839b2ce1a414d367b5b0d3"
+  },
+  "adoption_decision": {
+    "adopted": false,
+    "exact_bundle_built": false,
+    "reason": "The deeper-rank selector produced no candidate differing from the current selector across 2,916 eligible LOO folds or 259 public examples, so no exact-bundle evaluation was warranted.",
+    "production_unchanged": true
+  }
+}

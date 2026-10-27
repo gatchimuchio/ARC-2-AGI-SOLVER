@@ -1,0 +1,41 @@
+{
+  "track": "ARC2",
+  "experiment_id": "ARC2-KERNEL-V8-NBFORMAT-CELL-ID",
+  "observed_at_utc": "2026-10-24T17:19:10Z",
+  "change": "Notebook builder now emits a deterministic 12-hex cell id derived from generated cell source.",
+  "targeted_test": {
+    "name": "test_送信Notebookは正しいipynbでrunnerを起動する",
+    "result": "PASS",
+    "passed": 1
+  },
+  "nbformat_validation": {
+    "cell_count": 1,
+    "cell_id_present": true,
+    "warnings": 0,
+    "manifest_sha_match": true
+  },
+  "bundle": {
+    "source_commit": "dae0a5dbe124a0c4a01bd69a26dda0036d0379e0+dirty",
+    "notebook_sha256": "d30813ecbfb724ec4b62e23a9c5a9d558ad7496edfb919b0d2fe863317143c69",
+    "build_manifest_sha256": "c857ef13940e525d412294125e2cd3f6a2fa917337bb5f9d31298b2198930d75",
+    "payload_sha256": "b119dfa9852c57dd9d5b6a2121322c50ca70c8f2ec497132a679ba0b220eafa7"
+  },
+  "upload_stage": {
+    "files": [
+      "kernel-metadata.json",
+      "main.ipynb"
+    ],
+    "metadata_sha256": "d7de070ae4379246d8e26eece0ffe656ad44ba30fdc853bdc0af0957bc8a3a04",
+    "private": true,
+    "internet": false,
+    "competition_sources": [
+      "arc-prize-2026-arc-agi-2"
+    ]
+  },
+  "kernel_slug": "tecchannn/arc2-codex-main-baseline-v1",
+  "kernel_version": 8,
+  "post_push_status": "KernelWorkerStatus.RUNNING",
+  "competition_submission_performed": false,
+  "official_score_claimed": false,
+  "purpose": "Remove v7 MissingIDFieldWarning through bundle generation; no solver behavior change claimed."
+}

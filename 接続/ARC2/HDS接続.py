@@ -23,6 +23,10 @@ from .対角領域教材 import 対角領域教材
 from .軸反射教材 import 軸反射教材
 from .周期組修復教材 import 周期組修復教材
 from .格子D4教材 import 格子D4教材
+from .周期タイルD4教材 import 周期タイルD4教材
+from .特徴近傍変換選択 import FeatureNeighborTransform
+from .全前景平行移動教材 import 全前景平行移動教材
+from .C2_066_compound_foreground_D4_palette_translation import CompoundForegroundD4PaletteTranslation
 from .部分見本教材 import 部分見本教材
 from .穴形拡大教材 import 穴形拡大教材
 from .標識移動教材 import 標識移動教材
@@ -176,7 +180,45 @@ def 同値原理あり(原理群, 境界):
     )
 
 
-def 出力格子(機械, 観測, *, 同値必須=False):
+def _追加観測要求数(排気):
+    内容 = 排気.内容
+    要求群 = 内容.get("追加観測要求群", [])
+    不足経路数 = sum(bool(x.get("不足経路群")) for x in 要求群)
+    未知条件値数 = sum(
+        not bool(x.get("不足経路群")) and bool(x.get("未知条件値群"))
+        for x in 要求群
+    )
+    return {
+        "additional_observation_requests": len(要求群),
+        "missing_condition_path_requests": 不足経路数,
+        "unknown_condition_value_requests": 未知条件値数,
+        "other_additional_observation_requests": len(要求群) - 不足経路数 - 未知条件値数,
+        "conflict_records": len(内容.get("競合群", [])),
+        "unidentified_records": len(内容.get("識別不能群", [])),
+        "prediction_records": len(内容.get("予測群", [])),
+    }
+
+
+_追加観測数キー群 = (
+    "additional_observation_requests",
+    "missing_condition_path_requests",
+    "unknown_condition_value_requests",
+    "other_additional_observation_requests",
+    "conflict_records",
+    "unidentified_records",
+    "prediction_records",
+)
+
+
+def _追加観測数を合算(記録群):
+    合計 = {キー: 0 for キー in _追加観測数キー群}
+    for 記録 in 記録群:
+        for キー in _追加観測数キー群:
+            合計[キー] += 記録.get(キー, 0)
+    return 合計
+
+
+def 出力格子(機械, 観測, *, 同値必須=False, 観測診断=False):
     実行結果 = 機械.照会(観測)
     排気 = 最小排気系().排出する(実行結果)
     値群 = [p.予測値 for p in 実行結果.予測群 if p.結果経路 == ("出力",)]
@@ -186,12 +228,15 @@ def 出力格子(機械, 観測, *, 同値必須=False):
         and all(v == 値群[0] for v in 値群)
         and 有効格子(値群[0]) and (not 同値必須 or 同値あり)
     )
-    return {
+    出力 = {
         "answer": 値群[0] if 確定 else None,
         "status": 排気.状態, "reasons": 排気.内容["断定保留理由群"],
         "equality_admitted": 同値あり,
         "quarantined": len(実行結果.係争中原理群),
     }
+    if 観測診断:
+        出力["observation_request_counts"] = _追加観測要求数(排気)
+    return 出力
 
 
 def 候補機構を学習(機械, 課題, 事前教材, 境界, 候補器):
@@ -214,7 +259,9 @@ def 候補機構を学習(機械, 課題, 事前教材, 境界, 候補器):
             "隔離数": len(学習結果.係争中原理群) if 課題["train"] or 事前教材 else 0}
 
 
-def 課題を解く(課題, 事前教材):
+def 課題を解く(
+    課題, 事前教材, *, 候補収集=False, 観測診断=False
+):
     if set(課題) != {"train", "test"}:
         raise ValueError("runtime課題はtrain/testだけを受け取る")
     if any(set(対) != {"input"} for 対 in 課題["test"]):
@@ -226,9 +273,18 @@ def 課題を解く(課題, 事前教材):
     機械 = HDS学習実行系(最小支持数=必要支持数)
     for 対 in 課題["train"]:
         機械.実行(格子観測(対))
-    基底 = [出力格子(機械, 格子観測(対)) for 対 in 課題["test"]]
-    if all(結果["answer"] is not None for 結果 in 基底):
-        return {"results": 基底, "mechanism": "格子値基底", "minimum_support": 必要支持数}
+    基底 = [
+        出力格子(機械, 格子観測(対), 観測診断=観測診断)
+        for 対 in 課題["test"]
+    ]
+    基底だけで解決 = all(結果["answer"] is not None for 結果 in 基底)
+    if 基底だけで解決 and not 候補収集:
+        出力 = {"results": 基底, "mechanism": "格子値基底", "minimum_support": 必要支持数}
+        if 観測診断:
+            出力["observation_request_counts"] = _追加観測数を合算(
+                結果["observation_request_counts"] for 結果 in 基底
+            )
+        return 出力
 
     端教材 = 端投射教材(課題["train"])
     端教材.学習する(機械, 観測へ)
@@ -242,6 +298,10 @@ def 課題を解く(課題, 事前教材):
     対角教材 = 対角領域教材(課題["train"])
     反射教材 = 軸反射教材(課題["train"])
     格子D4 = 格子D4教材(課題["train"])
+    周期タイルD4 = 周期タイルD4教材(課題["train"])
+    特徴近傍 = FeatureNeighborTransform(課題["train"])
+    全前景移動 = 全前景平行移動教材(課題["train"])
+    C2_066_複合前景 = CompoundForegroundD4PaletteTranslation(課題["train"])
     周期教材 = 周期組修復教材(課題["train"])
     見本教材 = 部分見本教材(課題["train"])
     拡大教材 = 穴形拡大教材(課題["train"])
@@ -352,6 +412,9 @@ def 課題を解く(課題, 事前教材):
         ("ARC対角領域", 対角教材.候補, ()),
         ("ARC軸反射", 反射教材.候補, ()),
         ("ARC格子D4変換", 格子D4.候補, ()),
+        ("ARC周期タイルD4反復", 周期タイルD4.候補, ()),
+        ("ARC全前景平行移動", 全前景移動.候補, ()),
+        ("ARC複合前景D4色写像平行移動", C2_066_複合前景.候補, ()),
         ("ARC周期組修復", 周期教材.候補, ()),
         ("ARC部分見本転写", 見本教材.候補, ()),
         ("ARC穴形拡大", 拡大教材.候補, ()),
@@ -444,39 +507,73 @@ def 課題を解く(課題, 事前教材):
         ("ARC特徴条件整列", 特徴条件整列.候補, ()),
         ("ARC有限例外光線", 有限例外光線.候補, ()),
         ("ARC周期枠位相", 周期枠位相.候補, ()),
+        ("ARC特徴近傍変換選択", 特徴近傍.候補, ()),
     )
     記録群 = [候補機構を学習(機械, 課題, 教材, 境界, 候補器)
               for 境界, 候補器, 教材 in 機構群]
     結果群 = []
+    基底診断群 = []
     隔離数 = 0
     for 対 in 課題["test"]:
         # 全機構の学習後に照会するため、後発の隔離も既存排気gateへ反映される。
-        基底結果 = 出力格子(機械, 格子観測(対))
+        基底結果 = 出力格子(機械, 格子観測(対), 観測診断=観測診断)
+        if 観測診断:
+            基底診断群.append(基底結果["observation_request_counts"])
         隔離数 = max(隔離数, 基底結果["quarantined"])
         予測群 = [] if 基底結果["answer"] is None else [基底結果]
+        生候補群 = []
+        試行候補対群 = []
         未解決理由 = []
         for (境界, 候補器, _), 記録 in zip(機構群, 記録群):
             if not 記録["採用可"] or not 記録["同値採用"]:
                 continue
-            候補, _ = 候補器(対["input"], {})
+            候補, 候補記録 = 候補器(対["input"], {})
+            if isinstance(候補記録, dict):
+                試行候補対 = 候補記録.get("candidate_attempts")
+                if (isinstance(試行候補対, list) and len(試行候補対) == 2
+                        and all(有効格子(格子) for 格子 in 試行候補対)
+                        and 試行候補対[0] != 試行候補対[1]):
+                    試行候補対群.append((境界, deepcopy(試行候補対)))
             if 候補 is None:
                 未解決理由.append(f"採用済み機構{境界}のtest候補が未確定")
                 continue
+            if 候補収集 and 有効格子(候補):
+                生候補群.append({"family": 境界, "answer": deepcopy(候補)})
+            if 基底結果["answer"] is None and 有効格子(候補):
+                予測群.append({"answer": deepcopy(候補), "family": 境界})
             予測 = 出力格子(機械, 観測へ({"候補": 候補}, 境界), 同値必須=True)
             if 予測["answer"] is not None:
                 予測群.append({**予測, "family": 境界})
             else:
                 未解決理由.append(f"採用済み機構{境界}のHDS排気が保留")
-        if 未解決理由:
-            結果群.append({"answer": None, "status": "断定保留", "reasons": 未解決理由})
+        if 基底結果["answer"] is not None:
+            結果 = 基底結果
+        elif 候補収集 and 基底だけで解決:
+            # Diagnostic collection must not change the ordinary fast-path answer.
+            結果 = 基底[len(結果群)]
+        elif 未解決理由 and not 予測群:
+            結果 = {"answer": None, "status": "断定保留", "reasons": 未解決理由}
         elif not 予測群:
-            結果群.append(基底結果)
+            結果 = 基底結果
         elif all(p["answer"] == 予測群[0]["answer"] for p in 予測群):
-            結果群.append({**予測群[0], "agreeing_predictions": len(予測群)})
+            結果 = {**予測群[0], "agreeing_predictions": len(予測群)}
         else:
-            結果群.append({"answer": None, "status": "断定保留",
-                           "reasons": ["採用済み機構の完全格子予測が競合したため保留"]})
-    return {"results": 結果群, "mechanism": "HDS機構候補の照会",
+            結果 = {"answer": None, "status": "断定保留",
+                    "reasons": ["採用済み機構の完全格子予測が競合したため保留"]}
+        if 候補収集 and 試行候補対群:
+            対別キー = {
+                tuple(tuple(tuple(row) for row in grid) for grid in pair)
+                for _, pair in 試行候補対群
+            }
+            答え = 結果.get("answer")
+            if (len(対別キー) == 1 and
+                    (答え is None or any(答え in pair for _, pair in 試行候補対群))):
+                結果["candidate_attempts"] = deepcopy(試行候補対群[0][1])
+                結果["candidate_attempt_family"] = 試行候補対群[0][0]
+        if 候補収集 and 生候補群:
+            結果["candidate_predictions"] = 生候補群
+        結果群.append(結果)
+    出力 = {"results": 結果群, "mechanism": "HDS機構候補の照会",
             "paired_border_placement": 対辺標点配置.記録(),
             "linked_box_lookup": 連結箱参照.記録(),
             "region_commands": 領域指令.記録(),
@@ -500,8 +597,20 @@ def 課題を解く(課題, 事前教材):
             "counted_color_layers": 計数色層旋回.記録(),
             "minimum_support": 必要支持数, "families": 記録群,
             "d4_transform": 格子D4.記録(),
+            "periodic_tile_d4": 周期タイルD4.記録(),
+            "feature_neighbor_transform": 特徴近傍.記録(),
+            "global_foreground_translation": 全前景移動.記録(),
             "quarantined": 隔離数, "object_learning": 端教材.記録(), "legend_learning": 凡例教材.記録(), "grouped_packing": 色群教材.記録(), "group_order": 整列教材.記録(), "lattice_self_mask": 格子教材.記録(), "component_path": 経路教材.記録(), "diagonal_bridge": 橋教材.記録(), "diagonal_region": 対角教材.記録(), "axis_reflection": 反射教材.記録(), "tuple_repair": 周期教材.記録(), "panel_exemplar": 見本教材.記録(), "hole_scale": 拡大教材.記録(), "guided_compaction": 移動教材.記録(), "radial_assembly": 放射教材.記録(), "hole_outline": 輪郭教材.記録(), "template_shape_color": 形状教材.記録(), "legend_gap": 凡例経路.記録(), "separator_run": 行周期.記録(), "overlap_mosaic": 重畳教材.記録(), "farthest_blank": 空白教材.記録(), "header_rank": 順位教材.記録(), "separator_layer": 距離教材.記録(), "vertical_pruning": 剪定教材.記録(), "periodic_panel": 反復教材.記録(), "seeded_boundary": 種境界.記録(), "corridor": 流路.記録(), "panel_path": 直列.記録(), "plus_motif": 十字.記録(), "frame_count": 枠計数.記録(), "marker_count": 標識計数.記録(), "marker_assembly": 標識組立.記録(), "motif_swap": 倍率置換.記録(), "nested_inventory": 包含正規化.記録(), "periodic_band": 周期帯.記録(), "square_palette": 中心配色.記録(), "square_anchor": 正方形格子.記録(), "repeated_side": 側周期.記録(), "separator_projection": 区切投射.記録(), "object_slot": 物体slot.記録(), "sparse_point": 疎点転写.記録(), "stripe_ring": 帯輪郭.記録(), "control_bar": 制御複写.記録(), "layout_macro": 配置展開.記録(), "anchored_motif": 基点複製.記録(), "chiral_payload": 接触配置.記録(), "legend_macro": 凡例展開.記録(), "framed_lanes": 枠列整列.記録(), "legend_turn": 凡例旋回.記録(), "band_glyph": 帯図形.記録(), "binary_completion": 二値原型.記録(), "quadrant_palette": 象限配色.記録(), "palette_subset": 凡例集合.記録(), "zero_reflection": 二軸補完.記録(), "four_field_repeat": 四欄反復.記録(), "edge_axis_projection": 軸投射.記録(), "glyph_instruction": 記号命令.記録(), "comb_pin": 櫛配置.記録(), "open_wall": 開口壁.記録(), "partition_faces": 区画計数.記録(), "bbox_legend": 凡例矩形.記録(), "cross_arm": 十字曲線.記録(), "support_contact": 支持構造.記録(), "marked_piece": 標点組立.記録(), "distance_collection": 距離回収.記録(), "border_stack": 枠端積層.記録(), "labeled_axis_transfer": 標識軸転写.記録(), "example_grid_classification": 見本格子分類.記録(), "colored_ray_reflection": 色線反射.記録(), "boundary_point_period": 境界点周期.記録(), "bounded_glyph_window": 有限字形視野.記録(), "band_profile_stack": 帯profile積層.記録(), "counted_bar_detour": 計数棒迂回.記録(), "boundary_color_path": 境界色経路.記録(), "full_footprint_chart": 全足跡整列.記録(), "arrow_pulses": 矢印到達.記録(), "marker_channel": 標識水路.記録(), "corner_patch_transfer": 隅模様転写.記録(), "congruent_object_ports": 合同物体出口.記録(), "whole_mask_view": 全体模様窓.記録(), "body_port_rays": 全体接触.記録()}
 
 
+    if 観測診断:
+        出力["observation_request_counts"] = _追加観測数を合算(基底診断群)
+    return 出力
+
+
 if __name__ == "__main__":
-    print(json.dumps(課題を解く(json.load(sys.stdin), 事前教材を読む()), ensure_ascii=False))
+    print(json.dumps(
+        課題を解く(
+            json.load(sys.stdin), 事前教材を読む(),
+        ), ensure_ascii=False
+    ))

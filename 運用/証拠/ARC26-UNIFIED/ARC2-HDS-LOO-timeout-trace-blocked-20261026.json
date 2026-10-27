@@ -1,0 +1,19 @@
+{
+  "schema": "arc2-hds-loo-diagnostic-attempt-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-26T20:32:38Z",
+  "command": ".venv/Scripts/python.exe 検証/全HDS第二候補LOO.py --max-folds 10 --minimum-support 3 --timeout-seconds 20 --trace-timeouts --trace-interval 2 --output 出力/検証/ARC2-HDS-second-attempt-LOO-traced-20261026T203151Z.jsonl --include-diagnostics",
+  "status": "BLOCKED_BY_EXISTING_WINDOWS_GUARD",
+  "error": "--trace-timeouts is disabled on Windows after worker access violations",
+  "override_attempted": false,
+  "previous_pilot": {
+    "timeout_seconds_per_fold": 20,
+    "complete_nonidentity_exact": 0,
+    "timeouts": 5,
+    "evidence": "出力/検証/ARC2-HDS-second-attempt-LOO-20261026T193719Z.summary.json",
+    "requested_folds": 20,
+    "completed_folds": 15
+  },
+  "interpretation": "Timeout cause remains unknown; this result does not establish OOM or a solver defect. Do not infer from missing stack traces.",
+  "official_score": null
+}

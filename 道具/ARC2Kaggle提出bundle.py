@@ -124,6 +124,9 @@ def _runtime_files() -> list[tuple[str, Path]]:
         task_ids.add(task_id)
 
     selected: dict[str, Path] = {}
+    # The recovered solver is allowed only through its audited input-only adapter:
+    # solve_task receives cleaned train/test grids, and runtime fit metadata uses
+    # the constant "runtime_task". ID and solution loaders stay in offline reports.
     for base in (
         ROOT / "HDS/学習系統/v0.4.2/hds学習系統",
         ROOT / "接続/ARC2",
@@ -131,7 +134,12 @@ def _runtime_files() -> list[tuple[str, Path]]:
         for path in sorted(base.rglob("*.py")):
             if "__pycache__" in path.parts or path.is_symlink():
                 continue
-            selected[path.relative_to(ROOT).as_posix()] = path
+            # The recovered v4 solver contains task-specific runtime branches.
+            # Keep those local artifacts out of every generated Kaggle payload.
+            if path.name.startswith("legacy_v4_"):
+                continue
+            relative = path.relative_to(ROOT).as_posix()
+            selected[relative] = path
     # 未観測端対応教材がimportするルート直下の実装と、そのpeer演算依存。
     for name in ("missing_edge_bindings.py", "peer_edge.py"):
         path = ROOT / name
@@ -232,11 +240,15 @@ def _render_notebook(launcher: bytes, payload_sha256: str) -> bytes:
             "",
         ]
     )
+    cell_id = hashlib.sha256(
+        b"arc2-kernel-main-cell-v1\0" + source.encode("utf-8")
+    ).hexdigest()[:12]
     notebook = {
         "cells": [
             {
                 "cell_type": "code",
                 "execution_count": None,
+                "id": cell_id,
                 "metadata": {},
                 "outputs": [],
                 "source": [line + "\n" for line in source.splitlines()],

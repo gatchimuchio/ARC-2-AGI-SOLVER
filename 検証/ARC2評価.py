@@ -6,6 +6,7 @@ from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 import hashlib
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -16,9 +17,13 @@ from types import SimpleNamespace
 
 
 def runtime(モード):
-    import resource
-    resource.setrlimit(resource.RLIMIT_CPU, (10, 11))
-    resource.setrlimit(resource.RLIMIT_AS, (512 * 1024**2, 512 * 1024**2))
+    try:
+        import resource
+    except ImportError:  # Windows uses the parent process wall-time limit.
+        resource = None
+    if resource is not None:
+        resource.setrlimit(resource.RLIMIT_CPU, (10, 11))
+        resource.setrlimit(resource.RLIMIT_AS, (512 * 1024**2, 512 * 1024**2))
     sys.path[:0] = [str(ルート), str(ルート / 'HDS/学習系統/v0.4.2')]
     from 接続.ARC2.HDS接続 import 課題を解く, 事前教材を読む, 格子観測, 出力格子
     from hds学習系統 import HDS学習実行系
@@ -60,8 +65,12 @@ def 主処理():
 
     def 実行(課題):
         try:
+            env = os.environ.copy()
+            env['PYTHONUTF8'] = '1'
+            env['PYTHONIOENCODING'] = 'utf-8'
             p = subprocess.run([sys.executable, __file__, '--runtime', args.mode],
-                               input=json.dumps(課題), text=True, capture_output=True, timeout=60)
+                               input=json.dumps(課題), text=True, encoding='utf-8',
+                               capture_output=True, timeout=60, env=env)
             if p.returncode:
                 return {'error': 'cpu_limit' if p.returncode == -24 else
                         'unknown_kill' if p.returncode == -9 else 'runtime_exit',
@@ -105,10 +114,11 @@ def 主処理():
         'solutions_sha256': hashlib.sha256(json.dumps(solutions).encode()).hexdigest(),
         'cpu_seconds_per_task': 10, 'address_space_mib': 512,
         'wall_seconds_per_task': 60, 'workers': 3,
+        'resource_limit_scope': 'POSIX CPU/address-space plus wall-time' if sys.platform != 'win32' else 'Windows wall-time only; CPU/address-space limits unavailable',
     }
     if args.output:
         args.output.write_text(json.dumps({'summary': 要約, 'original_audit': 元採点,
-                                          'execution': 記録}, ensure_ascii=False, indent=2))
+                                          'execution': 記録}, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps(要約, ensure_ascii=False, indent=2))
 
 

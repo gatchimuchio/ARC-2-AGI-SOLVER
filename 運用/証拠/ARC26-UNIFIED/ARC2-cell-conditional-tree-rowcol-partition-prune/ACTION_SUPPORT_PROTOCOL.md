@@ -1,0 +1,13 @@
+# Typed action支持数の必要条件診断
+
+固定した119f3908の35特徴・21 action・支持数契約だけを調べる。木の実装・探索・上限・特徴・runtimeは変更せず、constructor、候補query、HDS、採点を呼ばない。
+
+現在の各訓練セルcについて、そのセル自身のinputから求めたrolesを使い、正解と一致する全21 typed actionの集合A(c)を作る。MDLでactionを除かない。action aが一致する全セルをM(a)とし、異なるinput教師の数と物理セル数を数える。input重複は木と同様に除去し、重複inputの出力矛盾は拒否する。
+
+cを含む合法leafは、全leafセルで正しいaction aを少なくとも一つ持つ。このleafはM(a)の部分集合だから、M(a)は教師支持数とセル支持数の両下限を満たす必要がある。A(c)内の全actionがどちらかのglobal下限を満たさなければ、cを覆う合法leafは存在せず、同じgrammarの木は深さを問わず不可能である。これはroot全体での上界診断であり、通過しても特徴による分離、上限内fit、最小木のquery一致、学習やscore改善を証明しない。background、unique_rarest、neighbor等の実色が教師ごとに異なることは許し、同じtyped actionを各セルのrolesで別々に評価する。
+
+対象は既存ROWCOLのbudget六phaseと同一のsupportだけ。親が旧cohort、training、terminal partition FITログをSHA固定し、U/Fのindex分離とpayload hashを検証する。afterのFは既に観測した通常教師、Uはinput/targetとも完全除外する。worker DTOはsupportと固定boundsだけであり、task ID、U/F query、未観測targetを渡さない。
+
+既存FIT診断9c1788のsource fingerprint、DTO、六phase選択、origin検査を再利用する。workerはJSON/JSONLを読むことができず、存在しないNumPy direct_url.jsonの正確なpathのimport probeだけ、OS open前にFileNotFoundErrorとする。拒否した別JSON openが内部で捕捉されてもworkerを失敗にする。source/module hashは実行前後で検査する。workerは元のconstructor/evaluator/HDS接続を明示的に禁止し、数値aggregateと静的action名別支持数だけを返す。raw grid、target、roles、feature vectorは保存しない。各worker90秒wall、失敗を六phaseの分母から除かない。
+
+`test_action_support_diagnosis.py` は人工例だけでteacher/cell支持数、各input固有の動的role、重複、全21 action、DTO分離を検査する。公開worker実行はこの固定六phaseの必要条件計算だけ。旧module、旧診断、production、Kaggle、台帳は変更しない。

@@ -1,0 +1,40 @@
+{
+  "schema": "arc2-object-composite-palette-v25-probe-v1",
+  "eligible_folds": 2916,
+  "palette_proposal_folds": 40,
+  "exact_v24_bundle_folds": 40,
+  "composite_feature_pairs": [
+    "area_palette",
+    "box_palette",
+    "shape_palette",
+    "aspect_palette",
+    "holes_palette",
+    "perimeter_palette",
+    "symmetry_palette",
+    "shape_area",
+    "shape_box",
+    "shape_dominant_color",
+    "area_dominant_color",
+    "shape_color_count",
+    "area_dominant_count"
+  ],
+  "v24_duplicate_attempt2_slots": 15,
+  "composite_proposals_on_duplicate_slots": 0,
+  "composite_slots_applied": 0,
+  "v24_exact_on_palette_proposals": 32,
+  "composite_exact_on_palette_proposals": 32,
+  "newly_correct": 0,
+  "newly_wrong": 0,
+  "net_delta": 0,
+  "regressions": 0,
+  "heldout_outputs_passed_to_candidate_generator_or_runtime": false,
+  "targets_read_after_exact_v24_outputs": true,
+  "fold_predictions_or_targets_saved": false,
+  "temporary_inputs_outputs_and_payloads_removed": true,
+  "official_kaggle_score": "UNKNOWN_NOT_SUBMITTED",
+  "source_sha256": {
+    "runner": "46e75c52c59a6c373d7a85e3fc03c3bb7657d4b0a21aa40e27bfe5c64c8c572c",
+    "palette_probe": "ba2c6dce2bbd522cd5844c03355a51fa7f7794e04ae99c991fa5ec8e0645f642",
+    "v24_build_manifest": "6a52003b25dad93b4113c259b2d6e0f9d284161b5b78ecae544997fe11410aa1"
+  }
+}

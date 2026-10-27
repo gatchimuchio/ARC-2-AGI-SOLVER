@@ -1,0 +1,116 @@
+{
+  "schema": "arc2-v5-local-optimization-evidence.v1",
+  "experiment_id": "ARC26-ARC2-V5-P5-SIMPLE-TRANSFORM-CANDIDATE-20261025T1653Z",
+  "observed_at_utc": "2026-10-25T16:53:12Z",
+  "candidate_policy": {
+    "programs": [
+      "D4 orientation",
+      "color map",
+      "crop background",
+      "integer scale",
+      "uniform downscale",
+      "tile"
+    ],
+    "fit_scope": "current task public train examples only",
+    "minimum_teacher_pairs": 2,
+    "selection": "all fitted models must produce the same valid grid; add it as attempt_2 only if distinct from attempt_1; preserve an existing HDS-selected attempt_2",
+    "task_identifier_or_answer_lookup": false,
+    "evaluation_or_hidden_solutions_in_runtime": false
+  },
+  "source_sha256": {
+    "candidate_module": "efe210a4e183de93b5318aadeac7d2b5022a562189839b2ce1a414d367b5b0d3",
+    "submission_adapter": "25c01363de18eb877dbb1788273ba53c59284f3e8d931b689000779be9d285a5",
+    "hds_connector": "33bc0e6b30e47e4f35bffb4d2a472837c60614d9c3fcedc3d7bb2969890607be",
+    "bundle_builder": "0bd0d1b8fac07585317c369598106b007204095536da3826feb2470c3ff7e5fa",
+    "candidate_loo_runner": "35d45085d16ae3696a04aaf9946dc4d18014b5f04f52209262b39e4d635c7f37",
+    "targeted_test": "ea8136f66f4bf1701b39edd3087cb77696e24891e34671702f7990129f96ab0d"
+  },
+  "training_loo": {
+    "report": "運用/証拠/ARC26-UNIFIED/ARC2-V5-simple-transform-production-LOO-20261025T1635Z.json",
+    "report_sha256": "5a6627858d9827a46e280a463a60237f07238db7122945a953533949f1668145",
+    "eligible_tasks": 842,
+    "folds": 2916,
+    "complete": true,
+    "candidate_folds": 56,
+    "unique_candidate_folds": 46,
+    "ambiguous_candidate_folds": 10,
+    "paired_candidate_folds": 46,
+    "baseline_exact_union": 10,
+    "candidate_union_exact": 38,
+    "rescued_examples": 28,
+    "regressions": 0,
+    "hds_gate_admitted": 0,
+    "hds_gate_rejected": 46,
+    "hds_gated_delta": 0,
+    "heldout_outputs_passed_to_candidate": false,
+    "task_identifiers_or_grids_saved": false
+  },
+  "public_evaluation": {
+    "challenge_sha256": "e7c62a4bd211867c6b538f66b8013b81f299663c82ca062f49a52bf439d6e4e8",
+    "tasks": 120,
+    "examples": 172,
+    "candidate_unique_examples": 0,
+    "attempt_2_changes": 0,
+    "rescued_examples": 0,
+    "baseline_correct_tasks": 116,
+    "candidate_correct_tasks": 116,
+    "baseline_correct_examples": 167,
+    "candidate_correct_examples": 167,
+    "solutions_read_by_parent_only": true,
+    "solutions_passed_to_candidate": false
+  },
+  "hidden_test_input_only": {
+    "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "tasks": 240,
+    "examples": 259,
+    "fallback_examples": 254,
+    "run_seconds": 690.203,
+    "baseline_submission_sha256": "c34dcdd39e1afacba8c2fe992ffd93378c92bbbde3885a58f43f3fd02253bcb2",
+    "candidate_submission_sha256": "781b8588a93a92ede8926293976f3892764cf2569a6962cf98e99e20ff5e38b7",
+    "attempt_1_changed": 0,
+    "attempt_2_changed": 1,
+    "distinct_attempt_pairs": 1,
+    "unique_simple_transform_candidates": 3,
+    "simple_transform_candidates_distinct_from_attempt_1": 1,
+    "unknown_condition_value_requests": 259,
+    "missing_condition_path_requests": 0,
+    "solutions_opened": false,
+    "official_or_local_score": "UNKNOWN"
+  },
+  "discarded_unadmitted_family_consensus": {
+    "public_evaluation_attempt_2_changes": 0,
+    "hidden_test_input_only_submission_sha256": "c34dcdd39e1afacba8c2fe992ffd93378c92bbbde3885a58f43f3fd02253bcb2",
+    "baseline_submission_sha256": "c34dcdd39e1afacba8c2fe992ffd93378c92bbbde3885a58f43f3fd02253bcb2",
+    "decision": "reverted; no prediction effect"
+  },
+  "local_bundle": {
+    "build_directory": "出力/Kaggle/arc2-codex-main-baseline-v1/v10-simple-transform-candidate-20261025T1650Z",
+    "upload_directory": "出力/Kaggle/arc2-codex-main-baseline-v1/submit-v10-simple-transform-candidate-20261025T1650Z",
+    "source_commit": "dae0a5dbe124a0c4a01bd69a26dda0036d0379e0+dirty",
+    "source_files": 276,
+    "payload_sha256": "bb0e4915d9a2a6c7beedb438aa8bb1bf1a82e0c4cd1519d3ee756b486f010797",
+    "notebook_sha256": "fca2e88ca848d0c0753af037b5b4bc5b1381e4fb9072cbd750240aa13a95369d",
+    "bundle_preflight": "PASS",
+    "preflight_prior_examples": 2,
+    "evaluation_or_solution_files_in_payload": 0,
+    "targeted_tests": "15 passed",
+    "py_compile": "PASS",
+    "git_diff_check": "PASS"
+  },
+  "kaggle": {
+    "latest_submission_ref": 57611018,
+    "latest_status": "COMPLETE",
+    "latest_public_score": 0.0,
+    "latest_private_score": null,
+    "submission_history_observed_at_utc": "2026-10-25T16:47Z",
+    "daily_submission_limit": 1,
+    "submissions_on_current_utc_date": 1,
+    "new_kernel_push_or_competition_submission": false,
+    "rules_url": "https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-2/rules"
+  },
+  "limits": [
+    "Hidden-test candidate correctness is UNKNOWN; hidden solutions were not read.",
+    "The 28 LOO rescues are training held-out examples, not official score.",
+    "No official submission was made because the daily submission quota was already used."
+  ]
+}

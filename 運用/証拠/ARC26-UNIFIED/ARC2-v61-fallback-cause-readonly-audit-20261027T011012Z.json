@@ -1,0 +1,155 @@
+{
+  "schema": "arc2-v61-fallback-cause-readonly-audit-v1",
+  "observed_at_utc": "2026-10-27T01:10:12.603434+00:00",
+  "scope": "Saved visible v61 v1 output plus pinned source control-flow audit; no solver/model/HDS/query execution, Kaggle call, hidden or solutions file read.",
+  "pins": {
+    "notebook": {
+      "path": "出力/Kaggle/arc2-codex-main-baseline-v1/v61-kaggle-staging-20261026/main.ipynb",
+      "sha256": "9cb8580836257a95423560407351612cb1413c62cbd7b0ac8d62169da16120d4"
+    },
+    "remote_notebook": {
+      "path": "出力/Kaggle/arc2-codex-main-baseline-v1/v61-kaggle-remote-inspect-v1/arc2-v61-local-teacher-pair-consensus-candidate.ipynb",
+      "sha256": "c87d57620e14b6c6b302cb87d2541fbb9206fd26d63f736d143a4d422cefc29d"
+    },
+    "code_cell_sha256": "58b6219ecbdcdd33c41181c7d5c5743d9231f54759c7eb01aacc99aa474297e6",
+    "local_remote_code_cell_identical": true,
+    "kernel_metadata": {
+      "path": "出力/Kaggle/arc2-codex-main-baseline-v1/v61-kaggle-staging-20261026/kernel-metadata.json",
+      "sha256": "511f18f3207790e9a4f6f119c58aeba49f09f560810028eee2a8a544798a66f9"
+    },
+    "payload": {
+      "path": "出力/Kaggle/arc2-codex-main-baseline-v1/v61-kaggle-staging-20261026/bundle.zip",
+      "sha256": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee"
+    },
+    "payload_manifest_member": "__arc2_bundle_manifest__.json",
+    "payload_manifest_sha256": "d13b7d96ed1240432768a35d49a4016a30d02d79cdd184720fe575242455163c",
+    "payload_sources_sha256": {
+      "接続/ARC2/Kaggle提出.py": "c20102c4e9a01e833ca8f9e2778b5306333c50c065d9aebe7cbeaf574e74418d",
+      "接続/ARC2/HDS接続.py": "8cc1456edfab1b84478fcc1b8f82973481709d85a45532b5181d0e79655362a3"
+    },
+    "extracted_payload_sources_identical": true,
+    "run_record": {
+      "path": "出力/Kaggle/arc2-v61-local-teacher-pair-consensus-candidate/v1/実行記録.json",
+      "sha256": "30efdeb2d792e83309962584d536951ae6667d77e1db5566474d70ec8842ca35"
+    },
+    "audit": {
+      "path": "出力/Kaggle/arc2-v61-local-teacher-pair-consensus-candidate/v1/wrapper-output/submission_audit.json",
+      "sha256": "4b4474d8e7a956f8e5a2ec6d50e7391af0aeacd2eb08b71052068e34797b3b86"
+    },
+    "submission": {
+      "path": "出力/Kaggle/arc2-v61-local-teacher-pair-consensus-candidate/v1/wrapper-output/submission.json",
+      "sha256": "827bccfc1cf51e2fc87d687ba51e1375899650a530ec00e7a20eb1f71eb2dd18"
+    },
+    "current_worker": {
+      "path": "接続/ARC2/Kaggle提出.py",
+      "sha256": "43fd2c444cc1428bdfb3da3b228fca14b6ccb939c169401b1684c2b93b4092e4"
+    },
+    "current_hds_connector": {
+      "path": "接続/ARC2/HDS接続.py",
+      "sha256": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe"
+    }
+  },
+  "observed": {
+    "tasks": 240,
+    "test_examples": 259,
+    "fallback_rows": 249,
+    "fallback_tasks": 231,
+    "reason_solver_hold_rows": 249,
+    "status_assertion_hold_rows": 249,
+    "additional_observation_required_rows": 249,
+    "quarantined_principle_rows": 2,
+    "quarantine_overlaps_additional_observation_hold": true,
+    "primary_hold_duplicate_attempts": 194,
+    "primary_hold_distinct_attempt2": 55,
+    "primary_output_rows": 10,
+    "recorded_task_timeout_rows": 0,
+    "recorded_worker_error_or_invalid_prediction_rows": 0,
+    "explicit_complete_prediction_conflict_reason_rows": 0,
+    "explicit_admitted_family_query_undefined_reason_rows": 0,
+    "explicit_admitted_family_hds_exhaust_hold_reason_rows": 0
+  },
+  "source_inference": {
+    "classification": "No frozen HDS family record passed BOTH 採用可 and 同値採用 at the per-query family gate.",
+    "inferred_rows": 249,
+    "inferred_tasks": 231,
+    "frozen_family_count": 110,
+    "kind": "Pinned control-flow inference, not directly persisted family diagnostics.",
+    "proof": [
+      "Frozen worker calls HDS with 候補収集=True and preserves the HDS answer/status/reasons (except a valid candidate pair can supply a valid first answer).",
+      "The family loop skips a family if NOT 採用可 OR NOT 同値採用. Both flags are required; a fitted candidate without equality admission can be skipped.",
+      "A family passing both flags and returning None appends a family-specific undefined-query reason. A valid grid is appended to prediction candidates before HDS query; an invalid non-None value either yields a valid HDS answer or appends a family-specific HDS hold reason.",
+      "Nonempty predictions produce a valid first answer or the explicit complete-grid conflict reason; nonempty unresolved reasons with no predictions produce family-specific reasons. Initial fast-path answers are valid grids and cannot create these primary fallback rows.",
+      "All 249 saved fallback rows have only generic base-HDS observation/quarantine reasons. All 110 possible family-specific hold labels and the conflict label survive wrapper sanitization (maximum 34 characters; none matches the filtered long-hex pattern). Thus the admitted-family loop did not process any family for these rows."
+    ],
+    "frozen_source_refs": {
+      "worker_call": "接続/ARC2/Kaggle提出.py:209-213",
+      "worker_reason_forwarding": "接続/ARC2/Kaggle提出.py:392-397",
+      "fallback_marker": "接続/ARC2/Kaggle提出.py:150-166",
+      "family_gate": "接続/ARC2/HDS接続.py:628",
+      "undefined_query": "接続/ARC2/HDS接続.py:638",
+      "raw_valid_candidate_prediction": "接続/ARC2/HDS接続.py:641-643",
+      "hds_query_hold": "接続/ARC2/HDS接続.py:644-648",
+      "selection_branches": "接続/ARC2/HDS接続.py:649-662",
+      "unpersisted_family_records": "接続/ARC2/HDS接続.py:698"
+    },
+    "current_equivalent_refs": {
+      "admission_function": "接続/ARC2/HDS接続.py:242-260",
+      "family_gate": "接続/ARC2/HDS接続.py:528",
+      "selection_branches": "接続/ARC2/HDS接続.py:549-562"
+    }
+  },
+  "unavailable": {
+    "no_candidate_fitted_rows": null,
+    "candidate_fitted_but_full_teacher_reproduction_failed_rows": null,
+    "candidate_full_train_fit_without_hds_equality_admission_rows": null,
+    "hds_support_floor_shortage_rows": null,
+    "internal_family_timeout_rows": null,
+    "internal_query_undefined_rows": null,
+    "internal_prediction_conflict_records": null,
+    "reason": "The saved audit has no per-family fit/admission records or per-query stage diagnostics. Zero explicit labels above does not prove zero internal events. 194 duplicate rows do not prove no candidate was ever fitted; 55 distinct alternate outputs disprove interpreting all 249 rows as no candidate."
+  },
+  "generic_prior": {
+    "challenge_pin": {
+      "path": "入力/Kaggle/arc-agi_test_challenges.json",
+      "sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83"
+    },
+    "input_only_raw_train_count_histogram": {
+      "2": 45,
+      "3": 132,
+      "4": 43,
+      "5": 14,
+      "6": 4,
+      "7": 1,
+      "8": 1
+    },
+    "distinct_train_input_histogram_identical": true,
+    "positive_needed_extra_tasks": 0,
+    "frozen_floor_refs": "接続/ARC2/HDS接続.py:296-301",
+    "needed_extra_refs": "接続/ARC2/HDS接続.py:548-556",
+    "inference": "For every visible task, the frozen generic-prior branch needed_extra is zero, so the branch selects no extra generic-prior support. This is source+input-count inference, not a persisted runtime counter.",
+    "generic_prior_support_observations_runtime_field_persisted": false,
+    "runtime_field_ref": "接続/ARC2/HDS接続.py:709-712",
+    "not_claimed": "Loading the generic memory file is not evidence of active contribution. This conclusion is only about that generic-prior branch, not other template-prior families."
+  },
+  "minimal_hypothesis_not_implemented": {
+    "mechanism": "Register one existing fully current-train-consistent external candidate factory through the existing 候補機構を学習 admission path, rather than generating it only after the HDS primary loop.",
+    "example_asset": "ObjectExtractionCandidate.candidate, or CompositeGeometryCandidate.候補",
+    "current_source_refs": [
+      "接続/ARC2/Kaggle提出.py:210-223",
+      "接続/ARC2/Kaggle提出.py:264-275",
+      "接続/ARC2/Kaggle提出.py:293-307",
+      "接続/ARC2/HDS接続.py:242-260",
+      "接続/ARC2/HDS接続.py:512-528"
+    ],
+    "guards": "Keep all-current-train reproduction, existing support floor, equality admission, query HOLD and conflict handling; do not turn an attempt2 proposal directly into an accepted answer.",
+    "grounding": "55 primary-HOLD rows already have a distinct generated alternate outside the primary HDS family path. This demonstrates an integration surface, not correct answers or gate eligibility.",
+    "limitation": "Per-family fit/admission counts are missing, so the dominant failed gate among the 249 rows is not identifiable. Moving the same alternate to primary only relabels fallback unless it yields additional validated distinct predictions; no capacity or score gain is established.",
+    "first_required_evidence": "Retain aggregated counts of the existing families records and query-stage outcomes already produced by HDS before selecting a capacity change."
+  },
+  "solution_files_read": false,
+  "hidden_data_read": false,
+  "public_tasks_executed": false,
+  "kaggle_calls": false,
+  "existing_sources_or_ledgers_changed": false,
+  "ability_or_score_improvement_claimed": false
+}

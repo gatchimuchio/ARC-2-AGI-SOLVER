@@ -1,0 +1,22 @@
+{
+  "schema": "arc2-support-prune-fit-only-decision-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-27T00:42:22.989538+00:00",
+  "status": "COMPLETE",
+  "session_id": 11525,
+  "selected_phases": 6,
+  "new_fitted_models": 0,
+  "old_fit_states_total": 1542,
+  "new_fit_states_total": 1542,
+  "old_work_units_total": 320158,
+  "new_work_units_total": 341580,
+  "raw_work_units_not_latency": true,
+  "scope": "Support-only FIT diagnosticsame256state/2mwork/35feature/21actions. NoU/HDSquery/scoring.",
+  "interpretation": "Admissiblepruning preservedample-budget hypotheses, butall6publicphases stillcapped; no fit/ability/score gain, workcounterincreased underboundedsearch. No publiclatencygainclaim.",
+  "script_sha256": "b60c35bb8863d4c9847b121dbe24264a105aa10ca1847e425f9f32881f0870d1",
+  "module_sha256": "5eb6ee0ebc7c99a277c3e00d57b035f16a307caed806d6143c68d1bbd903ecf0",
+  "records_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-cell-conditional-tree-rowcol-support-prune\\fit_results\\pruned-fit-six-phases-20261027T0036Z.jsonl",
+  "records_sha256": "edb0b80965127b5a9fd0deb693d7af4dde5b370c255e08d363d48a11d915fe6e",
+  "adopted_to_production": false,
+  "official_submission_performed": false
+}

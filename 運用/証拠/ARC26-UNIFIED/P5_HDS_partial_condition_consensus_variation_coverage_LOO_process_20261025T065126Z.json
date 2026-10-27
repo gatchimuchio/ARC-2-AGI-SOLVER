@@ -1,0 +1,14 @@
+{
+  "schema": "arc26-arc2-variation-coverage-process.v1",
+  "track": "ARC2",
+  "experiment_id": "P5_HDS_partial_condition_consensus_variation_coverage_LOO",
+  "observed_at_utc": "2026-10-25T06:51:26Z",
+  "execution_session_id": 88511,
+  "venv_launcher_pid": 16620,
+  "python_worker_pid": 11448,
+  "worker_cpu_seconds_at_observation": 14.39,
+  "aggregate_present": false,
+  "production_hds_changed": false,
+  "start_evidence": "運用/証拠/ARC26-UNIFIED/P5_HDS_partial_condition_consensus_variation_coverage_LOO_start_20261025T065056Z.json",
+  "next_action": "Continue this attached session only; do not start a duplicate; use only its terminal full-fold aggregate."
+}

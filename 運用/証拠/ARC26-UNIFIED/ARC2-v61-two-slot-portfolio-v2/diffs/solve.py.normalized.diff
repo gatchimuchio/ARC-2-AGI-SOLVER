@@ -1,0 +1,13 @@
+--- frozen-v61/solve.py (base64 omitted)
++++ portfolio/solve.py (base64 omitted)
+@@ -13,8 +13,8 @@
+ import tempfile
+ import zipfile
+ 
+-SOURCE_COMMIT = 'dae0a5dbe124a0c4a01bd69a26dda0036d0379e0+dirty+v50-local-prior-memory+v51-largest-component-object+v61-teacher-pair-consensus'
+-PAYLOAD_SHA256 = '06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee'
++SOURCE_COMMIT = 'dae0a5dbe124a0c4a01bd69a26dda0036d0379e0+dirty+v50-local-prior-memory+v51-largest-component-object+v61-teacher-pair-consensus+experimental-two-slot-portfolio-v2-all-train-exact'
++PAYLOAD_SHA256 = '46223ed986bac50a35352c4db99734d1ef892f204e3b2b153e01429ab69aa174'
+ PAYLOAD_B64 = '<omitted; see payload SHA256>'
+ 
+ 

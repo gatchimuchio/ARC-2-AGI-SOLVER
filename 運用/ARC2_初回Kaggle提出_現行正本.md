@@ -1,25 +1,62 @@
-# ARC2 日次提出最適化の現行正本
+# ARC26 共通作業正本 v5.0
 
-Ownerの2026-10-23改訂指示により、次の三文書 v1.1 を現在の実行正本とする。旧v1.0は履歴・補足資料であり、矛盾時は本正本の指示を優先する。文書本文は添付ZIPから変更せず複写し、SHA-256を照合した。
+## 現行正本 v5.0（Owner指定 2026-10-26）
 
-## 適用順序と実行範囲
+- 指示ID: `ARC26-SOLVE-SCORE-20261025`
+- 受領原本: [v5 ZIP](ARC26-UNIFIED/v5_0/受領原本.zip) — SHA-256 `8a148feef55cac4c3f7a481d324bf344ee151d50d5b52dbc07eb129510b08c82`
+- [共通仕様書](ARC26-UNIFIED/v5_0/01_共通仕様書.md) — SHA-256 `cedfcf88c334bc1bd88395b9d5904f3e98df68ea8fef79376178da2d3ecd2f45`
+- [共通工程表](ARC26-UNIFIED/v5_0/02_共通工程表.md) — SHA-256 `d6fc39216c5b24d81a7d692a8e60f605b8df31b126562a5302ae533612daa7f4`
+- [共通Codex指示書](ARC26-UNIFIED/v5_0/03_共通Codex指示書.md) — SHA-256 `f28a14b45b97f2c6520bb237a1544863334248bc8762853084a00fcebbd46f4d`
+- v5.0が現行正本。v4.0と以前は履歴・参照用。
+- Ownerの優先依頼: ARC2の実測scoreを先に出す。現行公式履歴は2026-10-25T15:02:40.500Z照会で57611018 COMPLETE/public 0.00、UTC当日枠1/9/0。提出可能な次UTC日までにARC2の失敗原因を修正・同条件評価し、改善した版を用意する。
+- ARC2/ARC3を混同せず、`AGENTS.md`と`制御/現在状態.json`を保護し、既存dirty差分と失敗証拠を保持する。
 
-1. Codex指示書が目的、許可範囲、M0からM6までの実行・日次継続条件を定める。
-2. 仕様書が入出力契約、ゲート、保全規則、日次運用を定める。
-3. 工程表が実施順と工程間の制御を定める。
-4. 現行 `AGENTS.md`、制御状態、コード、テスト、実行記録、公式結果は制約・実態・証拠として照合する。旧記録の数値を今回の実測や公式結果へ読み替えない。
-5. 2026-10-22付v1.0三文書と旧報告は履歴資料として保持する。v1.0にある「M4後停止」は、Ownerの2026-10-23付M0–M6・日次反復指示に置き換わった。
+## v4履歴（以下は2026-10-25時点の記録）
 
-## 現行正本の固定情報
+Ownerが2026-10-25に指定した「ARC26 再現性優先 v4 3点セット」を、ARC2・ARC3共通の当時の現行作業正本として適用した。v5.0採用後は履歴・参照用。
 
-出所は `ARC2_3点セット_日次提出最適化_20261023 (1).zip`。ZIP SHA-256: `8749433461225c3014530502569d262ef3a058015937ceb45782384da8ccf358`。同名の `(1)` なしZIPも同一SHA-256で、両者は同一バイト列。
+## 正本
 
-- [Codex実行指示書 v1.1](ARC2_Codex指示書_v1.1_20261023.md) — 14,504 bytes、SHA-256 `4cbb94e87ad3dd14270cfa596e1702537673dfe21432736932bc8f4472d5ee14`
-- [仕様書 v1.1](ARC2_仕様書_v1.1_20261023.md) — 13,014 bytes、SHA-256 `cff29ace8b2b32f11fd92f65c8436087966f88c90874e3bc3741e88b4aec4b5d`
-- [工程表 v1.1](ARC2_工程表_v1.1_20261023.md) — 11,162 bytes、SHA-256 `f6ee5176f874bc1fafe889a310ad9230cbb963a69830d108c076f551234bf7a3`
+- 指示ID: ARC26-REPRODUCIBILITY-FIRST-20261025
+- 受領原本: [受領原本.zip](ARC26-UNIFIED/v4_0/受領原本.zip)
+- ZIP SHA-256: aeba755872429df889c39a09b7c13a923779aa732194aa5fa90514c39d2f31e0
+- [01 共通仕様書](ARC26-UNIFIED/v4_0/01_共通仕様書.md) — SHA-256 c5938497688a94eb3e01c80c9d61583f38a23c200174987773568b1bc5d0362a
+- [02 共通工程表](ARC26-UNIFIED/v4_0/02_共通工程表.md) — SHA-256 cf9037370617ed899dee039e67720713ac62f58e76dc2ec3055cb36360807d3b
+- [03 共通Codex指示書](ARC26-UNIFIED/v4_0/03_共通Codex指示書.md) — SHA-256 fe553ee2f77022a2ba331bcd525792ab20e5fdda5126141bf656d4dc4be52480
 
-## 継続状態
+v3.0および以前の指示は削除・上書きせず、履歴・補足として保持する。v3とv4が異なる場合は新しいOwner指示のv4を適用する。
 
-現在のゲートと再開位置は [日次提出最適化台帳](ARC2_日次提出最適化_台帳.md) に追記する。`制御/現在状態.json` は既存の保護対象として原文を維持し、同ファイル中の `自動遷移:false` は2026-10-22時点の履歴状態として扱う。今回のOwner指示はM5日次継続を明示承認しているため、旧フラグを理由に停止しない。履歴JSON自体は変更していない。
+## 権限・作業境界
 
-大会の提出上限・締切は、各実行日に [Kaggle公式ルール](https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-2/rules) と提出履歴を再確認する。Notebook保存・実行完了・JSON生成と、大会への公式提出受理・公式scoreは区別する。
+Ownerの現在の原文指示、各repoのAGENTS.md、制御/現在状態.jsonの保護条件を優先する。保護ファイルや認証・規約設定は明示許可なく変更しない。ARC2とARC3のソース、記憶、入力、評価、Kaggle提出を混同しない。
+
+工程はP0〜P3の再現条件回収・基線確立から開始し、その後P4〜P8で能力と提出同値を検証する。形式PASS、過去スコア、局所再現を現行能力PASSに置き換えない。G0〜G4と公開評価での正方向能力が揃うまで、新しいKaggle提出枠は消費しない。既存のローカル差分・失敗証拠は消さない。
+
+## 現行の公式履歴（2026-10-25 UTC read-only観測）
+
+- ARC2: 2026-10-25T14:14:58.146Z に公式履歴をread-only照会。最新提出57611018 COMPLETE / public 0.00。今日1件、累計9件、残り0件。
+- 詳細は 運用/ARC26-UNIFIED/score-ledger.jsonl と 運用/証拠/ARC26-UNIFIED/official-history-*.json を参照。
+
+## 起動時の再開順
+
+1. 両repoのAGENTS.md、制御/現在状態.json、v4正本、最新baseline、台帳、checkpoint、ローカル差分を確認する。
+2. Kaggle公式履歴を専用project環境からread-only照会する。
+3. 旧成功版の身元・再現条件と現行版の固定条件を回収する。固定入力・seed・初期記憶・予算で最低2回実行し、最初の差分を記録する。
+4. ARC2では正しい予測格子、ARC3では合法操作と状態進捗を別々に実証する。実証前に提出しない。
+
+## v4 P0-P3 最新追記（2026-10-25）
+
+- P0 baseline: 運用/ARC26-UNIFIED/p0-baseline-v4-corrected-20261025T141349Z.json。source/input/memory/dependency SHAと詳細dirty snapshotを保存し、AGENTS.md・制御/現在状態.jsonがHEADと一致することを確認。
+- 最新公式履歴 read-only照会: 2026-10-25T14:14:58.146Z、提出57611018 COMPLETE/public 0.00。10/25枠は使用済み。
+- R-B: public training sparse cohortの4課題・12 LOO foldsを独立2回実行。training manifestと結果一致。previous/currentともexact 0、fallback 12、delta 0。限定標本の再現結果であり能力PASSではない。prior-memoryはこのrunnerでは未ロード。
+- 旧C2-062 full worker PID16192は404/575 tasks・1212/1725 foldsで停止。後続確認でprocessと出力の両方がなく、exit cause UNKNOWN、TERMINAL_INCOMPLETEとして記録。部分値は採用しない。
+- 詳細: 運用/ARC26-UNIFIED/V4-P0-P3-checkpoint-ARC2-20261025T142006Z.md、reproduction-ledger.jsonl、capability-ledger.jsonl、ARC2-V4-RB-C2-062-repro-report-20261025T142006Z.json。
+- 当時の次作業（2026-10-25T14:20:57Z）は過去0.83版の身元回収と258 fallback分類。大規模LOOは現在コードの短い固定標本と時間計測から再設計する。G0-G4と公開評価の正方向能力が揃うまでは公式枠を使わない。
+## v4 P1監査更新（2026-10-25 14:35 UTC）
+
+- 公式履歴を専用ARC2環境からread-only再照会：submission 57611018 COMPLETE/public 0.00。UTC 10/25の提出枠は1/1使用済み、残り0。観測：[official history](証拠/ARC26-UNIFIED/official-history-20261025T143414Z.json)。
+- 旧最高値55046979 COMPLETE/public 0.83は公式履歴で確認。Notebook v4の説明・復元version4 outputとの提出SHA一致・時刻は強く整合するが、提出IDとkernel version/outputの直接対応はKaggle APIから証明できない。復元packageにはpublic-training task ID literalが1種類・2箇所あり、AGENTS.mdの禁止条件により再利用対象から除外。
+- 旧v2提出57560705の258 fallbackは259件中257件のHDS HOLD、1件の未捕捉AssemblyIncomplete、残る1件は正誤未計測と分類。原因不明だったexception pathは後続integrationでcatchされているが、HDS coverage改善の証拠ではない。
+- 最新v9提出57611018の259件中254件はgeneric solver_hold / 断定保留。v9 auditがHDS詳細理由を落としており、内訳・正答率は不明。公開training C2-068 LOOはexact 16→17、fallback 1175→1174、wrong 0→0、退行0だが公式public scoreは0.00のまま。
+- 詳細：[P1 identity/fallback audit](証拠/ARC26-UNIFIED/ARC2-V4-P1-identity-fallback-audit-20261025T143500Z.json)（SHA-256 15753acf49275ac4f988ba1b1a690577ac41fa7ea40cda9bd8de4142fccc70f4）、reproduction/work ledger、[最新checkpoint](ARC26-UNIFIED/V4-P0-P3-checkpoint-ARC2-20261025T143500Z.md)。
+- 次：現行v9のfallback理由はUNKNOWNのまま保持。認可済みfuture runでID/hash/gridを保存せずaggregate-only HDS理由を記録する。大規模LOOは現在sourceでの時間計測とbounded設計を先に満たす。提出・能力改善の主張は行わない。

@@ -1,0 +1,25 @@
+{
+  "competition_slug": "arc-prize-2026-arc-agi-2",
+  "observed_at_utc": "2026-10-24T20:48:43Z",
+  "query_method": "read-only Kaggle CLI competitions submissions",
+  "kaggle_cli_version": "2.2.4",
+  "latest_submission_ref": 57576155,
+  "latest_status": "SubmissionStatus.COMPLETE",
+  "latest_public_score": "0.00",
+  "history_unchanged": true,
+  "same_utc_day_submission_quota_used": true,
+  "official_history_refs": [
+    57576155,
+    57560705,
+    57517199,
+    55046979,
+    55038338,
+    54709840,
+    53996447,
+    53962702
+  ],
+  "latest_submission_date_utc": "2026-10-24T00:12:39.127000Z",
+  "latest_submission_file": "submission.json",
+  "latest_submission_description": "ARC2 score-feedback candidate v5 2026-10-24",
+  "next_action": "Continue P5; do not submit again on 2026-10-24 UTC."
+}
