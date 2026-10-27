@@ -1,0 +1,42 @@
+{
+  "schema": "arc2-v61-hds-candidate-metric-correction-v1",
+  "track": "ARC2",
+  "status": "CORRECTED_INTERPRETATION",
+  "observed_at_utc": "2026-10-27T05:40:35.424Z",
+  "affected_artifacts": {
+    "initial_summary_path": "運用/証拠/ARC26-UNIFIED/ARC2-v61-candidate-family-coverage-20261027/summary.json",
+    "repeat_summary_path": "運用/証拠/ARC26-UNIFIED/ARC2-v61-candidate-family-coverage-20261027/summary-repeat.json",
+    "comparison_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-v61-candidate-family-coverage-20261027\\reproducibility-comparison.json",
+    "prior_comparison_sha256": "1269575be85298518032cc3a8754d03ac7c713e2294e6e682da4804c06029748",
+    "corrected_comparison_sha256": "d94b24736f7a191c13e1ec575ac652562c026faafb005b70edc813d29428c596",
+    "prior_probe_script_sha256": "d9472e64e09e2c3c1afb14d926dfe7c46a150001921c40d19eed7b3a337dadc5",
+    "corrected_probe_script_sha256": "6e724d33651d5fd06c49650b85ea811eeb6cd1abe3ff5ce84deb3d5f84c46ecf"
+  },
+  "affected_field": "hds_family_fit_aggregate[*].candidate_prediction_examples",
+  "previous_value": 0,
+  "corrected_value": null,
+  "candidate_prediction_count_state": "UNKNOWN",
+  "root_cause": "The old probe used family_metrics.get(fit_record_family).candidate_examples. HDS fit-record labels (110) are not the same label set as alternative-only candidate metrics (6); their overlap is zero. The candidate collector also drops answers equal to the primary before those metrics are built. A missing-name default of zero therefore did not measure HDS prediction emission.",
+  "label_audit": {
+    "hds_fit_record_family_labels": 110,
+    "alternative_candidate_family_labels": 6,
+    "shared_labels": 0
+  },
+  "valid_hds_fit_aggregate": {
+    "family_count": 110,
+    "fit_eligible": 76,
+    "equality_admitted": 233,
+    "jointly_admitted": 76
+  },
+  "unaffected_results": {
+    "same_condition_prediction_sha256": "86e93965af3740a90354f7281aa88f7f8fcb1e8c06ee7f0c14946c70102ad6fd",
+    "public_training_exact_examples": "61/1075",
+    "public_training_exact_tasks": "58/999",
+    "deterministic_candidate_gains": 0,
+    "deterministic_candidate_regressions": 0,
+    "official_score": null,
+    "official_submission_performed_by_experiment": false,
+    "production_source_changed": false
+  },
+  "follow_up": "Future candidate-coverage summaries omit the invalid HDS-to-candidate count. A direct HDS emission count requires instrumentation at the point where HDS candidate predictions are emitted."
+}

@@ -235,7 +235,6 @@ def main() -> int:
                 "equality_admitted": 0,
                 "jointly_admitted": 0,
                 "state_counts": Counter(),
-                "candidate_prediction_examples": 0,
             }
         )
 
@@ -405,9 +404,6 @@ def main() -> int:
         )
         for family, agg in hds_fit_aggregate.items():
             agg["state_counts"] = dict(sorted(agg["state_counts"].items()))
-            agg["candidate_prediction_examples"] = family_metrics.get(
-                family, {}
-            ).get("candidate_examples", 0)
 
         summary = {
             "schema": "arc2-v61-public-training-candidate-coverage-v1",

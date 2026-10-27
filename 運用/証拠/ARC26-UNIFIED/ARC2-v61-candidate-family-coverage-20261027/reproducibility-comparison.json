@@ -96,7 +96,14 @@
     "fit_eligible": 76,
     "equality_admitted": 233,
     "jointly_admitted": 76,
-    "candidate_prediction_examples": 0
+    "candidate_prediction_examples": null,
+    "candidate_prediction_examples_reported_by_original_summary": 0,
+    "candidate_prediction_examples_metric_valid": false,
+    "candidate_prediction_examples_corrected_value": null,
+    "candidate_family_name_overlap": 0,
+    "candidate_family_name_count": 6,
+    "fit_record_family_name_count": 110,
+    "candidate_prediction_count_state": "UNKNOWN"
   },
   "official_kaggle": {
     "submission_id": 57682971,
@@ -104,5 +111,14 @@
     "public_score": null,
     "submission_or_rerun_performed_by_this_experiment": false
   },
-  "production_source_changed": false
+  "production_source_changed": false,
+  "metric_correction": {
+    "status": "CORRECTED_INTERPRETATION",
+    "prior_report_sha256": "1269575be85298518032cc3a8754d03ac7c713e2294e6e682da4804c06029748",
+    "affected_field": "hds_family_fit_aggregate[*].candidate_prediction_examples",
+    "reason": "The probe joined HDS fit-record family names to alternative-only candidate-family metrics by string. The names are disjoint, and alternatives equal to the primary were filtered before aggregation; the default zero is not an HDS prediction count.",
+    "validity": "Invalid as a count of HDS predictions or emissions.",
+    "corrected_value": null,
+    "candidate_prediction_count_state": "UNKNOWN"
+  }
 }
