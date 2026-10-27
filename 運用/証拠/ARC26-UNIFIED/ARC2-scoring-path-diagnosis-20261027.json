@@ -1,0 +1,73 @@
+{
+  "schema": "arc2-scoring-path-diagnosis-v1",
+  "track": "ARC2",
+  "competition": "arc-prize-2026-arc-agi-2",
+  "observed_at_utc": {
+    "started": "2026-10-27T12:51:50.4958313Z",
+    "finished": "2026-10-27T12:51:59.3493391Z"
+  },
+  "read_only_official_queries": true,
+  "submissions": [
+    {
+      "submission_id": 57682971,
+      "description": "ARC2-v61-v1-20261027-codex-once",
+      "notebook": "tecchannn/arc2-v61-local-teacher-pair-consensus-candidate",
+      "notebook_version": 1,
+      "submitted_at_utc": "2026-10-27T00:17:10.770000Z",
+      "status": "COMPLETE",
+      "public_score": null,
+      "private_score": null,
+      "error_description": "Your submission notebook exceeded the allowed runtime. Review the competition's Code Requirements page for the time limits. Note that the hidden dataset can be larger/smaller/different than the public dataset."
+    },
+    {
+      "submission_id": 57646990,
+      "description": "ARC26 v5 v11 score measurement",
+      "notebook": "tecchannn/arc2-codex-main-baseline-v1",
+      "notebook_version": 11,
+      "submitted_at_utc": "2026-10-26T00:14:46Z",
+      "status": "COMPLETE",
+      "public_score": null,
+      "private_score": null,
+      "error_description": "Your submission notebook exceeded the allowed runtime. Review the competition's Code Requirements page for the time limits. Note that the hidden dataset can be larger/smaller/different than the public dataset."
+    }
+  ],
+  "official_code_requirements": {
+    "cpu_runtime_limit_hours": 12,
+    "gpu_runtime_limit_hours": 12,
+    "internet_access": false,
+    "required_submission_file": "submission.json",
+    "source": "https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-2/",
+    "runtime_obfuscation_note": "Kaggle states submission runtimes are obfuscated and score arrival can vary by up to 10 minutes for repeated identical submissions."
+  },
+  "official_debugging_guidance": {
+    "source": "https://www.kaggle.com/code-competition-debugging",
+    "relevant_findings": [
+      "Code competition submissions are rerun against a hidden version of the dataset.",
+      "Kaggle provides only a general error class to prevent probing; the timeout message does not identify the exact slow cell, task, or elapsed time.",
+      "The hidden dataset may differ from the public dataset."
+    ]
+  },
+  "available_notebook_run_evidence": {
+    "verification_file": "運用/証拠/ARC26-UNIFIED/ARC2-v61-kaggle-version1-verification-20261026.json",
+    "verification_sha256": "b888f1ce33f9822d9dc6ac52ef61d00a2a2bda7103aaad6306bec9ad966ff762",
+    "runtime_seconds": 398.848,
+    "test_examples": 259,
+    "fallback_examples": 249,
+    "submission_output_sha256": "827bccfc1cf51e2fc87d687ba51e1375899650a530ec00e7a20eb1f71eb2dd18",
+    "scope": "A separately recorded committed notebook run over available competition challenge inputs; it is not the hidden scoring rerun and cannot establish its runtime."
+  },
+  "latest_history_evidence": {
+    "file": "運用/証拠/ARC26-UNIFIED/official-history-20261027T124508Z.json",
+    "sha256": "b0469330b0863a3f9fa7bca414976f82e6ba9036a373f30e5994448a5a7e73ad"
+  },
+  "diagnosis": {
+    "g_score_state": "SCORE_UNOBSERVED",
+    "confirmed_failure_class": "notebook_timeout",
+    "exact_root_cause": null,
+    "interpretation": "Two different notebook versions have the same official timeout classification. The public/available-input run completed in 398.848 seconds, but this is not the hidden scoring run. Available official evidence cannot distinguish hidden-input workload from another execution-path or resource issue.",
+    "no_hidden_data_or_solutions_accessed": true,
+    "no_production_source_changed": true,
+    "no_submission_or_rerun_performed": true
+  },
+  "next_action": "Keep tracking submission 57682971 through the read-only Kaggle history at its next scheduled check (2026-10-27T13:45:08.217739Z). Continue public-data diagnosis and matched evaluation; do not infer a numeric score or claim a root cause from the generic timeout."
+}
