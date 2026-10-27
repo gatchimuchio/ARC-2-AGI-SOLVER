@@ -9,8 +9,9 @@ import zipfile
 
 REPOSITORY = Path(__file__).resolve().parents[3]
 SOURCE_ROOT = REPOSITORY / "運用/証拠/ARC26-UNIFIED/ARC2-v61-global-deadline-isolated"
-BUILD_ROOT = REPOSITORY / "出力/Kaggle/arc2-v61-global-deadline-review-20261027-build"
+BUILD_ROOT = REPOSITORY / "出力/Kaggle/arc2-v61-global-deadline-review-20261027-compact-build"
 KERNEL_ID = "tecchannn/arc2-v61-global-deadline-review-20261027"
+KERNEL_TITLE = "ARC2 V61 Global Deadline Review 20261027"
 COMPETITION = "arc-prize-2026-arc-agi-2"
 MEMBERS = {
     "Kaggle提出.py": "dc90314d9fa18626c67b02177ddac9fd9ec2d1ef89bc3b5f76ae013861a15213",
@@ -25,7 +26,7 @@ def sha256(data: bytes) -> str:
 
 
 def notebook_source(bundle_b64: str, bundle_sha256: str) -> str:
-    chunks = [bundle_b64[i : i + 100] for i in range(0, len(bundle_b64), 100)]
+    chunks = [bundle_b64[i : i + 8192] for i in range(0, len(bundle_b64), 8192)]
     chunk_lines = ",\n".join(f'    "{chunk}"' for chunk in chunks)
     members_json = json.dumps(MEMBERS, sort_keys=True)
     return f'''# Isolated ARC2 v61 deadline review; no official submission is made here.
@@ -115,7 +116,7 @@ def main() -> None:
     )
     metadata = {
         "id": KERNEL_ID,
-        "title": "ARC2 v61 Global Deadline Review",
+        "title": KERNEL_TITLE,
         "code_file": "main.ipynb",
         "language": "python",
         "kernel_type": "notebook",
@@ -137,6 +138,8 @@ def main() -> None:
     manifest = {
         "schema": "arc2-v61-deadline-review-bundle-v1",
         "kernel": KERNEL_ID,
+        "title": KERNEL_TITLE,
+        "base64_chunk_chars": 8192,
         "private": True,
         "internet": False,
         "competition": COMPETITION,

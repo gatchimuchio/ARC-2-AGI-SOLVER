@@ -1,0 +1,86 @@
+{
+  "schema": "arc2-v61-deadline-review-kaggle-verification-v1",
+  "track": "ARC2",
+  "instruction_id": "ARC26-UNIFIED-v6.0",
+  "run_id": "ARC2-v61-deadline-review-kaggle-version1-20261027T2119Z",
+  "recorded_at_utc": "2026-10-27T21:31:34.397061+00:00",
+  "source_revision": "5b8fcebebc472828a038d35f88723181bde187fe",
+  "builder_path": "運用/証拠/ARC26-UNIFIED/ARC2_v61_deadline_review_bundle_build_20261027.py",
+  "builder_sha256": "73ea1be5e091222e9f5640489366c3b648d6f890f353197452658b4b16655bc2",
+  "kaggle_environment": {
+    "track": "ARC2",
+    "kaggle_cli": "2.2.5",
+    "kagglesdk": "0.1.38"
+  },
+  "upload_diagnosis": {
+    "first_title_matched_package": {
+      "code_sha256": "feecd91f0fad0841d82fd6c6f43ec4ad8e3264bcf021156622423b2e7d59ee5e",
+      "metadata_sha256": "6ecefa00d1cab86bb930c817376f607aefca7d4254c682ab42cbf976fb2f3410",
+      "normalized_request_text_bytes": 1137992,
+      "http_status": 400,
+      "target_kernel_absent_after_failure": true
+    },
+    "compact_retry": {
+      "code_sha256": "74c8ba046ef9763a262cae88cd5aa983f823ec80e2109a85e873653a9161e085",
+      "metadata_sha256": "6ecefa00d1cab86bb930c817376f607aefca7d4254c682ab42cbf976fb2f3410",
+      "normalized_request_text_bytes": 1026804,
+      "prior_success_reference_bytes": 1016038,
+      "sdk_title_slug_matches_id": true,
+      "remote_acceptance": "accepted_as_kernel_version_1"
+    },
+    "cause_assessment": "The first 400 cause is unconfirmed. Reducing the notebook payload correlated with acceptance; payload size remains a hypothesis, not a proven server limit."
+  },
+  "kernel": {
+    "ref": "tecchannn/arc2-v61-global-deadline-review-20261027",
+    "version": 1,
+    "status": "COMPLETE",
+    "private": true,
+    "internet": false,
+    "competition_source": "arc-prize-2026-arc-agi-2",
+    "official_competition_submission": false,
+    "code_sha256": "74c8ba046ef9763a262cae88cd5aa983f823ec80e2109a85e873653a9161e085",
+    "metadata_sha256": "6ecefa00d1cab86bb930c817376f607aefca7d4254c682ab42cbf976fb2f3410",
+    "runtime_bundle_sha256": "457762aabadd49c9968a8f2a2987ee8668dc9c87f476062a61e210531ea9b9c7",
+    "runtime_bundle_bytes": 767462,
+    "timeout_seconds": 600,
+    "runtime_seconds": 451.043
+  },
+  "runtime_result": {
+    "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "tasks": 240,
+    "test_examples": 259,
+    "attempts_per_test": 2,
+    "fallback_count": 249,
+    "all_tasks_processed": true,
+    "unprocessed_task_count": 0,
+    "scientific_correctness_evaluated": false,
+    "output_sha256": "827bccfc1cf51e2fc87d687ba51e1375899650a530ec00e7a20eb1f71eb2dd18",
+    "local_v61_output_sha256": "827bccfc1cf51e2fc87d687ba51e1375899650a530ec00e7a20eb1f71eb2dd18",
+    "byte_identical_to_local_v61": true,
+    "runner_returncode": 0,
+    "deadline_terminated_runner": false,
+    "whole_notebook_host_runtime_proved": false,
+    "runtime_source_commit_label": "dae0a5dbe124a0c4a01bd69a26dda0036d0379e0+dirty+v50-local-prior-memory+v51-largest-component-object+v61-teacher-pair-consensus"
+  },
+  "official_history": {
+    "path": "運用/ARC26-UNIFIED/official-history-20261027T212939Z.json",
+    "sha256": "9f54f907fde4c85e102febb801452b5c4eebcdcd73cda1ff0eea0500484dd038",
+    "observed_at_utc": "2026-10-27T21:29:39.145789+00:00",
+    "latest_submission_id": 57682971,
+    "latest_status": "COMPLETE",
+    "latest_public_score": "",
+    "score_state": "SCORE_UNOBSERVED",
+    "failure_detail_present": true
+  },
+  "official_submission_performed": false,
+  "production_source_changed": false,
+  "local_correctness_rescored": false,
+  "decision": "PRIVATE_REVIEW_RUNTIME_COMPLETE_OUTPUT_BYTE_IDENTICAL; no solver improvement or official score claim; timeout mechanism remains unproven.",
+  "limitations": [
+    "The prior official submission 57682971 remains COMPLETE with no numeric score.",
+    "The private run completed in 451.043 seconds with the runner timeout set to 600 seconds; this does not prove the full notebook host runtime envelope.",
+    "The remote audit explicitly reports scientific_correctness_evaluated=false.",
+    "No new correctness score was computed because the output is byte-identical to the previously measured v61 output."
+  ],
+  "next_action": "Keep the deadline-control variant isolated pending a matched public evaluation and stronger whole-notebook runtime evidence; continue same-ID official score tracking and ARC2 solver improvement."
+}
