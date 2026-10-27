@@ -78,6 +78,7 @@ def main() -> int:
 
     request_counts: Counter[str] = Counter()
     fallback_reasons: Counter[str] = Counter()
+    hds_reason_labels: Counter[str] = Counter()
     output_map: dict[str, list[dict]] = {}
     chunk_hashes: list[str] = []
     completed_tasks = 0
@@ -187,10 +188,21 @@ def main() -> int:
                 raise RuntimeError(f"chunk {chunk_number} task order mismatch")
             output_map.update(chunk_submission)
             chunk_hashes.append(sha256(submission_bytes))
-            fallback_examples += int(audit.get("fallback_count", 0))
-            for reason, count in audit.get("solver_hold_reason_counts", {}).items():
-                if isinstance(reason, str) and type(count) is int and count >= 0:
-                    fallback_reasons[reason] += count
+            chunk_fallbacks = audit.get("fallbacks", [])
+            chunk_fallback_count = int(audit.get("fallback_count", 0))
+            if not isinstance(chunk_fallbacks, list) or len(chunk_fallbacks) != chunk_fallback_count:
+                raise RuntimeError(f"chunk {chunk_number} fallback record count mismatch")
+            fallback_examples += chunk_fallback_count
+            for fallback in chunk_fallbacks:
+                if not isinstance(fallback, dict):
+                    fallback_reasons["__invalid_fallback_record__"] += 1
+                    continue
+                reason = fallback.get("reason")
+                fallback_reasons[reason if isinstance(reason, str) else "__missing_reason__"] += 1
+                labels = fallback.get("solver_hold_reasons")
+                if isinstance(labels, list):
+                    for label in set(value for value in labels if isinstance(value, str)):
+                        hds_reason_labels[label] += 1
             diagnostics = audit.get("aggregate_diagnostics", {})
             observed_counts = diagnostics.get("observation_request_counts", {})
             if not isinstance(observed_counts, dict):
@@ -261,6 +273,8 @@ def main() -> int:
         "fallback": {
             "fallback_examples": fallback_examples,
             "reason_counts": dict(sorted(fallback_reasons.items())),
+            "hds_reason_label_counts": dict(sorted(hds_reason_labels.items())),
+            "hds_reason_labels_are_nonexclusive": True,
             "fallback_count_matches_reason_count_sum": fallback_examples == sum(fallback_reasons.values()),
         },
         "reproduction": {
