@@ -420,6 +420,21 @@ def _kaggle_cli_prefix() -> list[str]:
                     and discovery["manifest_cli_exists"]):
                 discovery["selected_source"] = "manifest"
                 return [str(project_cli)]
+            if (
+                discovery["manifest_track_matches"]
+                and discovery["manifest_cli_version_matches"]
+            ):
+                project_python = Path(venv_path) / "Scripts" / "python.exe"
+                project_module = Path(venv_path) / "Lib" / "site-packages" / "kaggle" / "__main__.py"
+                discovery["manifest_python_path"] = str(project_python)
+                discovery["manifest_python_exists"] = project_python.is_file()
+                discovery["manifest_kaggle_module_exists"] = project_module.is_file()
+                if (
+                    discovery["manifest_python_exists"]
+                    and discovery["manifest_kaggle_module_exists"]
+                ):
+                    discovery["selected_source"] = "manifest_python"
+                    return [str(project_python), "-m", "kaggle"]
 
     if manifest is None or (discovery["manifest_track_matches"] and discovery["manifest_cli_version_matches"]):
         repo_prefix = _repo_venv_cli_prefix(discovery)
