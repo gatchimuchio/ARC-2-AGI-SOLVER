@@ -204,8 +204,25 @@ def schema_proof_and_immutability(adapter, teachers, fitted, out):
     assert rawmodels == () and rawrecord['hypotheses'] == len(raw) == 900 and all(not h['accepted'] for h in raw)
     rows.append({'name':'whole-domain shape proof versus complete raw enumeration','teachers':pairs,'proof_fit':audit,
                  'proof_events':events,'raw_record':rawrecord,'raw_hypotheses':raw})
-    save(out, 'schema-proof-immutability.json.gz', rows)
     check('exact whole-domain proof:900 symbolically rejected,0 executed; independent raw900 all rejected')
+
+    large_inputs = []
+    for r, c in ((0, 0), (0, 1)):
+        grid = [[0] * 19 for _ in range(22)]
+        grid[r][c] = 1
+        large_inputs.append(grid)
+    large_teachers = [{'input': grid, 'output': [[0] * 19 for _ in range(22)]}
+                      for grid in large_inputs]
+    budget_events = []
+    budget_models, budget_record = adapter.fit(large_teachers, budget_events.append)
+    assert budget_models == () and budget_record['failure'] == 'hypothesis_budget_exceeded'
+    assert budget_record['declared_hypotheses'] == 192280 and budget_record['max_hypotheses'] == 20000
+    assert budget_record['hypotheses'] == 0 and budget_record['search_truncated']
+    assert any(event['kind'] == 'grammar_domain_budget' for event in budget_events)
+    rows.append({'name':'oversized finite-view fit fails closed before partial hypotheses',
+                 'teachers':large_teachers,'record':budget_record,'events':budget_events})
+    check('192280-hypothesis finite-view domain returns no partial models at deterministic 20000 cap')
+    save(out, 'schema-proof-immutability.json.gz', rows)
 
 def resources(adapter, teachers, fitted, out):
     rows = []; core = adapter.strict.core

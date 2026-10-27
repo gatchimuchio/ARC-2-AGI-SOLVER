@@ -1,0 +1,119 @@
+{
+  "schema": "arc2-public-runtime-change-evidence-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-27T14:40:36.167787Z",
+  "base_git_head": "2c7d34030690c8f821e399ca5ead342404421d65",
+  "change": "Finite glyph view teacher-fit checks its full generic hypothesis count; above 20000 it emits no partial model and returns HOLD unless the existing exact shared-shape impossibility proof resolves the domain.",
+  "cap": {
+    "max_hypotheses": 20000,
+    "count_formula": "4 * triangular(min_teacher_height) * triangular(min_teacher_width)"
+  },
+  "evaluation": {
+    "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "solutions_sha256": "9f07a38bd25af5e83aa5bf85c5cb1a1fefdb30f6a755256fa65429e697ca97f9",
+    "tasks": 240,
+    "test_examples": 259,
+    "workers": 3,
+    "per_task_timeout_seconds": 90,
+    "solutions_opened_only_after_predictions_frozen": true,
+    "solutions_passed_to_workers": false,
+    "baseline": {
+      "attempt1_exact": 9,
+      "attempt2_only_exact": 5,
+      "pass2_exact": 14,
+      "fallback_count": 249,
+      "elapsed_seconds": 816.484,
+      "output_sha256": "54f6a303c4143f15279e2084d5ad798455e565b4d51cd6a2b226e4d4735af46a",
+      "task_wall_timeouts": [
+        {
+          "task_id": "320afe60",
+          "test_index": 0,
+          "reason": "task_wall_timeout",
+          "solver_status": null,
+          "solver_hold_reasons": []
+        },
+        {
+          "task_id": "320afe60",
+          "test_index": 1,
+          "reason": "task_wall_timeout",
+          "solver_status": null,
+          "solver_hold_reasons": []
+        },
+        {
+          "task_id": "37d3e8b2",
+          "test_index": 0,
+          "reason": "task_wall_timeout",
+          "solver_status": null,
+          "solver_hold_reasons": []
+        }
+      ]
+    },
+    "candidate_runs": [
+      {
+        "run_id": "arc2-finite-view-budget-240-20261027-r1",
+        "command": "python 接続/ARC2/Kaggle提出.py --challenges 入力/Kaggle/arc-agi_test_challenges.json --output-dir 出力/Kaggle/arc2-finite-view-budget-240-20261027-r1",
+        "tasks": 240,
+        "test_examples": 259,
+        "attempt1_exact": 9,
+        "attempt2_only_exact": 5,
+        "pass2_exact": 14,
+        "fallback_count": 249,
+        "elapsed_seconds": 733.094,
+        "submission_sha256": "54f6a303c4143f15279e2084d5ad798455e565b4d51cd6a2b226e4d4735af46a",
+        "task_wall_timeouts": [],
+        "audit_path": "出力/Kaggle/arc2-finite-view-budget-240-20261027-r1/submission_audit.json"
+      },
+      {
+        "run_id": "arc2-finite-view-budget-240-20261027-r2",
+        "command": "python 接続/ARC2/Kaggle提出.py --challenges 入力/Kaggle/arc-agi_test_challenges.json --output-dir 出力/Kaggle/arc2-finite-view-budget-240-20261027-r2",
+        "tasks": 240,
+        "test_examples": 259,
+        "attempt1_exact": 9,
+        "attempt2_only_exact": 5,
+        "pass2_exact": 14,
+        "fallback_count": 249,
+        "elapsed_seconds": 799.593,
+        "submission_sha256": "54f6a303c4143f15279e2084d5ad798455e565b4d51cd6a2b226e4d4735af46a",
+        "task_wall_timeouts": [
+          {
+            "task_id": "3490cc26",
+            "test_index": 0,
+            "reason": "task_wall_timeout",
+            "solver_status": null,
+            "solver_hold_reasons": []
+          }
+        ],
+        "audit_path": "出力/Kaggle/arc2-finite-view-budget-240-20261027-r2/submission_audit.json"
+      }
+    ],
+    "same_output_sha256_for_baseline_and_both_candidates": true,
+    "mean_candidate_seconds": 766.343,
+    "accuracy_delta_pass2": 0,
+    "conclusion": "Runtime-reliability improvement only; no public accuracy improvement. Both candidate runs retained pass@2 14/259, fallback 249, and exact output bytes equal to baseline. The baseline timed out twice on task 320afe60 and once on 37d3e8b2; neither candidate run timed out on those baseline timeout locations. Candidate run 2 had one timeout on 3490cc26. Wall-time reduction is observational and noisy."
+  },
+  "targeted_regression": {
+    "passed": true,
+    "passed_cases": [
+      "strict teacher schema immutable target-free tuple and detached audit/observer records",
+      "exact inherited memoization is invocation-local and returns fresh component records",
+      "exact whole-domain proof:900 symbolically rejected,0 executed; independent raw900 all rejected",
+      "192280-hypothesis finite-view domain returns no partial models at deterministic 20000 cap"
+    ],
+    "full_legacy_runner": "blocked before test execution by pre-existing dependency hash mismatch",
+    "mismatch": {
+      "path": "接続/ARC2/既存穴充填.py",
+      "expected_sha256": "451d07ba636d4e4ce5a2443cfe56745f55fd16cf8845a2f4c9f62abd08d78b53",
+      "current_clean_head_sha256": "02c52a362a314cde7c6d37794251271724c41aeb4adb41a35214e15900e0953e"
+    }
+  },
+  "changed_source_sha256": "3987fa7b68cd5e7624217b43fa3d6283ca1979834da655884855c0c18f81bd72",
+  "changed_regression_sha256": "3cff658541311de12475a02c1a08e9d3cf261c6cb36ed60e545995557cff058c",
+  "protected_files": {
+    "AGENTS.md": "315998bc0549de61f70fda28a9c9923bea8a61ba6d9b79019283165e5438109b",
+    "制御/現在状態.json": "773fdfdd37aad115c6bbbcb879304142136654db649eb1954cde0d69eb14aa6d",
+    "git_status_porcelain": ""
+  },
+  "official_score": null,
+  "official_submission_performed": false,
+  "next_failure": "pass@2 remains 14/259 and 249 fallbacks; continue generic HDS failure analysis."
+}
