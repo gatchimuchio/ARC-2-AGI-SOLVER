@@ -1,0 +1,99 @@
+{
+  "schema": "arc2-candidate224-recovery-audit-v1",
+  "track": "ARC2",
+  "instruction_id": "ARC26-UNIFIED-v6.0",
+  "run_id": "ARC2-candidate224-recovery-audit-20261027T220442Z",
+  "recorded_at_utc": "2026-10-27T22:04:42.029221+00:00",
+  "source_revision": "0be9b10666e858bbbe769d431ddeae1743f801fb",
+  "archive": {
+    "source_ref": "origin/import/arc2-120-167-staging-20261009",
+    "source_commit": "029f46eb45bf7a26a6448276682519c205a28acc",
+    "baseline_commit": "4915c462c0f6d4400a87454b43302e0ff70f654e",
+    "archive_name": "ARC2-main-delta-120-167-evidence224.tar.xz",
+    "archive_sha256": "6d7e9250e4f9972248e0f2f70fe7ecdcf7518f0fc1fa89df0ca50186318f2991",
+    "archive_bytes": 19717340,
+    "parts": 201,
+    "payload_files_verified": 1574,
+    "payload_hash_mismatches": 0,
+    "unsafe_tar_members": 0,
+    "integrity_status": "PASS"
+  },
+  "historical_claim": {
+    "previous": [
+      119,
+      166
+    ],
+    "current": [
+      120,
+      167
+    ],
+    "delta": [
+      1,
+      1
+    ],
+    "source": "recovered archive candidate224-production/delta.json",
+    "independently_reproduced_now": false,
+    "current_main_score": null
+  },
+  "static_review": {
+    "learner_module": {
+      "path": "接続/ARC2/可視材例外学習.py",
+      "sha256": "1cf603636578e308ee398c179cbc8777667d9e7c8d88233355fe8531b2706463",
+      "ast_parse": "PASS",
+      "target_task_id_literal_present": false,
+      "uses_teacher_examples": true,
+      "task_specific_output_lookup_found": false
+    },
+    "core_module": {
+      "path": "接続/ARC2/可視材例外核.py",
+      "sha256": "be507f95aa139f16da652e36bd387a1f312bb44f7ba0d4ecd9cb77a2057952e2",
+      "ast_parse": "PASS",
+      "target_task_id_literal_present": false
+    },
+    "existing_connector_note": "HDS接続 reads explicitly attributed public training teacher files through predeclared source IDs; no test-task-ID lookup was found in the recovered new candidate module.",
+    "source_adoption": "NOT_ADOPTED"
+  },
+  "runtime_replay": {
+    "windows_attempt_1": {
+      "python": "3.12.10",
+      "tasks": 120,
+      "test_examples": 167,
+      "terminal_summary": {
+        "correct_tasks": 0,
+        "correct_examples": 0,
+        "unanswered": 167,
+        "resource_failures": {
+          "runtime_exit": 120
+        }
+      },
+      "invalid_as_model_measurement": true,
+      "cause": "Windows cp932 default could not decode UTF-8 teacher JSON; UnicodeDecodeError occurred before solving."
+    },
+    "windows_attempt_2": {
+      "python": "3.12.10",
+      "python_utf8_mode": true,
+      "complete": false,
+      "output_file_created": false,
+      "stopped_after_bounded_observation": true,
+      "score": null
+    },
+    "limitations": [
+      "This Windows host does not enforce the archived Linux CPU/address-space limits.",
+      "A complete current reproduction of 120/167 was not established.",
+      "Archive integrity is not solver-score verification."
+    ]
+  },
+  "official_history": {
+    "path": "運用/ARC26-UNIFIED/official-history-20261027T220442Z.json",
+    "sha256": "bcfb52eda8f75de7b2c4176b7f21789db3fe31b97420e6803640ce35b5ded41e",
+    "observed_at_utc": "2026-10-27T22:04:42.029221+00:00",
+    "latest_submission_id": 57682971,
+    "latest_status": "COMPLETE",
+    "latest_public_score": null,
+    "latest_error_details_present": true,
+    "next_24h_gate_utc": "2026-10-28T00:17:10.770Z",
+    "new_submission_performed": false
+  },
+  "decision": "Recovered archive integrity and generic candidate code are verified; historical 120/167 remains unverified on current main and is not adopted or reported as current performance.",
+  "next_action": "Continue ARC2 public-evaluation diagnosis on current main; obtain a complete leakage-safe reproduction or recover a compatible candidate runtime, then validate the next official candidate before the next UTC-day and 24-hour submission gates."
+}

@@ -1,0 +1,21 @@
+{
+  "track": "ARC2",
+  "instruction_id": "ARC26-UNIFIED-v6.0",
+  "experiment_id": "ARC2-candidate224-recovery-audit-20261027T220442Z",
+  "checkpoint_created_at_utc": "2026-10-27T22:04:42.029221+00:00",
+  "phase": "P1_HISTORICAL_ASSET_RECOVERY",
+  "process_status": "ARCHIVE_INTEGRITY_PASS_REPRODUCTION_NOT_ESTABLISHED",
+  "source_revision": "0be9b10666e858bbbe769d431ddeae1743f801fb",
+  "evidence_path": "運用/証拠/ARC26-UNIFIED/ARC2-candidate224-recovery-audit-20261027T220442Z.json",
+  "evidence_sha256": "4cd39d760088ac0ed724b0846ad1e3ba9fa6254af2ebc17d7f8dfc942e3cde97",
+  "official_history_path": "運用/ARC26-UNIFIED/official-history-20261027T220442Z.json",
+  "official_history_sha256": "bcfb52eda8f75de7b2c4176b7f21789db3fe31b97420e6803640ce35b5ded41e",
+  "official_submission_id": 57682971,
+  "official_status": "COMPLETE",
+  "official_score": null,
+  "score_state": "SCORE_UNOBSERVED",
+  "official_submission_performed": false,
+  "production_source_changed": false,
+  "decision": "The candidate224 archive and all 1,574 payload hashes were verified. Its historical 120/167 metric was not reproduced in the current runtime and is not a current score.",
+  "next_action": "Continue failure diagnosis on current main and preserve the 2026-10-28T00:17:10.770Z 24-hour gate; before any submission recheck rules, UTC date, quota, status/score, notebook output and SHA."
+}
