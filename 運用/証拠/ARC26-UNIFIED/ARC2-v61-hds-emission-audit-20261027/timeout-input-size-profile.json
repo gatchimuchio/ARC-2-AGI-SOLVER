@@ -1,0 +1,112 @@
+{
+  "schema": "arc2-timeout-task-input-size-profile-v1",
+  "track": "ARC2",
+  "experiment_id": "ARC2-v61-timeout-id-audit-20261027",
+  "created_at_utc": "2026-10-27T08:37:06.997Z",
+  "challenge_sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+  "cohort": {
+    "tasks": 1000,
+    "note": "All 1,000 public training challenges, including one source-prior task excluded from score eligibility; features use input grids only.",
+    "summary": {
+      "total_input_cells": {
+        "median": 567,
+        "p90": 1812,
+        "max": 4500
+      },
+      "max_grid_area": {
+        "median": 169,
+        "p90": 621,
+        "max": 900
+      },
+      "input_grids": {
+        "median": 4,
+        "p90": 5,
+        "max": 12
+      },
+      "distinct_input_colors": {
+        "median": 6,
+        "p90": 10,
+        "max": 10
+      }
+    }
+  },
+  "timeout_tasks": [
+    {
+      "task_id": "320afe60",
+      "train_examples": 3,
+      "test_examples": 2,
+      "input_grids": 5,
+      "total_input_cells": 2464,
+      "max_grid_area": 572,
+      "max_height": 22,
+      "max_width": 26,
+      "distinct_input_colors": 2,
+      "percentile_total_input_cells": 95.7,
+      "percentile_max_grid_area": 88.7
+    },
+    {
+      "task_id": "37d3e8b2",
+      "train_examples": 3,
+      "test_examples": 1,
+      "input_grids": 4,
+      "total_input_cells": 1190,
+      "max_grid_area": 323,
+      "max_height": 19,
+      "max_width": 18,
+      "distinct_input_colors": 2,
+      "percentile_total_input_cells": 79.5,
+      "percentile_max_grid_area": 73.6
+    },
+    {
+      "task_id": "639f5a19",
+      "train_examples": 2,
+      "test_examples": 1,
+      "input_grids": 3,
+      "total_input_cells": 1587,
+      "max_grid_area": 529,
+      "max_height": 23,
+      "max_width": 23,
+      "distinct_input_colors": 2,
+      "percentile_total_input_cells": 85.3,
+      "percentile_max_grid_area": 87.5
+    },
+    {
+      "task_id": "b7f8a4d8",
+      "train_examples": 3,
+      "test_examples": 1,
+      "input_grids": 4,
+      "total_input_cells": 2994,
+      "max_grid_area": 900,
+      "max_height": 30,
+      "max_width": 30,
+      "distinct_input_colors": 6,
+      "percentile_total_input_cells": 98.0,
+      "percentile_max_grid_area": 100.0
+    },
+    {
+      "task_id": "c62e2108",
+      "train_examples": 3,
+      "test_examples": 1,
+      "input_grids": 4,
+      "total_input_cells": 1784,
+      "max_grid_area": 576,
+      "max_height": 24,
+      "max_width": 24,
+      "distinct_input_colors": 6,
+      "percentile_total_input_cells": 89.5,
+      "percentile_max_grid_area": 89.3
+    }
+  ],
+  "interpretation": [
+    "Four of five timeout tasks have maximum input-grid area at or above the 87.5th cohort percentile; one is at the 73.6th percentile.",
+    "Four of five have total input cells at or above the 85.3rd percentile; one is at the 79.5th percentile.",
+    "Input grid count is between 3 and 5, near cohort median 4 and p90 5.",
+    "Four of five timeout tasks have only two distinct input colors, while the cohort median is 6; color count is not a high-complexity signal here.",
+    "The timeout sample is only five tasks and per-task elapsed durations were not captured, so input size is a plausible factor but causality is UNKNOWN. Do not add size-based answer selection or change runtime policy from this result."
+  ],
+  "production_source_changed": false,
+  "official_submission_id": "57682971",
+  "official_status": "PENDING",
+  "official_score": null,
+  "submission_or_rerun_performed": false
+}
