@@ -1,0 +1,47 @@
+{
+  "schema": "arc2-current-main-candidate-tie-break-matched-loo-v1",
+  "run_id": "ARC2-current-main-candidate-tie-break-matched-loo-20261028",
+  "track": "ARC2",
+  "instruction_id": "ARC26-UNIFIED-v6.0",
+  "recorded_at_utc": "2026-10-27T19:11:34Z",
+  "source_revision": "947ef195285eabc4b1daf550e15d0acf8802b2f2",
+  "payload_manifest_sha256": "e0a8ae1a3a45361c5f4119dcb412b7ea7efacce57ee0f4b7a6639526ce964846",
+  "seed_bundle_sha256": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",
+  "training_manifest_sha256": "10a0146ab6374f18f44a770b37154ccb6d579fddb9a321eb3bf936666bc85aa8",
+  "script": "運用/証拠/ARC26-UNIFIED/ARC2_current_main_candidate_tie_break_matched_LOO_20261028.py",
+  "script_sha256": "9ecb776a982853b48172b17cb831e26faa9a78d8924988a7e0a2df78f09cfcbc",
+  "eligible_folds_scanned": 2916,
+  "paired_folds_scored": 48,
+  "worker_errors": {
+    "baseline": {
+      "null": 0
+    },
+    "candidate": {
+      "null": 0
+    }
+  },
+  "baseline_primary_exact": 13,
+  "candidate_primary_exact": 33,
+  "baseline_pair_exact": 35,
+  "object_candidate_pair_exact": 36,
+  "object_candidate_pair_delta": 1,
+  "tie_break_pair_exact_before": 36,
+  "tie_break_pair_exact_after": 36,
+  "tie_break_delta": 0,
+  "tie_break_gains": 0,
+  "tie_break_regressions": 0,
+  "tie_break_filled_empty_second_slots": 0,
+  "tie_break_decision": "NOT_EXERCISED_IN_COHORT",
+  "fallback_counted_correct": false,
+  "heldout_outputs_passed_to_solver": false,
+  "hidden_or_evaluation_solutions_read": false,
+  "production_source_changed": false,
+  "official_submission_performed": false,
+  "official_score": null,
+  "runtime_seconds": 603.886,
+  "limitations": [
+    "48 object-candidate-applicable training folds only; tie-break policy filled no empty secondary slots, so it was not exercised.",
+    "Object-family candidate branch independently retained pass@2 35/48 -> 36/48, but prior full challenge evidence found no pass@2 gain.",
+    "This public-training LOO result is not an official score."
+  ]
+}

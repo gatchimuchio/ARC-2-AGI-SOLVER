@@ -1,0 +1,32 @@
+{
+  "track": "ARC2",
+  "instruction_id": "ARC26-UNIFIED-v6.0",
+  "experiment_id": "ARC2-current-main-candidate-tie-break-matched-loo-20261028",
+  "checkpoint_created_at_utc": "2026-10-27T19:11:34Z",
+  "phase": "P4_FAILURE_CLASSIFICATION",
+  "process_status": "TIE_BREAK_NOT_EXERCISED_NO_PROMOTION",
+  "official_submission_id": 57682971,
+  "official_status": "SubmissionStatus.COMPLETE",
+  "official_score": null,
+  "score_state": "SCORE_UNOBSERVED",
+  "history_evidence": "運用/証拠/ARC26-UNIFIED/official-history-20261027T190238Z.json",
+  "history_evidence_sha256": "f3d97f2a7f74d5c727264c2d4e21865287d0d2b6278eb29fca451428d16b70dc",
+  "local_metrics": {
+    "matched_folds": 48,
+    "baseline_primary": 13,
+    "object_candidate_primary": 33,
+    "baseline_pair": 35,
+    "object_candidate_pair": 36,
+    "object_candidate_delta": 1,
+    "tie_pair_before": 36,
+    "tie_pair_after": 36,
+    "tie_break_filled": 0,
+    "worker_errors": 0,
+    "runtime_seconds": 603.886
+  },
+  "evidence_path": "運用/証拠/ARC26-UNIFIED/ARC2_current_main_candidate_tie_break_matched_LOO_20261028.json",
+  "evidence_sha256": "4dcef6eee664e0fee80ff56dca9ced2f99252ac579aaba3e948cad99eb22e81e",
+  "production_source_changed": false,
+  "official_submission_performed": false,
+  "next_action": "Rerun current solver against the frozen public challenge with HDS candidate outputs retained in memory; compute only aggregate per-family candidate coverage/exactness after all predictions are frozen; do not persist task IDs, grids, or per-task labels. Then pursue a generic candidate with measured matched LOO gains."
+}
