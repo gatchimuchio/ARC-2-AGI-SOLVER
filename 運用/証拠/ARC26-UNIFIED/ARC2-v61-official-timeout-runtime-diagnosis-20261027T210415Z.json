@@ -1,0 +1,65 @@
+{
+  "schema": "arc2-official-timeout-runtime-diagnosis-v1",
+  "run_id": "ARC2-v61-official-timeout-runtime-diagnosis-20261027T210415Z",
+  "track": "ARC2",
+  "instruction_id": "ARC26-UNIFIED-v6.0",
+  "observed_at_utc": "2026-10-27T21:04:15Z",
+  "source_revision": "b3c339157732995c800d7d92cec5d6fcfb0031d2",
+  "official_submission": {
+    "submission_id": 57682971,
+    "status": "COMPLETE",
+    "public_score": null,
+    "private_score": null,
+    "error_classification": "RUNTIME_TIMEOUT",
+    "score_state": "SCORE_UNOBSERVED"
+  },
+  "private_kernel_version": {
+    "kernel": "tecchannn/arc2-v61-local-teacher-pair-consensus-candidate",
+    "version": 1,
+    "status": "COMPLETE",
+    "remote_runtime_seconds": 398.848,
+    "tasks": 240,
+    "test_examples": 259,
+    "remote_output_sha256": "827bccfc1cf51e2fc87d687ba51e1375899650a530ec00e7a20eb1f71eb2dd18",
+    "local_output_byte_identical": true,
+    "public_post_run_score": {
+      "exact_tasks": 14,
+      "task_count": 240,
+      "exact_examples": 16,
+      "example_count": 259,
+      "scope": "public-solution post-run scoring; not official Kaggle score"
+    },
+    "not_official_score": true
+  },
+  "official_runtime_requirements_observed_from_kaggle": {
+    "cpu_notebook_max_seconds": 43200,
+    "submission_cpu": "Intel Skylake",
+    "submission_runs_may_vary_by_up_to_seconds": 600,
+    "source_url": "https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-2/overview/upgraded-accelerators"
+  },
+  "timeout_semantics_source": "https://www.kaggle.com/code-competition-debugging",
+  "isolated_global_deadline_candidate": {
+    "state": "ISOLATED_REVIEW_ONLY_NOT_ADOPTED",
+    "actual_kaggle_linux_runtime_tested": false,
+    "whole_notebook_12h_guarantee_proved": false,
+    "synthetic_test_summary": "18 passed in 24.71s",
+    "visible_output_equivalence_seconds": 1234.547,
+    "visible_output_sha256": "827bccfc1cf51e2fc87d687ba51e1375899650a530ec00e7a20eb1f71eb2dd18",
+    "production_adopted": false
+  },
+  "diagnosis": "The official competition run timed out despite a separate completed private kernel-version run. The two runs are not equivalent evidence of the official scoring execution; the timeout root cause remains unresolved. A global-deadline watchdog candidate has local/synthetic evidence only and is not yet adopted.",
+  "production_source_changed": false,
+  "official_submission_performed": false,
+  "source_evidence_hashes": {
+    "verification": "b888f1ce33f9822d9dc6ac52ef61d00a2a2bda7103aaad6306bec9ad966ff762",
+    "history": "5fdb8ab2be1a9ca8a71e50a71d2949be748ad3e3a534932f41361eeab6653bf6",
+    "watchdog_validation": "4b60049cfa3e67800b37cf6351be99adb64979f21ed1c1dbea376f78dfda80ed",
+    "visible_equivalence": "a18cad38967ef718baf6a0dd0e054657393edff7a67e84d4e6dced024997a148"
+  },
+  "next_action": "Package the frozen isolated deadline-controlled runtime as a separate private review candidate, verify its exact payload and full challenge run, and retain it as unadopted until Kaggle runtime/output evidence is available.",
+  "record_metadata_correction": {
+    "corrected_at_utc": "2026-10-27T21:05:04Z",
+    "supersedes_evidence_sha256": "d612fcdd71b2da1b1f857153019a5e553778699983789664c6de297d334c296c",
+    "reason": "The initial source_revision was a guessed value; corrected to the exact HEAD returned by git rev-parse before commit."
+  }
+}
