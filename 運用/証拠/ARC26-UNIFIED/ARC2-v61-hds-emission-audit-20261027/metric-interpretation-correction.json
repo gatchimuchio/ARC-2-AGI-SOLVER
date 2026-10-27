@@ -1,0 +1,50 @@
+{
+  "schema": "arc2-v61-hds-candidate-emission-metric-correction-v1",
+  "track": "ARC2",
+  "status": "CORRECTED_INTERPRETATION",
+  "observed_at_utc": "2026-10-27T06:44:34.596331Z",
+  "source_summary_path": "運用/証拠/ARC26-UNIFIED/ARC2-v61-hds-emission-audit-20261027/summary.json",
+  "source_summary_sha256": "4f73141ad30ecea476fd4818e67da844ed92eff81e0ac5117aabf34a8ff1bf74",
+  "source_probe_sha256": "61399299e70db3e9ac0344a37d1404f2bf851066c4b3b093b10e42a97528aad4",
+  "affected_metric": "direct_hds_candidate_emission_metrics[*].deterministic_gains_vs_attempt2",
+  "previous_attempt2_only_gain_sum": 8,
+  "correct_incremental_official_pass2_gains": 0,
+  "counterfactual_attempt2_replacement_regressions": 1,
+  "root_cause": "The first audit compared HDS candidates against attempt_2 alone. It did not subtract a correct attempt_1, which is already part of official pass@2.",
+  "observed_hds_emissions": {
+    "invalid_candidate_emissions": 0,
+    "valid_candidate_emissions": 74,
+    "test_examples_with_candidates": 74,
+    "candidate_emissions_equal_primary": 74,
+    "candidate_emissions_distinct_from_primary": 0,
+    "oracle_exact_candidate_emissions": 58,
+    "oracle_exact_test_examples": 58,
+    "oracle_exact_on_hds_hold_examples": 0,
+    "oracle_exact_when_primary_wrong_examples": 0,
+    "single_distinct_candidate_test_examples": 74,
+    "deterministic_gains_vs_attempt2": 8,
+    "deterministic_regressions_vs_attempt2": 1
+  },
+  "interpretation": "All 74 valid direct HDS emissions equal attempt_1; none is a new grid. The 58 exact emissions were already covered by attempt_1, and no emission is exact when the primary is wrong. Thus incremental pass@2 gain is zero. A forced attempt_2 replacement is counterfactual and has one regression.",
+  "previous_baseline": {
+    "exact_examples": "61/1075",
+    "exact_tasks": "58/999",
+    "submission_sha256": "b8159ef2d67e458fcac637ff090958a78f6e773b5eef863d6b2861ab9c176019"
+  },
+  "current_baseline": {
+    "exact_examples": "61/1075",
+    "exact_tasks": "58/999",
+    "submission_sha256": "b8159ef2d67e458fcac637ff090958a78f6e773b5eef863d6b2861ab9c176019",
+    "worker_errors": {
+      "result_count_mismatch": 4,
+      "task_wall_timeout": 4
+    }
+  },
+  "same_submission_bytes_as_previous": true,
+  "frozen_digest_note": "The frozen digest also includes worker error counts, which changed from 6 timeouts/mismatches to 4; it is not a predictions-only digest.",
+  "official_score": null,
+  "production_source_changed": false,
+  "official_submission_performed": false,
+  "repeat_script_path": "運用/証拠/ARC26-UNIFIED/ARC2-v61-hds-emission-audit-20261027/audit-repeat.py",
+  "repeat_pass2_comparator_corrected": true
+}
