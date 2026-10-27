@@ -1,0 +1,22 @@
+{
+  "schema": "arc2-v61-diagnostic-noninterference-smoke-v1",
+  "track": "ARC2",
+  "recorded_at_utc": "2026-10-27T03:55:08.544733+00:00",
+  "result": "PASS",
+  "sample_tasks": 3,
+  "comparison_fields": [
+    "answer",
+    "second_answer",
+    "status",
+    "reasons"
+  ],
+  "normal_vs_diagnostic_attempts_identical": true,
+  "runtime_received_test_outputs": false,
+  "training_solutions_file_opened": false,
+  "task_ids_or_grids_persisted": false,
+  "v61_bundle_sha256": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",
+  "v61_wrapper_sha256": "c20102c4e9a01e833ca8f9e2778b5306333c50c065d9aebe7cbeaf574e74418d",
+  "diagnostic_probe_sha256": "d9472e64e09e2c3c1afb14d926dfe7c46a150001921c40d19eed7b3a337dadc5",
+  "method": "For three eligible public training tasks, compare the exact v61 worker with and without ARC2_AGGREGATE_DIAGNOSTICS; only input-only test pairs are sent. Compare answer, second_answer, status and reasons.",
+  "scope_limit": "This proves diagnostic noninterference for the sampled tasks only; it is not a performance result or official score."
+}
