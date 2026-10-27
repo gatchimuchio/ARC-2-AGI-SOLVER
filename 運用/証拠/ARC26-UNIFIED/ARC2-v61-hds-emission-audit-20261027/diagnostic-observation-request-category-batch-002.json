@@ -1,0 +1,65 @@
+{
+  "schema": "arc2-v61-observation-request-category-audit-v1",
+  "track": "ARC2",
+  "experiment_id": "ARC2-v61-observation-request-category-audit-20261027",
+  "created_at_utc": "2026-10-27T10:24:09.172353+00:00",
+  "source_commit": "445648289172eda3531390945ac296bf83751bf1",
+  "bundle_sha256": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",
+  "bundle_manifest_sha256": "d13b7d96ed1240432768a35d49a4016a30d02d79cdd184720fe575242455163c",
+  "v61_wrapper_sha256": "c20102c4e9a01e833ca8f9e2778b5306333c50c065d9aebe7cbeaf574e74418d",
+  "v61_hds_sha256": "8cc1456edfab1b84478fcc1b8f82973481709d85a45532b5181d0e79655362a3",
+  "training_challenges_sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+  "scope": {
+    "dataset": "public ARC2 training challenge inputs",
+    "public_training_tasks": 1000,
+    "static_prior_source_tasks_included": 1,
+    "test_examples": 1076,
+    "chunk_size": 100,
+    "runtime_received_test_solutions": false,
+    "solutions_file_opened": false,
+    "task_ids_or_raw_grids_persisted": false
+  },
+  "observation_request_counts": {
+    "additional_observation_requests": 112,
+    "conflict_records": 0,
+    "missing_condition_path_requests": 0,
+    "other_additional_observation_requests": 0,
+    "prediction_records": 0,
+    "unidentified_records": 0,
+    "unknown_condition_value_requests": 112
+  },
+  "count_semantics": {
+    "additional_observation_requests": "sum of HDS aggregate request records over all public-training task test examples in the audited chunk",
+    "category_partition": [
+      "missing_condition_path_requests",
+      "unknown_condition_value_requests",
+      "other_additional_observation_requests"
+    ],
+    "category_counts_partition_total": true,
+    "requests_are_not_equivalent_to_wrong_answers_or_solved_examples": true
+  },
+  "fallback": {
+    "fallback_examples": 109,
+    "reason_counts": {
+      "現行暫定原理の適用に必要な観測が不足している": 109
+    },
+    "fallback_count_matches_reason_count_sum": true
+  },
+  "reproduction": {
+    "chunk_count": 1,
+    "chunk_submission_hashes_sha256": "cedbc9e52bb065505005cd72f93e2f977f777c3ec0af06c2eb402e648f3f78f0",
+    "combined_submission_sha256": "713275d34edb2200e889ed8d831dd465fd0e76da24b24f3089c16c96f4c6041e",
+    "matches_previous_full_run_submission_sha256": false,
+    "previous_full_run_submission_sha256": "b8159ef2d67e458fcac637ff090958a78f6e773b5eef863d6b2861ab9c176019",
+    "aggregate_runner_seconds": 481.891,
+    "wall_seconds": 496.234
+  },
+  "interpretation": [
+    "This is a category-level diagnostic of HDS observation requests; it does not inspect training solutions or hidden scoring data.",
+    "Request counts describe HDS diagnostic requests and are not accuracy metrics.",
+    "No production source was changed and no Kaggle submission or notebook run was performed."
+  ],
+  "production_source_changed": false,
+  "official_submission_performed": false,
+  "official_score": null
+}

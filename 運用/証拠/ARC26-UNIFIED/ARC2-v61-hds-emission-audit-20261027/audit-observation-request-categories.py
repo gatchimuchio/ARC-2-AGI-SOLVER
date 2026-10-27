@@ -249,7 +249,7 @@ def main() -> int:
         },
         "observation_request_counts": dict(sorted(request_counts.items())),
         "count_semantics": {
-            "additional_observation_requests": "sum of HDS aggregate request records over eligible task test examples",
+            "additional_observation_requests": "sum of HDS aggregate request records over all public-training task test examples in the audited scope",
             "category_partition": [
                 "missing_condition_path_requests",
                 "unknown_condition_value_requests",
