@@ -1,0 +1,47 @@
+{
+  "schema": "arc2-kaggle-kernel-run-evidence-v1",
+  "track": "ARC2",
+  "status_observed_at_utc": "2026-10-27T14:57:04.802318+00:00",
+  "build_id": "arc2-finite-view-budget-20261027",
+  "base_git_head": "66e225b6fa9712eebcb3f5eda35c42aa2b786331",
+  "source_commit": "66e225b6fa9712eebcb3f5eda35c42aa2b786331+dirty",
+  "kernel": "tecchannn/arc2-codex-main-baseline-v1",
+  "kaggle_current_version": 1,
+  "kaggle_status": "COMPLETE",
+  "failure_details": false,
+  "private": true,
+  "internet_enabled": false,
+  "competition_source": "arc-prize-2026-arc-agi-2",
+  "bundle": {
+    "manifest_sha256": "78e388a7b4c5bd523aea063024cc4dab55153649f955b390bbabeb88f167a512",
+    "payload_sha256": "9a496e86bd02b94fc093f246ff5f18afb4317a58436a6b14afc97bfbfdeb7530",
+    "notebook_sha256": "4be750e400e40a5b649808e28501b5c902a0b3e6f5e9169ab5b1f57acc406036",
+    "file_count": 282,
+    "finite_view_source_sha256": "3987fa7b68cd5e7624217b43fa3d6283ca1979834da655884855c0c18f81bd72"
+  },
+  "execution_record": "出力/Kaggle/arc2-codex-main-baseline-v1/v1/実行記録-budget-20261027.json",
+  "execution_record_code_sha256": "4be750e400e40a5b649808e28501b5c902a0b3e6f5e9169ab5b1f57acc406036",
+  "remote_output": {
+    "path": "出力/Kaggle/arc2-codex-main-baseline-v1/v1/remote-output-budget-20261027",
+    "submission_sha256": "54f6a303c4143f15279e2084d5ad798455e565b4d51cd6a2b226e4d4735af46a",
+    "local_output_sha256": "54f6a303c4143f15279e2084d5ad798455e565b4d51cd6a2b226e4d4735af46a",
+    "byte_identical_to_local": true,
+    "tasks": 240,
+    "test_examples": 259,
+    "fallback_count": 249,
+    "runtime_seconds": 268.782,
+    "format": "PASS",
+    "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83"
+  },
+  "public_local_posthoc_result": {
+    "pass2_exact": 14,
+    "test_examples": 259,
+    "is_official_score": false,
+    "solutions_passed_to_workers": false
+  },
+  "send_record_recovery": "Kaggle accepted the push and returned version 1. Default record path collided with preserved historical v1 record; a separately named evidence-linked record was created without resending.",
+  "official_submission_performed": false,
+  "official_score": null,
+  "latest_known_official_submission_id": 57682971,
+  "earliest_24h_gate_utc": "2026-10-28T00:17:10.770Z"
+}
