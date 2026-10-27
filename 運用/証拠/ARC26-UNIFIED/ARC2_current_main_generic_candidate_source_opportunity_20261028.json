@@ -1,0 +1,170 @@
+{
+  "schema": "arc2-current-main-generic-candidate-source-opportunity-v1",
+  "run_id": "ARC2-current-main-generic-candidate-source-opportunity-20261028",
+  "track": "ARC2",
+  "instruction_id": "ARC26-UNIFIED-v6.0",
+  "source_revision": "14cb20dc28824bb0c3dae6923436d2b971a0ad37",
+  "payload_manifest_sha256": "e0a8ae1a3a45361c5f4119dcb412b7ea7efacce57ee0f4b7a6639526ce964846",
+  "seed_bundle_sha256": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",
+  "seed_bundle_manifest_sha256": "d13b7d96ed1240432768a35d49a4016a30d02d79cdd184720fe575242455163c",
+  "payload_member_count": 283,
+  "bundle_only_public_training_files_retained": 1,
+  "bundle_paths_absent_from_main_removed": 1,
+  "original_wrapper_sha256": "43fd2c444cc1428bdfb3da3b228fca14b6ccb939c169401b1684c2b93b4092e4",
+  "instrumented_wrapper_sha256": "ee2df21f1e4cba8ad941740438871f0d58c236ebfce4367ab51d7072318dcf7c",
+  "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "public_training_solutions_sha256": "9f07a38bd25af5e83aa5bf85c5cb1a1fefdb30f6a755256fa65429e697ca97f9",
+  "public_solution_task_count": 1000,
+  "public_solutions_read_after_all_runtime_predictions": true,
+  "aggregate_candidate_family_counts_from_runtime": {
+    "ARC全前景平行移動": 2,
+    "ARC周期タイルD4反復": 3,
+    "ARC局所近傍セル変換": 50,
+    "ARC格子D4変換": 2,
+    "ARC物体パレット選択・切出し": 3,
+    "ARC物体外れ値選択・切出し": 3,
+    "ARC物体抽出・切出し": 2,
+    "ARC特徴近傍変換選択": 3,
+    "ARC疎点graph転写": 1,
+    "ARC背景crop複合幾何変換": 1,
+    "ARC複合前景D4色写像平行移動": 2
+  },
+  "frozen_baseline_prediction_sha256": "54f6a303c4143f15279e2084d5ad798455e565b4d51cd6a2b226e4d4735af46a",
+  "prediction_sha256_matches_frozen_baseline": true,
+  "previous_covered_family_diagnostic": {
+    "candidate_outputs": 72,
+    "unique_unselected_exact_examples": 0,
+    "evidence_sha256": "1fcd6ccad9671fdc02a8728f1a0ee6b537b7f11946e12101dd4f439add22bb6d"
+  },
+  "incremental_candidate_source": "ARC generic simple-transform candidate field; other candidate_predictions sources already covered",
+  "metrics": {
+    "prediction_sha256": "54f6a303c4143f15279e2084d5ad798455e565b4d51cd6a2b226e4d4735af46a",
+    "audit_sha256": "9a4c56962c113aa4dd402289dc0118fd76a83672d0e73ddbf1476d1b750053ca",
+    "wrapper_wall_seconds": 724.528,
+    "runtime_seconds": 707.453,
+    "challenge_tasks": 240,
+    "challenge_examples": 259,
+    "fallback_count": 249,
+    "current_nonfallback_pass_at_2": 14,
+    "candidate_outputs": 72,
+    "candidate_outputs_nonidentity": 72,
+    "unique_unselected_exact_examples": 0,
+    "unique_add_only_pass2_opportunities": 0,
+    "family_candidate_metrics": {
+      "ARC全前景平行移動": {
+        "candidate_outputs": 2,
+        "candidate_examples": 2,
+        "distinct_candidate_grids": 2,
+        "exact_outputs": 2,
+        "exact_already_in_attempt_pair": 2,
+        "exact_not_in_attempt_pair": 0,
+        "add_only_pass2_opportunities": 0
+      },
+      "ARC周期タイルD4反復": {
+        "candidate_outputs": 3,
+        "candidate_examples": 3,
+        "distinct_candidate_grids": 3,
+        "exact_outputs": 3,
+        "exact_already_in_attempt_pair": 3,
+        "exact_not_in_attempt_pair": 0,
+        "add_only_pass2_opportunities": 0
+      },
+      "ARC局所近傍セル変換": {
+        "candidate_outputs": 50,
+        "candidate_examples": 50,
+        "distinct_candidate_grids": 50,
+        "exact_outputs": 1,
+        "exact_already_in_attempt_pair": 1,
+        "exact_not_in_attempt_pair": 0,
+        "add_only_pass2_opportunities": 0
+      },
+      "ARC格子D4変換": {
+        "candidate_outputs": 2,
+        "candidate_examples": 2,
+        "distinct_candidate_grids": 2,
+        "exact_outputs": 2,
+        "exact_already_in_attempt_pair": 2,
+        "exact_not_in_attempt_pair": 0,
+        "add_only_pass2_opportunities": 0
+      },
+      "ARC物体パレット選択・切出し": {
+        "candidate_outputs": 3,
+        "candidate_examples": 3,
+        "distinct_candidate_grids": 3,
+        "exact_outputs": 3,
+        "exact_already_in_attempt_pair": 3,
+        "exact_not_in_attempt_pair": 0,
+        "add_only_pass2_opportunities": 0
+      },
+      "ARC物体外れ値選択・切出し": {
+        "candidate_outputs": 3,
+        "candidate_examples": 3,
+        "distinct_candidate_grids": 3,
+        "exact_outputs": 3,
+        "exact_already_in_attempt_pair": 3,
+        "exact_not_in_attempt_pair": 0,
+        "add_only_pass2_opportunities": 0
+      },
+      "ARC物体抽出・切出し": {
+        "candidate_outputs": 2,
+        "candidate_examples": 2,
+        "distinct_candidate_grids": 2,
+        "exact_outputs": 2,
+        "exact_already_in_attempt_pair": 2,
+        "exact_not_in_attempt_pair": 0,
+        "add_only_pass2_opportunities": 0
+      },
+      "ARC特徴近傍変換選択": {
+        "candidate_outputs": 3,
+        "candidate_examples": 3,
+        "distinct_candidate_grids": 3,
+        "exact_outputs": 2,
+        "exact_already_in_attempt_pair": 2,
+        "exact_not_in_attempt_pair": 0,
+        "add_only_pass2_opportunities": 0
+      },
+      "ARC疎点graph転写": {
+        "candidate_outputs": 1,
+        "candidate_examples": 1,
+        "distinct_candidate_grids": 1,
+        "exact_outputs": 1,
+        "exact_already_in_attempt_pair": 1,
+        "exact_not_in_attempt_pair": 0,
+        "add_only_pass2_opportunities": 0
+      },
+      "ARC背景crop複合幾何変換": {
+        "candidate_outputs": 1,
+        "candidate_examples": 1,
+        "distinct_candidate_grids": 1,
+        "exact_outputs": 1,
+        "exact_already_in_attempt_pair": 1,
+        "exact_not_in_attempt_pair": 0,
+        "add_only_pass2_opportunities": 0
+      },
+      "ARC複合前景D4色写像平行移動": {
+        "candidate_outputs": 2,
+        "candidate_examples": 2,
+        "distinct_candidate_grids": 2,
+        "exact_outputs": 2,
+        "exact_already_in_attempt_pair": 2,
+        "exact_not_in_attempt_pair": 0,
+        "add_only_pass2_opportunities": 0
+      }
+    }
+  },
+  "fallback_counted_correct": false,
+  "candidate_grids_passed_back_to_solver": false,
+  "task_ids_or_raw_grids_or_per_example_labels_persisted": false,
+  "hidden_or_evaluation_solutions_read": false,
+  "production_source_changed": false,
+  "official_submission_performed": false,
+  "official_submission_id": 57682971,
+  "official_status": "SubmissionStatus.COMPLETE",
+  "official_score": null,
+  "score_state": "SCORE_UNOBSERVED",
+  "limitations": [
+    "Candidate exactness is a public challenge diagnostic; it is not an official score.",
+    "Per-task candidate grids and labels existed only in process memory and temporary pipes; only aggregate family counts were saved.",
+    "Any candidate family selected for a solver change still requires matched public-training LOO before adoption."
+  ]
+}

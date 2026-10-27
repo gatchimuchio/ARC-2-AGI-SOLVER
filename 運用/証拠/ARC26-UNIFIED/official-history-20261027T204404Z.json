@@ -1,0 +1,32 @@
+{
+  "schema": "arc2-kaggle-official-history-readonly-v1",
+  "track": "ARC2",
+  "competition_slug": "arc-prize-2026-arc-agi-2",
+  "observed_at_utc": "2026-10-27T20:44:04Z",
+  "source": "ARC2 dedicated Kaggle CLI environment; read-only query",
+  "submission_or_rerun_performed": false,
+  "history_unchanged": true,
+  "current_refs": [
+    57682971,
+    57646990,
+    57611018,
+    57576155,
+    57560705,
+    57517199,
+    55046979,
+    55038338,
+    54709840,
+    53996447,
+    53962702
+  ],
+  "latest_submission": {
+    "submission_id": 57682971,
+    "file_name": "submission.json",
+    "submitted_at_utc": "2026-10-27T00:17:10.770000Z",
+    "description": "ARC2-v61-v1-20261027-codex-once",
+    "status": "SubmissionStatus.COMPLETE",
+    "public_score": null,
+    "private_score": null
+  },
+  "score_state": "SCORE_UNOBSERVED"
+}
