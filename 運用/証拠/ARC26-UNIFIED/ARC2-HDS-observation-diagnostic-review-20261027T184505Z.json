@@ -1,0 +1,123 @@
+{
+  "schema": "arc2-hds-observation-diagnostic-review-v1",
+  "track": "ARC2",
+  "instruction_id": "ARC26-UNIFIED-v6.0",
+  "recorded_at_utc": "2026-10-27T18:45:05Z",
+  "repository_head_at_record": "67d01d84234b4fa5ed07ae1b4e1974f142a595ad",
+  "official": {
+    "source": "ARC2 dedicated Kaggle CLI environment; read-only competitions submissions query",
+    "latest_submission_id": 57682971,
+    "latest_status": "SubmissionStatus.COMPLETE",
+    "latest_public_score": null,
+    "score_state": "SCORE_UNOBSERVED",
+    "history_refs": [
+      57682971,
+      57646990,
+      57611018,
+      57576155,
+      57560705,
+      57517199,
+      55046979,
+      55038338,
+      54709840,
+      53996447,
+      53962702
+    ],
+    "submission_or_rerun_performed": false
+  },
+  "public_diagnostic": {
+    "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "public_solutions_sha256": "9f07a38bd25af5e83aa5bf85c5cb1a1fefdb30f6a755256fa65429e697ca97f9",
+    "predictions_sha256": "54f6a303c4143f15279e2084d5ad798455e565b4d51cd6a2b226e4d4735af46a",
+    "tasks": 240,
+    "test_examples": 259,
+    "pass1_exact": 9,
+    "attempt2_only_exact": 5,
+    "pass2_exact": 14,
+    "fully_solved_tasks": 13,
+    "fallbacks_by_reason": {
+      "solver_hold": 249
+    },
+    "task_wall_timeouts": [],
+    "diagnostic_prediction_byte_match_to_frozen_run": true,
+    "solutions_passed_to_workers": false,
+    "solutions_opened_after_prediction_freeze": true,
+    "hds_observation_request_counts": {
+      "additional_observation_requests": 259,
+      "missing_condition_path_requests": 0,
+      "unknown_condition_value_requests": 259,
+      "other_additional_observation_requests": 0,
+      "conflict_records": 0,
+      "unidentified_records": 0,
+      "prediction_records": 0
+    },
+    "generic_candidate_prediction_counts": {
+      "ARC周期タイルD4反復": 3,
+      "ARC局所近傍セル変換": 50,
+      "ARC特徴近傍変換選択": 3,
+      "ARC格子D4変換": 2,
+      "ARC疎点graph転写": 1,
+      "ARC物体パレット選択・切出し": 3,
+      "ARC物体外れ値選択・切出し": 3,
+      "ARC物体抽出・切出し": 2,
+      "ARC全前景平行移動": 2,
+      "ARC複合前景D4色写像平行移動": 2,
+      "ARC背景crop複合幾何変換": 1
+    },
+    "generic_nonidentity_candidate_prediction_counts": {
+      "ARC周期タイルD4反復": 3,
+      "ARC局所近傍セル変換": 50,
+      "ARC特徴近傍変換選択": 3,
+      "ARC格子D4変換": 2,
+      "ARC疎点graph転写": 1,
+      "ARC物体パレット選択・切出し": 3,
+      "ARC物体外れ値選択・切出し": 3,
+      "ARC物体抽出・切出し": 2,
+      "ARC全前景平行移動": 2,
+      "ARC複合前景D4色写像平行移動": 2,
+      "ARC背景crop複合幾何変換": 1
+    },
+    "repeated_panel_fit_failure_counts": {
+      "insufficient_teacher_support": 177,
+      "invalid_teacher": 28,
+      "no_unique_high_support_panel_model": 35
+    },
+    "local_neighborhood_candidate_analysis": {
+      "generated_nonidentity": 50,
+      "standalone_exact": 1,
+      "standalone_exact_already_in_current_attempts": 1,
+      "standalone_exact_not_in_current_attempts": 0,
+      "attempt2_duplicate_cases_where_local_candidate_is_distinct": 0,
+      "potential_pass2_gains_if_local_candidate_fills_duplicate_attempt2": 0,
+      "current_pass2": 14,
+      "prediction_file_sha256": "67c7b06af591d470da13eec02b390c458f96a94511120ca5b2117cffbbd9a4e0",
+      "current_submission_sha256": "54f6a303c4143f15279e2084d5ad798455e565b4d51cd6a2b226e4d4735af46a",
+      "solutions_passed_to_candidate": false,
+      "solutions_loaded_after_candidate_predictions_frozen": true
+    }
+  },
+  "source_artifacts": {
+    "aggregate_summary_local_path": "出力\\Kaggle\\arc2-fallback-diagnostics-20261027\\diagnostic-summary.json",
+    "aggregate_summary_sha256": "80b26f88d017b728e4f0aabf4982ec3b4eb7c5002a23d7fb85a66596135fdab1",
+    "local_neighborhood_analysis_local_path": "出力\\Kaggle\\arc2-fallback-diagnostics-20261027\\local-neighborhood-analysis.json",
+    "local_neighborhood_analysis_sha256": "de7759e6ad03d798bcd3023b38474603cc6ab338c137e8a8d6cabf35bad8c947",
+    "per_task_trace_local_path": "出力\\Kaggle\\arc2-fallback-diagnostics-20261027\\per-task-hds-diagnostics.jsonl",
+    "per_task_trace_sha256": "d2bf65c77cdcd83e44519f36b88311b5254c51c7c44c1fcaf90140fa0bbe1118",
+    "per_task_trace_bytes": 519318,
+    "frozen_output_audit_local_path": "出力\\Kaggle\\arc2-current-main-baseline-240-20261027T1348Z\\submission_audit.json",
+    "frozen_output_audit_sha256": "11f4eb6dc3399f2926f5bac41b63ffdc3123bcd696514564cf49c05f00a242a6",
+    "frozen_output_audit_source_commit": "2c7d34030690c8f821e399ca5ead342404421d65",
+    "runner_revision_limitation": "The per-task diagnostic artifact does not contain its own runner commit; predictions byte-match the frozen output recorded by the paired audit."
+  },
+  "decision": {
+    "production_change": false,
+    "official_submission": false,
+    "finding": "Every test example requested an unknown condition value; HDS emitted zero prediction records. The external candidate families generated 72 predictions, but the only exact local-neighborhood candidate already existed in the current attempt pair, so its measured pass@2 gain was zero.",
+    "interpretation": "The HDS HOLD is consistent with its unresolved unknown-condition requests. ARC2 has no runtime source for the hidden target result; the actionable path is a better generic train-derived rule or candidate portfolio, not bypassing HOLD or feeding evaluation answers.",
+    "next_action": "Inspect a generic, train-derived candidate-generation mechanism using matched public-training LOO before any full-evaluation run. Keep task-ID/hash branching and hidden-answer flow prohibited."
+  },
+  "protected_files_unchanged": {
+    "AGENTS.md": "315998BC0549DE61F70FDA28A9C9923BEA8A61BA6D9B79019283165E5438109B",
+    "制御/現在状態.json": "773FDFDD37AAD115C6BBBCB879304142136654DB649EB1954CDE0D69EB14AA6D"
+  }
+}
