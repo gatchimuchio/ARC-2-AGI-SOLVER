@@ -1,0 +1,1090 @@
+{
+  "schema": "arc2-v61-hds-candidate-emission-audit-v1",
+  "status": "COMPLETE_WITH_WORKER_ERRORS",
+  "audit_script_sha256": "8de03097a9da690a3e629a8376305f214d5e028af2f7759c09fb35915d01a56c",
+  "bundle_sha256": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",
+  "bundle_manifest_sha256": "d13b7d96ed1240432768a35d49a4016a30d02d79cdd184720fe575242455163c",
+  "wrapper_sha256": "c20102c4e9a01e833ca8f9e2778b5306333c50c065d9aebe7cbeaf574e74418d",
+  "instrumented_wrapper_sha256": "a146dc88110892c8474a15107b3b32dde255ea419edf7c18831fbf1e982cb416",
+  "hds_sha256": "8cc1456edfab1b84478fcc1b8f82973481709d85a45532b5181d0e79655362a3",
+  "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "challenge_file": "arc-agi_test_challenges.json",
+  "challenge_tasks": 240,
+  "test_examples": 259,
+  "max_workers": 3,
+  "task_timeout_seconds": 90,
+  "worker_errors": {
+    "task_wall_timeout": 2
+  },
+  "fallback_rows": 249,
+  "hds_answered_examples": 10,
+  "hds_hold_examples": 246,
+  "hds_result_status_counts": {
+    "断定保留": 246
+  },
+  "hds_hold_reason_counts": {
+    "原因未確定で隔離中の原理が存在する": 2,
+    "現行暫定原理の適用に必要な観測が不足している": 246
+  },
+  "observation_request_counts": {
+    "additional_observation_requests": 256,
+    "conflict_records": 0,
+    "missing_condition_path_requests": 0,
+    "other_additional_observation_requests": 0,
+    "prediction_records": 0,
+    "unidentified_records": 0,
+    "unknown_condition_value_requests": 256
+  },
+  "family_count": 110,
+  "family_fit_aggregate": {
+    "ARCD4最大接触配置": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARCbbox包含正規化": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARCheader順位着色": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARCseed境界着色": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARCテンプレート穴充填": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 45,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC下向き流路": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC中心anchor配色": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC二値原型補完": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC二軸欠損補完": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC倍率motif相互置換": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC入れ子パネル合成": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC全panel端連鎖": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC全体接触": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC全体模様窓": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC全前景平行移動": {
+      "task_records": 238,
+      "fit_eligible": 1,
+      "equality_admitted": 1,
+      "jointly_admitted": 1,
+      "states": {
+        "充足する候補なし": 237,
+        "全教師再現": 1
+      }
+    },
+    "ARC全足跡整列": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC凡例token積展開": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC凡例旋回経路": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC凡例矩形転写": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC凡例穴数対応": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC凡例経路接続": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC凡例集合選択": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC制御bar個数複写": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC区切整列gap投射": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC十字形態着色": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC十字曲線延長": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC反復形側周期延長": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC反復行singleton抽出": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC受動凡例転写": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC合同物体出口": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC周期タイルD4反復": {
+      "task_records": 238,
+      "fit_eligible": 3,
+      "equality_admitted": 3,
+      "jointly_admitted": 3,
+      "states": {
+        "充足する候補なし": 235,
+        "全教師再現": 3
+      }
+    },
+    "ARC周期枠位相": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC周期組修復": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC四欄反復": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC基点motif展開": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC境界marker周期帯": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC境界点周期": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC境界色経路": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC境界表穴転写": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC境界軸投射": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC多面欠損所有": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC対角線橋": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC対角領域": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC対辺標点配置": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC局所軌条鎖所有": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC帯profile積層": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC帯列square輪郭": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC帯図形投射": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC形状色転写": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC成分path直列化": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC成分最短経路": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC支持構造沈降": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC放射組立": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC斜端点間隙": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC最大保持対称剪定": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC有限例外光線": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC有限字形視野": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC枠tile二列整列": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC枠内成分計数": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC枠端積層": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC枠質量保存": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC格子D4変換": {
+      "task_records": 238,
+      "fit_eligible": 2,
+      "equality_admitted": 2,
+      "jointly_admitted": 2,
+      "states": {
+        "充足する候補なし": 236,
+        "全教師再現": 2
+      }
+    },
+    "ARC格子自己マスク": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC標点全片組立": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC標点巡回": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC標識panel計数": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC標識水路": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC標識移動": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC標識経路層": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC標識誘導組立": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC標識軸転写": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC櫛配置押上げ": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC正方形格子写像": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC物体slot標識回廊": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC物体端投射": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC物体群整列": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC特徴条件整列": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC特徴近傍変換選択": {
+      "task_records": 238,
+      "fit_eligible": 3,
+      "equality_admitted": 3,
+      "jointly_admitted": 3,
+      "states": {
+        "充足する候補なし": 235,
+        "全教師再現": 3
+      }
+    },
+    "ARC疎点graph転写": {
+      "task_records": 238,
+      "fit_eligible": 1,
+      "equality_admitted": 1,
+      "jointly_admitted": 1,
+      "states": {
+        "充足する候補なし": 237,
+        "全教師再現": 1
+      }
+    },
+    "ARC直交領域所有": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC矢印到達": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC矩形継目": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC穴形拡大": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC穴輪郭": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC空洞種伝播": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC空白矩形移動": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC色線反射": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC色群テンプレート充填": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 237,
+        "教師反例により不採用": 1
+      }
+    },
+    "ARC行周期合成": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC複合前景D4色写像平行移動": {
+      "task_records": 238,
+      "fit_eligible": 1,
+      "equality_admitted": 1,
+      "jointly_admitted": 1,
+      "states": {
+        "充足する候補なし": 237,
+        "全教師再現": 1
+      }
+    },
+    "ARC見本格子分類": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC観測成長": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC計数棒迂回": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC計数色層旋回": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC記号命令列": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC象限配色タイル": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC距離層周期充填": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC距離順位回収": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC軸反射": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC辺対応抽出": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC連結箱参照": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC遮蔽区画計数": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC遮蔽端接続": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC部分見本転写": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC配置mask展開": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC重畳組立": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC閉領域パレット転写": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC開口壁充填": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC隅模様転写": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    },
+    "ARC領域指令": {
+      "task_records": 238,
+      "fit_eligible": 0,
+      "equality_admitted": 0,
+      "jointly_admitted": 0,
+      "states": {
+        "充足する候補なし": 238
+      }
+    }
+  },
+  "jointly_admitted_family_task_records": 11,
+  "admitted_family_query_opportunities": 13,
+  "hds_candidate_emission_records": 13,
+  "examples_with_hds_candidate_emission": 10,
+  "examples_with_multiple_distinct_hds_candidates": 0,
+  "emissions_by_family": {
+    "ARC全前景平行移動": {
+      "emission_records": 2,
+      "examples_with_emission": 2,
+      "nonidentity_emissions": 2,
+      "identity_emissions": 0
+    },
+    "ARC周期タイルD4反復": {
+      "emission_records": 3,
+      "examples_with_emission": 3,
+      "nonidentity_emissions": 3,
+      "identity_emissions": 0
+    },
+    "ARC格子D4変換": {
+      "emission_records": 2,
+      "examples_with_emission": 2,
+      "nonidentity_emissions": 2,
+      "identity_emissions": 0
+    },
+    "ARC特徴近傍変換選択": {
+      "emission_records": 3,
+      "examples_with_emission": 3,
+      "nonidentity_emissions": 3,
+      "identity_emissions": 0
+    },
+    "ARC疎点graph転写": {
+      "emission_records": 1,
+      "examples_with_emission": 1,
+      "nonidentity_emissions": 1,
+      "identity_emissions": 0
+    },
+    "ARC複合前景D4色写像平行移動": {
+      "emission_records": 2,
+      "examples_with_emission": 2,
+      "nonidentity_emissions": 2,
+      "identity_emissions": 0
+    }
+  },
+  "local_submission_sha256": "827bccfc1cf51e2fc87d687ba51e1375899650a530ec00e7a20eb1f71eb2dd18",
+  "matches_frozen_v61_submission": true,
+  "runtime_seconds": 875.25,
+  "solutions_file_opened": false,
+  "hidden_or_evaluation_solutions_read": false,
+  "task_id_used_for_runtime_answer_selection": false,
+  "task_ids_or_raw_grids_persisted": false,
+  "official_score": null,
+  "official_submission_performed": false
+}
