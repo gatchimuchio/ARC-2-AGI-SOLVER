@@ -1,0 +1,46 @@
+{
+  "track": "ARC2",
+  "instruction_id": "ARC26-UNIFIED-v6.0",
+  "experiment_id": "ARC2-current-main-solver-hold-request-path-sample-20261028",
+  "checkpoint_created_at_utc": "2026-10-27T20:55:46Z",
+  "phase": "P4_FAILURE_CLASSIFICATION",
+  "process_status": "SAMPLED_HDS_REQUESTS_REQUIRE_OUTPUT_OBSERVATION; NO_PRODUCTION_CHANGE",
+  "source_revision": "245898dc9940213c4d8e1572f3b37fc9ab5969c0",
+  "script_path": "運用/証拠/ARC26-UNIFIED/ARC2_current_main_solver_hold_request_path_sample_20261028.py",
+  "script_sha256": "215116ee075c2293a2dc1cc615eeb6a04ecf0bd4e7bf56d99d670e961f662a01",
+  "evidence_path": "運用/証拠/ARC26-UNIFIED/ARC2_current_main_solver_hold_request_path_sample_20261028.json",
+  "evidence_sha256": "7bfbab514472b2e212858f6b8a21100ac4694a74fd7642a316499fc2625a52ba",
+  "official_history_path": "運用/証拠/ARC26-UNIFIED/official-history-20261027T204404Z.json",
+  "official_history_sha256": "49c41b630189b4a16c1fa843104ee9ea67a66be97f01bf079f6386957683696a",
+  "official_history_observed_at_utc": "2026-10-27T20:44:04Z",
+  "official_submission_id": 57682971,
+  "official_status": "SubmissionStatus.COMPLETE",
+  "official_score": null,
+  "score_state": "SCORE_UNOBSERVED",
+  "metrics": {
+    "eligible_solver_hold_examples": 246,
+    "unique_solver_hold_tasks": 229,
+    "sampled_tasks": 24,
+    "successful_workers": 24,
+    "aggregate_observation_requests": 48,
+    "request_reason_counts": {
+      "adapter_reason:現行暫定原理の適用に必要な観測が不足している": 24,
+      "条件経路は観測済みだが、この条件値は暫定原理の確認範囲外。結果観測が必要": 48
+    },
+    "request_result_paths": {
+      "出力": 48
+    },
+    "output_prediction_records": 0,
+    "queries_with_agreeing_valid_output_prediction": 0,
+    "official_score": null,
+    "score_state": "SCORE_UNOBSERVED"
+  },
+  "fallback_counted_correct": false,
+  "public_training_solutions_read": false,
+  "hidden_or_evaluation_solutions_read": false,
+  "task_ids_or_raw_grids_or_per_example_results_persisted": false,
+  "production_source_changed": false,
+  "official_submission_performed": false,
+  "decision": "DIAGNOSTIC_SAMPLE_ONLY_NO_PRODUCTION_CHANGE",
+  "next_action": "Inspect generic HDS generation/observation contracts for why output-path requests are not converted into output predictions; propose a matched public-training intervention before changing production gates."
+}
