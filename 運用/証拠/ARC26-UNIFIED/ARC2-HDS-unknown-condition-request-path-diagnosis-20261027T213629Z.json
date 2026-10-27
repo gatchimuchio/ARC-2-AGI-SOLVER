@@ -1,0 +1,53 @@
+{
+  "schema": "arc2-hds-unknown-condition-request-path-diagnosis-v1",
+  "track": "ARC2",
+  "instruction_id": "ARC26-UNIFIED-v6.0",
+  "run_id": "ARC2-HDS-unknown-condition-request-path-diagnosis-20261027T213629Z",
+  "recorded_at_utc": "2026-10-27T21:36:29.304002+00:00",
+  "source_revision": "f397260983f60bef55f98c68f2e5c63ce1097228",
+  "source_files": [
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/適応.py",
+      "sha256": "c74797d49472646010ed0b37bd17dfa602084ba3347ac9386dec265e78a797ac",
+      "contract": "HDSAdapter.予測する: when a learned result mapping has no entry for an observed condition value, append an additional observation request for the result path and continue without a prediction."
+    },
+    {
+      "path": "接続/ARC2/HDS接続.py",
+      "sha256": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe",
+      "contract": "出力格子: expose only prediction records at result path 出力; 課題を解く: return HOLD/fallback when no grid prediction is available; no test-output oracle is available."
+    },
+    {
+      "path": "HDS/学習系統/v0.4.2/hds学習系統/排気系.py",
+      "sha256": "2ba7ceb8d0d6c784d092f91fe484477127f044e50f68c54c977374b17f2f6361",
+      "contract": "排出する: serialize additional observation requests as diagnostics; it does not provide answers to them."
+    }
+  ],
+  "prior_observation_sample": {
+    "path": "運用/証拠/ARC26-UNIFIED/ARC2_current_main_solver_hold_request_path_sample_20261028.json",
+    "sha256": "7bfbab514472b2e212858f6b8a21100ac4694a74fd7642a316499fc2625a52ba",
+    "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "sampled_tasks": 24,
+    "sampled_examples": 24,
+    "additional_observation_requests": 48,
+    "unknown_condition_value_requests": 48,
+    "output_prediction_records": 0,
+    "worker_errors": {},
+    "public_training_solutions_read": false,
+    "hidden_or_evaluation_solutions_read": false
+  },
+  "finding": "The sampled solver_hold route requested an output observation for unseen condition values, but the offline ARC2 adapter has no ground-truth output source for test cases. The adapter only surfaces predictions already emitted by HDS or by a train-consistent generic candidate mechanism; the observation request itself does not produce a grid.",
+  "scope_limit": "This confirms the request-path mechanism in a deterministic 24-example sample; it does not prove every one of the 249 current fallbacks has the same root cause. Other quarantined or candidate-family failures remain distinct.",
+  "official_history": {
+    "path": "運用/ARC26-UNIFIED/official-history-20261027T213629Z.json",
+    "sha256": "86de0b196ac4d6638fe0fe1de900fff4eb1fd8f776831024a4d342b2d10fbf25",
+    "observed_at_utc": "2026-10-27T21:36:29.304002+00:00",
+    "latest_submission_id": 57682971,
+    "status": "COMPLETE",
+    "public_score": "",
+    "score_state": "SCORE_UNOBSERVED"
+  },
+  "production_source_changed": false,
+  "official_submission_performed": false,
+  "decision": "Confirmed a structural limitation in the sampled HDS path; do not feed or fabricate requested test outputs. Next investigate whether the protected historical 120/120 solver assets are recoverable and admissible, then evaluate in isolation.",
+  "next_action": "Audit the referenced historical 120/120 evidence and base commit without changing AGENTS.md or 制御/現在状態.json; assess hidden-label isolation before any execution."
+}

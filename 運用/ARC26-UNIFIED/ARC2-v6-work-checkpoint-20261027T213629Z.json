@@ -1,0 +1,21 @@
+{
+  "track": "ARC2",
+  "instruction_id": "ARC26-UNIFIED-v6.0",
+  "experiment_id": "ARC2-HDS-unknown-condition-request-path-diagnosis-20261027T213629Z",
+  "checkpoint_created_at_utc": "2026-10-27T21:36:29.304002+00:00",
+  "phase": "P4_FAILURE_SOURCE_DIAGNOSIS",
+  "process_status": "HDS_UNKNOWN_CONDITION_REQUEST_PATH_CONFIRMED_ON_SAMPLE",
+  "source_revision": "f397260983f60bef55f98c68f2e5c63ce1097228",
+  "evidence_path": "運用/証拠/ARC26-UNIFIED/ARC2-HDS-unknown-condition-request-path-diagnosis-20261027T213629Z.json",
+  "evidence_sha256": "020ce1ba38119c912e7dbb929657da0fbc9f3269c3fd77cbe8d5e77cd2439e78",
+  "official_history_path": "運用/ARC26-UNIFIED/official-history-20261027T213629Z.json",
+  "official_history_sha256": "86de0b196ac4d6638fe0fe1de900fff4eb1fd8f776831024a4d342b2d10fbf25",
+  "official_submission_id": 57682971,
+  "official_status": "COMPLETE",
+  "official_score": null,
+  "score_state": "SCORE_UNOBSERVED",
+  "official_submission_performed": false,
+  "production_source_changed": false,
+  "decision": "HDS output requests do not resolve unknown ARC2 test outputs; sampled 24 examples had 48 such requests and zero predictions.",
+  "next_action": "Audit historical 120/120 solver evidence and base commit for admissible, reproducible runtime mechanisms; do not modify protected state."
+}
