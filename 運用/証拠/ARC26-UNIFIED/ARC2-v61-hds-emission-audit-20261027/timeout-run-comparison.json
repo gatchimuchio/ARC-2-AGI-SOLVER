@@ -1,0 +1,88 @@
+{
+  "schema": "arc2-v61-timeout-id-repeat-comparison-v1",
+  "track": "ARC2",
+  "experiment_id": "ARC2-v61-timeout-id-audit-20261027",
+  "created_at_utc": "2026-10-27T08:35:26.621Z",
+  "status": "COMPLETE_TIMEOUT_IDS_CAPTURED",
+  "runs": [
+    {
+      "summary_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-v61-hds-emission-audit-20261027\\summary.json",
+      "summary_sha256": "4f73141ad30ecea476fd4818e67da844ed92eff81e0ac5117aabf34a8ff1bf74",
+      "worker_errors": {
+        "result_count_mismatch": 4,
+        "task_wall_timeout": 4
+      },
+      "elapsed_seconds": 3021.265,
+      "baseline_exact_examples": 61,
+      "baseline_example_count": 1075,
+      "baseline_exact_tasks": 58,
+      "task_count": 999,
+      "submission_sha256": "b8159ef2d67e458fcac637ff090958a78f6e773b5eef863d6b2861ab9c176019"
+    },
+    {
+      "summary_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-v61-hds-emission-audit-20261027\\summary-repeat.json",
+      "summary_sha256": "f3a207f722dc90f38caafc45252a54429f881fe2f098ec672e5feb16e6536661",
+      "worker_errors": {
+        "result_count_mismatch": 6,
+        "task_wall_timeout": 6
+      },
+      "elapsed_seconds": 2977.828,
+      "baseline_exact_examples": 61,
+      "baseline_example_count": 1075,
+      "baseline_exact_tasks": 58,
+      "task_count": 999,
+      "submission_sha256": "b8159ef2d67e458fcac637ff090958a78f6e773b5eef863d6b2861ab9c176019"
+    },
+    {
+      "summary_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-v61-hds-emission-audit-20261027\\summary-timeout-repeat.json",
+      "summary_sha256": "bc5eb43752f3842f61192930bf5766e398bf9451215d89a07ae5be67f9fa57d8",
+      "worker_errors": {
+        "result_count_mismatch": 5,
+        "task_wall_timeout": 5
+      },
+      "elapsed_seconds": 2912.86,
+      "baseline_exact_examples": 61,
+      "baseline_example_count": 1075,
+      "baseline_exact_tasks": 58,
+      "task_count": 999,
+      "submission_sha256": "b8159ef2d67e458fcac637ff090958a78f6e773b5eef863d6b2861ab9c176019"
+    }
+  ],
+  "comparison": {
+    "timeout_task_counts": [
+      4,
+      6,
+      5
+    ],
+    "result_count_mismatch_counts": [
+      4,
+      6,
+      5
+    ],
+    "unique_timeout_count_latest_run": 5,
+    "latest_timeout_ids": [
+      "320afe60",
+      "37d3e8b2",
+      "639f5a19",
+      "b7f8a4d8",
+      "c62e2108"
+    ],
+    "latest_result_mismatch_ids_equal_timeout_ids": true,
+    "prior_runs_persisted_timeout_ids": false,
+    "overlap_with_prior_runs": "UNKNOWN",
+    "submission_output_byte_identical_across_runs": true,
+    "baseline_metrics_identical_across_runs": true,
+    "incremental_pass2_gains_latest_run": 0
+  },
+  "interpretation": [
+    "Each timeout is also counted as a result_count_mismatch because the timeout handler returns no results list; counts must not be summed.",
+    "The latest run has five unique timeout tasks. Earlier runs saved aggregate counts only, so task identity overlap cannot be determined.",
+    "All three runs produced the same submission SHA and baseline metrics; no solver improvement is evidenced.",
+    "The timeout task IDs are diagnostic metadata only and were not used for runtime answer selection."
+  ],
+  "production_source_changed": false,
+  "official_submission_id": "57682971",
+  "official_status": "PENDING",
+  "official_score": null,
+  "submission_or_rerun_performed": false
+}
