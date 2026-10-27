@@ -1,0 +1,49 @@
+{
+  "schema": "arc2-v61-timeout-error-classification-v1",
+  "track": "ARC2",
+  "experiment_id": "ARC2-v61-hds-candidate-emission-audit-20261027",
+  "created_at_utc": "2026-10-27T07:42:17.135Z",
+  "status": "CLASSIFICATION_CONFIRMED_TASK_LEVEL_CAUSE_UNKNOWN",
+  "evidence": {
+    "script_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-v61-hds-emission-audit-20261027\\audit-repeat.py",
+    "script_sha256": "560e6af5851b665425bb5e31651e5828b08e8bdbb23533a25313d2988e03362a",
+    "initial_summary_sha256": "4f73141ad30ecea476fd4818e67da844ed92eff81e0ac5117aabf34a8ff1bf74",
+    "repeat_summary_sha256": "f3a207f722dc90f38caafc45252a54429f881fe2f098ec672e5feb16e6536661",
+    "comparison_sha256": "502e3606e85fe4c73e6bf791789f02b916d1be7db0148db52c723d404016c368",
+    "timeout_handler_lines": "audit-repeat.py:198-203",
+    "error_aggregation_lines": "audit-repeat.py:254-260"
+  },
+  "source_path_analysis": [
+    "Each task uses subprocess.run with timeout=TASK_TIMEOUT_SECONDS.",
+    "TimeoutExpired returns a result object containing only error=task_wall_timeout and no results list.",
+    "The aggregation first increments the task_wall_timeout counter, then independently increments result_count_mismatch because results is absent or has the wrong length.",
+    "Therefore result_count_mismatch overlaps task_wall_timeout and must not be added to it as a second set of failed tasks."
+  ],
+  "observations": {
+    "initial": {
+      "task_wall_timeout": 4,
+      "result_count_mismatch": 4,
+      "inferred_unique_timeout_tasks": 4
+    },
+    "repeat": {
+      "task_wall_timeout": 6,
+      "result_count_mismatch": 6,
+      "inferred_unique_timeout_tasks": 6
+    },
+    "same_task_order": true,
+    "submission_outputs_byte_identical": true,
+    "submission_sha256": "b8159ef2d67e458fcac637ff090958a78f6e773b5eef863d6b2861ab9c176019",
+    "frozen_digest_contains_worker_error_counters": true
+  },
+  "conclusion": [
+    "The apparent 8 and 12 combined error counts are double counting. The observed runs had 4 and 6 unique timeout tasks respectively.",
+    "The number of timed out tasks varied by two between runs, but the generated submission bytes were identical.",
+    "The audit did not persist task IDs for worker failures, so which tasks timed out and why they crossed the limit remain UNKNOWN.",
+    "No production code change is justified by this aggregate-only diagnostic; the emitted HDS candidates still show zero additive pass@2 gains."
+  ],
+  "production_source_changed": false,
+  "official_submission_id": "57682971",
+  "official_status": "PENDING",
+  "official_score": null,
+  "submission_or_rerun_performed": false
+}
