@@ -13,11 +13,11 @@ ROOT = Path(__file__).resolve().parents[1]
 FROZEN_BUILDER = ROOT / "運用/証拠/ARC26-UNIFIED/ARC2_v61_deadline_review_bundle_build_20261027.py"
 BUDGET_SECONDS = 37800
 EXPECTED_MEMBERS = {
-    "Kaggle提出.py": "db6fc15dcfb5d74794a7524b90023abc4613a45d29279e1c2928e32c2d2deb92",
-    "deadline_control.py": "b03afb6da7d0db5328be4a64dd60705a641e39b6d46887ccfaf14b9f79236b58",
-    "outer_watchdog.py": "a26b1711cc77ad9797dcded9ad63427ea656ca27193fe7c5c2f24a1585473347",
+    "Kaggle提出.py": "bb8fb76618a4c5fa8c69383f828cba5d49c9ed0c5c76cc464c5458dfaf63203c",
+    "deadline_control.py": "101b5f0aca9e50601fd935312c5e1b9121993c9c7e0c560dc139809c89f5dea6",
+    "outer_watchdog.py": "7ae32c4283086801c319644acf6561161c5303e684ac0700595f2b2c5459d66d",
     "solve.py": "64d7ae6e07f5e87fb8364a7c2790c0788c34204a3c02d6726ee7ffa6d19a4af2",
-    "two_panel.py": "003941182a6c06c1f3db1f16220c15038af9d9f733cd1543b3b4fa0b4882f9f9",
+    "two_panel.py": "649846a6ba03232eb4853fa3ed25c39e4c915fae3975ef2f42eb4a0503f306ab",
 }
 EXPECTED_SECURITY = {
     "original_payload_sha256": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",

@@ -120,8 +120,61 @@ def candidate(train, test_input):
     return candidate_details(train, test_input)[0]
 
 
+def local_training_evidence(train, model, factory, *, clock, cutoff_monotonic):
+    """Observe complete train fit and LOO without treating abstention as correct."""
+    evidence = {"train_exact": False, "loo_applicable": False, "loo_total": 0,
+                "loo_correct": 0, "loo_conflicts": 0, "loo_unavailable": 0,
+                "reason": "training_evidence_missing"}
+    if not isinstance(train, list) or not train:
+        return evidence
+    if (type(cutoff_monotonic) not in (int, float) or not -1e100 < cutoff_monotonic < 1e100
+            or not math.isfinite(cutoff_monotonic)):
+        evidence["reason"] = "deadline_unknown"
+        return evidence
+    for pair in train:
+        if clock() >= cutoff_monotonic:
+            evidence["reason"] = "deadline_expired"
+            return evidence
+        if (not isinstance(pair, dict) or not _valid(pair.get("input"))
+                or not _valid(pair.get("output"))):
+            evidence["reason"] = "invalid_training_pair"
+            return evidence
+        try:
+            predicted, _ = model.候補(pair["input"], {})
+        except Exception:
+            evidence["reason"] = "local_validation_error"
+            return evidence
+        if predicted != pair["output"]:
+            evidence["reason"] = "training_not_reproduced"
+            return evidence
+    evidence["train_exact"] = True
+    if len(train) >= 2:
+        evidence["loo_applicable"] = True
+        for index, held in enumerate(train):
+            if clock() >= cutoff_monotonic:
+                evidence["train_exact"] = False
+                evidence["reason"] = "deadline_expired"
+                return evidence
+            try:
+                predicted, _ = factory(train[:index] + train[index + 1:]).候補(held["input"], {})
+            except Exception:
+                evidence["train_exact"] = False
+                evidence["reason"] = "local_validation_error"
+                return evidence
+            evidence["loo_total"] += 1
+            if predicted is None:
+                evidence["loo_unavailable"] += 1
+            elif predicted == held["output"]:
+                evidence["loo_correct"] += 1
+            else:
+                evidence["loo_conflicts"] += 1
+    evidence["reason"] = "training_reproduced_loo_recorded"
+    return evidence
+
+
 def provisional_action_gate(first, existing_second, proposed, *, train_exact, loo,
-                            hds_basis, now_monotonic, cutoff_monotonic):
+                            hds_basis, now_monotonic, cutoff_monotonic,
+                            allow_one_shot_loo=False, allow_loo_conflicts=False):
     """Keep HDS truth decisions separate from a loss-aware second-attempt action."""
     result = {"authority": "arc2_domain_adapter", "objective": "pass_at_2_exact",
               "loss": "zero_if_either_attempt_is_exact_else_one", "accepted": False,
@@ -140,9 +193,9 @@ def provisional_action_gate(first, existing_second, proposed, *, train_exact, lo
         return result
     keys = ("loo_total", "loo_correct", "loo_conflicts", "loo_unavailable")
     if (any(type(loo.get(key)) is not int or loo[key] < 0 for key in keys)
-            or loo["loo_total"] < 2
+            or (loo["loo_total"] < 2 and not (allow_one_shot_loo is True and loo["loo_total"] == 0))
             or loo["loo_correct"] + loo["loo_conflicts"] + loo["loo_unavailable"] != loo["loo_total"]
-            or loo["loo_conflicts"] != 0):
+            or (loo["loo_conflicts"] != 0 and allow_loo_conflicts is not True)):
         result["reason"] = "loo_evidence_invalid_or_conflicting"
         return result
     basis_fields = {"status", "reason_count", "reason_labels", "quarantined", "answer_present", "equality_admitted"}

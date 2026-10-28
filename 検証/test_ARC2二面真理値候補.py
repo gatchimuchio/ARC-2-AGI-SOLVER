@@ -1,5 +1,5 @@
 from 接続.ARC2 import 二面真理値候補 as module
-from 接続.ARC2.二面真理値候補 import candidate, candidate_details, provisional_action_gate
+from 接続.ARC2.二面真理値候補 import candidate, candidate_details, local_training_evidence, provisional_action_gate
 
 
 def _training():
@@ -89,3 +89,57 @@ def test_provisional_gate_rejects_existing_choice_missing_evidence_and_deadline(
     assert not provisional_action_gate([[0]], None, [[1]], **{**options, "cutoff_monotonic": 10**309})["accepted"]
     conflict = {"loo_total": 2, "loo_correct": 1, "loo_conflicts": 1, "loo_unavailable": 0}
     assert not provisional_action_gate([[0]], None, [[1]], **{**options, "loo": conflict})["accepted"]
+
+
+def test_local_training_evidence_separates_exact_conflict_and_abstention():
+    train = [{"input": [[0]], "output": [[1]]}, {"input": [[2]], "output": [[3]]}]
+
+    class FakeModel:
+        def __init__(self, pairs):
+            self.pairs = pairs
+
+        def 候補(self, grid, _policy):
+            if len(self.pairs) == 2:
+                return ([[1]] if grid == [[0]] else [[3]]), {}
+            return (None if grid == [[0]] else [[4]]), {}
+
+    result = local_training_evidence(train, FakeModel(train), FakeModel, clock=lambda: 1.0, cutoff_monotonic=2.0)
+    assert result["train_exact"] and result["loo_applicable"]
+    assert (result["loo_total"], result["loo_correct"], result["loo_conflicts"], result["loo_unavailable"]) == (2, 0, 1, 1)
+    missing = local_training_evidence(train, FakeModel(train[:1]), FakeModel, clock=lambda: 1.0, cutoff_monotonic=2.0)
+    assert not missing["train_exact"] and missing["reason"] == "training_not_reproduced"
+    expired = local_training_evidence(train, FakeModel(train), FakeModel, clock=lambda: 2.0, cutoff_monotonic=2.0)
+    assert not expired["train_exact"] and expired["reason"] == "deadline_expired"
+    unknown = local_training_evidence(train, FakeModel(train), FakeModel, clock=lambda: 1.0, cutoff_monotonic=None)
+    assert not unknown["train_exact"] and unknown["reason"] == "deadline_unknown"
+
+    class Broken:
+        def 候補(self, grid, _policy):
+            raise RuntimeError("local-only failure")
+
+    failed = local_training_evidence(train, Broken(), FakeModel, clock=lambda: 1.0, cutoff_monotonic=2.0)
+    assert not failed["train_exact"] and failed["reason"] == "local_validation_error"
+    failed_loo = local_training_evidence(train, FakeModel(train), lambda pairs: Broken(),
+                                         clock=lambda: 1.0, cutoff_monotonic=2.0)
+    assert not failed_loo["train_exact"] and failed_loo["reason"] == "local_validation_error"
+
+
+def test_local_training_evidence_records_one_shot_as_loo_unavailable():
+    class Single:
+        def 候補(self, grid, _policy):
+            return [[1]], {}
+
+    train = [{"input": [[0]], "output": [[1]]}]
+    result = local_training_evidence(train, Single(), lambda pairs: Single(), clock=lambda: 1.0, cutoff_monotonic=2.0)
+    assert result["train_exact"] and not result["loo_applicable"] and result["loo_total"] == 0
+
+
+def test_local_provisional_gate_records_one_shot_and_loo_conflict_without_hds_approval():
+    options = _gate_inputs()
+    one_shot = {"loo_total": 0, "loo_correct": 0, "loo_conflicts": 0, "loo_unavailable": 0}
+    gate = provisional_action_gate([[0]], [[0]], [[1]], **{**options, "loo": one_shot}, allow_one_shot_loo=True)
+    assert gate["accepted"] and gate["hds_truth_approved"] is False and gate["confidence"] is None
+    conflict = {"loo_total": 2, "loo_correct": 1, "loo_conflicts": 1, "loo_unavailable": 0}
+    gate = provisional_action_gate([[0]], [[0]], [[1]], **{**options, "loo": conflict}, allow_loo_conflicts=True)
+    assert gate["accepted"] and gate["hds_truth_approved"] is False
+    assert not provisional_action_gate([[0]], [[2]], [[1]], **{**options, "loo": conflict}, allow_loo_conflicts=True)["accepted"]

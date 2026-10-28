@@ -1,0 +1,43 @@
+{
+  "observed_utc": "2026-10-28T21:47:17.440077+00:00",
+  "status": "LOCAL_GATED_V3_100_TASK_NO_SCORE_CHANGE",
+  "stage": "stage-local-gated-v3",
+  "stage_sha256": {
+    "Kaggle提出.py": "bb8fb76618a4c5fa8c69383f828cba5d49c9ed0c5c76cc464c5458dfaf63203c",
+    "deadline_control.py": "b0b8c08bd1e3cdc3f956d65adf3628bf3b6573a639daea7868bc0878e8a07c53",
+    "outer_watchdog.py": "a26b1711cc77ad9797dcded9ad63427ea656ca27193fe7c5c2f24a1585473347",
+    "solve.py": "64d7ae6e07f5e87fb8364a7c2790c0788c34204a3c02d6726ee7ffa6d19a4af2"
+  },
+  "candidate_sha256": "649846a6ba03232eb4853fa3ed25c39e4c915fae3975ef2f42eb4a0503f306ab",
+  "tasks": 100,
+  "test_grids": 111,
+  "previous": {
+    "pass1": 2,
+    "pass2": 6,
+    "fallback": 109,
+    "prediction_sha256": "c76cfe59ab3686e2d8aa71e774f931baef13e4712d76fee1448c195421098166",
+    "seconds": 609.5
+  },
+  "current": {
+    "pass1": 2,
+    "pass2": 6,
+    "fallback": 109,
+    "prediction_sha256": "94563b927231e786ce5b455bc6fcb04b28a55f77d34b67d91c2deb489de3ec4c",
+    "seconds": 632.0
+  },
+  "changed_grids": 19,
+  "improved": 0,
+  "regressed": 0,
+  "local_evidence_entries": 23,
+  "training_exact": 4,
+  "training_inexact": 19,
+  "loo_conflict_entries": 3,
+  "provenance_drops": 0,
+  "official_score": null,
+  "limitations": [
+    "This stage predates the subsequent artifact-error diagnostic additions; only its candidate behavior, not the final exact stage, is measured here.",
+    "The holdout is public training and historical exposure cannot be ruled out.",
+    "Different background loads mean elapsed times do not prove a speed change.",
+    "A prior one-task run failed at output handling and the cause remains unknown."
+  ]
+}
