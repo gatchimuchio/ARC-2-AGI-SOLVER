@@ -1,0 +1,19 @@
+{
+  "track": "ARC2",
+  "instruction": "ARC2 v7.0",
+  "problem": "Scheduled score monitor could not see the external Kaggle environment, and the repository environment could not import certifi.",
+  "repairs": {
+    "certifi": "2026.10.23; installed with uv.lock wheel SHA256 verification",
+    "python_dateutil": "2.9.0.post0; restored from a hash-verified uv.lock wheel after an uninstall was denied",
+    "jupytext": "1.19.5; restored from a hash-verified uv.lock wheel",
+    "metadata": "Superseded or incomplete distribution metadata moved to a recoverable workspace quarantine after copying metadata backups."
+  },
+  "repair_backup": "出力/ARC2/環境修復-20261028/",
+  "validation": {
+    "uv_pip_check": "115 packages checked; all installed packages compatible",
+    "imports": "certifi 2026.10.23, python-dateutil 2.9.0.post0, jupytext 1.19.5 and kaggle imported",
+    "related_tests": "115 passed",
+    "scheduled_monitor": "2026-10-28T18:34:26Z; repo_venv; submission 57745630 PENDING; source and visible input/output linked; no submission performed"
+  },
+  "limitations": "Backups and quarantine remain local under the workspace. No numeric score was observed."
+}
