@@ -1,0 +1,58 @@
+{
+  "observed_utc": "2026-10-28T21:59:31.678579+00:00",
+  "status": "PRIVATE_V4_COMPLETE_NO_PUBLIC_SCORE_CHANGE",
+  "kernel": "tecchannn/arc2-v7-two-panel-hardened",
+  "version": 4,
+  "private": true,
+  "internet": false,
+  "competition_source": "arc-prize-2026-arc-agi-2",
+  "remote_code_cell_sha256": "2b006b692e1d003c2b0d6660280427570d5aed1f0b2fea1c4be78ec0269da12b",
+  "local_code_cell_identical": true,
+  "source_commit": "37a1acdfe1dd1c940bbbd7ce7d31d87d9a72e9f0",
+  "runtime_member_sha256": {
+    "Kaggle提出.py": "bb8fb76618a4c5fa8c69383f828cba5d49c9ed0c5c76cc464c5458dfaf63203c",
+    "deadline_control.py": "101b5f0aca9e50601fd935312c5e1b9121993c9c7e0c560dc139809c89f5dea6",
+    "outer_watchdog.py": "7ae32c4283086801c319644acf6561161c5303e684ac0700595f2b2c5459d66d",
+    "solve.py": "64d7ae6e07f5e87fb8364a7c2790c0788c34204a3c02d6726ee7ffa6d19a4af2",
+    "two_panel.py": "649846a6ba03232eb4853fa3ed25c39e4c915fae3975ef2f42eb4a0503f306ab"
+  },
+  "submission_sha256": "3db6edf1727f2aada8aa50ef4dfcd70fdac61b359fe34a4d5318791f25342193",
+  "format_and_grid_domain": "PASS",
+  "tasks": 240,
+  "test_grids": 259,
+  "previous_v3": {
+    "pass1": 9,
+    "pass2": 21,
+    "complete_tasks": 17,
+    "fallback": 249,
+    "seconds": 509.904
+  },
+  "current_v4": {
+    "pass1": 9,
+    "pass2": 21,
+    "complete_tasks": 17,
+    "fallback": 249,
+    "seconds": 315.003
+  },
+  "delta": {
+    "improved": 0,
+    "regressed": 0,
+    "changed_grids": 44
+  },
+  "local_training_evidence": {
+    "attempted": 50,
+    "training_nonexact_rejected": 44,
+    "selected_train_exact": 6,
+    "selected_with_loo_conflicts": 5,
+    "selected_with_hds_truth_approval": 0,
+    "provenance_drops": 0
+  },
+  "official_submission": false,
+  "official_score": null,
+  "limitations": [
+    "Public training posthoc values are not official Kaggle scores and do not establish unseen performance.",
+    "Five selected provisional candidates have LOO conflicts and are not HDS truth approvals.",
+    "Wall times under different Kaggle loads do not prove a speed improvement.",
+    "No public score gain was demonstrated by this guard."
+  ]
+}
