@@ -1,0 +1,33 @@
+{
+  "observed_utc": "2026-10-28T19:09:51.141540+00:00",
+  "status": "PASS_DIAGNOSTIC_COMPARISON",
+  "input_sha256": "3fc1530ba27e03ef15b96b89ffcaa4bd9c7e50caba36e559965d98ebfdf883fb",
+  "prediction_sha256": "21d3183063ac8ba9b72887762838f919fb01e83427ab4312d5f18ae91d56df31",
+  "audit_sha256": "22337816eb6575d8db4446d6367737ab89c19b5f059f278f3e86b1117a332d8c",
+  "baseline_prediction_sha256": "21d3183063ac8ba9b72887762838f919fb01e83427ab4312d5f18ae91d56df31",
+  "scorer_sha256": "9d0fd38a006bd9c690d4fd7763d5c842d5a549891d5f05618bab9a8d2d018075",
+  "records_path": "運用/証拠/ARC26-UNIFIED/ARC2-v7-candidate-diagnostic-records-20261028.jsonl",
+  "records_sha256": "77ae3154e85502ebf918fb5c362a2031525272643c54308c07acbcabba1d5e06",
+  "record_count": 100,
+  "run_token": "f857ea3f59a24a0db3a2919498336822",
+  "tasks": 100,
+  "test_grids": 111,
+  "first_attempt_fallbacks": 109,
+  "counts": {
+    "submitted_correct": 3,
+    "observed_correct_candidate_not_submitted": 0,
+    "observed_candidates_incorrect": 23,
+    "no_candidate_observed": 85,
+    "unobserved": 0,
+    "invalid_candidate_observations": 0,
+    "missing_diagnostic_rows": 0
+  },
+  "elapsed_seconds": 717.968,
+  "conditions": "Same frozen source and fixed input, 3 workers, 300 seconds per task, 900 seconds overall; diagnostic collection enabled. Predictions and fallback identities match baseline.",
+  "limitations": [
+    "Only candidates captured by these instrumented paths are observed; postselection candidates may be diagnostic-only, so zero observed discarded correct candidates does not prove none exist in the entire search space.",
+    "The public training holdout is provisional and past development exposure is not fully audited.",
+    "Diagnostic and baseline ran at different times and their full environments were not identical.",
+    "CPU/RAM hard limits and Windows job assignment race remain unproved."
+  ]
+}
