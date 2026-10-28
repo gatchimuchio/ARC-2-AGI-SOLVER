@@ -1,0 +1,59 @@
+{
+  "observed_utc": "2026-10-28T19:22:06.096296+00:00",
+  "status": "LOCAL_PROVISIONAL_IMPROVEMENT_REPRODUCTION_PENDING",
+  "track": "ARC2",
+  "instruction": "ARC2 v7.0",
+  "comparison": {
+    "previous": {
+      "tasks": 100,
+      "grids": 111,
+      "fallback": 109,
+      "distinct_attempts": 24,
+      "nonfallback_pass1": 2,
+      "nonfallback_pass2": 3,
+      "nonfallback_attempt2_only": 1,
+      "fallback_first_matches": 0,
+      "fallback_second_candidate_hits": 1,
+      "prediction_sha256": "21d3183063ac8ba9b72887762838f919fb01e83427ab4312d5f18ae91d56df31",
+      "answers_sha256": "9f07a38bd25af5e83aa5bf85c5cb1a1fefdb30f6a755256fa65429e697ca97f9",
+      "audit_sha256": "22337816eb6575d8db4446d6367737ab89c19b5f059f278f3e86b1117a332d8c",
+      "challenges_sha256": "3fc1530ba27e03ef15b96b89ffcaa4bd9c7e50caba36e559965d98ebfdf883fb"
+    },
+    "current": {
+      "tasks": 100,
+      "grids": 111,
+      "fallback": 109,
+      "distinct_attempts": 27,
+      "nonfallback_pass1": 2,
+      "nonfallback_pass2": 6,
+      "nonfallback_attempt2_only": 4,
+      "fallback_first_matches": 0,
+      "fallback_second_candidate_hits": 4,
+      "prediction_sha256": "c76cfe59ab3686e2d8aa71e774f931baef13e4712d76fee1448c195421098166",
+      "answers_sha256": "9f07a38bd25af5e83aa5bf85c5cb1a1fefdb30f6a755256fa65429e697ca97f9",
+      "audit_sha256": "811359f88271cad270e5c7ed465e2059b255c79fed6c0ac0ef00013c3804cc88",
+      "challenges_sha256": "3fc1530ba27e03ef15b96b89ffcaa4bd9c7e50caba36e559965d98ebfdf883fb"
+    },
+    "pass2_delta": 3,
+    "improved_grids": 3,
+    "regressed_grids": 0,
+    "changed_first_attempts": 0,
+    "changed_second_attempts": 3,
+    "previous_seconds": 717.968,
+    "current_seconds": 600.375,
+    "scope": "Posthoc scoring only. The caller must separately establish matching runtime conditions and provenance."
+  },
+  "candidate_sha256": "819d9459ed6cb1a356532b98658e756038945b80d9996b6f7b51e881372a945f",
+  "candidate_adapter_sha256": "b02b617a572ec659170509cf9a9fbb5c5b03b992a6859ab67aa43c3611c80628",
+  "candidate_stage_manifest_sha256": "345333da328dc7d219260b76e104f253928cea59261e836b8bc798cff8add203",
+  "baseline_adapter_sha256": "8e2f4a3af64f1e8a7207595365d58d3704811e26e2c707b9fbb2ebd02795b7b4",
+  "runtime_conditions": "Same fixed payload, input, 3 workers, 300 seconds/task, 900 seconds total, 60 second finalization reserve, diagnostic mode, Windows CPU; runs were sequential, not simultaneous.",
+  "official_score": null,
+  "limitations": [
+    "This provisional public training cohort has not been proven unseen; the hypothesis was selected after inspecting training examples and test inputs but before viewing their test answers.",
+    "Second candidate gained three grids; first fallback remains 109 and is not counted as a correct answer.",
+    "The candidate has one paired execution; repeat and private Notebook execution are pending.",
+    "Runtime was observed under different load; differences do not establish a speed improvement.",
+    "Original bundled static cache integrity and unused public training test output remain to be repaired in a newly generated candidate bundle."
+  ]
+}
