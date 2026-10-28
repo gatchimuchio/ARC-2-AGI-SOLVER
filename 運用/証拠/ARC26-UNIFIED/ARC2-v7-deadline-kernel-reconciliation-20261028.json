@@ -1,0 +1,23 @@
+{
+  "track": "ARC2",
+  "instruction": "ARC2 v7.0",
+  "observation_time_utc": "2026-10-28T17:54:43Z",
+  "source_commit": "fe7159cf083c759aeae0fb4b24b00aa0550b68cf",
+  "requested_kernel": "tecchannn/arc2-v7-deadline-105h-20261028",
+  "actual_kernel": "tecchannn/arc2-v7-deadline-10h30m",
+  "actual_version": 1,
+  "status": "RUNNING",
+  "private": true,
+  "internet": false,
+  "gpu": false,
+  "competition": "arc-prize-2026-arc-agi-2",
+  "local_notebook_sha256": "8e083d45314328b277f919d0138a546b19d52276b41fdcce42e5df91d4a39de7",
+  "local_requested_metadata_sha256": "48793ea35b801d90a4aa8fcef5e3c17d132ec4722d5707c02d7022d038749830",
+  "local_and_remote_cell_sha256": "163964ae2af75ef106e856f263efb210555e432cf0f5485df7b8da3ec8e74f64",
+  "remote_notebook_sha256": "374637a8d0b5428dfd41ab19797e57b507d179f2bd84cb59c34b31bff27b72bd",
+  "run_budget_seconds": 37800,
+  "push_result": "Notebook id mismatch in client response; existing kernel found and reconciled without resending.",
+  "official_submission": false,
+  "official_score": null,
+  "limitations": "Notebook is running. Output, final status, scoring runtime, host-level time bound and RAM enforcement have not been established."
+}
