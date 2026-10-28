@@ -1,0 +1,18 @@
+{
+  "track": "ARC2",
+  "instruction": "ARC2 v7.0",
+  "data_scope": "Public training solutions, scored only after prediction completed; this is not an unseen holdout or an official score.",
+  "challenges_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "solutions_sha256": "9f07a38bd25af5e83aa5bf85c5cb1a1fefdb30f6a755256fa65429e697ca97f9",
+  "scorer": "検証/ARC2予測結果採点.py",
+  "scorer_sha256": "1d189baa9a65fcb9cd861c52aeb7ada6ae74fe2b7e2a112d2bdc88eb835857ec",
+  "previous": {"kernel": "tecchannn/arc2-v61-local-teacher-pair-consensus-candidate", "version": 1, "audit_sha256": "4b4474d8e7a956f8e5a2ec6d50e7391af0aeacd2eb08b71052068e34797b3b86", "nonfallback_pass1": 9, "nonfallback_pass2": 9, "nonfallback_attempt2_only": 0, "fallback": 249},
+  "current": {"kernel": "tecchannn/arc2-v7-deadline-10h30m", "version": 1, "audit_sha256": "ab9366a71c6b5fd6fbc492c98e3320ba6d4d4dff3cc0b4f9895e2e0ccd74917d", "nonfallback_pass1": 9, "nonfallback_pass2": 9, "nonfallback_attempt2_only": 0, "fallback": 249},
+  "prediction_sha256_both": "827bccfc1cf51e2fc87d687ba51e1375899650a530ec00e7a20eb1f71eb2dd18",
+  "tasks": 240,
+  "grids": 259,
+  "delta_nonfallback_pass2": 0,
+  "fallback_matches_separately": 7,
+  "test_result": "4 passed; missing challenges, missing solutions and audit/prediction SHA mismatch are rejected.",
+  "limitations": "No improvement demonstrated. Prior-memory provenance, genuinely unseen holdout, HDS learning effect and official scoring remain unverified."
+}
