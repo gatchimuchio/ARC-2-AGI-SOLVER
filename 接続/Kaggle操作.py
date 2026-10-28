@@ -371,9 +371,9 @@ def 提出可能性(api, now: datetime | None = None) -> dict:
         状態分類 = "NOT_SUBMITTED"
     elif 状態名 in {"PENDING", "SUBMITTED", "RUNNING"}:
         状態分類 = "IN_PROGRESS"
-    elif 状態名 in {"ERROR", "FAILED"} or (状態名 == "COMPLETE" and bool(詳細)):
+    elif 状態名 in {"ERROR", "FAILED"} or (状態名 == "COMPLETE" and bool(詳細) and not 数値あり):
         状態分類 = "TERMINAL_ERROR_NOT_SCORED"
-    elif 状態名 == "COMPLETE" and 数値あり:
+    elif 状態名 == "COMPLETE" and 数値あり and not 詳細:
         状態分類 = "SCORED_ACCEPTED"
     else:
         状態分類 = "UNVERIFIED"

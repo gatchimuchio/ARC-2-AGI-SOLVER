@@ -30,7 +30,7 @@ class API:
 @pytest.mark.parametrize(("row", "state", "quota", "allowed"), [
     (submission("COMPLETE", None, "Notebook Timeout"), "TERMINAL_ERROR_NOT_SCORED", 1, True),
     (submission("ERROR"), "TERMINAL_ERROR_NOT_SCORED", 1, True),
-    (submission("COMPLETE", "0.00", "Notebook Timeout"), "TERMINAL_ERROR_NOT_SCORED", 1, True),
+    (submission("COMPLETE", "0.00", "Notebook Timeout"), "UNVERIFIED", 1, False),
     (submission("COMPLETE", None, "Notebook Timeout"), "TERMINAL_ERROR_NOT_SCORED", 0, False),
     (submission("PENDING"), "IN_PROGRESS", 1, False),
     (submission("COMPLETE", "0.00"), "SCORED_ACCEPTED", 1, False),

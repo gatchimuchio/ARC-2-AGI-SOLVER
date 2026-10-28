@@ -20,7 +20,8 @@ def main() -> None:
     builder = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(builder)
     builder.BUILD_ROOT = ROOT / "出力/Kaggle/arc2-v7-deadline-105h-20261028-build"
-    builder.KERNEL_ID = "tecchannn/arc2-v7-deadline-105h-20261028"
+    # Kaggleは初回作成時にtitle由来のスラッグを採用する。
+    builder.KERNEL_ID = "tecchannn/arc2-v7-deadline-10h30m"
     builder.KERNEL_TITLE = "ARC2 v7 deadline 10h30m"
     original_source = builder.notebook_source
 
