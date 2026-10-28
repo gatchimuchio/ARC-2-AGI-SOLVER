@@ -1,0 +1,40 @@
+{
+  "observed_utc": "2026-10-28T22:01:42.036540+00:00",
+  "status": "LOCAL_GATED_V6_ADDITIONAL_100_NO_SCORE_CHANGE",
+  "stage": "stage-local-gated-v6",
+  "stage_sha256": {
+    "Kaggle提出.py": "bb8fb76618a4c5fa8c69383f828cba5d49c9ed0c5c76cc464c5458dfaf63203c",
+    "deadline_control.py": "101b5f0aca9e50601fd935312c5e1b9121993c9c7e0c560dc139809c89f5dea6",
+    "outer_watchdog.py": "7ae32c4283086801c319644acf6561161c5303e684ac0700595f2b2c5459d66d",
+    "solve.py": "64d7ae6e07f5e87fb8364a7c2790c0788c34204a3c02d6726ee7ffa6d19a4af2"
+  },
+  "candidate_sha256": "649846a6ba03232eb4853fa3ed25c39e4c915fae3975ef2f42eb4a0503f306ab",
+  "challenge_sha256": "e5d9b3b8c0ea553874d9c2bdcd790b417c8afe0dfacd34bd40d4eec79c3495cc",
+  "tasks": 100,
+  "test_grids": 106,
+  "previous": {
+    "pass1": 1,
+    "pass2": 2,
+    "fallback": 104,
+    "prediction_sha256": "3770e2b9538fbbdff88c51244171bfd70dbd2e56189941adbfcc1194a3fee58b",
+    "seconds": 629.203
+  },
+  "current": {
+    "pass1": 1,
+    "pass2": 2,
+    "fallback": 104,
+    "prediction_sha256": "164a28882f58c116bb1a1f33d0720a2c1626a42d4ca6b245d8d868bf90795f38",
+    "seconds": 606.891
+  },
+  "changed_grids": 15,
+  "improved": 0,
+  "regressed": 0,
+  "local_evidence_entries": 18,
+  "provenance_drops": 0,
+  "official_score": null,
+  "limitations": [
+    "The cohort is public training and unknown earlier exposure prevents an unseen claim.",
+    "Separate run times have different background load and cannot establish a speed effect.",
+    "This comparison establishes no score improvement."
+  ]
+}
