@@ -1,0 +1,22 @@
+{
+  "observed_utc": "2026-10-28T20:51:35.561254+00:00",
+  "status": "GPU_QUOTA_EXHAUSTED_TPU_AVAILABLE",
+  "source": "kaggle quota --format json",
+  "gpu": {
+    "used_display": "30.13h",
+    "remaining": "0.00h",
+    "total": "30.00h",
+    "refresh_utc": "2026-10-31T00:00:00Z"
+  },
+  "tpu": {
+    "used": "0.00h",
+    "remaining": "20.00h",
+    "total": "20.00h",
+    "refresh_utc": "2026-10-31T00:00:00Z"
+  },
+  "limitations": [
+    "Kaggle account quota observation, not proof of device allocation or runtime eligibility.",
+    "VARC ViT TPU support and TPU runtime are unverified.",
+    "Actual quota must be rechecked before scheduling accelerator work."
+  ]
+}

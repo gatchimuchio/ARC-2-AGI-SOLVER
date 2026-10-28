@@ -1,0 +1,50 @@
+{
+  "observed_utc": "2026-10-28T20:51:24.527936+00:00",
+  "status": "PRIVATE_V3_COMPLETE_LOCAL_FORMAT_AND_PUBLIC_POSTHOC_CHECKED",
+  "kernel": "tecchannn/arc2-v7-two-panel-hardened",
+  "version": 3,
+  "source_commit_scope": "frozen v61 base plus separately pinned candidate, builder, gate and runtime members",
+  "provenance_commit": "35b2197fb04d6102668d08b5927df13cde79946d",
+  "notebook_code_sha256": "6a661915a82c6a766afc4862a950e6ec7cf754e852e7db90ca50353d5375cfb8",
+  "code_cell_sha256": "94e41eb7e4741c0d5575fb1289ee542cb97b16b54ef80156b01675d98c20d556",
+  "runtime_bundle_sha256": "235baedb546b377849608c7687363bff8de0b7ff5cc53f7e5bced821520f4e92",
+  "payload_sha256": "0e34181085ff3bc7768bf54aa030bc9479ea450e7e8b21feb77211fcb9f4382e",
+  "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "prediction_sha256": "3b683547b10e8b45daaca1063d83a4438d5e8968460c954133747fd0bd189424",
+  "prediction_byte_identical_to_private_v2": true,
+  "audit_sha256": "aee92155d129a12ecb0ddb61aeac868c6089f67e1e428f48e6929eb15168ca1b",
+  "format": "PASS",
+  "tasks": 240,
+  "test_grids": 259,
+  "first_attempt_fallback": 249,
+  "runtime_seconds": 509.904,
+  "candidate_provenance": {
+    "count": 5,
+    "recomputed_from_public_train_and_input": 5,
+    "loo_total": 22,
+    "loo_correct": 22,
+    "loo_conflicts": 0,
+    "drops": 0,
+    "hds_hold_missing_observation": 5,
+    "hds_truth_approved": false
+  },
+  "public_training_posthoc": {
+    "previous_pass1": 9,
+    "current_pass1": 9,
+    "previous_pass2": 16,
+    "current_pass2": 21,
+    "improved_grids": 5,
+    "regressed_grids": 0,
+    "previous_complete_tasks": 14,
+    "current_complete_tasks": 17,
+    "fallback_first_correct_counted": 0
+  },
+  "official_submission_created": false,
+  "official_score": null,
+  "limitations": [
+    "Private run and posthoc training evaluation are not official scores or proof of unseen generalization.",
+    "Two-attempt provisional action is not an HDS truth approval or proof of learning.",
+    "The original v0.4 directory is not included; only a training-derived ID-free prior is included, and its real influence remains to be demonstrated.",
+    "Kaggle scoring re-execution, GPU allocation, and hidden accuracy are not proven."
+  ]
+}

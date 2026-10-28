@@ -1,0 +1,37 @@
+{
+  "observed_utc": "2026-10-28T20:46:31.014729+00:00",
+  "status": "LOCAL_100_MATCHED_PROVISIONAL_GATE_PASS_PRIVATE_V3_PENDING",
+  "source_commit": "35b2197fb04d6102668d08b5927df13cde79946d",
+  "stage": "stage-gate-v4",
+  "tasks": 100,
+  "test_grids": 111,
+  "prediction_sha256": "c76cfe59ab3686e2d8aa71e774f931baef13e4712d76fee1448c195421098166",
+  "prediction_identical_to_loo_v4": true,
+  "baseline_nonfallback_pass1": 2,
+  "baseline_nonfallback_pass2": 3,
+  "current_nonfallback_pass1": 2,
+  "current_nonfallback_pass2": 6,
+  "pass2_delta": 3,
+  "improved_grids": 3,
+  "regressed_grids": 0,
+  "fallback_previous": 109,
+  "fallback_current": 109,
+  "candidate_provenance_count": 3,
+  "provenance_drop_count": 0,
+  "loo_total": 13,
+  "loo_correct": 13,
+  "loo_conflicts": 0,
+  "hds_observations": {
+    "断定保留": 3,
+    "MISSING_OBSERVATION": 3
+  },
+  "runtime_seconds": 609.5,
+  "official_score": null,
+  "limitations": [
+    "The candidate hypothesis was selected after inspecting training and test inputs; independent unseen status is not established.",
+    "Output identity transfers the posthoc score comparison from the prior measured prediction, not independent knowledge of any hidden answer.",
+    "Gate is ARC2 provisional action, not HDS truth approval or evidence of learning benefit.",
+    "The required v0.4 prior directory is not present in this payload; its eligible derivation and effect must be audited.",
+    "Kaggle private run and actual official scoring of this exact candidate remain pending."
+  ]
+}
