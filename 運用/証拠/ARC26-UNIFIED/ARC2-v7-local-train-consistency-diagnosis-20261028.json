@@ -1,0 +1,22 @@
+{
+  "observed_utc": "2026-10-28T21:25:26.493541+00:00",
+  "status": "LOCAL_CANDIDATE_TRAIN_CONSISTENCY_GAP_CONFIRMED",
+  "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "private_v3_submission_sha256": "3b683547b10e8b45daaca1063d83a4438d5e8968460c954133747fd0bd189424",
+  "tasks": 240,
+  "test_grids": 259,
+  "local_candidate_on_test_input": 50,
+  "local_candidate_matches_distinct_attempt2": 50,
+  "matched_outputs_with_train_not_exact": 44,
+  "matched_outputs_with_train_not_exact_public_posthoc_correct": 0,
+  "matched_outputs_with_train_exact": 6,
+  "matched_outputs_train_exact_loo_conflict": 5,
+  "matched_outputs_train_exact_loo_conflict_public_posthoc_correct": 1,
+  "matched_outputs_train_exact_no_loo_conflict": 1,
+  "attribution_limit": "An identical grid may have been produced by another generator; equality with attempt2 alone does not prove the local branch was selected.",
+  "interpretation": "The current local generator can emit an incomplete-training candidate, and the runtime can directly assign it as the second attempt. The v7 train-exact constraint is not enforced on that branch. LOO conflicts signal risk rather than automatically proving the test prediction wrong.",
+  "limitations": [
+    "The scoring counts are public training posthoc, not official scores.",
+    "The candidate repair is under development and has not yet passed matched regression or Kaggle private run."
+  ]
+}
