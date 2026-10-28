@@ -1,0 +1,34 @@
+{
+  "observed_utc": "2026-10-28T22:05:58.455473+00:00",
+  "status": "VARC_RUNTIME_NOT_READY_EVALUATION_CONTAMINATION_RISK",
+  "source_commit": "bd478ecf362e6499a988b05f33223e5c5fc6a6be",
+  "checkpoint_sha256": "c52d719fe9a41066aa8e96548ae6f83a0abf3568facd5103e176d7005e8421b3",
+  "checkpoint_bytes": 216495359,
+  "source_archive_contains": {
+    "evaluation_json_files": 520,
+    "test_outputs": 586
+  },
+  "runtime_safety": [
+    "Do not mount, unpack or bundle the complete archive in inference.",
+    "Do not use the upstream evaluator that imports answer-reading code.",
+    "Limit inference inputs to public train pairs and test inputs; isolate posthoc solutions physically.",
+    "Remove pretrained task-token embeddings, avoid task ID/hash-dependent inference and reinitialize per task."
+  ],
+  "environment": {
+    "varc_venv_torch": "incomplete",
+    "project_torch_timm": "absent",
+    "forward": "NOT_RUN",
+    "cuda": "UNCONFIRMED",
+    "process_filesystem_isolation": "UNCONFIRMED"
+  },
+  "possible_next_step": [
+    "Verify license, weight provenance and prior exposure.",
+    "Select only reviewed model/input code and fixed weights; construct an isolated environment with version-locked dependencies.",
+    "Run synthetic and small public-training cost probes, then matched before/current/delta and regression tests."
+  ],
+  "limitations": [
+    "This is an asset and boundary review, not proof of legality, safe execution, model accuracy, or performance improvement.",
+    "Windows physical isolation for held-out answer files is not established."
+  ],
+  "official_score": null
+}
