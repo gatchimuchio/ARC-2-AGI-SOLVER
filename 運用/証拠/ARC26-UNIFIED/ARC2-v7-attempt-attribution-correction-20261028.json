@@ -1,0 +1,19 @@
+{
+  "track": "ARC2",
+  "instruction": "ARC2 v7.0",
+  "corrects": "運用/証拠/ARC26-UNIFIED/ARC2-v7-training-posthoc-comparison-20261028.json",
+  "reason": "The earlier scorer excluded both attempts whenever the first was a fallback. In the submitted adapter, a distinct second attempt may be generated independently even when the first is an input-copy fallback.",
+  "scorer_sha256": "95dc9fab08ef70c8380f7566d104b98210e5b6983a2a50646d32e014ebea7841",
+  "dataset": "Public training, posthoc only; not a proven unseen holdout and not official scoring.",
+  "tasks": 240,
+  "grids": 259,
+  "prediction_sha256_both": "827bccfc1cf51e2fc87d687ba51e1375899650a530ec00e7a20eb1f71eb2dd18",
+  "previous": {"version": "v61 kernel 1", "pass1_without_fallback": 9, "pass2_without_fallback": 16, "distinct_second_only_hits": 7, "first_attempt_fallbacks": 249},
+  "current": {"version": "v7 deadline kernel 1", "pass1_without_fallback": 9, "pass2_without_fallback": 16, "distinct_second_only_hits": 7, "first_attempt_fallbacks": 249},
+  "delta_pass2": 0,
+  "fallback_first_correct": 0,
+  "fallback_first_with_distinct_second": 55,
+  "fallback_first_with_correct_distinct_second": 7,
+  "evidence_scope": "Second candidates are distinguished from the fallback copy; this does not establish HDS approval, learning effect or a Kaggle score.",
+  "validation": "Scorer tests: 4 passed; both versions rescored using identical input and solutions."
+}

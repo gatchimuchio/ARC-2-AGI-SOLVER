@@ -31,7 +31,7 @@ def 採点(予測パス: Path, 監査パス: Path, 正解パス: Path, 課題パ
     結果 = {"tasks": len(予測), "grids": 0, "fallback": 0,
           "distinct_attempts": 0, "nonfallback_pass1": 0,
           "nonfallback_pass2": 0, "nonfallback_attempt2_only": 0,
-          "fallback_matches": 0}
+          "fallback_first_matches": 0, "fallback_second_candidate_hits": 0}
     実際のfallback = set()
     for task, pairs in 予測.items():
         if (not isinstance(pairs, list) or task not in 正解
@@ -47,7 +47,14 @@ def 採点(予測パス: Path, 監査パス: Path, 正解パス: Path, 課題パ
             if (task, index) in fallback:
                 実際のfallback.add((task, index))
                 結果["fallback"] += 1
-                結果["fallback_matches"] += hit1 or hit2
+                if first != 課題[task]["test"][index]["input"]:
+                    raise ValueError("fallbackの第1候補が入力コピーと一致しません")
+                結果["fallback_first_matches"] += hit1
+                # 第1候補がfallbackでも、異なる第2候補は独立して生成された格子。
+                第二候補有効 = second != first
+                結果["nonfallback_pass2"] += 第二候補有効 and hit2
+                結果["nonfallback_attempt2_only"] += 第二候補有効 and hit2
+                結果["fallback_second_candidate_hits"] += 第二候補有効 and hit2
             else:
                 結果["nonfallback_pass1"] += hit1
                 結果["nonfallback_pass2"] += hit1 or hit2
