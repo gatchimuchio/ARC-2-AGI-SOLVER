@@ -1,0 +1,22 @@
+{
+  "observed_utc": "2026-10-28T18:59:30.452151+00:00",
+  "history_evidence": "運用/証拠/ARC26-UNIFIED/official-history-20261028T184303Z.json",
+  "history_evidence_sha256": "e5181d6abe2a4ec2d301afbd9b5588643f83faf5c793289a6b12eed5739e907d",
+  "competition": "arc-prize-2026-arc-agi-2",
+  "latest_submission": {
+    "id": 57745630,
+    "status": "COMPLETE",
+    "public_score": "0.00"
+  },
+  "best_scored_submission": {
+    "id": 55046979,
+    "status": "COMPLETE",
+    "public_score": "0.83"
+  },
+  "latest_minus_best": "-0.83",
+  "scored_submission_count": 7,
+  "limitations": [
+    "Comparison covers public scores returned in the read-only history snapshot; private scores are not provided.",
+    "The historical best version must be audited for reproducibility and current competition eligibility."
+  ]
+}
