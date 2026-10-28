@@ -1,0 +1,21 @@
+{
+  "observed_utc": "2026-10-28T20:41:23.937348+00:00",
+  "status": "EXTERNAL_CANDIDATE_ASSETS_VERIFIED_ADAPTER_AND_PERFORMANCE_NOT_RUN",
+  "source_commit": "bd478ecf362e6499a988b05f33223e5c5fc6a6be",
+  "source_zip_sha256": "d4b8a7fb3bc3409e82f8a010abcb78b5f25780249aafb9724798743699235b03",
+  "checkpoint_repository_revision": "3d2c50179682f2bb09558aaad20a74cb65a911fc",
+  "checkpoint_sha256": "c52d719fe9a41066aa8e96548ae6f83a0abf3568facd5103e176d7005e8421b3",
+  "checkpoint_bytes": 216495359,
+  "source_license": "MIT",
+  "model_card_license": "MIT",
+  "model_card": "https://huggingface.co/VisionARC/offline_train_ViT/blob/main/checkpoint_best.pt",
+  "safety_findings": [
+    "Original data loader and prediction evaluator can access test outputs; original evaluation entrypoint is not approved for runtime use.",
+    "Safe experimental adapter must accept only train pairs and test inputs, never task identifiers or test outputs, and must reset task_token_embed.weight per task.",
+    "Separate process alone does not prove filesystem isolation; scorer answers must be inaccessible in the inference environment.",
+    "torch.load requires weights_only=True, model source and weights must be pinned, and only expected missing key is the newly initialized task token.",
+    "Reported pretraining provenance does not establish absence of overlap with this ARC2 evaluation or holdout.",
+    "torch/timm runtime, forward pass, CPU/GPU cost and holdout performance are NOT_RUN; assets are not an adopted solver."
+  ],
+  "provenance_note": "The data and partial isolated Python environment remain outside Git; do not publish model weights or HDS assets."
+}
