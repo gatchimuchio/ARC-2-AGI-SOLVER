@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 from contextlib import redirect_stderr, redirect_stdout
 from datetime import datetime, timedelta, timezone
+from decimal import Decimal
 import hashlib
 from importlib import metadata as importlib_metadata
 import io
@@ -208,8 +209,10 @@ def _observation_error_details(error: Exception, stage: str) -> dict:
     return details
 
 
-def _status_state(status: str, score: object) -> str:
+def _status_state(status: str, score: object, error_description: str | None = None) -> str:
     if status == "COMPLETE":
+        if error_description:
+            return "SCORE_UNOBSERVED" if _数値スコアか(score) else "FAILED"
         return "NUMERIC" if _数値スコアか(score) else "SCORE_UNOBSERVED"
     if status in {"PENDING", "SUBMITTED", "RUNNING"}:
         return "PENDING"
@@ -529,7 +532,7 @@ def _safe_kaggle_history():
     parsed = _parse_kaggle_json_output(completed.stdout)
     if not isinstance(parsed, list):
         raise ValueError("Kaggle history response is not a list")
-    return [
+    rows = [
         SimpleNamespace(
             date=_normalize_cli_timestamp(row.get("date")),
             description=row.get("description"),
@@ -542,6 +545,37 @@ def _safe_kaggle_history():
         for row in parsed
         if isinstance(row, dict)
     ]
+    if not rows:
+        return rows
+    latest = max(rows, key=lambda row: _日時UTC(row.date))
+    if _status_name(latest.status) not in {"COMPLETE", "ERROR", "FAILED"}:
+        return rows
+    detail_command = [*_kaggle_cli_prefix(), "competitions", "submission", str(int(latest.ref))]
+    detail = subprocess.run(
+        detail_command, cwd=ROOT, capture_output=True, text=True, encoding="utf-8",
+        errors="replace", timeout=120,
+        creationflags=subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0,
+    )
+    if detail.returncode != 0:
+        raise RuntimeError("Kaggle submission detail query failed")
+    fields = {}
+    for line in detail.stdout.splitlines():
+        label, sep, value = line.partition(":")
+        if sep and label in {"Submission Ref", "Status", "Public Score", "Error"}:
+            if label in fields:
+                raise ValueError("duplicate Kaggle submission detail field")
+            fields[label] = value.strip()
+    if not {"Submission Ref", "Status", "Public Score"} <= fields.keys():
+        raise ValueError("incomplete Kaggle submission detail")
+    if fields["Submission Ref"] != str(latest.ref) or fields["Status"].upper() != _status_name(latest.status):
+        raise ValueError("Kaggle submission detail differs from history")
+    score = "" if latest.public_score is None else str(latest.public_score).strip()
+    detail_score = fields["Public Score"]
+    scores_match = (Decimal(score) == Decimal(detail_score) if _数値スコアか(score) and _数値スコアか(detail_score) else score == detail_score)
+    if not scores_match:
+        raise ValueError("Kaggle submission score differs from history")
+    latest.error_description = fields.get("Error", "")
+    return rows
 
 
 def _status_name(status) -> str:
@@ -744,7 +778,8 @@ def _build_record(history: list, now: datetime, previous: dict) -> dict:
     ref = int(row.ref)
     status = _status_name(getattr(row, "status", None))
     raw_score = getattr(row, "public_score", None)
-    score_state = _status_state(status, raw_score)
+    error_description = getattr(row, "error_description", None)
+    score_state = _status_state(status, raw_score, error_description)
     same_ref = previous.get("last_submission_ref") == ref
     pending_count = int(previous.get("consecutive_pending_observations", 0)) + 1 if same_ref and score_state == "PENDING" else (1 if score_state == "PENDING" else 0)
     interval = _next_interval_minutes(score_state, pending_count)
@@ -797,7 +832,7 @@ def _build_record(history: list, now: datetime, previous: dict) -> dict:
         "PENDING": "同一IDの数値スコアを追跡する。新規提出を保留し、v6に従い公開データの原因分析・同条件検証を続ける。",
         "NUMERIC": "数値公式スコアを固定し、P5の原因分析・同条件検証を続ける。",
         "SCORE_UNOBSERVED": "COMPLETEの空スコアを異常として採点経路を診断する。",
-        "FAILED": "失敗詳細を確認し、採点経路の最小修復へ戻る。",
+        "FAILED": "失敗詳細を確認し、原因を修復して公式の残枠を再照会する。",
         "IN_PROGRESS": "状態を再照会する。",
     }[score_state]
     record = {
@@ -807,7 +842,8 @@ def _build_record(history: list, now: datetime, previous: dict) -> dict:
         "score_state": score_state,
         "last_submission_ref": ref,
         "last_status": status,
-        "official_score": str(raw_score).strip() if _数値スコアか(raw_score) else None,
+        "official_score": str(raw_score).strip() if score_state == "NUMERIC" else None,
+        "error_description": error_description or None,
         "observed_at_utc": now.isoformat(),
         "last_submitted_utc_day": submitted_at.date().isoformat(),
         "next_check_at_utc": next_check.isoformat(),

@@ -139,8 +139,14 @@ def test_cli_discovery_uses_exact_repo_venv_when_external_manifest_is_missing(tm
     monkeypatch.setattr(monitor.Path, "home", lambda: tmp_path)
     monkeypatch.setattr(monitor.shutil, "which", lambda _name: None)
     python = _write_repo_cli_fixture(tmp_path)
+    calls = []
+    def successful_probe(command, **kwargs):
+        calls.append(command)
+        return subprocess.CompletedProcess(command, 0, "", "")
+    monkeypatch.setattr(monitor.subprocess, "run", successful_probe)
 
     assert monitor._kaggle_cli_prefix() == [str(python), "-m", "kaggle"]
+    assert calls and calls[0][0] == str(python)
     assert monitor.LAST_CLI_DISCOVERY["selected_source"] == "repo_venv"
 
 
@@ -186,6 +192,8 @@ def test_read_only_kaggle_cli_history_parses_submission_rows(monkeypatch):
     }]
 
     def fake_run(command, **kwargs):
+        if "submission" in command:
+            return subprocess.CompletedProcess(command, 0, "Submission Ref: 57611018\nStatus: COMPLETE\nPublic Score: 0.00\n", "")
         captured["command"] = command
         captured["kwargs"] = kwargs
         return subprocess.CompletedProcess(command, 0, json.dumps(payload), "")
@@ -622,4 +630,35 @@ def test_official_observation_writes_evidence_and_both_ledgers(tmp_path, monkeyp
     assert score_rows[-1]["arc2_solved_hold_fallback"] == {"fallback_count": 256}
     assert work_rows[-1]["submission_or_rerun_performed"] is False
     assert work_rows[-1]["kaggle_cli_source"] == "repo_venv"
+
+
+def test_complete_timeout_detail_is_failed_and_not_scored(monkeypatch):
+    payload = [{"date": "2026-10-27T00:17:10Z", "ref": 57682971,
+                "status": "SubmissionStatus.COMPLETE", "publicScore": ""}]
+
+    def fake_run(command, **kwargs):
+        out = ("Submission Ref: 57682971\nStatus: COMPLETE\n"
+               "Error: Notebook Timeout\nPublic Score: \n") if "submission" in command else json.dumps(payload)
+        return subprocess.CompletedProcess(command, 0, out, "")
+
+    monkeypatch.setattr(monitor, "_kaggle_cli_prefix", lambda: ["kaggle"])
+    monkeypatch.setattr(monitor.subprocess, "run", fake_run)
+    row = monitor._safe_kaggle_history()[0]
+    assert monitor._status_state("COMPLETE", row.public_score, row.error_description) == "FAILED"
+    assert monitor._status_state("COMPLETE", "0.00", row.error_description) == "SCORE_UNOBSERVED"
+
+
+def test_detail_identity_mismatch_is_not_accepted(monkeypatch):
+    payload = [{"date": "2026-10-27T00:17:10Z", "ref": 57682971,
+                "status": "SubmissionStatus.COMPLETE", "publicScore": ""}]
+
+    def fake_run(command, **kwargs):
+        out = ("Submission Ref: 123\nStatus: COMPLETE\nPublic Score: \n"
+               if "submission" in command else json.dumps(payload))
+        return subprocess.CompletedProcess(command, 0, out, "")
+
+    monkeypatch.setattr(monitor, "_kaggle_cli_prefix", lambda: ["kaggle"])
+    monkeypatch.setattr(monitor.subprocess, "run", fake_run)
+    with pytest.raises(ValueError, match="differs"):
+        monitor._safe_kaggle_history()
 
