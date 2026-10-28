@@ -19,6 +19,17 @@ def test_stage_matches_the_measured_adapter_and_candidate(tmp_path):
         作成(stage)
 
 
+def test_memory_intervention_is_explicit_and_preserves_candidate(tmp_path):
+    stage = tmp_path / "intervention"
+    manifest = 作成(stage, 記憶介入=True)
+    source = (stage / "Kaggle提出.py").read_text(encoding="utf-8")
+    assert manifest["generic_prior_intervention_available"] is True
+    assert 'if os.environ.get("ARC2_EMPTY_GENERIC_PRIOR") == "1":' in source
+    assert '汎用記憶 = {"examples": [], "features": []}' in source
+    assert '"generic_prior_support_observations": 結果.get(' in source
+    assert 'two_panel_candidate(課題["train"], 課題["test"][位置]["input"])' in source
+
+
 def test_hardened_stage_preserves_train_and_checks_cached_payload(tmp_path, monkeypatch):
     stage = tmp_path / "safe"
     manifest = 作成(stage, 安全化=True)

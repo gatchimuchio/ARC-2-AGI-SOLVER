@@ -94,11 +94,11 @@ def _安全payload(source: str) -> tuple[str, dict]:
                     "cache_member_revalidation": True}
 
 
-def 作成(destination: Path, *, 安全化: bool = False):
+def 作成(destination: Path, *, 安全化: bool = False, 記憶介入: bool = False):
     source = CANDIDATE.read_bytes()
     if hashlib.sha256(source).hexdigest() != CANDIDATE_SHA:
         raise ValueError("評価済み候補のhashと一致しません")
-    manifest = 診断stage作成(destination)
+    manifest = 診断stage作成(destination, 記憶介入=記憶介入)
     adapter = destination / "Kaggle提出.py"
     text = adapter.read_text(encoding="utf-8")
     anchor = '        from 接続.ARC2.単純変換候補 import unique_candidate\n'
@@ -155,8 +155,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--hardened", action="store_true", help="固定教材をtrain-only化し、payloadキャッシュを再検証する")
+    parser.add_argument("--memory-intervention", action="store_true", help="汎用記憶あり／空の限定比較を可能にする")
     args = parser.parse_args()
-    print(json.dumps(作成(args.output, 安全化=args.hardened), ensure_ascii=False, sort_keys=True))
+    print(json.dumps(作成(args.output, 安全化=args.hardened, 記憶介入=args.memory_intervention), ensure_ascii=False, sort_keys=True))
 
 
 if __name__ == "__main__":
