@@ -187,6 +187,14 @@ def _make_payload(files: list[tuple[str, Path]]) -> tuple[bytes, list[dict[str, 
     contents: dict[str, bytes] = {}
     for name, path in files:
         data = path.read_bytes()
+        pure = PurePosixPath(name)
+        training_root = PurePosixPath("入力/公式ソース/ARC-AGI-2/data/training")
+        if pure.parent == training_root and pure.suffix == ".json":
+            material = json.loads(data.decode("utf-8"))
+            if not isinstance(material, dict) or not isinstance(material.get("train"), list):
+                raise ValueError("training教材のtrainが不正です")
+            data = json.dumps({"train": material["train"]}, ensure_ascii=False,
+                              sort_keys=True, separators=(",", ":")).encode("utf-8")
         contents[name] = data
         manifest.append(
             {"path": name, "size": len(data), "sha256": hashlib.sha256(data).hexdigest()}

@@ -1,4 +1,7 @@
 import pytest
+import io
+import json
+import zipfile
 
 from 道具.ARC2Kaggle提出bundle import _make_payload, _render_launcher
 
@@ -51,3 +54,16 @@ def test_unexpected_bytecode_is_rejected_without_removing_it(tmp_path, monkeypat
     with pytest.raises(RuntimeError, match="unexpected executable"):
         load()
     assert bytecode.read_bytes() == b"untrusted"
+
+
+def test_training_material_is_bundled_without_test_answers(tmp_path):
+    source = tmp_path / "training.json"
+    material = {"train": [{"input": [[1]], "output": [[2]]}],
+                "test": [{"input": [[3]], "output": [[4]]}]}
+    source.write_text(json.dumps(material), encoding="utf-8")
+    name = "入力/公式ソース/ARC-AGI-2/data/training/material.json"
+    payload, _ = _make_payload([(name, source)])
+    with zipfile.ZipFile(io.BytesIO(payload)) as archive:
+        bundled = json.loads(archive.read(name))
+    assert bundled == {"train": material["train"]}
+    assert json.loads(source.read_text(encoding="utf-8")) == material

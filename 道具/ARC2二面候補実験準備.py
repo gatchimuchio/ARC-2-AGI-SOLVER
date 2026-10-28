@@ -115,6 +115,24 @@ def 作成(destination: Path, *, 安全化: bool = False):
         '                    第二候補 = 二面候補\n'
     )
     text = text.replace(anchor, insertion + anchor, 1)
+    if 安全化:
+        before = '            診断選択前 = deepcopy(行.get("candidate_predictions", []))\n'
+        after = '            if 観測診断:\n                診断選択前 = deepcopy(行.get("candidate_predictions", []))\n'
+        if text.count(before) != 1:
+            raise ValueError("診断前候補の挿入箇所が一意ではありません")
+        text = text.replace(before, after, 1)
+        before = (
+            '            公開行群[-1]["diagnostic_candidates"] = {\n'
+            '                "preselection": 診断選択前,\n'
+            '                "postselection": deepcopy(行.get("candidate_predictions", [])),\n'
+            '                "candidate_attempts": deepcopy(行.get("candidate_attempts")),\n'
+            '                "simple_candidate": deepcopy(行.get("simple_transform_candidate")),\n'
+            '            }\n'
+        )
+        after = '            if 観測診断:\n' + ''.join('    ' + line for line in before.splitlines(keepends=True))
+        if text.count(before) != 1:
+            raise ValueError("診断出力箇所が一意ではありません")
+        text = text.replace(before, after, 1)
     compile(text, str(adapter), "exec")
     adapter.write_text(text, encoding="utf-8", newline="\n")
     with (destination / "two_panel.py").open("xb") as file:

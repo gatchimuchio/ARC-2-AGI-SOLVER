@@ -12,6 +12,21 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 FROZEN_BUILDER = ROOT / "運用/証拠/ARC26-UNIFIED/ARC2_v61_deadline_review_bundle_build_20261027.py"
 BUDGET_SECONDS = 37800
+EXPECTED_MEMBERS = {
+    "Kaggle提出.py": "dd9675b8bf30dfa0a85bb34ec8987a53b1ce6e330e71b50ea1aa352d6e971dc2",
+    "deadline_control.py": "077c8dd7f2d37831368a44d47ef03e5c04e29c4050096b683bb181875a1db8e2",
+    "outer_watchdog.py": "a26b1711cc77ad9797dcded9ad63427ea656ca27193fe7c5c2f24a1585473347",
+    "solve.py": "dd479d1436b7c8a1cbbb0ce3b10dde8a7c2729cc7f22826587537130b8bdb966",
+    "two_panel.py": "819d9459ed6cb1a356532b98658e756038945b80d9996b6f7b51e881372a945f",
+}
+EXPECTED_SECURITY = {
+    "original_payload_sha256": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",
+    "payload_sha256": "3089416bd99bf50b5f7c7d6e6eb3e35e1a76026669bb54bcae767418cd2935e7",
+    "teacher_train_only_sha256": "6a254b371eb8fb6e3795f05155be09525109d4a418394987bbd9227d67edcd55",
+    "teacher_training_pairs": 2,
+    "teacher_test_removed": True,
+    "cache_member_revalidation": True,
+}
 
 
 def 構築(stage: Path, output: Path):
@@ -20,12 +35,14 @@ def 構築(stage: Path, output: Path):
     stage = stage.resolve()
     manifest = json.loads((stage / "diagnostic-manifest.json").read_text(encoding="utf-8"))
     security = manifest.get("security", {})
-    if security.get("teacher_test_removed") is not True or security.get("cache_member_revalidation") is not True:
+    if security != EXPECTED_SECURITY:
         raise ValueError("安全化済みstageではありません")
     names = ("Kaggle提出.py", "deadline_control.py", "outer_watchdog.py", "solve.py")
     hashes = manifest["diagnostic_sha256"]
     members = {name: hashes[name] for name in names}
     members["two_panel.py"] = manifest["candidate_sha256"]
+    if members != EXPECTED_MEMBERS:
+        raise ValueError("安全化済みstageの固定hashと一致しません")
     spec = importlib.util.spec_from_file_location("arc2_frozen_deadline_builder", FROZEN_BUILDER)
     if spec is None or spec.loader is None:
         raise RuntimeError("固定Notebook builderを読み込めません")

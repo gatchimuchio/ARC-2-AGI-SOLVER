@@ -3,7 +3,7 @@ import json
 import zipfile
 import pytest
 
-from 道具.ARC2二面候補Notebook構築 import 構築
+from 道具.ARC2二面候補Notebook構築 import EXPECTED_MEMBERS, EXPECTED_SECURITY, 構築
 from 道具.ARC2二面候補実験準備 import 作成
 
 
@@ -32,5 +32,19 @@ def test_rejects_stage_without_security_attestation_before_output(tmp_path):
     stage.mkdir()
     (stage / "diagnostic-manifest.json").write_text("{}", encoding="utf-8")
     with pytest.raises(ValueError, match="安全化済み"):
+        構築(stage, output)
+    assert not output.exists()
+
+
+def test_forged_security_manifest_cannot_promote_unhardened_launcher(tmp_path):
+    stage, output = tmp_path / "stage", tmp_path / "output"
+    作成(stage)
+    manifest_path = stage / "diagnostic-manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["security"] = EXPECTED_SECURITY
+    manifest["diagnostic_sha256"]["Kaggle提出.py"] = EXPECTED_MEMBERS["Kaggle提出.py"]
+    manifest["diagnostic_sha256"]["solve.py"] = EXPECTED_MEMBERS["solve.py"]
+    manifest_path.write_text(json.dumps(manifest, ensure_ascii=False), encoding="utf-8")
+    with pytest.raises(ValueError, match="hash mismatch"):
         構築(stage, output)
     assert not output.exists()

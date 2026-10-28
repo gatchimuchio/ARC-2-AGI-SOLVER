@@ -23,6 +23,9 @@ def test_hardened_stage_preserves_train_and_checks_cached_payload(tmp_path, monk
     stage = tmp_path / "safe"
     manifest = 作成(stage, 安全化=True)
     assert manifest["security"]["teacher_test_removed"] is True
+    adapter = (stage / "Kaggle提出.py").read_text(encoding="utf-8")
+    assert 'if 観測診断:\n                診断選択前 = deepcopy(' in adapter
+    assert 'if 観測診断:\n                公開行群[-1]["diagnostic_candidates"] = {' in adapter
     source = (stage / "solve.py").read_text(encoding="utf-8")
     tree = ast.parse(source)
     values = {node.targets[0].id: ast.literal_eval(node.value)
