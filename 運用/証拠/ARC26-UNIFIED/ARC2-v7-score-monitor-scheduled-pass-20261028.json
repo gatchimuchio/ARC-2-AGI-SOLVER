@@ -1,0 +1,15 @@
+{
+  "observed_utc": "2026-10-28T22:03:57.451681+00:00",
+  "status": "SCHEDULED_MONITOR_HISTORY_OBSERVATION_PASS",
+  "scheduled_start_utc": "2026-10-28T22:03:01Z",
+  "observed_at_utc": "2026-10-28T22:03:31.483884+00:00",
+  "official_score": "0.00",
+  "score_state": "NUMERIC",
+  "task_scheduler_last_result": 0,
+  "next_history_due_utc": "2026-10-28T23:03:31.483884+00:00",
+  "scope": "The pre-existing scheduled task ran naturally; it was not launched manually.",
+  "limitations": [
+    "One scheduled success does not establish future network availability.",
+    "The earlier scheduled environment difference affecting the manifest CLI remains unexplained."
+  ]
+}
