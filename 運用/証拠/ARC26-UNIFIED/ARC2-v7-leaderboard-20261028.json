@@ -1,0 +1,30 @@
+{
+  "observed_utc": "2026-10-28T19:06:33.135881+00:00",
+  "competition": "arc-prize-2026-arc-agi-2",
+  "source": "Kaggle official CLI competitions leaderboard --show --page-size 3 --format json",
+  "leaders": [
+    {
+      "teamId": 16756524,
+      "teamName": "Tufa Labs",
+      "submissionDate": "2026-10-27T08:43:22.713000",
+      "score": "88.06"
+    },
+    {
+      "teamId": 15501171,
+      "teamName": "Yi-Chia Chen @ Fields Model",
+      "submissionDate": "2026-10-27T17:59:08.526000",
+      "score": "84.72"
+    },
+    {
+      "teamId": 16559402,
+      "teamName": "Domdolus Tolus",
+      "submissionDate": "2026-10-27T00:00:28.250000",
+      "score": "82.08"
+    }
+  ],
+  "best_own_public_score": "0.83",
+  "best_own_submission_id": 55046979,
+  "leader_minus_own_best": "87.23",
+  "history_evidence_sha256": "e5181d6abe2a4ec2d301afbd9b5588643f83faf5c793289a6b12eed5739e907d",
+  "scope": "Current public leaderboard; private scores and later updates are not observed."
+}
