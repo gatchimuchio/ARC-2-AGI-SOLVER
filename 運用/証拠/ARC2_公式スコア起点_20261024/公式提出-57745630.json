@@ -1,0 +1,17 @@
+{
+  "submission_ref": 57745630,
+  "kernel": "tecchannn/arc2-v7-deadline-10h30m",
+  "kernel_version": 1,
+  "candidate_evidence": {
+    "source_commit": "fe7159cf083c759aeae0fb4b24b00aa0550b68cf",
+    "source_scope": "Builder provenance; exact executable bytes are fixed by notebook cell and embedded bundle hashes, including inherited frozen v61 payload.",
+    "code_sha256": "8e083d45314328b277f919d0138a546b19d52276b41fdcce42e5df91d4a39de7",
+    "code_cell_sha256": "163964ae2af75ef106e856f263efb210555e432cf0f5485df7b8da3ec8e74f64",
+    "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "submission_sha256": "827bccfc1cf51e2fc87d687ba51e1375899650a530ec00e7a20eb1f71eb2dd18",
+    "runtime_bundle_sha256": "457762aabadd49c9968a8f2a2987ee8668dc9c87f476062a61e210531ea9b9c7"
+  },
+  "private_run_evidence": "運用/証拠/ARC26-UNIFIED/ARC2-v7-deadline-private-result-20261028.json",
+  "submission_receipt_evidence": "運用/証拠/ARC26-UNIFIED/ARC2-v7-official-submit-result-20261028.json",
+  "limitations": "Visible pre-submission input and output only; hidden scoring bytes, current score and completed scoring runtime are not observed."
+}
