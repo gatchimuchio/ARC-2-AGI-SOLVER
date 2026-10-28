@@ -1,0 +1,20 @@
+{
+  "observed_utc": "2026-10-28T21:05:58.088583+00:00",
+  "status": "NO_SINGLE_TRAIN_SIMPLE_TRANSFORM_MODELS_IN_32_FOLDS",
+  "challenge_sha256": "7e155be90a566d5583c80f0dbb4404ed3febd21ff3a05faf6c4f0edd3a1c8c57",
+  "generator_sha256": "efe210a4e183de93b5318aadeac7d2b5022a562189839b2ce1a414d367b5b0d3",
+  "prior_sha256": "66e98b7eebab697b4b6877d73af3ec6cb2529104f0386183412ac340760d422a",
+  "folds": 32,
+  "training_pairs_per_fold": 1,
+  "fitted_models_count_distribution": {
+    "0": 32
+  },
+  "prior_support_or_counterexample_evaluable_folds": 0,
+  "test_predictions_or_solutions_read": false,
+  "interpretation": "For these inputs, loosening only nearest-neighbor distance cannot yield prior-supported candidates: the current simple transform generator first yields no models.",
+  "limitations": [
+    "32 folds do not establish prevalence on other data or hidden test.",
+    "No change in solver or official score is demonstrated.",
+    "A richer general generator and a separate shadow evaluation are required; examples from other tasks are not truth evidence for the current task."
+  ]
+}
