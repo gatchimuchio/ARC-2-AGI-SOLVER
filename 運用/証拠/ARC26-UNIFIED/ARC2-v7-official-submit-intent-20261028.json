@@ -1,0 +1,21 @@
+{
+  "track": "ARC2",
+  "instruction": "ARC2 v7.0",
+  "created_at_utc": "2026-10-28T18:21:37Z",
+  "purpose": "Diagnose the previous official timeout and obtain a numeric score using a reduced internal runtime budget.",
+  "kernel": "tecchannn/arc2-v7-deadline-10h30m",
+  "version": 1,
+  "source_commit": "fe7159cf083c759aeae0fb4b24b00aa0550b68cf",
+  "code_cell_sha256": "163964ae2af75ef106e856f263efb210555e432cf0f5485df7b8da3ec8e74f64",
+  "private_run_status": "COMPLETE",
+  "submission_file_sha256": "827bccfc1cf51e2fc87d687ba51e1375899650a530ec00e7a20eb1f71eb2dd18",
+  "previous_submission": 57682971,
+  "previous_state": "TERMINAL_ERROR_NOT_SCORED",
+  "previous_error_category": "RUNTIME_TIMEOUT",
+  "latest_quota_observation": {"utc_day": "2026-10-28", "allowed_now": 1, "today_submissions": 0},
+  "official_deadline_utc": "2026-11-02T23:59:00Z",
+  "message": "ARC2-v7-deadline-10h30m-v1-20261028",
+  "planned_count": 1,
+  "status": "INTENT_ONLY",
+  "limitations": "The scoring rerun and whole-host runtime remain unproved; RAM monitoring and learning improvement remain unverified. A prior training-derived v0.4 memory is bundled and loaded by the worker; its causal effect is not established."
+}
