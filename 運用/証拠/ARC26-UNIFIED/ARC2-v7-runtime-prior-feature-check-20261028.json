@@ -1,0 +1,11 @@
+{
+  "observed_utc": "2026-10-28T18:51:02.863893+00:00",
+  "memory_sha256": "66e98b7eebab697b4b6877d73af3ec6cb2529104f0386183412ac340760d422a",
+  "feature_function_source_sha256": "271e34f7917ba82dd5d83dab3aba4f9684335fc6dd5e6b46bb85d5787234c2a6",
+  "examples": 279,
+  "stored_features_exactly_match_recomputed_input_features": true,
+  "scope": "Only the supplied feature vector values; output pairs were separately checked against official training data.",
+  "limitations": [
+    "Prior usage requires a distinct causal experiment."
+  ]
+}
