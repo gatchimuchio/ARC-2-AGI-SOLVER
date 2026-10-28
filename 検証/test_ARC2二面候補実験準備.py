@@ -44,19 +44,135 @@ def test_candidate_provenance_survives_without_diagnostics_and_invalid_loo_is_re
         entry = {"test_index": 0, "source": "two_panel_occupancy_truth_table",
                  "decision": "provisional_external_candidate", "loo_total": 3,
                  "loo_correct": 2, "loo_conflicts": 0, "loo_unavailable": 1}
-        result = {"results": [], "candidate_provenance": [entry]}
+        result = {"results": [{"second_answer": [[1]]}], "candidate_provenance": [entry]}
         control = SimpleNamespace(invoke=lambda *args, **kwargs: SimpleNamespace(
             cleanup_complete=True, error=None, stdout=json.dumps(result), returncode=0))
-        api = {"課題時間上限秒": 300, "結果を候補へ": lambda *args: ([], [])}
-        args = (api, "task-with_underscore", {"train": [], "test": [{"input": [[0]]}]}, "unused", "unused")
+        api = {"課題時間上限秒": 300, "結果を候補へ": lambda *args: ([{"attempt_1": [[0]], "attempt_2": [[1]]}], [])}
+        args = (api, "task-with_underscore", {"train": [{}, {}, {}], "test": [{"input": [[0]]}]}, "unused", "unused")
         kwargs = {"aggregate_diagnostics": False, "control": control,
                   "budget": SimpleNamespace(solve_cutoff=1000)}
         assert module.run_one(*args, **kwargs)[2]["candidate_provenance"] == [entry]
+        result["candidate_provenance"] = [entry, entry]
+        proof = module.run_one(*args, **kwargs)[2]
+        assert proof["candidate_provenance"] == []
+        assert proof["candidate_provenance_drops"] == [{"test_index": None, "reason": "invalid_provenance"}]
+        result["candidate_provenance"] = [entry]
+        entry.update({"loo_total": 2, "loo_correct": 1})
+        proof = module.run_one(*args, **kwargs)[2]
+        assert proof["candidate_provenance"] == []
+        assert proof["candidate_provenance_drops"] == [{"test_index": None, "reason": "invalid_provenance"}]
+        entry.update({"loo_total": 3, "loo_correct": 2})
+        result["results"] = []
+        proof = module.run_one(*args, **kwargs)[2]
+        assert proof["candidate_provenance"] == []
+        assert proof["candidate_provenance_drops"] == [{"test_index": 0, "reason": "invalid_worker_result"}]
+        result["results"] = [{"second_answer": [[1]]}]
+        api["結果を候補へ"] = lambda *args: ([{"attempt_1": [[0]], "attempt_2": [[0]]}], [])
+        proof = module.run_one(*args, **kwargs)[2]
+        assert proof["candidate_provenance"] == []
+        assert proof["candidate_provenance_drops"] == [{"test_index": 0, "reason": "candidate_not_applied"}]
+        api["結果を候補へ"] = lambda *args: ([{"attempt_1": [[0]], "attempt_2": [[1]]}], [])
         entry.update({"decision": "rejected_loo_conflict", "loo_correct": 1, "loo_conflicts": 1})
         assert module.run_one(*args, **kwargs)[2]["candidate_provenance"] == [entry]
         entry["loo_conflicts"] = 0
-        with pytest.raises(ValueError, match="invalid candidate provenance"):
-            module.run_one(*args, **kwargs)
+        proof = module.run_one(*args, **kwargs)[2]
+        assert proof["candidate_provenance"] == []
+        assert proof["candidate_provenance_drops"] == [{"test_index": None, "reason": "invalid_provenance"}]
+    finally:
+        sys.modules.pop(spec.name, None)
+
+
+def test_nonzero_worker_exit_does_not_promote_valid_looking_json(tmp_path):
+    stage = tmp_path / "stage"
+    作成(stage)
+    spec = importlib.util.spec_from_file_location("arc2_failed_worker_test_control", stage / "deadline_control.py")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    try:
+        spec.loader.exec_module(module)
+        result = {"results": [{"second_answer": [[1]]}], "candidate_provenance": []}
+        control = SimpleNamespace(invoke=lambda *args, **kwargs: SimpleNamespace(
+            cleanup_complete=True, error=None, stdout=json.dumps(result), returncode=1))
+        api = {"課題時間上限秒": 300, "結果を候補へ": lambda task_id, task, value: (value, [])}
+        prediction, holds, diagnostic = module.run_one(
+            api, "task", {"train": [], "test": [{"input": [[0]]}]}, "unused", "unused",
+            aggregate_diagnostics=False, control=control, budget=SimpleNamespace(solve_cutoff=1000))
+        assert prediction == {"error": "worker_exit"}
+        assert holds == [] and diagnostic["candidate_provenance"] == []
+    finally:
+        sys.modules.pop(spec.name, None)
+
+
+def test_worker_error_with_valid_looking_results_is_treated_as_failure(tmp_path):
+    stage = tmp_path / "stage"
+    作成(stage)
+    spec = importlib.util.spec_from_file_location("arc2_reported_error_test_control", stage / "deadline_control.py")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    try:
+        spec.loader.exec_module(module)
+        result = {"error": "failure", "results": [{"second_answer": [[1]]}], "candidate_provenance": []}
+        control = SimpleNamespace(invoke=lambda *args, **kwargs: SimpleNamespace(
+            cleanup_complete=True, error=None, stdout=json.dumps(result), returncode=0))
+        api = {"課題時間上限秒": 300, "結果を候補へ": lambda task_id, task, value: (value, [])}
+        prediction, _, diagnostic = module.run_one(
+            api, "task", {"train": [], "test": [{"input": [[0]]}]}, "unused", "unused",
+            aggregate_diagnostics=False, control=control, budget=SimpleNamespace(solve_cutoff=1000))
+        assert prediction == {"error": "worker_reported_error"}
+        assert diagnostic["candidate_provenance"] == []
+    finally:
+        sys.modules.pop(spec.name, None)
+
+
+def test_bad_provenance_does_not_stop_other_scheduled_tasks(tmp_path, monkeypatch):
+    stage = tmp_path / "stage"
+    作成(stage)
+    spec = importlib.util.spec_from_file_location("arc2_scheduler_provenance_test", stage / "deadline_control.py")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    try:
+        spec.loader.exec_module(module)
+        entry = {"test_index": 0, "source": "two_panel_occupancy_truth_table",
+                 "decision": "provisional_external_candidate", "loo_total": 2,
+                 "loo_correct": 2, "loo_conflicts": 0, "loo_unavailable": 0}
+        class FakeControl:
+            def __init__(self, grace, maximum, **kwargs):
+                self.max_output_bytes = maximum
+                self.active = set()
+                self.peak_active = 0
+                self.termination_failures = 0
+            def invoke(self, command, **kwargs):
+                if "--preflight" in command:
+                    return SimpleNamespace(cleanup_complete=True, error=None, stdout="{}", returncode=0)
+                task = json.loads(kwargs["input_text"])
+                decisions = [entry, entry] if task["test"][0]["input"] == [[0]] else [entry]
+                result = {"results": [{"second_answer": [[1]]}], "candidate_provenance": decisions}
+                return SimpleNamespace(cleanup_complete=True, error=None, stdout=json.dumps(result), returncode=0)
+            def stop_all(self, reason):
+                return None
+        monkeypatch.setattr(module, "ProcessControl", FakeControl)
+        for name in ("ARC2_RUN_STARTED_MONOTONIC", "ARC2_RUN_DEADLINE_MONOTONIC", "ARC2_DEADLINE_RUN_TOKEN"):
+            monkeypatch.delenv(name, raising=False)
+        tasks = {key: {"train": [{}, {}], "test": [{"input": [[value]]}]}
+                 for key, value in (("first", 0), ("second", 1))}
+        challenges = tmp_path / "challenges.json"
+        challenges.write_text(json.dumps(tasks), encoding="utf-8")
+        args = SimpleNamespace(challenges=challenges, output_dir=tmp_path / "output", run_budget_seconds=60,
+                               finalization_reserve_seconds=5, cleanup_grace_seconds=1,
+                               max_worker_output_bytes=1024 * 1024, aggregate_diagnostics=False)
+        api = {"__file__": str(stage / "Kaggle提出.py"), "課題時間上限秒": 30, "並列数": 2,
+               "入力検査": lambda value: value, "提出名": "submission.json", "監査名": "submission_audit.json",
+               "提出検査": lambda tasks, submission: None, "_保留理由数": lambda holds: {},
+               "結果を候補へ": lambda task_id, task, result: ([{"attempt_1": [[0]], "attempt_2": [[1]]}], [])}
+        api["_run_one"] = lambda *values, **options: module.run_one(api, *values, **options)
+        assert module.run_submission(args, api) == 0
+        audit = json.loads((args.output_dir / "submission_audit.json").read_text(encoding="utf-8"))
+        assert audit["deadline_control"]["run_state"] == "COMPLETE"
+        assert audit["deadline_control"]["completed_task_count"] == 2
+        assert len(audit["candidate_provenance"]) == 1
+        assert audit["candidate_provenance"][0]["task_id"] == "second"
+        assert audit["candidate_provenance_drops"] == [
+            {"task_id": "first", "test_index": None, "reason": "invalid_provenance"}]
     finally:
         sys.modules.pop(spec.name, None)
 

@@ -1,0 +1,20 @@
+{
+  "observed_utc": "2026-10-28T20:06:37.499109+00:00",
+  "status": "NEGATIVE_TESTS_PASS_EXACT_RUNTIME_VERIFICATION_PENDING",
+  "controller_sha256": "102134eb25e519fc12368e55d2e3687f741a73c564d95679c6b93ca619203910",
+  "adapter_sha256": "2f4d60bd0d0bae939e67186ef22c5feaa5a16ef06307c654711e31cbfd7d4b80",
+  "candidate_sha256": "9899c239411e4914a02dbdc1182fe1adcdd1b4215dab2d8b909149d4247bdb25",
+  "checks": [
+    "Nonzero worker exit is treated as worker_exit even if stdout contains valid-looking predictions.",
+    "Worker JSON with both error and results is treated as failure.",
+    "Selected provenance is retained only if worker rows are complete and the converted second attempt actually matches and differs from the first.",
+    "Invalid, duplicate, inconsistent or wrong-length LOO provenance is removed and recorded and the two-task scheduler continued.",
+    "LOO rejection is distinguished from provisional adoption."
+  ],
+  "tests": "24 targeted tests passed, including a two-task scheduler test where invalid provenance on one task does not stop the other",
+  "limitations": [
+    "This is a new stage SHA; full 100-task and private Notebook verification are not complete.",
+    "HDS purpose/loss-based provisional-action gate is still not wired.",
+    "Earlier private version 2 does not contain these fixes."
+  ]
+}

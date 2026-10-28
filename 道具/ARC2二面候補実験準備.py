@@ -150,28 +150,72 @@ def 作成(destination: Path, *, 安全化: bool = False, 記憶介入: bool = F
         file.write(source)
     controller = destination / "deadline_control.py"
     control_text = controller.read_text(encoding="utf-8")
+    anchor = '    if process.error:\n        result = {"error": process.error}\n    else:\n'
+    replacement = ('    if process.error:\n        result = {"error": process.error}\n'
+                   '    elif process.returncode != 0:\n        result = {"error": "worker_exit"}\n    else:\n')
+    if control_text.count(anchor) != 1:
+        raise ValueError("worker終了状態の判定箇所が一意ではありません")
+    control_text = control_text.replace(anchor, replacement, 1)
     anchor = '    diagnostics = result.get("aggregate_diagnostics", {}) if aggregate_diagnostics and isinstance(result, dict) else {}\n'
     if control_text.count(anchor) != 1:
         raise ValueError("候補証跡の受信箇所が一意ではありません")
+    control_text = control_text.replace(anchor,
+        '    if isinstance(result, dict) and "error" in result and set(result) != {"error"}:\n'
+        '        result = {"error": "worker_reported_error"}\n' + anchor, 1)
     provenance = (
         '    diagnostics = dict(diagnostics) if isinstance(diagnostics, dict) else {}\n'
         '    decisions = result.get("candidate_provenance", []) if isinstance(result, dict) else []\n'
         '    fields = {"test_index", "source", "decision", "loo_total", "loo_correct", "loo_conflicts", "loo_unavailable"}\n'
-        '    if not isinstance(decisions, list):\n'
-        '        raise ValueError("invalid candidate provenance")\n'
+        '    invalid_provenance = not isinstance(decisions, list)\n'
+        '    if invalid_provenance:\n'
+        '        decisions = []\n'
+        '    seen_indices = set()\n'
         '    for decision in decisions:\n'
         '        if (not isinstance(decision, dict) or set(decision) != fields\n'
         '                or type(decision["test_index"]) is not int or not 0 <= decision["test_index"] < len(task["test"])\n'
+        '                or decision["test_index"] in seen_indices\n'
         '                or decision["source"] != "two_panel_occupancy_truth_table"\n'
         '                or decision["decision"] not in ("provisional_external_candidate", "rejected_loo_conflict")\n'
         '                or any(type(decision[k]) is not int or decision[k] < 0 for k in ("loo_total", "loo_correct", "loo_conflicts", "loo_unavailable"))\n'
+        '                or decision["loo_total"] != len(task["train"])\n'
         '                or decision["loo_correct"] + decision["loo_conflicts"] + decision["loo_unavailable"] != decision["loo_total"]\n'
         '                or (decision["decision"] == "provisional_external_candidate" and decision["loo_conflicts"] != 0)\n'
         '                or (decision["decision"] == "rejected_loo_conflict" and decision["loo_conflicts"] == 0)):\n'
-        '            raise ValueError("invalid candidate provenance entry")\n'
-        '    diagnostics["candidate_provenance"] = decisions\n'
+        '            invalid_provenance = True\n'
+        '            break\n'
+        '        seen_indices.add(decision["test_index"])\n'
+        '    if invalid_provenance:\n'
+        '        decisions = []\n'
     )
     control_text = control_text.replace(anchor, anchor + provenance, 1)
+    anchor = '    return (*api["結果を候補へ"](task_id, task, result), diagnostics)\n'
+    if control_text.count(anchor) != 1:
+        raise ValueError("候補証跡の提出照合箇所が一意ではありません")
+    reconciliation = (
+        '    predictions, holds = api["結果を候補へ"](task_id, task, result)\n'
+        '    rows = result.get("results") if isinstance(result, dict) else None\n'
+        '    valid_rows = isinstance(rows, list) and len(rows) == len(task["test"])\n'
+        '    kept = []\n'
+        '    dropped = [{"test_index": None, "reason": "invalid_provenance"}] if invalid_provenance else []\n'
+        '    for decision in decisions:\n'
+        '        index = decision["test_index"]\n'
+        '        if not valid_rows:\n'
+        '            dropped.append({"test_index": index, "reason": "invalid_worker_result"})\n'
+        '            continue\n'
+        '        if decision["decision"] == "provisional_external_candidate":\n'
+        '            row = rows[index]\n'
+        '            output = predictions[index] if index < len(predictions) else None\n'
+        '            if (not isinstance(row, dict) or not isinstance(output, dict)\n'
+        '                    or output.get("attempt_2") != row.get("second_answer")\n'
+        '                    or output.get("attempt_1") == output.get("attempt_2")):\n'
+        '                dropped.append({"test_index": index, "reason": "candidate_not_applied"})\n'
+        '                continue\n'
+        '        kept.append(decision)\n'
+        '    diagnostics["candidate_provenance"] = kept\n'
+        '    diagnostics["candidate_provenance_drops"] = dropped\n'
+        '    return predictions, holds, diagnostics\n'
+    )
+    control_text = control_text.replace(anchor, reconciliation, 1)
     anchor = '        if args.aggregate_diagnostics:\n            scalar, families, distinct, requests = Counter(), Counter(), Counter(), Counter()\n'
     if control_text.count(anchor) != 1:
         raise ValueError("候補証跡の監査箇所が一意ではありません")
@@ -179,6 +223,10 @@ def 作成(destination: Path, *, 安全化: bool = False, 記憶介入: bool = F
         '        audit["candidate_provenance"] = [\n'
         '            {"task_id": key, **entry} for key in tasks\n'
         '            for entry in records[key][2].get("candidate_provenance", [])\n'
+        '        ]\n'
+        '        audit["candidate_provenance_drops"] = [\n'
+        '            {"task_id": key, **entry} for key in tasks\n'
+        '            for entry in records[key][2].get("candidate_provenance_drops", [])\n'
         '        ]\n'
     )
     control_text = control_text.replace(anchor, addition + anchor, 1)

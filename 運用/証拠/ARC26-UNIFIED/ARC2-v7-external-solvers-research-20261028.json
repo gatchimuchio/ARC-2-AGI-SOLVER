@@ -1,0 +1,42 @@
+{
+  "observed_utc": "2026-10-28T20:09:06.677844+00:00",
+  "status": "RESEARCH_ONLY_NO_MODEL_RUN",
+  "purpose": "Inspect public stronger ARC solvers without importing evaluation answers into runtime.",
+  "varc": {
+    "code_repository": "https://github.com/lillian039/VARC",
+    "code_license_observed": "MIT",
+    "model_card": "https://huggingface.co/VisionARC/offline_train_ViT",
+    "checkpoint_url": "https://huggingface.co/VisionARC/offline_train_ViT/blob/main/checkpoint_best.pt",
+    "checkpoint_license_observed": "MIT",
+    "checkpoint_size_label": "216 MB",
+    "published_checkpoint_sha256": "c52d719fe9a41066aa8e96548ae6f83a0abf3568facd5103e176d7005e8421b3",
+    "pretraining_description": "Paper describes ARC-1 training and ReARC; this alone does not prove ARC-2 non-exposure.",
+    "sources": [
+      "https://arxiv.org/html/2511.14761v1",
+      "https://raw.githubusercontent.com/lillian039/VARC/main/script/test_time_training_VARC_ViT_ARC2.sh",
+      "https://raw.githubusercontent.com/lillian039/VARC/main/utils/eval_utils_ttt.py",
+      "https://raw.githubusercontent.com/lillian039/VARC/main/utils/analyze_prediction.py",
+      "https://raw.githubusercontent.com/lillian039/VARC/main/src/ARC_loader.py",
+      "https://raw.githubusercontent.com/lillian039/VARC/main/utils/arclib/arc.py"
+    ],
+    "blockers": [
+      "The published experiment script enumerates task IDs and assumes multiple GPUs.",
+      "Its prediction flow invokes analysis that reads public evaluation answers; the loader can use test output shape when such output is present.",
+      "When test output is absent the loader constructs an input-copy placeholder; impact on selection must be tested.",
+      "Checkpoint provenance, exact file download/hash, dependency permissions, Kaggle offline packaging and the account GPU quota are not yet established."
+    ],
+    "safe_next_step": "Separate prediction from analysis; pass only train and test input, discard task-specific routing, test that absence or changes of withheld outputs cannot affect predictions, then benchmark with matching budgets and posthoc scoring."
+  },
+  "nvarc": {
+    "sources": [
+      "https://raw.githubusercontent.com/1ytic/NVARC/main/ARChitects/README.md",
+      "https://raw.githubusercontent.com/1ytic/NVARC/main/SDG/scripts/build_datasets.py"
+    ],
+    "observation": "The published fine-tuning configuration names arc2_evaluation6 and dataset generation can include evaluation test outputs in training pairs. The training provenance of any particular weight must be proven before use.",
+    "status": "NOT_ACCEPTED_FOR_RUNTIME"
+  },
+  "limitations": [
+    "Source pages and repository branches may change; no external repository commit or model bytes were downloaded or validated here.",
+    "No performance or official Kaggle score is claimed."
+  ]
+}

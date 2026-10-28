@@ -1,0 +1,26 @@
+{
+  "observed_utc": "2026-10-28T20:08:52.612540+00:00",
+  "status": "LOO_PROVENANCE_LOCAL_PREDICTIONS_MATCH",
+  "prediction_sha256": "c76cfe59ab3686e2d8aa71e774f931baef13e4712d76fee1448c195421098166",
+  "challenge_sha256": "3fc1530ba27e03ef15b96b89ffcaa4bd9c7e50caba36e559965d98ebfdf883fb",
+  "tasks": 100,
+  "test_grids": 111,
+  "fallback_count": 109,
+  "fallbacks_identical": true,
+  "candidate_provenance_count": 3,
+  "loo_total": 13,
+  "loo_correct": 13,
+  "loo_unavailable": 0,
+  "previous_seconds": 519.703,
+  "current_seconds": 699.781,
+  "source_sha256": "9899c239411e4914a02dbdc1182fe1adcdd1b4215dab2d8b909149d4247bdb25",
+  "adapter_sha256": "2f4d60bd0d0bae939e67186ef22c5feaa5a16ef06307c654711e31cbfd7d4b80",
+  "controller_sha256": "ac63c525ced1dd1a6af00b070899fdfbd01d168d4a744dd82738997474b39e32",
+  "official_score": null,
+  "limitations": [
+    "The tested controller predates the worker failure and provenance consistency fixes.",
+    "The provisional public training cohort is not proven unseen; LOO uses training examples involved in mechanism selection.",
+    "The HDS purpose/loss action gate is not yet connected.",
+    "Elapsed times are from separate Windows runs under variable load."
+  ]
+}
