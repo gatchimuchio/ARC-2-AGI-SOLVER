@@ -1,0 +1,43 @@
+{
+  "observed_utc": "2026-10-28T19:56:31.937206+00:00",
+  "action": "PRIVATE_NOTEBOOK_VERSION2_PUSH_INTENT_ONLY",
+  "kernel": "tecchannn/arc2-v7-two-panel-hardened",
+  "previous_version": 1,
+  "previous_status": "COMPLETE",
+  "source_commit": "039e093feadefa4ca183744f4a3e10eecbdf92de",
+  "source_commit_scope": "Current candidate and builder Git provenance; launcher audit source_commit refers to frozen v61 base.",
+  "code_sha256": "3bd0353668e566815a48db66a516dc23671f6b369163b7eff74b40df58fdb27d",
+  "code_cell_sha256": "6ab79cf3462057e42eebbc6219ad29d4dfd2b34310eea4d3fd4f8177e2bf34c2",
+  "runtime_bundle_sha256": "eb3d0635fccf679d1b3e4b01ccbe744514091bd312f3b1a9dae3bc8dafab2b56",
+  "runtime_member_sha256": {
+    "Kaggle提出.py": "2f4d60bd0d0bae939e67186ef22c5feaa5a16ef06307c654711e31cbfd7d4b80",
+    "deadline_control.py": "ac63c525ced1dd1a6af00b070899fdfbd01d168d4a744dd82738997474b39e32",
+    "outer_watchdog.py": "a26b1711cc77ad9797dcded9ad63427ea656ca27193fe7c5c2f24a1585473347",
+    "solve.py": "dd479d1436b7c8a1cbbb0ce3b10dde8a7c2729cc7f22826587537130b8bdb966",
+    "two_panel.py": "9899c239411e4914a02dbdc1182fe1adcdd1b4215dab2d8b909149d4247bdb25"
+  },
+  "payload_security": {
+    "original_payload_sha256": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",
+    "payload_sha256": "3089416bd99bf50b5f7c7d6e6eb3e35e1a76026669bb54bcae767418cd2935e7",
+    "teacher_train_only_sha256": "6a254b371eb8fb6e3795f05155be09525109d4a418394987bbd9227d67edcd55",
+    "teacher_training_pairs": 2,
+    "teacher_test_removed": true,
+    "cache_member_revalidation": true
+  },
+  "metadata_sha256": "ce10f8644afdebb7374dd3e44cbb902529cdf4c3c655954e2caf5b4137dd89b3",
+  "private": true,
+  "internet": false,
+  "aggregate_diagnostics": false,
+  "run_budget_seconds": 37800,
+  "single_task_smoke": {
+    "status": "COMPLETE",
+    "submission_sha256": "35f40307711673a14b90bda47bf62da6f1de72c918c4f7f3d68989a3be6fe173",
+    "candidate_provenance_count": 1
+  },
+  "official_submission_created": false,
+  "limitations": [
+    "This is a new private Notebook version, not a competition submission.",
+    "The complete local 100-task comparison and this exact private version are still running or pending.",
+    "Any ambiguous push response requires checking existing versions before considering a retry."
+  ]
+}
