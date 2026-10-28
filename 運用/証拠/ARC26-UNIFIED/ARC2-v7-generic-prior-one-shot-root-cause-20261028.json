@@ -1,0 +1,21 @@
+{
+  "observed_utc": "2026-10-28T21:02:06.409766+00:00",
+  "status": "GENERIC_PRIOR_ONE_SHOT_PATH_STRUCTURALLY_BLOCKED",
+  "scope": "32 leave-one-training-pair-out inputs, train-only candidate and prior features; no test answers read",
+  "challenge_sha256": "7e155be90a566d5583c80f0dbb4404ed3febd21ff3a05faf6c4f0edd3a1c8c57",
+  "feature_source_sha256": "271e34f7917ba82dd5d83dab3aba4f9684335fc6dd5e6b46bb85d5787234c2a6",
+  "adapter_source_sha256": "f266d88e66f05a309b942c526a205062338b2e6a0aca09ed97bb0ae35d74c912",
+  "folds": 32,
+  "one_training_pair": 32,
+  "single_teacher_zero_applicability_limit": 32,
+  "teacher_count_guard_rejects": 32,
+  "no_prior_distance_within_tolerance": 32,
+  "minimum_nearest_distance": 0.00046982716049382713,
+  "maximum_nearest_distance": 0.038297295147162874,
+  "counterfactual": "Relaxing distance alone still leaves the independent minimum-two-teacher rejection.",
+  "limitations": [
+    "This identifies why these 32 one-shot inputs did not use generic prior; it does not establish hidden-task prevalence.",
+    "Any repair must avoid treating other tasks as proof of the current task, preserve hold and contradictions, and demonstrate same-condition correctness before adoption.",
+    "No change to HDS kernel or solver behavior is made by this diagnosis."
+  ]
+}
