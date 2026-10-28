@@ -1,0 +1,43 @@
+{
+  "observed_utc": "2026-10-28T19:38:11.100569+00:00",
+  "action": "PRIVATE_NOTEBOOK_PUSH_INTENT_ONLY",
+  "kernel": "tecchannn/arc2-v7-two-panel-hardened",
+  "source_commit": "4aa914bbf01028ce3fe27e72a57d5834f2875808",
+  "source_commit_scope": "Git provenance of builder and candidate; executable bytes are pinned individually. Launcher audit source_commit reports the frozen v61 base, not this candidate.",
+  "code_sha256": "3ed690f1ca248e16c75df0db86a8eec1a1f995a6f43982714288062a93662455",
+  "runtime_bundle_sha256": "48bb9ae5012172f4e259d8f51841e53926a3fb1c88c646c30be57a7e5ea81937",
+  "runtime_member_sha256": {
+    "Kaggle提出.py": "dd9675b8bf30dfa0a85bb34ec8987a53b1ce6e330e71b50ea1aa352d6e971dc2",
+    "deadline_control.py": "077c8dd7f2d37831368a44d47ef03e5c04e29c4050096b683bb181875a1db8e2",
+    "outer_watchdog.py": "a26b1711cc77ad9797dcded9ad63427ea656ca27193fe7c5c2f24a1585473347",
+    "solve.py": "dd479d1436b7c8a1cbbb0ce3b10dde8a7c2729cc7f22826587537130b8bdb966",
+    "two_panel.py": "819d9459ed6cb1a356532b98658e756038945b80d9996b6f7b51e881372a945f"
+  },
+  "payload_security": {
+    "original_payload_sha256": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",
+    "payload_sha256": "3089416bd99bf50b5f7c7d6e6eb3e35e1a76026669bb54bcae767418cd2935e7",
+    "teacher_train_only_sha256": "6a254b371eb8fb6e3795f05155be09525109d4a418394987bbd9227d67edcd55",
+    "teacher_training_pairs": 2,
+    "teacher_test_removed": true,
+    "cache_member_revalidation": true
+  },
+  "metadata_sha256": "ce10f8644afdebb7374dd3e44cbb902529cdf4c3c655954e2caf5b4137dd89b3",
+  "private": true,
+  "internet": false,
+  "aggregate_diagnostics": false,
+  "run_budget_seconds": 37800,
+  "prior_public_training_observation": "3 to 6 correct grids of 111; 3 gains, 0 regressions; exact candidate output repeated twice. The cohort is provisional and not proven unseen.",
+  "hardened_single_task_smoke": {
+    "status": "COMPLETE",
+    "submission_sha256": "35f40307711673a14b90bda47bf62da6f1de72c918c4f7f3d68989a3be6fe173",
+    "elapsed_seconds": 51.187,
+    "matches_unhardened_candidate": true
+  },
+  "current_official_score": "0.00",
+  "official_submission_created": false,
+  "limitations": [
+    "The full 100-task hardened local equivalence and private Kaggle execution are pending.",
+    "This is a private Notebook execution, not a competition submission.",
+    "The target slug could not be read and a search of own notebooks returned no matching result; ambiguous push responses must be reconciled before retry."
+  ]
+}

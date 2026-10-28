@@ -1,0 +1,21 @@
+{
+  "observed_utc": "2026-10-28T19:38:21.753280+00:00",
+  "status": "PASS_PREDICTION_REPRODUCTION",
+  "candidate_sha256": "819d9459ed6cb1a356532b98658e756038945b80d9996b6f7b51e881372a945f",
+  "adapter_sha256": "b02b617a572ec659170509cf9a9fbb5c5b03b992a6859ab67aa43c3611c80628",
+  "challenge_sha256": "3fc1530ba27e03ef15b96b89ffcaa4bd9c7e50caba36e559965d98ebfdf883fb",
+  "prediction_sha256": "c76cfe59ab3686e2d8aa71e774f931baef13e4712d76fee1448c195421098166",
+  "tasks": 100,
+  "test_grids": 111,
+  "first_attempt_fallbacks": 109,
+  "previous_seconds": 600.375,
+  "repeat_seconds": 741.625,
+  "nonfallback_pass1": 2,
+  "nonfallback_pass2": 6,
+  "official_score": null,
+  "limitations": [
+    "The provisional public training cohort is not proven unseen.",
+    "The predicted output bytes matched in two local diagnostic-enabled Windows CPU runs; runtime load and elapsed time differed.",
+    "This does not establish official or private Notebook performance."
+  ]
+}
