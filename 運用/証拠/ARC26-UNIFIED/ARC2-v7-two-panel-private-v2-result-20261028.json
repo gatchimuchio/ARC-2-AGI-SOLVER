@@ -1,0 +1,49 @@
+{
+  "observed_utc": "2026-10-28T20:12:26.404559+00:00",
+  "status": "PRIVATE_V2_COMPLETE_WORKER_AND_GATE_FIXES_PENDING",
+  "kernel": "tecchannn/arc2-v7-two-panel-hardened",
+  "version": 2,
+  "code_sha256": "3bd0353668e566815a48db66a516dc23671f6b369163b7eff74b40df58fdb27d",
+  "code_cell_sha256": "6ab79cf3462057e42eebbc6219ad29d4dfd2b34310eea4d3fd4f8177e2bf34c2",
+  "runtime_bundle_sha256": "eb3d0635fccf679d1b3e4b01ccbe744514091bd312f3b1a9dae3bc8dafab2b56",
+  "runtime_member_sha256": {
+    "Kaggle提出.py": "2f4d60bd0d0bae939e67186ef22c5feaa5a16ef06307c654711e31cbfd7d4b80",
+    "deadline_control.py": "ac63c525ced1dd1a6af00b070899fdfbd01d168d4a744dd82738997474b39e32",
+    "outer_watchdog.py": "a26b1711cc77ad9797dcded9ad63427ea656ca27193fe7c5c2f24a1585473347",
+    "solve.py": "dd479d1436b7c8a1cbbb0ce3b10dde8a7c2729cc7f22826587537130b8bdb966",
+    "two_panel.py": "9899c239411e4914a02dbdc1182fe1adcdd1b4215dab2d8b909149d4247bdb25"
+  },
+  "payload_security": {
+    "original_payload_sha256": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",
+    "payload_sha256": "3089416bd99bf50b5f7c7d6e6eb3e35e1a76026669bb54bcae767418cd2935e7",
+    "teacher_train_only_sha256": "6a254b371eb8fb6e3795f05155be09525109d4a418394987bbd9227d67edcd55",
+    "teacher_training_pairs": 2,
+    "teacher_test_removed": true,
+    "cache_member_revalidation": true
+  },
+  "challenge_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "prediction_sha256": "3b683547b10e8b45daaca1063d83a4438d5e8968460c954133747fd0bd189424",
+  "prediction_and_fallbacks_identical_to_private_v1": true,
+  "tasks": 240,
+  "test_grids": 259,
+  "fallback_count": 249,
+  "provenance_count": 5,
+  "all_selected_attempts_and_loo_recomputed_match": true,
+  "loo_total": 22,
+  "loo_correct": 22,
+  "loo_conflicts": 0,
+  "loo_unavailable": 0,
+  "runtime_seconds": 488.229,
+  "posthoc_training_pass2": 21,
+  "previous_v61_pass2": 16,
+  "improved_grids": 5,
+  "regressed_grids": 0,
+  "official_submission_created": false,
+  "official_score": null,
+  "limitations": [
+    "Private runs are local-style executions on public training data, not official hidden scores.",
+    "Worker abnormal-exit/provenance consistency fixes and the purpose/loss HDS action gate are not in version 2.",
+    "Local full 240-task byte reproduction is pending.",
+    "LOO uses the task training examples and does not prove independent generalization."
+  ]
+}

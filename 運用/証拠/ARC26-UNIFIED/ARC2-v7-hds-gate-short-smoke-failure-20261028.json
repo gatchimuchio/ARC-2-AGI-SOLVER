@@ -1,0 +1,18 @@
+{
+  "observed_utc": "2026-10-28T20:19:30.569809+00:00",
+  "status": "SMOKE_NOT_COMPLETED_GLOBAL_DEADLINE",
+  "runtime_seconds": 90.203,
+  "run_budget_seconds": 120,
+  "finalization_reserve_seconds": 20,
+  "fallback_count": 1,
+  "fallback_reasons": [
+    "global_deadline"
+  ],
+  "candidate_provenance_count": 0,
+  "prediction_sha256": "b97afe069b61e04fbb15971d6a27d376b498f6a061c65a8580c2c0446a7d1b64",
+  "limitations": [
+    "The short smoke deadline was exhausted; it does not establish whether the gate normally accepts or rejects the candidate.",
+    "The exact cause of the long elapsed time is unverified; other local work was active.",
+    "Retry with a representative task time budget and preserve this failed result."
+  ]
+}

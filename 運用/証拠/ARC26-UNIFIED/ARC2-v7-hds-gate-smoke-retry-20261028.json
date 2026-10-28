@@ -1,0 +1,32 @@
+{
+  "observed_utc": "2026-10-28T20:20:42.539387+00:00",
+  "status": "ONE_TASK_GATE_SMOKE_PASS_FULL_COMPARISON_PENDING",
+  "prediction_sha256": "35f40307711673a14b90bda47bf62da6f1de72c918c4f7f3d68989a3be6fe173",
+  "candidate_sha256": "1806474d1e6c242ca48e4b1dc748ebf546658c02351ffb8b359a15b889270d98",
+  "adapter_sha256": "db6fc15dcfb5d74794a7524b90023abc4613a45d29279e1c2928e32c2d2deb92",
+  "controller_sha256": "d9fea89d49ce825928f6c2bda3661d58fd12e7d8d98f2a18608c2ed7746ad296",
+  "solver_sha256": "30034d740dd9f01fd6e3d6e3033090bebd7f091602ddf905013dbcdc1ed401b0",
+  "hds_basis": {
+    "status": "断定保留",
+    "reason_count": 1,
+    "quarantined": 0,
+    "answer_present": false,
+    "equality_admitted": false
+  },
+  "gate_authority": "arc2_domain_adapter",
+  "gate_accepted": true,
+  "hds_truth_approved": false,
+  "confidence": null,
+  "remaining_seconds": 232.48399999999674,
+  "loo_total": 4,
+  "loo_correct": 4,
+  "run_budget_seconds": 300,
+  "finalization_reserve_seconds": 30,
+  "runtime_seconds": 27.828,
+  "first_short_smoke_failure": "運用/証拠/ARC26-UNIFIED/ARC2-v7-hds-gate-short-smoke-failure-20261028.json",
+  "limitations": [
+    "This is one public training task; the 100-task comparison and private Notebook execution of this exact gate version remain pending.",
+    "The gate is a Domain Adapter action based on two-attempt loss dominance, not an HDS truth approval or a calibrated probability.",
+    "The HDS basis is observed after current-task mechanism training; cross-task learning benefit remains unproved."
+  ]
+}

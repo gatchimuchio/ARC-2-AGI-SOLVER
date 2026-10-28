@@ -1,0 +1,48 @@
+{
+  "observed_utc": "2026-10-28T20:25:49.247543+00:00",
+  "status": "ONE_TASK_GATE_SMOKE_PASS_FULL_COMPARISON_PENDING",
+  "prediction_sha256": "35f40307711673a14b90bda47bf62da6f1de72c918c4f7f3d68989a3be6fe173",
+  "stage_sha256": {
+    "Kaggle提出.py": "db6fc15dcfb5d74794a7524b90023abc4613a45d29279e1c2928e32c2d2deb92",
+    "deadline_control.py": "18c1be60f6a77e75a41c48c42b33dfd70dbe9d4d50da28ac25fa31c39d7291f9",
+    "outer_watchdog.py": "a26b1711cc77ad9797dcded9ad63427ea656ca27193fe7c5c2f24a1585473347",
+    "solve.py": "64d7ae6e07f5e87fb8364a7c2790c0788c34204a3c02d6726ee7ffa6d19a4af2"
+  },
+  "candidate_sha256": "21f1465c8de83670d73bf0cca5cb25018bab8dd749b7e00c6bc5f48ecc778bf0",
+  "security": {
+    "original_payload_sha256": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",
+    "payload_sha256": "0e34181085ff3bc7768bf54aa030bc9479ea450e7e8b21feb77211fcb9f4382e",
+    "teacher_train_only_sha256": "6a254b371eb8fb6e3795f05155be09525109d4a418394987bbd9227d67edcd55",
+    "teacher_training_pairs": 2,
+    "teacher_test_removed": true,
+    "cache_member_revalidation": true,
+    "hds_basis_observation_wired": true,
+    "hds_adapter_sha256": "f266d88e66f05a309b942c526a205062338b2e6a0aca09ed97bb0ae35d74c912"
+  },
+  "hds_basis": {
+    "status": "断定保留",
+    "reason_count": 1,
+    "reason_labels": [
+      "MISSING_OBSERVATION"
+    ],
+    "quarantined": 0,
+    "answer_present": false,
+    "equality_admitted": false
+  },
+  "gate_authority": "arc2_domain_adapter",
+  "gate_accepted": true,
+  "hds_truth_approved": false,
+  "confidence": null,
+  "remaining_seconds": 276.5619999999981,
+  "loo_total": 4,
+  "loo_correct": 4,
+  "run_budget_seconds": 400,
+  "finalization_reserve_seconds": 30,
+  "runtime_seconds": 40.843,
+  "limitations": [
+    "One public training task only; the 100-task comparison and private Notebook execution of this exact gate version remain pending.",
+    "The gate is a Domain Adapter action based on two-attempt loss dominance, not an HDS truth approval or a calibrated probability.",
+    "HDS reason labels preserve recognized reason categories; unrecognized reasons are recorded as UNKNOWN.",
+    "The HDS basis is observed after current-task mechanism training; cross-task learning benefit remains unproved."
+  ]
+}

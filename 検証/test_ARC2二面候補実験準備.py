@@ -11,12 +11,22 @@ import zipfile
 import pytest
 
 from 道具.ARC2二面候補実験準備 import 作成
+from 接続.ARC2.二面真理値候補 import provisional_action_gate
+
+
+def _valid_gate():
+    return provisional_action_gate(
+        [[0]], [[0]], [[1]], train_exact=True,
+        loo={"loo_total": 2, "loo_correct": 2, "loo_conflicts": 0, "loo_unavailable": 0},
+        hds_basis={"status": "断定保留", "reason_count": 1, "reason_labels": ["MISSING_OBSERVATION"],
+                   "quarantined": 0, "answer_present": False, "equality_admitted": False},
+        now_monotonic=1, cutoff_monotonic=10)
 
 
 def test_stage_is_reproducible_and_pins_the_candidate(tmp_path):
     stage = tmp_path / "stage"
     manifest = 作成(stage)
-    assert manifest["diagnostic_sha256"]["Kaggle提出.py"] == "bedb5e6df30a2a0e16be4b760c38f31b200f8d1a60713e532f4b8ba05121e62e"
+    assert manifest["diagnostic_sha256"]["Kaggle提出.py"] == "fbaedaad61aa6d11237fcfef34aa724ef5593f534beb17f50f3bbc8caaba29bf"
     assert hashlib.sha256((stage / "two_panel.py").read_bytes()).hexdigest() == manifest["candidate_sha256"]
     with pytest.raises(FileExistsError):
         作成(stage)
@@ -43,15 +53,44 @@ def test_candidate_provenance_survives_without_diagnostics_and_invalid_loo_is_re
         spec.loader.exec_module(module)
         entry = {"test_index": 0, "source": "two_panel_occupancy_truth_table",
                  "decision": "provisional_external_candidate", "loo_total": 3,
-                 "loo_correct": 2, "loo_conflicts": 0, "loo_unavailable": 1}
+                 "loo_correct": 2, "loo_conflicts": 0, "loo_unavailable": 1,
+                 "gate": _valid_gate()}
         result = {"results": [{"second_answer": [[1]]}], "candidate_provenance": [entry]}
         control = SimpleNamespace(invoke=lambda *args, **kwargs: SimpleNamespace(
             cleanup_complete=True, error=None, stdout=json.dumps(result), returncode=0))
-        api = {"課題時間上限秒": 300, "結果を候補へ": lambda *args: ([{"attempt_1": [[0]], "attempt_2": [[1]]}], [])}
+        observed_results = []
+        def select_result(task_id, task, worker_result):
+            observed_results.append(worker_result)
+            return ([{"attempt_1": [[0]], "attempt_2": [[1]]}], [])
+        api = {"課題時間上限秒": 300, "結果を候補へ": select_result}
         args = (api, "task-with_underscore", {"train": [{}, {}, {}], "test": [{"input": [[0]]}]}, "unused", "unused")
         kwargs = {"aggregate_diagnostics": False, "control": control,
                   "budget": SimpleNamespace(solve_cutoff=1000)}
         assert module.run_one(*args, **kwargs)[2]["candidate_provenance"] == [entry]
+        complete_gate = entry["gate"]
+        for corrupt_gate in ({"authority": "arc2_domain_adapter", "hds_truth_approved": False, "confidence": None, "accepted": True},
+                             {**complete_gate, "remaining_seconds": 10**309},
+                             {**complete_gate, "hds_basis": {**complete_gate["hds_basis"], "status": "HDS_BOGUS_VALUE"}},
+                             {**complete_gate, "objective": "unrelated"}):
+            entry["gate"] = corrupt_gate
+            proof = module.run_one(*args, **kwargs)[2]
+            assert proof["candidate_provenance"] == []
+            assert proof["candidate_provenance_drops"] == [{"test_index": None, "reason": "invalid_provenance"}]
+            assert observed_results[-1] == {"error": "invalid_candidate_provenance"}
+        entry["gate"] = complete_gate
+        entry["gate"] = {**complete_gate, "remaining_seconds": float("nan")}
+        proof = module.run_one(*args, **kwargs)[2]
+        assert proof["candidate_provenance"] == []
+        assert observed_results[-1] == {"error": "worker_invalid_json"}
+        entry["gate"] = complete_gate
+        del result["candidate_provenance"]
+        proof = module.run_one(*args, **kwargs)[2]
+        assert proof["candidate_provenance"] == []
+        assert proof["candidate_provenance_drops"] == [{"test_index": None, "reason": "invalid_provenance"}]
+        assert observed_results[-1] == {"error": "invalid_candidate_provenance"}
+        result["candidate_provenance"] = []
+        assert module.run_one(*args, **kwargs)[2]["candidate_provenance"] == []
+        assert observed_results[-1] is result or observed_results[-1] == result
         result["candidate_provenance"] = [entry, entry]
         proof = module.run_one(*args, **kwargs)[2]
         assert proof["candidate_provenance"] == []
@@ -72,7 +111,7 @@ def test_candidate_provenance_survives_without_diagnostics_and_invalid_loo_is_re
         assert proof["candidate_provenance"] == []
         assert proof["candidate_provenance_drops"] == [{"test_index": 0, "reason": "candidate_not_applied"}]
         api["結果を候補へ"] = lambda *args: ([{"attempt_1": [[0]], "attempt_2": [[1]]}], [])
-        entry.update({"decision": "rejected_loo_conflict", "loo_correct": 1, "loo_conflicts": 1})
+        entry.update({"decision": "rejected_loo_conflict", "loo_correct": 1, "loo_conflicts": 1, "gate": None})
         assert module.run_one(*args, **kwargs)[2]["candidate_provenance"] == [entry]
         entry["loo_conflicts"] = 0
         proof = module.run_one(*args, **kwargs)[2]
@@ -124,7 +163,32 @@ def test_worker_error_with_valid_looking_results_is_treated_as_failure(tmp_path)
         sys.modules.pop(spec.name, None)
 
 
-def test_bad_provenance_does_not_stop_other_scheduled_tasks(tmp_path, monkeypatch):
+def test_invalid_unicode_is_isolated_before_diagnostic_snapshot(tmp_path, monkeypatch):
+    stage = tmp_path / "stage"
+    作成(stage)
+    spec = importlib.util.spec_from_file_location("arc2_unicode_worker_test_control", stage / "deadline_control.py")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    try:
+        spec.loader.exec_module(module)
+        monkeypatch.setenv("ARC2_DIAGNOSTIC_DIR", str(tmp_path))
+        monkeypatch.setenv("ARC2_DEADLINE_RUN_TOKEN", "test-token")
+        control = SimpleNamespace(invoke=lambda *args, **kwargs: SimpleNamespace(
+            cleanup_complete=True, error=None,
+            stdout='{"results":[{"status":"\\ud800","answer":null}],"candidate_provenance":[]}', returncode=0))
+        api = {"課題時間上限秒": 300, "結果を候補へ": lambda task_id, task, value: (value, [])}
+        prediction, _, _ = module.run_one(
+            api, "task", {"train": [], "test": [{"input": [[0]]}]}, "unused", "unused",
+            aggregate_diagnostics=True, control=control, budget=SimpleNamespace(solve_cutoff=1000))
+        assert prediction == {"error": "worker_invalid_json"}
+        diagnostic = json.loads((tmp_path / "task.json").read_text(encoding="utf-8"))
+        assert diagnostic["result"] == prediction
+    finally:
+        sys.modules.pop(spec.name, None)
+
+
+@pytest.mark.parametrize("bad_case", ["large_gate_number", "large_json_integer", "deep_json", "invalid_unicode", "missing_provenance"])
+def test_bad_provenance_does_not_stop_other_scheduled_tasks(tmp_path, monkeypatch, bad_case):
     stage = tmp_path / "stage"
     作成(stage)
     spec = importlib.util.spec_from_file_location("arc2_scheduler_provenance_test", stage / "deadline_control.py")
@@ -134,7 +198,9 @@ def test_bad_provenance_does_not_stop_other_scheduled_tasks(tmp_path, monkeypatc
         spec.loader.exec_module(module)
         entry = {"test_index": 0, "source": "two_panel_occupancy_truth_table",
                  "decision": "provisional_external_candidate", "loo_total": 2,
-                 "loo_correct": 2, "loo_conflicts": 0, "loo_unavailable": 0}
+                 "loo_correct": 2, "loo_conflicts": 0, "loo_unavailable": 0,
+                 "gate": _valid_gate()}
+        corrupt_entry = {**entry, "gate": {**entry["gate"], "remaining_seconds": 10**309}}
         class FakeControl:
             def __init__(self, grace, maximum, **kwargs):
                 self.max_output_bytes = maximum
@@ -145,8 +211,17 @@ def test_bad_provenance_does_not_stop_other_scheduled_tasks(tmp_path, monkeypatc
                 if "--preflight" in command:
                     return SimpleNamespace(cleanup_complete=True, error=None, stdout="{}", returncode=0)
                 task = json.loads(kwargs["input_text"])
-                decisions = [entry, entry] if task["test"][0]["input"] == [[0]] else [entry]
+                bad = task["test"][0]["input"] == [[0]]
+                if bad and bad_case in ("large_json_integer", "deep_json"):
+                    stdout = '{"x":' + ('9' * 4301 if bad_case == "large_json_integer" else '[' * 100000 + '0' + ']' * 100000) + '}'
+                    return SimpleNamespace(cleanup_complete=True, error=None, stdout=stdout, returncode=0)
+                if bad and bad_case == "invalid_unicode":
+                    return SimpleNamespace(cleanup_complete=True, error=None,
+                        stdout='{"results":[{"status":"\\ud800","answer":null}],"candidate_provenance":[]}', returncode=0)
+                decisions = [corrupt_entry] if bad else [entry]
                 result = {"results": [{"second_answer": [[1]]}], "candidate_provenance": decisions}
+                if bad and bad_case == "missing_provenance":
+                    del result["candidate_provenance"]
                 return SimpleNamespace(cleanup_complete=True, error=None, stdout=json.dumps(result), returncode=0)
             def stop_all(self, reason):
                 return None
@@ -171,8 +246,9 @@ def test_bad_provenance_does_not_stop_other_scheduled_tasks(tmp_path, monkeypatc
         assert audit["deadline_control"]["completed_task_count"] == 2
         assert len(audit["candidate_provenance"]) == 1
         assert audit["candidate_provenance"][0]["task_id"] == "second"
-        assert audit["candidate_provenance_drops"] == [
+        expected_drops = [] if bad_case in ("large_json_integer", "deep_json", "invalid_unicode") else [
             {"task_id": "first", "test_index": None, "reason": "invalid_provenance"}]
+        assert audit["candidate_provenance_drops"] == expected_drops
     finally:
         sys.modules.pop(spec.name, None)
 
@@ -209,8 +285,9 @@ def test_hardened_stage_preserves_train_and_checks_cached_payload(tmp_path, monk
         assert teacher["train"] == json.loads(archive.read(teacher_path))["train"]
         assert set(archive.namelist()) == set(new_contents)
         for name in archive.namelist():
-            if name not in (teacher_path, "__arc2_bundle_manifest__.json"):
+            if name not in (teacher_path, "__arc2_bundle_manifest__.json", "接続/ARC2/HDS接続.py"):
                 assert archive.read(name) == new_contents[name]
+        assert archive.read("接続/ARC2/HDS接続.py") != new_contents["接続/ARC2/HDS接続.py"]
     context = {"__name__": "arc2_test_launcher", "__file__": str(stage / "solve.py")}
     exec(compile(source, str(stage / "solve.py"), "exec"), context)
     root = tmp_path / "payload"

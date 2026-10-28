@@ -16,7 +16,7 @@ from 道具.ARC2候補診断準備 import 作成 as 診断stage作成
 
 ROOT = Path(__file__).resolve().parents[1]
 CANDIDATE = ROOT / "接続/ARC2/二面真理値候補.py"
-CANDIDATE_SHA = "9899c239411e4914a02dbdc1182fe1adcdd1b4215dab2d8b909149d4247bdb25"
+CANDIDATE_SHA = "003941182a6c06c1f3db1f16220c15038af9d9f733cd1543b3b4fa0b4882f9f9"
 ORIGINAL_PAYLOAD_SHA = "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee"
 
 
@@ -61,6 +61,31 @@ def _安全payload(source: str) -> tuple[str, dict]:
         raise ValueError("固定教材の内容が想定と一致しません")
     train_only = json.dumps({"train": teacher["train"]}, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
     contents[teachers[0]] = train_only
+    hds_path = "接続/ARC2/HDS接続.py"
+    hds_source = contents[hds_path].decode("utf-8")
+    anchor = '        結果群.append(結果)\n'
+    if hds_source.count(anchor) != 1:
+        raise ValueError("HDS実観測の記録箇所が一意ではありません")
+    observation = (
+        '        _hds_reasons = 基底結果.get("reasons")\n'
+        '        _hds_reason_labels = {\n'
+        '            "複数の有効暫定原理が異なる出力を予測したため断定保留": "PREDICTION_CONFLICT",\n'
+        '            "原因未確定で隔離中の原理が存在する": "QUARANTINED_PRINCIPLE",\n'
+        '            "現行暫定原理の適用に必要な観測が不足している": "MISSING_OBSERVATION",\n'
+        '            "現観測だけでは複数の関係候補を識別できない": "INDISTINGUISHABLE",\n'
+        '        }\n'
+        '        結果["hds_basis"] = {\n'
+        '            "status": 基底結果.get("status"),\n'
+        '            "reason_count": len(_hds_reasons) if isinstance(_hds_reasons, list) else None,\n'
+        '            "reason_labels": [_hds_reason_labels.get(x, "UNKNOWN") if isinstance(x, str) else "UNKNOWN" for x in _hds_reasons] if isinstance(_hds_reasons, list) else None,\n'
+        '            "quarantined": 基底結果.get("quarantined"),\n'
+        '            "answer_present": 基底結果.get("answer") is not None,\n'
+        '            "equality_admitted": 基底結果.get("equality_admitted"),\n'
+        '        }\n'
+    )
+    hds_source = hds_source.replace(anchor, observation + anchor, 1)
+    compile(hds_source, hds_path, "exec")
+    contents[hds_path] = hds_source.encode("utf-8")
     updated = [{"path": row["path"], "size": len(contents[row["path"]]),
                 "sha256": hashlib.sha256(contents[row["path"]]).hexdigest()} for row in rows]
     manifest_bytes = json.dumps({"format": "arc2-hds-kernel-bundle-v1", "files": updated},
@@ -91,7 +116,8 @@ def _安全payload(source: str) -> tuple[str, dict]:
     return source, {"original_payload_sha256": ORIGINAL_PAYLOAD_SHA, "payload_sha256": payload_sha,
                     "teacher_train_only_sha256": hashlib.sha256(train_only).hexdigest(),
                     "teacher_training_pairs": len(teacher["train"]), "teacher_test_removed": True,
-                    "cache_member_revalidation": True}
+                    "cache_member_revalidation": True, "hds_basis_observation_wired": True,
+                    "hds_adapter_sha256": hashlib.sha256(contents[hds_path]).hexdigest()}
 
 
 def 作成(destination: Path, *, 安全化: bool = False, 記憶介入: bool = False):
@@ -104,7 +130,7 @@ def 作成(destination: Path, *, 安全化: bool = False, 記憶介入: bool = F
     anchor = '        from 接続.ARC2.単純変換候補 import unique_candidate\n'
     if text.count(anchor) != 1:
         raise ValueError("候補import箇所が一意ではありません")
-    text = text.replace(anchor, anchor + '        from two_panel import candidate_details as two_panel_candidate_details\n', 1)
+    text = text.replace(anchor, anchor + '        from two_panel import candidate_details as two_panel_candidate_details, provisional_action_gate\n', 1)
     anchor = '        公開行群 = []\n'
     if text.count(anchor) != 1:
         raise ValueError("候補証跡の初期化箇所が一意ではありません")
@@ -116,9 +142,20 @@ def 作成(destination: Path, *, 安全化: bool = False, 記憶介入: bool = F
         '            if 位置 < len(課題["test"]) and (not 格子か(第二候補) or 第二候補 == 第一候補):\n'
         '                二面候補, 二面証跡 = two_panel_candidate_details(課題["train"], 課題["test"][位置]["input"])\n'
         '                if 格子か(二面候補) and 二面候補 != 第一候補:\n'
-        '                    第二候補 = 二面候補\n'
+        '                    try:\n'
+        '                        締切 = float(os.environ.get("ARC2_PROVISIONAL_CUTOFF_MONOTONIC", ""))\n'
+        '                    except (TypeError, ValueError):\n'
+        '                        締切 = None\n'
+        '                    判定 = provisional_action_gate(第一候補, 第二候補, 二面候補, train_exact=True, loo=二面証跡,\n'
+        '                        hds_basis=行.get("hds_basis"), now_monotonic=time.monotonic(), cutoff_monotonic=締切)\n'
+        '                    二面証跡["gate"] = 判定\n'
+        '                    if 判定["accepted"]:\n'
+        '                        第二候補 = 二面候補\n'
+        '                    else:\n'
+        '                        二面証跡["decision"] = "rejected_gate"\n'
         '                    二面候補証跡.append({"test_index": 位置, **二面証跡})\n'
         '                elif 二面証跡["decision"] == "rejected_loo_conflict":\n'
+        '                    二面証跡["gate"] = None\n'
         '                    二面候補証跡.append({"test_index": 位置, **二面証跡})\n'
     )
     text = text.replace(anchor, insertion + anchor, 1)
@@ -150,6 +187,11 @@ def 作成(destination: Path, *, 安全化: bool = False, 記憶介入: bool = F
         file.write(source)
     controller = destination / "deadline_control.py"
     control_text = controller.read_text(encoding="utf-8")
+    anchor = '    if aggregate_diagnostics:\n        env["ARC2_AGGREGATE_DIAGNOSTICS"] = "1"\n'
+    if control_text.count(anchor) != 1:
+        raise ValueError("暫定行動の期限伝達箇所が一意ではありません")
+    control_text = control_text.replace(anchor,
+        '    env["ARC2_PROVISIONAL_CUTOFF_MONOTONIC"] = str(min(budget.solve_cutoff, time.monotonic() + api["課題時間上限秒"]))\n' + anchor, 1)
     anchor = '    if process.error:\n        result = {"error": process.error}\n    else:\n'
     replacement = ('    if process.error:\n        result = {"error": process.error}\n'
                    '    elif process.returncode != 0:\n        result = {"error": "worker_exit"}\n    else:\n')
@@ -165,8 +207,30 @@ def 作成(destination: Path, *, 安全化: bool = False, 記憶介入: bool = F
     provenance = (
         '    diagnostics = dict(diagnostics) if isinstance(diagnostics, dict) else {}\n'
         '    decisions = result.get("candidate_provenance", []) if isinstance(result, dict) else []\n'
-        '    fields = {"test_index", "source", "decision", "loo_total", "loo_correct", "loo_conflicts", "loo_unavailable"}\n'
-        '    invalid_provenance = not isinstance(decisions, list)\n'
+        '    fields = {"test_index", "source", "decision", "loo_total", "loo_correct", "loo_conflicts", "loo_unavailable", "gate"}\n'
+        '    def valid_gate(gate, accepted):\n'
+        '        fields = {"authority", "objective", "loss", "accepted", "reason", "hds_truth_approved", "confidence", "dominance", "risk", "hds_basis", "remaining_seconds"}\n'
+        '        if (not isinstance(gate, dict) or set(gate) != fields or gate["authority"] != "arc2_domain_adapter"\n'
+        '                or gate["objective"] != "pass_at_2_exact" or gate["loss"] != "zero_if_either_attempt_is_exact_else_one"\n'
+        '                or gate["hds_truth_approved"] is not False or gate["confidence"] is not None or gate["accepted"] is not accepted\n'
+        '                or gate["dominance"] != "first_attempt_preserved_if_output_finishes_before_deadline"\n'
+        '                or gate["risk"] != "candidate_may_be_wrong_or_runtime_may_expire" or type(gate["reason"]) is not str):\n'
+        '            return False\n'
+        '        if not accepted:\n'
+        '            return gate["reason"] in {"invalid_or_duplicate_candidate", "existing_distinct_second_preserved", "training_evidence_missing", "loo_evidence_invalid_or_conflicting", "hds_observation_unknown", "deadline_unknown", "deadline_expired"}\n'
+        '        basis = gate["hds_basis"]\n'
+        '        reasons = {"PREDICTION_CONFLICT", "QUARANTINED_PRINCIPLE", "MISSING_OBSERVATION", "INDISTINGUISHABLE", "UNKNOWN"}\n'
+        '        remaining = gate["remaining_seconds"]\n'
+        '        return (gate["reason"] == "distinct_second_preserves_first_under_any_exact_target"\n'
+        '                and type(remaining) in (int, float) and 0 < remaining < 1e100 and math.isfinite(remaining)\n'
+        '                and isinstance(basis, dict) and set(basis) == {"status", "reason_count", "reason_labels", "quarantined", "answer_present", "equality_admitted"}\n'
+        '                and basis["status"] in ("出力", "断定保留") and type(basis["reason_count"]) is int and basis["reason_count"] >= 0\n'
+        '                and isinstance(basis["reason_labels"], list) and len(basis["reason_labels"]) == basis["reason_count"]\n'
+        '                and all(type(label) is str and label in reasons for label in basis["reason_labels"])\n'
+        '                and type(basis["quarantined"]) is int and basis["quarantined"] >= 0\n'
+        '                and type(basis["answer_present"]) is bool and type(basis["equality_admitted"]) is bool)\n'
+        '    invalid_provenance = (not isinstance(decisions, list) or (isinstance(result, dict)\n'
+        '        and "error" not in result and "candidate_provenance" not in result))\n'
         '    if invalid_provenance:\n'
         '        decisions = []\n'
         '    seen_indices = set()\n'
@@ -175,12 +239,14 @@ def 作成(destination: Path, *, 安全化: bool = False, 記憶介入: bool = F
         '                or type(decision["test_index"]) is not int or not 0 <= decision["test_index"] < len(task["test"])\n'
         '                or decision["test_index"] in seen_indices\n'
         '                or decision["source"] != "two_panel_occupancy_truth_table"\n'
-        '                or decision["decision"] not in ("provisional_external_candidate", "rejected_loo_conflict")\n'
+        '                or decision["decision"] not in ("provisional_external_candidate", "rejected_loo_conflict", "rejected_gate")\n'
         '                or any(type(decision[k]) is not int or decision[k] < 0 for k in ("loo_total", "loo_correct", "loo_conflicts", "loo_unavailable"))\n'
         '                or decision["loo_total"] != len(task["train"])\n'
         '                or decision["loo_correct"] + decision["loo_conflicts"] + decision["loo_unavailable"] != decision["loo_total"]\n'
         '                or (decision["decision"] == "provisional_external_candidate" and decision["loo_conflicts"] != 0)\n'
-        '                or (decision["decision"] == "rejected_loo_conflict" and decision["loo_conflicts"] == 0)):\n'
+        '                or (decision["decision"] == "rejected_loo_conflict" and (decision["loo_conflicts"] == 0 or decision["gate"] is not None))\n'
+        '                or (decision["decision"] != "rejected_loo_conflict" and not valid_gate(\n'
+        '                    decision["gate"], decision["decision"] == "provisional_external_candidate"))):\n'
         '            invalid_provenance = True\n'
         '            break\n'
         '        seen_indices.add(decision["test_index"])\n'
@@ -188,10 +254,23 @@ def 作成(destination: Path, *, 安全化: bool = False, 記憶介入: bool = F
         '        decisions = []\n'
     )
     control_text = control_text.replace(anchor, anchor + provenance, 1)
+    anchor = '            result = json.loads(process.stdout)\n'
+    if control_text.count(anchor) != 1:
+        raise ValueError("worker JSON読込箇所が一意ではありません")
+    control_text = control_text.replace(anchor,
+        anchor + '            if not isinstance(result, dict):\n'
+        '                raise ValueError("worker result must be an object")\n'
+        '            json.dumps(result, ensure_ascii=False, allow_nan=False).encode("utf-8")\n', 1)
+    anchor = '        except (json.JSONDecodeError, TypeError):\n'
+    if control_text.count(anchor) != 1:
+        raise ValueError("worker JSON検査箇所が一意ではありません")
+    control_text = control_text.replace(anchor, '        except (ValueError, TypeError, RecursionError):\n', 1)
     anchor = '    return (*api["結果を候補へ"](task_id, task, result), diagnostics)\n'
     if control_text.count(anchor) != 1:
         raise ValueError("候補証跡の提出照合箇所が一意ではありません")
     reconciliation = (
+        '    if invalid_provenance:\n'
+        '        result = {"error": "invalid_candidate_provenance"}\n'
         '    predictions, holds = api["結果を候補へ"](task_id, task, result)\n'
         '    rows = result.get("results") if isinstance(result, dict) else None\n'
         '    valid_rows = isinstance(rows, list) and len(rows) == len(task["test"])\n'

@@ -1,5 +1,6 @@
 """Input-only candidate: learn a two-panel occupancy-to-color mapping from train."""
 from collections import Counter
+import math
 
 
 def _valid(grid):
@@ -117,3 +118,59 @@ def candidate_details(train, test_input):
 
 def candidate(train, test_input):
     return candidate_details(train, test_input)[0]
+
+
+def provisional_action_gate(first, existing_second, proposed, *, train_exact, loo,
+                            hds_basis, now_monotonic, cutoff_monotonic):
+    """Keep HDS truth decisions separate from a loss-aware second-attempt action."""
+    result = {"authority": "arc2_domain_adapter", "objective": "pass_at_2_exact",
+              "loss": "zero_if_either_attempt_is_exact_else_one", "accepted": False,
+              "reason": "unverified", "hds_truth_approved": False, "confidence": None,
+              "dominance": "first_attempt_preserved_if_output_finishes_before_deadline",
+              "risk": "candidate_may_be_wrong_or_runtime_may_expire", "hds_basis": None,
+              "remaining_seconds": None}
+    if not _valid(first) or not _valid(proposed) or proposed == first:
+        result["reason"] = "invalid_or_duplicate_candidate"
+        return result
+    if _valid(existing_second) and existing_second != first:
+        result["reason"] = "existing_distinct_second_preserved"
+        return result
+    if train_exact is not True or not isinstance(loo, dict):
+        result["reason"] = "training_evidence_missing"
+        return result
+    keys = ("loo_total", "loo_correct", "loo_conflicts", "loo_unavailable")
+    if (any(type(loo.get(key)) is not int or loo[key] < 0 for key in keys)
+            or loo["loo_total"] < 2
+            or loo["loo_correct"] + loo["loo_conflicts"] + loo["loo_unavailable"] != loo["loo_total"]
+            or loo["loo_conflicts"] != 0):
+        result["reason"] = "loo_evidence_invalid_or_conflicting"
+        return result
+    basis_fields = {"status", "reason_count", "reason_labels", "quarantined", "answer_present", "equality_admitted"}
+    known_reasons = {"PREDICTION_CONFLICT", "QUARANTINED_PRINCIPLE", "MISSING_OBSERVATION",
+                     "INDISTINGUISHABLE", "UNKNOWN"}
+    if (not isinstance(hds_basis, dict) or set(hds_basis) != basis_fields
+            or hds_basis["status"] not in ("出力", "断定保留")
+            or type(hds_basis["reason_count"]) is not int or hds_basis["reason_count"] < 0
+            or not isinstance(hds_basis["reason_labels"], list)
+            or len(hds_basis["reason_labels"]) != hds_basis["reason_count"]
+            or any(type(label) is not str or label not in known_reasons for label in hds_basis["reason_labels"])
+            or type(hds_basis["quarantined"]) is not int or hds_basis["quarantined"] < 0
+            or type(hds_basis["answer_present"]) is not bool
+            or type(hds_basis["equality_admitted"]) is not bool):
+        result["reason"] = "hds_observation_unknown"
+        return result
+    result["hds_basis"] = dict(hds_basis)
+    def finite_clock(value):
+        return type(value) in (int, float) and -1e100 < value < 1e100 and math.isfinite(value)
+
+    if not finite_clock(now_monotonic) or not finite_clock(cutoff_monotonic):
+        result["reason"] = "deadline_unknown"
+        return result
+    remaining = cutoff_monotonic - now_monotonic
+    result["remaining_seconds"] = remaining
+    if remaining <= 0:
+        result["reason"] = "deadline_expired"
+        return result
+    result["accepted"] = True
+    result["reason"] = "distinct_second_preserves_first_under_any_exact_target"
+    return result
