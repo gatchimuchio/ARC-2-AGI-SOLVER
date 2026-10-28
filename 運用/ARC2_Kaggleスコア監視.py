@@ -780,6 +780,9 @@ def _build_record(history: list, now: datetime, previous: dict) -> dict:
     raw_score = getattr(row, "public_score", None)
     error_description = getattr(row, "error_description", None)
     score_state = _status_state(status, raw_score, error_description)
+    error_text = error_description.casefold() if isinstance(error_description, str) else ""
+    error_category = ("RUNTIME_TIMEOUT" if "notebook timeout" in error_text or "exceeded the allowed runtime" in error_text
+                      else "OTHER_ERROR" if error_text else None)
     same_ref = previous.get("last_submission_ref") == ref
     pending_count = int(previous.get("consecutive_pending_observations", 0)) + 1 if same_ref and score_state == "PENDING" else (1 if score_state == "PENDING" else 0)
     interval = _next_interval_minutes(score_state, pending_count)
@@ -843,7 +846,8 @@ def _build_record(history: list, now: datetime, previous: dict) -> dict:
         "last_submission_ref": ref,
         "last_status": status,
         "official_score": str(raw_score).strip() if score_state == "NUMERIC" else None,
-        "error_description": error_description or None,
+        "error_category": error_category,
+        "error_details_present": bool(error_text),
         "observed_at_utc": now.isoformat(),
         "last_submitted_utc_day": submitted_at.date().isoformat(),
         "next_check_at_utc": next_check.isoformat(),

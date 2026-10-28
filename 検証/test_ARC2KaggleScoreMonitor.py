@@ -662,3 +662,17 @@ def test_detail_identity_mismatch_is_not_accepted(monkeypatch):
     with pytest.raises(ValueError, match="differs"):
         monitor._safe_kaggle_history()
 
+
+def test_submission_error_record_does_not_persist_untrusted_details():
+    now = datetime(2026, 10, 28, 18, tzinfo=timezone.utc)
+    row = SimpleNamespace(ref=42, date=now, status="COMPLETE", public_score="",
+                          error_description="Notebook failed with secret-like-value")
+    previous = {"last_submission_ref": 42, "source_sha": "a", "test_dataset_sha256": "b",
+                "submission_evidence_path": "c", "notebook_id": "owner/kernel",
+                "notebook_version": 1, "submission_sha256": "d"}
+    record = monitor._build_record([row], now, previous)
+    assert record["score_state"] == "FAILED"
+    assert record["error_category"] == "OTHER_ERROR"
+    assert record["error_details_present"] is True
+    assert "secret-like-value" not in json.dumps(record)
+
