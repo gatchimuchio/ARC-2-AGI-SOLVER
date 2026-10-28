@@ -365,7 +365,19 @@ def _repo_venv_cli_prefix(discovery: dict) -> list[str] | None:
     )) and installed_matches:
         try:
             runtime_check = subprocess.run(
-                [str(python), "-c", "import kaggle; from certifi import where; where()"],
+                # Importing kaggle authenticates immediately and may perform a
+                # network token introspection.  Validate the locked local
+                # runtime and CA bundle offline; the actual history command
+                # below is responsible for authentication and reports its own
+                # network or authentication failures.
+                [str(python), "-c", (
+                    "import importlib.util, pathlib, ssl, certifi, kagglesdk; "
+                    "spec = importlib.util.find_spec('kaggle'); "
+                    "assert spec is not None and spec.origin is not None; "
+                    "assert pathlib.Path(spec.origin).resolve() == "
+                    "pathlib.Path('.venv/Lib/site-packages/kaggle/__init__.py').resolve(); "
+                    "ssl.create_default_context(cafile=certifi.where())"
+                )],
                 cwd=ROOT,
                 capture_output=True,
                 text=True,
@@ -478,9 +490,14 @@ def _kaggle_cli_prefix() -> list[str]:
             discovery["selected_source"] = f"user_scripts_{name}"
             return [str(candidate), *prefix]
     discovery["selected_source"] = "none"
-    error = FileNotFoundError(
-        "a manifest-pinned project Kaggle CLI or uvx/uv is required (Kaggle CLI 2.2.5)"
-    )
+    if discovery.get("repo_cli_runtime_validation_status") == "TimeoutExpired":
+        error = TimeoutError("pinned Kaggle CLI local runtime validation timed out")
+    elif discovery.get("repo_cli_validation_status") == "runtime_import_failed":
+        error = RuntimeError("pinned Kaggle CLI local runtime validation failed")
+    else:
+        error = FileNotFoundError(
+            "a manifest-pinned project Kaggle CLI or uvx/uv is required (Kaggle CLI 2.2.5)"
+        )
     error.kaggle_cli_discovery = discovery
     raise error
 

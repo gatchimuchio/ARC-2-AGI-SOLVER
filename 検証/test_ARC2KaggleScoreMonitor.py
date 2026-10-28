@@ -2,8 +2,10 @@ from datetime import datetime, timedelta, timezone
 import ctypes
 import importlib
 import json
+import os
 from pathlib import Path
 import subprocess
+import sys
 from types import SimpleNamespace
 
 import pytest
@@ -147,7 +149,91 @@ def test_cli_discovery_uses_exact_repo_venv_when_external_manifest_is_missing(tm
 
     assert monitor._kaggle_cli_prefix() == [str(python), "-m", "kaggle"]
     assert calls and calls[0][0] == str(python)
+    assert "find_spec('kaggle')" in calls[0][2]
+    assert "import kaggle;" not in calls[0][2]
     assert monitor.LAST_CLI_DISCOVERY["selected_source"] == "repo_venv"
+
+
+def test_repo_runtime_probe_does_not_import_kaggle_and_trigger_authentication(tmp_path, monkeypatch):
+    monkeypatch.setattr(monitor, "ROOT", tmp_path)
+    monkeypatch.setattr(monitor.Path, "home", lambda: tmp_path)
+    monkeypatch.setattr(monitor.shutil, "which", lambda _name: None)
+    python = _write_repo_cli_fixture(tmp_path)
+    package = tmp_path / ".venv/Lib/site-packages/kaggle"
+    marker = tmp_path / "kaggle_init_executed"
+    (package / "__init__.py").write_text(
+        f"from pathlib import Path\nPath({str(marker)!r}).touch()\nraise RuntimeError('authentication attempted')\n",
+        encoding="utf-8",
+    )
+    real_run = subprocess.run
+    def run_with_real_interpreter(command, **kwargs):
+        kwargs["env"] = {**os.environ, "PYTHONPATH": str(package.parent)}
+        return real_run([sys.executable, *command[1:]], **kwargs)
+    monkeypatch.setattr(monitor.subprocess, "run", run_with_real_interpreter)
+
+    assert monitor._kaggle_cli_prefix() == [str(python), "-m", "kaggle"]
+    assert monitor.LAST_CLI_DISCOVERY["repo_cli_runtime_validation_status"] == "passed"
+    assert not marker.exists()
+
+
+def test_repo_runtime_probe_rejects_shadowed_kaggle_package(tmp_path, monkeypatch):
+    monkeypatch.setattr(monitor, "ROOT", tmp_path)
+    monkeypatch.setattr(monitor.Path, "home", lambda: tmp_path)
+    monkeypatch.setattr(monitor.shutil, "which", lambda _name: None)
+    _write_repo_cli_fixture(tmp_path)
+    package = tmp_path / "untrusted/kaggle"
+    package.mkdir(parents=True)
+    (package / "__init__.py").write_text("", encoding="utf-8")
+    real_run = subprocess.run
+    def run_with_shadow(command, **kwargs):
+        kwargs["env"] = {**os.environ, "PYTHONPATH": str(package.parent)}
+        return real_run([sys.executable, *command[1:]], **kwargs)
+    monkeypatch.setattr(monitor.subprocess, "run", run_with_shadow)
+
+    with pytest.raises(RuntimeError) as raised:
+        monitor._kaggle_cli_prefix()
+    details = monitor._observation_error_details(raised.value, "history_query")
+    assert details["cli_discovery"]["repo_cli_validation_status"] == "runtime_import_failed"
+
+
+def test_runtime_probe_timeout_is_not_misreported_as_missing_executable(tmp_path, monkeypatch):
+    monkeypatch.setattr(monitor, "ROOT", tmp_path)
+    monkeypatch.setattr(monitor.Path, "home", lambda: tmp_path)
+    monkeypatch.setattr(monitor.shutil, "which", lambda _name: None)
+    _write_repo_cli_fixture(tmp_path)
+    def timed_out(command, **kwargs):
+        raise subprocess.TimeoutExpired(command, kwargs["timeout"])
+    monkeypatch.setattr(monitor.subprocess, "run", timed_out)
+
+    with pytest.raises(TimeoutError) as raised:
+        monitor._kaggle_cli_prefix()
+    details = monitor._observation_error_details(raised.value, "history_query")
+    assert details["error_type"] == "TimeoutError"
+    assert details["cli_discovery"]["repo_cli_python_exists"] is True
+    assert details["cli_discovery"]["repo_cli_runtime_validation_status"] == "TimeoutExpired"
+
+
+def test_history_authentication_failure_is_not_success_or_secret_output(monkeypatch):
+    monkeypatch.setattr(monitor, "_kaggle_cli_prefix", lambda: ["kaggle"])
+    monkeypatch.setattr(monitor.subprocess, "run", lambda command, **kwargs:
+        subprocess.CompletedProcess(command, 1, "secret-api-body", "secret-auth-token"))
+    with pytest.raises(RuntimeError) as raised:
+        monitor._safe_kaggle_history()
+    details = monitor._observation_error_details(raised.value, "history_query")
+    assert details["error_type"] == "RuntimeError" and details["observation_stage"] == "history_query"
+    assert "secret" not in str(raised.value) and "secret" not in json.dumps(details)
+
+
+def test_history_timeout_is_not_success_or_secret_output(monkeypatch):
+    monkeypatch.setattr(monitor, "_kaggle_cli_prefix", lambda: ["kaggle"])
+    def timeout(command, **kwargs):
+        raise subprocess.TimeoutExpired(command, kwargs["timeout"], output="secret-api-body", stderr="secret-auth-token")
+    monkeypatch.setattr(monitor.subprocess, "run", timeout)
+    with pytest.raises(subprocess.TimeoutExpired) as raised:
+        monitor._safe_kaggle_history()
+    details = monitor._observation_error_details(raised.value, "history_query")
+    assert details["error_type"] == "TimeoutExpired" and details["observation_stage"] == "history_query"
+    assert "secret" not in json.dumps(details)
 
 
 @pytest.mark.parametrize("changes", [

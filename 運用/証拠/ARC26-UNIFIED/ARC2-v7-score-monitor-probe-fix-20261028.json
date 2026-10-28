@@ -1,0 +1,19 @@
+{
+  "observed_utc": "2026-10-28T21:56:18.233912+00:00",
+  "status": "MONITOR_PROBE_TIMEOUT_MISCLASSIFICATION_FIXED",
+  "cause": "The previous repo-venv probe imported kaggle, which can authenticate over the network; its 30-second timeout was reported as CLI absence.",
+  "changes": [
+    "Check the pinned top-level kaggle package location without importing it; validate the SDK and CA context offline.",
+    "Report local probe timeout and runtime import failures separately from CLI absence."
+  ],
+  "verification": {
+    "targeted_tests": "47 passed, with offline probe, shadow rejection, timeout, authentication failure and no secret output",
+    "independent_read_only_history": "12 submissions returned using the repo venv; latest 57745630 COMPLETE with a numeric public score",
+    "manual_scheduler_launch": false
+  },
+  "limitations": [
+    "The actual scheduled task has not yet run successfully with this code.",
+    "The manifest CLI was seen as absent by the failed scheduled run but is currently visible in the interactive process; the difference is unexplained."
+  ],
+  "official_submission": false
+}
