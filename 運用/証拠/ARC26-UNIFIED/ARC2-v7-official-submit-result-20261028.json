@@ -1,0 +1,17 @@
+{
+  "track": "ARC2",
+  "instruction": "ARC2 v7.0",
+  "intent": "運用/証拠/ARC26-UNIFIED/ARC2-v7-official-submit-intent-20261028.json",
+  "submission_id": 57745630,
+  "submitted_at_utc": "2026-10-28T18:22:38.277Z",
+  "message": "ARC2-v7-deadline-10h30m-v1-20261028",
+  "kernel": "tecchannn/arc2-v7-deadline-10h30m",
+  "version": 1,
+  "code_cell_sha256": "163964ae2af75ef106e856f263efb210555e432cf0f5485df7b8da3ec8e74f64",
+  "pre_submission_output_sha256": "827bccfc1cf51e2fc87d687ba51e1375899650a530ec00e7a20eb1f71eb2dd18",
+  "status": "PENDING",
+  "official_public_score": null,
+  "post_submission_quota": {"today": 1, "total": 12, "remaining_today": 0},
+  "next_action": "Track this submission ID until a terminal numeric score or official error. Do not duplicate a pending submission.",
+  "limitations": "The private output hash is not an observation of hidden scoring output. The scoring rerun, memory benefit, and RAM limit behavior are not yet established."
+}
