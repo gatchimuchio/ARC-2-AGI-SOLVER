@@ -1,0 +1,18 @@
+{
+  "observed_utc": "2026-10-28T22:06:56.048320+00:00",
+  "status": "VARC_FIXED_HOLDOUT_EXPOSURE_RISK",
+  "method": "Audit-only set intersection of ARC-1 training filenames in the fixed source ZIP with current ARC2 challenge identifiers; no evaluation answers read and no IDs recorded.",
+  "arc1_training_tasks": 400,
+  "arc2_fixed_training_holdout_tasks": 100,
+  "id_overlap": 36,
+  "arc2_public_evaluation_tasks": 120,
+  "evaluation_id_overlap": 0,
+  "interpretation": "The external model README describes ARC-1 training and RE-ARC pretraining and ARC-1 training test pairs as validation; these 36 tasks have possible prior exposure and the 100-task cohort as a whole cannot be called unseen for this model.",
+  "limitations": [
+    "ID overlap alone does not prove which exact tasks or pairs were used to train the released checkpoint.",
+    "Zero evaluation ID overlap does not exclude equivalent inputs, other training sources, or other exposure.",
+    "Training manifest and model weight provenance remain unverified."
+  ],
+  "next_step": "Preserve the fixed cohort and pre-register an additional cohort excluding known ARC-1 training identifiers and input overlaps; do not use IDs for runtime answer selection.",
+  "official_score": null
+}
