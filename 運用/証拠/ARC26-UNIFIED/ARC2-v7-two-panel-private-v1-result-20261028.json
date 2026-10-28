@@ -1,0 +1,80 @@
+{
+  "observed_utc": "2026-10-28T19:51:49.652019+00:00",
+  "status": "PRIVATE_RUN_COMPLETE_LOO_AND_PROVENANCE_GATE_HOLD",
+  "kernel": "tecchannn/arc2-v7-two-panel-hardened",
+  "version": 1,
+  "code_sha256": "3ed690f1ca248e16c75df0db86a8eec1a1f995a6f43982714288062a93662455",
+  "code_cell_sha256": "fccb62d8ed158b044da31b04bb5f0239d70c56b437835ebe8558154ba40e99fc",
+  "runtime_bundle_sha256": "48bb9ae5012172f4e259d8f51841e53926a3fb1c88c646c30be57a7e5ea81937",
+  "runtime_member_sha256": {
+    "Kaggle提出.py": "dd9675b8bf30dfa0a85bb34ec8987a53b1ce6e330e71b50ea1aa352d6e971dc2",
+    "deadline_control.py": "077c8dd7f2d37831368a44d47ef03e5c04e29c4050096b683bb181875a1db8e2",
+    "outer_watchdog.py": "a26b1711cc77ad9797dcded9ad63427ea656ca27193fe7c5c2f24a1585473347",
+    "solve.py": "dd479d1436b7c8a1cbbb0ce3b10dde8a7c2729cc7f22826587537130b8bdb966",
+    "two_panel.py": "819d9459ed6cb1a356532b98658e756038945b80d9996b6f7b51e881372a945f"
+  },
+  "payload_security": {
+    "original_payload_sha256": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",
+    "payload_sha256": "3089416bd99bf50b5f7c7d6e6eb3e35e1a76026669bb54bcae767418cd2935e7",
+    "teacher_train_only_sha256": "6a254b371eb8fb6e3795f05155be09525109d4a418394987bbd9227d67edcd55",
+    "teacher_training_pairs": 2,
+    "teacher_test_removed": true,
+    "cache_member_revalidation": true
+  },
+  "comparison": {
+    "previous": {
+      "tasks": 240,
+      "grids": 259,
+      "fallback": 249,
+      "distinct_attempts": 57,
+      "nonfallback_pass1": 9,
+      "nonfallback_pass2": 16,
+      "nonfallback_attempt2_only": 7,
+      "fallback_first_matches": 0,
+      "fallback_second_candidate_hits": 7,
+      "prediction_sha256": "827bccfc1cf51e2fc87d687ba51e1375899650a530ec00e7a20eb1f71eb2dd18",
+      "answers_sha256": "9f07a38bd25af5e83aa5bf85c5cb1a1fefdb30f6a755256fa65429e697ca97f9",
+      "audit_sha256": "4b4474d8e7a956f8e5a2ec6d50e7391af0aeacd2eb08b71052068e34797b3b86",
+      "challenges_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83"
+    },
+    "current": {
+      "tasks": 240,
+      "grids": 259,
+      "fallback": 249,
+      "distinct_attempts": 62,
+      "nonfallback_pass1": 9,
+      "nonfallback_pass2": 21,
+      "nonfallback_attempt2_only": 12,
+      "fallback_first_matches": 0,
+      "fallback_second_candidate_hits": 12,
+      "prediction_sha256": "3b683547b10e8b45daaca1063d83a4438d5e8968460c954133747fd0bd189424",
+      "answers_sha256": "9f07a38bd25af5e83aa5bf85c5cb1a1fefdb30f6a755256fa65429e697ca97f9",
+      "audit_sha256": "7ee9c852ff2dd75b46180289a1c8f1d0c2927f38b95481a58bcce2d0eaca5eab",
+      "challenges_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83"
+    },
+    "pass2_delta": 5,
+    "improved_grids": 5,
+    "regressed_grids": 0,
+    "changed_first_attempts": 0,
+    "changed_second_attempts": 5,
+    "previous_seconds": 398.848,
+    "current_seconds": 487.469,
+    "scope": "Posthoc scoring only. The caller must separately establish matching runtime conditions and provenance."
+  },
+  "previous_complete_tasks": 14,
+  "current_complete_tasks": 17,
+  "improved_tasks": 3,
+  "regressed_tasks": 0,
+  "format_pass": true,
+  "completed_tasks": 240,
+  "official_score": null,
+  "official_submission_created": false,
+  "source_commit_scope": "run audit reports the frozen v61 base only; candidate and builder provenance are pinned separately",
+  "provenance_commit": "4aa914bbf01028ce3fe27e72a57d5834f2875808",
+  "limitations": [
+    "This is posthoc evaluation on public training solutions, not a Kaggle official score or a demonstrated unseen benchmark.",
+    "Version 1 does not yet enforce LOO checks or record the provisional candidate selection in production audit; version 1 is not eligible as the final candidate.",
+    "Full local reproduction of these 240 outputs is pending.",
+    "The paired prior and current Notebook executions used distinct code and ran at different times; elapsed wall times are not a controlled speed benchmark."
+  ]
+}

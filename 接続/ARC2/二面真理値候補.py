@@ -39,7 +39,7 @@ def _predict(split, mapping):
              for c in range(len(a[0]))] for r in range(len(a))]
 
 
-def candidate(train, test_input):
+def _candidate_without_loo(train, test_input):
     if (not isinstance(train, list) or len(train) < 2 or not _valid(test_input)
             or any(not isinstance(pair, dict) or not _valid(pair.get("input"))
                    or not _valid(pair.get("output")) for pair in train)):
@@ -90,3 +90,30 @@ def candidate(train, test_input):
         if _valid(answer) and answer not in candidates:
             candidates.append(answer)
     return candidates[0] if len(candidates) == 1 else None
+
+
+def candidate_details(train, test_input):
+    """Return an input-only candidate and train-only LOO observations."""
+    prediction = _candidate_without_loo(train, test_input)
+    details = {"source": "two_panel_occupancy_truth_table", "decision": "provisional_external_candidate",
+               "loo_total": 0, "loo_correct": 0, "loo_conflicts": 0, "loo_unavailable": 0}
+    if prediction is None:
+        return None, details
+    for index, held in enumerate(train):
+        details["loo_total"] += 1
+        remaining = train[:index] + train[index + 1:]
+        loo_prediction = _candidate_without_loo(remaining, held["input"])
+        if loo_prediction is None:
+            details["loo_unavailable"] += 1
+        elif loo_prediction == held["output"]:
+            details["loo_correct"] += 1
+        else:
+            details["loo_conflicts"] += 1
+    if details["loo_conflicts"]:
+        details["decision"] = "rejected_loo_conflict"
+        return None, details
+    return prediction, details
+
+
+def candidate(train, test_input):
+    return candidate_details(train, test_input)[0]

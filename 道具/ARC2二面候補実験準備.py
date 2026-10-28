@@ -16,7 +16,7 @@ from 道具.ARC2候補診断準備 import 作成 as 診断stage作成
 
 ROOT = Path(__file__).resolve().parents[1]
 CANDIDATE = ROOT / "接続/ARC2/二面真理値候補.py"
-CANDIDATE_SHA = "819d9459ed6cb1a356532b98658e756038945b80d9996b6f7b51e881372a945f"
+CANDIDATE_SHA = "9899c239411e4914a02dbdc1182fe1adcdd1b4215dab2d8b909149d4247bdb25"
 ORIGINAL_PAYLOAD_SHA = "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee"
 
 
@@ -104,17 +104,28 @@ def 作成(destination: Path, *, 安全化: bool = False, 記憶介入: bool = F
     anchor = '        from 接続.ARC2.単純変換候補 import unique_candidate\n'
     if text.count(anchor) != 1:
         raise ValueError("候補import箇所が一意ではありません")
-    text = text.replace(anchor, anchor + '        from two_panel import candidate as two_panel_candidate\n', 1)
+    text = text.replace(anchor, anchor + '        from two_panel import candidate_details as two_panel_candidate_details\n', 1)
+    anchor = '        公開行群 = []\n'
+    if text.count(anchor) != 1:
+        raise ValueError("候補証跡の初期化箇所が一意ではありません")
+    text = text.replace(anchor, anchor + '        二面候補証跡 = []\n', 1)
     anchor = '            公開行群.append(\n'
     if text.count(anchor) != 1:
         raise ValueError("候補採用箇所が一意ではありません")
     insertion = (
         '            if 位置 < len(課題["test"]) and (not 格子か(第二候補) or 第二候補 == 第一候補):\n'
-        '                二面候補 = two_panel_candidate(課題["train"], 課題["test"][位置]["input"])\n'
+        '                二面候補, 二面証跡 = two_panel_candidate_details(課題["train"], 課題["test"][位置]["input"])\n'
         '                if 格子か(二面候補) and 二面候補 != 第一候補:\n'
         '                    第二候補 = 二面候補\n'
+        '                    二面候補証跡.append({"test_index": 位置, **二面証跡})\n'
+        '                elif 二面証跡["decision"] == "rejected_loo_conflict":\n'
+        '                    二面候補証跡.append({"test_index": 位置, **二面証跡})\n'
     )
     text = text.replace(anchor, insertion + anchor, 1)
+    anchor = '        公開結果 = {"results": 公開行群}\n'
+    if text.count(anchor) != 1:
+        raise ValueError("候補証跡の出力箇所が一意ではありません")
+    text = text.replace(anchor, anchor + '        公開結果["candidate_provenance"] = 二面候補証跡\n', 1)
     if 安全化:
         before = '            診断選択前 = deepcopy(行.get("candidate_predictions", []))\n'
         after = '            if 観測診断:\n                診断選択前 = deepcopy(行.get("candidate_predictions", []))\n'
@@ -137,7 +148,44 @@ def 作成(destination: Path, *, 安全化: bool = False, 記憶介入: bool = F
     adapter.write_text(text, encoding="utf-8", newline="\n")
     with (destination / "two_panel.py").open("xb") as file:
         file.write(source)
+    controller = destination / "deadline_control.py"
+    control_text = controller.read_text(encoding="utf-8")
+    anchor = '    diagnostics = result.get("aggregate_diagnostics", {}) if aggregate_diagnostics and isinstance(result, dict) else {}\n'
+    if control_text.count(anchor) != 1:
+        raise ValueError("候補証跡の受信箇所が一意ではありません")
+    provenance = (
+        '    diagnostics = dict(diagnostics) if isinstance(diagnostics, dict) else {}\n'
+        '    decisions = result.get("candidate_provenance", []) if isinstance(result, dict) else []\n'
+        '    fields = {"test_index", "source", "decision", "loo_total", "loo_correct", "loo_conflicts", "loo_unavailable"}\n'
+        '    if not isinstance(decisions, list):\n'
+        '        raise ValueError("invalid candidate provenance")\n'
+        '    for decision in decisions:\n'
+        '        if (not isinstance(decision, dict) or set(decision) != fields\n'
+        '                or type(decision["test_index"]) is not int or not 0 <= decision["test_index"] < len(task["test"])\n'
+        '                or decision["source"] != "two_panel_occupancy_truth_table"\n'
+        '                or decision["decision"] not in ("provisional_external_candidate", "rejected_loo_conflict")\n'
+        '                or any(type(decision[k]) is not int or decision[k] < 0 for k in ("loo_total", "loo_correct", "loo_conflicts", "loo_unavailable"))\n'
+        '                or decision["loo_correct"] + decision["loo_conflicts"] + decision["loo_unavailable"] != decision["loo_total"]\n'
+        '                or (decision["decision"] == "provisional_external_candidate" and decision["loo_conflicts"] != 0)\n'
+        '                or (decision["decision"] == "rejected_loo_conflict" and decision["loo_conflicts"] == 0)):\n'
+        '            raise ValueError("invalid candidate provenance entry")\n'
+        '    diagnostics["candidate_provenance"] = decisions\n'
+    )
+    control_text = control_text.replace(anchor, anchor + provenance, 1)
+    anchor = '        if args.aggregate_diagnostics:\n            scalar, families, distinct, requests = Counter(), Counter(), Counter(), Counter()\n'
+    if control_text.count(anchor) != 1:
+        raise ValueError("候補証跡の監査箇所が一意ではありません")
+    addition = (
+        '        audit["candidate_provenance"] = [\n'
+        '            {"task_id": key, **entry} for key in tasks\n'
+        '            for entry in records[key][2].get("candidate_provenance", [])\n'
+        '        ]\n'
+    )
+    control_text = control_text.replace(anchor, addition + anchor, 1)
+    compile(control_text, str(controller), "exec")
+    controller.write_text(control_text, encoding="utf-8", newline="\n")
     manifest["diagnostic_sha256"]["Kaggle提出.py"] = hashlib.sha256(adapter.read_bytes()).hexdigest()
+    manifest["diagnostic_sha256"]["deadline_control.py"] = hashlib.sha256(controller.read_bytes()).hexdigest()
     manifest["candidate_sha256"] = CANDIDATE_SHA
     manifest["integration"] = "Use only as a distinct second attempt when no valid distinct second candidate already exists; leave first attempt and HDS acceptance unchanged."
     if 安全化:

@@ -1,0 +1,31 @@
+{
+  "observed_utc": "2026-10-28T19:53:04.434203+00:00",
+  "status": "LOO_AND_PROVENANCE_SMOKE_PASS_FULL_COMPARISON_PENDING",
+  "candidate_sha256": "9699c065fc33b22f0734c2351332a0f81fb24e185fbe64c030ee8e9f0866e42a",
+  "adapter_sha256": "0d48a2872a2284b91841d7101ab2be81db6c05141604550a554f432bc8a7241a",
+  "controller_sha256": "0387492072f5b350436a6304a6c056a56416eabfb11443b9200412e1309512cd",
+  "fixed_cohort_input_only_comparison": {
+    "tasks": 100,
+    "test_grids": 111,
+    "old_to_new_candidate_outputs_changed": 0,
+    "applicable_grids": 3,
+    "loo_total": 13,
+    "loo_correct": 13,
+    "loo_conflicts": 0,
+    "loo_unavailable": 0
+  },
+  "smoke": {
+    "prediction_equal_to_prior_candidate": true,
+    "submission_sha256": "35f40307711673a14b90bda47bf62da6f1de72c918c4f7f3d68989a3be6fe173",
+    "loo_total": 4,
+    "loo_correct": 4,
+    "loo_unavailable": 0,
+    "provenance_recorded": true,
+    "runtime_seconds": 17.312
+  },
+  "limitations": [
+    "LOO is based on the same training examples used to select the mechanism; it is not independent evidence of unseen performance.",
+    "A 100-task end-to-end run and private Notebook run for this new exact version remain pending.",
+    "The previous private Notebook version lacks this LOO and provenance change and remains on hold."
+  ]
+}

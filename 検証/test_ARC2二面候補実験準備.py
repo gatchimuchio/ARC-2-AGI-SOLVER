@@ -2,18 +2,21 @@ import ast
 import base64
 import hashlib
 import io
+import importlib.util
 import json
 from pathlib import Path
+import sys
+from types import SimpleNamespace
 import zipfile
 import pytest
 
 from 道具.ARC2二面候補実験準備 import 作成
 
 
-def test_stage_matches_the_measured_adapter_and_candidate(tmp_path):
+def test_stage_is_reproducible_and_pins_the_candidate(tmp_path):
     stage = tmp_path / "stage"
     manifest = 作成(stage)
-    assert manifest["diagnostic_sha256"]["Kaggle提出.py"] == "b02b617a572ec659170509cf9a9fbb5c5b03b992a6859ab67aa43c3611c80628"
+    assert manifest["diagnostic_sha256"]["Kaggle提出.py"] == "bedb5e6df30a2a0e16be4b760c38f31b200f8d1a60713e532f4b8ba05121e62e"
     assert hashlib.sha256((stage / "two_panel.py").read_bytes()).hexdigest() == manifest["candidate_sha256"]
     with pytest.raises(FileExistsError):
         作成(stage)
@@ -27,7 +30,35 @@ def test_memory_intervention_is_explicit_and_preserves_candidate(tmp_path):
     assert 'if os.environ.get("ARC2_EMPTY_GENERIC_PRIOR") == "1":' in source
     assert '汎用記憶 = {"examples": [], "features": []}' in source
     assert '"generic_prior_support_observations": 結果.get(' in source
-    assert 'two_panel_candidate(課題["train"], 課題["test"][位置]["input"])' in source
+    assert 'two_panel_candidate_details(課題["train"], 課題["test"][位置]["input"])' in source
+
+
+def test_candidate_provenance_survives_without_diagnostics_and_invalid_loo_is_rejected(tmp_path):
+    stage = tmp_path / "stage"
+    作成(stage)
+    spec = importlib.util.spec_from_file_location("arc2_provenance_test_control", stage / "deadline_control.py")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    try:
+        spec.loader.exec_module(module)
+        entry = {"test_index": 0, "source": "two_panel_occupancy_truth_table",
+                 "decision": "provisional_external_candidate", "loo_total": 3,
+                 "loo_correct": 2, "loo_conflicts": 0, "loo_unavailable": 1}
+        result = {"results": [], "candidate_provenance": [entry]}
+        control = SimpleNamespace(invoke=lambda *args, **kwargs: SimpleNamespace(
+            cleanup_complete=True, error=None, stdout=json.dumps(result), returncode=0))
+        api = {"課題時間上限秒": 300, "結果を候補へ": lambda *args: ([], [])}
+        args = (api, "task-with_underscore", {"train": [], "test": [{"input": [[0]]}]}, "unused", "unused")
+        kwargs = {"aggregate_diagnostics": False, "control": control,
+                  "budget": SimpleNamespace(solve_cutoff=1000)}
+        assert module.run_one(*args, **kwargs)[2]["candidate_provenance"] == [entry]
+        entry.update({"decision": "rejected_loo_conflict", "loo_correct": 1, "loo_conflicts": 1})
+        assert module.run_one(*args, **kwargs)[2]["candidate_provenance"] == [entry]
+        entry["loo_conflicts"] = 0
+        with pytest.raises(ValueError, match="invalid candidate provenance"):
+            module.run_one(*args, **kwargs)
+    finally:
+        sys.modules.pop(spec.name, None)
 
 
 def test_hardened_stage_preserves_train_and_checks_cached_payload(tmp_path, monkeypatch):

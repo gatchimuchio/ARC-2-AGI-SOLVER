@@ -1,0 +1,26 @@
+{
+  "observed_utc": "2026-10-28T19:51:58.996717+00:00",
+  "status": "OUTPUT_AND_FALLBACK_INDICES_MATCH_REASON_CHANGED",
+  "prediction_sha256": "c76cfe59ab3686e2d8aa71e774f931baef13e4712d76fee1448c195421098166",
+  "challenge_sha256": "3fc1530ba27e03ef15b96b89ffcaa4bd9c7e50caba36e559965d98ebfdf883fb",
+  "tasks": 100,
+  "test_grids": 111,
+  "fallback_count": 109,
+  "fallback_reason_changes": 1,
+  "previous_fallback_reasons": {
+    "solver_hold": 108,
+    "task_wall_timeout": 1
+  },
+  "current_fallback_reasons": {
+    "solver_hold": 109
+  },
+  "previous_seconds": 600.375,
+  "current_seconds": 519.703,
+  "candidate_run": "diagnostics on; original payload",
+  "current_run": "diagnostics off; training-only fixed teacher; cached payload revalidation enabled",
+  "limitations": [
+    "One fallback reason changed from task wall timeout to solver hold; equal predictions do not imply identical internal execution.",
+    "Windows executions occurred at different times and under variable load.",
+    "Candidate LOO and provenance audit changes were not yet present in either execution."
+  ]
+}
