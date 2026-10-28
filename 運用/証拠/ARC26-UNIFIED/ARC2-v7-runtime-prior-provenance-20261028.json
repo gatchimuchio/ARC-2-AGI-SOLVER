@@ -1,0 +1,27 @@
+{
+  "observed_utc": "2026-10-28T18:40:53.313527+00:00",
+  "status": "PASS",
+  "method": "Compare the exact multiset of all bundled input/output pairs against train pairs from the 82 v0.4 confirmed-mechanism training source tasks; exclude visible Kaggle test task IDs. No answers from the test or evaluation sets are used.",
+  "source_training_tasks": 82,
+  "source_training_pairs": 279,
+  "memory_pairs": 279,
+  "identical_pair_multiset": true,
+  "memory_pair_keys": [
+    "input",
+    "output"
+  ],
+  "source_task_id_set_sha256": "8fbce4daaba097f503d9499f96a410d725a10d547a9436b09fc952f132eaa2e4",
+  "memory_sha256": "66e98b7eebab697b4b6877d73af3ec6cb2529104f0386183412ac340760d422a",
+  "training_challenges_sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+  "visible_test_challenges_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "v04_index_sha256": {
+    "1120題_HDS索引_1.json": "565224491320ab44d1e3c5a5efaa60a60858462b5ce4cac27d91bc3dd3ea1e04",
+    "1120題_HDS索引_2.json": "47462176ac13e8dd1e870bbb5f7342813c100c88b3ce638f8621dea2e72670f7",
+    "1120題_HDS索引_3.json": "3596df58a114be46b40a630efdc60137d987aaea1b6890a08dc5a923be2ac8ce",
+    "1120題_HDS索引_4.json": "f29fe8013d8f8930f26f7ae4cae00216f822a7354267f695f86440fb14714d1d"
+  },
+  "limitations": [
+    "This confirms the exact runtime pair provenance and exclusion of visible test IDs, not that previous development never exposed other public tasks.",
+    "It does not establish a causal learning benefit or prove hidden-set exclusion."
+  ]
+}
