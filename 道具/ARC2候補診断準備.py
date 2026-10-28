@@ -23,7 +23,7 @@ def _replace_once(source: str, anchor: str, replacement: str) -> str:
     return source.replace(anchor, replacement, 1)
 
 
-def 作成(destination: Path) -> dict:
+def 作成(destination: Path, *, 記憶介入: bool = False) -> dict:
     if destination.exists():
         raise FileExistsError("既存の診断ディレクトリは上書きしません")
     data = {name: (SOURCE / name).read_bytes() for name in EXPECTED}
@@ -42,6 +42,14 @@ def 作成(destination: Path) -> dict:
         '                "candidate_attempts": deepcopy(行.get("candidate_attempts")),\n'
         '                "simple_candidate": deepcopy(行.get("simple_transform_candidate")),\n'
         '            }\n' + after)
+    if 記憶介入:
+        anchor = '        汎用記憶 = 汎用事前記憶を読む()\n'
+        wrapper = _replace_once(wrapper, anchor, anchor +
+            '        if os.environ.get("ARC2_EMPTY_GENERIC_PRIOR") == "1":\n'
+            '            汎用記憶 = {"examples": [], "features": []}\n')
+        anchor = '            公開結果["aggregate_diagnostics"] = {\n'
+        wrapper = _replace_once(wrapper, anchor, anchor +
+            '                "generic_prior_support_observations": 結果.get("generic_prior_support_observations", 0),\n')
     controller = data["deadline_control.py"].decode("utf-8")
     anchor = '    diagnostics = result.get("aggregate_diagnostics", {}) if aggregate_diagnostics and isinstance(result, dict) else {}\n'
     controller = _replace_once(controller, anchor,
@@ -61,7 +69,8 @@ def 作成(destination: Path) -> dict:
             f.write(content)
     manifest = {"source_sha256": EXPECTED,
                 "diagnostic_sha256": {n: hashlib.sha256(v).hexdigest() for n, v in data.items()},
-                "scope": "Captured candidates from the executed and instrumented paths only; no answers are read."}
+                "scope": "Captured candidates from the executed and instrumented paths only; no answers are read.",
+                "generic_prior_intervention_available": 記憶介入}
     with (destination / "diagnostic-manifest.json").open("x", encoding="utf-8", newline="\n") as f:
         json.dump(manifest, f, ensure_ascii=False, indent=2)
         f.write("\n")
@@ -71,8 +80,10 @@ def 作成(destination: Path) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--memory-intervention", action="store_true",
+                        help="別条件の汎用記憶あり／空の比較を許可する診断コピーを作る")
     args = parser.parse_args()
-    print(json.dumps(作成(args.output), ensure_ascii=False, sort_keys=True))
+    print(json.dumps(作成(args.output, 記憶介入=args.memory_intervention), ensure_ascii=False, sort_keys=True))
 
 
 if __name__ == "__main__":

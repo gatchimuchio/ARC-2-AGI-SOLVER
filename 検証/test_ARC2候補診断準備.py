@@ -35,6 +35,17 @@ def test_mismatched_frozen_source_is_rejected_before_output(tmp_path, monkeypatc
     assert not dest.exists()
 
 
+def test_intervention_copy_keeps_other_priors_and_requires_explicit_empty_flag(tmp_path):
+    stage = tmp_path / "intervention"
+    manifest = prepare.作成(stage, 記憶介入=True)
+    source = (stage / "Kaggle提出.py").read_text(encoding="utf-8")
+    assert manifest["generic_prior_intervention_available"] is True
+    assert 'if os.environ.get("ARC2_EMPTY_GENERIC_PRIOR") == "1":' in source
+    assert '汎用記憶 = {"examples": [], "features": []}' in source
+    assert '事前教材 = 事前教材を読む()' in source
+    assert '"generic_prior_support_observations": 結果.get(' in source
+
+
 def test_controller_records_worker_output_without_reading_solutions(tmp_path, monkeypatch):
     stage = tmp_path / "stage"
     prepare.作成(stage)

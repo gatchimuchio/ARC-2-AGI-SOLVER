@@ -1,0 +1,16 @@
+{
+  "observed_utc": "2026-10-28T18:47:22.273545+00:00",
+  "selection_rule": "From the frozen prior-disjoint 100-task training cohort, select every task with exactly two distinct training inputs; both leave-one-training-example-out directions. Sort source task IDs only to assign arbitrary fold identifiers. Do not use original test labels.",
+  "source_cohort_sha256": "3fc1530ba27e03ef15b96b89ffcaa4bd9c7e50caba36e559965d98ebfdf883fb",
+  "selected_tasks": 16,
+  "folds": 32,
+  "challenge_sha256": "7e155be90a566d5583c80f0dbb4404ed3febd21ff3a05faf6c4f0edd3a1c8c57",
+  "posthoc_solutions_sha256": "54222749d7d15d315898afe1893ebe7ba5f9d56b0e7381437f0fd7a3e5925167",
+  "fold_map_sha256": "fa36d5af1a63c200de28d87e373d6dcdc0c224f08843aaa32852a755aee9724a",
+  "inference_input": "Each fold includes one original training pair plus only the held input; held output is in a separate file supplied solely to the scorer after prediction.",
+  "limitations": [
+    "This is a supplementary intervention cohort; it does not replace the fixed 100-task holdout.",
+    "Training exposure from earlier development is not fully audited; the cohort cannot be called unseen.",
+    "The 32 folds are correlated pairs from 16 tasks."
+  ]
+}
