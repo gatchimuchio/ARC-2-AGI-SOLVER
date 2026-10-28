@@ -1,0 +1,16 @@
+{
+  "observed_utc": "2026-10-28T21:38:48.061424+00:00",
+  "status": "ONE_TASK_LOCAL_INFERENCE_FAULT_ISOLATED",
+  "stage": "stage-local-gated-v3",
+  "fault_injection": "Local candidate inference raises an exception; all other runtime code and input remain unchanged.",
+  "normal_prediction_sha256": "ef6a63c182b4839f5fcbd74bad05eb27775b99a9d3604f47a615836c2160a6f1",
+  "fault_prediction_sha256": "ef6a63c182b4839f5fcbd74bad05eb27775b99a9d3604f47a615836c2160a6f1",
+  "outputs_identical": true,
+  "local_error_recorded": true,
+  "run_state": "COMPLETE",
+  "limitations": [
+    "One public-input task only; this does not establish behavior for every failure or official Kaggle run.",
+    "A prior normal run failed while replacing a OneDrive output file; retry succeeded, but its detailed error was not retained and the cause remains unknown.",
+    "Fault-injected code is experimental and is not a submission candidate."
+  ]
+}
