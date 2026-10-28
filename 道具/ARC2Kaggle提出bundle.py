@@ -47,9 +47,8 @@ def payload_root():
     else:
         destination = (Path(tempfile.gettempdir()) / f"arc2_payload_{PAYLOAD_SHA256[:12]}").resolve()
     marker = destination / "__arc2_payload_sha256.txt"
-    if marker.is_file() and marker.read_text(encoding="ascii").strip() == PAYLOAD_SHA256:
-        return destination
-    if destination.exists() and any(destination.iterdir()):
+    cached = marker.is_file() and marker.read_text(encoding="ascii").strip() == PAYLOAD_SHA256
+    if not cached and destination.exists() and any(destination.iterdir()):
         raise RuntimeError("payload destination is non-empty and unverified")
     data = base64.b64decode(PAYLOAD_B64, validate=True)
     if hashlib.sha256(data).hexdigest() != PAYLOAD_SHA256:
@@ -62,24 +61,43 @@ def payload_root():
             raise RuntimeError("HDS payload manifest is missing")
         manifest = json.loads(archive.read(manifest_name))
         expected = {row["path"]: row for row in manifest["files"]}
-        if set(names[1:]) != set(expected):
+        if len(set(names)) != len(names) or len(expected) != len(manifest["files"]) or set(names[1:]) != set(expected):
             raise RuntimeError("HDS payload file set mismatch")
+        if cached:
+            for path in destination.rglob("*"):
+                relative_name = path.relative_to(destination).as_posix()
+                if (relative_name not in expected and (path.is_file() or path.is_symlink())
+                        and path.suffix.lower() in {".py", ".pyc", ".pyo", ".pyd", ".so", ".dll"}):
+                    raise RuntimeError("HDS cached payload contains an unexpected executable")
         for name in names[1:]:
             relative = PurePosixPath(name)
             if relative.is_absolute() or ".." in relative.parts or "\\" in name:
                 raise RuntimeError("unsafe path in HDS payload")
             target = destination.joinpath(*relative.parts)
-            target.parent.mkdir(parents=True, exist_ok=True)
-            content = archive.read(name)
+            node = destination
+            for part in relative.parts:
+                node = node / part
+                if node.is_symlink():
+                    raise RuntimeError("HDS payload path contains a symlink")
+            if cached:
+                if not target.is_file():
+                    raise RuntimeError("HDS cached payload member missing")
+                content = target.read_bytes()
+            else:
+                content = archive.read(name)
             row = expected[name]
             if len(content) != row["size"] or hashlib.sha256(content).hexdigest() != row["sha256"]:
                 raise RuntimeError("HDS payload member checksum mismatch")
-            target.write_bytes(content)
-    marker.write_text(PAYLOAD_SHA256 + "\n", encoding="ascii")
+            if not cached:
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(content)
+    if not cached:
+        marker.write_text(PAYLOAD_SHA256 + "\n", encoding="ascii")
     return destination
 
 
 def main():
+    sys.dont_write_bytecode = True
     root = payload_root()
     os.environ["ARC2_PAYLOAD_ROOT"] = str(root)
     os.environ["ARC2_SOURCE_COMMIT"] = SOURCE_COMMIT
