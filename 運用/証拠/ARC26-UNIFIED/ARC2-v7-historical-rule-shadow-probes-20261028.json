@@ -1,0 +1,30 @@
+{
+  "observed_utc": "2026-10-28T21:09:54.817052+00:00",
+  "status": "TWO_RECOVERED_RULE_PROBES_NOT_ADOPTED",
+  "old_cohort_sha256": "3fc1530ba27e03ef15b96b89ffcaa4bd9c7e50caba36e559965d98ebfdf883fb",
+  "new_cohort_sha256": "e5d9b3b8c0ea553874d9c2bdcd790b417c8afe0dfacd34bd40d4eec79c3495cc",
+  "candidate_rare_color_bounding_box": {
+    "definition": "Unique most-frequent background; unique least-frequent non-background color; crop bounding rectangle of its cells; reject ties, empty and unchanged crop; require at least two distinct inputs and exact fit to all training outputs.",
+    "old_100_train_fit_tasks": 1,
+    "old_100_test_predictions": 1,
+    "old_100_posthoc_correct": 1,
+    "old_100_already_correct_by_existing_two_attempts": 1,
+    "old_100_additional_correct": 0,
+    "new_100_train_fit_tasks": 0,
+    "new_100_test_predictions": 0
+  },
+  "candidate_9_anchor_crop_color_map": {
+    "definition": "Common training output shape; enumerate nine relative crop anchors and deterministic color maps; require all training pairs fit, candidate predictions agree, no unknown test colors, and no leave-one-train conflict.",
+    "old_100_train_fit_tasks": 0,
+    "new_100_train_fit_tasks": 0,
+    "old_100_test_predictions": 0,
+    "new_100_test_predictions": 0
+  },
+  "new_cohort_test_solutions_read": false,
+  "adopted": false,
+  "limitations": [
+    "These are narrow safe subsets of historical functions, not a full replay of the old solver.",
+    "The new cohort was selected after prior development, so earlier exposure and benchmark independence remain unproven.",
+    "No same-condition pass@2 improvement or official score is established."
+  ]
+}
