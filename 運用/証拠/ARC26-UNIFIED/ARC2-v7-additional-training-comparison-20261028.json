@@ -1,0 +1,39 @@
+{
+  "observed_utc": "2026-10-28T21:20:46.602176+00:00",
+  "status": "ADDITIONAL_FIXED_100_NO_IMPROVEMENT",
+  "challenge_sha256": "e5d9b3b8c0ea553874d9c2bdcd790b417c8afe0dfacd34bd40d4eec79c3495cc",
+  "baseline_prediction_sha256": "3770e2b9538fbbdff88c51244171bfd70dbd2e56189941adbfcc1194a3fee58b",
+  "candidate_prediction_sha256": "3770e2b9538fbbdff88c51244171bfd70dbd2e56189941adbfcc1194a3fee58b",
+  "predictions_byte_identical": true,
+  "tasks": 100,
+  "test_grids": 106,
+  "previous": {
+    "pass1": 1,
+    "pass2": 2,
+    "attempt2_only": 1,
+    "fallback": 104,
+    "seconds": 596.812
+  },
+  "current": {
+    "pass1": 1,
+    "pass2": 2,
+    "attempt2_only": 1,
+    "fallback": 104,
+    "seconds": 629.203
+  },
+  "delta": {
+    "pass1": 0,
+    "pass2": 0,
+    "improved": 0,
+    "regressed": 0
+  },
+  "candidate_selected_count": 0,
+  "fallback_first_correct_counted": 0,
+  "runtime_note": "Sequential executions had different background load, so wall difference is not a controlled speed measurement.",
+  "limitations": [
+    "Prior development exposure outside the recorded exclusions is unknown; no globally unseen claim is made.",
+    "The two-panel rule was developed before this cohort was selected; selection used no test answers.",
+    "Local published training results are not official Kaggle score.",
+    "Both executions were completed before posthoc training solutions were read."
+  ]
+}
