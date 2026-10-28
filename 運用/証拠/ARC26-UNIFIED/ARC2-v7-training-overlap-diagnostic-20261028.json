@@ -1,0 +1,22 @@
+{
+  "track": "ARC2",
+  "instruction": "ARC2 v7.0",
+  "purpose": "Diagnostic only; NOT a valid unseen holdout because six tasks contain train pairs also present in bundled prior memory.",
+  "split": "運用/証拠/ARC26-UNIFIED/ARC2-v7-training-holdout-split-20261028.json",
+  "replacement_split": "運用/証拠/ARC26-UNIFIED/ARC2-v7-training-holdout-disjoint-20261028.json",
+  "challenges_sha256": "fbd6b6c4b385de31a3f98f342ad6c240ec65d7d1c7219bc518f2ebb0d17a7280",
+  "prior_memory_sha256": "66e98b7eebab697b4b6877d73af3ec6cb2529104f0386183412ac340760d422a",
+  "tasks_with_exact_prior_train_pair": 6,
+  "tasks": 100,
+  "test_grids": 108,
+  "completed_tasks": 100,
+  "seconds": 485.781,
+  "prediction_sha256": "7693c722f8f2d60cc039ebfa9bc1582f3e606a86c2148a4bf7535a87cf0d47e2",
+  "audit_sha256": "86bd6be8be7f7adbfa01ae896bf7ed07de7fe373cd77d5f4c33bd1708ffe4a6b",
+  "nonfallback_pass1": 4,
+  "nonfallback_pass2": 6,
+  "nonfallback_second_only_hits": 2,
+  "first_attempt_fallbacks": 104,
+  "windows_limitations": "Hard CPU and RAM limits were not enforced; Windows process assignment race remains unproved.",
+  "official_score": null
+}
