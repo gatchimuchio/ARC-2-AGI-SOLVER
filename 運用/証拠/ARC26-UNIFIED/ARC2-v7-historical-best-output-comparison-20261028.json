@@ -1,0 +1,28 @@
+{
+  "observed_utc": "2026-10-28T20:53:18.353224+00:00",
+  "status": "DIFFERENT_OUTPUTS_CAUSAL_SCORE_COMPARISON_UNPROVED",
+  "historical_score": 0.83,
+  "historical_submission_id": 55046979,
+  "historical_kernel": "tecchannn/arc2-perfect-solver-d594d535",
+  "historical_kernel_version": 4,
+  "historical_submission_kernel_link": "Strongly indicated by submission description and timestamp; direct submission-to-version mapping not independently verified.",
+  "historical_reproduced_output_sha256": "ba6a5573dedc69af416d77b7d36ea40a737200ffd2862b1be0f10d7664a0ed6e",
+  "recent_submission_id": 57745630,
+  "recent_score": 0.0,
+  "recent_private_output_sha256": "827bccfc1cf51e2fc87d687ba51e1375899650a530ec00e7a20eb1f71eb2dd18",
+  "tasks": 240,
+  "counts": {
+    "grids": 259,
+    "equal_first": 6,
+    "equal_attempt_sets": 8,
+    "disjoint_attempt_sets": 28
+  },
+  "historical_placeholder_attempts": 230,
+  "historical_total_attempts": 518,
+  "placeholder_source": "運用/証拠/ARC2_Kaggle日次提出_20261023/過去最高スコア・旧候補監査.json",
+  "limitations": [
+    "Individual official hidden correctness and direct causal explanations remain unknown.",
+    "The historical bundle includes ID-targeted analysis and evaluation-answer reading code; no claim is made that these were executed in its scoring runtime.",
+    "Do not reuse the historical bundle without runtime data-flow and leak-boundary audit; extract and compare only general mechanisms."
+  ]
+}

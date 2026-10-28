@@ -1,0 +1,28 @@
+{
+  "observed_utc": "2026-10-28T20:55:33.500450+00:00",
+  "status": "LIMITED_GENERIC_PRIOR_ABLATION_NO_OBSERVED_EFFECT",
+  "source_commit": "35b2197fb04d6102668d08b5927df13cde79946d",
+  "method": "32 leave-one-training-pair-out folds, 16 source tasks, same stage and challenge; run sequentially with generic prior on vs empty",
+  "tasks": 32,
+  "test_grids": 32,
+  "prediction_sha256": "2644e98d6d8e1060f5639a2ecedbc6c9dbd3ada14bae189705aa4bed53bd1ac5",
+  "prediction_identical": true,
+  "generic_prior_support_observations_on": 0,
+  "generic_prior_support_observations_off": 0,
+  "pass1_on": 0,
+  "pass1_off": 0,
+  "pass2_on": 3,
+  "pass2_off": 3,
+  "pass2_delta_on_minus_off": 0,
+  "fallback_on": 32,
+  "fallback_off": 32,
+  "runtime_on_seconds": 203.281,
+  "runtime_off_seconds": 116.25,
+  "runtime_note": "Sequential runs had different background load; this is not evidence of speed change.",
+  "limitations": [
+    "Only the generic train-derived prior was ablated; fixed template memory and other HDS mechanisms remained enabled.",
+    "32 folds are not the v7 full A/B/C/D experimental contract.",
+    "No prior support observations or output effect were observed; cross-task learning improvement is not demonstrated.",
+    "Selection and prior origins do not establish unseen benchmark independence."
+  ]
+}
