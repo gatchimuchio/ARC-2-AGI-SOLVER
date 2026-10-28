@@ -1,0 +1,34 @@
+{
+  "observed_utc": "2026-10-28T18:45:23.391481+00:00",
+  "status": "PASS_OUTPUT_IDENTICAL",
+  "input_sha256": "3fc1530ba27e03ef15b96b89ffcaa4bd9c7e50caba36e559965d98ebfdf883fb",
+  "prediction_sha256": "21d3183063ac8ba9b72887762838f919fb01e83427ab4312d5f18ae91d56df31",
+  "tasks": 100,
+  "grids": 111,
+  "previous": {
+    "attempt1_correct": 2,
+    "attempt2_correct_including_attempt1": 3,
+    "first_attempt_fallbacks": 109,
+    "elapsed_seconds": 507.188
+  },
+  "current": {
+    "attempt1_correct": 2,
+    "attempt2_correct_including_attempt1": 3,
+    "first_attempt_fallbacks": 109,
+    "elapsed_seconds": 474.75
+  },
+  "delta": {
+    "attempt1_correct": 0,
+    "attempt2_correct": 0,
+    "fallbacks": 0,
+    "elapsed_seconds": -32.438
+  },
+  "previous_audit_sha256": "df907043d427465bbb1ae45fa0365c6ca3f870ca5cae04688e06935d166e5931",
+  "current_audit_sha256": "e01bf34ecf2231b0fcbf8d830a54ca11aeca71e7ab5d7751a2e567a4c0e2cab8",
+  "conditions": "Same frozen payload, challenge bytes, worker count 3, 300 second per-task and 900 second overall budget; Windows local CPU. Score evaluated only after each output finished.",
+  "limitations": [
+    "The project environment was repaired between runs: exact certifi, python-dateutil and jupytext dependencies were restored, so full environment identity is not established.",
+    "This is a provisional public training holdout with prior-source/input exclusions, not an officially scored hidden benchmark; previous development exposure is not fully audited.",
+    "Windows hard CPU/RAM limits and process-creation assignment race remain unproved."
+  ]
+}

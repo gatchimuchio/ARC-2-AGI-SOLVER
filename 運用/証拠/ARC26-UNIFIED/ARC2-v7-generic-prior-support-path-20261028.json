@@ -1,0 +1,74 @@
+{
+  "observed_utc": "2026-10-28T18:44:56.995882+00:00",
+  "adapter_sha256": "8cc1456edfab1b84478fcc1b8f82973481709d85a45532b5181d0e79655362a3",
+  "criterion": "two = train count == 2 and train input grids differ; threshold = 2 if two else 3; needed = max(0, threshold - train count)",
+  "verified_code_anchors": [
+    "二例 = (len(課題[\"train\"]) == 2",
+    "必要支持数 = 2 if 二例 else 3",
+    "必要追加支持数 = max(0, 必要支持数 - len(課題[\"train\"]))",
+    "if 必要追加支持数:"
+  ],
+  "cohorts": {
+    "training": {
+      "input_sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+      "task_count": 1000,
+      "test_grid_count": 1076,
+      "teacher_count_distribution": {
+        "2": 158,
+        "3": 575,
+        "4": 189,
+        "5": 49,
+        "6": 18,
+        "7": 8,
+        "8": 2,
+        "10": 1
+      },
+      "two_teacher_identical_input_tasks": 0,
+      "additional_support_distribution": {
+        "0": 1000
+      },
+      "tasks_with_additional_support_needed": 0
+    },
+    "evaluation": {
+      "input_sha256": "e7c62a4bd211867c6b538f66b8013b81f299663c82ca062f49a52bf439d6e4e8",
+      "task_count": 120,
+      "test_grid_count": 172,
+      "teacher_count_distribution": {
+        "2": 34,
+        "3": 62,
+        "4": 17,
+        "5": 6,
+        "6": 1
+      },
+      "two_teacher_identical_input_tasks": 0,
+      "additional_support_distribution": {
+        "0": 120
+      },
+      "tasks_with_additional_support_needed": 0
+    },
+    "test": {
+      "input_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+      "task_count": 240,
+      "test_grid_count": 259,
+      "teacher_count_distribution": {
+        "2": 45,
+        "3": 132,
+        "4": 43,
+        "5": 14,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      },
+      "two_teacher_identical_input_tasks": 0,
+      "additional_support_distribution": {
+        "0": 240
+      },
+      "tasks_with_additional_support_needed": 0
+    }
+  },
+  "conclusion": "For these public inputs the generic 279-pair prior is loaded but its nearest-neighbor search loop is never entered, because every task has zero needed additional supports. The separate template prior and within-task HDS learning are not covered by this conclusion.",
+  "limitations": [
+    "This is static path analysis with observed public input counts, not a runtime intervention or an official hidden-scoring observation.",
+    "It does not establish whether hidden test inputs use the generic prior."
+  ]
+}
