@@ -71,3 +71,22 @@ def test_controller_records_worker_output_without_reading_solutions(tmp_path, mo
         assert len(evidence["task_sha256"]) == len(evidence["result_sha256"]) == 64
     finally:
         sys.modules.pop(spec.name, None)
+
+
+def test_disabling_diagnostics_allows_non_alphanumeric_task_identifiers(tmp_path, monkeypatch):
+    stage = tmp_path / "stage"
+    prepare.作成(stage)
+    spec = importlib.util.spec_from_file_location("arc2_no_diagnostic_test_control", stage / "deadline_control.py")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    try:
+        spec.loader.exec_module(module)
+        monkeypatch.delenv("ARC2_DIAGNOSTIC_DIR", raising=False)
+        control = SimpleNamespace(invoke=lambda *a, **kw: SimpleNamespace(
+            cleanup_complete=True, error=None, stdout=json.dumps({"results": []}), returncode=0))
+        api = {"課題時間上限秒": 300, "結果を候補へ": lambda *args: ([], [])}
+        assert module.run_one(api, "task-with_underscore", {"train": [], "test": []},
+                              "unused", "unused", aggregate_diagnostics=False, control=control,
+                              budget=SimpleNamespace(solve_cutoff=1000)) == ([], [], {})
+    finally:
+        sys.modules.pop(spec.name, None)
