@@ -1,0 +1,22 @@
+{
+  "observed_utc": "2026-10-28T19:57:58.442265+00:00",
+  "event": "PRIVATE_NOTEBOOK_VERSION2_CREATED",
+  "kernel": "tecchannn/arc2-v7-two-panel-hardened",
+  "version": 2,
+  "cli_response": "Kernel version 2 successfully pushed",
+  "source_cell_sha256": "6ab79cf3462057e42eebbc6219ad29d4dfd2b34310eea4d3fd4f8177e2bf34c2",
+  "local_and_remote_source_cells_identical": true,
+  "private": true,
+  "internet": false,
+  "competition": "arc-prize-2026-arc-agi-2",
+  "code_sha256": "3bd0353668e566815a48db66a516dc23671f6b369163b7eff74b40df58fdb27d",
+  "metadata_sha256": "ce10f8644afdebb7374dd3e44cbb902529cdf4c3c655954e2caf5b4137dd89b3",
+  "runtime_bundle_sha256": "eb3d0635fccf679d1b3e4b01ccbe744514091bd312f3b1a9dae3bc8dafab2b56",
+  "payload_sha256": "3089416bd99bf50b5f7c7d6e6eb3e35e1a76026669bb54bcae767418cd2935e7",
+  "provenance_commit": "039e093feadefa4ca183744f4a3e10eecbdf92de",
+  "official_submission_created": false,
+  "limitations": [
+    "Private version 2 has not yet completed and has no official score.",
+    "Launcher source_commit denotes only frozen v61 base."
+  ]
+}
