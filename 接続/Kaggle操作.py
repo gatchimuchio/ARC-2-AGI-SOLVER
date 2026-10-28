@@ -340,7 +340,7 @@ def _明示的な実行時間超過(提出記録) -> bool:
 
 
 def 提出可能性(api, now: datetime | None = None) -> dict:
-    """UTC日次枠・24時間間隔・直近公式スコアを確認して提出可否を判定する。"""
+    """公式残枠と直近提出の状態に基づき、送信前に安全側で判定する。"""
     now = now or datetime.now(timezone.utc)
     now = now.replace(tzinfo=timezone.utc) if now.tzinfo is None else now.astimezone(timezone.utc)
     履歴 = [x for x in (api.competition_submissions(大会, page_size=100) or []) if x is not None]
@@ -348,7 +348,6 @@ def 提出可能性(api, now: datetime | None = None) -> dict:
     日付不明 = [x for x, 日時 in 日付付き if 日時 is None]
     当日提出 = [x for x, 日時 in 日付付き if 日時 is not None and 日時.date() == now.date()]
     最新 = max(日付付き, key=lambda row: row[1] or datetime.min.replace(tzinfo=timezone.utc))[0] if 日付付き else None
-    最新日時 = _日時UTC(getattr(最新, "date", None)) if 最新 is not None else None
     実行時間超過再試行 = (
         最新 is not None
         and getattr(getattr(最新, "status", None), "name", None) == "COMPLETE"
@@ -365,27 +364,42 @@ def 提出可能性(api, now: datetime | None = None) -> dict:
         "today_submission_refs": [getattr(x, "ref", None) for x in 当日提出],
         "scoreless_timeout_retry": 実行時間超過再試行,
     }
+    状態名 = getattr(getattr(最新, "status", None), "name", None) if 最新 is not None else None
+    詳細 = getattr(最新, "error_description", None) if 最新 is not None else None
+    数値あり = _数値スコアか(getattr(最新, "public_score", None)) if 最新 is not None else False
+    if 最新 is None:
+        状態分類 = "NOT_SUBMITTED"
+    elif 状態名 in {"PENDING", "SUBMITTED", "RUNNING"}:
+        状態分類 = "IN_PROGRESS"
+    elif 状態名 in {"ERROR", "FAILED"} or (状態名 == "COMPLETE" and bool(詳細)):
+        状態分類 = "TERMINAL_ERROR_NOT_SCORED"
+    elif 状態名 == "COMPLETE" and 数値あり:
+        状態分類 = "SCORED_ACCEPTED"
+    else:
+        状態分類 = "UNVERIFIED"
+    結果["latest_score_state"] = 状態分類
+    try:
+        制限 = api.competition_get_submission_limits(大会)
+        残枠 = getattr(制限, "num_allowed_now", None)
+        if type(残枠) is not int or 残枠 < 0:
+            raise ValueError("残枠が不正です")
+        結果["num_allowed_now"] = 残枠
+    except Exception:
+        結果["理由"] = "Kaggleの現在の提出残枠を確認できません。"
+        return 結果
     if 日付不明:
         結果["理由"] = "提出日時を解釈できない履歴があり、日次枠を安全に確認できません。"
-    elif 当日提出:
-        結果["理由"] = "UTC日次提出枠は使用済みです。"
-    elif 最新 is not None and getattr(getattr(最新, "status", None), "name", None) != "COMPLETE":
+    elif 残枠 == 0:
+        結果["理由"] = "Kaggleの現在の提出残枠は0です。"
+    elif 状態分類 == "IN_PROGRESS":
         結果["理由"] = "直近提出の公式採点が完了していません。先に同一IDの履歴を追跡してください。"
-    elif (
-        最新 is not None
-        and not _数値スコアか(getattr(最新, "public_score", None))
-        and not 実行時間超過再試行
-    ):
-        結果["理由"] = "直近提出の公式数値スコアが未取得です。採点経路を確認してください。"
-    elif 最新日時 is not None and now - 最新日時 < timedelta(hours=24):
-        結果["理由"] = "前回提出から24時間未満です。24時間経過後に再確認してください。"
-        結果["next_allowed_at_utc"] = (最新日時 + timedelta(hours=24)).isoformat()
+    elif 状態分類 == "UNVERIFIED":
+        結果["理由"] = "直近提出の採点状態を確認できません。詳細を照会してください。"
+    elif any(getattr(getattr(x, "status", None), "name", None) == "COMPLETE" and _数値スコアか(getattr(x, "public_score", None)) and not getattr(x, "error_description", None) for x in 当日提出):
+        結果["理由"] = "当日は既に数値採点済みの提出があります。"
     else:
         結果["許可"] = True
-        if 実行時間超過再試行:
-            結果["理由"] = "直近提出はKaggleが実行時間超過と明記した終端失敗です。UTC日次枠と24時間条件を満たした修正版の再試行を許可します。"
-        else:
-            結果["理由"] = "UTC日次枠があり、前回提出から24時間以上経過し、直近提出は数値採点完了です。"
+        結果["理由"] = "公式残枠と直近提出の状態を確認しました。提出版と失敗原因の対処を確認してください。"
     return 結果
 
 
@@ -441,7 +455,7 @@ def main(argv=None) -> int:
             command.add_argument("--path", type=Path, required=True)
         if 名前 == "提出":
             command.add_argument("--message", required=True)
-    sub.add_parser("提出可否確認", help="UTC日次枠・24時間間隔・直近公式スコアを読み取り専用で確認")
+    sub.add_parser("提出可否確認", help="Kaggleの残枠と直近提出の採点状態を読み取り専用で確認")
     sub.add_parser("履歴", help="対象大会の最新20件の提出履歴")
     args = parser.parse_args(argv)
     try:

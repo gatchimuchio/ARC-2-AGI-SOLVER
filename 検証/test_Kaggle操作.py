@@ -73,6 +73,7 @@ def API作成(status=KernelWorkerStatus.COMPLETE, ファイル名=("submission.j
     api = Mock()
     api.build_kaggle_client.side_effect = lambda: nullcontext(client)
     api.competition_submissions.return_value = []
+    api.competition_get_submission_limits.return_value = SimpleNamespace(num_allowed_now=1)
     api.competition_submit_code.return_value = SimpleNamespace(ref=123)
     return api, remote
 
