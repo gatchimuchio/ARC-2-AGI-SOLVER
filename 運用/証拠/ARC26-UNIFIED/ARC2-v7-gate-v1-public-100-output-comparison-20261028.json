@@ -1,0 +1,22 @@
+{
+  "observed_utc": "2026-10-28T20:34:20.152673+00:00",
+  "status": "GATE_V1_100_TASK_OUTPUT_MATCH_ONLY",
+  "tasks": 100,
+  "grids": 111,
+  "prediction_sha256": "c76cfe59ab3686e2d8aa71e774f931baef13e4712d76fee1448c195421098166",
+  "prediction_identical_to_loo_v4": true,
+  "fallback_previous": 109,
+  "fallback_current": 109,
+  "candidate_provenance_count": 3,
+  "provenance_drop_count": 0,
+  "loo_total": 13,
+  "loo_correct": 13,
+  "loo_conflicts": 0,
+  "runtime_seconds": 719.234,
+  "stage": "stage-gate-v1",
+  "later_stage_v4_verified_by_this_run": false,
+  "limitations": [
+    "Gate v1 predates independent-review fixes. This is not evidence of exact-stage v4 performance or Kaggle score.",
+    "Same predictions imply same posthoc scores as the previously recorded matched run; no hidden answers were used at runtime."
+  ]
+}

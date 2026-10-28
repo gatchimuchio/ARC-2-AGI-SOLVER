@@ -1,0 +1,26 @@
+{
+  "observed_utc": "2026-10-28T20:37:39.368287+00:00",
+  "status": "PRIVATE_V3_PUSHED_REMOTE_CODE_MATCH_RUN_PENDING",
+  "kernel": "tecchannn/arc2-v7-two-panel-hardened",
+  "version": 3,
+  "code_cell_sha256": "94e41eb7e4741c0d5575fb1289ee542cb97b16b54ef80156b01675d98c20d556",
+  "code_sha256": "6a661915a82c6a766afc4862a950e6ec7cf754e852e7db90ca50353d5375cfb8",
+  "runtime_bundle_sha256": "235baedb546b377849608c7687363bff8de0b7ff5cc53f7e5bced821520f4e92",
+  "payload_sha256": "0e34181085ff3bc7768bf54aa030bc9479ea450e7e8b21feb77211fcb9f4382e",
+  "provenance_commit": "35b2197fb04d6102668d08b5927df13cde79946d",
+  "remote_metadata": {
+    "private": true,
+    "internet": false,
+    "gpu": false,
+    "competition_sources": [
+      "arc-prize-2026-arc-agi-2"
+    ],
+    "docker_image": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e"
+  },
+  "official_submission_created": false,
+  "official_score": null,
+  "limitations": [
+    "Private kernel run is not official scoring.",
+    "Output and exact-version performance are not yet verified."
+  ]
+}
