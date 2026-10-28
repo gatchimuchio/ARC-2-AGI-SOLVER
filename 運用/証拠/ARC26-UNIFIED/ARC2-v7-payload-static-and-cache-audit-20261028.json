@@ -1,0 +1,26 @@
+{
+  "observed_utc": "2026-10-28T19:19:57.935699+00:00",
+  "payload_sha256": "06f7e19da4f1b6fc0059a4aef03833fd9074bc725204a3f9c5c1b33523e0fbee",
+  "source_launcher_sha256": "740ebb543f6fbed996b12fff96cbb3b2892c964ece66d692e29445450ecac7af",
+  "static_python_files": 280,
+  "public_task_id_literal_or_token_hits": 0,
+  "cohort_sha256": "3fc1530ba27e03ef15b96b89ffcaa4bd9c7e50caba36e559965d98ebfdf883fb",
+  "prior_training_examples": 279,
+  "fixed_teacher_training_examples": 2,
+  "cohort_train_input_matches_to_priors": 0,
+  "cohort_test_input_matches_to_priors": 0,
+  "cohort_train_pair_matches_to_priors": 0,
+  "fixed_teacher_contains_unused_test_outputs": true,
+  "cache_manifest_files": 283,
+  "cache_missing_or_changed": 0,
+  "cache_extra_files": [
+    "接続/ARC2/__pycache__/Kaggle提出.cpython-312.pyc"
+  ],
+  "limitations": [
+    "Static ID inspection and exact-match exclusion do not prove that earlier development never saw these tasks.",
+    "Unused public training test output is loaded in the frozen payload; no evaluation or hidden answer was intentionally supplied.",
+    "Current launcher reuses a matching marker without rehashing files; the observed cache matched at this instant, not continuously.",
+    "Extra pyc was observed; separately audited against source but this script does not validate its bytecode.",
+    "Dynamic execution and hidden scoring environment are not proven by static inspection."
+  ]
+}
