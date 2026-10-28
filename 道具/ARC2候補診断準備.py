@@ -57,8 +57,13 @@ def 作成(destination: Path, *, 記憶介入: bool = False) -> dict:
         '        directory = Path(os.environ["ARC2_DIAGNOSTIC_DIR"])\n'
         '        if not isinstance(task_id, str) or not task_id.isalnum():\n'
         '            raise ValueError("unsafe diagnostic task identifier")\n'
+        '        canonical = lambda obj: json.dumps(obj, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")\n'
+        '        evidence = {"run_token": os.environ["ARC2_DEADLINE_RUN_TOKEN"],\n'
+        '                    "task_sha256": hashlib.sha256(canonical(task)).hexdigest(),\n'
+        '                    "result_sha256": hashlib.sha256(canonical(result)).hexdigest(),\n'
+        '                    "result": result}\n'
         '        with (directory / (task_id + ".json")).open("x", encoding="utf-8") as f:\n'
-        '            json.dump(result, f, ensure_ascii=False, sort_keys=True)\n' + anchor)
+        '            json.dump(evidence, f, ensure_ascii=False, sort_keys=True)\n' + anchor)
     compile(wrapper, "Kaggle提出.py", "exec")
     compile(controller, "deadline_control.py", "exec")
     data["Kaggle提出.py"] = wrapper.encode("utf-8")

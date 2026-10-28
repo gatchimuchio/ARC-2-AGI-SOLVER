@@ -57,6 +57,7 @@ def test_controller_records_worker_output_without_reading_solutions(tmp_path, mo
         records = tmp_path / "records"
         records.mkdir()
         monkeypatch.setenv("ARC2_DIAGNOSTIC_DIR", str(records))
+        monkeypatch.setenv("ARC2_DEADLINE_RUN_TOKEN", "run123")
         worker_result = {"results": [{"answer": [[1]], "diagnostic_candidates": {"preselection": []}}]}
         control = SimpleNamespace(invoke=lambda *a, **kw: SimpleNamespace(
             cleanup_complete=True, error=None, stdout=json.dumps(worker_result), returncode=0))
@@ -64,6 +65,9 @@ def test_controller_records_worker_output_without_reading_solutions(tmp_path, mo
         module.run_one(api, "testtask", {"train": [], "test": [{"input": [[1]]}]},
                        "unused", "unused", aggregate_diagnostics=True, control=control,
                        budget=SimpleNamespace(solve_cutoff=1000))
-        assert json.loads((records / "testtask.json").read_text(encoding="utf-8")) == worker_result
+        evidence = json.loads((records / "testtask.json").read_text(encoding="utf-8"))
+        assert evidence["result"] == worker_result
+        assert evidence["run_token"] == "run123"
+        assert len(evidence["task_sha256"]) == len(evidence["result_sha256"]) == 64
     finally:
         sys.modules.pop(spec.name, None)

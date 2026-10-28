@@ -1,0 +1,12 @@
+{
+  "observed_utc": "2026-10-28T18:55:05.958735+00:00",
+  "status": "INSTRUMENTATION_TRIAL_ONLY",
+  "tasks": 100,
+  "record_count": 100,
+  "prediction_sha256": "21d3183063ac8ba9b72887762838f919fb01e83427ab4312d5f18ae91d56df31",
+  "matches_baseline_predictions": true,
+  "fallback_count": 109,
+  "run_token": "a7d4aa7358164963891fb0119b26bb70",
+  "limitation": "Record files lack per-record run-token and input-hash binding; their candidate classifications are not accepted. Repeat using the corrected generator.",
+  "elapsed_seconds": 463.656
+}
