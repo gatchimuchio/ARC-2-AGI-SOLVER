@@ -98,13 +98,17 @@ def 集計(*, challenges, predictions, baseline_predictions, audit, baseline_aud
                     raise ValueError("fallbackが入力コピーではありません")
             correct = ((task, index) not in fallback_indices and first == expected) or (
                 second != first and second == expected)
+            candidates = None
+            if rows is not None:
+                candidates, invalid = _記録候補(rows[index])
+                counts["invalid_candidate_observations"] += invalid
+            else:
+                counts["missing_diagnostic_rows"] += 1
             if correct:
                 counts["submitted_correct"] += 1
             elif rows is None:
                 counts["unobserved"] += 1
             else:
-                candidates, invalid = _記録候補(rows[index])
-                counts["invalid_candidate_observations"] += invalid
                 if any(x == expected for x in candidates):
                     counts["observed_correct_candidate_not_submitted"] += 1
                 elif candidates:
@@ -116,7 +120,7 @@ def 集計(*, challenges, predictions, baseline_predictions, audit, baseline_aud
     return {name: counts[name] for name in (
         "submitted_correct", "observed_correct_candidate_not_submitted",
         "observed_candidates_incorrect", "no_candidate_observed", "unobserved",
-        "invalid_candidate_observations")}
+        "invalid_candidate_observations", "missing_diagnostic_rows")}
 
 
 def main():

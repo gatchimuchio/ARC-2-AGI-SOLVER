@@ -26,7 +26,8 @@ def test_only_observed_candidates_and_distinct_second_attempt_are_counted(tmp_pa
               audit=audit, baseline_audit=audit, solutions=solutions, records_dir=tmp_path)
     assert result == {"submitted_correct": 1, "observed_correct_candidate_not_submitted": 1,
                       "observed_candidates_incorrect": 1, "no_candidate_observed": 1,
-                      "unobserved": 1, "invalid_candidate_observations": 0}
+                      "unobserved": 1, "invalid_candidate_observations": 0,
+                      "missing_diagnostic_rows": 1}
 
 
 def test_changed_predictions_or_fallbacks_refuse_comparison(tmp_path):
