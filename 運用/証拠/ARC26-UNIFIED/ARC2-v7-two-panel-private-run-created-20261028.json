@@ -1,0 +1,23 @@
+{
+  "observed_utc": "2026-10-28T19:40:48.972489+00:00",
+  "event": "PRIVATE_NOTEBOOK_VERSION_CREATED",
+  "kernel": "tecchannn/arc2-v7-two-panel-hardened",
+  "version": 1,
+  "status": "RUNNING",
+  "cli_response": "Kernel version 1 successfully pushed",
+  "source_cell_sha256": "fccb62d8ed158b044da31b04bb5f0239d70c56b437835ebe8558154ba40e99fc",
+  "local_and_remote_source_cells_identical": true,
+  "private": true,
+  "internet": false,
+  "competition": "arc-prize-2026-arc-agi-2",
+  "code_sha256": "3ed690f1ca248e16c75df0db86a8eec1a1f995a6f43982714288062a93662455",
+  "metadata_sha256": "ce10f8644afdebb7374dd3e44cbb902529cdf4c3c655954e2caf5b4137dd89b3",
+  "runtime_bundle_sha256": "48bb9ae5012172f4e259d8f51841e53926a3fb1c88c646c30be57a7e5ea81937",
+  "payload_sha256": "3089416bd99bf50b5f7c7d6e6eb3e35e1a76026669bb54bcae767418cd2935e7",
+  "provenance_commit": "4aa914bbf01028ce3fe27e72a57d5834f2875808",
+  "official_submission_created": false,
+  "limitations": [
+    "Private execution has not completed and has no official competition score.",
+    "Kaggle metadata source_commit for the embedded frozen base is not the current candidate Git revision."
+  ]
+}
