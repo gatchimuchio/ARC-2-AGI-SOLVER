@@ -1,0 +1,38 @@
+{
+  "observed_utc": "2026-10-28T20:59:39.881456+00:00",
+  "status": "FIXED_100_TRAINING_INPUTS_BASELINE_IN_PROGRESS",
+  "cohort": {
+    "answers_read": false,
+    "challenge_sha256": "e5d9b3b8c0ea553874d9c2bdcd790b417c8afe0dfacd34bd40d4eec79c3495cc",
+    "excluded_task_count": 393,
+    "fold_map_sha256": "fa36d5af1a63c200de28d87e373d6dcdc0c224f08843aaa32852a755aee9724a",
+    "generic_prior_sha256": "66e98b7eebab697b4b6877d73af3ec6cb2529104f0386183412ac340760d422a",
+    "previous_holdout_sha256": "3fc1530ba27e03ef15b96b89ffcaa4bd9c7e50caba36e559965d98ebfdf883fb",
+    "prior_exposure_limit": "Earlier development exposure outside these exclusions is not established.",
+    "prior_pair_overlap_task_count": 82,
+    "schema": "arc2-v7-additional-training-cohort-v1",
+    "seed": "ARC2-v7-additional-training-cohort-20261028",
+    "selected_tasks": 100,
+    "selection_id_sha256": "77b93f0a68294743db1a8f6f7a2e2cc71e025f68614bed68caa82a32ad13a275",
+    "source_sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+    "test_grids": 106,
+    "visible_test_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83"
+  },
+  "generator": "道具/ARC2追加holdout作成.py",
+  "generator_sha256": "924a0f64d97bbd97602d6f04e2568f427c6d03c3b448b12b87175d428d3de38f",
+  "baseline_ablation": {
+    "ablated_candidate_sha256": "5c57787c93b6c6f7362cb1689b6be9a4794636700bc1f34a3b606a2b8d1e6cc0",
+    "ablation": "two_panel_candidate_disabled",
+    "input_scope": "public training only; no answers read",
+    "only_changed_member": "two_panel.py",
+    "original_candidate_sha256": "003941182a6c06c1f3db1f16220c15038af9d9f733cd1543b3b4fa0b4882f9f9",
+    "same_other_members": true
+  },
+  "reproduced_challenge_sha256": "e5d9b3b8c0ea553874d9c2bdcd790b417c8afe0dfacd34bd40d4eec79c3495cc",
+  "limits": [
+    "The source task IDs were used only for selecting and excluding experiments, not for runtime answer routing.",
+    "Earlier development exposure outside the specified exclusions cannot be ruled out; this cohort is not claimed to be globally unseen.",
+    "No test outputs were read during selection; posthoc solutions are accessed only after both prediction runs complete.",
+    "This manifest records dataset preparation, not a performance improvement."
+  ]
+}
