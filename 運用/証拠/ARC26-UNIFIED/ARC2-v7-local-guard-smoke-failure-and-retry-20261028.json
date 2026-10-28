@@ -1,0 +1,18 @@
+{
+  "observed_utc": "2026-10-28T21:32:32.000937+00:00",
+  "status": "LOCAL_GUARD_SMOKE_MIXED_FAILURE_CAUSE_UNKNOWN",
+  "stage": "stage-local-gated-v3",
+  "first_case": "Unfit local candidate rejected; run complete.",
+  "second_case": "Train-exact candidate with LOO conflicts recorded as provisional; first run inner process returned failure and retained a running-state owned snapshot.",
+  "second_retry": "Same input and stage later completed successfully; this does not establish the original failure cause or full runtime reliability.",
+  "first_run_elapsed_seconds": 48.0,
+  "retry_elapsed_seconds": 34.484,
+  "first_run_error": "Outer watchdog reported inner failure; detailed original stderr was not retained in the captured output.",
+  "hds_truth_approved": false,
+  "loo_conflicts": 2,
+  "limitations": [
+    "This experimental guard is not an adopted official candidate.",
+    "Failure cause remains unknown; capture and investigate before claiming stable completion.",
+    "Full matched regression and Kaggle private run for this exact stage remain pending."
+  ]
+}
