@@ -1,0 +1,113 @@
+{
+  "schema": "arc2-v9-official-submission-evidence-v1",
+  "track": "ARC2",
+  "run_id": "ARC2-V9-NVARC-EXACTRULES-20261029T2039Z",
+  "observed_at_utc": "2026-10-29T22:01:17.000958+00:00",
+  "source_commit": "8f690fae063eb75c7fa7e82137d9b738562f8e62",
+  "source_file_count": 288,
+  "payload_file": "bundle.tar.xz",
+  "payload_bytes": 462432,
+  "payload_sha256": "cf9d1857977768b1685dc730a285b5cb6d2c6b1b53cb13e45415144b8b395b43",
+  "build_manifest_sha256": "10eb06ac833a69e3c9b0cf8e83536b3a85f06af860cb45c6f9b173d1d8ef5c95",
+  "notebook_bytes": 658306,
+  "notebook_sha256": "16c846c5486719fc8cb3fd93bdd6e747cc36d57b77a0e2c4b1d9132d64ee2c65",
+  "kernel_metadata_sha256": "d7de070ae4379246d8e26eece0ffe656ad44ba30fdc853bdc0af0957bc8a3a04",
+  "kernel": "tecchannn/arc2-codex-main-baseline-v1",
+  "kernel_version": 3,
+  "kernel_status": "COMPLETE",
+  "kernel_code_sha256": "16c846c5486719fc8cb3fd93bdd6e747cc36d57b77a0e2c4b1d9132d64ee2c65",
+  "competition_source": "arc-prize-2026-arc-agi-2",
+  "internet_enabled": false,
+  "test_challenges_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+  "test_answers_downloaded_or_used": false,
+  "tasks": 240,
+  "test_grids": 259,
+  "attempts_per_test": 2,
+  "fallback_count": 188,
+  "fallback_credit": 0,
+  "remote_runtime_seconds": 389.205,
+  "local_runtime_seconds": 759.125,
+  "submission_json_sha256": "e06a2695ea891f148da0d61740e08025cd44d5dc236e36c70988ed5dec4f1f23",
+  "local_remote_submission_byte_identical": true,
+  "submission_format_validation": "PASS",
+  "runtime_preflight": "PASS",
+  "private_run_terminal_status": "COMPLETE",
+  "holdout": {
+    "evidence_path": "運用/証拠/ARC26-UNIFIED/ARC2-V9-NVARC-EXACTRULES-20261029T2039Z/score-result.json",
+    "evidence_sha256": "78542d914940da4fa7dcd2cd2e916e3cf9054b8f395324d5f02e8ba021e9fc02",
+    "exposure": "exposure_unknown",
+    "tasks": 100,
+    "grids": 104,
+    "previous_pass_at_1": 5,
+    "current_pass_at_1": 37,
+    "delta_pass_at_1": 32,
+    "previous_pass_at_2": 6,
+    "current_pass_at_2": 37,
+    "delta_pass_at_2": 31,
+    "improved_grids": 31,
+    "regressed_grids": 0,
+    "previous_fallback": 97,
+    "current_fallback": 65,
+    "unique_attempt2_hits_previous": 1,
+    "unique_attempt2_hits_current": 0,
+    "previous_seconds": 312.234,
+    "current_seconds": 288.703,
+    "fallback_scored_as_correct": false,
+    "official_score_claimed": false
+  },
+  "official_preflight": {
+    "allowed_before_submit": true,
+    "utc_day": "2026-10-29",
+    "latest_ref": 57745630,
+    "latest_status": "COMPLETE",
+    "latest_public_score": "0.00",
+    "today_submission_refs_before": [],
+    "num_allowed_before_submit": 1,
+    "latest_score_state": "SCORED_ACCEPTED"
+  },
+  "official_history_observations": [
+    {
+      "path": "運用/証拠/ARC26-UNIFIED/official-history-20261029T2155Z.json",
+      "sha256": "19c9aa858de7bb87e5c48e1b1784454bc794c67bce687b42e47f7b1c6e7f8e13",
+      "observed_at_utc": "2026-10-29T21:55:50.114218+00:00",
+      "latest_status": "PENDING",
+      "public_score": null
+    },
+    {
+      "path": "運用/証拠/ARC26-UNIFIED/official-history-20261029T2200Z.json",
+      "sha256": "40f5142f728621c0ace04cc3a13b3b36c9912530e4adf45e8ebbbbcd1b5ac6d6",
+      "observed_at_utc": "2026-10-29T22:01:17.000958+00:00",
+      "latest_status": "PENDING",
+      "public_score": null
+    }
+  ],
+  "previous_official_submission": {
+    "id": 57745630,
+    "status": "COMPLETE",
+    "public_score": 0.0
+  },
+  "best_numeric_public_score_observed": {
+    "submission_id": 55046979,
+    "public_score": 0.83
+  },
+  "official_submission": {
+    "id": 57783547,
+    "created_at_utc": "2026-10-29T21:53:17.588787+00:00",
+    "status": "PENDING",
+    "public_score": null,
+    "score_state": "PENDING",
+    "submission_record_sha256": "74d3d2792440367e6d9b5e198ae0eb66649e6a13fe5d68d993d58d5d0177f89d"
+  },
+  "hds_abcd_causal_effect": "NOT_ESTABLISHED",
+  "next_action": "次回の手動作業開始時に公式履歴から提出ID 57783547を確認する。PENDINGの間は重複提出しない。v9に従いG2/G3の能力開発は継続し、公式再提出は改善候補が成立した後に規則・枠を再確認する。",
+  "rules_checked": {
+    "maximum_submissions_per_utc_day": 1,
+    "maximum_final_submissions": 2,
+    "final_deadline_utc": "2026-11-02T23:59:00Z",
+    "notebook_required": true,
+    "cpu_gpu_runtime_limit_hours": 12,
+    "internet_enabled": false,
+    "submission_file": "submission.json",
+    "source": "https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-2/rules"
+  }
+}
