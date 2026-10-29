@@ -1,0 +1,85 @@
+{
+  "schema": "arc2-v9-candidate-evaluation-v1",
+  "track": "ARC2",
+  "experiment": "Proof Search fallback merge against saved v61 output",
+  "generated_at_utc": "2026-10-29T05:29:51.225539Z",
+  "status": "NOT_ADOPTED_NO_ADDITIONAL_COVERAGE",
+  "scope": "development diagnostic only",
+  "exposure": "exposure_unknown",
+  "labels_read_after_prediction_freeze": true,
+  "official_score": null,
+  "official_submission_performed": false,
+  "cohort": {
+    "source": "入力/Kaggle/arc-agi_training_challenges.json",
+    "source_sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+    "tasks": 240,
+    "test_grids": 259,
+    "runtime_alias_cohort_sha256": "13f532e8731fcf93da1f09e0de753e732c03df10baaea82a3efebd8c8233adb0",
+    "runtime_labels": "train input/output and test input only; task keys anonymized",
+    "selection": "task keys present in saved Kaggle kernel output"
+  },
+  "baseline": {
+    "kernel": "tecchannn/arc2-v61-local-teacher-pair-consensus-candidate",
+    "version": 1,
+    "remote_submission_sha256": "827bccfc1cf51e2fc87d687ba51e1375899650a530ec00e7a20eb1f71eb2dd18",
+    "remote_audit_sha256": "4b4474d8e7a956f8e5a2ec6d50e7391af0aeacd2eb08b71052068e34797b3b86",
+    "fallback_count": 249
+  },
+  "candidate": {
+    "source": "運用/証拠/ARC26-UNIFIED/ARC2-v9-proof-search-source-20261029/arc_proof_search.py",
+    "source_sha256": "4d84129a36286986ea2117bcc70c0f48d44f3139f8161add96b370536b28b5e2",
+    "generator": "道具/ARC2/proof_search候補生成.py",
+    "generator_sha256": "084b491d8b7236c5acb20246eafe1bb004dac8bc3f2459e82a775e6d78c87f4b",
+    "prediction_sha256": "57be2819ba873c003d74e7e009c50eb23f7c2e3c3c927b200a7bb1de565242d7",
+    "diagnostics_sha256": "a8c448f469b88dc10039eedce9a43a851fa6f880446c86b6a6a8b9982f5d9a76",
+    "elapsed_seconds": 136.816854,
+    "tasks_with_exact_program": 5,
+    "exact_output_grids": 5,
+    "exact_outputs_already_present_in_baseline": 5,
+    "fallback_slot_replacements": 0,
+    "runtime_inputs": "public train input/output and test input only; public solutions were read only by the offline scorer after freeze"
+  },
+  "freeze": {
+    "prediction_sha256": "f3ee74114e9b84e57e0b65d65e3250510d665d1d46672575c632c77b2dcef5d7",
+    "baseline_alias_prediction_sha256": "f3ee74114e9b84e57e0b65d65e3250510d665d1d46672575c632c77b2dcef5d7",
+    "merge_diagnostics_sha256": "60263b3121ced49284468fb6ee748adfa1e61a9323a8cb2939b2d3e3469a2b90",
+    "predictions_byte_identical_to_baseline": true,
+    "cohort_sha256": "13f532e8731fcf93da1f09e0de753e732c03df10baaea82a3efebd8c8233adb0"
+  },
+  "postscore": {
+    "training_solutions_sha256": "9f07a38bd25af5e83aa5bf85c5cb1a1fefdb30f6a755256fa65429e697ca97f9",
+    "baseline": {
+      "pass_at_1_grids": 9,
+      "pass_at_2_grids": 16,
+      "unique_attempt_2_hits": 7,
+      "exact_tasks": 14
+    },
+    "candidate": {
+      "pass_at_1_grids": 9,
+      "pass_at_2_grids": 16,
+      "unique_attempt_2_hits": 7,
+      "exact_tasks": 14
+    },
+    "delta_candidate_minus_baseline": {
+      "pass_at_1_grids": 0,
+      "pass_at_2_grids": 0,
+      "unique_attempt_2_hits": 0,
+      "exact_tasks": 0,
+      "added_hits": 0,
+      "lost_hits": 0
+    }
+  },
+  "decision": "Do not add this Proof Search path to the candidate or official submission. All five exact outputs duplicated the saved v61 predictions, so it added no coverage.",
+  "reproducibility": {
+    "public_solutions_path": "入力/Kaggle/arc-agi_training_solutions.json",
+    "scorer": "道具/ARC2/proof_search公開training採点.py",
+    "scorer_sha256": "4a9f314285139f2f55e5833134ede89dbf651f2d28c83adb51e1d5f4faa3fa74",
+    "postscore_sha256": "bcea87aae73828faa3d7f82f7848281e4f930668b935e922fd0b7ecb850223e3",
+    "local_temp_artifacts": [
+      "C:/Users/ohira/AppData/Local/Temp/arc2-v9-v61-kernel-output-20261029",
+      "C:/Users/ohira/AppData/Local/Temp/arc2-v9-fulltrain-240-cohort-20261029",
+      "C:/Users/ohira/AppData/Local/Temp/arc2-v9-fulltrain-proof-search-20261029",
+      "C:/Users/ohira/AppData/Local/Temp/arc2-v9-fulltrain-240-merge-20261029"
+    ]
+  }
+}
