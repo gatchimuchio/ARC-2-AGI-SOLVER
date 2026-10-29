@@ -1,0 +1,100 @@
+{
+  "schema": "arc2-v9-public-training-postscore-v1",
+  "track": "ARC2",
+  "labels_read_after_prediction_freeze": true,
+  "exposure": "exposure_unknown",
+  "prediction_sha256": "7023d9612b6a167b4b229e5459ca2f8f26a6589df50faf27a80c1f5056e12e12",
+  "baseline_sha256": "1049a34c77291fc63a2cb51b85aec977e1b4263169b3971158d869038352614d",
+  "cohort_sha256": "3ba33334f89f10c948f477f393ba2b3edf83bc6c5a1a1beaf8fed255f2fb2eb9",
+  "training_challenges_sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+  "training_solutions_sha256": "9f07a38bd25af5e83aa5bf85c5cb1a1fefdb30f6a755256fa65429e697ca97f9",
+  "task_id_mapping_used_only_by_offline_scorer": true,
+  "task_count": 100,
+  "candidate": {
+    "pass_at_1_grids": 6,
+    "pass_at_2_grids": 7,
+    "unique_attempt_2_hits": 1,
+    "model_only_pass_at_1_grids": 6,
+    "model_only_pass_at_2_grids": 7,
+    "model_only_unique_attempt_2_hits": 1,
+    "fallback_first_slots": 104,
+    "fallback_second_slots": 85,
+    "fallback_hit_grids": 0,
+    "tasks_pass_at_2": 7,
+    "model_only_tasks_pass_at_2": 7,
+    "tasks": 100,
+    "test_grids": 113,
+    "pass_at_1_grid_rate": 0.05309734513274336,
+    "pass_at_2_grid_rate": 0.061946902654867256,
+    "model_only_pass_at_1_grid_rate": 0.05309734513274336,
+    "model_only_pass_at_2_grid_rate": 0.061946902654867256,
+    "task_pass_at_2_rate": 0.07,
+    "model_only_task_pass_at_2_rate": 0.07
+  },
+  "baseline": {
+    "pass_at_1_grids": 4,
+    "pass_at_2_grids": 5,
+    "unique_attempt_2_hits": 1,
+    "model_only_pass_at_1_grids": 4,
+    "model_only_pass_at_2_grids": 5,
+    "model_only_unique_attempt_2_hits": 1,
+    "fallback_first_slots": 108,
+    "fallback_second_slots": 81,
+    "fallback_hit_grids": 0,
+    "tasks_pass_at_2": 5,
+    "model_only_tasks_pass_at_2": 5,
+    "tasks": 100,
+    "test_grids": 113,
+    "pass_at_1_grid_rate": 0.035398230088495575,
+    "pass_at_2_grid_rate": 0.04424778761061947,
+    "model_only_pass_at_1_grid_rate": 0.035398230088495575,
+    "model_only_pass_at_2_grid_rate": 0.04424778761061947,
+    "task_pass_at_2_rate": 0.05,
+    "model_only_task_pass_at_2_rate": 0.05
+  },
+  "delta_candidate_minus_baseline": {
+    "fallback_first_slots": -4,
+    "fallback_hit_grids": 0,
+    "fallback_second_slots": 4,
+    "model_only_pass_at_1_grid_rate": 0.017699115044247787,
+    "model_only_pass_at_1_grids": 2,
+    "model_only_pass_at_2_grid_rate": 0.017699115044247787,
+    "model_only_pass_at_2_grids": 2,
+    "model_only_task_pass_at_2_rate": 0.020000000000000004,
+    "model_only_tasks_pass_at_2": 2,
+    "model_only_unique_attempt_2_hits": 0,
+    "pass_at_1_grid_rate": 0.017699115044247787,
+    "pass_at_1_grids": 2,
+    "pass_at_2_grid_rate": 0.017699115044247787,
+    "pass_at_2_grids": 2,
+    "task_pass_at_2_rate": 0.020000000000000004,
+    "tasks": 0,
+    "tasks_pass_at_2": 2,
+    "test_grids": 0,
+    "unique_attempt_2_hits": 0
+  },
+  "coverage_changes": {
+    "candidate_added_raw_hits": [
+      {
+        "alias": "fresh_019",
+        "test_index": 0
+      },
+      {
+        "alias": "fresh_021",
+        "test_index": 0
+      }
+    ],
+    "baseline_lost_raw_hits": [],
+    "candidate_added_model_only_hits": [
+      {
+        "alias": "fresh_019",
+        "test_index": 0
+      },
+      {
+        "alias": "fresh_021",
+        "test_index": 0
+      }
+    ],
+    "baseline_lost_model_only_hits": []
+  }
+}
