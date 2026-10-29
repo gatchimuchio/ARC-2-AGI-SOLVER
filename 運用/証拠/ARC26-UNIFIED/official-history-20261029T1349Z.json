@@ -1,0 +1,110 @@
+{
+  "schema": "arc2-kaggle-readonly-history-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-29T13:49:46Z",
+  "read_only": true,
+  "competition": "arc-prize-2026-arc-agi-2",
+  "latest_20": [
+    {
+      "ref": 57745630,
+      "date": "2026-10-28T18:22:38.277",
+      "status": "COMPLETE",
+      "public_score": "0.00",
+      "失敗詳細あり": false
+    },
+    {
+      "ref": 57682971,
+      "date": "2026-10-27T00:17:10.77",
+      "status": "COMPLETE",
+      "public_score": "",
+      "失敗詳細あり": true
+    },
+    {
+      "ref": 57646990,
+      "date": "2026-10-26T00:14:46",
+      "status": "COMPLETE",
+      "public_score": "",
+      "失敗詳細あり": true
+    },
+    {
+      "ref": 57611018,
+      "date": "2026-10-25T00:13:10.933",
+      "status": "COMPLETE",
+      "public_score": "0.00",
+      "失敗詳細あり": false
+    },
+    {
+      "ref": 57576155,
+      "date": "2026-10-24T00:12:39.127",
+      "status": "COMPLETE",
+      "public_score": "0.00",
+      "失敗詳細あり": false
+    },
+    {
+      "ref": 57560705,
+      "date": "2026-10-23T12:25:06.577",
+      "status": "COMPLETE",
+      "public_score": "0.00",
+      "失敗詳細あり": false
+    },
+    {
+      "ref": 57517199,
+      "date": "2026-10-22T08:35:19.38",
+      "status": "COMPLETE",
+      "public_score": "",
+      "失敗詳細あり": true
+    },
+    {
+      "ref": 55046979,
+      "date": "2026-07-28T06:19:16.917",
+      "status": "COMPLETE",
+      "public_score": "0.83",
+      "失敗詳細あり": false
+    },
+    {
+      "ref": 55038338,
+      "date": "2026-07-27T21:24:23.967",
+      "status": "COMPLETE",
+      "public_score": "",
+      "失敗詳細あり": true
+    },
+    {
+      "ref": 54709840,
+      "date": "2026-07-15T03:02:55.077",
+      "status": "COMPLETE",
+      "public_score": "",
+      "失敗詳細あり": true
+    },
+    {
+      "ref": 53996447,
+      "date": "2026-06-24T01:46:52.783",
+      "status": "COMPLETE",
+      "public_score": "0.00",
+      "失敗詳細あり": false
+    },
+    {
+      "ref": 53962702,
+      "date": "2026-06-23T01:18:06.62",
+      "status": "COMPLETE",
+      "public_score": "0.00",
+      "失敗詳細あり": false
+    }
+  ],
+  "quota": {
+    "許可": true,
+    "competition": "arc-prize-2026-arc-agi-2",
+    "utc_day": "2026-10-29",
+    "latest_ref": 57745630,
+    "latest_status": "COMPLETE",
+    "latest_public_score": "0.00",
+    "today_submission_refs": [],
+    "scoreless_timeout_retry": false,
+    "latest_score_state": "SCORED_ACCEPTED",
+    "num_allowed_now": 1,
+    "理由": "公式残枠と直近提出の状態を確認しました。提出版と失敗原因の対処を確認してください。"
+  },
+  "latest_status": "COMPLETE",
+  "latest_score": "0.00",
+  "next_24_hour_gate_utc": "2026-10-29T18:22:38.277000Z",
+  "submission_or_rerun_performed": false
+}

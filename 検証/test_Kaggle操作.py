@@ -93,6 +93,29 @@ def test_送信は受付版とコードhashを保存し提出しない(送信フ
     api.competition_submit_code.assert_not_called()
 
 
+def test_同版の既存実行記録を保護して今回分を別名保存(送信フォルダ, tmp_path, monkeypatch):
+    monkeypatch.setattr(操作, "ルート", tmp_path)
+    既存パス = tmp_path / "出力" / "Kaggle" / "test-notebook" / "v7" / "実行記録.json"
+    既存パス.parent.mkdir(parents=True)
+    既存パス.write_text('{"previous":"preserve"}\n', encoding="utf-8")
+    api, _ = API作成()
+    応答 = ApiSaveKernelResponse()
+    応答.ref = "owner/test-notebook"
+    応答.version_number = 7
+    api.kernels_push.return_value = 応答
+
+    結果 = 操作.送信(api, 送信フォルダ)
+
+    今回パス = Path(結果["実行記録"])
+    assert 今回パス != 既存パス
+    assert 今回パス.name.startswith("実行記録-")
+    assert json.loads(既存パス.read_text(encoding="utf-8")) == {"previous": "preserve"}
+    保存 = 操作.記録確認(操作.JSON読込(今回パス))
+    assert 保存["version"] == 7
+    assert 保存["code_sha256"] == hashlib.sha256((送信フォルダ / "main.py").read_bytes()).hexdigest()
+    api.competition_submit_code.assert_not_called()
+
+
 def test_実APIのサイト相対refを正規化して記録する(送信フォルダ, tmp_path, monkeypatch):
     monkeypatch.setattr(操作, "ルート", tmp_path)
     api, _ = API作成()

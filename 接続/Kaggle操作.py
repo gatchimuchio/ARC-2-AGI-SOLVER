@@ -5,7 +5,7 @@ from __future__ import annotations
 
 import argparse
 from contextlib import redirect_stderr, redirect_stdout
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from decimal import Decimal, InvalidOperation
 import hashlib
 import io
@@ -118,6 +118,25 @@ def JSON保存(パス: Path, 内容: dict) -> None:
         出力.write("\n")
 
 
+def 実行記録保存(パス: Path, 内容: dict) -> Path:
+    try:
+        JSON保存(パス, 内容)
+        return パス
+    except FileExistsError:
+        # Kaggleが版番号を再利用しても、過去の記録を保護して今回分を一意に保存する。
+        日時 = datetime.fromisoformat(内容["created_at"]).astimezone(timezone.utc)
+        接尾辞 = 日時.strftime("%Y%m%dT%H%M%S%fZ")
+        for 番号 in range(100):
+            追加接尾辞 = 接尾辞 if 番号 == 0 else f"{接尾辞}-{番号 + 1:02d}"
+            別パス = パス.with_name(f"{パス.stem}-{追加接尾辞}{パス.suffix}")
+            try:
+                JSON保存(別パス, 内容)
+                return 別パス
+            except FileExistsError:
+                continue
+        raise FileExistsError("一意な実行記録名を確保できません。")
+
+
 def 認証API():
     # kaggleのimport自体が認証を試みる。SDKの生ログや設定全体は表示しない。
     try:
@@ -169,6 +188,7 @@ def 送信(api, フォルダ: Path, timeout: int = 600) -> dict:
     参照 = 送信応答Notebook確認(応答, metadata["id"])
     if type(応答.version_number) is not int or 応答.version_number < 1:
         raise 操作エラー("送信応答に有効な版番号がありません。自動再送せずKaggle側を確認してください。")
+    作成日時 = datetime.now(timezone.utc)
     記録 = {
         "schema": 記録版,
         "competition": 大会,
@@ -177,12 +197,12 @@ def 送信(api, フォルダ: Path, timeout: int = 600) -> dict:
         "code_file": コード.relative_to(フォルダ).as_posix(),
         "code_sha256": コードSHA,
         "metadata_sha256": metadataSHA,
-        "created_at": datetime.now(timezone.utc).isoformat(),
+        "created_at": 作成日時.isoformat(),
         "timeout_seconds": timeout,
     }
     パス = ルート / "出力/Kaggle" / 参照.split("/")[1] / f"v{応答.version_number}" / "実行記録.json"
     try:
-        JSON保存(パス, 記録)
+        パス = 実行記録保存(パス, 記録)
     except OSError:
         raise 操作エラー(
             f"Notebook送信は受理されましたが実行記録を保存できません。対象={参照} 版={応答.version_number}。"

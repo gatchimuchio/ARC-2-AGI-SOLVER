@@ -1,0 +1,52 @@
+{
+  "track": "ARC2",
+  "instruction_id": "ARC26-UNIFIED-v9.0",
+  "run_id": "ARC2-v9-masked-d4-conditional-tiling-20261029-private",
+  "checkpoint_created_at_utc": "2026-10-29T13:50:26Z",
+  "phase": "P2_PRIVATE_VERIFICATION_COMPLETE_G2_OPEN",
+  "process_status": "PRIVATE_RUN_COMPLETE_OFFICIAL_GAIN_UNCONFIRMED",
+  "source_revision": "5594ec6cdf808097c5059bcc7704f534d4bd388d",
+  "official_history_path": "運用/証拠/ARC26-UNIFIED/official-history-20261029T1349Z.json",
+  "official_history_sha256": "f2fc3648a31123ed571e67cc484106ae40ed634d0a597ed02d1a2bd66fd38f9d",
+  "private_run_evidence_path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-private-kaggle-version2-verification-20261029.json",
+  "private_run_evidence_sha256": "e1262f19b4502fb67707f2686f2aba3b524cb517926d31a49352e888a59aeebc",
+  "official_submission_id": 57745630,
+  "official_status": "COMPLETE",
+  "official_score": 0.0,
+  "best_public_score": 0.83,
+  "official_submission_performed": false,
+  "quota_now": 1,
+  "quota_allowed_by_api": true,
+  "utc_day": "2026-10-29",
+  "twenty_four_hour_gate_open": false,
+  "next_due_utc": "2026-10-29T18:22:38.277000Z",
+  "private_kernel": "tecchannn/arc2-codex-main-baseline-v1",
+  "private_kernel_version": 2,
+  "private_kernel_status": "COMPLETE",
+  "private_output_sha256": "e674a289ee2792d320af8c5b28e3786d6fd2ee190e34a1f658f5918f2e7e0711",
+  "private_output_matches_local": true,
+  "runtime_seconds": 393.909,
+  "candidate_delta": {
+    "official_input_fallback": -1,
+    "changed_grids": 1,
+    "official_correctness": "UNKNOWN",
+    "public_holdout_pass_at_1": 2,
+    "public_holdout_pass_at_2": 2,
+    "independent_grids": 1,
+    "unique_attempt2_delta": 0
+  },
+  "HDS_A_B_C_D": "NOT_ESTABLISHED",
+  "causal_HDS_effect": "NOT_ESTABLISHED",
+  "wrapper_record_collision_fix": {
+    "status": "implemented_and_targeted_tested",
+    "test": "55 passed",
+    "ruff": "PASS"
+  },
+  "limitations": [
+    "Private run COMPLETE is not a competition score.",
+    "Public positive result is only two grids, one independent grid, no formal preregistration and exposure unknown.",
+    "Official test solutions were not read; correctness unknown.",
+    "uv locked dependency sync encountered Windows access denied; locked no-sync tests succeeded without ACL changes."
+  ],
+  "next_action": "Continue G2-B public solver audit and improve candidate generation/causal HDS tests; recheck official rules, history, quota, 24-hour gate, exact Notebook output and SHA immediately before any official submission."
+}
