@@ -1,0 +1,80 @@
+{
+  "schema": "arc2-v9-additional-holdout-score-v1",
+  "run_id": "ARC2-V9-NVARC-EXACTRULES-20261029T2039Z",
+  "scored_at_utc": "2026-10-29T21:06:58.090555+00:00",
+  "track": "ARC2",
+  "decision": "POSTHOC_SCORE_COMPLETE",
+  "frozen_before_scoring": true,
+  "prediction_freeze_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-V9-NVARC-EXACTRULES-20261029T2039Z\\prediction-freeze.json",
+  "prediction_freeze_sha256": "fc1947f198402428431666cf1f74fd3187ebcebfacb3ddf2a456ad056493547f",
+  "cohort_input_sha256": "cd14fdf5c4485c1c767e09888d1414c1bece597c74a88f11d7845bcd5a7d0d93",
+  "solutions_source": "public ARC-AGI-2 training_solutions; used by offline scorer only",
+  "solutions_source_sha256": "9f07a38bd25af5e83aa5bf85c5cb1a1fefdb30f6a755256fa65429e697ca97f9",
+  "task_id_mapping_used_only_by_offline_scorer": true,
+  "solutions_in_runtime": false,
+  "scorer_path": "検証\\ARC2比較採点.py",
+  "scorer_sha256": "9a09383c7130ada24666c8541502ee8f350d0e12a2023b5b50e3e3bdb3440180",
+  "comparison": {
+    "previous": {
+      "tasks": 100,
+      "grids": 104,
+      "fallback": 97,
+      "distinct_attempts": 17,
+      "nonfallback_pass1": 5,
+      "nonfallback_pass2": 6,
+      "nonfallback_attempt2_only": 1,
+      "fallback_first_matches": 0,
+      "fallback_second_candidate_hits": 1,
+      "prediction_sha256": "1bbc3b7e425a1a4c4d9c0772b5d344c7ca4e0d02c04d2549c90f0d9aba0e5db9",
+      "answers_sha256": "d94b617e02fd0259facd8f6e82ad89de9f726813d7a19166790ec87ab6e99883",
+      "audit_sha256": "9239f1d453fa551b9d18ceb6d33978db346cd35f7265b5de17b09ae81f64c37c",
+      "challenges_sha256": "cd14fdf5c4485c1c767e09888d1414c1bece597c74a88f11d7845bcd5a7d0d93"
+    },
+    "current": {
+      "tasks": 100,
+      "grids": 104,
+      "fallback": 65,
+      "distinct_attempts": 16,
+      "nonfallback_pass1": 37,
+      "nonfallback_pass2": 37,
+      "nonfallback_attempt2_only": 0,
+      "fallback_first_matches": 0,
+      "fallback_second_candidate_hits": 0,
+      "prediction_sha256": "d9ee4585d9e078c616751548b5905a76fddcc21ca0ca92368c78c3f15525a7c7",
+      "answers_sha256": "d94b617e02fd0259facd8f6e82ad89de9f726813d7a19166790ec87ab6e99883",
+      "audit_sha256": "0072506ae69f62400f8eef3d9cf36443982c427a9e6c440795b6293b955f022d",
+      "challenges_sha256": "cd14fdf5c4485c1c767e09888d1414c1bece597c74a88f11d7845bcd5a7d0d93"
+    },
+    "pass2_delta": 31,
+    "improved_grids": 31,
+    "regressed_grids": 0,
+    "changed_first_attempts": 32,
+    "changed_second_attempts": 25,
+    "previous_seconds": 312.234,
+    "current_seconds": 288.703,
+    "scope": "Posthoc scoring only. The caller must separately establish matching runtime conditions and provenance."
+  },
+  "runtime": {
+    "baseline": {
+      "seconds": 312.234,
+      "fallback_count": 97,
+      "tasks": 100,
+      "test_grids": 104
+    },
+    "candidate": {
+      "seconds": 288.703,
+      "fallback_count": 65,
+      "tasks": 100,
+      "test_grids": 104
+    }
+  },
+  "interpretation": "Public training additional holdout posthoc score; not Kaggle official score.",
+  "candidate_minus_baseline": {
+    "pass_at_1_grids": 32,
+    "pass_at_2_grids": 31,
+    "unique_attempt2_hits": -1,
+    "fallback_grids": -32,
+    "improved_grids": 31,
+    "regressed_grids": 0
+  }
+}

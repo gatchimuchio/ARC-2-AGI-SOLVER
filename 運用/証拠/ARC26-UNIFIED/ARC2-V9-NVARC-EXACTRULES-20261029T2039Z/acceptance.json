@@ -1,0 +1,65 @@
+{
+  "schema": "arc2-v9-local-candidate-decision-v1",
+  "run_id": "ARC2-V9-NVARC-EXACTRULES-20261029T2039Z",
+  "decided_at_utc": "2026-10-29T21:08:55.428760+00:00",
+  "track": "ARC2",
+  "decision": "LOCAL_G1_PASS_CANDIDATE_ACCEPTED_FOR_PROMOTION",
+  "scope": "Public training additional holdout only; not an official Kaggle score.",
+  "gates": {
+    "G1_generation_capability": "PASS",
+    "G2_HDS_causal_learning": "NOT_ESTABLISHED",
+    "G3_official_score_gain": "NOT_ESTABLISHED",
+    "Kaggle_private_kernel_run": "NOT_RUN"
+  },
+  "evidence": {
+    "score_result_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-V9-NVARC-EXACTRULES-20261029T2039Z\\score-result.json",
+    "score_result_sha256": "78542d914940da4fa7dcd2cd2e916e3cf9054b8f395324d5f02e8ba021e9fc02",
+    "prediction_freeze_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-V9-NVARC-EXACTRULES-20261029T2039Z\\prediction-freeze.json",
+    "prediction_freeze_sha256": "fc1947f198402428431666cf1f74fd3187ebcebfacb3ddf2a456ad056493547f",
+    "cohort_tasks": 100,
+    "cohort_test_grids": 104,
+    "exposure": "exposure_unknown"
+  },
+  "previous_current_delta": {
+    "previous_pass_at_1": 5,
+    "current_pass_at_1": 37,
+    "delta_pass_at_1": 32,
+    "previous_pass_at_2": 6,
+    "current_pass_at_2": 37,
+    "delta_pass_at_2": 31,
+    "improved_correct_grids": 31,
+    "regressed_correct_grids": 0,
+    "previous_unique_attempt2_hits": 1,
+    "current_unique_attempt2_hits": 0,
+    "delta_unique_attempt2_hits": -1,
+    "previous_fallback_grids": 97,
+    "current_fallback_grids": 65,
+    "delta_fallback_grids": -32,
+    "previous_wall_seconds": 312.234,
+    "current_wall_seconds": 288.703,
+    "candidate_repeat_wall_seconds": 289.032,
+    "candidate_repeat_prediction_sha256": "d9ee4585d9e078c616751548b5905a76fddcc21ca0ca92368c78c3f15525a7c7"
+  },
+  "acceptance_basis": "Pre-registered G1 gate required positive nonfallback pass@2 delta, no lost correct grid, deterministic output, and runtime within 3x baseline / under 12 hours. All four local conditions passed. unique_attempt2_hits decreased by one and remains a follow-up metric; no correct grid was lost because pass@2 grid-level comparison reports 31 improvements and zero regressions.",
+  "safety_and_provenance": {
+    "near_exact_exception_disabled": true,
+    "runtime_task_id_or_hash_routing": false,
+    "answer_map_in_runtime": false,
+    "evaluation_or_hidden_solutions_in_runtime": false,
+    "training_solutions_read_only_after_prediction_freeze": true,
+    "task_mapping_used_only_by_offline_scorer": true,
+    "external_source_license": "MIT-0; source license and third-party notice retained with candidate package"
+  },
+  "official_kaggle": {
+    "latest_observation_path": "運用\\証拠\\ARC26-UNIFIED\\official-history-20261029T204717Z.json",
+    "latest_observation_sha256": "f0d18ccd16eba4a2dabe2cf8013009f934082d5fa95641980734cb136ea4913e",
+    "latest_submission_id": "57745630",
+    "latest_status": "COMPLETE",
+    "latest_public_score": 0.0,
+    "best_submission_id": "55046979",
+    "best_public_score": 0.83,
+    "new_submission_performed": false,
+    "next_legal_submit_preflight": "Recheck current rules/timeline, UTC date, latest history, numeric score, daily quota, 24-hour gate, candidate kernel version/status, output format and SHA immediately before any submission."
+  },
+  "next_action": "Promote the exact frozen candidate implementation to main with a targeted import/integration smoke check, then build and privately run the Kaggle kernel. Preserve G2 as unestablished until an A/B/C/D counterfactual with actual HDS action/selection traces is measured."
+}
