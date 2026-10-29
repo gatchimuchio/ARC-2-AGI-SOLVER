@@ -1,0 +1,27 @@
+{
+  "schema": "arc2-candidate-generation-coverage-prereg-addendum-v1",
+  "run_id": "ARC2-v9-candidate-family-confirm-200-20261029",
+  "added_at_utc": "2026-10-29T03:52:03Z",
+  "parent_prereg_file": "ARC2-v9-candidate-generation-coverage-prereg-20261029.json",
+  "parent_prereg_sha256": "fb2e1ff46f2960a6ff0fd72a5239aaf1e9e3b50ec29b6e0d2bffb84c7b595a49",
+  "cohort_unchanged": true,
+  "reason": "The prior HDS action-gate experiment measured only HDS-equivalence-admitted proposals. To distinguish absent generation from HDS gate rejection, the discovery audit must also inspect train-consistent family proposals that did not receive HDS equivalence admission.",
+  "discovery_scope": "For each public-train-consistent family (採用可=true), record its input-only test-grid proposal and whether HDS marked it 同値採用. Do not record any expected test output. This diagnostic sidecar is isolated and does not modify the baseline submission attempts.",
+  "candidate_branch": "If discovery shows an exact test grid among train-consistent but HDS-not-admitted proposals, test a provisional second-attempt gate over this broader pool. Keep HDS answer/status/reasons unchanged; deduplicate grids and rank by distinct supporting family count then stable first-seen order. If no such candidate exists, use discovery only to choose a generic generator redesign; confirmatory labels remain sealed.",
+  "comparison": "Baseline submission output remains the unmodified adapter output. Candidate audit adds only a sidecar under ARC2_CANDIDATE_AUDIT=1; same default non-aggregate runtime; confirmatory candidate output compared with the already-frozen baseline confirmatory output.",
+  "label_boundary": {
+    "baseline_discovery_submission_frozen": true,
+    "baseline_confirmatory_output_in_progress_at_addendum": true,
+    "labels_read_before_addendum": false,
+    "discovery_labels_read_only_after_baseline_and_candidate_audit_freeze": true,
+    "confirmatory_labels_read_only_after_baseline_and_candidate_outputs_freeze": true
+  },
+  "prohibitions": [
+    "problem/task ID, filename, or hash answer branching",
+    "answer map or fixed output",
+    "evaluation/hidden answer runtime flow",
+    "changing HDS truth status to improve competition output"
+  ],
+  "adoption_gate_unchanged": "Confirmatory pass@2 net gain > 0 on 100 grids, valid schema, no material regression, reproducible identical-input run; otherwise do not adopt or submit.",
+  "official_submission_performed": false
+}
