@@ -1,0 +1,61 @@
+{
+  "schema": "arc2-simple-transform-plurality-prereg-v1",
+  "run_id": "ARC2-v9-simple-transform-plurality-confirm-100-20261029",
+  "registered_at_utc": "2026-10-29T04:13:17Z",
+  "baseline_commit": "de456828e7b955177b3594f01c5e4c6e49553867",
+  "current_main_at_registration": "248bce0ecac5af1062e8233abb2e47c88d09b412",
+  "current_three_point_set": "運用/ARC26-UNIFIED/v9_0/ARC2",
+  "three_point_hashes": {
+    "spec": "27B2D1ED8B53984265A22AD32889FC176896F080B0150A138CFB9C6945C26A38",
+    "roadmap": "C8AE679AA75EAB249E49610735EBB389EA430E75B00ADEDCC03B293AAC674DA0",
+    "instructions": "04386CBCB544F77ECCBAE676314D1114891BD6B347201F1BB32666B5B952144E"
+  },
+  "parent_discovery_prereg_addendum": {
+    "file": "ARC2-v9-candidate-generation-coverage-prereg-addendum-20261029.json",
+    "sha256": "3395d89cc50908d1d2853447b152dfe21582d8ff10df594b72729fe9e5b14e23"
+  },
+  "discovery_evidence": {
+    "score_file": "arc2-v9-candidate-discovery-score-20261029.json",
+    "score_sha256": "f556997bfd5157fe3774c990660e700896854901e870e565bc46534ebf0b2579",
+    "freeze_file": "arc2-v9-candidate-submission-discovery-freeze-20261029.json",
+    "freeze_sha256": "2c78803e90fdbd2bd0ef27e02448dc84d363d91a165bcb2cc8cbfc99bcb296f8",
+    "baseline_pass_at_1": "9/100",
+    "baseline_pass_at_2": "10/100",
+    "hds_family_exact_coverage": "9/100, all were already baseline pass@2",
+    "nonadmitted_hds_correct_proposals": "0",
+    "attempt2_gate_delta": "0; frozen candidate SHA identical to baseline"
+  },
+  "code_observation": {
+    "file": "接続/ARC2/単純変換候補.py",
+    "function": "unique_candidate",
+    "baseline_sha256": "efe210a4e183de93b5318aadeac7d2b5022a562189839b2ce1a414d367b5b0d3",
+    "current_gate": "requires at least two teacher pairs and returns a candidate only if every fitted D4/geometry/color-map model yields one identical output",
+    "hypothesis": "A unique plurality among the already train-fitting model predictions may produce useful second-attempt candidates even when strict all-model unanimity abstains."
+  },
+  "candidate_change": {
+    "rule": "Keep the existing minimum of two teacher pairs. From predict_pool, propose only when one output grid has a unique highest support of at least 2 fitted model configurations; on ties or support below 2, abstain. The adapter may use it only as the existing provisional second attempt when distinct from attempt_1. Do not change HDS truth status, first attempt, or reasons.",
+    "scope": "single generic transformation generator; no new operator family, no task-id/hash branch, no answer map, no fixed output"
+  },
+  "confirmatory_cohort": {
+    "tasks": 100,
+    "test_grids": 100,
+    "runtime_input_file": "ARC2-v9-candidate-family-confirm100-input-20261029.json",
+    "runtime_input_sha256": "6d430ce94842262e32dedc4b1add48de313dd022f976a3b54bfadfb90f7be9da",
+    "baseline_submission_sha256": "2173b7ee8d4d72e377da32fbeaaae1e50e350f1bbe22cb6d9534fedc9483ce56",
+    "train_pair_counts": {
+      "2": 15,
+      "3": 65,
+      "4": 19,
+      "5": 1
+    },
+    "exposure_status": "exposure_unknown"
+  },
+  "label_boundary": {
+    "confirm_labels_read_before_candidate_output_freeze": false,
+    "freeze_two_same_input_candidate_runs_before_scoring": true,
+    "scorer_separate_from_runtime": true,
+    "evaluation_answers_in_candidate_runtime": false
+  },
+  "acceptance_gate": "Adopt only if confirm pass@2 has positive net gain over 100 grids, no baseline pass@2 regression, pass@1 unchanged, schema valid, and identical-input candidate runs have byte-identical submission SHA. Otherwise reject and do not submit.",
+  "official_submission_performed": false
+}
