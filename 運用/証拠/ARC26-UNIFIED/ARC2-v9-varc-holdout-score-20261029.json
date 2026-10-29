@@ -1,0 +1,74 @@
+{
+  "data": {
+    "cohort_id_sha256": "8e7401849236e249bb94d5e64f5edfe9ac622ad3bbda6d3579cd6b55b2b2dd95",
+    "grid_denominator": 100,
+    "model_exposure": "exposure_unknown",
+    "runtime_input_sha256": "e83add2acbdd6848417a6a5b904a2ee8b96049d74a870cff3b74331bb9986d66",
+    "source_split": "public ARC2 training",
+    "task_denominator": 100
+  },
+  "interpretation": {
+    "adoption": "NOT_ADOPTED; HDS integration and independent holdout validation are required",
+    "learning_machine_effect": "NOT_ESTABLISHED; VARC was not integrated into HDS for this comparison",
+    "official_kaggle_score": null
+  },
+  "metrics": {
+    "fallback_identity_counted_correct": false,
+    "hds_current_baseline": {
+      "null_predictions": 97,
+      "pass_at_1": 2,
+      "valid_candidate_coverage": 3
+    },
+    "ttt_first_candidate_vs_zero_shot_paired": {
+      "current_pass_at_1": 1,
+      "delta_grids": 1,
+      "gains": 1,
+      "previous_pass_at_1": 0,
+      "regressions": 0
+    },
+    "varc_post_ttt_D": {
+      "candidate_coverage": 87,
+      "candidate_grids": 140,
+      "pass_at_1": 1,
+      "pass_at_2": 2,
+      "unique_attempt2_hits": 1
+    },
+    "varc_zero_shot_A": {
+      "candidate_coverage": 72,
+      "pass_at_1": 0
+    },
+    "zero_shot_then_ttt_portfolio": {
+      "pass_at_2": 1,
+      "unique_attempt2_hits": 1
+    }
+  },
+  "predictions": {
+    "freeze_record_sha256": "84d78ac26c4cdee7616360ffdabf0a89847c39b23ee8db729bf8cf75d4d0cb6c",
+    "hds_sanitized_sha256": "53a0cb9ac28fe30019120c80b09aeb9c4e373e6405c7c0df1f79ad4705e1a28e",
+    "scorer_sha256": "b5ebb1edf9bc82a9e7425c4131d2ec4eddf81f48e55b561fb53e0237a9fa4cfd",
+    "varc_sha256": "d964c099889dbf7002930e60418e2640c7e48c04d28f950997e9b6beddfe24f6"
+  },
+  "protocol": {
+    "actual_canvas": 32,
+    "color_views": 4,
+    "epochs": 2,
+    "output_protocol_label": "VARC-64px-cpu-ttt-smoke-v3-batch2",
+    "protocol_label_matches_actual_canvas": false,
+    "seed": 20261029
+  },
+  "run_id": "ARC2-v9-varc-holdout-32px-100-20261029",
+  "runtime_seconds": {
+    "hds_baseline": 222.463273,
+    "varc": 3302.095
+  },
+  "schema": "arc2-v9-varc-holdout-score-v1",
+  "scored_at_utc": "2026-10-29T02:32:36Z",
+  "scoring_process": {
+    "fallback_identity_counted_correct": false,
+    "holdout_gold_labels_entered_candidate_runtime": false,
+    "per_task_ids_or_answers_written_to_score_summary": false,
+    "predictions_frozen_before_scoring": true,
+    "score_source": "public ARC2 training split only",
+    "task_id_map_used_only_by_scorer": true
+  }
+}
