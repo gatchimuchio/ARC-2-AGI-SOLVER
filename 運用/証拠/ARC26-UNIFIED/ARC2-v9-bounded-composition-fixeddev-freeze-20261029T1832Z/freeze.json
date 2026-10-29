@@ -1,0 +1,99 @@
+{
+  "schema": "arc2-v9-prediction-freeze-v1",
+  "track": "ARC2",
+  "run_id": "ARC2-v9-bounded-composition-fixeddev-20261029T1815Z",
+  "created_at_utc": "2026-10-29T18:33:29.771701+00:00",
+  "purpose": "Freeze the bounded-composition candidate and fixed development baseline before offline public-training postscore.",
+  "cohort_relationship": "previously_scored_public_training_development_set; not a fresh holdout",
+  "exposure": "exposure_unknown",
+  "tasks": 100,
+  "test_grids": 113,
+  "candidate_run": {
+    "runtime_seconds": 675.703,
+    "fallback_count": 104,
+    "aggregate_diagnostics": {
+      "candidate_prediction_count": 38,
+      "examples_with_candidates": 36,
+      "nonidentity_candidate_prediction_count": 38,
+      "examples_with_nonidentity_candidates": 36,
+      "simple_transform_unique_candidates": 1,
+      "simple_transform_distinct_from_first": 0,
+      "candidate_family_counts": {
+        "ARC二軸欠損補完": 1,
+        "ARC周期タイルD4反復": 2,
+        "ARC局所近傍セル変換": 26,
+        "ARC格子D4変換": 1,
+        "ARC汎用プログラム帰納_1": 5,
+        "ARC物体外れ値選択・切出し": 1,
+        "ARC特徴近傍変換選択": 2
+      },
+      "nonidentity_candidate_family_counts": {
+        "ARC二軸欠損補完": 1,
+        "ARC周期タイルD4反復": 2,
+        "ARC局所近傍セル変換": 26,
+        "ARC格子D4変換": 1,
+        "ARC汎用プログラム帰納_1": 5,
+        "ARC物体外れ値選択・切出し": 1,
+        "ARC特徴近傍変換選択": 2
+      },
+      "observation_request_counts": {
+        "additional_observation_requests": 113,
+        "conflict_records": 0,
+        "missing_condition_path_requests": 0,
+        "other_additional_observation_requests": 0,
+        "prediction_records": 0,
+        "unidentified_records": 0,
+        "unknown_condition_value_requests": 113
+      }
+    }
+  },
+  "baseline_run": {
+    "runtime_seconds": 254.422,
+    "fallback_count": 108
+  },
+  "artifacts": {
+    "baseline_audit.json": {
+      "sha256": "4c0824f2583e9363e1b26d75c2f2d09a6625f21fb32a9568848bc6c2cc3deee7",
+      "bytes": 28995
+    },
+    "baseline_submission.json": {
+      "sha256": "1049a34c77291fc63a2cb51b85aec977e1b4263169b3971158d869038352614d",
+      "bytes": 722443
+    },
+    "candidate_audit.json": {
+      "sha256": "0ccf8593e8f5d98379a62ec32fca127c6e6ef2a62e20c780efbeb70fc82a574f",
+      "bytes": 28077
+    },
+    "candidate_diagnostics.json": {
+      "sha256": "c0e92ff2c4d070b663410f89644542a30db673c4c4e492c7ed6e6529e0b1d33c",
+      "bytes": 16682
+    },
+    "candidate_submission.json": {
+      "sha256": "7023d9612b6a167b4b229e5459ca2f8f26a6589df50faf27a80c1f5056e12e12",
+      "bytes": 715516
+    },
+    "cohort.json": {
+      "sha256": "3ba33334f89f10c948f477f393ba2b3edf83bc6c5a1a1beaf8fed255f2fb2eb9",
+      "bytes": 279305
+    }
+  },
+  "candidate_code_sha256": {
+    "接続/ARC2/arc_proof_search.py": "86e74ee68b0fe5d5d05176c44f6b001d2e601a8673c70fbc465ecf95e75617e1",
+    "接続/ARC2/汎用プログラム帰納候補.py": "b868287fddcf065d6501b8699301f911e0549b4b73657fe007fc590a37577728",
+    "接続/ARC2/HDS接続.py": "83597d81fdeef04260b1897019bc883b438c54e0b8a9a413b8718c42bd1e3486",
+    "検証/test_ARC2_汎用プログラム帰納候補.py": "b7dd6a4237eb28fd964d942c58dec227c5cb1381f05f2d46d7cf676efe2352eb"
+  },
+  "candidate_worktree_base": "e3ed6f11bea35d03597d36a05c05585f42e46888",
+  "candidate_shared_hds_connection_matches_main": true,
+  "candidate_run_source_commit_field": "unknown",
+  "candidate_diagnostics_provenance": {
+    "attempt_1": "fallback iff task/test_index appears in frozen candidate audit fallbacks; otherwise model output",
+    "attempt_2": "fallback iff identical to attempt_1 or identity test input; otherwise model output; follows fixed development scorer contract"
+  },
+  "solutions_opened_or_read_by_freeze_step": false,
+  "training_solution_file_sha256_recorded_only": "9f07a38bd25af5e83aa5bf85c5cb1a1fefdb30f6a755256fa65429e697ca97f9",
+  "evaluation_solutions_opened_or_read": false,
+  "official_submission_performed": false,
+  "official_score": null,
+  "decision_status": "FROZEN_PENDING_OFFLINE_POSTSCORE"
+}
