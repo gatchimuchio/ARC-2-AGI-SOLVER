@@ -25,7 +25,7 @@ from .周期組修復教材 import 周期組修復教材
 from .格子D4教材 import 格子D4教材
 from .周期タイルD4教材 import 条件付き周期タイルD4教材, 周期タイルD4教材
 from .特徴近傍変換選択 import FeatureNeighborTransform
-from .汎用プログラム帰納候補 import 汎用プログラム帰納候補群
+from .外部厳密規則候補 import 汎用プログラム帰納候補群
 from .全前景平行移動教材 import 全前景平行移動教材
 from .C2_066_compound_foreground_D4_palette_translation import CompoundForegroundD4PaletteTranslation
 from .部分見本教材 import 部分見本教材

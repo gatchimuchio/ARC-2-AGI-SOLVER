@@ -1,0 +1,15 @@
+{
+  "format": "arc2-kaggle-submission-audit-v1",
+  "generated_at_utc": "2026-10-29T21:10:50.260595+00:00",
+  "source_commit": "d2a5e0595e07676d82a4d588e07d09c423da046a+candidate",
+  "challenge_sha256": "83668b353ba171ddbf2b1c7a7104f73d6006058588b078b489655232b9cf14aa",
+  "challenge_file": "root-smoke-input.json",
+  "tasks": 1,
+  "test_examples": 1,
+  "attempts_per_test": 2,
+  "fallback_count": 0,
+  "solver_hold_reason_counts": {},
+  "fallbacks": [],
+  "seconds": 5.422,
+  "submission_sha256": "8485519c0755cbaf0c649231d17c1f6456e32d94a5b2fb5ed39fca3c7768595c"
+}

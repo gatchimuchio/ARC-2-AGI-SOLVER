@@ -1,0 +1,25 @@
+{
+  "track": "ARC2",
+  "instruction_id": "ARC26-UNIFIED-v9.0",
+  "run_id": "ARC2-V9-NVARC-EXACTRULES-20261029T2039Z",
+  "checkpoint_created_at_utc": "2026-10-29T21:11:24.335322+00:00",
+  "phase": "P2_PROMOTED_PRIVATE_KERNEL_PENDING",
+  "process_status": "LOCAL_G1_PASS_CODE_ON_MAIN_PRIVATE_RUN_PENDING",
+  "source_revision_before_promotion": "d2a5e0595e07676d82a4d588e07d09c423da046a",
+  "promotion_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-V9-NVARC-EXACTRULES-20261029T2039Z\\promotion.json",
+  "promotion_sha256": "b26adf924bef2a6fadff0a6a424e521541445e031630fc249d6b450cee96a55d",
+  "candidate_source_sha256": "647aaec3ff85863e174095074a9b068b9e99875394727a2f426586b0458d6c12",
+  "acceptance_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-V9-NVARC-EXACTRULES-20261029T2039Z\\acceptance.json",
+  "acceptance_sha256": "85f25c33a66777f074e4656a92fb439e96590ce29d8b150b07e81ac001beda83",
+  "official_submission_id": "57745630",
+  "official_status": "COMPLETE",
+  "official_score": 0.0,
+  "best_public_score": 0.83,
+  "official_submit_performed": false,
+  "next_action": "Build and run the main-source Kaggle kernel privately; confirm output SHA and runtime before official-submit preflight.",
+  "limitations": [
+    "G2 HDS causal A/B/C/D experiment not established.",
+    "unique_attempt2_hits fell by one although pass@2 increased by 31 with no correct grids lost.",
+    "Kaggle private run and official score not yet measured."
+  ]
+}

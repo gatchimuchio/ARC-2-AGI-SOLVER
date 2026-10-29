@@ -1,0 +1,48 @@
+{
+  "schema": "arc2-v9-candidate-promotion-evidence-v1",
+  "run_id": "ARC2-V9-NVARC-EXACTRULES-20261029T2039Z",
+  "recorded_at_utc": "2026-10-29T21:11:24.335322+00:00",
+  "track": "ARC2",
+  "decision": "PROMOTED_TO_MAIN_AFTER_LOCAL_G1_PASS",
+  "source_revision_before_promotion": "d2a5e0595e07676d82a4d588e07d09c423da046a",
+  "local_gate_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-V9-NVARC-EXACTRULES-20261029T2039Z\\acceptance.json",
+  "local_gate_sha256": "85f25c33a66777f074e4656a92fb439e96590ce29d8b150b07e81ac001beda83",
+  "code": {
+    "hds_connection_path": "接続/ARC2/HDS接続.py",
+    "hds_connection_base_sha256": "83597d81fdeef04260b1897019bc883b438c54e0b8a9a413b8718c42bd1e3486",
+    "hds_connection_candidate_sha256": "00c0eadffbac07f33ac2a669fc6ed9f2da616539c711c187b4eb55c87d445bab",
+    "provider_path": "接続/ARC2/外部厳密規則候補.py",
+    "provider_sha256": "2fc13f818f3ff1f2f713e15506683f9635eaf8406dc8440dd579c6f2fd482e61",
+    "third_party_source_path": "接続/ARC2/第三者/NVARC/merge_agreement.py",
+    "third_party_source_sha256": "647aaec3ff85863e174095074a9b068b9e99875394727a2f426586b0458d6c12",
+    "license_path": "接続/ARC2/第三者/NVARC/LICENSE",
+    "license_sha256": "0860d23c8b1347b0b4234ed0c34a445a7330593b2af615a56d05ea02a506514e",
+    "third_party_notices_sha256": "ecb7039901a7b6a9f28c808d7f8933d4bdb278c131051636165c65f2cdffbc22",
+    "third_party_readme_sha256": "c823d8c590d6a4f20a3d9f5ac2384fbdc921035f1f206a5029d34eb5e1ac1b68",
+    "near_exact_exception_disabled": true,
+    "task_id_hash_routing": false,
+    "evaluation_or_hidden_answers_in_runtime": false
+  },
+  "targeted_root_integration_smoke": {
+    "runner": "接続/ARC2/Kaggle提出.py",
+    "tasks": 1,
+    "test_grids": 1,
+    "fallbacks": 0,
+    "seconds": 5.422,
+    "submission_sha256": "8485519c0755cbaf0c649231d17c1f6456e32d94a5b2fb5ed39fca3c7768595c",
+    "submission_matches_frozen_candidate": "fresh_001",
+    "submission_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-V9-NVARC-EXACTRULES-20261029T2039Z\\promotion-smoke-submission.json",
+    "audit_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-V9-NVARC-EXACTRULES-20261029T2039Z\\promotion-smoke-audit.json",
+    "no_solutions_loaded": true,
+    "syntax_compilation": "PASS",
+    "preflight": "PASS"
+  },
+  "official_kaggle": {
+    "latest_submission_id": "57745630",
+    "latest_public_score": 0.0,
+    "best_public_score": 0.83,
+    "private_run": "NOT_RUN",
+    "official_submit_performed": false
+  },
+  "next_gate": "Build and run the main-source Kaggle kernel privately; confirm output SHA and runtime before official-submit preflight."
+}
