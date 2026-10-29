@@ -331,6 +331,103 @@ def test_periodic_tile_d4_learns_and_applies_positionwise_transforms():
     ]
 
 
+def test_masked_periodic_tile_d4_infers_background_and_positionwise_transforms():
+    from 接続.ARC2.周期タイルD4教材 import 条件付き周期タイルD4教材
+
+    def tile_grid(grid, operations):
+        transforms = {
+            "identity": [row[:] for row in grid],
+            "rotate_90": [list(row) for row in zip(*grid[::-1])],
+            "reflect_rotate_0": [row[::-1] for row in grid],
+        }
+        height, width = len(grid), len(grid[0])
+        output = [[0] * (width * width) for _ in range(height * height)]
+        for tile_row in range(height):
+            for tile_column in range(width):
+                if grid[tile_row][tile_column] == 0:
+                    continue
+                tile = transforms[operations[tile_row][tile_column]]
+                for row_index, row in enumerate(tile):
+                    output[tile_row * height + row_index][
+                        tile_column * width:(tile_column + 1) * width
+                    ] = row
+        return output
+
+    operations = [
+        ["identity", "identity"],
+        ["rotate_90", "reflect_rotate_0"],
+    ]
+    teachers = [
+        {"input": grid, "output": tile_grid(grid, operations)}
+        for grid in (
+            [[0, 1], [2, 3]],
+            [[4, 0], [5, 6]],
+        )
+    ]
+    learner = 条件付き周期タイルD4教材(teachers)
+    answer, _ = learner.候補([[0, 9], [7, 0]], {})
+    assert learner.全教師再現
+    assert learner.背景色 == 0
+    assert answer == tile_grid(
+        [[0, 9], [7, 0]],
+        operations,
+    )
+
+
+def test_masked_periodic_tile_d4_rejects_conflicting_training_pairs():
+    from 接続.ARC2.周期タイルD4教材 import 条件付き周期タイルD4教材
+
+    learner = 条件付き周期タイルD4教材([
+        {
+            "input": [[0, 1], [2, 3]],
+            "output": [[0] * 4 for _ in range(4)],
+        },
+        {
+            "input": [[4, 0], [5, 6]],
+            "output": [[0] * 4 for _ in range(4)],
+        },
+    ])
+    assert not learner.全教師再現
+    answer, details = learner.候補([[0, 9], [7, 0]], {})
+    assert answer is None
+    assert "failure" in details
+
+
+def test_masked_periodic_tile_d4_rejects_unobserved_nonbackground_position():
+    from 接続.ARC2.周期タイルD4教材 import 条件付き周期タイルD4教材
+
+    def output_for(grid):
+        transforms = [
+            [row[:] for row in grid],
+            [list(row) for row in zip(*grid[::-1])],
+            [row[::-1] for row in grid],
+        ]
+        output = [[0] * 4 for _ in range(4)]
+        for tile_row in range(2):
+            for tile_column in range(2):
+                if grid[tile_row][tile_column] == 0:
+                    continue
+                tile = transforms[(tile_row + tile_column) % len(transforms)]
+                for row_index, row in enumerate(tile):
+                    output[tile_row * 2 + row_index][
+                        tile_column * 2:(tile_column + 1) * 2
+                    ] = row
+        return output
+
+    teachers = [
+        {"input": grid, "output": output_for(grid)}
+        for grid in (
+            [[0, 1], [2, 3]],
+            [[0, 4], [5, 6]],
+        )
+    ]
+    learner = 条件付き周期タイルD4教材(teachers)
+    answer, details = learner.候補([[9, 4], [5, 6]], {})
+    assert learner.全教師再現
+    assert answer is None
+    assert details["failure"] == "unobserved_nonbackground_tile_transform"
+
+
 def test_送信Notebookは正しいipynbでrunnerを起動する():
     raw = bundle._render_notebook(b"print('runner-ok')\n", "a" * 64)
     notebook = json.loads(raw.decode("utf-8"))

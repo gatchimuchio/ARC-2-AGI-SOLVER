@@ -1,0 +1,34 @@
+{
+  "track": "ARC2",
+  "competition_slug": "arc-prize-2026-arc-agi-2",
+  "source": "project-specific Kaggle CLI 2.2.5, read-only",
+  "observed_at_utc": "2026-10-29T12:43:31.448089+00:00",
+  "latest_submission": {
+    "ref": 57745630,
+    "fileName": "submission.json",
+    "date": "2026-10-28T18:22:38.277000",
+    "description": "ARC2-v7-deadline-10h30m-v1-20261028",
+    "status": "SubmissionStatus.COMPLETE",
+    "publicScore": "0.00",
+    "privateScore": ""
+  },
+  "history_refs": [
+    57745630,
+    57682971,
+    57646990,
+    57611018,
+    57576155,
+    57560705,
+    57517199,
+    55046979,
+    55038338,
+    54709840,
+    53996447,
+    53962702
+  ],
+  "latest_official_status": "COMPLETE",
+  "latest_public_score": 0.0,
+  "previous_best_public_score": 0.83,
+  "history_unchanged": true,
+  "official_submission_performed": false
+}

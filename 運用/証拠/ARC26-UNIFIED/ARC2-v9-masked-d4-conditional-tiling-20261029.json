@@ -1,0 +1,157 @@
+{
+  "format": "arc2-v9-candidate-evidence-v1",
+  "run_id": "ARC2-v9-masked-d4-conditional-tiling-20261029",
+  "track": "ARC2",
+  "instruction_set": "ARC26-SOLVE-SCORE-20261029-v9.0",
+  "created_at_utc": "2026-10-29T13:15:13.600977Z",
+  "baseline_main_sha": "f51bb4e262a4fbe7864a2aac2342ce39a74e66f8",
+  "candidate_source_state": "working-tree changes bound by source SHA-256 values below",
+  "mechanism": {
+    "name": "train-fitted masked periodic D4 tiling",
+    "summary": "Infers a unique background from public teacher pairs and shared D4 tile transforms; emits background tiles for background markers and rejects ambiguity, conflicts, unseen non-background positions, or invalid shapes.",
+    "task_id_or_hash_branching": false,
+    "answer_map": false,
+    "evaluation_or_hidden_solution_runtime_input": false
+  },
+  "source_files": [
+    {
+      "path": "接続/ARC2/HDS接続.py",
+      "sha256": "c3d3289ad512e66ae4e7ce331cfc6f1729a56ea60f3d22acf9b8befb11fd1317"
+    },
+    {
+      "path": "接続/ARC2/周期タイルD4教材.py",
+      "sha256": "3c601354d2fdad0f0868902b55b6db6a5c71132bfaa9540e22335fa6bbed7b13"
+    },
+    {
+      "path": "検証/test_ARC2Kaggle提出.py",
+      "sha256": "403e4822e9ca8dae6af71b324fb42ba4975acc6e78c595686622d9990984611e"
+    }
+  ],
+  "data_boundary": {
+    "official_competition_input_file": "arc-agi_test_challenges.json",
+    "official_competition_input_sha256": "232264c58f825ee77327dcfc9f4e5cb2f83b8d997eb69032be1bf2205bbe1a83",
+    "official_tasks": 240,
+    "official_test_grids": 259,
+    "solutions_file_downloaded_or_used": false,
+    "inference_mode": "input-only; labels not read",
+    "public_evaluation_input_sha256": "e7c62a4bd211867c6b538f66b8013b81f299663c82ca062f49a52bf439d6e4e8"
+  },
+  "same_condition_official_input_inference": {
+    "baseline": {
+      "source_commit": "f51bb4e262a4fbe7864a2aac2342ce39a74e66f8",
+      "training_assets": "1,000 public training JSON files copied into an isolated baseline worktree; all per-file SHA-256 values matched",
+      "fallback_grids": 249,
+      "runtime_seconds": 638.157,
+      "submission_sha256": "54f6a303c4143f15279e2084d5ad798455e565b4d51cd6a2b226e4d4735af46a",
+      "audit_sha256": "b12804aacf5bcffd88cd58487de4a41cfebec049bdedda90fc1064cde11b5780",
+      "new_family_predictions": 0
+    },
+    "candidate": {
+      "fallback_grids": 248,
+      "runtime_seconds": 674.953,
+      "submission_sha256": "e674a289ee2792d320af8c5b28e3786d6fd2ee190e34a1f658f5918f2e7e0711",
+      "audit_sha256": "94bcd2a83ccf5f1efe6671baebef2b1697dcf52be1467fa6b910b86b65925ad6",
+      "new_family_predictions": 1
+    },
+    "delta": {
+      "fallback_grids": -1,
+      "runtime_seconds": 36.796,
+      "changed_test_grids": 1,
+      "changed_attempt_1": 1,
+      "changed_attempt_2": 1,
+      "candidate_attempts_identical_on_changed_grid": 1,
+      "official_correctness": "UNKNOWN; no solutions were read"
+    }
+  },
+  "public_training_evaluation": {
+    "anonymized_cohort_sha256": "d8767a3d6b67bcc311c86cf36868f4a7a50e91e1847bf7d1031ff33cb16e08bd",
+    "prediction_freeze_sha256": "473997381f98d04868ed31ee330f6114854d17fcfa60a206fc355b3b21de9fb3",
+    "tasks": 2,
+    "test_grids": 2,
+    "baseline": {
+      "pass_at_1": 0,
+      "pass_at_2": 0,
+      "unique_attempt_2_hits": 0,
+      "fallback": 2
+    },
+    "candidate": {
+      "pass_at_1": 2,
+      "pass_at_2": 2,
+      "unique_attempt_2_hits": 0,
+      "fallback": 0
+    },
+    "delta": {
+      "pass_at_1": 2,
+      "pass_at_2": 2,
+      "unique_attempt_2_hits": 0,
+      "fallback": -2,
+      "regressions": 0
+    },
+    "independent_row": {
+      "tasks": 1,
+      "test_grids": 1,
+      "pass_at_1_delta": 1,
+      "pass_at_2_delta": 1,
+      "regressions": 0,
+      "previous_cohort_overlap": false
+    },
+    "discovery_row": {
+      "tasks": 1,
+      "test_grids": 1,
+      "pass_at_1_delta": 1,
+      "pass_at_2_delta": 1,
+      "previous_cohort_overlap": true
+    },
+    "formal_preregistration": false,
+    "predictions_frozen_before_solution_scoring": true,
+    "overlap_audit_timing": "after scoring",
+    "exposure": "unknown"
+  },
+  "public_teacher_loo": {
+    "teacher_pairs": 10,
+    "exact_reproductions": 5,
+    "safely_rejected_ambiguous_or_unobserved": 5,
+    "wrong_candidate_outputs": 0
+  },
+  "public_evaluation_reproduction": {
+    "tasks": 120,
+    "test_grids": 172,
+    "runtime_seconds": 457.391,
+    "new_family_predictions": 0,
+    "fallback_grids": 2,
+    "submission_sha256": "b37baf6437c3cda5552d6f90e8255f8c3568195a5d514ea9982280703a68c299",
+    "solutions_read": false
+  },
+  "validation": {
+    "targeted_tests": "PASS: 34 passed in 11.95s across test_ARC2Kaggle提出.py, test_Kaggle提出安全ゲート.py, test_HDS候補収集.py",
+    "ruff": "PASS",
+    "submission_format": "PASS in both same-input runs"
+  },
+  "learning_machine_causality": {
+    "A_B_C_D": "NOT_ESTABLISHED",
+    "evidence": "HDS selected the new family on one official test grid; no causal ablation of HDS judgement or online updates was run."
+  },
+  "official_score_state": {
+    "last_observation_utc": "2026-10-29T12:43:31.448089Z",
+    "history_evidence_path": "運用/証拠/ARC26-UNIFIED/official-history-20261029T124331Z.json",
+    "history_evidence_sha256": "ca947b08e373d5714511242f43d9e525bee9cc5ed2ed48faa29659414fd4dfc0",
+    "latest_submission_id": "57745630",
+    "latest_status": "COMPLETE",
+    "latest_public_score": 0.0,
+    "previous_best_public_score": 0.83,
+    "new_submission_performed": false,
+    "next_24_hour_gate_utc_from_last_observation": "2026-10-29T18:22:38.277000Z",
+    "recheck_before_any_submission": true
+  },
+  "decision": {
+    "local_training_delta": "positive on 2 grids, with exposure unknown and no formal preregistration",
+    "official_score_gain": "NOT_ESTABLISHED",
+    "retain_for_private_kaggle_run": true,
+    "limitations": [
+      "The independent public-training denominator is one grid.",
+      "The sole changed official test prediction has identical attempt_1 and attempt_2, so unique attempt-2 contribution is zero.",
+      "Official test correctness is unknown until Kaggle returns a numeric score.",
+      "HDS A/B/C/D learning causality remains unmeasured."
+    ]
+  }
+}
