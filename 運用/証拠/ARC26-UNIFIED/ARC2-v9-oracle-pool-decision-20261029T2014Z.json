@@ -1,0 +1,72 @@
+{
+  "schema": "arc2-v9-oracle-pool-decision-v1",
+  "track": "ARC2",
+  "run_id": "ARC2-V9-RUNTIME-POOL-ORACLE-20261029T1946Z",
+  "observed_at_utc": "2026-10-29T20:14:49.936090+00:00",
+  "purpose": "Distinguish train-exact symbolic candidate generation from selecting among its accepted runtime pool on a previously-opened public-training development cohort.",
+  "cohort": {
+    "tasks": 100,
+    "test_grids": 105,
+    "sha256": "99855a3a9a3ef494931337b405cab6f82da89a81fa2083843223464f87068f81",
+    "exposure": "exposure_unknown",
+    "fresh_validation": false,
+    "labels_previously_opened_for_prior_postscore": "true"
+  },
+  "prediction_freeze": {
+    "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-oracle-pool-adapter32-20261029T1946Z/freeze.json",
+    "sha256": "4d75379602a5e3e2ca7c9e17751de30425ae03bb011eb78c6f1dd3958b47c4bd",
+    "freeze_commit": "0ef286a0df3da1d7fffab43f27aca5e86f33dc83",
+    "baseline_pool_sha256": "7ac1b017b751300354a9a0bae13b5658fd83fade5c46b9a851fde76ee16d8456",
+    "candidate_pool_sha256": "b17370164697b3d92e75d8543bb9bbaca4a9af5990a8335338314313c135f19d",
+    "generator_candidate_source_sha256": {
+      "接続/ARC2/arc_proof_search.py": "86e74ee68b0fe5d5d05176c44f6b001d2e601a8673c70fbc465ecf95e75617e1",
+      "接続/ARC2/汎用プログラム帰納候補.py": "b868287fddcf065d6501b8699301f911e0549b4b73657fe007fc590a37577728"
+    }
+  },
+  "oracle_metrics": {
+    "test_grids": 105,
+    "baseline_pool_oracle_hits": 5,
+    "candidate_pool_oracle_hits": 5,
+    "baseline_first_two_hits": 5,
+    "candidate_first_two_hits": 5,
+    "baseline_selection_misses": 0,
+    "candidate_selection_misses": 0,
+    "baseline_not_in_runtime_pool": 100,
+    "candidate_not_in_runtime_pool": 100,
+    "pool_oracle_gain": 0,
+    "pool_oracle_loss": 0,
+    "first_two_gain": 0,
+    "first_two_loss": 0
+  },
+  "pool_size_diagnostics": {
+    "baseline": {
+      "accepted_program_min": 0,
+      "accepted_program_median": 0,
+      "accepted_program_max": 1
+    },
+    "candidate": {
+      "accepted_program_min": 0,
+      "accepted_program_median": 0,
+      "accepted_program_max": 22
+    },
+    "candidate_added_distinct_prediction_grids": 1,
+    "candidate_changed_first_two_grids": 1
+  },
+  "decision": "GENERATION_COVERAGE_LIMITATION_ON_THIS_COHORT; no evidence of a selection miss within accepted generic pool. The candidate generator expands program counts, but does not increase oracle hits.",
+  "interpretation_limits": [
+    "Exploratory postscore on previously opened cohort, not an independent validation or official score.",
+    "“Not in accepted pool” identifies a generator/representation coverage problem at the runtime interface; it does not prove no larger symbolic grammar could express the answer.",
+    "Candidate exact pool max is below cap 32, so the adapter cap did not truncate the observed exact pools on these 105 grids."
+  ],
+  "official_submission_performed": false,
+  "official_latest": {
+    "submission_id": 57745630,
+    "status": "SubmissionStatus.COMPLETE",
+    "public_score": 0.0,
+    "best_public_score": 0.83,
+    "history_path": "運用/証拠/ARC26-UNIFIED/official-history-20261029T2014Z.json",
+    "history_sha256": "336db06234387d4e00310e63f5839e9860184a3af11610d29bd82fffe560ec11",
+    "quota_checked": false
+  },
+  "next_action": "Read current three-point set and repository state again, then preregister a disjoint remainder cohort before evaluating a materially different generic generator or legally sourced public model. Keep candidate changes quarantined until positive fresh-cohort gain and zero regressions."
+}

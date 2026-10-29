@@ -1,0 +1,1085 @@
+{
+  "schema": "arc2-runtime-pool-oracle-coverage-v1",
+  "track": "ARC2",
+  "scored_at_utc": "2026-10-29T20:13:00.086449+00:00",
+  "diagnostic_scope": "Offline public-training labels after prediction freeze; previously opened/exposure_unknown development cohort; exploratory only; not a fresh validation or official score.",
+  "labels_read_after_this_pool_freeze": true,
+  "evaluation_labels_read": false,
+  "runtime_received_labels": false,
+  "cohort_input_sha256": "99855a3a9a3ef494931337b405cab6f82da89a81fa2083843223464f87068f81",
+  "cohort_tasks": 100,
+  "test_grids": 105,
+  "baseline_pool_sha256": "7ac1b017b751300354a9a0bae13b5658fd83fade5c46b9a851fde76ee16d8456",
+  "candidate_pool_sha256": "b17370164697b3d92e75d8543bb9bbaca4a9af5990a8335338314313c135f19d",
+  "prereg_sha256": "dc0a27dccf9837808637a6a9f90c9c11700a1c820cf74fb4fd1a933c89b5cc17",
+  "training_challenges_sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+  "training_solutions_sha256": "9f07a38bd25af5e83aa5bf85c5cb1a1fefdb30f6a755256fa65429e697ca97f9",
+  "candidate_cap": 32,
+  "metrics": {
+    "test_grids": 105,
+    "baseline_pool_oracle_hits": 5,
+    "candidate_pool_oracle_hits": 5,
+    "baseline_first_two_hits": 5,
+    "candidate_first_two_hits": 5,
+    "baseline_selection_misses": 0,
+    "candidate_selection_misses": 0,
+    "baseline_not_in_runtime_pool": 100,
+    "candidate_not_in_runtime_pool": 100,
+    "pool_oracle_gain": 0,
+    "pool_oracle_loss": 0,
+    "first_two_gain": 0,
+    "first_two_loss": 0
+  },
+  "per_grid": [
+    {
+      "runtime_alias": "fresh_001",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_002",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_003",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_004",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_005",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_006",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_007",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_008",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_008",
+      "test_index": 1,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_009",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_010",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_011",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_012",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_013",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_014",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": true,
+      "candidate_pool_oracle_hit": true,
+      "baseline_first_two_hit": true,
+      "candidate_first_two_hit": true,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_015",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_016",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": true,
+      "candidate_pool_oracle_hit": true,
+      "baseline_first_two_hit": true,
+      "candidate_first_two_hit": true,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_017",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": true,
+      "candidate_pool_oracle_hit": true,
+      "baseline_first_two_hit": true,
+      "candidate_first_two_hit": true,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_018",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_019",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_020",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_021",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_022",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_023",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_024",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_025",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_026",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_027",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_028",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_029",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_030",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_031",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_032",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_033",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_034",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_035",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_036",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_036",
+      "test_index": 1,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_037",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_038",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_039",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_040",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_041",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_042",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_043",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_044",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_045",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_046",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_047",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_048",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_049",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_050",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_051",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_052",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_053",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_054",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_055",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_056",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_057",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_058",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_059",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_060",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_061",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_062",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": true,
+      "candidate_pool_oracle_hit": true,
+      "baseline_first_two_hit": true,
+      "candidate_first_two_hit": true,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_063",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_064",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_065",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": true,
+      "candidate_pool_oracle_hit": true,
+      "baseline_first_two_hit": true,
+      "candidate_first_two_hit": true,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_066",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_066",
+      "test_index": 1,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_067",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_068",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_069",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_070",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_071",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_072",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_072",
+      "test_index": 1,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_073",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_074",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_075",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_076",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_077",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_078",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_079",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_080",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_081",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_082",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_083",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_084",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_085",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_086",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_087",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_088",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_089",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_090",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_091",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_092",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_093",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_094",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_095",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_096",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_097",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_098",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_098",
+      "test_index": 1,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_099",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    },
+    {
+      "runtime_alias": "fresh_100",
+      "test_index": 0,
+      "baseline_pool_oracle_hit": false,
+      "candidate_pool_oracle_hit": false,
+      "baseline_first_two_hit": false,
+      "candidate_first_two_hit": false,
+      "baseline_selection_miss": false,
+      "candidate_selection_miss": false
+    }
+  ]
+}

@@ -2,14 +2,14 @@
   "track": "ARC2",
   "instruction_id": "ARC26-UNIFIED-v9.0",
   "run_id": "ARC2-V9-BOUNDED-COMPOSITION-20261029T1734Z",
-  "checkpoint_created_at_utc": "2026-10-29T20:12:11.451011+00:00",
-  "phase": "PREDICTION_POOL_FROZEN_LABEL_SCORING_PENDING",
+  "checkpoint_created_at_utc": "2026-10-29T20:14:49.936090+00:00",
+  "phase": "ORACLE_POOL_DIAGNOSTIC_COMPLETE",
   "process_status": "BOUNDED_COMPOSITION_REJECTED_ZERO_DELTA_ON_PREREGISTERED_COHORT",
-  "source_revision": "2fafe345495711d18bf1cb94d32bb0c955552c9f",
+  "source_revision": "0ef286a0df3da1d7fffab43f27aca5e86f33dc83",
   "evidence_path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-decision-20261029T1908Z.json",
   "evidence_sha256": "87a29d4d583347690b69a317943243a9249391ba81b95ede0c3afeeb081acc6e",
-  "official_history_path": "運用/証拠/ARC26-UNIFIED/official-history-20261029T1926Z.json",
-  "official_history_sha256": "e5c791fa92bec31eeb92cdeec7053238a3d6272424af7eb2ebe0f4b3864a4b8a",
+  "official_history_path": "運用/証拠/ARC26-UNIFIED/official-history-20261029T2014Z.json",
+  "official_history_sha256": "336db06234387d4e00310e63f5839e9860184a3af11610d29bd82fffe560ec11",
   "official_submission_id": 57745630,
   "official_status": "COMPLETE",
   "official_score": 0.0,
@@ -25,7 +25,9 @@
     "runtime_ratio": 2.4030653839882605
   },
   "HDS_A_B_C_D": "NOT_ESTABLISHED",
-  "next_action": "Push scorer newline fix and updated freeze hash, then execute the independent offline scorer. All runtime pools remain frozen; do not use this cohort as fresh validation.",
+  "next_action": "Read current three-point set and repository state again, then preregister a disjoint remainder cohort before evaluating a materially different generic generator or legally sourced public model. Keep candidate changes quarantined until positive fresh-cohort gain and zero regressions.",
   "prediction_freeze_path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-oracle-pool-adapter32-20261029T1946Z/freeze.json",
-  "prediction_freeze_sha256": "4d75379602a5e3e2ca7c9e17751de30425ae03bb011eb78c6f1dd3958b47c4bd"
+  "prediction_freeze_sha256": "4d75379602a5e3e2ca7c9e17751de30425ae03bb011eb78c6f1dd3958b47c4bd",
+  "decision_path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-oracle-pool-decision-20261029T2014Z.json",
+  "decision_sha256": "727fecded3807d00702ec99d94597adf5ec9194aecd5fb1465260a554d55ca56"
 }
