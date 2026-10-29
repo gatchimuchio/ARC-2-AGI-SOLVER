@@ -1,0 +1,60 @@
+{
+  "schema": "arc2-v9-public-training-candidate-result-v1",
+  "run_id": "ARC2-V9-PROOF-SEARCH-CONFIRM-20261029",
+  "observed_at_utc": "2026-10-29T04:57:18Z",
+  "track": "ARC2",
+  "source_commit": "26dddc13241f8d0346488acdb45f2cfd484e1228",
+  "preregistration": {
+    "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-proof-search-confirm-prereg-20261029.json",
+    "sha256": "3a7059d57b80efc13fbd1c033fdd6a060535de73831d2872583276ea533daeaa"
+  },
+  "prediction_freeze": {
+    "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-proof-search-confirm-prediction-freeze-20261029.json",
+    "sha256": "a3d506e85849762746e15266c4853bb6b289c7fab7112650678a2fea96fbba28",
+    "submission_sha256": "077bb1091fbbe9b83999f9b3e6498ee6fa786a63171bfd5d0b40c3735a3f831d",
+    "generator_diagnostics_sha256": "dcece92e4fd09857c2242777a454e0fd79f40efcc2e9759cc6d7bb796fb46d80"
+  },
+  "postscore": {
+    "scorer_path": "道具/ARC2/proof_search公開training採点.py",
+    "scorer_sha256": "4a9f314285139f2f55e5833134ede89dbf651f2d28c83adb51e1d5f4faa3fa74",
+    "raw_scorer_output_path": "%TEMP%/arc2-v9-proof-search-confirm-20261029/postscore.json",
+    "raw_scorer_output_sha256": "2e2cad39ead8be5944caf7603d7073186ebc5d58b75f8c7565867a908ad2db59",
+    "public_training_labels_read_after_freeze": true,
+    "exposure": "exposure_unknown",
+    "tasks": 100,
+    "test_grids": 100,
+    "candidate": {
+      "exact_fit_programs": 5,
+      "nonfallback_pass_at_1_grids": 4,
+      "nonfallback_pass_at_2_grids": 4,
+      "unique_attempt_2_hits": 0,
+      "fallback_first_slots": 95,
+      "fallback_second_slots": 100
+    },
+    "baseline": {
+      "nonfallback_pass_at_1_grids": 2,
+      "nonfallback_pass_at_2_grids": 4,
+      "unique_attempt_2_hits": 2,
+      "fallback_first_slots": 96,
+      "fallback_second_slots": 66
+    },
+    "delta_candidate_minus_baseline": {
+      "nonfallback_pass_at_1_grids": 2,
+      "nonfallback_pass_at_2_grids": 0,
+      "unique_attempt_2_hits": -2
+    },
+    "coverage_changes": {
+      "candidate_added_hit": {"alias": "anon_089", "test_index": 0},
+      "baseline_hit_lost": {"alias": "anon_030", "test_index": 0}
+    }
+  },
+  "decision": {
+    "status": "REJECTED_STANDALONE_NO_PASS_AT_2_GAIN",
+    "reason": "pass@1は2格子増えたが、pass@2は4/100で差0。既存正答1件を失い、別の1件を得たため、事前登録条件を満たさない。",
+    "runtime_adopted": false,
+    "official_submission_performed": false,
+    "official_score_claimed": false,
+    "confirm_cohort_reusable_for_future_confirmation": false
+  },
+  "next_work": "固定confirmは開封済みとして閉じる。別の未開封集合を使う新規事前登録なしにこの100格子で候補選択を調整しない。"
+}
