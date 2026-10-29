@@ -1,0 +1,11 @@
+{
+  "schema": "arc2-oracle-pool-run-interruption-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-29T19:47:15.288703+00:00",
+  "process_exit": "INTERRUPTED_BY_OPERATOR_CTRL_C",
+  "official_submission_performed": false,
+  "solutions_read": false,
+  "baseline_output_retained_but_not_used_for_comparison": true,
+  "candidate_output_created": false,
+  "reason": "Initial diagnostic redundantly called synthesize twice per task and scored predictions over the full synthesis pool despite the question being runtime cap (32) versus first-two selection. Replaced by one synthesis call and only the accepted 32 programs, with per-task progress."
+}

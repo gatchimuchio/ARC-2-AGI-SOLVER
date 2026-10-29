@@ -1,0 +1,31 @@
+{
+  "track": "ARC2",
+  "instruction_id": "ARC26-UNIFIED-v9.0",
+  "run_id": "ARC2-V9-BOUNDED-COMPOSITION-20261029T1734Z",
+  "checkpoint_created_at_utc": "2026-10-29T20:10:04.870514+00:00",
+  "phase": "PREDICTION_POOL_FROZEN_LABEL_SCORING_PENDING",
+  "process_status": "BOUNDED_COMPOSITION_REJECTED_ZERO_DELTA_ON_PREREGISTERED_COHORT",
+  "source_revision": "2fafe345495711d18bf1cb94d32bb0c955552c9f",
+  "evidence_path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-decision-20261029T1908Z.json",
+  "evidence_sha256": "87a29d4d583347690b69a317943243a9249391ba81b95ede0c3afeeb081acc6e",
+  "official_history_path": "運用/証拠/ARC26-UNIFIED/official-history-20261029T1926Z.json",
+  "official_history_sha256": "e5c791fa92bec31eeb92cdeec7053238a3d6272424af7eb2ebe0f4b3864a4b8a",
+  "official_submission_id": 57745630,
+  "official_status": "COMPLETE",
+  "official_score": 0.0,
+  "best_public_score": 0.83,
+  "official_submission_performed": false,
+  "candidate_delta": {
+    "fresh_holdout_pass_at_1": 0,
+    "fresh_holdout_model_only_pass_at_2": 0,
+    "unique_attempt2_hits": 0,
+    "correct_grids_lost": 0,
+    "fallback_first_slots": 0,
+    "fallback_second_slots": 9,
+    "runtime_ratio": 2.4030653839882605
+  },
+  "HDS_A_B_C_D": "NOT_ESTABLISHED",
+  "next_action": "Commit and push the frozen baseline/candidate runtime-cap-32 prediction pools, then run the separate offline scorer against public training solutions. Preserve exposure_unknown and exploratory-only status; no official submission or runtime labels.",
+  "prediction_freeze_path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-oracle-pool-adapter32-20261029T1946Z/freeze.json",
+  "prediction_freeze_sha256": "3ccd457dfe17e5d778b64db20b63c18016bf1bd23ceca10029f2ad09992b7a2c"
+}

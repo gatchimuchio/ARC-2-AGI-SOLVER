@@ -1,0 +1,45 @@
+{
+  "schema": "arc2-v9-runtime-pool-prediction-freeze-v1",
+  "track": "ARC2",
+  "created_at_utc": "2026-10-29T20:10:04.870514+00:00",
+  "run_id": "ARC2-V9-RUNTIME-POOL-ORACLE-20261029T1946Z",
+  "purpose": "Freeze baseline and bounded-composition generic symbolic prediction pools before offline label comparison. This is an oracle diagnostic on a previously-scored development cohort, not fresh validation.",
+  "cohort_relationship": "previously-scored, exposure_unknown, exploratory only",
+  "cohort_input_path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-fresh100-freeze-20261029T1905Z/challenge_input.json",
+  "cohort_input_sha256": "99855a3a9a3ef494931337b405cab6f82da89a81fa2083843223464f87068f81",
+  "tasks": 100,
+  "test_grids": 105,
+  "runtime_aliases_only": true,
+  "test_outputs_passed_to_generation": false,
+  "solutions_read_before_freeze": false,
+  "evaluation_labels_read": false,
+  "official_submission_performed": false,
+  "candidate_cap": 32,
+  "selected_candidates": "first two distinct predictions by existing program rank",
+  "versions": {
+    "baseline": {
+      "pool_sha256": "7ac1b017b751300354a9a0bae13b5658fd83fade5c46b9a851fde76ee16d8456",
+      "rows_sha256": "464cd57c71be16d6c85f26b07e84fb18b58d806b89c3458b083115db42321552",
+      "source_head": "2fafe345495711d18bf1cb94d32bb0c955552c9f",
+      "source_sha256": {
+        "接続/ARC2/arc_proof_search.py": "4d84129a36286986ea2117bcc70c0f48d44f3139f8161add96b370536b28b5e2",
+        "接続/ARC2/汎用プログラム帰納候補.py": "d3a99d7cda68b0ab01c5f252d350d58ce35e2349fba142f2bc31d090abfb55b3"
+      },
+      "elapsed_seconds": 68.424
+    },
+    "candidate": {
+      "pool_sha256": "b17370164697b3d92e75d8543bb9bbaca4a9af5990a8335338314313c135f19d",
+      "rows_sha256": "5dfa7201116b905dc0aafea63e375092b31577a10892f4dab5365f48a692033c",
+      "source_head": "e3ed6f11bea35d03597d36a05c05585f42e46888",
+      "source_sha256": {
+        "接続/ARC2/arc_proof_search.py": "86e74ee68b0fe5d5d05176c44f6b001d2e601a8673c70fbc465ecf95e75617e1",
+        "接続/ARC2/汎用プログラム帰納候補.py": "b868287fddcf065d6501b8699301f911e0549b4b73657fe007fc590a37577728"
+      },
+      "elapsed_seconds": 1248.493
+    }
+  },
+  "generator_script_sha256": "4753d5a6eef2ada2ba04b6a76c82aa55095a16dca016657a7a7339184031985a",
+  "scorer_script_sha256": "22048f3e83aba7ee69c173355ea23fa5b1c9e30330dd226828d2923d41a1167e",
+  "prediction_hashing": "SHA256 of canonical compact JSON nested integer grids; grid values are not stored",
+  "initial_diagnostic_interrupted": "ARC2-v9-oracle-pool-20261029T1926Z/interrupted-run.json; caused by duplicate synthesize call and unnecessary full-pool evaluation; no labels were read"
+}
