@@ -1,0 +1,596 @@
+{
+  "schema": "arc2-v9-symbolic-program-integration-preregistration-v1",
+  "run_id": "ARC2-v9-symbolic-program-integration-20261029T2222Z",
+  "registered_at_utc": "2026-10-29T22:22:14Z",
+  "purpose": "Train-exact generic symbolic program induction with bounded reducer-to-transform compositions and a distinct second attempt, integrated as a separate HDS candidate family.",
+  "governing_documents": [
+    {
+      "path": "運用/ARC26-UNIFIED/v9_0/ARC2/01_ARC2_仕様書_v9_20261029.md",
+      "sha256": "27b2d1ed8b53984265a22ad32889fc176896f080b0150a138cfb9c6945c26a38"
+    },
+    {
+      "path": "運用/ARC26-UNIFIED/v9_0/ARC2/02_ARC2_工程表_v9_20261029.md",
+      "sha256": "c8ae679aa75eab249e49610735ebb389ea430e75b00adedcc03b293aac674da0"
+    },
+    {
+      "path": "運用/ARC26-UNIFIED/v9_0/ARC2/03_ARC2_Codex指示書_v9_20261029.md",
+      "sha256": "04386cbcb544f77eccbae676314d1114891bd6b347201f1bb32666b5b952144e"
+    }
+  ],
+  "baseline": {
+    "git_commit": "56490093d7faa534de42d300b2abab8c472c45c4",
+    "description": "Current main candidate stack before symbolic program induction integration."
+  },
+  "candidate": {
+    "parent_commit": "56490093d7faa534de42d300b2abab8c472c45c4",
+    "worktree": "C:/Users/ohira/AppData/Local/Temp/arc2-v9-generic-integration-main-20261030T2205Z",
+    "modified_files_sha256": {
+      "接続/ARC2/HDS接続.py": "db7f32ea20d5fe723d53a771dbd54f1d4de74c660089770743b985ea34bf0ef6",
+      "接続/ARC2/arc_proof_search.py": "86e74ee68b0fe5d5d05176c44f6b001d2e601a8673c70fbc465ecf95e75617e1",
+      "接続/ARC2/汎用プログラム帰納候補.py": "b868287fddcf065d6501b8699301f911e0549b4b73657fe007fc590a37577728",
+      "検証/test_ARC2_汎用プログラム帰納候補.py": "59b3891fe497d3da40713c598898f69e3a3206243ce20a21bbbfd8d8c5dbbc39"
+    },
+    "test_status": "targeted test previously passed 6/6; fresh rerun is part of this evaluation unit."
+  },
+  "cohort": {
+    "source": "public ARC-AGI-2 training only",
+    "task_count": 100,
+    "test_grid_count": 111,
+    "selection": "Among 1000 public training tasks, exclude direct-ID intersections and exact content-signature matches against prior registered holdout/cohort evidence, then order remaining tasks by SHA256(seed + NUL + public task ID).",
+    "seed": "ARC2-v9-symbolic-program-integration-20261029T2222Z",
+    "exclusion_evidence_file_count": 83,
+    "direct_prior_task_ids_unique": 166,
+    "alias_cohort_task_ids_unique": 430,
+    "union_excluded_task_ids": 596,
+    "remaining_pool": 404,
+    "selected_public_training_task_ids": [
+      "4b6b68e5",
+      "ac605cbb",
+      "caa06a1f",
+      "baf41dbf",
+      "ded97339",
+      "753ea09b",
+      "1e5d6875",
+      "e1d2900e",
+      "1d398264",
+      "f9a67cb5",
+      "45bbe264",
+      "aaecdb9a",
+      "3391f8c0",
+      "b7955b3c",
+      "b7999b51",
+      "82819916",
+      "39a8645d",
+      "0c786b71",
+      "973e499e",
+      "afe3afe9",
+      "a644e277",
+      "c9f8e694",
+      "c6e1b8da",
+      "b942fd60",
+      "81c0276b",
+      "af726779",
+      "be03b35f",
+      "84db8fc4",
+      "e45ef808",
+      "103eff5b",
+      "212895b5",
+      "5d588b4d",
+      "2de01db2",
+      "2546ccf6",
+      "d6e50e54",
+      "67a3c6ac",
+      "a406ac07",
+      "99b1bc43",
+      "12997ef3",
+      "cb227835",
+      "dce56571",
+      "b6afb2da",
+      "05a7bcf2",
+      "3eda0437",
+      "72ca375d",
+      "2a28add5",
+      "e41c6fd3",
+      "17829a00",
+      "230f2e48",
+      "00d62c1b",
+      "e40b9e2f",
+      "1c786137",
+      "d0f5fe59",
+      "6c434453",
+      "e26a3af2",
+      "18447a8d",
+      "d687bc17",
+      "50c07299",
+      "9b365c51",
+      "1b60fb0c",
+      "73ccf9c2",
+      "25e02866",
+      "9edfc990",
+      "bda2d7a6",
+      "0962bcdd",
+      "ea786f4a",
+      "08ed6ac7",
+      "d255d7a7",
+      "25d487eb",
+      "1caeab9d",
+      "6d75e8bb",
+      "2f0c5170",
+      "44d8ac46",
+      "3cd86f4f",
+      "34b99a2b",
+      "b782dc8a",
+      "c1990cce",
+      "fcb5c309",
+      "b548a754",
+      "b7249182",
+      "1c0d0a4b",
+      "b7f8a4d8",
+      "dc2e9a9d",
+      "1b8318e3",
+      "f15e1fac",
+      "3d588dc9",
+      "e5790162",
+      "50f325b5",
+      "6165ea8f",
+      "79369cc6",
+      "e7a25a18",
+      "1efba499",
+      "695367ec",
+      "c8f0f002",
+      "c9e6f938",
+      "67385a82",
+      "0d87d2a6",
+      "67c52801",
+      "06df4c85",
+      "5daaa586"
+    ],
+    "exclusion_evidence_manifest": [
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-candidate-priority-v28-independent-20261026.json",
+        "sha256": "8a04f4f624ec26661851936b381da7cf4e244fb64cc4d3e0c81de41f570f1b0d",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-cell-conditional-tree/public_results/prepared20-20261026T2332Z.cohort.json",
+        "sha256": "0d8e6b47d65bc264de5a68757b4fb61a48535d15ef00a22772e17f456e832073",
+        "matched_public_task_ids": 20
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-cell-conditional-tree/public_results/study20-20261026T2332Z.cohort.json",
+        "sha256": "0d8e6b47d65bc264de5a68757b4fb61a48535d15ef00a22772e17f456e832073",
+        "matched_public_task_ids": 20
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-cell-conditional-tree-rowcol/public_results/prepared20-20261027T0005Z.cohort.json",
+        "sha256": "f4ccbe47c84d0807f61a246d4622e3d46d5580e086bcb6d346195d06f84be5ba",
+        "matched_public_task_ids": 20
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-cell-conditional-tree-rowcol/public_results/study20-20261027T0005Z.cohort.json",
+        "sha256": "f4ccbe47c84d0807f61a246d4622e3d46d5580e086bcb6d346195d06f84be5ba",
+        "matched_public_task_ids": 20
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-cell-conditional-tree-rowcol-support-prune-lowshot-min2/public_results/prepared20-20261027T0039Z.cohort.json",
+        "sha256": "3d12810ec92ef855802b6b559bcd7613a0a6868fdc469e09b58dd8fe794e6376",
+        "matched_public_task_ids": 20
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-cell-conditional-tree-rowcol-support-prune-lowshot-min2/public_results/study20-20261027T0039Z.cohort.json",
+        "sha256": "3d12810ec92ef855802b6b559bcd7613a0a6868fdc469e09b58dd8fe794e6376",
+        "matched_public_task_ids": 20
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-feature-predicate-transform/public_results/prepared20-20261026T2307Z.cohort.json",
+        "sha256": "9399d0923b3cb5dc4ce06586a2d29b85bbf4292cbe9a8c874609654318f372de",
+        "matched_public_task_ids": 20
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-feature-predicate-transform/public_results/study20-20261026T2314Z.cohort.json",
+        "sha256": "9399d0923b3cb5dc4ce06586a2d29b85bbf4292cbe9a8c874609654318f372de",
+        "matched_public_task_ids": 20
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-P3-full-worker-lowshot-adaptive/public_results/study20-20261027T0124Z.cohort.json",
+        "sha256": "b1bb3b5aaffb33ba7b07c6254713bb81f421e55f8fa1acfed19fcca62213a39d",
+        "matched_public_task_ids": 21
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v61-two-slot-portfolio/evaluation_results/v2-20task-20261026T2251Z.cohort.json",
+        "sha256": "deabb338f8f5fea4b581f158f058cdfdf23b40eccba4914b10cb42814e9fc9a4",
+        "matched_public_task_ids": 20
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v61-two-slot-portfolio-v3/evaluation_results/v3-20task-20261026T2307Z.cohort.json",
+        "sha256": "eb77af7f46886b85b6ea3761b9510c4df9dc51223efa1055d511bab96b663e2c",
+        "matched_public_task_ids": 20
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v7-additional-training-cohort-20261028.json",
+        "sha256": "51d018a6989b011a5146b2310c2a597076aed055b4c272854aafb16e637dc879",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v7-memory-loo-cohort-20261028.json",
+        "sha256": "80c631ab7154079f2504743347ab5547b24329b54f277285ed14f5d57496523b",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v7-training-holdout-disjoint-20261028.json",
+        "sha256": "d33a922792a6c2fc1551250f9d765c0c10f441c6fed563c0326d2c3f7c003569",
+        "matched_public_task_ids": 100
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v7-training-holdout-split-20261028.json",
+        "sha256": "713625c7674d90901355fd66b4333ac8e15d9d06a8a204aa76f8f86a9e130dc0",
+        "matched_public_task_ids": 100
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v7-varc-holdout-exposure-audit-20261028.json",
+        "sha256": "bf6071eb7352dd0afbfbc6ec1bd40558e07a2c5414bb548c4c39e0aad819ccda",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v7-varc-pinned-assets-review-20261028.json",
+        "sha256": "a717c6f36ed2cdc4fcb0e3b1b011bdabfdc89c796822cb2bcb5462de354f77aa",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v7-varc-runtime-boundary-review-20261028.json",
+        "sha256": "8b2b0e5c537b3f00ededf0c6948b6ccdc9f199599245d00aa8bce66581fde6a5",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-decision-20261029T1908Z.json",
+        "sha256": "87a29d4d583347690b69a317943243a9249391ba81b95ede0c3afeeb081acc6e",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-fixeddev-freeze-20261029T1832Z/baseline_audit.json",
+        "sha256": "4c0824f2583e9363e1b26d75c2f2d09a6625f21fb32a9568848bc6c2cc3deee7",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-fixeddev-freeze-20261029T1832Z/baseline_submission.json",
+        "sha256": "1049a34c77291fc63a2cb51b85aec977e1b4263169b3971158d869038352614d",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-fixeddev-freeze-20261029T1832Z/candidate_audit.json",
+        "sha256": "0ccf8593e8f5d98379a62ec32fca127c6e6ef2a62e20c780efbeb70fc82a574f",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-fixeddev-freeze-20261029T1832Z/candidate_diagnostics.json",
+        "sha256": "c0e92ff2c4d070b663410f89644542a30db673c4c4e492c7ed6e6529e0b1d33c",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-fixeddev-freeze-20261029T1832Z/candidate_submission.json",
+        "sha256": "7023d9612b6a167b4b229e5459ca2f8f26a6589df50faf27a80c1f5056e12e12",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-fixeddev-freeze-20261029T1832Z/cohort.json",
+        "sha256": "3ba33334f89f10c948f477f393ba2b3edf83bc6c5a1a1beaf8fed255f2fb2eb9",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-fixeddev-freeze-20261029T1832Z/freeze.json",
+        "sha256": "127afa11532d38ebc689261fff223e46cdb58d798a61b7672f977e9a25d76b3c",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-fixeddev-freeze-20261029T1832Z/postscore.json",
+        "sha256": "0d4b30fc6227a558d6f0060a4ed8fe3bd4ae349aad2e662d338863fbf0052d88",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-fresh100-freeze-20261029T1905Z/baseline_audit.json",
+        "sha256": "429a6c20da7f5efedb3d747e19d0888cb6fe57f9c64b2c2a44282e9ff56d4796",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-fresh100-freeze-20261029T1905Z/baseline_submission.json",
+        "sha256": "4fb6a77fb14c373f987868ea9567adb3728f7caf2e221057c941bcce28feb2b4",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-fresh100-freeze-20261029T1905Z/candidate_audit.json",
+        "sha256": "48275f598b189cb09261d868ef1680c85e46e56a12780cbddbcad740526ce9f8",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-fresh100-freeze-20261029T1905Z/candidate_diagnostics.json",
+        "sha256": "5625f71755cabb1c612a250850d338e1c6ad64fef95bbb2722c911cf2f2cbc82",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-fresh100-freeze-20261029T1905Z/candidate_repeat_audit.json",
+        "sha256": "1910c91ed7a312dc7432ee98e80b483d4e75ae9131177b61535c10d86edff502",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-fresh100-freeze-20261029T1905Z/candidate_repeat_submission.json",
+        "sha256": "7c3a263618d36eaeb21d84eb68b6bdfa4e54c14bb6c9e1a1d6c94da494021230",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-fresh100-freeze-20261029T1905Z/candidate_submission.json",
+        "sha256": "7c3a263618d36eaeb21d84eb68b6bdfa4e54c14bb6c9e1a1d6c94da494021230",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-fresh100-freeze-20261029T1905Z/challenge_input.json",
+        "sha256": "99855a3a9a3ef494931337b405cab6f82da89a81fa2083843223464f87068f81",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-fresh100-freeze-20261029T1905Z/freeze.json",
+        "sha256": "154658ac49295f62f8655492483ad678d7378034be74ff8ef69c6d6a65afb8f1",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-fresh100-freeze-20261029T1905Z/fresh054_generic_trace.json",
+        "sha256": "16f0c16e2f0fdfc09bc113f717a2edb0be55cdeef148b27f21dd1fe56a9788dd",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-fresh100-freeze-20261029T1905Z/postscore.json",
+        "sha256": "3508f93224c966e0c375f9dde2eef9136e880802fde3c3dc0e4b06ec7656a966",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-input-20261029T1734Z.json",
+        "sha256": "99855a3a9a3ef494931337b405cab6f82da89a81fa2083843223464f87068f81",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-official-eval-20261029T1740Z/baseline_submission.json",
+        "sha256": "b37baf6437c3cda5552d6f90e8255f8c3568195a5d514ea9982280703a68c299",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-official-eval-20261029T1740Z/baseline_submission_audit.json",
+        "sha256": "181aeb0cdcd268dfb983ebcdb04452d449a4a3426f90fbee418cbe67371b717b",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-official-eval-20261029T1740Z/candidate_submission.json",
+        "sha256": "afbe2e9931b4cd58bab701f22fac2bb950fccebc6655a774db5812ea6cdbedfe",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-official-eval-20261029T1740Z/candidate_submission_audit.json",
+        "sha256": "8eb115f7b89c8fc26eafb1da1794e3c04f05ef2f49c24deb9ecb8cffcfe7419d",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-official-eval-20261029T1740Z/manifest.json",
+        "sha256": "a3dea5e06322e0e3e8037405f1f5bfba52b881f2d9f72a3b3bd99d4f2992837c",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-postscore-checkpoint-20261029T1908Z.json",
+        "sha256": "9b66bf6c7f6b91686fb7596bed2fd7ab2fb26de157e41e2e23d97f9104e0a776",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-bounded-composition-prereg-20261029T1734Z.json",
+        "sha256": "dc0a27dccf9837808637a6a9f90c9c11700a1c820cf74fb4fd1a933c89b5cc17",
+        "matched_public_task_ids": 100
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-hds-action-gate-holdout100-input-20261029.json",
+        "sha256": "b0a8a79e366ce117d4da926209cbe9a19a97f5c35f835e04ee21b348d3c29712",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-independent-holdout-prediction-freeze-20261029.json",
+        "sha256": "82bf6dbe0a8137eafae33aa516c015a845f4e8d5e941b2a93b1fee0cd4992baa",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-independent-holdout-prereg-20261029.json",
+        "sha256": "178153cb4ad3dc9c4b074ce075e3389c2985d8bafeb87f64e8dd5752886d39db",
+        "matched_public_task_ids": 100
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-independent-holdout-score-20261029.json",
+        "sha256": "5f8891628eb04593b4f608386ded15a647daf7cbb3257e39986e02330c407624",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-V9-NVARC-EXACTRULES-20261029T2039Z/acceptance.json",
+        "sha256": "85f25c33a66777f074e4656a92fb439e96590ce29d8b150b07e81ac001beda83",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-V9-NVARC-EXACTRULES-20261029T2039Z/baseline-audit.json",
+        "sha256": "9239f1d453fa551b9d18ceb6d33978db346cd35f7265b5de17b09ae81f64c37c",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-V9-NVARC-EXACTRULES-20261029T2039Z/baseline-submission.json",
+        "sha256": "1bbc3b7e425a1a4c4d9c0772b5d344c7ca4e0d02c04d2549c90f0d9aba0e5db9",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-V9-NVARC-EXACTRULES-20261029T2039Z/candidate-audit.json",
+        "sha256": "0072506ae69f62400f8eef3d9cf36443982c427a9e6c440795b6293b955f022d",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-V9-NVARC-EXACTRULES-20261029T2039Z/candidate-submission.json",
+        "sha256": "d9ee4585d9e078c616751548b5905a76fddcc21ca0ca92368c78c3f15525a7c7",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-V9-NVARC-EXACTRULES-20261029T2039Z/candidate_repeat-audit.json",
+        "sha256": "1f945c06ad4574532c1b8998764ed992edb1d455d3018fea847eec6af9f169f3",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-V9-NVARC-EXACTRULES-20261029T2039Z/candidate_repeat-submission.json",
+        "sha256": "d9ee4585d9e078c616751548b5905a76fddcc21ca0ca92368c78c3f15525a7c7",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-V9-NVARC-EXACTRULES-20261029T2039Z/prediction-freeze.json",
+        "sha256": "fc1947f198402428431666cf1f74fd3187ebcebfacb3ddf2a456ad056493547f",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-V9-NVARC-EXACTRULES-20261029T2039Z/promotion-smoke-audit.json",
+        "sha256": "4543ddcd997b749194ba419922b285f01ee6b52f455fc0d20a052776685f3139",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-V9-NVARC-EXACTRULES-20261029T2039Z/promotion-smoke-submission.json",
+        "sha256": "8485519c0755cbaf0c649231d17c1f6456e32d94a5b2fb5ed39fca3c7768595c",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-V9-NVARC-EXACTRULES-20261029T2039Z/promotion.json",
+        "sha256": "b26adf924bef2a6fadff0a6a424e521541445e031630fc249d6b450cee96a55d",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-V9-NVARC-EXACTRULES-20261029T2039Z/score-result.json",
+        "sha256": "78542d914940da4fa7dcd2cd2e916e3cf9054b8f395324d5f02e8ba021e9fc02",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-V9-NVARC-EXACTRULES-20261029T2039Z-input.json",
+        "sha256": "cd14fdf5c4485c1c767e09888d1414c1bece597c74a88f11d7845bcd5a7d0d93",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-V9-NVARC-EXACTRULES-20261029T2039Z-prereg.json",
+        "sha256": "fe87ef4cd4080ec703055d0ccdcd2c847ebf7f85f766abb80c4604368708284d",
+        "matched_public_task_ids": 100
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-nvarc-trm-source-audit-20261029.json",
+        "sha256": "ac29201084113de3f5109bcfebddb3687754ab87c3ab2c92dc7a3d8ac5b0d147",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-oracle-pool-20261029T1926Z/baseline_pool.json",
+        "sha256": "fb5c77def3051fba590594969007645d445adc24175197552f157175893bb930",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-oracle-pool-20261029T1926Z/interrupted-run.json",
+        "sha256": "4274bc279780b2f740e76e36856c6a44b02d2366e644d9dce896e81365737ddc",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-oracle-pool-adapter32-20261029T1946Z/baseline_pool.json",
+        "sha256": "7ac1b017b751300354a9a0bae13b5658fd83fade5c46b9a851fde76ee16d8456",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-oracle-pool-adapter32-20261029T1946Z/baseline_rows.jsonl",
+        "sha256": "464cd57c71be16d6c85f26b07e84fb18b58d806b89c3458b083115db42321552",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-oracle-pool-adapter32-20261029T1946Z/candidate_pool.json",
+        "sha256": "b17370164697b3d92e75d8543bb9bbaca4a9af5990a8335338314313c135f19d",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-oracle-pool-adapter32-20261029T1946Z/candidate_rows.jsonl",
+        "sha256": "5dfa7201116b905dc0aafea63e375092b31577a10892f4dab5365f48a692033c",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-oracle-pool-adapter32-20261029T1946Z/freeze.json",
+        "sha256": "4d75379602a5e3e2ca7c9e17751de30425ae03bb011eb78c6f1dd3958b47c4bd",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-oracle-pool-adapter32-20261029T1946Z/oracle_coverage.json",
+        "sha256": "150ffe3afc42361c2b76df767395a5b60070414a2599d606cdfaeaf6b781a84c",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-oracle-pool-decision-20261029T2014Z.json",
+        "sha256": "7e48892d9ec09265f6cfc40c30763c376da51ca6112671ceeb3f2ec39190aa58",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-varc-holdout-predictions-frozen-20261029.json",
+        "sha256": "84d78ac26c4cdee7616360ffdabf0a89847c39b23ee8db729bf8cf75d4d0cb6c",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-varc-holdout-prereg-20261029.json",
+        "sha256": "12c12fc60bd4b88a85d8b5cc71a78f7e394db81ee91d108d3d1b3eb5590da4a5",
+        "matched_public_task_ids": 100
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-varc-holdout-prereg-addendum-32px-20261029.json",
+        "sha256": "ba7ff6ac5e4fb75507436d5f95ab6ef0fe2bf456fa440f15aa2738cb025e878e",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-varc-holdout-score-20261029.json",
+        "sha256": "83589b216000474c1e1a898db4e9e1c74e50451afd902d791749d3fa01f45b06",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-varc-holdout100-hds-predictions-20261029.json",
+        "sha256": "53a0cb9ac28fe30019120c80b09aeb9c4e373e6405c7c0df1f79ad4705e1a28e",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-varc-holdout100-input-32px-20261029.json",
+        "sha256": "e83add2acbdd6848417a6a5b904a2ee8b96049d74a870cff3b74331bb9986d66",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-varc-holdout100-varc-predictions-32px-20261029.json",
+        "sha256": "d964c099889dbf7002930e60418e2640c7e48c04d28f950997e9b6beddfe24f6",
+        "matched_public_task_ids": 0
+      },
+      {
+        "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-varc-protocol-amendment-20261029.json",
+        "sha256": "af6af9299fbce1837d4a98fdbdeb02ffdce8e7c84f394d15cece8c363c5b045e",
+        "matched_public_task_ids": 0
+      }
+    ],
+    "external_pretraining_exposure": "unknown"
+  },
+  "runtime_input": {
+    "path": "challenge_input.json",
+    "sha256": "2a7d9c9fe5cc3cc4accdc16ac27d4c3a8a5b3fe78062637886a89147afed90cf",
+    "format": "Aliases fresh_001..fresh_100; train input/output pairs and test input only. Public source IDs and test outputs are absent."
+  },
+  "metrics": {
+    "primary": "pass@1 public test grids, candidate minus baseline",
+    "secondary": [
+      "pass@2 grids",
+      "new pass@2 rescued grids",
+      "fallback count",
+      "runtime seconds",
+      "timeout count"
+    ],
+    "acceptance": "Positive paired pass@1 grid delta, zero regressions in test grids; fallback predictions are never counted correct. If no positive delta, retain candidate in quarantine."
+  },
+  "protocol": {
+    "freeze": "Record and hash baseline and candidate predictions/audits before the offline scorer reads public test outputs.",
+    "runtime_data_rule": "Only the frozen challenge_input.json is supplied to solver processes; no public test outputs, evaluation files, task-ID routing, or answer maps.",
+    "execution": "Same Python interpreter, same flags and input bytes; separate worktrees/output directories.",
+    "hardware_limits": "No enforced CPU/RAM quotas on this Windows host; report wall time."
+  },
+  "official_competition_context": {
+    "latest_submission_id": 57783547,
+    "status": "PENDING",
+    "public_score": null,
+    "observed_at_utc": "2026-10-29T22:22:14Z",
+    "source": "Kaggle official submission history read-only API"
+  }
+}

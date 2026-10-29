@@ -1,0 +1,84 @@
+{
+  "schema": "arc2-official-submission-history-snapshot-v1",
+  "competition": "arc-prize-2026-arc-agi-2",
+  "observed_at_utc": "2026-10-29T22:22:14Z",
+  "read_only": true,
+  "latest_submission_id": 57783547,
+  "latest_status": "PENDING",
+  "latest_public_score": null,
+  "submissions": [
+    {
+      "id": 57783547,
+      "date_utc": "2026-10-29T21:53:17.317Z",
+      "status": "PENDING",
+      "public_score": null
+    },
+    {
+      "id": 57745630,
+      "date_utc": "2026-10-28T18:22:38.277Z",
+      "status": "COMPLETE",
+      "public_score": "0.00"
+    },
+    {
+      "id": 57682971,
+      "date_utc": "2026-10-27T00:17:10.770Z",
+      "status": "COMPLETE",
+      "public_score": null
+    },
+    {
+      "id": 57646990,
+      "date_utc": "2026-10-26T00:14:46Z",
+      "status": "COMPLETE",
+      "public_score": null
+    },
+    {
+      "id": 57611018,
+      "date_utc": "2026-10-25T00:13:10.933Z",
+      "status": "COMPLETE",
+      "public_score": "0.00"
+    },
+    {
+      "id": 57576155,
+      "date_utc": "2026-10-24T00:12:39.127Z",
+      "status": "COMPLETE",
+      "public_score": "0.00"
+    },
+    {
+      "id": 57560705,
+      "date_utc": "2026-10-23T12:25:06.577Z",
+      "status": "COMPLETE",
+      "public_score": "0.00"
+    },
+    {
+      "id": 57517199,
+      "date_utc": "2026-10-22T08:35:19.380Z",
+      "status": "COMPLETE",
+      "public_score": null
+    },
+    {
+      "id": 55046979,
+      "date_utc": "2026-07-28T06:19:16.917Z",
+      "status": "COMPLETE",
+      "public_score": "0.83"
+    },
+    {
+      "id": 55038338,
+      "date_utc": "2026-07-27T21:24:23.967Z",
+      "status": "COMPLETE",
+      "public_score": null
+    },
+    {
+      "id": 54709840,
+      "date_utc": "2026-07-15T03:02:55.077Z",
+      "status": "COMPLETE",
+      "public_score": null
+    },
+    {
+      "id": 53996447,
+      "date_utc": "2026-06-24T01:46:52.783Z",
+      "status": "COMPLETE",
+      "public_score": "0.00"
+    }
+  ],
+  "source": "ARC2専用 locked Kaggle Python環境 / kaggle.api.kaggle_api_extended.KaggleApi.competition_submissions"
+}
