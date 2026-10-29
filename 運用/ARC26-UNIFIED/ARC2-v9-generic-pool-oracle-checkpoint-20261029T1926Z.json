@@ -2,7 +2,7 @@
   "track": "ARC2",
   "instruction_id": "ARC26-UNIFIED-v9.0",
   "run_id": "ARC2-V9-BOUNDED-COMPOSITION-20261029T1734Z",
-  "checkpoint_created_at_utc": "2026-10-29T20:10:04.870514+00:00",
+  "checkpoint_created_at_utc": "2026-10-29T20:12:11.451011+00:00",
   "phase": "PREDICTION_POOL_FROZEN_LABEL_SCORING_PENDING",
   "process_status": "BOUNDED_COMPOSITION_REJECTED_ZERO_DELTA_ON_PREREGISTERED_COHORT",
   "source_revision": "2fafe345495711d18bf1cb94d32bb0c955552c9f",
@@ -25,7 +25,7 @@
     "runtime_ratio": 2.4030653839882605
   },
   "HDS_A_B_C_D": "NOT_ESTABLISHED",
-  "next_action": "Commit and push the frozen baseline/candidate runtime-cap-32 prediction pools, then run the separate offline scorer against public training solutions. Preserve exposure_unknown and exploratory-only status; no official submission or runtime labels.",
+  "next_action": "Push scorer newline fix and updated freeze hash, then execute the independent offline scorer. All runtime pools remain frozen; do not use this cohort as fresh validation.",
   "prediction_freeze_path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-oracle-pool-adapter32-20261029T1946Z/freeze.json",
-  "prediction_freeze_sha256": "3ccd457dfe17e5d778b64db20b63c18016bf1bd23ceca10029f2ad09992b7a2c"
+  "prediction_freeze_sha256": "4d75379602a5e3e2ca7c9e17751de30425ae03bb011eb78c6f1dd3958b47c4bd"
 }

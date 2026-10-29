@@ -39,7 +39,7 @@
     }
   },
   "generator_script_sha256": "4753d5a6eef2ada2ba04b6a76c82aa55095a16dca016657a7a7339184031985a",
-  "scorer_script_sha256": "22048f3e83aba7ee69c173355ea23fa5b1c9e30330dd226828d2923d41a1167e",
+  "scorer_script_sha256": "c0c7fdfcbcdcf0572afdb45bbeac5ade6bc434b7dec3395b572d670bca57290c",
   "prediction_hashing": "SHA256 of canonical compact JSON nested integer grids; grid values are not stored",
   "initial_diagnostic_interrupted": "ARC2-v9-oracle-pool-20261029T1926Z/interrupted-run.json; caused by duplicate synthesize call and unnecessary full-pool evaluation; no labels were read"
 }

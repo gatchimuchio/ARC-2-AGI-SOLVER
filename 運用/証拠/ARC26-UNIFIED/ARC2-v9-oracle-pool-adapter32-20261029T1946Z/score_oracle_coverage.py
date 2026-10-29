@@ -56,5 +56,5 @@ out={'schema':'arc2-runtime-pool-oracle-coverage-v1','track':'ARC2','scored_at_u
      'baseline_pool_sha256':sha(bp.read_bytes()),'candidate_pool_sha256':sha(cp.read_bytes()),
      'prereg_sha256':sha(pp.read_bytes()),'training_challenges_sha256':sha(chp.read_bytes()),'training_solutions_sha256':sha(sop.read_bytes()),
      'candidate_cap':32,'metrics':totals,'per_grid':per_grid}
-Path(ns.output).write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\\n',encoding='utf-8',newline='\\n')
+Path(ns.output).write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
 print(json.dumps({'tasks':out['cohort_tasks'],'grids':out['test_grids'],'metrics':totals,'output_sha256':sha(Path(ns.output).read_bytes())},ensure_ascii=False))
