@@ -1,0 +1,31 @@
+{
+  "schema": "arc2-v9-baseline-reproduction-v1",
+  "run_id": "ARC2-V9-PROOF-SEARCH-CONFIRM-20261029",
+  "observed_at_utc": "2026-10-29T04:51:51Z",
+  "track": "ARC2",
+  "experiment_preregistration": {
+    "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-proof-search-confirm-prereg-20261029.json",
+    "sha256": "3a7059d57b80efc13fbd1c033fdd6a060535de73831d2872583276ea533daeaa"
+  },
+  "baseline": {
+    "source_commit": "e2b1e0189bf68bc8fe6ba149b47db96134ce2bfd",
+    "runner": "接続/ARC2/Kaggle提出.py",
+    "command": "python 接続/ARC2/Kaggle提出.py --challenges 運用/証拠/ARC26-UNIFIED/ARC2-v9-candidate-family-confirm100-input-20261029.json --output-dir %TEMP%/arc2-v9-proof-search-baseline-main-e2b1-20261029",
+    "cohort_sha256": "6d430ce94842262e32dedc4b1add48de313dd022f976a3b54bfadfb90f7be9da",
+    "tasks": 100,
+    "test_grids": 100,
+    "fallback_grids": 96,
+    "wall_seconds": 225.891,
+    "submission_sha256": "2173b7ee8d4d72e377da32fbeaaae1e50e350f1bbe22cb6d9534fedc9483ce56",
+    "audit_sha256": "894f08091fd7711e61094e49a4715c24a8a7e5440534605b5b691c7eeb96b1f8",
+    "prior_submission_sha256": "2173b7ee8d4d72e377da32fbeaaae1e50e350f1bbe22cb6d9534fedc9483ce56",
+    "prior_output_byte_identical": true
+  },
+  "label_boundary": {
+    "confirm_test_solutions_opened": false,
+    "runtime_inputs": "公開train入出力とtest inputのみ",
+    "candidate_generator_run": false,
+    "official_submission_performed": false
+  },
+  "decision": "PASS_BASELINE_REPRODUCED; candidate prediction generation remains pending"
+}
