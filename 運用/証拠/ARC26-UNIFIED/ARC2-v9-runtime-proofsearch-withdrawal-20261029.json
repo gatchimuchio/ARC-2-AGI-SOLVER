@@ -1,0 +1,100 @@
+{
+  "schema": "arc2-v9-runtime-proofsearch-withdrawal-v1",
+  "observed_at_utc": "2026-10-29T11:51:01Z",
+  "track": "ARC2",
+  "purpose": "事前登録確認で不採用となった汎用proof-searchをHDS提出時runtimeから外し、同じ仕組みをKaggle bundleへ含めないことを検証する。",
+  "governing_documents": {
+    "specification": "運用/ARC26-UNIFIED/v9_0/ARC2/01_ARC2_仕様書_v9_20261029.md",
+    "plan": "運用/ARC26-UNIFIED/v9_0/ARC2/02_ARC2_工程表_v9_20261029.md",
+    "instructions": "運用/ARC26-UNIFIED/v9_0/ARC2/03_ARC2_Codex指示書_v9_20261029.md"
+  },
+  "basis": {
+    "confirmation_result": "運用/証拠/ARC26-UNIFIED/ARC2-v9-proof-search-confirm-result-20261029.json",
+    "confirmation_result_sha256": "cf1229ef3e20cdd5b6e00b6c13f0b7c7bc4f789b756f08f110152889f07172c8",
+    "decision": "REJECTED_STANDALONE_NO_PASS_AT_2_GAIN",
+    "candidate_minus_baseline": {
+      "nonfallback_pass_at_1_grids": 2,
+      "nonfallback_pass_at_2_grids": 0,
+      "unique_attempt_2_hits": -2
+    },
+    "recorded_runtime_adopted": false,
+    "confirm_cohort_reused": false
+  },
+  "changes": [
+    {
+      "path": "接続/ARC2/HDS接続.py",
+      "sha256": "b11599ce196e5d905c6dbe201272f1bc31cfdfeb8c65ce36788c4216aeca8003",
+      "change": "汎用proof-search候補器のimport・生成・候補登録を解除"
+    },
+    {
+      "path": "道具/ARC2Kaggle提出bundle.py",
+      "sha256": "62c9ea78951b3ca33dc10f07b544b01c46de85cec080a9b1ec86add2510baddf",
+      "change": "proof-search本体と候補器を提出bundle対象から除外し、関連ライセンス・告知をruntime payloadに追加しない"
+    },
+    {
+      "path": "接続/ARC2/外部コード告知.md",
+      "sha256": "035bb8f166689ddf9bc47561401bb8856cd23f91732c3f1021b19fb0f7e7fb0d",
+      "change": "研究用保持・提出runtime非適用を明記"
+    }
+  ],
+  "validation": {
+    "environment": {
+      "python": "3.12.10",
+      "venv": "%TEMP%/arc2-v9-locked-env-20261029",
+      "dependency_check": "PASS (115 packages)"
+    },
+    "focused_pytest": {
+      "status": "PASS",
+      "command": "python -m pytest -q 検証/test_ARC2Kaggle提出.py 検証/test_Kaggle提出安全ゲート.py",
+      "passed": 30
+    },
+    "hds_connection_pytest": {
+      "status": "PASS",
+      "command": "python -m pytest -q 検証/test_HDS候補収集.py",
+      "passed": 1
+    },
+    "ruff": {
+      "status": "PASS",
+      "command": "python -m ruff check 接続/ARC2/HDS接続.py 道具/ARC2Kaggle提出bundle.py"
+    },
+    "bundle_build": {
+      "status": "PASS",
+      "source_commit": "1199d238fb5db93c27cdb60681a8cbbe61860404+dirty",
+      "hds_submodule_commit": "f3283f727488ad98fe575ea6a5ac981e4a188e49",
+      "kernel": "tecchannn/arc2-codex-main-baseline-v1",
+      "internet": false,
+      "source_files": 283,
+      "source_bytes": 2246591,
+      "payload_bytes": 722750,
+      "payload_sha256": "2a6092b0bd845006bb6379103c09480fec93fbbaf71dfb6b30160180ed168ac0",
+      "launcher_sha256": "e316fc600e359868213d55200566e9aadb2705bdd9858175542730038c87469f",
+      "notebook_sha256": "9209fd557761b0c5a986aee7908756df05628286d06441c641dc820517683659",
+      "excluded_paths_absent_from_manifest_and_payload": [
+        "接続/ARC2/arc_proof_search.py",
+        "接続/ARC2/汎用プログラム帰納候補.py"
+      ],
+      "proof_search_license_and_notice_shipped": false
+    },
+    "runner_smoke": {
+      "status": "PASS",
+      "execution": "repository-local runner; bundle itself was built and inspected separately",
+      "input": "入力/Kaggle/arc-agi_evaluation_challenges.json",
+      "available_tasks": 120,
+      "smoke_tasks": 3,
+      "challenge_sha256": "7449d54894f6fcf3368e4bb2fffcc41e95e2bde500a4d7d79920c96f1cf58d46",
+      "solutions_or_labels_read": false,
+      "tasks_emitted": 3,
+      "test_examples": 3,
+      "attempts_per_test": 2,
+      "fallback_count": 0,
+      "runtime_seconds": 28.078,
+      "submission_sha256": "0a980d4c5bf7660f5a33369059b98d5aa3c4a173f0b52de2325c012cb400fd78"
+    }
+  },
+  "claims": {
+    "performance_improvement": "NOT_CLAIMED",
+    "official_submission": "NOT_PERFORMED",
+    "official_score": "NOT_MEASURED",
+    "smoke_accuracy": "NOT_MEASURED"
+  }
+}

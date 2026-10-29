@@ -25,7 +25,6 @@ from .周期組修復教材 import 周期組修復教材
 from .格子D4教材 import 格子D4教材
 from .周期タイルD4教材 import 周期タイルD4教材
 from .特徴近傍変換選択 import FeatureNeighborTransform
-from .汎用プログラム帰納候補 import 汎用プログラム帰納候補群
 from .全前景平行移動教材 import 全前景平行移動教材
 from .C2_066_compound_foreground_D4_palette_translation import CompoundForegroundD4PaletteTranslation
 from .部分見本教材 import 部分見本教材
@@ -412,7 +411,6 @@ def 課題を解く(
     有限例外光線.学習する(機械, 観測へ)
     周期枠位相 = 周期枠位相教材(課題["train"])
     周期枠位相.学習する(機械, 観測へ)
-    汎用帰納候補群 = 汎用プログラム帰納候補群(課題["train"])
     機構群 = (
         ("ARCテンプレート穴充填", _template_hole_pack_render, 事前教材),
         ("ARC入れ子パネル合成", _nested_panel_relation_render, ()),
@@ -524,8 +522,6 @@ def 課題を解く(
         ("ARC有限例外光線", 有限例外光線.候補, ()),
         ("ARC周期枠位相", 周期枠位相.候補, ()),
         ("ARC特徴近傍変換選択", 特徴近傍.候補, ()),
-        ("ARC汎用プログラム帰納_1", 汎用帰納候補群.第一候補, ()),
-        ("ARC汎用プログラム帰納_2", 汎用帰納候補群.第二候補, ()),
     )
     記録群 = [候補機構を学習(機械, 課題, 教材, 境界, 候補器)
               for 境界, 候補器, 教材 in 機構群]
