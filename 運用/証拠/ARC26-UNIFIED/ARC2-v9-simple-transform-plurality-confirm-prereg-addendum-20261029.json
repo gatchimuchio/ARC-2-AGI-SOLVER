@@ -1,0 +1,10 @@
+{
+  "schema": "arc2-simple-transform-plurality-prereg-addendum-v1",
+  "run_id": "ARC2-v9-simple-transform-plurality-confirm-100-20261029",
+  "added_at_utc": "2026-10-29T04:15:28Z",
+  "parent_prereg_file": "ARC2-v9-simple-transform-plurality-confirm-prereg-20261029.json",
+  "parent_prereg_sha256": "8dbcdcf5c0f087be69d1513eec4da39212bd2973588656492683800783e8328a",
+  "clarification": "The previously registered candidate is additive. Preserve unique_candidate current behavior exactly when all fitted models produce one identical grid, including a single-model consensus. Only when multiple distinct output grids exist, return a candidate for a unique plurality whose support is at least 2 fitted model configurations. On a tied top count or unique top support below 2, abstain. This avoids removing any output currently accepted by strict unanimity. All other candidate/admission/attempt rules remain unchanged.",
+  "candidate_confirm_labels_read": false,
+  "official_submission_performed": false
+}
