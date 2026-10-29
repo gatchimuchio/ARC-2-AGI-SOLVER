@@ -1,0 +1,66 @@
+{
+  "schema": "arc2-v9-public-training-paired-score-v1",
+  "run_id": "ARC2-v9-symbolic-program-integration-20261029T2222Z",
+  "scored_at_utc": "2026-10-29T22:45:46Z",
+  "scope": "PUBLIC_TRAINING_HOLDOUT_ONLY_NOT_OFFICIAL_SCORE",
+  "external_pretraining_exposure": "unknown",
+  "cohort": {
+    "tasks": 100,
+    "test_grids": 111,
+    "fallback_grids": 81,
+    "fallback_counted_correct": false
+  },
+  "challenge_sha256": "2a7d9c9fe5cc3cc4accdc16ac27d4c3a8a5b3fe78062637886a89147afed90cf",
+  "public_training_source_file_manifest_sha256": "7950b6986e5ce304663ae257f3718f04ee9dbfb64c8d06084561173f8d38de87",
+  "freeze_commits": {
+    "baseline": "814e4e6",
+    "candidate": "5dd131b"
+  },
+  "prediction_byte_identical": true,
+  "baseline": {
+    "pass1_grids": 30,
+    "pass1_rate": 0.2702702702702703,
+    "pass2_grids": 30,
+    "pass2_rate": 0.2702702702702703,
+    "tasks_pass1": 29,
+    "tasks_pass2": 29,
+    "attempt2_rescues": 0,
+    "fallback_grids": 81,
+    "runtime_seconds": 315.906
+  },
+  "candidate": {
+    "pass1_grids": 30,
+    "pass1_rate": 0.2702702702702703,
+    "pass2_grids": 30,
+    "pass2_rate": 0.2702702702702703,
+    "tasks_pass1": 29,
+    "tasks_pass2": 29,
+    "attempt2_rescues": 0,
+    "fallback_grids": 81,
+    "runtime_seconds": 370.719
+  },
+  "delta_candidate_minus_baseline": {
+    "pass1_grids": 0,
+    "pass2_grids": 0,
+    "tasks_pass1": 0,
+    "tasks_pass2": 0,
+    "attempt2_rescues": 0,
+    "fallback_grids": 0,
+    "runtime_seconds": 54.813
+  },
+  "paired_changes": {
+    "pass1_grid_improvements": 0,
+    "pass1_grid_regressions": 0,
+    "pass1_task_improvements": 0,
+    "pass1_task_regressions": 0,
+    "pass2_grid_improvements": 0,
+    "pass2_grid_regressions": 0,
+    "pass2_task_improvements": 0,
+    "pass2_task_regressions": 0
+  },
+  "adoption": "REJECTED_NO_ACCURACY_DELTA_AND_SLOWER",
+  "official_score": null,
+  "official_submission_id": 57783547,
+  "official_submission_status_at_last_query": "PENDING",
+  "scorer_sha256": "9098aff0a391163dd590c403c2879439c8b4ca1dbc7a5d66a5a119b6495246e3"
+}

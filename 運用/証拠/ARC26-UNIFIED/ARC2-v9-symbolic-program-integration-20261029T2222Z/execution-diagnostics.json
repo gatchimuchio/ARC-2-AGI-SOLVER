@@ -17,5 +17,10 @@
   "official_submission_performed": false,
   "official_latest_submission_id": 57783547,
   "official_latest_status": "PENDING",
-  "official_public_score": null
+  "official_public_score": null,
+  "offline_scorer_initial_attempt": {
+    "status": "FAILED_BEFORE_LABEL_READ",
+    "cause": "Inline scorer resolved its repository root one level too high and could not find the first public training file.",
+    "resolution": "Moved scorer into the registered evidence directory, corrected repository-root traversal, then scored after both prediction freezes were committed."
+  }
 }
