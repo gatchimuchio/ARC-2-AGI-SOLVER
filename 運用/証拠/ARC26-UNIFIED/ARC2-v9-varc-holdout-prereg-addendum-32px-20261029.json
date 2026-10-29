@@ -1,0 +1,32 @@
+{
+  "run_id": "arc2-varc-32px-same-holdout-20261029",
+  "registered_utc": "2026-10-29T01:15:31.730790+00:00",
+  "parent_preregistration": {
+    "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-varc-holdout-prereg-20261029.json",
+    "sha256": "12c12fc60bd4b88a85d8b5cc71a78f7e394db81ee91d108d3d1b3eb5590da4a5"
+  },
+  "purpose": "CPU feasibility variant registered before scoring any task in the fixed 100-task cohort",
+  "cohort_id_sha256": "8e7401849236e249bb94d5e64f5edfe9ac622ad3bbda6d3579cd6b55b2b2dd95",
+  "runtime_input_sha256": "e83add2acbdd6848417a6a5b904a2ee8b96049d74a870cff3b74331bb9986d66",
+  "runtime_input_has_task_ids": false,
+  "runtime_input_has_test_outputs": false,
+  "condition": {
+    "A": "zero-shot output from same checkpoint at image_size 32",
+    "D": "task-specific TTT from same checkpoint/random-token reset per task; image_size 32",
+    "seed": 20261029,
+    "color_views": 4,
+    "epochs": 2,
+    "batch_size": 2,
+    "optimizer": "AdamW(lr=3e-4,weight_decay=0)",
+    "thread_count": 4,
+    "patch_size": 2,
+    "positional_embedding": "bicubic interpolation from checkpoint image_size 64; all other loaded weights unchanged",
+    "candidate_policy": "one zero-shot output plus up to two distinct translated post-TTT predictions; duplicate grids count once"
+  },
+  "runner": {
+    "path": "%TEMP%/arc2-varc-ttt64-v3-batch2.py",
+    "sha256": "14d9b15c7c653f24cd1249ce68f66d99e32c1b82c10fbe0e37c7891710f1a2d5"
+  },
+  "analysis_lock": "Do not read training solutions or score either A/D32 or A/D64 for this cohort until both 32px and 64px predictions for all 100 tasks are complete; scorer remains a separate process.",
+  "status": "PREREGISTERED_BEFORE_HOLDOUT_SCORING"
+}
