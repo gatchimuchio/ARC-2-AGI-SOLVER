@@ -1,0 +1,53 @@
+{
+  "schema": "arc2-v9-varc-holdout-predictions-freeze-v1",
+  "run_id": "ARC2-v9-varc-holdout-32px-100-20261029",
+  "frozen_at_utc": "2026-10-29T02:28:40Z",
+  "registered_protocol": {
+    "preregistration_sha256": "12c12fc60bd4b88a85d8b5cc71a78f7e394db81ee91d108d3d1b3eb5590da4a5",
+    "32px_addendum_sha256": "ba7ff6ac5e4fb75507436d5f95ab6ef0fe2bf456fa440f15aa2738cb025e878e",
+    "protocol_amendment_sha256": "af6af9299fbce1837d4a98fdbdeb02ffdce8e7c84f394d15cece8c363c5b045e",
+    "cohort_id_sha256": "8e7401849236e249bb94d5e64f5edfe9ac622ad3bbda6d3579cd6b55b2b2dd95",
+    "runtime_input_sha256": "e83add2acbdd6848417a6a5b904a2ee8b96049d74a870cff3b74331bb9986d66",
+    "runtime_input_count": 100,
+    "runtime_input_has_task_ids": false,
+    "runtime_input_has_test_outputs": false
+  },
+  "varc": {
+    "upstream_commit": "bd478ecf362e6499a988b05f33223e5c5fc6a6be",
+    "checkpoint_sha256": "c52d719fe9a41066aa8e96548ae6f83a0abf3568facd5103e176d7005e8421b3",
+    "runner_sha256": "14d9b15c7c653f24cd1249ce68f66d99e32c1b82c10fbe0e37c7891710f1a2d5",
+    "canvas": 32,
+    "epochs": 2,
+    "seed": 20261029,
+    "batch_size": 2,
+    "color_views": 4,
+    "thread_count": 4,
+    "runtime_seconds": 3302.095,
+    "output_protocol_label": "VARC-64px-cpu-ttt-smoke-v3-batch2",
+    "protocol_label_matches_actual_canvas": false,
+    "predictions_file": "ARC2-v9-varc-holdout100-varc-predictions-32px-20261029.json",
+    "predictions_sha256": "d964c099889dbf7002930e60418e2640c7e48c04d28f950997e9b6beddfe24f6",
+    "zero_shot_valid_grids": 72,
+    "post_ttt_candidate_grids": 140,
+    "tasks_with_post_ttt_candidates": 87
+  },
+  "hds_baseline": {
+    "source_commit": "614c3b6c2b31d01219f76b47b72faa188e87566d",
+    "runner_sha256": "1e29dd10b66cc86151c6d73b5899d50349ee6e800a029ec49d158f9913b8d510",
+    "raw_output_sha256": "73363c1f0c61f6abf8c0699a120d574d0558a6c55ad7881888c1be1245ae653d",
+    "predictions_file": "ARC2-v9-varc-holdout100-hds-predictions-20261029.json",
+    "predictions_sha256": "53a0cb9ac28fe30019120c80b09aeb9c4e373e6405c7c0df1f79ad4705e1a28e",
+    "count": 100,
+    "valid_answer_grids": 3,
+    "null_answers": 97,
+    "elapsed_seconds": 222.463273,
+    "internal_reasons_omitted": true
+  },
+  "scoring": {
+    "test_output_labels_read_before_freeze": false,
+    "state": "NOT_STARTED",
+    "source_split": "public ARC2 training",
+    "denominator": "100 test grids",
+    "fallback_counted_as_correct": false
+  }
+}
