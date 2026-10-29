@@ -1,0 +1,34 @@
+{
+  "schema": "arc2-v9-public-training-prediction-freeze-v1",
+  "role": "candidate",
+  "frozen_at_utc": "2026-10-29T22:42:30Z",
+  "parent_commit": "56490093d7faa534de42d300b2abab8c472c45c4",
+  "code_files_sha256": {
+    "接続/ARC2/HDS接続.py": "db7f32ea20d5fe723d53a771dbd54f1d4de74c660089770743b985ea34bf0ef6",
+    "接続/ARC2/arc_proof_search.py": "86e74ee68b0fe5d5d05176c44f6b001d2e601a8673c70fbc465ecf95e75617e1",
+    "接続/ARC2/汎用プログラム帰納候補.py": "b868287fddcf065d6501b8699301f911e0549b4b73657fe007fc590a37577728",
+    "検証/test_ARC2_汎用プログラム帰納候補.py": "59b3891fe497d3da40713c598898f69e3a3206243ce20a21bbbfd8d8c5dbbc39"
+  },
+  "runtime": "C:/Users/ohira/.codex/venvs/arc2-v9-dev/Scripts/python.exe; Python 3.12; PYTHONUTF8=1; PYTHONDONTWRITEBYTECODE=1",
+  "payload_root": "C:/Users/ohira/OneDrive/ドキュメント/ChatGPT/ARC２",
+  "payload_root_reason": "The isolated worktree omits Git-ignored public data; this read-only payload root supplies the same public training resources used by baseline while code imports from the candidate worktree.",
+  "invocation": "python -X utf8 -m 接続.ARC2.Kaggle提出 --challenges <registered challenge_input.json> --output-dir <fresh output dir>",
+  "challenge_sha256": "2a7d9c9fe5cc3cc4accdc16ac27d4c3a8a5b3fe78062637886a89147afed90cf",
+  "tasks": 100,
+  "test_grids": 111,
+  "fallback_count": 81,
+  "seconds": 370.719,
+  "artifacts": {
+    "submission.json": "f7b26ceb5e0461042585dc40a6d7e766cc7f32c03a0ad588ed4fdb7d2f24227b",
+    "submission_audit.json": "abd29fe075fb6abfffec2eb0e858fdaba1516bcb1c9c9dfd5d7dea5c729c8359"
+  },
+  "audit_source_commit_field": "unknown",
+  "labels_accessed_by_runtime": false,
+  "comparison": {
+    "baseline_submission_sha256": "f7b26ceb5e0461042585dc40a6d7e766cc7f32c03a0ad588ed4fdb7d2f24227b",
+    "candidate_submission_sha256": "f7b26ceb5e0461042585dc40a6d7e766cc7f32c03a0ad588ed4fdb7d2f24227b",
+    "byte_identical": true,
+    "delta_fallback_count": 0,
+    "delta_runtime_seconds": 54.813
+  }
+}

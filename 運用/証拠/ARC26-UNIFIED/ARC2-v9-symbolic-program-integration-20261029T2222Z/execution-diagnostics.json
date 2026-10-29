@@ -1,0 +1,21 @@
+{
+  "schema": "arc2-v9-evaluation-environment-diagnostics-v1",
+  "discarded_baseline_attempt": {
+    "status": "INTERRUPTED_NOT_SCORED",
+    "cause": "Without PYTHONUTF8=1, worker subprocesses emitted CP1252 bytes while parent decoded as UTF-8, producing UnicodeDecodeError in subprocess reader threads. The run was stopped before output files were written.",
+    "resolution": "Set PYTHONUTF8=1 for parent and all worker processes; one-worker smoke then returned valid JSON with exit 0."
+  },
+  "discarded_candidate_preflight": {
+    "status": "FAILED_BEFORE_PREDICTION",
+    "cause": "Isolated worktree lacked Git-ignored public training resource 93b4f4b3.json.",
+    "resolution": "Set ARC2_PAYLOAD_ROOT to the main repository public-data root; candidate preflight passed with status ok and template_examples=2."
+  },
+  "scored_runs": [
+    "baseline-freeze",
+    "candidate-freeze"
+  ],
+  "official_submission_performed": false,
+  "official_latest_submission_id": 57783547,
+  "official_latest_status": "PENDING",
+  "official_public_score": null
+}
