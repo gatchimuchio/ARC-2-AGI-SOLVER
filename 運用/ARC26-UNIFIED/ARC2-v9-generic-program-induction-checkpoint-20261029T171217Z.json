@@ -1,0 +1,45 @@
+{
+  "track": "ARC2",
+  "instruction_id": "ARC26-UNIFIED-v9.0",
+  "run_id": "ARC2-v9-generic-program-induction-rebase-20261029",
+  "checkpoint_created_at_utc": "2026-10-29T17:12:17.300410+00:00",
+  "phase": "G2_A_GENERIC_PROGRAM_INDUCTION_REBASE_ACCEPTED",
+  "process_status": "LOCAL_HOLDOUT_GAIN_REPRODUCED_OFFICIAL_EVALUATION_OUTPUT_UNCHANGED_OFFICIAL_SCORE_UNCHANGED",
+  "source_revision": "e3ed6f11bea35d03597d36a05c05585f42e46888",
+  "candidate_hds_sha256": "83597d81fdeef04260b1897019bc883b438c54e0b8a9a413b8718c42bd1e3486",
+  "evidence_path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-generic-program-induction-rebase-20261029.json",
+  "evidence_sha256": "c1041ba2f541e6ed97e5169d0de329433044a29b9b046a11745340d98c8cf834",
+  "official_history_path": "運用/証拠/ARC26-UNIFIED/official-history-20261029T171217Z.json",
+  "official_history_sha256": "58d832614152e8d1a8e559fcfd88e9dd97cd7511438d104a204b9dc76bf01dce",
+  "official_submission_id": 57745630,
+  "official_status": "COMPLETE",
+  "official_score": 0.0,
+  "best_public_score": 0.83,
+  "official_submission_performed": false,
+  "additional_holdout_delta": {
+    "pass_at_1": 2,
+    "pass_at_2": 2,
+    "correct_grids_lost": 0,
+    "unique_attempt2_hits": 0,
+    "exposure": "exposure_unknown",
+    "reproduction_only_current_base": true
+  },
+  "evaluation_replay": {
+    "tasks": 120,
+    "test_grids": 172,
+    "output_byte_identical": true,
+    "fallback_baseline_candidate": [
+      2,
+      2
+    ],
+    "runtime_seconds_baseline_candidate": [
+      415.281,
+      486.985
+    ],
+    "runtime_delta_seconds": 71.704,
+    "solutions_read": false
+  },
+  "targeted_tests": "22 passed",
+  "HDS_A_B_C_D": "NOT_ESTABLISHED",
+  "next_action": "Diagnose the next highest-yield generic candidate-generation failure on public training; do not submit this version because the pinned evaluation predictions did not change. Keep G2/G3 active and recheck official rules/history/quota only before any score-bearing submission."
+}

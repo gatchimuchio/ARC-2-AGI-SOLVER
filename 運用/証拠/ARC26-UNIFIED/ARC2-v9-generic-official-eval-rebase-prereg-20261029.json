@@ -1,0 +1,23 @@
+{
+  "schema": "arc2-v9-official-evaluation-rebase-prereg-v1",
+  "run_id": "ARC2-V9-GENERIC-OFFICIAL-EVAL-REBASE-20261029T1650Z",
+  "registered_at_utc": "2026-10-29T16:49:27.594486+00:00",
+  "purpose": "Rebase confirmation on exact v9-pinned Kaggle evaluation challenges using production Kaggle submission runner.",
+  "governing_set": "v9_0 / ARC26-SOLVE-SCORE-20261029",
+  "source_commit": "e3ed6f11bea35d03597d36a05c05585f42e46888",
+  "candidate_commit": "e3ed6f11bea35d03597d36a05c05585f42e46888 plus isolated 4-line HDS integration patch",
+  "baseline_hds_sha256": "c3d3289ad512e66ae4e7ce331cfc6f1729a56ea60f3d22acf9b8befb11fd1317",
+  "candidate_hds_sha256": "83597d81fdeef04260b1897019bc883b438c54e0b8a9a413b8718c42bd1e3486",
+  "candidate_patch_sha256": "3cdbefe48b32abff5ca9496ba4e07bd35a00e129c9b5a585caaaad15c434d34f",
+  "runner_sha256": "43fd2c444cc1428bdfb3da3b228fca14b6ccb939c169401b1684c2b93b4092e4",
+  "source_path": "入力/Kaggle/arc-agi_evaluation_challenges.json",
+  "source_sha256": "e7c62a4bd211867c6b538f66b8013b81f299663c82ca062f49a52bf439d6e4e8",
+  "challenge_sha256": "e7c62a4bd211867c6b538f66b8013b81f299663c82ca062f49a52bf439d6e4e8",
+  "tasks": 120,
+  "test_grids": 172,
+  "test_output_fields": 0,
+  "labels_used_for_selection": false,
+  "labels_passed_to_runtime": false,
+  "comparison": "baseline current main vs candidate current main + generic-program HDS integration; same exact 120/172 input, official Kaggle runner and environment; freeze both predictions before any score lookup",
+  "adoption_gate": "Prediction change counts and runtime are measured. Correctness is UNKNOWN without a separate post-freeze scorer; official Kaggle score is separate."
+}
