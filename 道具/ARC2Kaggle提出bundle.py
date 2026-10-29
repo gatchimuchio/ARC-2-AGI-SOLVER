@@ -165,6 +165,14 @@ def _runtime_files() -> list[tuple[str, Path]]:
             }:
                 continue
             selected[relative] = path
+    # The exact-rule generator is distributed under MIT-0. Keep its full
+    # permission notice beside the source in the offline Kaggle payload.
+    external_source = "接続/ARC2/第三者/NVARC/merge_agreement.py"
+    if external_source in selected:
+        license_path = ROOT / "接続/ARC2/第三者/NVARC/LICENSE"
+        if license_path.is_symlink() or not license_path.is_file():
+            raise FileNotFoundError("NVARC third-party license is missing")
+        selected[license_path.relative_to(ROOT).as_posix()] = license_path
     # 未観測端対応教材がimportするルート直下の実装と、そのpeer演算依存。
     for name in ("missing_edge_bindings.py", "peer_edge.py"):
         path = ROOT / name
