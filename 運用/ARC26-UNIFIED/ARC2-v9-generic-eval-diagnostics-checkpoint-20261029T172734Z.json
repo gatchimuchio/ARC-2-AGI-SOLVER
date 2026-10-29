@@ -1,0 +1,30 @@
+{
+  "track": "ARC2",
+  "instruction_id": "ARC26-UNIFIED-v9.0",
+  "run_id": "ARC2-V9-GENERIC-OFFICIAL-EVAL-AGGREGATE-DIAGNOSTICS-20261029T1714Z",
+  "checkpoint_created_at_utc": "2026-10-29T17:27:40.731803+00:00",
+  "phase": "G2_A_GENERIC_GENERATOR_COVERAGE_DIAGNOSIS_COMPLETE",
+  "process_status": "GENERIC_FAMILY_ZERO_CANDIDATES_ON_PINNED_EVALUATION_INPUT",
+  "source_revision": "039bcc35feab63a5abc6fb4a029ceb1a034d03bf",
+  "evidence_path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-generic-eval-family-diagnostics-20261029.json",
+  "evidence_sha256": "927f6441de373b8b4a3d4d98e7d58406fc42c80b9062a3b99887973302eb9bf1",
+  "official_history_path": "運用/証拠/ARC26-UNIFIED/official-history-20261029T172734Z.json",
+  "official_history_sha256": "4efb87d01494a0a3b769288d50dfc9e471d28d6f7a451f5928bb1cae235d6193",
+  "official_submission_id": 57745630,
+  "official_status": "COMPLETE",
+  "official_score": 0.0,
+  "best_public_score": 0.83,
+  "next_24h_gate_utc": "2026-10-29T18:22:38.277000Z",
+  "official_submission_performed": false,
+  "evaluation_diagnostics": {
+    "tasks": 120,
+    "test_grids": 172,
+    "candidate_predictions_all_families": 189,
+    "generic_program_family_predictions": 0,
+    "fallback_count": 2,
+    "submission_sha256": "b37baf6437c3cda5552d6f90e8255f8c3568195a5d514ea9982280703a68c299",
+    "evaluation_solutions_read": false
+  },
+  "HDS_A_B_C_D": "NOT_ESTABLISHED",
+  "next_action": "Implement a bounded, train-fitted generic composition expansion, preregister a fresh public-training holdout, and measure previous/current/delta before any further promotion or submission."
+}

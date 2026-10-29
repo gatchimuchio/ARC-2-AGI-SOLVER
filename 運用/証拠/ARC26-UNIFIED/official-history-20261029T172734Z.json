@@ -1,0 +1,105 @@
+{
+  "schema": "arc2-official-history-readonly-v1",
+  "observed_at_utc": "2026-10-29T17:27:40.731803+00:00",
+  "competition": "arc-prize-2026-arc-agi-2",
+  "source_command": "python -m 接続.Kaggle操作 履歴",
+  "history": [
+    {
+      "ref": 57745630,
+      "date": "2026-10-28T18:22:38.277000",
+      "status": "COMPLETE",
+      "public_score": "0.00",
+      "失敗詳細あり": false
+    },
+    {
+      "ref": 57682971,
+      "date": "2026-10-27T00:17:10.770000",
+      "status": "COMPLETE",
+      "public_score": "",
+      "失敗詳細あり": true
+    },
+    {
+      "ref": 57646990,
+      "date": "2026-10-26T00:14:46",
+      "status": "COMPLETE",
+      "public_score": "",
+      "失敗詳細あり": true
+    },
+    {
+      "ref": 57611018,
+      "date": "2026-10-25T00:13:10.933000",
+      "status": "COMPLETE",
+      "public_score": "0.00",
+      "失敗詳細あり": false
+    },
+    {
+      "ref": 57576155,
+      "date": "2026-10-24T00:12:39.127000",
+      "status": "COMPLETE",
+      "public_score": "0.00",
+      "失敗詳細あり": false
+    },
+    {
+      "ref": 57560705,
+      "date": "2026-10-23T12:25:06.577000",
+      "status": "COMPLETE",
+      "public_score": "0.00",
+      "失敗詳細あり": false
+    },
+    {
+      "ref": 57517199,
+      "date": "2026-10-22T08:35:19.380000",
+      "status": "COMPLETE",
+      "public_score": "",
+      "失敗詳細あり": true
+    },
+    {
+      "ref": 55046979,
+      "date": "2026-07-28T06:19:16.917000",
+      "status": "COMPLETE",
+      "public_score": "0.83",
+      "失敗詳細あり": false
+    },
+    {
+      "ref": 55038338,
+      "date": "2026-07-27T21:24:23.967000",
+      "status": "COMPLETE",
+      "public_score": "",
+      "失敗詳細あり": true
+    },
+    {
+      "ref": 54709840,
+      "date": "2026-07-15T03:02:55.077000",
+      "status": "COMPLETE",
+      "public_score": "",
+      "失敗詳細あり": true
+    },
+    {
+      "ref": 53996447,
+      "date": "2026-06-24T01:46:52.783000",
+      "status": "COMPLETE",
+      "public_score": "0.00",
+      "失敗詳細あり": false
+    },
+    {
+      "ref": 53962702,
+      "date": "2026-06-23T01:18:06.620000",
+      "status": "COMPLETE",
+      "public_score": "0.00",
+      "失敗詳細あり": false
+    }
+  ],
+  "latest_submission_id": 57745630,
+  "latest_status": "COMPLETE",
+  "latest_public_score": 0.0,
+  "best_scored_submission": {
+    "ref": 55046979,
+    "date": "2026-07-28T06:19:16.917000",
+    "status": "COMPLETE",
+    "public_score": "0.83",
+    "失敗詳細あり": false
+  },
+  "latest_submission_timestamp_utc": "2026-10-28T18:22:38.277000Z",
+  "next_24h_gate_utc": "2026-10-29T18:22:38.277000Z",
+  "submission_performed": false
+}

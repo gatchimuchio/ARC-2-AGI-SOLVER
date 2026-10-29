@@ -1,0 +1,23 @@
+{
+  "schema": "arc2-v9-evaluation-aggregate-diagnostic-prereg-v1",
+  "run_id": "ARC2-V9-GENERIC-OFFICIAL-EVAL-AGGREGATE-DIAGNOSTICS-20261029T1714Z",
+  "registered_at_utc": "2026-10-29T17:14:58.065605+00:00",
+  "source_commit": "039bcc35feab63a5abc6fb4a029ceb1a034d03bf",
+  "hds_sha256": "83597d81fdeef04260b1897019bc883b438c54e0b8a9a413b8718c42bd1e3486",
+  "runner_sha256": "43fd2c444cc1428bdfb3da3b228fca14b6ccb939c169401b1684c2b93b4092e4",
+  "input_sha256": "e7c62a4bd211867c6b538f66b8013b81f299663c82ca062f49a52bf439d6e4e8",
+  "tasks": 120,
+  "test_grids": 172,
+  "test_output_fields": 0,
+  "purpose": "Aggregate generic candidate generation and family diagnostics to explain why current-main integration produced byte-identical output on the pinned evaluation input. No correctness scoring and no evaluation labels.",
+  "runtime": "Production Kaggle runner with --aggregate-diagnostics; same worker logic and payload; isolated output directory.",
+  "labels_read": false,
+  "prediction_selection_or_tuning": false,
+  "expected_outputs": [
+    "aggregate candidate counts",
+    "candidate family counts",
+    "runtime",
+    "fallback count",
+    "submission SHA"
+  ]
+}
