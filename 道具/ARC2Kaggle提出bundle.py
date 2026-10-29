@@ -9,7 +9,7 @@ import io
 import json
 from pathlib import Path, PurePosixPath
 import subprocess
-import zipfile
+import tarfile
 import zlib
 
 
@@ -29,7 +29,7 @@ import os
 from pathlib import Path, PurePosixPath
 import sys
 import tempfile
-import zipfile
+import tarfile
 
 SOURCE_COMMIT = __SOURCE_COMMIT__
 PAYLOAD_SHA256 = __PAYLOAD_SHA256__
@@ -54,15 +54,24 @@ def payload_root():
     if hashlib.sha256(data).hexdigest() != PAYLOAD_SHA256:
         raise RuntimeError("HDS payload checksum mismatch")
     destination.mkdir(parents=True, exist_ok=True)
-    with zipfile.ZipFile(io.BytesIO(data)) as archive:
-        names = archive.namelist()
+    with tarfile.open(fileobj=io.BytesIO(data), mode="r:xz") as archive:
+        members = archive.getmembers()
+        names = [member.name for member in members]
         manifest_name = "__arc2_bundle_manifest__.json"
         if not names or names[0] != manifest_name:
             raise RuntimeError("HDS payload manifest is missing")
-        manifest = json.loads(archive.read(manifest_name))
+        if any(not member.isfile() for member in members):
+            raise RuntimeError("HDS payload contains a non-file member")
+        manifest_file = archive.extractfile(members[0])
+        if manifest_file is None:
+            raise RuntimeError("HDS payload manifest is unreadable")
+        manifest = json.loads(manifest_file.read())
+        if manifest.get("format") != "arc2-hds-kernel-bundle-v2":
+            raise RuntimeError("HDS payload manifest format mismatch")
         expected = {row["path"]: row for row in manifest["files"]}
         if len(set(names)) != len(names) or len(expected) != len(manifest["files"]) or set(names[1:]) != set(expected):
             raise RuntimeError("HDS payload file set mismatch")
+        members_by_name = {member.name: member for member in members[1:]}
         if cached:
             for path in destination.rglob("*"):
                 relative_name = path.relative_to(destination).as_posix()
@@ -84,7 +93,13 @@ def payload_root():
                     raise RuntimeError("HDS cached payload member missing")
                 content = target.read_bytes()
             else:
-                content = archive.read(name)
+                member = members_by_name[name]
+                if member.size != expected[name]["size"]:
+                    raise RuntimeError("HDS payload member checksum mismatch")
+                member_file = archive.extractfile(member)
+                if member_file is None:
+                    raise RuntimeError("HDS payload member is unreadable")
+                content = member_file.read()
             row = expected[name]
             if len(content) != row["size"] or hashlib.sha256(content).hexdigest() != row["sha256"]:
                 raise RuntimeError("HDS payload member checksum mismatch")
@@ -215,18 +230,23 @@ def _make_payload(files: list[tuple[str, Path]]) -> tuple[bytes, list[dict[str, 
             {"path": name, "size": len(data), "sha256": hashlib.sha256(data).hexdigest()}
         )
     manifest_bytes = json.dumps(
-        {"format": "arc2-hds-kernel-bundle-v1", "files": manifest},
+        {"format": "arc2-hds-kernel-bundle-v2", "files": manifest},
         ensure_ascii=False,
         sort_keys=True,
         separators=(",", ":"),
     ).encode("utf-8")
     output = io.BytesIO()
-    with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
+    with tarfile.open(fileobj=output, mode="w:xz", preset=9, format=tarfile.PAX_FORMAT) as archive:
         for name, data in [("__arc2_bundle_manifest__.json", manifest_bytes), *sorted(contents.items())]:
-            info = zipfile.ZipInfo(name, date_time=(2020, 1, 1, 0, 0, 0))
-            info.compress_type = zipfile.ZIP_DEFLATED
-            info.external_attr = 0o100644 << 16
-            archive.writestr(info, data, compress_type=zipfile.ZIP_DEFLATED, compresslevel=9)
+            info = tarfile.TarInfo(name)
+            info.size = len(data)
+            info.mtime = 0
+            info.mode = 0o644
+            info.uid = 0
+            info.gid = 0
+            info.uname = ""
+            info.gname = ""
+            archive.addfile(info, io.BytesIO(data))
     return output.getvalue(), manifest
 
 
@@ -391,7 +411,7 @@ def build(output: Path, *, allow_dirty: bool = False, kernel: str = KERNEL) -> d
     }
 
     output.mkdir(parents=True)
-    (output / "bundle.zip").write_bytes(payload)
+    (output / "bundle.tar.xz").write_bytes(payload)
     (output / "solve.py").write_bytes(launcher)
     (output / "main.ipynb").write_bytes(notebook)
     (output / "kernel-metadata.json").write_text(

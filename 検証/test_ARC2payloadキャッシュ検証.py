@@ -1,7 +1,7 @@
 import pytest
 import io
 import json
-import zipfile
+import tarfile
 
 from 道具.ARC2Kaggle提出bundle import _make_payload, _render_launcher
 
@@ -63,7 +63,10 @@ def test_training_material_is_bundled_without_test_answers(tmp_path):
     source.write_text(json.dumps(material), encoding="utf-8")
     name = "入力/公式ソース/ARC-AGI-2/data/training/material.json"
     payload, _ = _make_payload([(name, source)])
-    with zipfile.ZipFile(io.BytesIO(payload)) as archive:
-        bundled = json.loads(archive.read(name))
+    with tarfile.open(fileobj=io.BytesIO(payload), mode="r:xz") as archive:
+        member = archive.getmember(name)
+        stream = archive.extractfile(member)
+        assert stream is not None
+        bundled = json.loads(stream.read())
     assert bundled == {"train": material["train"]}
     assert json.loads(source.read_text(encoding="utf-8")) == material

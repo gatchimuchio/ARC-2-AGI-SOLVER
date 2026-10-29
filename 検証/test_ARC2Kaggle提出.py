@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 import sys
 import types
-import zipfile
+import tarfile
 
 
 提出 = importlib.import_module("接続.ARC2.Kaggle提出")
@@ -291,15 +291,17 @@ def test_bundleはsolverと許可済trainingだけを含む():
     assert "peer_edge.py" in names
     assert any(name.startswith("HDS/学習系統/v0.4.2/") for name in names)
     assert any("/data/training/" in name for name in names)
+    assert "接続/ARC2/第三者/NVARC/LICENSE" in names
     assert not any("/data/evaluation/" in name for name in names)
     assert not any("solutions" in name.lower() for name in names)
     assert not any(name.rsplit("/", 1)[-1].startswith("legacy_v4_") for name in names)
     first, _ = bundle._make_payload(files)
     second, _ = bundle._make_payload(files)
     assert first == second
-    with zipfile.ZipFile(io.BytesIO(first)) as archive:
-        assert "__arc2_bundle_manifest__.json" in archive.namelist()
-        assert set(archive.namelist()[1:]) == set(names)
+    with tarfile.open(fileobj=io.BytesIO(first), mode="r:xz") as archive:
+        members = archive.getmembers()
+        assert members[0].name == "__arc2_bundle_manifest__.json"
+        assert set(member.name for member in members[1:]) == set(names)
 
 
 def test_periodic_tile_d4_learns_and_applies_positionwise_transforms():
@@ -453,7 +455,7 @@ def test_upload_stageにはNotebookとmetadataだけを含める(tmp_path, monke
         "kernel_type": "notebook",
     }
     (source / "kernel-metadata.json").write_text(json.dumps(metadata), encoding="utf-8")
-    (source / "bundle.zip").write_bytes(b"not-for-upload")
+    (source / "bundle.tar.xz").write_bytes(b"not-for-upload")
     monkeypatch.setattr(bundle, "ROOT", root)
     result = bundle.stage_upload(source, Path("出力/upload"))
     staged = root / "出力" / "upload"
