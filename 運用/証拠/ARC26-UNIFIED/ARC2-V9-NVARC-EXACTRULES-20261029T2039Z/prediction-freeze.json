@@ -1,0 +1,74 @@
+{
+  "schema": "arc2-v9-prediction-freeze-v1",
+  "run_id": "ARC2-V9-NVARC-EXACTRULES-20261029T2039Z",
+  "frozen_at_utc": "2026-10-29T21:05:43.235097+00:00",
+  "frozen_before_scoring": true,
+  "solutions_read_before_freeze": false,
+  "preregistration_path": "運用/証拠/ARC26-UNIFIED/ARC2-V9-NVARC-EXACTRULES-20261029T2039Z-prereg.json",
+  "preregistration_sha256": "fe87ef4cd4080ec703055d0ccdcd2c847ebf7f85f766abb80c4604368708284d",
+  "runtime_input_path": "運用\\証拠\\ARC26-UNIFIED\\ARC2-V9-NVARC-EXACTRULES-20261029T2039Z-input.json",
+  "runtime_input_sha256": "cd14fdf5c4485c1c767e09888d1414c1bece597c74a88f11d7845bcd5a7d0d93",
+  "runtime_task_ids": "fresh_001..fresh_100 aliases only",
+  "task_count": 100,
+  "test_grids": 104,
+  "test_outputs_in_runtime": false,
+  "runtime": {
+    "os": "Windows",
+    "python": "3.12.10",
+    "numpy": "2.3.5",
+    "runner": "接続/ARC2/Kaggle提出.py",
+    "workers": 3,
+    "per_task_timeout_seconds": 90,
+    "cpu_memory_limits": "not enforced by this Windows runner",
+    "same_input_for_all_arms": true
+  },
+  "candidate_source": {
+    "base_commit": "1a9fe39d9f7db0f004f3277b9d78f022a1324248",
+    "hds_connection_base_sha256": "83597d81fdeef04260b1897019bc883b438c54e0b8a9a413b8718c42bd1e3486",
+    "hds_connection_candidate_sha256": "00c0eadffbac07f33ac2a669fc6ed9f2da616539c711c187b4eb55c87d445bab",
+    "provider_path": "接続/ARC2/外部厳密規則候補.py",
+    "provider_sha256": "2fc13f818f3ff1f2f713e15506683f9635eaf8406dc8440dd579c6f2fd482e61",
+    "third_party_source_sha256": "647aaec3ff85863e174095074a9b068b9e99875394727a2f426586b0458d6c12",
+    "license_sha256": "0860d23c8b1347b0b4234ed0c34a445a7330593b2af615a56d05ea02a506514e",
+    "third_party_notices_sha256": "ecb7039901a7b6a9f28c808d7f8933d4bdb278c131051636165c65f2cdffbc22",
+    "near_exact_rule_disabled": true,
+    "only_exact_train_fit_rules": true
+  },
+  "prediction_runs": {
+    "baseline": {
+      "submission_sha256": "1bbc3b7e425a1a4c4d9c0772b5d344c7ca4e0d02c04d2549c90f0d9aba0e5db9",
+      "audit_sha256": "9239f1d453fa551b9d18ceb6d33978db346cd35f7265b5de17b09ae81f64c37c",
+      "seconds": 312.234,
+      "fallback_count": 97,
+      "tasks": 100,
+      "test_examples": 104,
+      "source_commit": "d8c84f258cf2255230a8046edecc00409123c931"
+    },
+    "candidate": {
+      "submission_sha256": "d9ee4585d9e078c616751548b5905a76fddcc21ca0ca92368c78c3f15525a7c7",
+      "audit_sha256": "0072506ae69f62400f8eef3d9cf36443982c427a9e6c440795b6293b955f022d",
+      "seconds": 288.703,
+      "fallback_count": 65,
+      "tasks": 100,
+      "test_examples": 104,
+      "source_commit": "1a9fe39d9f7db0f004f3277b9d78f022a1324248+isolated-nvarc-exactrules"
+    },
+    "candidate_repeat": {
+      "submission_sha256": "d9ee4585d9e078c616751548b5905a76fddcc21ca0ca92368c78c3f15525a7c7",
+      "audit_sha256": "1f945c06ad4574532c1b8998764ed992edb1d455d3018fea847eec6af9f169f3",
+      "seconds": 289.032,
+      "fallback_count": 65,
+      "tasks": 100,
+      "test_examples": 104,
+      "source_commit": "1a9fe39d9f7db0f004f3277b9d78f022a1324248+isolated-nvarc-exactrules"
+    }
+  },
+  "repeatability": {
+    "candidate_prediction_sha256_equal": true,
+    "candidate_audit_equal_after_removing_timestamp_and_wall_seconds": true,
+    "scored_labels_read": false
+  },
+  "candidate_to_baseline_runtime_ratio": 0.9246366507170903,
+  "labels_opened_after_freeze": false,
+  "score_status": "FROZEN_PENDING_OFFLINE_SCORING"
+}
