@@ -1,0 +1,89 @@
+{
+  "schema": "arc2-v9-prediction-freeze-v1",
+  "run_id": "ARC2-V9-INDEPENDENT-HOLDOUT-20261029",
+  "frozen_before_scoring": true,
+  "registered_cohort_path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-independent-holdout-prereg-20261029.json",
+  "registered_cohort_sha256": "3070d05b80ad19340e5a9e8186af9dcfa65110dfa71f0d6294293e4da086c262",
+  "runtime_input_sha256": "3ba33334f89f10c948f477f393ba2b3edf83bc6c5a1a1beaf8fed255f2fb2eb9",
+  "task_id_runtime_use": false,
+  "evaluation_solutions_in_runtime": false,
+  "prediction_outputs": [
+    {
+      "arm": "baseline",
+      "source_revision": "e17b9280da51a799ca30782e3662b14e2cf906fd",
+      "runner_path": "接続/ARC2/Kaggle提出.py",
+      "runtime_input_sha256": "3ba33334f89f10c948f477f393ba2b3edf83bc6c5a1a1beaf8fed255f2fb2eb9",
+      "tasks": 100,
+      "test_grids": 113,
+      "attempts_per_grid": 2,
+      "fallback_grids": 108,
+      "wall_seconds": 254.422,
+      "prediction_sha256": "1049a34c77291fc63a2cb51b85aec977e1b4263169b3971158d869038352614d",
+      "audit_sha256": "4c0824f2583e9363e1b26d75c2f2d09a6625f21fb32a9568848bc6c2cc3deee7",
+      "prediction_task_count": 100,
+      "solution_labels_read_before_freeze": false
+    },
+    {
+      "arm": "candidate",
+      "source_revision": "e17b9280da51a799ca30782e3662b14e2cf906fd+dirty",
+      "runner_path": "接続/ARC2/Kaggle提出.py",
+      "runtime_input_sha256": "3ba33334f89f10c948f477f393ba2b3edf83bc6c5a1a1beaf8fed255f2fb2eb9",
+      "tasks": 100,
+      "test_grids": 113,
+      "attempts_per_grid": 2,
+      "fallback_grids": 105,
+      "wall_seconds": 272.578,
+      "prediction_sha256": "accf7696e320fb1932271e9e809006fa3fa459ae2d67879d4890fc686d4db3c8",
+      "audit_sha256": "2407f01e818e257415613b9b7494e1ed82983d861d7f0f9f992e8d1022755179",
+      "prediction_task_count": 100,
+      "solution_labels_read_before_freeze": false
+    }
+  ],
+  "baseline_to_candidate_prediction_changes": {
+    "attempt_1_grids": 3,
+    "attempt_2_grids": 3
+  },
+  "candidate_family_counts": {
+    "ARC二軸欠損補完": 1,
+    "ARC周期タイルD4反復": 2,
+    "ARC局所近傍セル変換": 26,
+    "ARC格子D4変換": 1,
+    "ARC汎用プログラム帰納_1": 4,
+    "ARC物体外れ値選択・切出し": 1,
+    "ARC特徴近傍変換選択": 2
+  },
+  "candidate_nonidentity_family_counts": {
+    "ARC二軸欠損補完": 1,
+    "ARC周期タイルD4反復": 2,
+    "ARC局所近傍セル変換": 26,
+    "ARC格子D4変換": 1,
+    "ARC汎用プログラム帰納_1": 4,
+    "ARC物体外れ値選択・切出し": 1,
+    "ARC特徴近傍変換選択": 2
+  },
+  "label_access": "No held-out test output was read for scoring before this freeze. Offline scoring is permitted only after this record is written.",
+  "scoring_status": "FROZEN_PENDING_OFFLINE_SCORING",
+  "challenge_path": "%TEMP%/arc2-v9-independent-holdout-20261029/cohort.json",
+  "challenge_sha256": "3ba33334f89f10c948f477f393ba2b3edf83bc6c5a1a1beaf8fed255f2fb2eb9",
+  "predictions_frozen_at_utc": "2026-10-29T10:41:20.874652+00:00",
+  "modes": {
+    "baseline": {
+      "submission_path": "%TEMP%/arc2-v9-independent-baseline-20261029/output-retry/submission.json",
+      "submission_sha256": "1049a34c77291fc63a2cb51b85aec977e1b4263169b3971158d869038352614d",
+      "audit_path": "%TEMP%/arc2-v9-independent-baseline-20261029/output-retry/submission_audit.json",
+      "audit_sha256": "4c0824f2583e9363e1b26d75c2f2d09a6625f21fb32a9568848bc6c2cc3deee7"
+    },
+    "candidate": {
+      "submission_path": "%TEMP%/arc2-v9-independent-holdout-20261029/candidate/submission.json",
+      "submission_sha256": "accf7696e320fb1932271e9e809006fa3fa459ae2d67879d4890fc686d4db3c8",
+      "audit_path": "%TEMP%/arc2-v9-independent-holdout-20261029/candidate/submission_audit.json",
+      "audit_sha256": "2407f01e818e257415613b9b7494e1ed82983d861d7f0f9f992e8d1022755179"
+    }
+  },
+  "scorer_source_path": "%TEMP%/arc2-v9-officialsample-compare-20261029/score_frozen_eval.py",
+  "scorer_source_sha256": "a3c2998baf6ddbc3f34484187c8744475d3c018cc7a404c06aa9482bb6b253ef",
+  "registered_cohort_portable_copy_sha256": "19b4efffbca9a3702ee87b95a24dff07d27d4ddea11c090f5989af8dd761dccc",
+  "executed_prediction_freeze_original_sha256": "bd519739615d9e5f0b83a42284db3c27389f030549b9ba060510e1c2b5c1e7b0",
+  "portable_path_redaction": true,
+  "portable_copy_note": "Paths were redacted after the prediction freeze and score run. Original exact pre-scoring manifests are retained under the temporary evidence archive; scores and output hashes are unchanged."
+}

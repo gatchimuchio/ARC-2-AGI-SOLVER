@@ -1,0 +1,188 @@
+{
+  "schema": "arc2-v9-additional-holdout-result-v1",
+  "recorded_at_utc": "2026-10-29T10:43:10.996191+00:00",
+  "run_id": "ARC2-V9-INDEPENDENT-HOLDOUT-20261029",
+  "track": "ARC2",
+  "decision": "LOCAL_GATE_PASS_CANDIDATE_ELIGIBLE_FOR_NEXT_REVIEW",
+  "governing_set": {
+    "version": "v9_0 / ARC26-SOLVE-SCORE-20261029",
+    "documents": [
+      {
+        "path": "運用/ARC26-UNIFIED/v9_0/ARC2/01_ARC2_仕様書_v9_20261029.md",
+        "sha256": "27b2d1ed8b53984265a22ad32889fc176896f080b0150a138cfb9c6945c26a38"
+      },
+      {
+        "path": "運用/ARC26-UNIFIED/v9_0/ARC2/02_ARC2_工程表_v9_20261029.md",
+        "sha256": "c8ae679aa75eab249e49610735ebb389ea430e75b00adedcc03b293aac674da0"
+      },
+      {
+        "path": "運用/ARC26-UNIFIED/v9_0/ARC2/03_ARC2_Codex指示書_v9_20261029.md",
+        "sha256": "04386cbcb544f77eccbae676314d1114891bd6b347201f1bb32666b5b952144e"
+      }
+    ]
+  },
+  "cohort": {
+    "source": "公開ARC-AGI-2 training",
+    "tasks": 100,
+    "test_grids": 113,
+    "exposure": "exposure_unknown",
+    "input_sha256": "3ba33334f89f10c948f477f393ba2b3edf83bc6c5a1a1beaf8fed255f2fb2eb9",
+    "source_inventory_sha256": "b5081b0754c67f497a361cd10826f813e58cfa074bd485004027a76b0256dcdd",
+    "selection_seed": "ARC2-v9-independent-holdout-20261029",
+    "excluded_previous_cohorts": [
+      {
+        "path": "%TEMP%/arc2-v9-connectivity-confirm-fresh100-20261029/cohort.json",
+        "sha256": "57d3fd6aaf8ba96dbe8371955a6e47276c7c5ba19c66edbc540d1a20bd70bb07",
+        "task_count": 100,
+        "unique_input_signatures": 100
+      },
+      {
+        "path": "%TEMP%/arc2-v9-fulltrain-240-cohort-20261029/cohort.json",
+        "sha256": "13f532e8731fcf93da1f09e0de753e732c03df10baaea82a3efebd8c8233adb0",
+        "task_count": 240,
+        "unique_input_signatures": 240
+      },
+      {
+        "path": "%TEMP%/arc2-v9-hds-proofsearch-candidate-20261029/cohort.json",
+        "sha256": "0fad8f47c8fd9c60b9c9add91b1fb5579f6e687c4a6dcdc02b1d928539aebe85",
+        "task_count": 100,
+        "unique_input_signatures": 100
+      },
+      {
+        "path": "%TEMP%/arc2-v9-hds-proofsearch-confirm100-20261029/cohort.json",
+        "sha256": "6f962e152e0145b666d7664298628eb687d861cb3d17e56a82879dd3e7165d9d",
+        "task_count": 100,
+        "unique_input_signatures": 100
+      },
+      {
+        "path": "%TEMP%/arc2-v9-proofsearch-confirm-fresh100b-20261029/cohort.json",
+        "sha256": "f5cdffa57480688e66fcbc11a17b091c8bc3040c1831b2df0e36ffca7aba6a67",
+        "task_count": 100,
+        "unique_input_signatures": 100
+      },
+      {
+        "path": "%TEMP%/arc2-v9-qwen-cpu-pilot-20261029/dataset/cohort.json",
+        "sha256": "7253cf44f02d9da86f660a599e2fe5af31a5a87d92851619b682f0a6dc60c026",
+        "task_count": 100,
+        "unique_input_signatures": 100
+      }
+    ],
+    "unique_input_signatures_excluded": 644,
+    "runtime_aliases_used": true,
+    "task_ids_used_in_runtime_decision": false,
+    "test_solutions_in_runtime": false,
+    "preregistration": {
+      "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-independent-holdout-prereg-20261029.json",
+      "portable_sha256": "178153cb4ad3dc9c4b074ce075e3389c2985d8bafeb87f64e8dd5752886d39db",
+      "executed_original_sha256": "3070d05b80ad19340e5a9e8186af9dcfa65110dfa71f0d6294293e4da086c262"
+    }
+  },
+  "frozen_predictions": {
+    "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-independent-holdout-prediction-freeze-20261029.json",
+    "sha256": "82bf6dbe0a8137eafae33aa516c015a845f4e8d5e941b2a93b1fee0cd4992baa",
+    "freeze_sha256_recorded_by_scorer": "bd519739615d9e5f0b83a42284db3c27389f030549b9ba060510e1c2b5c1e7b0",
+    "frozen_before_scoring": true,
+    "baseline_prediction_sha256": "1049a34c77291fc63a2cb51b85aec977e1b4263169b3971158d869038352614d",
+    "candidate_prediction_sha256": "accf7696e320fb1932271e9e809006fa3fa459ae2d67879d4890fc686d4db3c8",
+    "baseline_audit_sha256": "4c0824f2583e9363e1b26d75c2f2d09a6625f21fb32a9568848bc6c2cc3deee7",
+    "candidate_audit_sha256": "2407f01e818e257415613b9b7494e1ed82983d861d7f0f9f992e8d1022755179",
+    "executed_original_sha256": "bd519739615d9e5f0b83a42284db3c27389f030549b9ba060510e1c2b5c1e7b0"
+  },
+  "scorer": {
+    "primary_repository_scorer": {
+      "path": "道具/ARC2/proof_search公開training採点.py",
+      "sha256": "4a9f314285139f2f55e5833134ede89dbf651f2d28c83adb51e1d5f4faa3fa74",
+      "score_output_sha256": "8b1ebb0d9e35c921bb2d1fa11a197af58715c3e9d645ad34277181a01f054f1b",
+      "training_challenges_sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+      "training_solutions_sha256": "9f07a38bd25af5e83aa5bf85c5cb1a1fefdb30f6a755256fa65429e697ca97f9",
+      "task_id_mapping_used_only_by_offline_scorer": true
+    },
+    "independent_crosscheck_scorer": {
+      "path": "%TEMP%/arc2-v9-officialsample-compare-20261029/score_frozen_eval.py",
+      "sha256": "a3c2998baf6ddbc3f34484187c8744475d3c018cc7a404c06aa9482bb6b253ef",
+      "score_output_sha256": "e31ed7bbf897b21db26d415835a5158164a405aa576404822e652f93c4f3bad5",
+      "metrics_match_primary": true
+    },
+    "candidate_fallback_provenance": {
+      "path": "%TEMP%/arc2-v9-independent-holdout-20261029/candidate-fallback-provenance-inferred.json",
+      "sha256": "58b8110c7b46af8cbd7c17b261edd58078a19a3146091516be66a01040eccbb4",
+      "method": "candidate attempt1 from runner audit fallback records; attempt2 fallback only when it copies input or duplicates a fallback attempt1",
+      "runtime_trace": false,
+      "fallbacks_counted_as_correct": false
+    },
+    "prediction_freeze_sha256": "bd519739615d9e5f0b83a42284db3c27389f030549b9ba060510e1c2b5c1e7b0",
+    "solutions_read_after_freeze": true,
+    "scores_file_sha256": "8b1ebb0d9e35c921bb2d1fa11a197af58715c3e9d645ad34277181a01f054f1b"
+  },
+  "baseline": {
+    "pass_at_1_grids": 4,
+    "pass_at_2_grids": 5,
+    "unique_attempt_2_hits": 1,
+    "model_only_pass_at_1_grids": 4,
+    "model_only_pass_at_2_grids": 5,
+    "model_only_unique_attempt_2_hits": 1,
+    "fallback_first_slots": 108,
+    "fallback_second_slots": 81,
+    "fallback_hit_grids": 0,
+    "tasks_pass_at_2": 5,
+    "model_only_tasks_pass_at_2": 5,
+    "tasks": 100,
+    "test_grids": 113
+  },
+  "candidate": {
+    "pass_at_1_grids": 6,
+    "pass_at_2_grids": 7,
+    "unique_attempt_2_hits": 1,
+    "model_only_pass_at_1_grids": 6,
+    "model_only_pass_at_2_grids": 7,
+    "model_only_unique_attempt_2_hits": 1,
+    "fallback_first_slots": 105,
+    "fallback_second_slots": 78,
+    "fallback_hit_grids": 0,
+    "tasks_pass_at_2": 7,
+    "model_only_tasks_pass_at_2": 7,
+    "tasks": 100,
+    "test_grids": 113
+  },
+  "delta_candidate_minus_baseline": {
+    "pass_at_1_grids": 2,
+    "pass_at_2_grids": 2,
+    "unique_attempt_2_hits": 0,
+    "model_only_pass_at_1_grids": 2,
+    "model_only_pass_at_2_grids": 2,
+    "model_only_unique_attempt_2_hits": 0,
+    "fallback_first_slots": -3,
+    "fallback_second_slots": -3,
+    "fallback_hit_grids": 0,
+    "tasks_pass_at_2": 2,
+    "model_only_tasks_pass_at_2": 2,
+    "tasks": 0,
+    "test_grids": 0
+  },
+  "coverage_change_counts": {
+    "candidate_added_nonfallback_hits": 2,
+    "baseline_lost_nonfallback_hits": 0,
+    "correct_grids_lost": 0
+  },
+  "prediction_change_counts": {
+    "attempt_1_grids": 3,
+    "attempt_2_grids": 3
+  },
+  "runtime": {
+    "baseline_seconds": 254.422,
+    "candidate_seconds": 272.578,
+    "candidate_generic_family_count": 4,
+    "candidate_generic_nonidentity_count": 4
+  },
+  "interpretation": "新規追加holdout上でHDS統合候補の非fallback正答が2格子純増。2件はattempt_1で増え、unique attempt_2は変化なし。baselineの正答退行なし。現行Kaggle evaluation 120/172の予測はbaselineと同一で、公式score改善は未確認。A/B/C/Dの旧固定cohort比較ではBの再現のみ、C/Dの追加記憶・オンライン学習効果は未立証。",
+  "next_gate": "G2 local holdout gate passed for review; official submission remains blocked until 24h gate after 2026-10-29T18:22:38.277Z, current Kaggle rules/status/output/hash are rechecked, and notebook version is successfully run.",
+  "limitations": [
+    "公開trainingの追加holdoutであり、外部事前学習露出はunknown。",
+    "この値は公式Kaggle scoreではない。",
+    "official evaluation replay produced no prediction change relative to baseline; official score improvement is unconfirmed.",
+    "unique attempt2 hits did not improve, so second-attempt complementarity remains the next target.",
+    "HDS online adaptation/learning definition remains NOT_ESTABLISHED."
+  ],
+  "task_mapping_used_only_by_offline_scorer": true,
+  "scoring_crosscheck": "Repository scorer and independent post-freeze scorer agree on all exact grid metrics for both baseline and candidate."
+}

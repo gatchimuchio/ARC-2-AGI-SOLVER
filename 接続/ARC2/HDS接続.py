@@ -25,6 +25,7 @@ from .周期組修復教材 import 周期組修復教材
 from .格子D4教材 import 格子D4教材
 from .周期タイルD4教材 import 周期タイルD4教材
 from .特徴近傍変換選択 import FeatureNeighborTransform
+from .汎用プログラム帰納候補 import 汎用プログラム帰納候補群
 from .全前景平行移動教材 import 全前景平行移動教材
 from .C2_066_compound_foreground_D4_palette_translation import CompoundForegroundD4PaletteTranslation
 from .部分見本教材 import 部分見本教材
@@ -239,6 +240,17 @@ def 出力格子(機械, 観測, *, 同値必須=False, 観測診断=False):
     return 出力
 
 
+def _汎用候補根拠(詳細):
+    if not isinstance(詳細, dict) or 詳細.get("generator") != "symbolic_program_induction":
+        return None
+    項目 = (
+        "generator", "program_source_sha256", "rank", "train_fit", "program",
+        "program_family", "program_cost", "training_score", "uncertainty",
+        "action_origin", "reason",
+    )
+    return {名前: 詳細[名前] for 名前 in 項目 if 名前 in 詳細}
+
+
 def 候補機構を学習(機械, 課題, 事前教材, 境界, 候補器):
     記録 = {"境界": 境界, "事前観測数": 0, "現在観測数": 0,
             "採用可": False, "同値採用": False}
@@ -247,6 +259,9 @@ def 候補機構を学習(機械, 課題, 事前教材, 境界, 候補器):
         for 対 in 教材群:
             # 常に入力だけで候補を生成。expected引数は渡さない。
             候補, 詳細 = 候補器(対["input"], {})
+            根拠 = _汎用候補根拠(詳細)
+            if 根拠 is not None:
+                記録["候補根拠"] = 根拠
             if 候補 is None:
                 return {**記録, "状態": "充足する候補なし", "詳細": 詳細}
             全再現 = 全再現 and 候補 == 対["output"]
@@ -397,6 +412,7 @@ def 課題を解く(
     有限例外光線.学習する(機械, 観測へ)
     周期枠位相 = 周期枠位相教材(課題["train"])
     周期枠位相.学習する(機械, 観測へ)
+    汎用帰納候補群 = 汎用プログラム帰納候補群(課題["train"])
     機構群 = (
         ("ARCテンプレート穴充填", _template_hole_pack_render, 事前教材),
         ("ARC入れ子パネル合成", _nested_panel_relation_render, ()),
@@ -508,6 +524,8 @@ def 課題を解く(
         ("ARC有限例外光線", 有限例外光線.候補, ()),
         ("ARC周期枠位相", 周期枠位相.候補, ()),
         ("ARC特徴近傍変換選択", 特徴近傍.候補, ()),
+        ("ARC汎用プログラム帰納_1", 汎用帰納候補群.第一候補, ()),
+        ("ARC汎用プログラム帰納_2", 汎用帰納候補群.第二候補, ()),
     )
     記録群 = [候補機構を学習(機械, 課題, 教材, 境界, 候補器)
               for 境界, 候補器, 教材 in 機構群]
@@ -538,7 +556,11 @@ def 課題を解く(
                 未解決理由.append(f"採用済み機構{境界}のtest候補が未確定")
                 continue
             if 候補収集 and 有効格子(候補):
-                生候補群.append({"family": 境界, "answer": deepcopy(候補)})
+                生候補 = {"family": 境界, "answer": deepcopy(候補)}
+                根拠 = _汎用候補根拠(候補記録)
+                if 根拠 is not None:
+                    生候補["evidence"] = 根拠
+                生候補群.append(生候補)
             if 基底結果["answer"] is None and 有効格子(候補):
                 予測群.append({"answer": deepcopy(候補), "family": 境界})
             予測 = 出力格子(機械, 観測へ({"候補": 候補}, 境界), 同値必須=True)

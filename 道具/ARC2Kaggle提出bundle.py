@@ -158,6 +158,14 @@ def _runtime_files() -> list[tuple[str, Path]]:
                 continue
             relative = path.relative_to(ROOT).as_posix()
             selected[relative] = path
+    for relative in (
+        "接続/ARC2/LICENSE-MIT-0-ARC-Proof-Search.txt",
+        "接続/ARC2/外部コード告知.md",
+    ):
+        path = ROOT / relative
+        if path.is_symlink() or not path.is_file():
+            raise FileNotFoundError(f"runtimeの外部コード告知がありません: {relative}")
+        selected[relative] = path
     # 未観測端対応教材がimportするルート直下の実装と、そのpeer演算依存。
     for name in ("missing_edge_bindings.py", "peer_edge.py"):
         path = ROOT / name
