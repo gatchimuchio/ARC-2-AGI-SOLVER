@@ -1,0 +1,89 @@
+{
+  "schema": "arc2-candidate-generation-coverage-prereg-v1",
+  "run_id": "ARC2-v9-candidate-family-confirm-200-20261029",
+  "registered_at_utc": "2026-10-29T03:41:26Z",
+  "baseline_commit": "5f74ab199848d3f932a64347d84d90a2421b5b8c",
+  "current_three_point_set": "運用/ARC26-UNIFIED/v9_0/ARC2",
+  "source": {
+    "path": "入力/Kaggle/arc-agi_training_challenges.json",
+    "sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+    "tasks": 1000,
+    "eligible_one_test_after_exclusions": 556
+  },
+  "exclusion": {
+    "evidence_files_scanned": 183,
+    "matched_input_records": 400,
+    "excluded_unique_task_ids": 402,
+    "excluded_id_set_sha256": "44495fabeeb6dc6ed468e8590f4284456b2224332244cf02ef6225046178f66d",
+    "method": "scan cohort/holdout/split/prereg/comparison/LOO JSON and JSONL evidence for explicit task IDs and match input-only task signatures; canonicalize zero-padding only for conservative exclusion; explicitly include the 2026-10-29 VARC and HDS action-gate cohorts",
+    "exclusion_does_not_prove_pretraining_exposure": true
+  },
+  "cohort": {
+    "total_tasks": 200,
+    "total_test_grids": 200,
+    "selection_seed": "ARC2-v9-candidate-family-confirm-200-20261029",
+    "selection": "sort eligible one-test training tasks by SHA256(seed + NUL + task_id), take first 200; first 100 discovery, next 100 confirmatory",
+    "task_id_sha256": "2c9ccb63935492da47ee7d1112aaa1610ccab5c91ad3d15e405c7f83ef2a09f9",
+    "runtime_task_ids_present": false,
+    "runtime_test_outputs_present": false,
+    "train_outputs_allowed": true,
+    "exposure_status": "exposure_unknown; prior model/module exposure cannot be fully established",
+    "discovery": {
+      "tasks": 100,
+      "task_id_sha256": "28ba92f00a2835fb9dba2a09950a073b7b3972799dba8beed83a52de977e2687",
+      "runtime_input_file": "ARC2-v9-candidate-family-discovery100-input-20261029.json",
+      "runtime_input_sha256": "7253cf44f02d9da86f660a599e2fe5af31a5a87d92851619b682f0a6dc60c026"
+    },
+    "confirmatory": {
+      "tasks": 100,
+      "task_id_sha256": "196f5064a82dc3891801b7e4c885d86d502f5ace6316f0c13a1a8acacc2cee8f",
+      "runtime_input_file": "ARC2-v9-candidate-family-confirm100-input-20261029.json",
+      "runtime_input_sha256": "6d430ce94842262e32dedc4b1add48de313dd022f976a3b54bfadfb90f7be9da"
+    }
+  },
+  "labels": {
+    "read_before_registration": false,
+    "read_before_baseline_freeze": false,
+    "discovery_read_after_baseline_freeze": true,
+    "confirmatory_read_after_candidate_and_baseline_freeze": true,
+    "scorer_map_creation": "after frozen predictions only; kept in Temp outside runtime"
+  },
+  "hypothesis": "The prior HDS action-gate change produced zero candidate-pair coverage and byte-identical output. The measured unresolved rate is high, but prior diagnostics did not score each generated family candidate independently. This two-stage audit distinguishes candidate generation failure from correct-but-unselected candidates.",
+  "planned_method": "Run the unmodified baseline in default non-aggregate mode while a diagnostic-only sidecar records generic candidate family/grid outputs without changing submitted attempts. Freeze both 100-task outputs. Score only discovery after its freeze. If a correct candidate was generated but not selected, implement one generic train-evidence-based second-attempt selection change; otherwise implement one general candidate-generation change from train examples. Keep confirmatory labels sealed until baseline and candidate confirm outputs are both frozen.",
+  "candidate_scope": "diagnostic/selection/generation code in a detached temporary worktree; no problem ID, filename, hash, answer-map, or test-output branch; no changes to protected files",
+  "required_metrics": [
+    "pass_at_1",
+    "pass_at_2",
+    "unique_attempt2_hits",
+    "fallback_identity",
+    "candidate_family_coverage",
+    "oracle_available_correct_candidate_count",
+    "selected_candidate_hits",
+    "wall_seconds",
+    "paired_gains",
+    "paired_regressions",
+    "prediction_sha256"
+  ],
+  "adoption_gate": "confirmatory pass_at_2 net gain > 0 on 100 grids, valid schema, no material regression, reproducible identical-input run; otherwise do not adopt or submit",
+  "official_submission_performed": false,
+  "status": "PREREGISTERED_NOT_RUN",
+  "scorer_id_map_path_after_freeze": "C:\\Users\\ohira\\AppData\\Local\\Temp\\arc2-v9-candidate-family-id-map-20261029.json",
+  "official_gate": {
+    "observed_at_utc": "2026-10-29T03:42:01Z",
+    "latest_submission_id": "57745630",
+    "status": "COMPLETE",
+    "public_score": 0.0,
+    "personal_best_submission_id": "55046979",
+    "personal_best_public_score": 0.83,
+    "daily_quota_remaining": "NOT_QUERIED",
+    "history_file": "official-history-20261029T034201Z.json",
+    "history_sha256": "a258ffe66a2657132dcc0de0ef3c3c7d6587bd6e5e033db4a60ece155a8dd192"
+  },
+  "environment": {
+    "default_repo_uv_sync": "FAILED_ACCESS_DENIED_during_locked_sync",
+    "isolated_environment": "C:\\Users\\ohira\\AppData\\Local\\Temp\\arc2-v9-dev-20261029",
+    "isolated_environment_lock_sync": "PASS",
+    "lockfile_modified": false,
+    "acl_changed": false
+  }
+}
