@@ -1,0 +1,129 @@
+{
+  "schema": "arc2-official-history-observation-v1",
+  "track": "ARC2",
+  "competition_slug": "arc-prize-2026-arc-agi-2",
+  "observed_at_utc": "2026-10-29T02:58:54Z",
+  "command_source": "C:/Users/ohira/AppData/Local/Codex/arc26-kaggle-envs/arc2/Scripts/kaggle.exe",
+  "kaggle_cli_version": "2.2.5",
+  "read_only": true,
+  "rows": [
+    {
+      "ref": 57745630,
+      "status": "COMPLETE",
+      "public_score": "0.00",
+      "private_score": null
+    },
+    {
+      "ref": 57682971,
+      "status": "COMPLETE",
+      "public_score": null,
+      "private_score": null
+    },
+    {
+      "ref": 57646990,
+      "status": "COMPLETE",
+      "public_score": null,
+      "private_score": null
+    },
+    {
+      "ref": 57611018,
+      "status": "COMPLETE",
+      "public_score": "0.00",
+      "private_score": null
+    },
+    {
+      "ref": 57576155,
+      "status": "COMPLETE",
+      "public_score": "0.00",
+      "private_score": null
+    },
+    {
+      "ref": 57560705,
+      "status": "COMPLETE",
+      "public_score": "0.00",
+      "private_score": null
+    },
+    {
+      "ref": 57517199,
+      "status": "COMPLETE",
+      "public_score": null,
+      "private_score": null
+    },
+    {
+      "ref": 55046979,
+      "status": "COMPLETE",
+      "public_score": "0.83",
+      "private_score": null
+    },
+    {
+      "ref": 55038338,
+      "status": "COMPLETE",
+      "public_score": null,
+      "private_score": null
+    },
+    {
+      "ref": 54709840,
+      "status": "COMPLETE",
+      "public_score": null,
+      "private_score": null
+    },
+    {
+      "ref": 53996447,
+      "status": "COMPLETE",
+      "public_score": "0.00",
+      "private_score": null
+    },
+    {
+      "ref": 53962702,
+      "status": "COMPLETE",
+      "public_score": "0.00",
+      "private_score": null
+    }
+  ],
+  "current_refs": [
+    57745630,
+    57682971,
+    57646990,
+    57611018,
+    57576155,
+    57560705,
+    57517199,
+    55046979,
+    55038338,
+    54709840,
+    53996447,
+    53962702
+  ],
+  "previous_refs": [
+    57745630,
+    57682971,
+    57646990,
+    57611018,
+    57576155,
+    57560705,
+    57517199,
+    55046979,
+    55038338,
+    54709840,
+    53996447,
+    53962702
+  ],
+  "history_unchanged": true,
+  "latest_submission": {
+    "ref": 57745630,
+    "date_utc": "2026-10-28T18:22:38.277Z",
+    "status": "COMPLETE",
+    "public_score": "0.00",
+    "private_score": null,
+    "description": "ARC2-v7-deadline-10h30m-v1-20261028"
+  },
+  "private_score_state": "not provided",
+  "quota_rechecked": {
+    "utc_day": "2026-10-29",
+    "num_allowed_now": 1,
+    "today_submission_refs": [],
+    "gate_permitted_by_quota_and_latest_status": true
+  },
+  "new_submission_or_rerun_performed": false,
+  "error_details": "not exposed by history CLI; no new submission detail query made"
+}

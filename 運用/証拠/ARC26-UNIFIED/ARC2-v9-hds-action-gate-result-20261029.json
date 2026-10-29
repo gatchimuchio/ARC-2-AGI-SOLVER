@@ -1,0 +1,87 @@
+{
+  "schema": "arc2-hds-action-gate-result-v1",
+  "run_id": "ARC2-v9-hds-action-gate-100-20261029",
+  "recorded_at_utc": "2026-10-29T03:24:36Z",
+  "status": "NOT_ADOPTED_NO_BEHAVIOR_CHANGE",
+  "preregistration": {
+    "file": "ARC2-v9-hds-action-gate-prereg-20261029.json",
+    "sha256": "be85fac8c42198dfa6611c0463efe9105dfc276c9574e914d5cce3dbb9feb838",
+    "runtime_input_sha256": "b0a8a79e366ce117d4da926209cbe9a19a97f5c35f835e04ee21b348d3c29712",
+    "cohort_tasks": 100,
+    "test_grid_denominator": 100,
+    "cohort_task_id_sha256": "8dc8efe1762d0a3a785fc2e760b020e4a4e8a674ceef8eee963aea5a94fc8312",
+    "exposure_status": "exposure_unknown; prior HDS memory and generic candidate modules may encode related public ARC patterns",
+    "labels_read_before_freeze": false
+  },
+  "baseline": {
+    "source_commit": "ee71ebe4634e65faebdc42b6f1906999c9aa8c9b",
+    "hds_connection_sha256": "69ba1aa8f428a108624ae871672496f8b0bf2746b93f96f65d1a0f78d3c0d1fe",
+    "kaggle_adapter_sha256": "43fd2c444cc1428bdfb3da3b228fca14b6ccb939c169401b1684c2b93b4092e4",
+    "prediction_sha256": "e9c7be7e6c18376c7159026bce0d74f43977e75849166341cf05905553cb8ab8",
+    "prediction_reproduced_byte_identically": true,
+    "pass_at_1": 3,
+    "pass_at_2": 5,
+    "unique_attempt2_hits": 2,
+    "identity_fallback_grids": 96,
+    "distinct_attempt2_grids": 18,
+    "fallback_count": 96,
+    "hds_unresolved_grids": 96,
+    "hds_admitted_primary_candidate_predictions": 6,
+    "hds_candidate_pair_coverage": 0,
+    "runtime_seconds": 252.141,
+    "format_pass": true,
+    "scored_after_prediction_freeze": true
+  },
+  "candidate": {
+    "base_commit": "511f84e9789e088f3601f4f45c25d9004d0debf2",
+    "working_tree_path_recorded_outside_repo": "C:\\Users\\ohira\\AppData\\Local\\Temp\\arc2-v9-hds-action-gate-candidate-20261029",
+    "hds_connection_sha256": "79902122f4accdc14d2322bd8ce8d5b76c21ccfeaa6b61d2b49119637be8d142",
+    "kaggle_adapter_sha256": "2452c30824b4d2f01de7256a7ebfee38995b837e881b0f2143d29ae0508295d5",
+    "patch_file": "ARC2-v9-hds-action-gate-rejected-20261029.patch",
+    "patch_sha256": "026862036e6ba36c5f53e2948a77b82081162687244b712cc8e333515829a562",
+    "prediction_sha256": "e9c7be7e6c18376c7159026bce0d74f43977e75849166341cf05905553cb8ab8",
+    "prediction_identical_to_baseline": true,
+    "pass_at_1": 3,
+    "pass_at_2": 5,
+    "unique_attempt2_hits": 2,
+    "identity_fallback_grids": 96,
+    "distinct_attempt2_grids": 18,
+    "fallback_count": 96,
+    "hds_candidate_attempt_pair_coverage": 0,
+    "hds_provisional_pair_on_hold_count": 0,
+    "all_adapter_candidate_predictions": 24,
+    "runtime_seconds": 220.968,
+    "format_pass": true,
+    "scored_after_prediction_freeze": true
+  },
+  "delta": {
+    "pass_at_1": 0,
+    "pass_at_2": 0,
+    "unique_attempt2_hits": 0,
+    "identity_fallback_grids": 0,
+    "paired_gains": 0,
+    "paired_regressions": 0,
+    "runtime_seconds": -31.173,
+    "runtime_delta_is_not_claimed_as_speedup": true
+  },
+  "decision": "The support-ranked HDS provisional pair did not activate on any hold grid because the approved candidate pool did not contain a qualifying distinct pair. Predictions are byte-identical, so this change adds no answer and is rejected.",
+  "tests": {
+    "targeted_and_adapter_tests": "PASS",
+    "passed": 18,
+    "failed": 0,
+    "ruff": "PASS"
+  },
+  "official_submission_performed": false,
+  "next_action": "Treat candidate generation/coverage as the measured bottleneck; preregister a fresh cohort before a different generator hypothesis.",
+  "rejected_candidate_patch": {
+    "file": "ARC2-v9-hds-action-gate-rejected-20261029.patch.b64",
+    "encoding": "base64-encoded UTF-8 unified diff",
+    "raw_sha256": "026862036e6ba36c5f53e2948a77b82081162687244b712cc8e333515829a562",
+    "encoded_sha256": "0773fb752d40ae1223df84f081de04480969762bfd399018a2ef47c9da8a169f",
+    "candidate_source_sha256": {
+      "接続/ARC2/HDS接続.py": "79902122f4accdc14d2322bd8ce8d5b76c21ccfeaa6b61d2b49119637be8d142",
+      "接続/ARC2/Kaggle提出.py": "2452c30824b4d2f01de7256a7ebfee38995b837e881b0f2143d29ae0508295d5",
+      "検証/test_HDS暫定候補対.py": "5adb4f6487449937638b968ee65d29bcb72484973810146c5e542e8afd48f8c7"
+    }
+  }
+}
