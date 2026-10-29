@@ -22,5 +22,24 @@
     "status": "FAILED_BEFORE_LABEL_READ",
     "cause": "Inline scorer resolved its repository root one level too high and could not find the first public training file.",
     "resolution": "Moved scorer into the registered evidence directory, corrected repository-root traversal, then scored after both prediction freezes were committed."
-  }
+  },
+  "fallback_failure_classification": {
+    "solver_hold": 80,
+    "task_wall_timeout": 1,
+    "total_fallbacks": 81,
+    "total_test_grids": 111
+  },
+  "symbolic_candidate_activation": {
+    "tasks": 100,
+    "tasks_with_train_exact_program": 3,
+    "train_exact_programs_total": 11,
+    "test_grid_first_predictions": 3,
+    "test_grid_second_predictions": 0,
+    "unique_candidate_pairs": 0,
+    "predictions_distinct_from_baseline_attempts": 0,
+    "direct_serial_wall_seconds": 1138.86,
+    "hds_symbolic_family_counts": {}
+  },
+  "candidate_acceptance": "REJECTED; pass@1 delta 0/111, pass@2 delta 0/111, no regressions or improvements, runtime +54.813s.",
+  "learning_causality": "NOT_ESTABLISHED; no A/B/C/D counterfactual comparison performed."
 }

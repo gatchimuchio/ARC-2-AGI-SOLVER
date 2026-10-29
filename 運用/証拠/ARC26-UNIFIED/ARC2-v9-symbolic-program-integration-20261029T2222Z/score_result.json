@@ -62,5 +62,30 @@
   "official_score": null,
   "official_submission_id": 57783547,
   "official_submission_status_at_last_query": "PENDING",
-  "scorer_sha256": "9098aff0a391163dd590c403c2879439c8b4ca1dbc7a5d66a5a119b6495246e3"
+  "scorer_sha256": "9098aff0a391163dd590c403c2879439c8b4ca1dbc7a5d66a5a119b6495246e3",
+  "failure_diagnosis": {
+    "fallback_reasons": {
+      "solver_hold": 80,
+      "task_wall_timeout": 1
+    },
+    "solver_hold_reason_counts": {
+      "現行暫定原理の適用に必要な観測が不足している": 80
+    },
+    "symbolic_generator": {
+      "tasks": 100,
+      "tasks_with_train_exact_program": 3,
+      "train_exact_programs_total": 11,
+      "test_grid_first_predictions": 3,
+      "test_grid_second_predictions": 0,
+      "unique_candidate_pairs": 0,
+      "predictions_distinct_from_baseline_attempts": 0,
+      "direct_serial_wall_seconds": 1138.86,
+      "hds_symbolic_family_counts": {}
+    },
+    "largest_observed_loss_source": "candidate_missing / no novel train-exact symbolic prediction on 97 of 100 tasks; separately 80 solver_hold and 1 task_wall_timeout among 111 output grids.",
+    "learning_causality": "NOT_ESTABLISHED; A/B/C/D future-decision comparison not run."
+  },
+  "activation_diagnostic_sha256": "767bd1c12fc4ab6c93ace41ee06140d41af2d9b373bca73340925e60a2389f99",
+  "activation_diagnostic_script_sha256": "7b5e97cbd9366b8ec202d934ec3032682b979163051f66fc738fd9c8f8e0ccd8",
+  "next_action": "Try a materially different generic generator or simplify the candidate search; preregister a fresh disjoint remainder cohort before measuring. Keep this candidate quarantined."
 }

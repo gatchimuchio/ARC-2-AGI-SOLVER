@@ -1,0 +1,43 @@
+{
+  "schema": "arc2-v9-symbolic-candidate-activation-diagnostics-v1",
+  "run_id": "ARC2-v9-symbolic-program-integration-20261029T2222Z",
+  "measured_at_utc": "2026-10-29T22:56:00Z",
+  "challenge_sha256": "2a7d9c9fe5cc3cc4accdc16ac27d4c3a8a5b3fe78062637886a89147afed90cf",
+  "cohort_tasks": 100,
+  "cohort_grids": 111,
+  "label_access": "none; train pairs and test inputs only",
+  "direct_generator": {
+    "exact_programs": 11,
+    "grids": 111,
+    "first_predictions": 3,
+    "second_predictions": 0,
+    "distinct_prediction_pairs": 0,
+    "predictions_distinct_from_baseline_attempts": 0,
+    "grids_with_any_candidate": 3,
+    "grids_with_second_candidate": 0,
+    "tasks_with_exact_program": 3,
+    "tasks": 100,
+    "mean_exact_programs_per_task": 0.11
+  },
+  "hds_aggregate_diagnostics": {
+    "submission_sha256": "f7b26ceb5e0461042585dc40a6d7e766cc7f32c03a0ad588ed4fdb7d2f24227b",
+    "byte_identical_to_candidate_freeze": true,
+    "seconds_with_diagnostics": 342.078,
+    "fallback_count": 81,
+    "candidate_family_counts": {
+      "ARC周期タイルD4反復": 2,
+      "ARC局所近傍セル変換": 13,
+      "ARC格子D4変換": 2,
+      "ARC汎用プログラム帰納_1": 29,
+      "ARC物体抽出・切出し": 1,
+      "ARC特徴近傍変換選択": 2,
+      "ARC複合前景D4色写像平行移動": 1
+    },
+    "symbolic_family_count_in_hds_output": {}
+  },
+  "diagnostic_runtime_seconds": 1138.86,
+  "interpretation": "Compare direct train-exact generator activation with HDS candidate-family output. No target labels were read.",
+  "started_at_utc": "2026-10-29T22:56:30Z",
+  "finished_at_utc": "2026-10-29T23:15:46Z",
+  "diagnostic_script_sha256": "7b5e97cbd9366b8ec202d934ec3032682b979163051f66fc738fd9c8f8e0ccd8"
+}
