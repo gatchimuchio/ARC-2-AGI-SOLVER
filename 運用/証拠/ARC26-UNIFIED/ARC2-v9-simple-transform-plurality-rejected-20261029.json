@@ -1,0 +1,98 @@
+{
+  "schema": "arc2-v9-experiment-result-ja-v1",
+  "run_id": "ARC2-V9-SIMPLE-TRANSFORM-PLURALITY-CONFIRM-20261029",
+  "observed_at_utc": "2026-10-29T04:25:15Z",
+  "observed_at_jst": "2026-10-29T13:25:15+09:00",
+  "track": "ARC2",
+  "objective": "曖昧な単純変換モデル間の一意な2票以上pluralityが、既存二試行へ追加できる未出力候補を生むかを、固定confirm cohortで評価する。",
+  "preregistration": {
+    "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-simple-transform-plurality-confirm-prereg-20261029.json",
+    "sha256": "8dbcdcf5c0f087be69d1513e3ec4da39212bd2973588656492683800783e8328a",
+    "addendum_path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-simple-transform-plurality-confirm-prereg-addendum-20261029.json",
+    "addendum_sha256": "743107716f92f219abe8281e545205c0f1ba5425d966394d5c3884c2b759a68c"
+  },
+  "execution": {
+    "isolated_worktree": "C:\\Users\\ohira\\AppData\\Local\\Temp\\arc2-v9-candidate-coverage-audit-20261029",
+    "base_commit": "de456828e7b955177b3594f01c5e4c6e49553867",
+    "main_commit_at_observation": "df6718c6bf2f5b0ea8e25e2dc3e0c91bd9de4db7",
+    "candidate_code": {
+      "path": "接続/ARC2/単純変換候補.py",
+      "baseline_sha256": "efe210a4e183de93b5318aadeac7d2b5022a562189839b2ce1a414d367b5b0d3",
+      "candidate_sha256": "188705cf96d2a4f85576c4a754e2562d0459bdd74c617eed8e2833edb6443db2"
+    },
+    "audit_adapter": {
+      "path": "接続/ARC2/HDS接続.py",
+      "candidate_sha256": "605138e66e28d2ca765876c0c322659835234248c9a4289d4b2578aeafbbb4e5",
+      "default_mode": "候補監査=False",
+      "default_output_parity": "previous 100-grid discovery baselineと完全一致"
+    },
+    "targeted_validation": {
+      "ruff_check": "PASS",
+      "py_compile": "PASS"
+    }
+  },
+  "data": {
+    "cohort": "事前固定confirm cohort、100課題・100 test grids",
+    "input_path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-candidate-family-confirm100-input-20261029.json",
+    "input_sha256": "6d430ce94842262e32dedc4b1add48de313dd022f976a3b54bfadfb90f7be9da",
+    "exposure": "exposure_unknown",
+    "confirm_labels_read": false,
+    "inference_runtime_inputs": "公開train入出力とtest inputのみ"
+  },
+  "same_condition_comparison": {
+    "baseline": {
+      "submission_sha256": "2173b7ee8d4d72e377da32fbeaaae1e50e350f1bbe22cb6d9534fedc9483ce56",
+      "wall_seconds": 264.718,
+      "fallback_grids": 96
+    },
+    "candidate": {
+      "submission_sha256": "2173b7ee8d4d72e377da32fbeaaae1e50e350f1bbe22cb6d9534fedc9483ce56",
+      "wall_seconds": 229.109,
+      "fallback_grids": 96
+    },
+    "output_byte_identical": true,
+    "changed_grids": 0,
+    "pass_at_1": {
+      "baseline": null,
+      "candidate": null,
+      "delta": null,
+      "reason": "confirm labels were not read"
+    },
+    "pass_at_2": {
+      "baseline": null,
+      "candidate": null,
+      "delta": null,
+      "reason": "confirm labels were not read"
+    },
+    "exact_score_delta_inference": 0,
+    "runtime_delta_claimed": false
+  },
+  "input_only_generator_diagnostic": {
+    "tasks": 100,
+    "strict_unanimous_candidates": 2,
+    "multi_output_model_pools": 2,
+    "new_plurality_candidates": 1,
+    "new_candidate_distinct_from_attempt_1": 0,
+    "new_candidate_equal_attempt_1": 1,
+    "new_candidate_equal_attempt_2": 1,
+    "new_candidate_distinct_from_both_existing_attempts": 0,
+    "unique_plurality_support_at_least_2": 1
+  },
+  "decision": {
+    "status": "REJECTED_NOT_ADOPTED",
+    "reason": "100 grid confirm cohortで候補出力がbaselineとbyte-identical。追加で得た1つのplurality候補もbaselineのattempt_1とattempt_2に既に存在し、二試行coverageを増やさなかった。",
+    "main_source_changed": false,
+    "official_submission_performed": false,
+    "official_score_improvement_claimed": false,
+    "next_action": "汎用候補の生成・二試行への追加coverageを増やす別アーキテクチャ候補を検討する。固定confirmラベルは引き続き開封しない。"
+  },
+  "official_history_readonly_observation": {
+    "competition": "arc-prize-2026-arc-agi-2",
+    "latest_submission_id": 57745630,
+    "latest_status": "COMPLETE",
+    "latest_public_score": "0.00",
+    "previous_best_submission_id": 55046979,
+    "previous_best_public_score": "0.83",
+    "new_submission_performed": false
+  }
+}
