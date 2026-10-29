@@ -1,0 +1,62 @@
+{
+  "schema_version": "arc2-external-solver-audit-v1",
+  "track": "ARC2",
+  "instruction_id": "ARC26-UNIFIED-v9.0",
+  "run_id": "ARC2-v9-nvarc-trm-audit-20261029",
+  "observed_at_utc": "2026-10-29T14:12:03Z",
+  "repository_head": "5fa999f5d6f1b26a0a30e5be24a06643e89313e8",
+  "candidate": {
+    "kaggle_kernel": "christopherdaleman/arc-2026-nvarc-trm-evidence-cost-v1",
+    "current_version": 3,
+    "version_2_and_3_source_sha256": "ab2cee01008e850108e3f414c214b5629a37120af98c34a9e148fcbf97aabb64",
+    "kernel_metadata_sha256": "26228efdc24274023e2bab429c9ef552ee9da0d26205e53df6909d3d59e1b57d",
+    "displayed_public_score": 31.11,
+    "displayed_score_version": 2,
+    "displayed_runtime": "26m 27s, GPU L4 x4",
+    "notebook_license_as_displayed": "Apache 2.0",
+    "official_result_is_ours": false
+  },
+  "inputs": {
+    "competition": "arc-prize-2026-arc-agi-2",
+    "source_dataset": "christopherdaleman/arc-proof-search-trm-2026-source",
+    "source_dataset_metadata_license": "other",
+    "source_dataset_metadata_description": "Original code is MIT-0; bundled Tiny Recursive Models and Icecuber components retain MIT licenses",
+    "dataset_metadata_sha256": "97cceaac4be66ab3c8cd96888fcf55183482374ce4842fbcee71173516987237",
+    "readme_sha256": "c823d8c590d6a4f20a3d9f5ac2384fbdc921035f1f206a5029d34eb5e1ac1b68",
+    "license_sha256": "0860d23c8b1347b0b4234ed0c34a445a7330593b2af615a56d05ea02a506514e",
+    "third_party_notices_sha256": "ecb7039901a7b6a9f28c808d7f8933d4bdb278c131051636165c65f2cdffbc22",
+    "qwen_model": "sorokin/qwen3_4b_grids15_sft139",
+    "qwen_model_metadata_sha256": "212e4769f0a5ca55b8750063dbb2fc8def07626116baf435b573d8892f1749be",
+    "qwen_license": "not present in retrieved model metadata",
+    "trm_checkpoint": "cpmpml/arc-prize-trm-031",
+    "trm_access": "Kaggle API returned 403 Forbidden",
+    "source_package_contains_benchmark_receipts": true,
+    "receipt_contents_reviewed": false
+  },
+  "safety": {
+    "noncompetition_branch_reads_evaluation_solutions": true,
+    "branch_condition": "if os.getenv(\"KAGGLE_IS_COMPETITION_RERUN\") is truthy, load test challenges; otherwise load evaluation challenges and evaluation solutions",
+    "evaluation_solution_path": "arc-agi_evaluation_solutions.json",
+    "public_kaggle_v2_log_also_shows_evaluation_solutions_load": true,
+    "unchanged_private_execution_allowed": false,
+    "model_weights_downloaded": false,
+    "evaluation_solutions_downloaded_or_read_by_codex": false,
+    "training_exposure_status": "unknown",
+    "candidate_notebook_code_executed_by_codex": false
+  },
+  "decision": "NOT_READY",
+  "decision_reasons": [
+    "未実行分岐がarc-agi_evaluation_solutions.jsonを読み込むため、変更・隔離を検証するまでprivate runへ流さない。",
+    "TRM checkpointへKaggle APIからアクセスできず、Qwen model metadataにも利用ライセンスがないため、重みの利用条件を確定できない。",
+    "ソースdatasetのKaggle licenseはotherで、同梱benchmark receiptsの内容は未監査。dataset全体をruntime入力へ追加しない。",
+    "公開表示31.11は他者のKaggle結果であり、本repoの実測・公式scoreではない。"
+  ],
+  "next_action": "外部solverの未確定資産を隔離したまま、G2-Aの汎用生成器とHDS A/B/C/Dの原因診断を続行する。再検討時はlicense・provenanceを解決し、solutionsを物理隔離したtest-only構成と追加holdoutを固定してから実測する。",
+  "official_state": {
+    "latest_submission_id": 57745630,
+    "latest_status": "COMPLETE",
+    "latest_public_score": 0.0,
+    "best_public_score": 0.83,
+    "official_submission_performed_during_audit": false
+  }
+}
