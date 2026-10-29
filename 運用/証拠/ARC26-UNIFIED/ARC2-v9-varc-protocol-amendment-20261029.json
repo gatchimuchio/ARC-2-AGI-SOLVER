@@ -1,0 +1,32 @@
+{
+  "run_id": "arc2-varc-holdout-protocol-amendment-20261029",
+  "registered_utc": "2026-10-29T01:30:44.406705+00:00",
+  "parent_preregistration_sha256": "12c12fc60bd4b88a85d8b5cc71a78f7e394db81ee91d108d3d1b3eb5590da4a5",
+  "supersedes_addendum": {
+    "path": "ARC2-v9-varc-holdout-prereg-addendum-32px-20261029.json",
+    "sha256": "ba7ff6ac5e4fb75507436d5f95ab6ef0fe2bf456fa440f15aa2738cb025e878e"
+  },
+  "reason": "Upstream inference settings were checked after the low-budget smoke: the published ARC2 script uses 100 epochs, image_size 64, 10 translated inference attempts, and two TTT runs. The local 2-epoch setting is only a low-budget feasibility variant and must not be described as upstream parity.",
+  "upstream_reference": {
+    "repository": "https://github.com/lillian039/VARC",
+    "commit": "bd478ecf362e6499a988b05f33223e5c5fc6a6be",
+    "arc2_ttt_script": "script/test_time_training_VARC_ViT_ARC2.sh",
+    "published_settings": {
+      "epochs": 100,
+      "image_size": 64,
+      "batch_size": 8,
+      "num_attempts": 10,
+      "ttt_num_each": 2
+    }
+  },
+  "amended_evaluation": {
+    "score_condition": "only the preregistered 32px, 2-epoch exploratory condition may be scored on the fixed 100-task cohort after all 100 predictions complete",
+    "64px_full_cohort": "cancelled before score access; the 64px 2-epoch smoke remains engineering-only",
+    "cohort_unchanged": true,
+    "runtime_input_has_task_ids": false,
+    "runtime_input_has_test_outputs": false,
+    "solutions_read_before_100_predictions": false,
+    "claim_boundary": "Any result is a low-budget exploratory VARC variant, not reproduction of the published VARC ARC2 setting."
+  },
+  "status": "AMENDED_BEFORE_HOLDOUT_SCORING"
+}
