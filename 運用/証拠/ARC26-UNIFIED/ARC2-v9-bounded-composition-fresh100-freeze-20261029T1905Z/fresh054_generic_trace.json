@@ -1,0 +1,24 @@
+{
+  "track": "ARC2",
+  "run_id": "ARC2-v9-bounded-composition-fresh100-generic-trace-fresh054",
+  "input_sha256": "99855a3a9a3ef494931337b405cab6f82da89a81fa2083843223464f87068f81",
+  "runtime_alias": "fresh_054",
+  "test_index": 0,
+  "test_solution_read": false,
+  "baseline": {
+    "program_candidate_count": 1,
+    "first_program": "identity|colors={0: 0, 3: 6, 6: 0, 2: 4, 4: 0}",
+    "first_prediction_sha256": "64a46eb800d3df8f42c9859cd928fb295628b85fc3615b0952525c1c8df0c553",
+    "second_program": null,
+    "second_prediction_sha256": null
+  },
+  "candidate": {
+    "program_candidate_count": 22,
+    "first_program": "identity|colors={0: 0, 3: 6, 6: 0, 2: 4, 4: 0}",
+    "first_prediction_sha256": "64a46eb800d3df8f42c9859cd928fb295628b85fc3615b0952525c1c8df0c553",
+    "second_program": "mask_component_largest_all|colors={0: 0, 3: 6, 2: 4}",
+    "second_program_rank": 3,
+    "second_prediction_sha256": "199dbf90d331c105e3c5e9c7a76f2b6d23c26cdca10287fc3b9f628442c6eb58",
+    "distinct_from_first": true
+  }
+}
