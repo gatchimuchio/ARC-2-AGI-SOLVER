@@ -1,0 +1,745 @@
+{
+  "format": "arc2-kaggle-submission-audit-v1",
+  "generated_at_utc": "2026-10-29T22:34:42.033777+00:00",
+  "source_commit": "unknown",
+  "challenge_sha256": "2a7d9c9fe5cc3cc4accdc16ac27d4c3a8a5b3fe78062637886a89147afed90cf",
+  "challenge_file": "challenge_input.json",
+  "tasks": 100,
+  "test_examples": 111,
+  "attempts_per_test": 2,
+  "fallback_count": 81,
+  "solver_hold_reason_counts": {
+    "現行暫定原理の適用に必要な観測が不足している": 80
+  },
+  "fallbacks": [
+    {
+      "task_id": "fresh_001",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_002",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_003",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_004",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_006",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_007",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_008",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_009",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_009",
+      "test_index": 1,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_010",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_011",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_012",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_013",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_014",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_014",
+      "test_index": 1,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_015",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_017",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_019",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_019",
+      "test_index": 1,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_020",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_021",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_023",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_024",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_025",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_026",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_026",
+      "test_index": 1,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_026",
+      "test_index": 2,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_028",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_029",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_030",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_031",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_032",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_032",
+      "test_index": 1,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_033",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_034",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_035",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_037",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_039",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_039",
+      "test_index": 1,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_040",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_041",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_043",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_046",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_047",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_048",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_049",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_050",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_052",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_056",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_058",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_059",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_061",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_062",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_068",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_072",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_074",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_074",
+      "test_index": 1,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_074",
+      "test_index": 2,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_075",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_076",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_077",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_078",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_080",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_081",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_082",
+      "test_index": 0,
+      "reason": "task_wall_timeout",
+      "solver_status": null,
+      "solver_hold_reasons": []
+    },
+    {
+      "task_id": "fresh_083",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_084",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_085",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_086",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_087",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_088",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_089",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_089",
+      "test_index": 1,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_090",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_091",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_092",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_093",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_097",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_098",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_099",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    },
+    {
+      "task_id": "fresh_100",
+      "test_index": 0,
+      "reason": "solver_hold",
+      "solver_status": "断定保留",
+      "solver_hold_reasons": [
+        "現行暫定原理の適用に必要な観測が不足している"
+      ]
+    }
+  ],
+  "seconds": 315.906,
+  "submission_sha256": "f7b26ceb5e0461042585dc40a6d7e766cc7f32c03a0ad588ed4fdb7d2f24227b"
+}

@@ -1,0 +1,21 @@
+{
+  "schema": "arc2-v9-public-training-prediction-freeze-v1",
+  "role": "baseline",
+  "frozen_at_utc": "2026-10-29T22:34:42Z",
+  "checkout_commit": "6fd9a308cae435254c454b734057cdf3c0f343f1",
+  "solver_sources_commit": "56490093d7faa534de42d300b2abab8c472c45c4",
+  "solver_source_provenance": "Main code at 6fd9a30 matches 56490093; intervening commit only registered evidence.",
+  "runtime": "C:/Users/ohira/.codex/venvs/arc2-v9-dev/Scripts/python.exe; Python 3.12; PYTHONUTF8=1; PYTHONDONTWRITEBYTECODE=1",
+  "invocation": "python -X utf8 -m 接続.ARC2.Kaggle提出 --challenges <registered challenge_input.json> --output-dir <fresh output dir>",
+  "challenge_sha256": "2a7d9c9fe5cc3cc4accdc16ac27d4c3a8a5b3fe78062637886a89147afed90cf",
+  "tasks": 100,
+  "test_grids": 111,
+  "fallback_count": 81,
+  "seconds": 315.906,
+  "artifacts": {
+    "submission.json": "f7b26ceb5e0461042585dc40a6d7e766cc7f32c03a0ad588ed4fdb7d2f24227b",
+    "submission_audit.json": "7f937942236e0fc5389c1ae8b53566d29aa0f10c979d4c770c0e11ffd9fba8e5"
+  },
+  "audit_source_commit_field": "unknown",
+  "labels_accessed_by_runtime": false
+}
