@@ -1,0 +1,92 @@
+{
+  "schema": "arc2-v9-public-candidate-experiment-prereg-v1",
+  "run_id": "ARC2-V9-PROOF-SEARCH-CONFIRM-20261029",
+  "created_at_utc": "2026-10-29T04:43:22Z",
+  "track": "ARC2",
+  "objective": "汎用プログラム帰納器が現行Learning Machineの100格子confirm cohortで新しい学習整合候補を増やすか測り、効果があればHDS選択へ接続する。",
+  "hypothesis": "公開train入出力に完全一致する汎用変換programを列挙し、test inputへ適用すると、現行HDS提出の二試行にない正答候補を追加できる。",
+  "decision_rule": {
+    "advance_to_hds_integration_only_if": "fallbackを除外したpass@2がbaselineを上回り、baselineの非fallback正答gridを失わず、提出形式と再現性がPASS",
+    "reject_if": "新しい候補gridがない、pass@2の純増がない、既存正答に退行する、再現性または分離境界がFAIL",
+    "fallback_credit": "identity/crop等のfallbackは形式充足に限り、モデル能力・候補正答へ数えない",
+    "official_submission": "この実験からは提出しない"
+  },
+  "source": {
+    "origin": "Kaggle dataset christopherdaleman/arc-proof-search-trm-2026-source",
+    "asset": "arc_proof_search/arc_proof_search.py",
+    "snapshot_path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-proof-search-source-20261029/arc_proof_search.py",
+    "source_sha256": "4d84129a36286986ea2117bcc70c0f48d44f3139f8161add96b370536b28b5e2",
+    "license": "MIT No Attribution (MIT-0)",
+    "license_path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-proof-search-source-20261029/LICENSE-MIT-0",
+    "license_sha256": "0860d23c8b1347b0b4234ed0c34a445a7330593b2af615a56d05ea02a506514e",
+    "third_party_notices_sha256": "ecb7039901a7b6a9f28c808d7f8933d4bdb278c131051636165c65f2cdffbc22",
+    "weights_used": false,
+    "other_notebook_or_checkpoint_used": false,
+    "runtime_adoption": "保留。実測後、Learning Machine接続を別工程で評価する。"
+  },
+  "candidate_policy": {
+    "entrypoint": "synthesize(task)",
+    "accepted_programs": "training examplesすべてをexactに再現するprogramのみ",
+    "ranking": "元実装の固定順 (exact, training_score, description_cost, name)",
+    "deduplication": "同一test出力列のprogramは一つへまとめ、各gridで異なる上位最大2候補を選ぶ",
+    "task_id_or_hash_answer_branching": false,
+    "hidden_or_evaluation_labels_in_runtime": false,
+    "fallbacks": ["identity", "crop_nonbackground"],
+    "fallbacks_are_solutions": false,
+    "randomness": "なし"
+  },
+  "cohort": {
+    "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-candidate-family-confirm100-input-20261029.json",
+    "sha256": "6d430ce94842262e32dedc4b1add48de313dd022f976a3b54bfadfb90f7be9da",
+    "tasks": 100,
+    "test_grids": 100,
+    "exposure": "exposure_unknown",
+    "confirm_labels_read_before_run": false,
+    "runtime_input": "公開train input/outputとtest inputのみ"
+  },
+  "baseline": {
+    "source_commit_for_reproduction": "da96ca01d0918c5a85ee9f0c6ed84617d707a732",
+    "prior_output_sha256": "2173b7ee8d4d72e377da32fbeaaae1e50e350f1bbe22cb6d9534fedc9483ce56",
+    "prior_output_path": "%TEMP%/arc2-v9-plurality-confirm-v1-20261029/submission.json",
+    "prior_audit_sha256": "81b3fecdcf6618c127d9bc335f3d210bdb8abb557208f1617b7937e303e80d3e",
+    "prior_audit_source_commit": "unknown",
+    "prior_fallback_grids": 96,
+    "required_reproduction": "現行mainで同じconfirm inputを再実行し、submission SHAがprior_output_sha256と一致すること"
+  },
+  "generation_runner": {
+    "path": "道具/ARC2/proof_search候補生成.py",
+    "sha256": "084b491d8b7236c5acb20246eafe1bb004dac8bc3f2459e82a775e6d78c87f4b",
+    "contains_solution_read_path": false,
+    "output_location": "%TEMP%/arc2-v9-proof-search-confirm-20261029/",
+    "freeze_before_scoring": true
+  },
+  "scorer": {
+    "path": "道具/ARC2/proof_search公開training採点.py",
+    "sha256": "4a9f314285139f2f55e5833134ede89dbf651f2d28c83adb51e1d5f4faa3fa74",
+    "boundary": "予測SHAと固定training data SHAを照合した後だけ、別プロセスが公開training_solutionsを開く",
+    "training_challenges_sha256": "779eaba89790ebad9af02514a7efc0aefaf2cf8236f046a31bbf8b9ec48f20f5",
+    "training_solutions_sha256": "9f07a38bd25af5e83aa5bf85c5cb1a1fefdb30f6a755256fa65429e697ca97f9",
+    "solution_map_runtime_use": false
+  },
+  "comparison": {
+    "same_fixed_cohort": true,
+    "metrics": [
+      "pass@1 grids and tasks",
+      "pass@2 grids and tasks",
+      "unique attempt-2 hits",
+      "fallback-excluded pass@1/pass@2",
+      "candidate-added hits",
+      "baseline regressions",
+      "fallback grids",
+      "wall time",
+      "output SHA"
+    ],
+    "current_to_baseline_delta_required": true
+  },
+  "repository_state": {
+    "main_sha": "da96ca01d0918c5a85ee9f0c6ed84617d707a732",
+    "remote_main_verified_same": true,
+    "protected_files_modified": false,
+    "existing_dirty_changes_preserved": true
+  }
+}
