@@ -1,0 +1,26 @@
+{
+  "format": "arc2-v9-g2-provisional-action-baseline-freeze-v1",
+  "run_id": "ARC2-v9-hds-provisional-action-gate-20261030T0055Z",
+  "frozen_at_utc": "2026-10-30T01:18:37.164716+00:00",
+  "condition": "Baseline inference on the preregistered challenge input with the existing HDS equality-admission gate and aggregate candidate diagnostics enabled.",
+  "source_commit": "054afca2b45aff5ddc9d01225e3bd1e6a9d39ae7",
+  "source_dirty": false,
+  "source_files_sha256": {
+    "kaggle_runner": "43fd2c444cc1428bdfb3da3b228fca14b6ccb939c169401b1684c2b93b4092e4",
+    "hds_adapter": "00c0eadffbac07f33ac2a669fc6ed9f2da616539c711c187b4eb55c87d445bab"
+  },
+  "challenge_sha256": "032c4b24fd1505cf9308c0856367b98007c24b7a343f2eb293d2900f041fb27e",
+  "prediction_file": "baseline_submission.json",
+  "prediction_sha256": "11b1067e75e82906b61cab85435cb0e5b2aa6039121c86fc2fce8bf0ed7651e3",
+  "audit_file": "baseline_audit.json",
+  "audit_sha256": "ac223481aacb7ad5432a5a7c7579e48b4b3679bc99a8a8035d102d5b191eb566",
+  "generated_at_utc": "2026-10-30T01:16:11.167536+00:00",
+  "tasks": 100,
+  "test_examples": 103,
+  "attempts_per_test": 2,
+  "fallback_count": 72,
+  "wall_seconds": 341.75,
+  "candidate_prediction_count": 54,
+  "examples_with_candidates": 42,
+  "scoring_status": "NOT_RUN; score both frozen predictions later in a separate process."
+}
