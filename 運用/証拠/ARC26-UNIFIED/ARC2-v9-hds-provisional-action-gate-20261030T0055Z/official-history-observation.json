@@ -1,0 +1,105 @@
+{
+  "schema": "arc2-official-state-observation-v1",
+  "track": "ARC2",
+  "observed_at_utc": "2026-10-30T01:07:19.861808+00:00",
+  "competition": "arc-prize-2026-arc-agi-2",
+  "source": "project Python CLI read-only history query",
+  "history_cli_stdout_sha256": "da3bd7e83c71591fbd0a432d97b707ba0cab1a9229ad4e47820ac17d6be3d421",
+  "latest_submissions": [
+    {
+      "submission_id": 57783547,
+      "submitted_at_utc": "2026-10-29T21:53:17.317000Z",
+      "status": "PENDING",
+      "public_score": null
+    },
+    {
+      "submission_id": 57745630,
+      "submitted_at_utc": "2026-10-28T18:22:38.277000Z",
+      "status": "COMPLETE",
+      "public_score": 0.0
+    },
+    {
+      "submission_id": 57682971,
+      "submitted_at_utc": "2026-10-27T00:17:10.770000Z",
+      "status": "COMPLETE",
+      "public_score": null
+    },
+    {
+      "submission_id": 57646990,
+      "submitted_at_utc": "2026-10-26T00:14:46Z",
+      "status": "COMPLETE",
+      "public_score": null
+    },
+    {
+      "submission_id": 57611018,
+      "submitted_at_utc": "2026-10-25T00:13:10.933000Z",
+      "status": "COMPLETE",
+      "public_score": 0.0
+    },
+    {
+      "submission_id": 57576155,
+      "submitted_at_utc": "2026-10-24T00:12:39.127000Z",
+      "status": "COMPLETE",
+      "public_score": 0.0
+    },
+    {
+      "submission_id": 57560705,
+      "submitted_at_utc": "2026-10-23T12:25:06.577000Z",
+      "status": "COMPLETE",
+      "public_score": 0.0
+    },
+    {
+      "submission_id": 57517199,
+      "submitted_at_utc": "2026-10-22T08:35:19.380000Z",
+      "status": "COMPLETE",
+      "public_score": null
+    },
+    {
+      "submission_id": 55046979,
+      "submitted_at_utc": "2026-07-28T06:19:16.917000Z",
+      "status": "COMPLETE",
+      "public_score": 0.83
+    },
+    {
+      "submission_id": 55038338,
+      "submitted_at_utc": "2026-07-27T21:24:23.967000Z",
+      "status": "COMPLETE",
+      "public_score": null
+    },
+    {
+      "submission_id": 54709840,
+      "submitted_at_utc": "2026-07-15T03:02:55.077000Z",
+      "status": "COMPLETE",
+      "public_score": null
+    },
+    {
+      "submission_id": 53996447,
+      "submitted_at_utc": "2026-06-24T01:46:52.783000Z",
+      "status": "COMPLETE",
+      "public_score": 0.0
+    },
+    {
+      "submission_id": 53962702,
+      "submitted_at_utc": "2026-06-23T01:18:06.620000Z",
+      "status": "COMPLETE",
+      "public_score": 0.0
+    }
+  ],
+  "latest_submission_id": 57783547,
+  "latest_status": "PENDING",
+  "latest_public_score": null,
+  "best_submission_id": 55046979,
+  "best_public_score": 0.83,
+  "kernel_versions": {
+    "tecchannn/arc2-codex-main-baseline-v1/3": {
+      "exit_code": 0,
+      "status_text": "tecchannn/arc2-codex-main-baseline-v1/3 has status \"KernelWorkerStatus.COMPLETE\""
+    },
+    "tecchannn/arc2-qwen3-06b-cpu-raw-generator-20261030/1": {
+      "exit_code": 0,
+      "status_text": "tecchannn/arc2-qwen3-06b-cpu-raw-generator-20261030/1 has status \"KernelWorkerStatus.RUNNING\""
+    }
+  },
+  "submission_or_rerun_performed": false,
+  "quota_checked": false
+}

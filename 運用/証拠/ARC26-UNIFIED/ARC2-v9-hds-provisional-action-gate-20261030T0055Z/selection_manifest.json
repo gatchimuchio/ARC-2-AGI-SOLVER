@@ -1,0 +1,752 @@
+{
+  "selection_seed": "ARC2-v9-provisional-action-gate-20261030T0055Z",
+  "selection_method": "SHA256(seed + NUL + input-only normalized task signature); first 100 unique eligible signatures",
+  "official_training_task_count": 1000,
+  "prior_evidence_file_count": 83,
+  "prior_evidence_sha_mismatch_count": 6,
+  "prior_evidence_sha_mismatches": [
+    {
+      "path": "運用/証拠/ARC26-UNIFIED/ARC2-candidate-priority-v28-independent-20261026.json",
+      "registered_sha256": "8a04f4f624ec26661851936b381da7cf4e244fb64cc4d3e0c81de41f570f1b0d",
+      "current_sha256": "e0b69f82616268cc556dd7ad739ecaf2d5151a15672b98a033439e4f9004c200"
+    },
+    {
+      "path": "運用/証拠/ARC26-UNIFIED/ARC2-V9-NVARC-EXACTRULES-20261029T2039Z/acceptance.json",
+      "registered_sha256": "85f25c33a66777f074e4656a92fb439e96590ce29d8b150b07e81ac001beda83",
+      "current_sha256": "3f6575c0ffbcf4801592fab20e3b367d2a9f04da50c50d1a649d91397c005401"
+    },
+    {
+      "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-nvarc-trm-source-audit-20261029.json",
+      "registered_sha256": "ac29201084113de3f5109bcfebddb3687754ab87c3ab2c92dc7a3d8ac5b0d147",
+      "current_sha256": "07b4f16d6654dcb6d58b35baffa261cceeda9e14a7a6123fea6a301d3eddec67"
+    },
+    {
+      "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-varc-holdout-prereg-20261029.json",
+      "registered_sha256": "12c12fc60bd4b88a85d8b5cc71a78f7e394db81ee91d108d3d1b3eb5590da4a5",
+      "current_sha256": "4e3e0da537bdf0c37c0a079dc39deacbf13879a9ef7b1e69d99a828926b39f05"
+    },
+    {
+      "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-varc-holdout-prereg-addendum-32px-20261029.json",
+      "registered_sha256": "ba7ff6ac5e4fb75507436d5f95ab6ef0fe2bf456fa440f15aa2738cb025e878e",
+      "current_sha256": "79fe6b6440093dea0962611814392bf64661dc1c22626b749aeb9ea9541cab7e"
+    },
+    {
+      "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-varc-protocol-amendment-20261029.json",
+      "registered_sha256": "af6af9299fbce1837d4a98fdbdeb02ffdce8e7c84f394d15cece8c363c5b045e",
+      "current_sha256": "b85d1a413959e196662f8d01baad15b523a41aa511f21efd99ec48ead9f66a72"
+    }
+  ],
+  "prior_evidence_missing_file_count": 0,
+  "prior_manifest_expected_exclusions": 596,
+  "reconstructed_prior_exclusions": 596,
+  "previous_symbolic_cohort_aliases_excluded": 100,
+  "remaining_unique_signature_count": 304,
+  "remaining_source_task_alias_count": 304,
+  "selected_task_count": 100,
+  "selected_test_grid_count": 103,
+  "runtime_input_sha256": "032c4b24fd1505cf9308c0856367b98007c24b7a343f2eb293d2900f041fb27e",
+  "source_training_inventory_sha256": "5e7e7766202264570cab5b1e6661b10486b43215b6788d72d57b2d1d7a49bfbb",
+  "fixed100_input_sha256": "3ba33334f89f10c948f477f393ba2b3edf83bc6c5a1a1beaf8fed255f2fb2eb9",
+  "selected_source_tasks": [
+    {
+      "alias": "cohort_001",
+      "public_training_task_id": "320afe60",
+      "input_signature_sha256": "40435f72c1dd2174dd2522baaf1deb14d11f577d74a4778357f88786ae4b2644",
+      "source_file_sha256": "e199e6e19317804b0d4fa8227373d18e48499663ccb1e288a2f9c4b2673fe4f0",
+      "test_grid_count": 2
+    },
+    {
+      "alias": "cohort_002",
+      "public_training_task_id": "db7260a4",
+      "input_signature_sha256": "8693f00ed52d89e3cc1de53e0aaabfd7e5bd2aadc30ceb3387e83d6d22afa228",
+      "source_file_sha256": "ccf4a667e12a301087473afb069c8ec437442bc2db5fb296e9541781bf685e9a",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_003",
+      "public_training_task_id": "29c11459",
+      "input_signature_sha256": "49d8c7faa60c3461663152280341972bb900fb280f5fb1c62b2ca0150eb315e8",
+      "source_file_sha256": "2002cb96d56c1b2bf7cb685a394395bc30fb42ba86aa033ece0c12be2776a7ac",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_004",
+      "public_training_task_id": "29623171",
+      "input_signature_sha256": "515a8c6c50e84feac1a2d6677eeb4d2c6c8c510481a1ef6a10a8f16454013003",
+      "source_file_sha256": "41f21a8294b4f8f8d09f8fcf5edf25026ef25fa4136511d27aebbc1d17570b5c",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_005",
+      "public_training_task_id": "c3202e5a",
+      "input_signature_sha256": "1f8f7885a44a31e9e6f2c58c7a542770470993bac7b8270a56ca6e74747d1151",
+      "source_file_sha256": "e0bd4a1cdbfaf253ee69e3f5191a0573f6c4529d8cc3bd4add13afa2a2661606",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_006",
+      "public_training_task_id": "23b5c85d",
+      "input_signature_sha256": "13be9573454eb52f128a89eafe6de890b66f18251621413ecc0cef42d2789499",
+      "source_file_sha256": "8f0c980825ddf3330e1c856c96003bb4508eeb897a644caa8e4fd87ff475c730",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_007",
+      "public_training_task_id": "93c31fbe",
+      "input_signature_sha256": "7fc2a3aaf52ec1ad0deb6c515581cb9d73e05f4230c4979aa1fe9aedeb8533e9",
+      "source_file_sha256": "726172909a5e99f69c8f32bf2b217a34c0fcea0b696cadb0d0a73c207bd22a32",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_008",
+      "public_training_task_id": "182e5d0f",
+      "input_signature_sha256": "7bf6b0133f0931bb4c46cfe16940fb8473d6ef4d4b6c7d1f288675300783cc33",
+      "source_file_sha256": "5c76baf56d2df6f13d8b0e88fcf6038fcf890c3e022d4bdff22620ceef0e4317",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_009",
+      "public_training_task_id": "ccd554ac",
+      "input_signature_sha256": "9680d358b8e36982be482955562585a0bdf7d5a4c3401677ffd92750e043b481",
+      "source_file_sha256": "098740d7bc6f7794984a1db462e3c9ec58fbbe215c2c859ab358553b3bdac7a5",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_010",
+      "public_training_task_id": "68b67ca3",
+      "input_signature_sha256": "83b4612662ddf5104ed791687401441bbe6062ac35d5d59517ddb13b327f6892",
+      "source_file_sha256": "767e0baf6a71a7f288ab5a08f13a4ecc65ac5a43144586dec0c3ccd2eff5edb4",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_011",
+      "public_training_task_id": "470c91de",
+      "input_signature_sha256": "ee29fcb2c08df807dc2601b44e1123bc62d8c509176e6ac4851308b3f9b0eb4c",
+      "source_file_sha256": "2365a648461709a1c663af32c9de18a29c1930d13472d18a6b4e9386e051f85b",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_012",
+      "public_training_task_id": "3490cc26",
+      "input_signature_sha256": "b4f59e16e171d72d22fcb3b81de88735893245c0d324898a918ae5cb0793ade8",
+      "source_file_sha256": "c04765345e6674d5d7a488162e38a7f06b7836079bc39b821cebf5e19017b145",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_013",
+      "public_training_task_id": "3194b014",
+      "input_signature_sha256": "c481c4f118a0a33ef4de246e38a3052956dfda0edeea574c767883b0cd59ca92",
+      "source_file_sha256": "7ce0d5b3b9d05fb51203a798cff9db24cd7c5838558e37d166ca89a7edfbb38a",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_014",
+      "public_training_task_id": "ac2e8ecf",
+      "input_signature_sha256": "eb8d2ec1cd48c623c2e64c8f00f8ef7e4b426bed7a92d7e10dab6a39798f9026",
+      "source_file_sha256": "59ed9d96179f4a674012d75fb631d3542b97ab8addaff78a2aa3ff089abb336b",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_015",
+      "public_training_task_id": "ac0c2ac3",
+      "input_signature_sha256": "0ace785461aa4efbd28dc96b2ca885125ef217d3a4c98ca9998528713a1eed55",
+      "source_file_sha256": "d00214f759b659ccb22485cd28794187b49aa6308fa34ab89afe7f77839e06d9",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_016",
+      "public_training_task_id": "0e206a2e",
+      "input_signature_sha256": "f397369ca1e4427193666ebb698f27c6db63d67f04164f290524cee8788bc87d",
+      "source_file_sha256": "f9f3e2748aa6c1f6e482cba401c0f57f6f5ee385e084f2a25542a235b2b1ad74",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_017",
+      "public_training_task_id": "833966f4",
+      "input_signature_sha256": "96e8874b3a27972062d6d5525d60525aa15ff5a3dee8318d717bf230d6344a46",
+      "source_file_sha256": "cec9e5fe2a25f61a7f20f7f4da328d31fd2dce8b9a6d4b16a0461126750c6aef",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_018",
+      "public_training_task_id": "8731374e",
+      "input_signature_sha256": "96113825205213e19155cc05afde0fff22468c416defc9971e7b61d4725a27b8",
+      "source_file_sha256": "18a392447b97d2fa7e823311c8614984d406b2c8f236118fc35d7f65c411dd9a",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_019",
+      "public_training_task_id": "1f85a75f",
+      "input_signature_sha256": "4f1cde49f6f0106f544ed520532beaf546fc42a29bfd4b000854eca130665b80",
+      "source_file_sha256": "122972151cf661daff1dafbcd501b6b5cb3e77efedf2db3709788ec1e4fb7ba0",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_020",
+      "public_training_task_id": "414297c0",
+      "input_signature_sha256": "d0887abba27566b563bf98c59a66f5ed6f2fbc93fb2b7391faab05ea58bde4b4",
+      "source_file_sha256": "f7c3bdb7c1ac4882deaa31123c1884b1bb54d5359c6daecdc97b2531f4c21434",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_021",
+      "public_training_task_id": "d43fd935",
+      "input_signature_sha256": "9da261975e32e0948625db8fdea8c97cfeaf09eccca7b8be369321aff1dc25f4",
+      "source_file_sha256": "ee63b47441a363d34fe030f0b3fe69c6bd24471af22fa48ce167d0be7b9e363c",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_022",
+      "public_training_task_id": "b27ca6d3",
+      "input_signature_sha256": "8e073dbcef6a2f1b45c6cd419bdc09701507bc7800ad665cdbb80ca5e4bc019f",
+      "source_file_sha256": "29ac1beedfe71648716f95b6114e33dbe3bde028b092f1ea00ce40e8b9985792",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_023",
+      "public_training_task_id": "21f83797",
+      "input_signature_sha256": "d3a1f20b074995c87e75bf0da2a4dd78cea5b8169e578e2ec8a51ed01d4f6562",
+      "source_file_sha256": "2bfa5ab178733051f77b0bdd1d637e3d2a44c4ed9c03c95c07e4187568cddc36",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_024",
+      "public_training_task_id": "4c5c2cf0",
+      "input_signature_sha256": "6d7268344ebe8a523994adf03b94164e473cdc465940009eb93d44388fdc1271",
+      "source_file_sha256": "20628850a2e3cb7b094cadc2f790eafc916d9f225c0e2c4292748d9877834e44",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_025",
+      "public_training_task_id": "25094a63",
+      "input_signature_sha256": "cd55df3d957e017c496be7f2e68370216cebeb44d6c75db7d2be235692ce74de",
+      "source_file_sha256": "2c4d046a1e624873982d9bc885b976ad6fc94a980ee6da198e639c72f14f3d97",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_026",
+      "public_training_task_id": "80af3007",
+      "input_signature_sha256": "bc0d5354007685854768c600808a16dd89e951d5032b7e036cc96e793e6db59d",
+      "source_file_sha256": "d174b6cb2e4416fb62d29893ec61310ec46c263db3029a97cdc6ff1465061003",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_027",
+      "public_training_task_id": "c59eb873",
+      "input_signature_sha256": "9e1e0b0334d28890bc665ce888432fc58efa35fc255f3e512f9f8f817322236b",
+      "source_file_sha256": "487d24bfaeb43cd8e108571c9fee840ff18188888c62b9fcf9415477b61741c6",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_028",
+      "public_training_task_id": "8403a5d5",
+      "input_signature_sha256": "1d96dfb87debef118cf5781b5d875341f4f5f0b569e8503650d797b07176bbcf",
+      "source_file_sha256": "a29ce4552a348047121476dc0ff7d9f2410c33ac3ea972a59b9ed46b7530e78b",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_029",
+      "public_training_task_id": "902510d5",
+      "input_signature_sha256": "98e6b67bd4ce4b14429f462d077fac00c1eb5949984c2b30eef9d08bd7e84c1f",
+      "source_file_sha256": "afd0d124f3e0c47fe1126f605a80ed9bd3c8c26ff117960b7184db54880774ae",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_030",
+      "public_training_task_id": "83eb0a57",
+      "input_signature_sha256": "3ae1d49be72b9694238f12fe1af7eed1353084d1ef5a6e29019fcc6e0ba16c4a",
+      "source_file_sha256": "578f7520e079eaaadb79891b3bf45c1cb65ca6e571cd24dece58a0b680465b0d",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_031",
+      "public_training_task_id": "506d28a5",
+      "input_signature_sha256": "e2bde18fffe389d739d7ebdcb34b08c12dd423aa403e11d87b78ee233301d3c6",
+      "source_file_sha256": "49c65c2c79767423997a1ded90ef489b14f251d3d61a626167fce112aca46e41",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_032",
+      "public_training_task_id": "3befdf3e",
+      "input_signature_sha256": "dabb6ffe2bd2e41a4d1bf4fff8ce70324b63a18a9e1f00969b1a656344a822cf",
+      "source_file_sha256": "093b8c0cd145120cd6c8fcec1091bfde2b59796c716e2e3995d63acc7a26c1ac",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_033",
+      "public_training_task_id": "99fa7670",
+      "input_signature_sha256": "096b388450dd2f9c28691d04b1445a42df4a98b7dc1d127dc02158d0f976fd22",
+      "source_file_sha256": "4a0b01eb0f299829d8187dfb68a0aedf8ec361f00010634cd06acb6f18708ce8",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_034",
+      "public_training_task_id": "a57f2f04",
+      "input_signature_sha256": "61878ae344d3bf2e1d32b708d917cefe9429477a8671683bbd79140374c353bf",
+      "source_file_sha256": "679706faec65e07ad91a999b9eaacc1a680872f738adf2ea299bf09b64c559b8",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_035",
+      "public_training_task_id": "e5062a87",
+      "input_signature_sha256": "0ab73ba6ae7a88b161c109653a35f34d3d62ee4c0db9c12a9b1dc98f2b6edf9a",
+      "source_file_sha256": "68e0707e899488a7a763161e5f05b8893dd2214e3b315a5a5023ff04aa89aeeb",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_036",
+      "public_training_task_id": "68bc2e87",
+      "input_signature_sha256": "38a0e08b0bd413240ea7c15034a4c81315da2a50fa2c3bf649282f3923c8fd85",
+      "source_file_sha256": "34461f532c8ce22658e20a7bdcdc635ac7849e06a07b66d3f74dcb878000446a",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_037",
+      "public_training_task_id": "b71a7747",
+      "input_signature_sha256": "6d45d82e964f2935bacbeb07113c0e35afaa8f89b872e84cf3b45e5d2449316b",
+      "source_file_sha256": "84192c492b107c4a68598017d775b86c632505da2db4674803e69f0c9f529c87",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_038",
+      "public_training_task_id": "0a2355a6",
+      "input_signature_sha256": "fb2616899ecc0bc34c298595e9be874f1a20471e4c1ffe31812632cf4d6766f0",
+      "source_file_sha256": "d0023fa9a612e4f2be59583e9f8f1be3fbfff750a79d63b0aef24b8c19a6a85b",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_039",
+      "public_training_task_id": "3aa6fb7a",
+      "input_signature_sha256": "06223e36050181091aee6738a0ac0b4a4bb4adcb1cf8a8a2a1ec7001fc3ee537",
+      "source_file_sha256": "8105c8ad8a494f6f2a298afbc17550852abed83c9232824efbe8e145ef26b75a",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_040",
+      "public_training_task_id": "508bd3b6",
+      "input_signature_sha256": "01a10025f00f071d9fff00efd957a7ba436b5e37a6be448d8293aaf958c32cc3",
+      "source_file_sha256": "7a4489d12dc9e328caaf69769365ed5738f334e5374f9b2704f804e1c81b0bda",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_041",
+      "public_training_task_id": "ff72ca3e",
+      "input_signature_sha256": "612990536b028d7662d42d76d23a29c58d10e59b108ecae143039b1f273b3164",
+      "source_file_sha256": "46165e0cf209a43c9eeee312a0726aa347bfac5083cd5af30e0850af7170f44e",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_042",
+      "public_training_task_id": "a934301b",
+      "input_signature_sha256": "a565e0a88b79e7b5615c0468f0aa5e2fbedb62b3a8425d9ae3e717f37f527705",
+      "source_file_sha256": "5a7bb3906e5101c60aebf62d9c07660cbb12e5f77781a00431703436c85291c5",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_043",
+      "public_training_task_id": "ef135b50",
+      "input_signature_sha256": "60cebb648e8dbc88dc1525e0b4a1799e7343b39ecc6c55785a0080bc91b5bb96",
+      "source_file_sha256": "1139529be75bd3b95c65e9acda09b06f4af3d2c8007c485a36e637ea0f8feafe",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_044",
+      "public_training_task_id": "2ccd9fef",
+      "input_signature_sha256": "7f05031e14428fabade08b215a66572842d082cef2aa02309eb0776e27b2e18a",
+      "source_file_sha256": "07d0866a3a3a965bf0e1c991b9f0096debc31f864e7ed90c2c2631215b68c78e",
+      "test_grid_count": 2
+    },
+    {
+      "alias": "cohort_045",
+      "public_training_task_id": "85fa5666",
+      "input_signature_sha256": "50c854de544eea7c032277f9df8f3f11ed6cf07f45da204fb5c2484ee0264f41",
+      "source_file_sha256": "26e0021f2ca979d29666ac59b4016bc0c365c180291728f03d1288cd6909826d",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_046",
+      "public_training_task_id": "351d6448",
+      "input_signature_sha256": "ca85e86fbc9f2d6e6a1135572012dea199d54a20b2fdd8d1a4f20ccf09103756",
+      "source_file_sha256": "c17f1365c0df750f61d2bcb5eb77228e77e202c08448281230b798f9b55049a6",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_047",
+      "public_training_task_id": "9720b24f",
+      "input_signature_sha256": "dda4008b62d5e144eaa6bf7f1c0afbc5bd5ba7a3534cf6367c6de4755229d8f1",
+      "source_file_sha256": "0d1d60238bffc3d908f64005f6049110f6dad4687e1bbad4bfd6d385a725378c",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_048",
+      "public_training_task_id": "2bcee788",
+      "input_signature_sha256": "4095c90d55a8cdf0fab10526f3fca5298d5ec571529ea88ef3eab6299c2a9f3b",
+      "source_file_sha256": "eeb30e80f2ea8f84ad0c12ec1c488c1f5fa401e3ba02754592c132a4e8d0ad20",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_049",
+      "public_training_task_id": "4938f0c2",
+      "input_signature_sha256": "161e3e8eec65474bda57d31a22c11cde0f6c91477cd35e250f44adc2d9cd8fa8",
+      "source_file_sha256": "8b45a5cd1d90a87ddadedc823462e2746ff1c4f7dc8c2f033e5e36821f5382f5",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_050",
+      "public_training_task_id": "fafd9572",
+      "input_signature_sha256": "e83195e2bdab9ba529e59a7b44757d7ae526316e578f2f467911e8832fa4605c",
+      "source_file_sha256": "de3931873b6bdfce121955194125c544811f00226256af7788de5c64e32c20e8",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_051",
+      "public_training_task_id": "1acc24af",
+      "input_signature_sha256": "9c3ded2d6bae9a45efad595cf713fc1ea3b3dd2db7aed4b39e52bfa04d293439",
+      "source_file_sha256": "8e9324b4a77199eeeccdabce0481b7392e1d0b9277b6d72e338464500965dbee",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_052",
+      "public_training_task_id": "e6de6e8f",
+      "input_signature_sha256": "0ef081b300388d9d513b5a3d2af516f96771390b8830da14dd194c4d949390f4",
+      "source_file_sha256": "18c0a3049f5adb18b6af7850a8df84b5e5131ca70836f74ce88ec29a8417c86c",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_053",
+      "public_training_task_id": "b1948b0a",
+      "input_signature_sha256": "6cce85900f4ebbffb3d87e13d82f607fd2d2edb86dbfa31cc4adb4e1c6a7578e",
+      "source_file_sha256": "abe1d138774a1161ea8f785a3d63db04a409973c7242a5dbaa887b66d0f3c670",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_054",
+      "public_training_task_id": "d22278a0",
+      "input_signature_sha256": "959c993400f18c5475d3caaa10284900fb8852f0d954c052c4fc7975bbf15231",
+      "source_file_sha256": "6f08c27e0a549815434c98cf2e5f638c99adfa415bf4c58e53c496526a200a44",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_055",
+      "public_training_task_id": "d93c6891",
+      "input_signature_sha256": "a68927b8871812a3d2ed3c160d3ecca9a0bba210ec008494ce83d3715b913b38",
+      "source_file_sha256": "dd597a92959fbc040289a019a559e75763e6bef4695b0697b7a53d384c7567c0",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_056",
+      "public_training_task_id": "5623160b",
+      "input_signature_sha256": "3e9b81709735a15536978ca847249048aa06132cde7f9d537be8a81411f927ef",
+      "source_file_sha256": "2c483da6c204de01fca0c1b5b20b9f269e18c9dd927077fb247021b5a84d1322",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_057",
+      "public_training_task_id": "83b6b474",
+      "input_signature_sha256": "e7dc1c880bc76abd4fbdd2bafb72dd4d80f0e2968006d8c680373ba63d958cef",
+      "source_file_sha256": "ee4ad40d9f86b221c865f5a4f6ade69ab008db6670bdccace22e0df1abefd2a1",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_058",
+      "public_training_task_id": "94f9d214",
+      "input_signature_sha256": "ac24813dc0bc94879546f72dfe63adb3ede4e33d5e8be56ce7a12b6d3c11e0ce",
+      "source_file_sha256": "7ae8c5b4084957a141e53741873dea93c37a90e944b8a19aeea5f26810f37ab2",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_059",
+      "public_training_task_id": "1190bc91",
+      "input_signature_sha256": "73067a336243d0e0e9e25f6514ebb7e48097e5d540063b7199fbfedff5f7853a",
+      "source_file_sha256": "53d261cabefc74803c19a612c68e13fbc2110469ced7b49a64238d11602e60fb",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_060",
+      "public_training_task_id": "db3e9e38",
+      "input_signature_sha256": "4f2aecb0db23e5484194617fe8c3cac3862972b4927fa09bb0f0b26f840ed533",
+      "source_file_sha256": "b4c01a6e6638ffdf7baf048bee57cb54f0cd2b007da6e5ae23b1a2005789d61a",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_061",
+      "public_training_task_id": "5adee1b2",
+      "input_signature_sha256": "670f01ba2503c49731abb99d38e2e7d1a7aac8b55d7ea0ae98b5c9ce374bff47",
+      "source_file_sha256": "7569292b20ec1d2a571e7fb526931c5923784ef3e2943573bcafda262a1e7219",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_062",
+      "public_training_task_id": "e4941b18",
+      "input_signature_sha256": "223bf7a94b5c48ef56abab348adc601a9f02006df30fa710e05120c560b996c5",
+      "source_file_sha256": "5bfd2ab0a59024a214480a99adcccb06af0df989693e5406e0322219091590ab",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_063",
+      "public_training_task_id": "d90796e8",
+      "input_signature_sha256": "6a85fe496384715f5cda90f0eb99734c8fc571c907f9cae7e75d24268c11c3fa",
+      "source_file_sha256": "a9931606f6043299fc08bbe33c2fb91344fa45539c45175bf6c1373136ed524d",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_064",
+      "public_training_task_id": "746b3537",
+      "input_signature_sha256": "a1b520f9519778e537046f239817afaaad84c586bf93d780c446cf500ce307c1",
+      "source_file_sha256": "2fa42394d0d48c4c9534aac1ce000ab97ff804f9d69a34d16126f6a17a757686",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_065",
+      "public_training_task_id": "0c9aba6e",
+      "input_signature_sha256": "c14c8fad57a1ec7b7e20d1590af202e679f2927ed3670d8da5c7f5df56f3f44b",
+      "source_file_sha256": "4096113b436930a34a96531501b5b2e984a7ff6326efca2eea1ff6da746eb5b1",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_066",
+      "public_training_task_id": "551d5bf1",
+      "input_signature_sha256": "38dd56135d48b3291b5e4ca01954fad76551d7eac525991d2ea64a453984d44e",
+      "source_file_sha256": "616c5cece06555912f3bff6c4ce3f8e9b81c57c9912235aad213232f8afc3b3c",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_067",
+      "public_training_task_id": "d13f3404",
+      "input_signature_sha256": "3f761faad62539c763f38a50f9bdcd9babccbeec9dce1667a2c9de25f6ce32d4",
+      "source_file_sha256": "2947a11084d3a199ac99c235a1a44110ca0cc5c61d9dca6619945172f20e2fbb",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_068",
+      "public_training_task_id": "d037b0a7",
+      "input_signature_sha256": "91a4396b0eb90d0fe279928c1f42ff77a77f7cd2c4b7815cc7f8f2a17bb04220",
+      "source_file_sha256": "9e39a4acdb3e3bff7dd54bed5f4ab77973f4027d48beb62a9c740d8a7a0b0aee",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_069",
+      "public_training_task_id": "5792cb4d",
+      "input_signature_sha256": "6dfedf4beee5771e22541abfccb80ff1fb28118550f69225f7c1200e6df11ed2",
+      "source_file_sha256": "1112e973e8caeafa684eb461c02629883e34e670b7647ea205206504a88e9d03",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_070",
+      "public_training_task_id": "abbfd121",
+      "input_signature_sha256": "524e784a4d862e4576cb7e94aa7c0edd3fcd691dbe550244d3977d3216618d02",
+      "source_file_sha256": "5876db2a88955e5e87c0857ea508dacb0227f502977109d5c00df98729d9d552",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_071",
+      "public_training_task_id": "11dc524f",
+      "input_signature_sha256": "21c9ce5cdbbab5e8a66a2dbbac22c78df14828eb178dfc85d7c7bee23ed44628",
+      "source_file_sha256": "da3010983bb60a158e0b2c00fdb5f93c278064a4680ceb39ff5b61ceae4918ff",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_072",
+      "public_training_task_id": "423a55dc",
+      "input_signature_sha256": "f631d4d2ec12b112c3d992f26d6119c3cfc272e5a3fa270d66215dcbe516a9fe",
+      "source_file_sha256": "32a4244eaa9d9b7844b81549658a0c512cede99c44cd507200e63dc649ebedbf",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_073",
+      "public_training_task_id": "337b420f",
+      "input_signature_sha256": "0c87ae8ed67127110f8012e53367f26812b529553544ca458519a7d71ec168ac",
+      "source_file_sha256": "ccbb4c14b12647f0113a157ff044d0c4d45a3fc50b20d4bfd5b766f47fbbc69f",
+      "test_grid_count": 2
+    },
+    {
+      "alias": "cohort_074",
+      "public_training_task_id": "28e73c20",
+      "input_signature_sha256": "0781791bc515c468003380dcd822dd765b1e2092ffa1fb00918e3d36e1b104cd",
+      "source_file_sha256": "ce0e07dfcf910adc8ec75bab509131ff75297600a5948b98e90d668d92ee45d4",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_075",
+      "public_training_task_id": "6d58a25d",
+      "input_signature_sha256": "9ad422973897ff648ca609093f7e39a0585db38c7725f98c9dacb65426cab85e",
+      "source_file_sha256": "e930a96816bd269b6e80f14519de6d1a00a1dd3a41d496d81e5c28f7d753476c",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_076",
+      "public_training_task_id": "ac3e2b04",
+      "input_signature_sha256": "a98b50c2efefc80e2e1ff4ce14bebed9334aafd25eb99d75b6df9d6466f9425b",
+      "source_file_sha256": "3e0bb65a64d2f46131613c9e8c5cbafc56771d5e293e5d04df4c737bec4a7b3a",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_077",
+      "public_training_task_id": "3ad05f52",
+      "input_signature_sha256": "0df629c0b28bcc277a899de689229d5b6b1dda9d28b6311c935115120b3bf1ea",
+      "source_file_sha256": "0c5700f393f680b0739373584101a62b635b404e540a7f5c71e94477f8fcdf4d",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_078",
+      "public_training_task_id": "e3497940",
+      "input_signature_sha256": "283cf237e835066cdc8d20420e6b48cc52163b632d7e738b8d22006a7584561f",
+      "source_file_sha256": "543e40fc267f992d47604aa216fff70c6c098dbbe077ccc26f8ea4f59afc8341",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_079",
+      "public_training_task_id": "1a6449f1",
+      "input_signature_sha256": "c49bfb71064885c4e526ede5d2243dee6b023bbd2bda245df3fb5a071f7522aa",
+      "source_file_sha256": "d9f4d74e8cdad03fafd1622ddb3e461cbd1dd58b27b14f8ec73548df3039adf6",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_080",
+      "public_training_task_id": "22eb0ac0",
+      "input_signature_sha256": "403c1e1f3066b001aeda90838989c8071a5779327010b55b0d48a185fa51ff73",
+      "source_file_sha256": "cf37cc34e7b0aa123c2806eca77a7d9916b50afea4e6e2db71d5149fe1f1af0d",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_081",
+      "public_training_task_id": "bcb3040b",
+      "input_signature_sha256": "860d8dcae07bbb6817d6c6100198e70f80a2e7eadc84ff7306165770e20ad0c6",
+      "source_file_sha256": "55228e6e20af3b1ccb54d300116534a19f9e6cf2d6d166f60a3cfcd820d43013",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_082",
+      "public_training_task_id": "94be5b80",
+      "input_signature_sha256": "44fe8823ac0f25a7f201283bb97f84c8f4db9549591ae21efa57c67cc29ec59b",
+      "source_file_sha256": "07ef4ac599cb8c36d0973da7f212282eb57450f893bcb60a0639f2a358afcdd2",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_083",
+      "public_training_task_id": "ce602527",
+      "input_signature_sha256": "3fba3062c652dd404b603550efa5a6ac75ddf3df30b596eaebe8ff7d23676095",
+      "source_file_sha256": "6f924485ec7c1add870c49f962c46f28b38e0e11de1c0aa1d177d7dcbabf5efd",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_084",
+      "public_training_task_id": "e9ac8c9e",
+      "input_signature_sha256": "9712b435d12bfc94876f50e3b17c8fb0844eb48927b8468f05b77bb6e06e60dc",
+      "source_file_sha256": "3d21d2ccd78324a6abdfe549a687a94822645816ac3a14f3e2e7e57238faaa58",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_085",
+      "public_training_task_id": "cad67732",
+      "input_signature_sha256": "e170d267d904eef6595702c5ee8251fdc4ae2bafe834b13d4bd56a2de8c15893",
+      "source_file_sha256": "b5d5ca81fc5e294b42635b4325146920fb16a3f9816170b1791fee365f278bf3",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_086",
+      "public_training_task_id": "4e469f39",
+      "input_signature_sha256": "610be01dda185fb258c96e0ce4f7a2d3be1a751ad38cbe24638cde0fa0907dbc",
+      "source_file_sha256": "b09fb79d595231ea2d283881c3ed6ab5992004dabb2b5dca133f2aebcb1a7677",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_087",
+      "public_training_task_id": "f0df5ff0",
+      "input_signature_sha256": "9a6a5c4bf3b397b684434b346d8238a1995a58c2479e3561f6922a148df1f455",
+      "source_file_sha256": "d508ff930e059c2c8ba3806e54376a44e3b41cf52de5006e8a6c0c8764423157",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_088",
+      "public_training_task_id": "880c1354",
+      "input_signature_sha256": "05f6eefb58f6ea0efed3a5eb6018e15a1b5844526038bd6b201019f9133e66f2",
+      "source_file_sha256": "115dd89ddbd387ca882fe27f4441645ca814b328cda429475490e3d5ad3823a7",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_089",
+      "public_training_task_id": "97a05b5b",
+      "input_signature_sha256": "4bf647c5c015cf39e927497df8345dc625e860a79447b8df9b12da37a2af95ad",
+      "source_file_sha256": "dd0a2a3bc31ac40376284bc712755a34034370796b7462b3f0f0ac9403b7b7d8",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_090",
+      "public_training_task_id": "46f33fce",
+      "input_signature_sha256": "d9d6db0f40dc068dfa97d6055a5dd48a082303432949d9f17404f174c8a42b6c",
+      "source_file_sha256": "962206e7fa5bc635f0228029c6b39aa1d7de2cc06d9e7c0d7e23b05181583132",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_091",
+      "public_training_task_id": "3bd67248",
+      "input_signature_sha256": "298af68e9bb0ddcf91176e4cff6477d34b9efd76f74b7ff63ead3ac6c5825042",
+      "source_file_sha256": "e1b0cf3d3f23482d102d69026d20f2205f4588d0f4c38dba5a2a4a0006524f5e",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_092",
+      "public_training_task_id": "2b01abd0",
+      "input_signature_sha256": "a03994888c755647058cb3a0f75145b575bff558bfeb52e0ad28ca292915cf8d",
+      "source_file_sha256": "30352b044dbd23db909dc887e1cc5b08981651d8bda9d9a4c119e3968492c4a5",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_093",
+      "public_training_task_id": "d23f8c26",
+      "input_signature_sha256": "da643337396b90679564c080bb428559a3b68bbfbfe17e5b56f7f400b159e5e4",
+      "source_file_sha256": "7bd00bf394a541b41c60a2f351f939ceb8137d57c0424ef7898e9070f03e2ad8",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_094",
+      "public_training_task_id": "2dd70a9a",
+      "input_signature_sha256": "c03d39e1cff13397dde883ff5cefb1478e819113ed9e716f953d9d61e1a562a0",
+      "source_file_sha256": "102c263f9a591abe3debd2fd9818b8f39db5288db27a66e0e2cb23f3d8ea2ba9",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_095",
+      "public_training_task_id": "2072aba6",
+      "input_signature_sha256": "ca46fd62e9e4edca37e61b79070065a182d9413bea1dea23f01fafeb2a5b6629",
+      "source_file_sha256": "3c476f8bdd3c6e9e6b60069e32539430c1a04e1e3a08346cef028c2b84ae6b4c",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_096",
+      "public_training_task_id": "14b8e18c",
+      "input_signature_sha256": "8541a902637cd3564586d6e8dba86659bfbb3502ae5b6cb1e8bbf9bd0d3668e1",
+      "source_file_sha256": "eb77b3944b76e5e90429c68d9b1943205ca3cb173779f2cb44ca54d35be50f65",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_097",
+      "public_training_task_id": "32e9702f",
+      "input_signature_sha256": "2d0560cbd09dd136d5c7546dd101b39ee64e592e6393d19b703000fc418acb2c",
+      "source_file_sha256": "6b35fddb882be42c3a4b89af5fcb6710aeff4fa020b0e58469d17d986b77557f",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_098",
+      "public_training_task_id": "de1cd16c",
+      "input_signature_sha256": "3aad3b8ac96939306e5f8332792ece417e23a85828b81943332174f1434217a0",
+      "source_file_sha256": "99c453d001621b8f772509c37b976e36d8bb1442bd215f317fbe3d75c5bb5935",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_099",
+      "public_training_task_id": "234bbc79",
+      "input_signature_sha256": "63de3e88bfedd96fbe8ad8a4c635d3078a763526780307d367e3b83b04da6630",
+      "source_file_sha256": "07187737cd7e110b96e77524b553f5df6bed0e6f2990f6cc8bd14c9100f01d22",
+      "test_grid_count": 1
+    },
+    {
+      "alias": "cohort_100",
+      "public_training_task_id": "22168020",
+      "input_signature_sha256": "caa47d88ac9c583f29ca1aca3f921feff8b01ef8d36d282e182ec7071084c572",
+      "source_file_sha256": "d067b4f83f84120300310199e3a95c65258edcc53d8b0f425288d7ddb71a962e",
+      "test_grid_count": 1
+    }
+  ]
+}

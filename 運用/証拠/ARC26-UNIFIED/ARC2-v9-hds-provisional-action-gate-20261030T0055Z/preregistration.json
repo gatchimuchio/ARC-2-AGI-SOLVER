@@ -1,0 +1,69 @@
+{
+  "schema": "arc2-v9-provisional-action-gate-prereg-v1",
+  "run_id": "ARC2-v9-provisional-action-gate-20261030T0055Z",
+  "registered_at_utc": "2026-10-30T01:05:41.470100+00:00",
+  "registered_before_prediction": true,
+  "track": "ARC2",
+  "purpose": "Paired G2 pilot: preserve the current HDS-admitted path and test whether a train-exact generic candidate rejected only by the HDS equality gate can still be exposed as an explicitly unconfirmed provisional action.",
+  "conditions": {
+    "previous": "Current behavior: only candidates with full train fit and HDS equality admission reach the action candidate list.",
+    "candidate": "For symbolic_program_induction only, retain a valid candidate with full public-train fit as provisional when HDS equality admission is absent; record hds_admitted=false and do not alter HDS truth/admission state.",
+    "fixed": "Same source data, HDS engine, candidate generators, input order, runtime limits, and two-attempt selector."
+  },
+  "primary_metrics": [
+    "pass@1",
+    "pass@2",
+    "unique_attempt2_hits",
+    "fallback",
+    "candidate_coverage",
+    "wall"
+  ],
+  "not_a_full_abcd_result": true,
+  "exposure_status": "unknown",
+  "exposure_reason": "Six prior evidence files differ from their registered SHA256; their current ID, input-signature, and training-file references were included in exclusions, but historical bytes are not proven identical.",
+  "runtime_task_id_or_hash_routing": false,
+  "runtime_reads_test_outputs": false,
+  "runtime_input_file": "challenge_input.json",
+  "runtime_input_sha256": "032c4b24fd1505cf9308c0856367b98007c24b7a343f2eb293d2900f041fb27e",
+  "task_count": 100,
+  "test_grid_count": 103,
+  "prior_exclusions_reconstructed": 596,
+  "fresh_remainder_before_selection": 304,
+  "prior_evidence_manifest_sha256": "c933903e132f469ffd4f36007eb833bc64ff0dedf3399a6dfe84dbc172e713d8",
+  "prior_evidence_sha_mismatches": [
+    {
+      "path": "運用/証拠/ARC26-UNIFIED/ARC2-candidate-priority-v28-independent-20261026.json",
+      "registered_sha256": "8a04f4f624ec26661851936b381da7cf4e244fb64cc4d3e0c81de41f570f1b0d",
+      "current_sha256": "e0b69f82616268cc556dd7ad739ecaf2d5151a15672b98a033439e4f9004c200"
+    },
+    {
+      "path": "運用/証拠/ARC26-UNIFIED/ARC2-V9-NVARC-EXACTRULES-20261029T2039Z/acceptance.json",
+      "registered_sha256": "85f25c33a66777f074e4656a92fb439e96590ce29d8b150b07e81ac001beda83",
+      "current_sha256": "3f6575c0ffbcf4801592fab20e3b367d2a9f04da50c50d1a649d91397c005401"
+    },
+    {
+      "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-nvarc-trm-source-audit-20261029.json",
+      "registered_sha256": "ac29201084113de3f5109bcfebddb3687754ab87c3ab2c92dc7a3d8ac5b0d147",
+      "current_sha256": "07b4f16d6654dcb6d58b35baffa261cceeda9e14a7a6123fea6a301d3eddec67"
+    },
+    {
+      "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-varc-holdout-prereg-20261029.json",
+      "registered_sha256": "12c12fc60bd4b88a85d8b5cc71a78f7e394db81ee91d108d3d1b3eb5590da4a5",
+      "current_sha256": "4e3e0da537bdf0c37c0a079dc39deacbf13879a9ef7b1e69d99a828926b39f05"
+    },
+    {
+      "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-varc-holdout-prereg-addendum-32px-20261029.json",
+      "registered_sha256": "ba7ff6ac5e4fb75507436d5f95ab6ef0fe2bf456fa440f15aa2738cb025e878e",
+      "current_sha256": "79fe6b6440093dea0962611814392bf64661dc1c22626b749aeb9ea9541cab7e"
+    },
+    {
+      "path": "運用/証拠/ARC26-UNIFIED/ARC2-v9-varc-protocol-amendment-20261029.json",
+      "registered_sha256": "af6af9299fbce1837d4a98fdbdeb02ffdce8e7c84f394d15cece8c363c5b045e",
+      "current_sha256": "b85d1a413959e196662f8d01baad15b523a41aa511f21efd99ec48ead9f66a72"
+    }
+  ],
+  "selection_manifest_sha256": "aed93259501d31487d88f4b91350910bea214b6f976dea2e065b5b41e9a936f7",
+  "source_training_inventory_sha256": "5e7e7766202264570cab5b1e6661b10486b43215b6788d72d57b2d1d7a49bfbb",
+  "prediction_status": "NOT_STARTED",
+  "test_output_access": "forbidden until all A/B/C/D predictions and their hashes are frozen"
+}
