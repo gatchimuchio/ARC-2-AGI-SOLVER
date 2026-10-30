@@ -1,0 +1,48 @@
+{
+  "format": "arc2-v9-g2-provisional-action-candidate-freeze-v1",
+  "run_id": "ARC2-v9-hds-provisional-action-gate-20261030T0055Z",
+  "frozen_at_utc": "2026-10-30T01:35:03.325596+00:00",
+  "condition": "Expose a valid, exact-public-training-fit symbolic-program candidate as provisional when HDS equality admission is absent; do not feed it into HDS truth/admission. Same preregistered challenge, runner, seed and resource policy as baseline.",
+  "source_commit": "48fcbdb89bd3a65c3038b1deab04313ffa639b56",
+  "source_dirty": true,
+  "source_files_sha256": {
+    "kaggle_runner": "43fd2c444cc1428bdfb3da3b228fca14b6ccb939c169401b1684c2b93b4092e4",
+    "hds_adapter": "59a21118ce72f410d4ced3a233a9afb7c255f9c724813b4f5af9d5f4053163d0",
+    "targeted_test": "017da2e7850d4e8363938762d660c893a300f3d18325106cf2acb5012ba7ff19"
+  },
+  "challenge_sha256": "032c4b24fd1505cf9308c0856367b98007c24b7a343f2eb293d2900f041fb27e",
+  "prediction_file": "candidate_submission.json",
+  "prediction_sha256": "11b1067e75e82906b61cab85435cb0e5b2aa6039121c86fc2fce8bf0ed7651e3",
+  "audit_file": "candidate_audit.json",
+  "audit_sha256": "54feeb68e00700550759ed9b085829581bb71ef453043fbb0f367ecf06d42a98",
+  "generated_at_utc": "2026-10-30T01:34:26.052936+00:00",
+  "tasks": 100,
+  "test_examples": 103,
+  "attempts_per_test": 2,
+  "fallback_count": 72,
+  "wall_seconds": 297.36,
+  "candidate_prediction_count": 54,
+  "examples_with_candidates": 42,
+  "candidate_family_counts": {
+    "ARC局所近傍セル変換": 16,
+    "ARC格子D4変換": 1,
+    "ARC汎用プログラム帰納_1": 29,
+    "ARC物体パレット選択・切出し": 1,
+    "ARC物体外れ値選択・切出し": 1,
+    "ARC物体抽出・切出し": 2,
+    "ARC特徴近傍変換選択": 4
+  },
+  "baseline_candidate_prediction_count": 54,
+  "baseline_examples_with_candidates": 42,
+  "baseline_family_counts": {
+    "ARC局所近傍セル変換": 16,
+    "ARC格子D4変換": 1,
+    "ARC汎用プログラム帰納_1": 29,
+    "ARC物体パレット選択・切出し": 1,
+    "ARC物体外れ値選択・切出し": 1,
+    "ARC物体抽出・切出し": 2,
+    "ARC特徴近傍変換選択": 4
+  },
+  "prediction_byte_identical_to_baseline": true,
+  "scoring_status": "NOT_RUN; both prediction files are frozen, but public training labels have not yet been read."
+}

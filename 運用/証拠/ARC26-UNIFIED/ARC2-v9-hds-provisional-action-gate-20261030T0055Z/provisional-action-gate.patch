@@ -1,0 +1,109 @@
+diff --git a/接続/ARC2/HDS接続.py b/接続/ARC2/HDS接続.py
+index 6a3e4f7..395cabb 100644
+--- a/接続/ARC2/HDS接続.py
++++ b/接続/ARC2/HDS接続.py
+@@ -545,24 +545,41 @@ def 課題を解く(
+         試行候補対群 = []
+         未解決理由 = []
+         for (境界, 候補器, _), 記録 in zip(機構群, 記録群):
+-            if not 記録["採用可"] or not 記録["同値採用"]:
++            if not 記録["採用可"]:
+                 continue
+             候補, 候補記録 = 候補器(対["input"], {})
+-            if isinstance(候補記録, dict):
++            根拠 = _汎用候補根拠(候補記録)
++            暫定候補 = (
++                not 記録["同値採用"]
++                and 根拠 is not None
++                and 根拠.get("train_fit") is True
++            )
++            if not 記録["同値採用"] and not (候補収集 and 暫定候補):
++                continue
++            if 記録["同値採用"] and isinstance(候補記録, dict):
+                 試行候補対 = 候補記録.get("candidate_attempts")
+                 if (isinstance(試行候補対, list) and len(試行候補対) == 2
+                         and all(有効格子(格子) for 格子 in 試行候補対)
+                         and 試行候補対[0] != 試行候補対[1]):
+                     試行候補対群.append((境界, deepcopy(試行候補対)))
+             if 候補 is None:
+-                未解決理由.append(f"採用済み機構{境界}のtest候補が未確定")
++                if 記録["同値採用"]:
++                    未解決理由.append(f"採用済み機構{境界}のtest候補が未確定")
+                 continue
+             if 候補収集 and 有効格子(候補):
+-                生候補 = {"family": 境界, "answer": deepcopy(候補)}
+-                根拠 = _汎用候補根拠(候補記録)
++                生候補 = {
++                    "family": 境界,
++                    "answer": deepcopy(候補),
++                    "hds_admitted": 記録["同値採用"],
++                    "provisional": 暫定候補,
++                }
+                 if 根拠 is not None:
+                     生候補["evidence"] = 根拠
+                 生候補群.append(生候補)
++            if not 記録["同値採用"]:
++                # A provisional action is exposed to the action selector only.
++                # It must not be fed back as an HDS-admitted prediction.
++                continue
+             if 基底結果["answer"] is None and 有効格子(候補):
+                 予測群.append({"answer": deepcopy(候補), "family": 境界})
+             予測 = 出力格子(機械, 観測へ({"候補": 候補}, 境界), 同値必須=True)
+diff --git a/検証/test_HDS候補収集.py b/検証/test_HDS候補収集.py
+index 7365158..83e190d 100644
+--- a/検証/test_HDS候補収集.py
++++ b/検証/test_HDS候補収集.py
+@@ -1,3 +1,4 @@
++import 接続.ARC2.HDS接続 as hds
+ from 接続.ARC2.HDS接続 import 課題を解く
+ 
+ 
+@@ -21,3 +22,48 @@ def test_候補収集は通常出力の状態を変えず診断情報だけを
+     first_candidate = diagnostic_row["candidate_predictions"][0]
+     assert isinstance(first_candidate["family"], str) and first_candidate["family"]
+     assert first_candidate["answer"] == teachers[0]["input"]
++
++
++def test_HDS未採用のtrain_fit候補は真理状態を変えず暫定行動候補へ出す(monkeypatch):
++    class 候補群:
++        def 第一候補(self, grid, defaults):
++            del defaults
++            return grid, {
++                "generator": "symbolic_program_induction",
++                "program_source_sha256": "a" * 64,
++                "rank": 1,
++                "train_fit": True,
++                "program": "identity",
++            }
++
++        def 第二候補(self, grid, defaults):
++            del grid, defaults
++            return None, {
++                "generator": "symbolic_program_induction",
++                "program_source_sha256": "a" * 64,
++                "rank": 2,
++                "train_fit": False,
++            }
++
++    monkeypatch.setattr(hds, "汎用プログラム帰納候補群", lambda train: 候補群())
++    task = {
++        "train": [{"input": [[1, 0], [0, 0]], "output": [[1, 0], [0, 0]]}],
++        "test": [{"input": [[2, 0], [0, 0]]}],
++    }
++
++    ordinary = 課題を解く(task, [])
++    diagnostic = 課題を解く(task, [], 候補収集=True)
++
++    ordinary_row = ordinary["results"][0]
++    diagnostic_row = diagnostic["results"][0]
++    assert diagnostic_row.get("answer") == ordinary_row.get("answer")
++    provisional = [
++        candidate
++        for candidate in diagnostic_row["candidate_predictions"]
++        if candidate["family"] == "ARC汎用プログラム帰納_1"
++    ]
++    assert len(provisional) == 1
++    assert provisional[0]["answer"] == [[2, 0], [0, 0]]
++    assert provisional[0]["hds_admitted"] is False
++    assert provisional[0]["provisional"] is True
++    assert provisional[0]["evidence"]["train_fit"] is True

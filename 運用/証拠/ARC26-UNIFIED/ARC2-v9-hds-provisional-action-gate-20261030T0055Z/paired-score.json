@@ -1,0 +1,48 @@
+{
+  "format": "arc2-v9-paired-public-training-score-v1",
+  "scored_at_utc": "2026-10-30T01:37:57.649120+00:00",
+  "run_id": "ARC2-v9-hds-provisional-action-gate-20261030T0055Z",
+  "evidence_scope": "Public ARC2 training only; preregistered input-only cohort; exposure remains unknown.",
+  "challenge_sha256": "032c4b24fd1505cf9308c0856367b98007c24b7a343f2eb293d2900f041fb27e",
+  "source_training_inventory_sha256": "5e7e7766202264570cab5b1e6661b10486b43215b6788d72d57b2d1d7a49bfbb",
+  "fallback_policy": "An audited input-copy fallback receives no credit. For an audited fallback grid, any attempt equal to its test input is excluded; a distinct second candidate may still score.",
+  "baseline": {
+    "prediction_sha256": "11b1067e75e82906b61cab85435cb0e5b2aa6039121c86fc2fce8bf0ed7651e3",
+    "pass1": 29,
+    "pass2": 29,
+    "unique_attempt2": 0,
+    "fallback_grids": 72,
+    "denominator": 103,
+    "fallback_count": 72,
+    "wall_seconds": 341.75,
+    "candidate_prediction_count": 54,
+    "examples_with_candidates": 42
+  },
+  "candidate": {
+    "prediction_sha256": "11b1067e75e82906b61cab85435cb0e5b2aa6039121c86fc2fce8bf0ed7651e3",
+    "pass1": 29,
+    "pass2": 29,
+    "unique_attempt2": 0,
+    "fallback_grids": 72,
+    "denominator": 103,
+    "fallback_count": 72,
+    "wall_seconds": 297.36,
+    "candidate_prediction_count": 54,
+    "examples_with_candidates": 42
+  },
+  "paired": {
+    "changed_attempt1": 0,
+    "changed_attempt2": 0,
+    "changed_test_examples": 0
+  },
+  "denominator": 103,
+  "delta": {
+    "pass1": 0,
+    "pass2": 0,
+    "unique_attempt2": 0,
+    "fallback_count": 0,
+    "wall_seconds": -44.389999999999986
+  },
+  "official_score": null,
+  "official_score_note": "This public-training score is not a Kaggle score."
+}

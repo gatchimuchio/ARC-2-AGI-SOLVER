@@ -1,0 +1,26 @@
+{
+  "format": "arc2-kaggle-official-history-observation-v1",
+  "observed_at_utc": "2026-10-30T01:35:50+00:00",
+  "source": "ARC2-specific Kaggle CLI; read-only competitions submissions query",
+  "competition_slug": "arc-prize-2026-arc-agi-2",
+  "history_count": 13,
+  "latest": {
+    "submission_id": 57783547,
+    "status": "PENDING",
+    "public_score": null,
+    "kernel": "tecchannn/arc2-codex-main-baseline-v1",
+    "kernel_version": 3
+  },
+  "previous": {
+    "submission_id": 57745630,
+    "status": "COMPLETE",
+    "public_score": 0.0
+  },
+  "personal_best": {
+    "submission_id": 55046979,
+    "public_score": 0.83
+  },
+  "history_unchanged_since_2026_10_30T0107Z": true,
+  "submission_or_rerun_performed": false,
+  "quota_checked": false
+}
