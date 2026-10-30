@@ -1,0 +1,33 @@
+{
+  "format": "arc2-v9-attempt2-coverage-analysis-v1",
+  "analyzed_at_utc": "2026-10-30T01:44:00.604840+00:00",
+  "run_id": "ARC2-v9-hds-provisional-action-gate-20261030T0055Z",
+  "evidence_scope": "Label-free structural analysis of frozen public-training predictions; no training outputs read by this analysis.",
+  "challenge_sha256": "032c4b24fd1505cf9308c0856367b98007c24b7a343f2eb293d2900f041fb27e",
+  "baseline_prediction_sha256": "11b1067e75e82906b61cab85435cb0e5b2aa6039121c86fc2fce8bf0ed7651e3",
+  "candidate_prediction_sha256": "11b1067e75e82906b61cab85435cb0e5b2aa6039121c86fc2fce8bf0ed7651e3",
+  "predictions_byte_identical": true,
+  "fallback_count": 72,
+  "coverage": {
+    "all": {
+      "test_examples": 103,
+      "attempt2_distinct_from_attempt1": 18,
+      "attempt2_differs_from_input": 42,
+      "attempt2_is_input_copy": 61
+    },
+    "fallback": {
+      "test_examples": 72,
+      "attempt2_distinct_from_attempt1": 11,
+      "attempt2_differs_from_input": 11,
+      "attempt2_is_input_copy": 61
+    },
+    "nonfallback": {
+      "test_examples": 31,
+      "attempt2_distinct_from_attempt1": 7,
+      "attempt2_differs_from_input": 31,
+      "attempt2_is_input_copy": 0
+    }
+  },
+  "paired_score_reference": "paired-score.json",
+  "interpretation": "Distinct second attempts existed, but separate scoring found zero unique attempt-2 hits; the remaining bottleneck is candidate quality/selection rather than emitting more HDS provisional candidates."
+}

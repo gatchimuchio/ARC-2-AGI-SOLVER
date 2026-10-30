@@ -29,7 +29,7 @@
   "fresh_remainder_before_selection": 304,
   "prediction_status": "FROZEN_AND_SCORED",
   "test_output_access": "PUBLIC_TRAINING_LABELS_READ_BY_SEPARATE_SCORER_ONLY; runtime remained input-only",
-  "next_action": "Diagnose why attempt 2 adds zero unique public-training hits and why this candidate gate adds no candidate; register a fresh cohort before using it for another performance claim.",
+  "next_action": "Investigate candidate quality and attempt-2 selection on a fresh preregistered cohort. Continue tracking the existing Qwen probe version 1 without pushing or restarting it.",
   "limitations": [
     "Six prior evidence files have registered SHA256 mismatches; current IDs/signatures/references restore the 596-task exclusion count, but exposure remains unknown.",
     "No numerical public score for submission 57783547.",
@@ -71,5 +71,13 @@
   "candidate_patch_sha256": "d525f2911a4309e0b8871e711094935a70db1bb78cc642a0848a92654e56b5bc",
   "cohort_scored_at_utc": "2026-10-30T01:37:57.649120+00:00",
   "adoption_decision_sha256": "fe682cfbe585bfa3d49ceaadc5590ee1d7da5ddc6b7dfbc6aa0d5a1b284a9416",
-  "score_script_sha256": "94e5cb73dfb31293c6ff3a561ab5ec8e7050c25e7e7cffccff199616d939db1f"
+  "score_script_sha256": "94e5cb73dfb31293c6ff3a561ab5ec8e7050c25e7e7cffccff199616d939db1f",
+  "attempt2_coverage_file": "attempt2-coverage-analysis.json",
+  "attempt2_coverage_sha256": "6e2e2c8005db2a325c11bcff28b34cabaa822c90e3fe444f06ca82c5dc133b4e",
+  "fallback_attempt2_distinct_from_input": 11,
+  "fallback_attempt2_input_copies": 61,
+  "all_attempt2_distinct_from_attempt1": 18,
+  "all_attempt2_differs_from_input": 42,
+  "qwen_probe_status_last_observed": "RUNNING",
+  "qwen_probe_status_observed_at_utc": "2026-10-30T01:44:00.671344+00:00"
 }
